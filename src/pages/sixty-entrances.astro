@@ -1,0 +1,301 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sixty Entrances — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: var(--root-size, 17px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; background: #ffffff; min-height: 100vh; color: #2a2320; }
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+:root { --oy-radius: 4px; --max-w: 1140px; --accent-red: #9e3a2a; --accent-red-hover: #7a2a1e; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { color: #000 !important; opacity: 1; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; } .font-size-btn .sz[data-size="2"] { font-size: 18px; } .font-size-btn .sz[data-size="3"] { font-size: 15px; }
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e0d8d0; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 48px; height: 56px; display: flex; align-items: center; }
+.wordmark { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; color: #2a2320; letter-spacing: 0.02em; flex-shrink: 0; transition: color 0.2s; text-decoration: none; }
+.wordmark:hover { color: #5c3a1e; }
+.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.02em; color: #5a4f47; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover { color: #2a2320; }
+.nav-utils { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.nav-utils button, .nav-utils a { font-family: 'Inter', sans-serif; color: #2a2320; background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.nav-hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #2a2320; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule { display: block; height: 3px; border: none; background: linear-gradient(to right, #a8c8e0 0%, #a8c8e0 70%, #a8d4b0 100%); }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201; display: flex; flex-direction: row; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none; }
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; transition: transform 1.4s cubic-bezier(0.25,0.1,0.25,1); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); letter-spacing: 0.01em; transition: all 0.3s; }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; border-radius: var(--oy-radius); position: relative; overflow: hidden; cursor: pointer; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: var(--oy-radius); }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: var(--oy-radius); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.2; }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius)); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; transition: opacity 0.2s; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px; border-radius: var(--oy-radius); background: transparent; cursor: pointer; min-height: 44px; }
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal.visible { opacity: 1; }
+.tabs { display: flex; padding: 0 48px; border-bottom: 1px solid #e0d8d0; background: #fff; }
+.tabs a { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #b8a088; padding: 14px 20px 13px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.tabs a:hover { color: #5a4f47; }
+.tabs a.on { color: #2a2320; border-bottom-color: #2a2320; }
+.page-header { max-width: var(--max-w); margin: 0 auto; padding: 64px 48px 0; }
+.page-label { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #b8a088; margin-bottom: 12px; }
+.page-title { font-family: 'Lora', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: #2a2320; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+.page-subtitle { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 400; color: #5a4f47; line-height: 1.7; max-width: 640px; }
+.page-rule { height: 1px; background: #e0d8d0; margin: 48px 0 0; }
+.sec { max-width: var(--max-w); margin: 0 auto; padding: 48px 48px 0; }
+.sec-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #b8a088; margin-bottom: 32px; }
+.sec-count { font-weight: 500; color: #5a4f47; margin-left: 8px; text-transform: none; letter-spacing: 0; }
+.ground-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 48px; }
+.ground-card { display: block; position: relative; padding: 28px; border: 1px solid #e0d8d0; transition: border-color 0.3s, background 0.3s; cursor: pointer; }
+.ground-card:hover { border-color: #8a6e50; background: #faf7f3; }
+.ground-number { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: #2a2320; display: inline-block; padding: 3px 10px; margin-bottom: 14px; }
+.ground-label { font-family: 'Lora', serif; font-size: clamp(22px, 2vw, 28px); font-weight: 700; color: #2a2320; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 8px; transition: color 0.2s; }
+.ground-card:hover .ground-label { color: #000; }
+.ground-entrance { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #5a4f47; line-height: 1.5; }
+.ground-accent { position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+.pill-field { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 64px; }
+.pill { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #5a4f47; padding: 10px 20px; border: 1px solid #e0d8d0; transition: all 0.3s; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.pill:hover { border-color: #8a6e50; color: #2a2320; background: #faf7f3; }
+.pill-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.tagline-section { max-width: var(--max-w); margin: 0 auto; padding: 64px 48px 80px; border-top: 1px solid #e0d8d0; }
+.tagline-eyebrow { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #b8a088; margin-bottom: 20px; }
+.tagline-text { font-family: 'Lora', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 600; color: #2a2320; line-height: 1.35; max-width: 700px; letter-spacing: -0.01em; }
+.tagline-sub { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #5a4f47; line-height: 1.7; max-width: 560px; margin-top: 20px; }
+.site-footer { background: #1a1816; padding: 64px 48px 40px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+.footer-col-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #d4c4b0; margin-bottom: 16px; }
+.footer-col a, .footer-col p { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #999; display: block; padding: 4px 0; transition: color 0.2s; line-height: 1.5; }
+.footer-col a:hover { color: #d4c4b0; }
+.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding-top: 24px; border-top: 1px solid #333; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #666; }
+body.dark-mode { background: linear-gradient(to bottom, #000000 0%, #0d111b 100%); background-attachment: fixed; color: #d0c8bf; }
+body.dark-mode .site-nav { background: rgba(0,0,0,0.92); border-bottom-color: transparent; }
+body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
+body.dark-mode .wordmark:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-links a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-utils button, body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.dark-mode .tabs { background: rgba(0,0,0,0.6); border-bottom-color: #3a3430; }
+body.dark-mode .tabs a { color: #8a8078; }
+body.dark-mode .tabs a:hover { color: #b5ada5; }
+body.dark-mode .tabs a.on { color: #d0c8bf; border-bottom-color: #d0c8bf; }
+body.dark-mode .page-label { color: #8a8078; }
+body.dark-mode .page-title { color: #d0c8bf; }
+body.dark-mode .page-subtitle { color: #b5ada5; }
+body.dark-mode .page-rule { background: #3a3430; }
+body.dark-mode .sec-title { color: #8a8078; }
+body.dark-mode .sec-count { color: #b5ada5; }
+body.dark-mode .ground-card { border-color: #3a3430; }
+body.dark-mode .ground-card:hover { border-color: #5a5048; background: #141210; }
+body.dark-mode .ground-number { background: #d0c8bf; color: #0e0e0e; }
+body.dark-mode .ground-label { color: #ccc5bc; }
+body.dark-mode .ground-card:hover .ground-label { color: #e8e0d8; }
+body.dark-mode .ground-entrance { color: #b5ada5; }
+body.dark-mode .pill { color: #b5ada5; border-color: #3a3430; }
+body.dark-mode .pill:hover { color: #d0c8bf; border-color: #5a5048; background: #141210; }
+body.dark-mode .tagline-section { border-top-color: #3a3430; }
+body.dark-mode .tagline-eyebrow { color: #8a8078; }
+body.dark-mode .tagline-text { color: #d0c8bf; }
+body.dark-mode .tagline-sub { color: #b5ada5; }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+@media (max-width: 768px) { .nav-inner { padding: 0 24px; } .menu-strips { display: none; } .mobile-strips { display: flex; } .menu-panel { width: 100%; max-width: 100%; } .reveal { transition: opacity 0.6s ease; } .tabs { padding: 0 24px; overflow-x: auto; scrollbar-width: none; } .tabs::-webkit-scrollbar { display: none; } .tabs a { white-space: nowrap; } .page-header { padding: 40px 24px 0; } .sec { padding: 40px 24px 0; } .ground-grid { grid-template-columns: 1fr; } .tagline-section { padding: 48px 24px 64px; } .site-footer { padding: 48px 24px 32px; } .footer-inner { grid-template-columns: 1fr; gap: 32px; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+<div class="nav-accent-rule" aria-hidden="true"></div>
+<div class="nav-inner">
+<a href="/" class="wordmark">oyparaploo</a>
+<ul class="nav-links">
+<li><a href="#">Writing</a></li>
+<li><a href="/portraits">Portraits</a></li>
+<li><a href="/our-practice">Practice</a></li>
+<li><a href="#">Dispatches</a></li>
+</ul>
+<div class="nav-utils">
+<button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+<button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+<a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+<button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
+
+<div class="tabs">
+<a href="#grounds" class="on">Grounds</a>
+<a href="#thresholds">Thresholds</a>
+<a href="#philosophy">Philosophy</a>
+</div>
+
+<div class="page-header">
+<div class="page-label">Navigation Architecture</div>
+<h1 class="page-title">Sixty Entrances</h1>
+<p class="page-subtitle">Eighteen grounds, sixty entrances. Every phrase is a doorway. Multiple entrances lead to the same ground by different paths. The entrance shapes the arrival.</p>
+<div class="page-rule"></div>
+</div>
+
+<section class="sec" id="grounds">
+<div class="sec-title">Primary Entrances<span class="sec-count">18</span></div>
+<div class="ground-grid">
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#c4956a;"></div><div class="ground-number">01</div><div class="ground-label">The Lobby</div><div class="ground-entrance">Eclipse Prayer Shadow Impossible Mirror</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#D4A574;"></div><div class="ground-number">02</div><div class="ground-label">Writing</div><div class="ground-entrance">River Delta Dry Creek Without Roof and Walls Bedroom</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#c4956a;"></div><div class="ground-number">03</div><div class="ground-label">Methodology</div><div class="ground-entrance">Badlands Wonderful Goodness Hole In The Wall</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#a8c8e0;"></div><div class="ground-number">04</div><div class="ground-label">The Journey</div><div class="ground-entrance">Floating Between Earth and Stone Canyon Basin</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#D4A574;"></div><div class="ground-number">05</div><div class="ground-label">Essential Ten</div><div class="ground-entrance">Glacial Erratic Stable Sinkhole</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#a8d4b0;"></div><div class="ground-number">06</div><div class="ground-label">The Witnesses</div><div class="ground-entrance">Limestone Bluff Mouth</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#B2916C;"></div><div class="ground-number">07</div><div class="ground-label">Good Grounds</div><div class="ground-entrance">Salt Flat Quarry Cave</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#6a4a7a;"></div><div class="ground-number">08</div><div class="ground-label">Making</div><div class="ground-entrance">Gloriously Grooved Volcanic Caldera</div></a>
+<a class="ground-card reveal" href="/portraits"><div class="ground-accent" style="background:#662a1e;"></div><div class="ground-number">09</div><div class="ground-label">The Portraits</div><div class="ground-entrance">Fjord Tool Face Landing</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#B2916C;"></div><div class="ground-number">10</div><div class="ground-label">The Prayers</div><div class="ground-entrance">Natural Built Then Ruined or Softened Shelter</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#a8c8e0;"></div><div class="ground-number">11</div><div class="ground-label">The Novel</div><div class="ground-entrance">Tidal Pool Sandbar Sea Turtle Castle</div></a>
+<a class="ground-card reveal" href="/the-puppets"><div class="ground-accent" style="background:#c4956a;"></div><div class="ground-number">12</div><div class="ground-label">The Puppets</div><div class="ground-entrance">Permanent to Temporary Underground Fortified Space that has Linear Cracks of Sunlight</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#7a8ea0;"></div><div class="ground-number">13</div><div class="ground-label">Sound</div><div class="ground-entrance">Peat Bog Notes Cliff</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#D4A574;"></div><div class="ground-number">14</div><div class="ground-label">The Broadcast</div><div class="ground-entrance">Mesa Top Arroyo</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#c4bac4;"></div><div class="ground-number">15</div><div class="ground-label">La Log</div><div class="ground-entrance">Decommissioned Mushroom Factory Intake</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#a8d4b0;"></div><div class="ground-number">16</div><div class="ground-label">What Persists</div><div class="ground-entrance">Sideways Slot Machine Garden Plot</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#a8c8e0;"></div><div class="ground-number">17</div><div class="ground-label">Wavelength</div><div class="ground-entrance">Ghost Light Rehearsal Loft</div></a>
+<a class="ground-card reveal" href="#"><div class="ground-accent" style="background:#c4956a;"></div><div class="ground-number">18</div><div class="ground-label">The Collaboration</div><div class="ground-entrance">Demilitarized Isthmus Bar Between Two Waters</div></a>
+</div>
+</section>
+
+<section class="sec" id="thresholds">
+<div class="sec-title">Threshold Entrances<span class="sec-count">42</span></div>
+<div class="pill-field reveal">
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Every Kind of Sacred Space</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Breezeway Cloister</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Grotto Balcony Sweat Lodge</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Empty Lecture Vault Chamber</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Roji Threshold</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Hyphen Enfilade Porch</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Crawl Tunnel Run Crossing</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Hunker Down Mountain Summit Elevator</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#B2916C;"></span>Postern Oculus Clerestory</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#B2916C;"></span>Scared to Death Sandstorm Mine</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#B2916C;"></span>Holding Cell with a Bench and a Drain</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#6a4a7a;"></span>Flying Concrete Square Room</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#6a4a7a;"></span>Mudroom Kilt Rig Platform</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8d4b0;"></span>Rood Jube Mashrabiya</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8d4b0;"></span>Nave Courtyard Roadkill Shrine</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8d4b0;"></span>Mosque Olive Trees Growing Through Amphitheater</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Gang Deck Companionway</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Busker's Makeshift Market Stall</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Wheelhouse Terminal Stations of the Bell</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#7a8ea0;"></span>Dumb Shaft Flue</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#7a8ea0;"></span>Thunder Fireworks Lapdog Hide</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#7a8ea0;"></span>Sounds That a Human Body Makes Therapy Space</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Kiva and Sipapu Corridor Entrance</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Cistern Cenote Tube Catacombs</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Wickiup Stilt Weir Opening</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Day Blindness Meets Night Vestibule</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Falaj Fogón Holdup</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Monkey Bark Cambium Dig</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Cypress Knees Rain Barrel Ditch</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Dust Devil Quiet Floor and Silent Room</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4bac4;"></span>Barnacle Crust Door Pathway</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4bac4;"></span>Secret Old Growth Cellar</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4bac4;"></span>Fallen Redwood Hospital</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8d4b0;"></span>Hedge Fund Corn Maze Hollow</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8d4b0;"></span>Chernobyl Rail Wallpaper Seat</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Eroded Prison Cell Dune</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Baptismal Font Hull</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Halfway House Common Corridor</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#c4956a;"></span>Eye of a Storm Fog Kitchen</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#B2916C;"></span>Union Hall Picnic Plaza Fountain</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#a8c8e0;"></span>Tattered Sleeping Bag Over A Crow's Nest</a>
+<a class="pill" href="#"><span class="pill-dot" style="background:#D4A574;"></span>Boulder Hand Treeline Haus</a>
+</div>
+</section>
+
+<section class="tagline-section reveal" id="philosophy">
+<div class="tagline-eyebrow">Architectural Principle</div>
+<div class="tagline-text">The entrance shapes the arrival. A visitor who arrives at The Prayers through "Holding Cell with a Bench and a Drain" has a different experience than one who arrives through "Natural Built Then Ruined or Softened Shelter."</div>
+<div class="tagline-sub">Sixty percent outdoors. The word "grounds" was chosen because the practice is experienced more outdoors than in. Canyon basins, salt flats, peat bogs, mesa tops, fjords, limestone bluffs, river deltas. The vocabulary reflects where the work actually lives.</div>
+</section>
+
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-col"><div class="footer-col-title">Grounds</div><a href="#">Writing</a><a href="/portraits">Portraits</a><a href="#">Methodology</a><a href="#">Good Grounds</a><a href="#">The Prayers</a></div>
+<div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice">Our Practice</a><a href="#">Making</a><a href="#">Sound</a><a href="#">The Broadcast</a><a href="#">Wavelength</a></div>
+<div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a><p>Minneapolis ~ Saint Paul</p></div>
+</div>
+<div class="footer-bottom">Oyparaploo · Wonderful Garbage · Noir Song</div>
+</footer>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips"><div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div><div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div><div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div><div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu"><div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div><div class="menu-content"><div class="mobile-strips"><a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a></div><nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan" aria-hidden="true"><nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage" aria-hidden="true"><nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div></div></div>
+
+<script>
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep)})});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('dark-mode');this.textContent=document.body.classList.contains('dark-mode')?'◑':'◐'});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuStrips=document.getElementById('menuStrips'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu)});
+(function(){var els=document.querySelectorAll('.reveal');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}})},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});els.forEach(function(el){obs.observe(el)})})();
+document.querySelectorAll('.tabs a').forEach(function(tab){tab.addEventListener('click',function(e){e.preventDefault();document.querySelectorAll('.tabs a').forEach(function(t){t.classList.remove('on')});this.classList.add('on');var target=document.querySelector(this.getAttribute('href'));if(target)target.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>

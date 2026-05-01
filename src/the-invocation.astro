@@ -1,0 +1,220 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Invocation — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: var(--root-size, 17px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; background: #0a0a0a; min-height: 100vh; color: #d0c8bf; }
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+:root { --oy-radius: 4px; --mauve: #c4bac4; --mauve-dim: #8a7a8a; --mauve-glow: #d4c8d4; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { color: rgba(232,224,214,0.68) !important; opacity: 1; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; } .font-size-btn .sz[data-size="2"] { font-size: 18px; } .font-size-btn .sz[data-size="3"] { font-size: 15px; }
+.site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+.site-nav::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 180px; background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, transparent 100%); pointer-events: none; z-index: -1; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; }
+.wordmark { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; color: rgba(232,224,214,0.48); letter-spacing: 0.02em; flex-shrink: 0; transition: color 0.4s; text-decoration: none; }
+.wordmark:hover { color: rgba(232,224,214,0.75); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; letter-spacing: 0.02em; color: rgba(232,224,214,0.48); transition: color 0.4s; white-space: nowrap; }
+.nav-links a:hover { color: rgba(232,224,214,0.75); }
+.nav-utils { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.nav-utils button, .nav-utils a { font-family: 'Inter', sans-serif; color: rgba(232,224,214,0.48); background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; transition: color 0.4s; }
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.75); }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.nav-hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(232,224,214,0.48); transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule { display: none; }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201; display: flex; flex-direction: row; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none; }
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; transition: transform 1.4s cubic-bezier(0.25,0.1,0.25,1); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); letter-spacing: 0.01em; transition: all 0.3s; }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; border-radius: var(--oy-radius); position: relative; overflow: hidden; cursor: pointer; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: var(--oy-radius); }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: var(--oy-radius); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.2; }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius)); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; transition: opacity 0.2s; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px; border-radius: var(--oy-radius); background: transparent; cursor: pointer; min-height: 44px; }
+.reveal { opacity: 0; transition: opacity 1.8s ease; }
+.reveal.visible { opacity: 1; }
+.reveal-slow { opacity: 0; transition: opacity 3s ease; }
+.reveal-slow.visible { opacity: 1; }
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; position: relative; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to top, #0a0a0a, transparent); pointer-events: none; }
+.hero-tagline { font-family: 'Lora', serif; font-size: clamp(48px, 8vw, 120px); font-weight: 700; color: #d0c8bf; letter-spacing: -0.03em; line-height: 1.0; text-align: center; max-width: 900px; opacity: 0; animation: fadeUp 2s ease 0.4s forwards; }
+.hero-sub { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: var(--mauve-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 32px; opacity: 0; animation: fadeUp 2s ease 1.2s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.mauve-rule { width: 80px; height: 2px; background: var(--mauve); margin: 0 auto; opacity: 0; animation: fadeUp 2s ease 1.8s forwards; }
+.inv-section { max-width: 640px; margin: 0 auto; padding: 0 40px; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
+.inv-label { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: var(--mauve-dim); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 24px; }
+.inv-text { font-family: 'Lora', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 600; color: #d0c8bf; line-height: 1.45; letter-spacing: -0.01em; }
+.inv-text-body { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 400; color: #b5ada5; line-height: 1.8; margin-top: 24px; }
+.river-line { width: 1px; height: 120px; background: linear-gradient(to bottom, transparent 0%, #5a5048 50%, transparent 100%); margin: 0 auto; }
+.declaration { max-width: 800px; margin: 0 auto; padding: 20vh 40px; text-align: center; }
+.declaration-text { font-family: 'Lora', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: #ccc5bc; line-height: 1.2; letter-spacing: -0.02em; }
+.declaration-text em { color: var(--mauve-glow); }
+.closing-mark { text-align: center; padding: 10vh 40px 16vh; }
+.closing-wordmark { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #8a8078; letter-spacing: 0.15em; text-transform: uppercase; }
+body.light-mode { background: #ffffff; color: #2a2320; }
+body.light-mode .site-nav::before { background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 50%, transparent 100%); }
+body.light-mode .wordmark { color: rgba(42,35,32,0.55); }
+body.light-mode .wordmark:hover { color: #2a2320; }
+body.light-mode .nav-links a { color: rgba(42,35,32,0.55); }
+body.light-mode .nav-links a:hover { color: #2a2320; }
+body.light-mode .nav-utils button, body.light-mode .nav-utils a { color: rgba(42,35,32,0.55); }
+body.light-mode .nav-hamburger span { background: rgba(42,35,32,0.55); }
+body.light-mode .font-size-btn .sz { color: #000 !important; }
+body.light-mode .hero-tagline { color: #2a2320; }
+body.light-mode .hero-sub { color: #5a4f47; }
+body.light-mode .hero::after { background: linear-gradient(to top, #ffffff, transparent); }
+body.light-mode .mauve-rule { background: #6a4a7a; }
+body.light-mode .inv-label { color: #5a4f47; }
+body.light-mode .inv-text { color: #2a2320; }
+body.light-mode .inv-text-body { color: #4a4038; }
+body.light-mode .river-line { background: linear-gradient(to bottom, transparent 0%, #c0b8b0 50%, transparent 100%); }
+body.light-mode .declaration-text { color: #3a3028; }
+body.light-mode .declaration-text em { color: #6a4a7a; }
+body.light-mode .closing-wordmark { color: #5a4f47; }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+@media (max-width: 768px) { .nav-inner { padding: 0 24px; } .menu-strips { display: none; } .mobile-strips { display: flex; } .menu-panel { width: 100%; max-width: 100%; } .reveal { transition: opacity 0.6s ease; } .reveal-slow { transition: opacity 1s ease; } .hero { padding: 40px 24px; } .inv-section { padding: 0 24px; min-height: 50vh; } .declaration { padding: 12vh 24px; } .closing-mark { padding: 8vh 24px 12vh; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+<div class="nav-inner">
+<a href="/" class="wordmark">oyparaploo</a>
+<ul class="nav-links">
+<li><a href="#">Writing</a></li>
+<li><a href="/portraits">Portraits</a></li>
+<li><a href="/our-practice">Practice</a></li>
+<li><a href="#">Dispatches</a></li>
+</ul>
+<div class="nav-utils">
+<button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+<button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◑</button>
+<a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+<button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<h1 class="hero-tagline">For the love of The English</h1>
+<div class="hero-sub">Oyparaploo</div>
+<div class="mauve-rule" style="margin-top:40px;"></div>
+</section>
+
+<div class="river-line reveal"></div>
+
+<section class="inv-section reveal">
+<div class="inv-label">The Facade</div>
+<div class="inv-text">A declaration of love for the English language as material. Playing with words and phrases. The made-up words, the sprinkled-in other languages. The language as clay, as garbage, as raw stuff you pick up and turn over and reshape.</div>
+<div class="inv-text-body">Wonderful Garbage applied to the medium itself.</div>
+</section>
+
+<section class="declaration reveal-slow">
+<div class="declaration-text">The beauty on the surface is <em>real</em>. What's underneath is also <em>real</em>.</div>
+</section>
+
+<div class="river-line reveal"></div>
+
+<section class="inv-section reveal">
+<div class="inv-label">The Trap Door</div>
+<div class="inv-text">A warm, safe-sounding door that opens into a building full of eroded prison cells, holding cells with benches and drains, decommissioned factories, and detainment walls.</div>
+<div class="inv-text-body">The visitor enters through the love letter and finds the history. This is not dishonest. It is architecture. The building holds both.</div>
+</section>
+
+<section class="declaration reveal-slow">
+<div class="declaration-text">Inside English, looking through it, using it as the tool to reach toward what has been studied and loved from the <em>outside</em>.</div>
+</section>
+
+<div class="river-line reveal"></div>
+
+<section class="inv-section reveal">
+<div class="inv-label">The Position</div>
+<div class="inv-text">An American who has spent close to 66 years speaking only English. The deep interest in Aboriginal culture, Inuit culture, Dakota and Ojibwe culture is real, researched over many years, and treated with respect.</div>
+<div class="inv-text-body">The site does not claim to speak from those cultures. It demonstrates what English can do when those cultures reshape it.</div>
+</section>
+
+<section class="declaration reveal-slow">
+<div class="declaration-text">The humor is <em>load-bearing</em>.</div>
+</section>
+
+<div class="river-line reveal"></div>
+
+<section class="closing-mark reveal-slow">
+<div class="closing-wordmark">Minneapolis ~ Saint Paul</div>
+</section>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips"><div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div><div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div><div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div><div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu"><div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div><div class="menu-content"><div class="mobile-strips"><a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a><a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a></div><nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan" aria-hidden="true"><nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage" aria-hidden="true"><nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div></div></div>
+
+<script>
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep)})});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'◐':'◑'});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuStrips=document.getElementById('menuStrips'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu)});
+(function(){var els=document.querySelectorAll('.reveal,.reveal-slow');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}})},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});els.forEach(function(el){obs.observe(el)})})();
+</script>
+</body>
+</html>

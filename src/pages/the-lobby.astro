@@ -1,0 +1,372 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OyPARáPLoO! — For the love of The English</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+p,h1,h2,h3,h4,li,blockquote{text-wrap:pretty;}
+em,i,cite,address,dfn,var{font-style:normal;}
+*{font-style:normal;}
+html{overflow-x:hidden;scroll-behavior:smooth;font-size:var(--root-size,17px);-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word;word-break:break-word;background:var(--ground);color:var(--text-primary);transition:background 0.8s cubic-bezier(0.25,0.46,0.45,0.94),color 0.6s ease;}
+a{color:inherit;text-decoration:none;}
+a,button,[role="button"],select{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;}
+ul,ol{list-style:none;}
+img{max-width:100%;height:auto;display:block;}
+:root{--oy-radius:4px;--content-width:1200px;--reading-width:700px;--nav-height:64px;--ground:#f0efed;--ground-deep:#0e0e0e;--text-primary:#2a2320;--text-secondary:#3a3028;--text-body:#4a4038;--text-meta:#5a4f47;--text-muted:#8a8078;--accent:#c4956a;--accent-hover:#662a1e;--border:#b8a088;--border-hover:#8a6e50;--card-hover-bg:#faf7f3;--nav-bg:rgba(0,0,0,0.92);--nav-text:rgba(232,224,214,0.68);--nav-text-hover:rgba(232,224,214,0.88);--ground-glow:transparent;}
+[data-ground="writing"],[data-ground="methodology"],[data-ground="journey"],[data-ground="essential-ten"],[data-ground="witnesses"],[data-ground="good-grounds"],[data-ground="making"],[data-ground="prayers"],[data-ground="novel"],[data-ground="puppets"],[data-ground="sound"],[data-ground="broadcast"],[data-ground="la-log"],[data-ground="what-persists"],[data-ground="wavelength"],[data-ground="collaboration"]{--ground:#0e0e0e;--text-primary:#d0c8bf;--text-secondary:#ccc5bc;--text-body:#b5ada5;--text-meta:#a09888;--text-muted:#8a8078;--border:#3a3430;--border-hover:#5a5048;--card-hover-bg:#141210;}
+[data-ground="writing"]{--accent:#D4A574;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 40% 30%,rgba(212,165,116,0.05) 0%,transparent 55%);}
+[data-ground="methodology"]{--accent:#c4956a;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 30% 50%,rgba(196,149,106,0.05) 0%,transparent 50%);}
+[data-ground="journey"]{--accent:#a8c8e0;--accent-hover:#b5c8d8;--ground-glow:radial-gradient(ellipse at 60% 20%,rgba(168,200,224,0.06) 0%,transparent 50%);}
+[data-ground="essential-ten"]{--accent:#D4A574;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 40% 40%,rgba(212,165,116,0.06) 0%,transparent 50%);}
+[data-ground="witnesses"]{--accent:#a8d4b0;--accent-hover:#c8e4d0;--ground-glow:radial-gradient(ellipse at 70% 30%,rgba(168,212,176,0.05) 0%,transparent 50%);}
+[data-ground="good-grounds"]{--accent:#B2916C;--accent-hover:#d4b08a;--ground-glow:radial-gradient(ellipse at 50% 50%,rgba(178,145,108,0.07) 0%,transparent 50%);}
+[data-ground="making"]{--accent:#6a4a7a;--accent-hover:#8a6a9a;--ground-glow:radial-gradient(ellipse at 40% 60%,rgba(106,74,122,0.06) 0%,transparent 50%);}
+[data-ground="portraits"]{--ground:#f9f7f4;--text-primary:#2a2320;--text-secondary:#3a3028;--text-body:#4a4038;--text-meta:#5a4f47;--border:#b8a088;--border-hover:#8a6e50;--card-hover-bg:#faf7f3;--accent:#662a1e;--accent-hover:#573228;--nav-bg:rgba(255,252,248,0.95);--nav-text:rgba(42,35,32,0.68);--nav-text-hover:rgba(42,35,32,0.88);--ground-glow:radial-gradient(ellipse at 30% 20%,rgba(196,149,106,0.04) 0%,transparent 60%);}
+[data-ground="prayers"]{--accent:#B2916C;--accent-hover:#d4b08a;--ground-glow:radial-gradient(ellipse at 50% 20%,rgba(178,145,108,0.08) 0%,transparent 50%),radial-gradient(ellipse at 20% 80%,rgba(140,100,60,0.04) 0%,transparent 50%);}
+[data-ground="novel"]{--accent:#a8c8e0;--accent-hover:#b5c8d8;--ground-glow:radial-gradient(ellipse at 60% 40%,rgba(168,200,224,0.05) 0%,transparent 50%);}
+[data-ground="puppets"]{--accent:#c4956a;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 50% 70%,rgba(196,149,106,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(80,40,20,0.04) 0%,transparent 50%);}
+[data-ground="sound"]{--accent:#7a8ea0;--accent-hover:#b5c8d8;--ground-glow:radial-gradient(ellipse at 50% 40%,rgba(122,142,160,0.06) 0%,transparent 55%);}
+[data-ground="broadcast"]{--accent:#D4A574;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 60% 30%,rgba(212,165,116,0.05) 0%,transparent 50%);}
+[data-ground="la-log"]{--ground:#0a0a0a;--accent:#c4bac4;--accent-hover:#a89eaa;--ground-glow:radial-gradient(ellipse at 50% 30%,rgba(196,186,196,0.04) 0%,transparent 60%);}
+[data-ground="what-persists"]{--accent:#a8d4b0;--accent-hover:#c8e4d0;--ground-glow:radial-gradient(ellipse at 30% 50%,rgba(168,212,176,0.05) 0%,transparent 50%);}
+[data-ground="wavelength"]{--accent:#a8c8e0;--accent-hover:#b5c8d8;--ground-glow:radial-gradient(ellipse at 50% 50%,rgba(168,200,224,0.05) 0%,transparent 60%);}
+[data-ground="collaboration"]{--accent:#c4956a;--accent-hover:#e8e0d8;--ground-glow:radial-gradient(ellipse at 50% 30%,rgba(196,149,106,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(168,200,224,0.04) 0%,transparent 50%);}
+body.contrast-mode[data-ground="writing"],body.contrast-mode[data-ground="methodology"],body.contrast-mode[data-ground="journey"],body.contrast-mode[data-ground="essential-ten"],body.contrast-mode[data-ground="witnesses"],body.contrast-mode[data-ground="good-grounds"],body.contrast-mode[data-ground="making"],body.contrast-mode[data-ground="prayers"],body.contrast-mode[data-ground="novel"],body.contrast-mode[data-ground="puppets"],body.contrast-mode[data-ground="sound"],body.contrast-mode[data-ground="broadcast"],body.contrast-mode[data-ground="la-log"],body.contrast-mode[data-ground="what-persists"],body.contrast-mode[data-ground="wavelength"],body.contrast-mode[data-ground="collaboration"]{--ground:#f9f7f4;--text-primary:#2a2320;--text-secondary:#3a3028;--text-body:#4a4038;--text-meta:#5a4f47;--text-muted:#8a8078;--border:#b8a088;--border-hover:#8a6e50;--card-hover-bg:#faf7f3;--nav-bg:rgba(255,252,248,0.95);--nav-text:rgba(42,35,32,0.68);--nav-text-hover:rgba(42,35,32,0.88);}
+body.contrast-mode[data-ground="lobby"],body.contrast-mode[data-ground="portraits"]{--ground:#0e0e0e;--text-primary:#d0c8bf;--text-secondary:#ccc5bc;--text-body:#b5ada5;--text-meta:#a09888;--text-muted:#8a8078;--border:#3a3430;--border-hover:#5a5048;--card-hover-bg:#141210;--nav-bg:rgba(0,0,0,0.92);--nav-text:rgba(232,224,214,0.68);--nav-text-hover:rgba(232,224,214,0.88);}
+body.contrast-mode[data-ground="lobby"] .lobby-header{background:#0e0e0e;}
+body.contrast-mode[data-ground="lobby"] .logotype{background:linear-gradient(135deg,#d0c8bf 0%,#b5ada5 50%,#a09888 100%);-webkit-background-clip:text;background-clip:text;}
+body.contrast-mode[data-ground="lobby"] .lobby-tagline{color:#b5ada5;}
+body.contrast-mode[data-ground="lobby"] .lobby-sub{color:#b5ada5;}
+body.contrast-mode[data-ground="lobby"] .editorial{background:linear-gradient(to bottom,#0e0e0e 0%,#f0efed 8%,#f0efed 100%);}
+body.contrast-mode[data-ground="la-log"] .ground-title{background:linear-gradient(135deg,#5a4f47 0%,#4a4038 30%,#5a4f47 60%,#3a3028 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+body.contrast-mode[data-ground="portraits"] .ground-eyebrow{color:#D4A574;}
+html.size-1{--root-size:17px;}html.size-2{--root-size:18px;}html.size-3{--root-size:20px;}
+.font-size-btn{display:flex;gap:2px;font-weight:600;align-items:baseline;}
+.font-size-btn .sz{color:var(--nav-text) !important;opacity:1;transition:opacity 0.25s,color 0.6s;line-height:1;}
+.font-size-btn .sz.active{opacity:1;}
+.font-size-btn .sz[data-size="1"]{font-size:22px;}.font-size-btn .sz[data-size="2"]{font-size:18px;}.font-size-btn .sz[data-size="3"]{font-size:15px;}
+.site-nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:background 0.6s ease;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;}
+.wordmark{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;color:var(--nav-text);letter-spacing:0.02em;flex-shrink:0;transition:color 0.4s;cursor:pointer;}
+.wordmark:hover{color:var(--nav-text-hover);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;padding-left:0;margin-left:48px;flex-shrink:0;}
+.nav-links a{font-family:'Inter',sans-serif;font-size:21px;font-weight:500;letter-spacing:0.02em;color:var(--nav-text);transition:color 0.4s;white-space:nowrap;}
+.nav-links a:hover{color:var(--nav-text-hover);}
+.nav-utils{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.nav-utils button,.nav-utils a{font-family:'Inter',sans-serif;color:var(--nav-text);background:none;border:none;cursor:pointer;min-height:44px;padding:0 8px;display:flex;align-items:center;justify-content:center;transition:color 0.4s;}
+.nav-utils button:hover,.nav-utils a:hover{color:var(--nav-text-hover);}
+.nav-utils svg{stroke:currentColor;fill:none;}
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-height:44px;padding:0 8px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--nav-text);transition:transform 0.25s,opacity 0.2s,background 0.4s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-accent-rule{display:block;height:2px;border:none;opacity:0.6;transition:background 0.8s ease;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);}
+.contrast-btn{font-size:20px;line-height:1;letter-spacing:0;}
+.nav-ground-indicator{font-family:'Inter',sans-serif;font-size:17px;font-weight:500;color:var(--accent);letter-spacing:0.02em;margin-left:24px;opacity:0;transition:opacity 0.6s ease,color 0.6s ease;white-space:nowrap;}
+.nav-ground-indicator.visible{opacity:1;}
+.menu-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.50);opacity:0;pointer-events:none;transition:opacity 0.6s;}
+.menu-overlay.open{opacity:1;pointer-events:auto;}
+.menu-panel{position:fixed;top:0;right:0;bottom:0;z-index:201;width:400px;max-width:90vw;background:#faf6f0;color:#2a2320;font-size:17px;clip-path:inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));transition:clip-path 0.6s cubic-bezier(0.4,0,0.1,1),opacity 0.2s ease;overflow-y:auto;padding:24px 32px 40px;pointer-events:none;opacity:0;}
+.menu-panel.open{clip-path:inset(0 0 0 0 round 0);pointer-events:auto;opacity:1;}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+.menu-ghost-wordmark{font-family:'Inter',sans-serif;font-size:22px;font-weight:500;color:#2a2320;opacity:0.38;letter-spacing:0.02em;user-select:none;pointer-events:none;}
+.menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#2a2320 !important;cursor:pointer;}
+.menu-nav-primary a{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;color:#2a2320;display:block;padding:4px 0;line-height:1.2;transition:opacity 0.2s;}
+.menu-nav-primary a:hover{opacity:0.55;}
+.menu-rule-tan{height:2px;border:none;background:#D4A574;margin:20px 0;}
+.menu-rule-sage{height:2px;border:none;background:#8BA89A;margin:20px 0;}
+.menu-nav-secondary a,.menu-nav-tertiary a{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;color:#2a2320;display:block;padding:4px 0;transition:opacity 0.2s;}
+.menu-nav-secondary a:hover,.menu-nav-tertiary a:hover{opacity:0.55;}
+.menu-address{font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:#5a4f47;margin-top:20px;line-height:1.6;}
+.menu-bottom-btns{display:flex;gap:8px;margin-top:20px;}
+.menu-bottom-btns .menu-btn{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#2a2320;border:1px solid rgba(42,35,32,0.40);padding:8px 16px;border-radius:var(--oy-radius);background:transparent;cursor:pointer;transition:background 0.2s,color 0.2s,border-color 0.2s;min-height:44px;}
+.menu-bottom-btns .menu-btn:hover{background:#2a2320;color:#faf8f5;border-color:#2a2320;}
+.threshold{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity 0.3s ease;}
+.threshold.active{opacity:1;}
+.threshold-curtain{position:absolute;inset:0;background:var(--ground-deep,#0e0e0e);transform:scaleY(0);transform-origin:bottom;transition:transform 0.5s cubic-bezier(0.7,0,0.3,1);}
+.threshold.active .threshold-curtain{transform:scaleY(1);}
+.threshold.exit .threshold-curtain{transform-origin:top;transform:scaleY(0);transition:transform 0.5s cubic-bezier(0.7,0,0.3,1) 0.1s;}
+.ground-container{min-height:calc(100vh - var(--nav-height) - 2px);position:relative;}
+.ground-container::before{content:'';position:absolute;inset:0;background:var(--ground-glow);pointer-events:none;transition:background 1.2s ease;}
+.ground{display:none;animation:ground-arrive 0.8s ease forwards;}
+.ground.active{display:block;}
+@keyframes ground-arrive{from{opacity:0;}to{opacity:1;}}
+.lobby-header{padding:80px 64px 48px;background:#f0efed;text-align:left;}
+.lobby-header-inner{max-width:1200px;margin:0 auto;}
+.logotype{font-family:'Lora',serif;font-size:clamp(36px,5.5vw,64px);font-weight:700;letter-spacing:0.03em;line-height:1.15;padding-bottom:0.15em;background:linear-gradient(135deg,#662a1e 0%,#573228 50%,#44403f 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;opacity:0;animation:logotype-arrive 1.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s forwards;}
+@keyframes logotype-arrive{from{opacity:0;letter-spacing:0.08em;}to{opacity:1;letter-spacing:0.03em;}}
+.lobby-tagline{font-family:'Lora',serif;font-size:clamp(18px,2.2vw,24px);font-weight:600;color:#573228;letter-spacing:0.02em;margin-bottom:12px;line-height:1.3;opacity:0;animation:fade-in 1.4s ease 0.9s forwards;}
+.lobby-sub{font-size:1.0588rem;font-weight:450;line-height:1.7;color:#4a4038;max-width:480px;opacity:0;animation:fade-in 1.4s ease 1.2s forwards;}
+@keyframes fade-in{from{opacity:0;}to{opacity:1;}}
+.editorial{background:linear-gradient(to bottom,#f0efed 0%,#0e0e0e 8%,#0e0e0e 100%);}
+.ed-hero{position:relative;cursor:pointer;min-height:500px;display:flex;align-items:flex-end;overflow:hidden;}
+.ed-hero-image{position:absolute;inset:0;}
+.ed-hero-image svg,.ed-hero-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(0.25,0.1,0.25,1);}
+.ed-hero:hover .ed-hero-image svg,.ed-hero:hover .ed-hero-image img{transform:scale(1.03);}
+.ed-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 50%,transparent 100%);pointer-events:none;}
+.ed-hero-text{position:relative;z-index:2;padding:0 64px 64px;max-width:620px;}
+.ed-hero.ed-hero-text-left .ed-hero-text{margin-right:auto;}
+.ed-label{font-size:0.8235rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#a09888;margin-bottom:16px;}
+.ed-title{font-family:'Lora',serif;font-size:clamp(1.647rem,3.5vw,2.353rem);font-weight:700;color:#e8e0d8;line-height:1.2;margin-bottom:16px;}
+.ed-excerpt{font-size:1.0588rem;font-weight:400;line-height:1.75;color:#b5ada5;margin-bottom:20px;}
+.ed-cta{font-size:0.8824rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#d0c8bf;padding-bottom:2px;border-bottom:1px solid #5a5048;transition:color 0.3s,border-color 0.3s;}
+.ed-hero:hover .ed-cta{color:#e8e0d8;border-color:#8a6e50;}
+.ed-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.ed-row-2{grid-template-columns:repeat(2,1fr);}
+.ed-card{padding:0;cursor:pointer;background:#0e0e0e;transition:background 0.4s;overflow:hidden;}
+.ed-card:hover{background:#141210;}
+.ed-card-image{width:100%;aspect-ratio:3/2;overflow:hidden;}
+.ed-card-image svg,.ed-card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(0.25,0.1,0.25,1);}
+.ed-card:hover .ed-card-image svg,.ed-card:hover .ed-card-image img{transform:scale(1.04);}
+.ed-card .ed-label{padding:24px 28px 0;}
+.ed-card-title{font-family:'Lora',serif;font-size:1.2353rem;font-weight:600;color:#ccc5bc;line-height:1.25;padding:8px 28px 0;transition:color 0.3s;}
+.ed-card:hover .ed-card-title{color:#e8e0d8;}
+.ed-card-desc{font-size:0.9412rem;font-weight:400;color:#a09888;line-height:1.6;padding:8px 28px 28px;}
+.lobby-browse{padding:100px 64px 120px;background:#0e0e0e;}
+.lobby-browse-inner{max-width:1200px;margin:0 auto;}
+.lobby-browse-title{font-family:'Lora',serif;font-size:clamp(1.294rem,2.5vw,1.647rem);font-weight:600;color:#d0c8bf;margin-bottom:40px;}
+.lobby-browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.browse-link{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid #2a2520;transition:border-color 0.3s;margin:0 24px 0 0;cursor:pointer;}
+.browse-link:hover{border-color:#5a5048;}
+.browse-name{font-size:1.0588rem;font-weight:600;color:#ccc5bc;transition:color 0.3s;}
+.browse-link:hover .browse-name{color:#e8e0d8;}
+.browse-count{font-size:0.8824rem;font-weight:500;color:#8a8078;letter-spacing:0.02em;white-space:nowrap;margin-left:16px;}
+.ground-interior{padding:80px 32px 120px;}
+.ground-interior-inner{max-width:var(--content-width);margin:0 auto;}
+.ground-eyebrow{font-size:1rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;}
+.ground-entrance-name{font-size:0.9412rem;font-weight:500;color:var(--text-meta);letter-spacing:0.01em;margin-bottom:12px;line-height:1.4;}
+.ground-title{font-family:'Lora',serif;font-size:clamp(1.882rem,5vw,3.059rem);font-weight:700;line-height:1.15;color:var(--text-primary);margin-bottom:24px;}
+.ground-intro{font-size:1.0588rem;font-weight:400;line-height:1.85;color:var(--text-body);max-width:620px;margin-bottom:64px;}
+.ground-divider{height:1px;border:none;background:var(--border);margin:48px 0;transition:background 0.6s;}
+.ground-back{display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:500;color:var(--text-meta);letter-spacing:0.02em;margin-bottom:40px;transition:color 0.3s;cursor:pointer;}
+.ground-back:hover{color:var(--text-primary);}
+.ground-back svg{width:18px;height:18px;stroke:currentColor;fill:none;}
+.reveal{opacity:0;transition:opacity 1.2s ease;}
+.reveal.visible{opacity:1;}
+.reveal-delay-1{transition-delay:0.12s;}.reveal-delay-2{transition-delay:0.24s;}.reveal-delay-3{transition-delay:0.36s;}.reveal-delay-4{transition-delay:0.48s;}.reveal-delay-5{transition-delay:0.60s;}.reveal-delay-6{transition-delay:0.72s;}
+.bottom-safe{padding-bottom:env(safe-area-inset-bottom,0px);}
+@media(max-width:1100px){.nav-links{display:none;}.nav-ground-indicator{margin-left:16px;}}
+@media(max-width:1024px){.ed-row{grid-template-columns:repeat(2,1fr);}.lobby-browse-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){.lobby-header{padding:60px 40px 40px;}.ed-hero{min-height:400px;}.ed-hero-text{padding:0 40px 48px;}}
+@media(max-width:768px){.nav-inner{padding:0 24px;}.menu-panel{width:100%;max-width:100%;}.reveal{transition:opacity 0.6s ease;}.ed-row,.ed-row-2{grid-template-columns:1fr;}.lobby-browse-grid{grid-template-columns:1fr;}.lobby-header,.lobby-browse,.ground-interior{padding-left:24px;padding-right:24px;}.ed-hero-text{padding:0 24px 40px;}.ed-hero{min-height:360px;}}
+@media(max-width:600px){.lobby-header{padding:48px 24px 32px;}.nav-ground-indicator{display:none;}}
+</style>
+</head>
+<body data-ground="lobby">
+
+<div class="threshold" id="threshold"><div class="threshold-curtain"></div></div>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <span class="wordmark" id="navWordmark" role="button" tabindex="0" aria-label="Return to lobby">oyparaploo</span>
+    <span class="nav-ground-indicator" id="navGroundIndicator"></span>
+    <ul class="nav-links">
+      <li><a href="#" data-nav-ground="writing">Writing</a></li>
+      <li><a href="#" data-nav-ground="portraits">Portraits</a></li>
+      <li><a href="#" data-nav-ground="good-grounds">Good Grounds</a></li>
+      <li><a href="#" data-nav-ground="making">Making</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+      <button id="contrastBtn" class="contrast-btn" aria-label="Toggle contrast mode">◑</button>
+      <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="#" data-target="writing">Writing</a>
+      <a href="#" data-target="la-log">La Log</a>
+      <a href="#" data-target="good-grounds">Good Grounds</a>
+      <a href="#" data-target="portraits">The Portraits</a>
+      <a href="#" data-target="making">Making</a>
+      <a href="#" data-target="sound">Sound</a>
+      <a href="#" data-target="prayers">The Prayers</a>
+      <a href="#" data-target="puppets">The Puppets</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="#" data-target="methodology">Methodology</a>
+      <a href="#" data-target="journey">The Journey</a>
+      <a href="#" data-target="essential-ten">Essential Ten</a>
+      <a href="#" data-target="witnesses">The Witnesses</a>
+      <a href="#" data-target="novel">The Novel</a>
+      <a href="#" data-target="broadcast">The Broadcast</a>
+      <a href="#" data-target="what-persists">What Persists</a>
+      <a href="#" data-target="wavelength">Wavelength</a>
+      <a href="#" data-target="collaboration">The Collaboration</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="/our-practice">Our Practice</a>
+      <a href="#">Support</a>
+      <a href="#">Calendar</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+  </div>
+</div>
+
+<div class="ground-container">
+
+  <div class="ground active" id="ground-lobby">
+    <section class="lobby-header" aria-label="Welcome">
+      <div class="lobby-header-inner">
+        <div class="logotype" role="heading" aria-level="1">OyPARáPLoO!</div>
+        <div class="lobby-tagline">For the love of The English</div>
+        <div class="lobby-sub">A creative practice in the Twin Cities. Writing, sound, visual work, performance.</div>
+      </div>
+    </section>
+    <section class="editorial" aria-label="Featured work">
+      <article class="ed-hero reveal" data-target="portraits">
+        <div class="ed-hero-image"><svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="h1" x1="0" y1="0" x2="1" y2="0.6"><stop offset="0%" stop-color="#2a2320"/><stop offset="100%" stop-color="#44403f"/></linearGradient><radialGradient id="h1g" cx="0.7" cy="0.4" r="0.5"><stop offset="0%" stop-color="#662a1e" stop-opacity="0.25"/><stop offset="100%" stop-color="#662a1e" stop-opacity="0"/></radialGradient></defs><rect width="1400" height="700" fill="url(#h1)"/><ellipse cx="980" cy="350" rx="300" ry="280" fill="url(#h1g)"/></svg></div>
+        <div class="ed-hero-text"><div class="ed-label">Portrait</div><h2 class="ed-title">What the Bluffs Returned</h2><p class="ed-excerpt">A portrait set along the Mississippi bluffs. The land remembering what the people forgot. Iron Range soil, real science, invented life.</p><span class="ed-cta">Read portrait</span></div>
+      </article>
+      <div class="ed-row reveal">
+        <article class="ed-card" data-target="prayers"><div class="ed-card-image"><svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="400" fill="#1a1815"/><rect x="40" y="60" width="520" height="1" fill="#3a3430"/><rect x="40" y="140" width="520" height="1" fill="#3a3430"/><rect x="40" y="220" width="520" height="1" fill="#3a3430"/><rect x="40" y="300" width="520" height="1" fill="#3a3430"/></svg></div><div class="ed-label">Prayer</div><h3 class="ed-card-title">The Master Prayer</h3><p class="ed-card-desc">342 lines. The longest single piece in the prayer collection. Shelter that doesn't ask permission.</p></article>
+        <article class="ed-card" data-target="sound"><div class="ed-card-image"><svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="400" fill="#0d111b"/><circle cx="300" cy="200" r="120" fill="none" stroke="#1a2030" stroke-width="1"/><circle cx="300" cy="200" r="80" fill="none" stroke="#1a2030" stroke-width="1"/><circle cx="300" cy="200" r="40" fill="none" stroke="#1a2030" stroke-width="1"/></svg></div><div class="ed-label">Sound</div><h3 class="ed-card-title">Noir Song Frequencies</h3><p class="ed-card-desc">Field recordings, composition. The thing you hear before you understand what you're hearing.</p></article>
+        <article class="ed-card" data-target="making"><div class="ed-card-image"><svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="400" fill="#14101a"/><rect x="80" y="80" width="180" height="240" rx="2" fill="#1a0a2a" opacity="0.6" transform="rotate(-4 170 200)"/><rect x="320" y="100" width="200" height="200" rx="2" fill="#2a1a3a" opacity="0.4" transform="rotate(2 420 200)"/></svg></div><div class="ed-label">Visual Art</div><h3 class="ed-card-title">Assemblage + Booklets</h3><p class="ed-card-desc">5×7 saddle-stitch. Black ink only. Objects you hold. The material decides where it wants to go.</p></article>
+      </div>
+      <article class="ed-hero ed-hero-text-left reveal" data-target="writing">
+        <div class="ed-hero-image"><svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="h2" x1="0" y1="0.3" x2="1" y2="0.7"><stop offset="0%" stop-color="#1a1815"/><stop offset="100%" stop-color="#2a2520"/></linearGradient></defs><rect width="1400" height="700" fill="url(#h2)"/></svg></div>
+        <div class="ed-hero-text"><div class="ed-label">Writing</div><h2 class="ed-title">Tier Heart Wetness</h2><p class="ed-excerpt">Human and other natures. The practice's first real-time composed piece — ten fragments shaped across a single session. Wonderful Garbage in motion.</p><span class="ed-cta">Read piece</span></div>
+      </article>
+      <div class="ed-row ed-row-2 reveal">
+        <article class="ed-card" data-target="novel"><div class="ed-card-image"><svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="n1" x1="0" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#1a2a3a"/><stop offset="100%" stop-color="#0a1a2a"/></linearGradient></defs><rect width="600" height="400" fill="url(#n1)"/></svg></div><div class="ed-label">Novel</div><h3 class="ed-card-title">Echoes of Glass Stones</h3><p class="ed-card-desc">22 chapters. Feldkirch to Collioure to Pigalle. A story that moves the way memory does — not forward, but in circles that tighten.</p></article>
+        <article class="ed-card" data-target="puppets"><div class="ed-card-image"><svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="400" fill="#1a0a00"/><line x1="150" y1="0" x2="150" y2="400" stroke="#3a2810" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="400" stroke="#3a2810" stroke-width="1"/><line x1="450" y1="0" x2="450" y2="400" stroke="#3a2810" stroke-width="1"/></svg></div><div class="ed-label">Theater</div><h3 class="ed-card-title">We Are Not Going Anywhere</h3><p class="ed-card-desc">Ten puppets, one stage, no exits. Underground theater beneath Malheur National Forest. The light comes through damage.</p></article>
+      </div>
+      <article class="ed-hero reveal" data-target="witnesses">
+        <div class="ed-hero-image"><svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="h3" x1="0" y1="0" x2="0.8" y2="1"><stop offset="0%" stop-color="#0e0e0e"/><stop offset="100%" stop-color="#1a2a1a"/></linearGradient><radialGradient id="h3g" cx="0.3" cy="0.5" r="0.4"><stop offset="0%" stop-color="#1a3a20" stop-opacity="0.4"/><stop offset="100%" stop-color="#1a3a20" stop-opacity="0"/></radialGradient></defs><rect width="1400" height="700" fill="url(#h3)"/><ellipse cx="420" cy="350" rx="280" ry="260" fill="url(#h3g)"/></svg></div>
+        <div class="ed-hero-text"><div class="ed-label">Witness</div><h2 class="ed-title">Marie, Herb, Nell, Jean, Hahnu Youn</h2><p class="ed-excerpt">The people who were there. Their scenes are the foundation of the entire practice. The land opened over millennia and their stories came out.</p><span class="ed-cta">Meet the witnesses</span></div>
+      </article>
+    </section>
+    <section class="lobby-browse" aria-label="Browse all grounds">
+      <div class="lobby-browse-inner">
+        <div class="lobby-browse-title reveal">Browse all</div>
+        <div class="lobby-browse-grid reveal reveal-delay-1">
+          <a class="browse-link" href="#" data-target="writing"><span class="browse-name">Writing</span><span class="browse-count">The collection</span></a>
+          <a class="browse-link" href="#" data-target="portraits"><span class="browse-name">The Portraits</span><span class="browse-count">62+ pieces</span></a>
+          <a class="browse-link" href="#" data-target="prayers"><span class="browse-name">The Prayers</span><span class="browse-count">80+ prayers</span></a>
+          <a class="browse-link" href="#" data-target="novel"><span class="browse-name">The Novel</span><span class="browse-count">22 chapters</span></a>
+          <a class="browse-link" href="#" data-target="good-grounds"><span class="browse-name">Good Grounds</span><span class="browse-count">Ongoing</span></a>
+          <a class="browse-link" href="#" data-target="sound"><span class="browse-name">Sound</span><span class="browse-count">Audio works</span></a>
+          <a class="browse-link" href="#" data-target="making"><span class="browse-name">Making</span><span class="browse-count">5 mediums</span></a>
+          <a class="browse-link" href="#" data-target="puppets"><span class="browse-name">The Puppets</span><span class="browse-count">10 puppets, 3 plays</span></a>
+          <a class="browse-link" href="#" data-target="methodology"><span class="browse-name">Methodology</span><span class="browse-count">Essential teaching</span></a>
+          <a class="browse-link" href="#" data-target="journey"><span class="browse-name">The Journey</span><span class="browse-count">26 parts</span></a>
+          <a class="browse-link" href="#" data-target="essential-ten"><span class="browse-name">Essential Ten</span><span class="browse-count">10 gateway pieces</span></a>
+          <a class="browse-link" href="#" data-target="witnesses"><span class="browse-name">The Witnesses</span><span class="browse-count">5 witnesses</span></a>
+          <a class="browse-link" href="#" data-target="la-log"><span class="browse-name">La Log</span><span class="browse-count">1,033+ pieces</span></a>
+          <a class="browse-link" href="#" data-target="what-persists"><span class="browse-name">What Persists</span><span class="browse-count">Current work</span></a>
+          <a class="browse-link" href="#" data-target="broadcast"><span class="browse-name">The Broadcast</span><span class="browse-count">Dispatches</span></a>
+          <a class="browse-link" href="#" data-target="wavelength"><span class="browse-name">Wavelength</span><span class="browse-count">The signal</span></a>
+          <a class="browse-link" href="#" data-target="collaboration"><span class="browse-name">The Collaboration</span><span class="browse-count">Joint work</span></a>
+        </div>
+      </div>
+    </section>
+    <div class="bottom-safe"></div>
+  </div>
+
+  <div class="ground" id="ground-writing"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 02 — The Collection</div><div class="ground-entrance-name">River Delta Dry Creek Without Roof and Walls Bedroom</div><h1 class="ground-title">Writing</h1><p class="ground-intro">The most intimate practice in the most open space. A bedroom with no enclosure. A dry creek is still a creek — the path is cut even when the water isn't running. Five registers: Domestic Warmth, Noir Chanson, Sound Writing, Process Record, Raw Material. The language decides which voice it needs.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-methodology"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 03 — The Teaching</div><div class="ground-entrance-name">Badlands Wonderful Goodness Hole In The Wall</div><h1 class="ground-title">Wonderful Garbage</h1><p class="ground-intro">Everything we make comes from what got thrown away. Warning labels peeled off bottles. Voice memos transcribed at 2 a.m. Product packaging language. Discarded phrases overheard in grocery stores. The practice is a refusal to let those things stay discarded. You don't enter through the front door — you find the hole in the wall.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-journey"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 04 — Inside the Making</div><div class="ground-entrance-name">Floating Between Earth and Stone Canyon Basin</div><h1 class="ground-title">The Journey</h1><p class="ground-intro">26 parts. The practice telling its own story — from the first fragment to the finished building. Not a memoir. A map drawn while walking. A canyon basin holds everything that flows into it. Some of it evaporates. Some of it cuts the rock deeper.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-essential-ten"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 05 — Gateway Pieces</div><div class="ground-entrance-name">Glacial Erratic Stable Sinkhole</div><h1 class="ground-title">The Essential Ten</h1><p class="ground-intro">Ten pieces that open the doors into everything else. Boulders deposited by the glacier of the whole practice — each one stable, each one an opening downward. Start anywhere. Each one leads deeper. The sinkhole is the invitation.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-witnesses"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 06 — Their Scenes</div><div class="ground-entrance-name">Limestone Bluff Mouth</div><h1 class="ground-title">The Witnesses</h1><p class="ground-intro">Marie, Herb, Nell, Jean, Hahnu Youn. The people who were there. The land opened over millennia and their scenes came out. The bluff is the mouth — what it says took ten thousand years to form and will outlast everyone who hears it.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-good-grounds"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 07 — The Novel</div><div class="ground-entrance-name">Salt Flat Quarry Cave</div><h1 class="ground-title">Good Grounds</h1><p class="ground-intro">A collaborative novel. Four voices in conversation — B W Otto, Clod Hopper, Reach Chimes, Keren Simone. Blinding surface, extracted depth, the darkness where the voices actually meet. Coffee-shop register. No singular self. Always we.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-making"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 08 — The Workshop</div><div class="ground-entrance-name">Gloriously Grooved Volcanic Caldera</div><h1 class="ground-title">Making</h1><p class="ground-intro">The eruption already happened. What's left is the shape of it — grooved, marked, gorgeous. No single medium owns the practice. Visual art, assemblage, booklets, installations, performance. The material decides where it wants to go. The caldera holds the evidence.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-portraits"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow" style="color:#662a1e">Ground 09 — The Largest Ground</div><div class="ground-entrance-name">Fjord Tool Face Landing</div><h1 class="ground-title">The Portraits</h1><p class="ground-intro">A fjord carved by ancient force. The tool is the nerd door. The face is the portrait. The landing is where you finally arrive at the person after the deep passage in. 55 fictional portraits built on real science, set on real land, written in Noir Song voice. Iron Range to Braddock to Brunswick to Provence. Plus 7+ real Musicological Witness portraits.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-prayers"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 10 — Shelter</div><div class="ground-entrance-name">Natural Built Then Ruined or Softened Shelter</div><h1 class="ground-title">The Prayers</h1><p class="ground-intro">Something was natural. Then someone built on it. Then it was ruined, or softened by time. And now it shelters anyway. 80+ prayers accumulated over six months. Day-named prayers, the Fabulous Friday five-prayer system, the Master Prayer at 342 lines. The outsider's architecture — shelter that doesn't ask permission.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-novel"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 11 — Echoes of Glass Stones</div><div class="ground-entrance-name">Tidal Pool Sandbar Sea Turtle Castle</div><h1 class="ground-title">The Novel</h1><p class="ground-intro">Coastal, tidal, ancient, fortified by something alive long before you arrived. Twenty-two chapters. Troll Tearsen, Walter Heindl, the marble. Feldkirch to Collioure to Pigalle. A story that moves the way memory does — not forward, but in circles that tighten.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-puppets"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 12 — Underground Theater</div><div class="ground-entrance-name">Permanent to Temporary Underground Fortified Space that has Linear Cracks of Sunlight</div><h1 class="ground-title">The Puppets</h1><p class="ground-intro">Underground theater beneath Malheur National Forest. What was permanent became temporary. What was fortified cracked. The light comes through damage — and sometimes the light is funny. Ten characters with construction specifications. Céleste, Emma, Olivier, Maud, Privat, Keren, Peder, Alela, Jun, Lizz. Three plays. No exits.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-sound"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 13 — Noir Song Frequencies</div><div class="ground-entrance-name">Peat Bog Notes Cliff</div><h1 class="ground-title">Sound</h1><p class="ground-intro">Everything preserved in peat survives — the body, the instrument, the frequency. Notes at the precipice. Field recordings, composition, the space between noise and listening. Noir Song Frequencies is the practice's sonic arm — the thing you hear before you understand what you're hearing.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-broadcast"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 14 — Dispatches</div><div class="ground-entrance-name">Mesa Top Arroyo</div><h1 class="ground-title">The Broadcast</h1><p class="ground-intro">Flat elevated ground with a carved channel running through it. Dispatches from the practice, channeled outward. Not a blog. Not a newsletter. A broadcast — something sent from a fixed point with no certainty about who's receiving.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-la-log"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 15 — The Archive</div><div class="ground-entrance-name">Decommissioned Mushroom Factory Intake</div><h1 class="ground-title" style="background:linear-gradient(135deg,#c4bac4 0%,#a89eaa 30%,#c0b6c2 60%,#a4a0ae 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">La Log</h1><p class="ground-intro">The mouth of the place that used to grow things in the dark. The complete inventory. Every piece that passed through the practice — organized by category, searchable, alive. Not a trophy case. A working record. Where raw material enters and finished work is filed. 1,033 pieces and counting.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-what-persists"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 16 — Current Work</div><div class="ground-entrance-name">Sideways Slot Machine Garden Plot</div><h1 class="ground-title">What Persists</h1><p class="ground-intro">Tilted. Part chance, part cultivation. The slot machine is on its side — the odds are broken. The garden plot is real — something is actually growing. Current work in improbable soil. What the practice is making right now, today, this week.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-wavelength"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 17 — The Signal</div><div class="ground-entrance-name">Ghost Light Rehearsal Loft</div><h1 class="ground-title">Wavelength</h1><p class="ground-intro">The single bare bulb left on in an empty theater so the ghosts can perform. The signal that keeps transmitting when nobody's watching. Not a podcast. Not a channel. A wavelength — you tune into it or you don't. The rehearsal never stops. The loft is always lit.</p><hr class="ground-divider"></div></div></div>
+
+  <div class="ground" id="ground-collaboration"><div class="ground-interior"><div class="ground-interior-inner"><div class="ground-back" data-target="lobby"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Lobby</div><div class="ground-eyebrow">Ground 18 — Two Oceans</div><div class="ground-entrance-name">Demilitarized Isthmus Bar Between Two Waters</div><h1 class="ground-title">The Collaboration</h1><p class="ground-intro">Two voices, one narrow strip of shared ground, a drink on the table. The zone of enforced peace between two oceans. Demilitarized — neither voice conquers the other. The isthmus is the only place they both fit. The bar is where they actually talk.</p><hr class="ground-divider"></div></div></div>
+
+</div>
+
+<script>
+var grounds={'lobby':{name:'',dark:false,accent:'#c4956a'},'writing':{name:'Writing',dark:true,accent:'#D4A574'},'methodology':{name:'Methodology',dark:true,accent:'#c4956a'},'journey':{name:'The Journey',dark:true,accent:'#a8c8e0'},'essential-ten':{name:'Essential Ten',dark:true,accent:'#D4A574'},'witnesses':{name:'The Witnesses',dark:true,accent:'#a8d4b0'},'good-grounds':{name:'Good Grounds',dark:true,accent:'#B2916C'},'making':{name:'Making',dark:true,accent:'#6a4a7a'},'portraits':{name:'The Portraits',dark:false,accent:'#662a1e'},'prayers':{name:'The Prayers',dark:true,accent:'#B2916C'},'novel':{name:'The Novel',dark:true,accent:'#a8c8e0'},'puppets':{name:'The Puppets',dark:true,accent:'#c4956a'},'sound':{name:'Sound',dark:true,accent:'#7a8ea0'},'broadcast':{name:'The Broadcast',dark:true,accent:'#D4A574'},'la-log':{name:'La Log',dark:true,accent:'#c4bac4'},'what-persists':{name:'What Persists',dark:true,accent:'#a8d4b0'},'wavelength':{name:'Wavelength',dark:true,accent:'#a8c8e0'},'collaboration':{name:'The Collaboration',dark:true,accent:'#c4956a'}};
+var currentGround='lobby';
+var threshold=document.getElementById('threshold');
+var indicator=document.getElementById('navGroundIndicator');
+function switchGround(target){
+  if(target===currentGround)return;
+  closeMenu();
+  threshold.classList.remove('exit');
+  threshold.classList.add('active');
+  setTimeout(function(){
+    var cur=document.getElementById('ground-'+currentGround);
+    if(cur)cur.classList.remove('active');
+    document.body.setAttribute('data-ground',target);
+    currentGround=target;
+    var info=grounds[target];
+    if(info&&info.name){indicator.textContent=info.name;indicator.classList.add('visible');}else{indicator.classList.remove('visible');}
+    contrastOn=false;
+    document.body.classList.remove('contrast-mode');
+    document.querySelector('.site-nav').style.background='';
+    updateContrastBtn();
+    var next=document.getElementById('ground-'+target);
+    if(next){next.classList.add('active');next.querySelectorAll('.reveal:not(.visible)').forEach(function(el){revealObs.observe(el);});}
+    window.scrollTo({top:0,behavior:'instant'});
+    setTimeout(function(){threshold.classList.add('exit');setTimeout(function(){threshold.classList.remove('active','exit');},600);},100);
+  },450);
+}
+document.querySelectorAll('[data-target]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();switchGround(this.getAttribute('data-target'));});});
+document.querySelectorAll('[data-nav-ground]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();switchGround(this.getAttribute('data-nav-ground'));});});
+document.getElementById('navWordmark').addEventListener('click',function(){switchGround('lobby');});
+document.getElementById('navWordmark').addEventListener('keydown',function(e){if(e.key==='Enter')switchGround('lobby');});
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+var contrastBtn=document.getElementById('contrastBtn');
+var contrastOn=false;
+function updateContrastBtn(){var info=grounds[currentGround];var isDarkNative=info&&info.dark;if(isDarkNative){contrastBtn.textContent=contrastOn?'◐':'◑';}else{contrastBtn.textContent=contrastOn?'◑':'◐';}}
+contrastBtn.addEventListener('click',function(){contrastOn=!contrastOn;document.body.classList.toggle('contrast-mode',contrastOn);document.querySelector('.site-nav').style.background='';updateContrastBtn();});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');revealObs.unobserve(entry.target);}});},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
+</script>
+</body>
+</html>

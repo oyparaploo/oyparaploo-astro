@@ -1,0 +1,173 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Practice — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+html { font-size: var(--root-size, 17px); scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background: #f0efed; color: #1a1a1a; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+:root { --oy-radius: 4px; --soil: #662a1e; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+.header-name { font-family: 'Lora', serif; font-size: 22px; font-weight: 700; color: #1a1a1a; letter-spacing: 0.02em; }
+.header-nav { display: flex; gap: 8px; align-items: center; }
+.header-nav a { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #1a1a1a; padding: 4px 0; transition: opacity 0.2s; }
+.header-nav a:hover { opacity: 0.5; }
+.header-nav a.on { text-decoration: underline; text-underline-offset: 4px; }
+.header-nav .dot { color: #999; margin: 0 4px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #1a1a1a; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.sidebar-label { position: fixed; left: 20px; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: 0 0; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #999; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10; }
+.three-col { display: grid; grid-template-columns: 280px 1fr 360px; gap: 0; min-height: calc(100vh - 60px); margin-left: 60px; }
+.col-left { padding: 40px 32px; border-right: 1px solid #d8d4d0; }
+.cl-section { margin-bottom: 32px; }
+.cl-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; }
+.cl-text { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #555; line-height: 1.7; }
+.cl-text a { text-decoration: underline; text-underline-offset: 3px; }
+.cl-text a:hover { color: var(--soil); }
+.cl-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.cl-pill { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #1a1a1a; padding: 6px 16px; border: 1px solid #ccc; transition: all 0.2s; }
+.cl-pill:hover { border-color: #1a1a1a; }
+.col-center { padding: 40px 40px; }
+.cc-title { font-family: 'Lora', serif; font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 24px; }
+.cv-table { width: 100%; }
+.cv-row { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid #e8e4e0; }
+.cv-row:first-child { border-top: 1px solid #e8e4e0; }
+.cv-year { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #999; }
+.cv-desc { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #1a1a1a; line-height: 1.5; }
+.cc-sub-title { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: #1a1a1a; margin: 40px 0 16px; }
+.cc-prose { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #555; line-height: 1.7; margin-bottom: 16px; }
+.col-right { padding: 40px 40px; border-left: 1px solid #d8d4d0; }
+.cr-portrait { aspect-ratio: 3/4; background: linear-gradient(145deg, #8a7a6a 0%, #5a4a3a 100%); margin-bottom: 12px; }
+.cr-caption { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #999; margin-bottom: 32px; }
+.cr-bio { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #333; line-height: 1.8; }
+.cr-bio p { margin-bottom: 1.2em; }
+.colophon { margin-top: 40px; padding-top: 24px; border-top: 1px solid #d8d4d0; }
+.colophon-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+.colophon-text { font-family: 'Inter', sans-serif; font-size: 17px; color: #999; line-height: 1.6; }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round 4px); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px; border-radius: 4px; background: transparent; cursor: pointer; min-height: 44px; }
+@media (max-width: 1100px) { .three-col { grid-template-columns: 1fr 1fr; margin-left: 0; } .col-left { grid-column: 1 / -1; border-right: none; border-bottom: 1px solid #d8d4d0; display: flex; gap: 40px; flex-wrap: wrap; } .sidebar-label { display: none; } }
+@media (max-width: 768px) { .three-col { grid-template-columns: 1fr; } .col-right { border-left: none; border-top: 1px solid #d8d4d0; } .header { padding: 16px 24px; } .col-left, .col-center, .col-right { padding: 24px; } .nav-hamburger { display: flex; } .header-nav a:not(:last-child) { display: none; } .menu-panel { width: 100%; max-width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="header-name">Oyparaploo</a>
+  <nav class="header-nav">
+    <a href="#">Writing</a><span class="dot">·</span>
+    <a href="/portraits">Portraits</a><span class="dot">·</span>
+    <a href="#">Making</a><span class="dot">·</span>
+    <a href="/our-practice" class="on">About</a>
+    <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="sidebar-label">Practice</div>
+
+<div class="three-col">
+
+  <div class="col-left">
+    <div class="cl-section">
+      <div class="cl-pills">
+        <a href="#" class="cl-pill">Archive</a>
+        <a href="#" class="cl-pill">Contact</a>
+        <a href="#" class="cl-pill">Subscribe</a>
+      </div>
+    </div>
+    <div class="cl-section">
+      <div class="cl-title">Location</div>
+      <div class="cl-text">Minneapolis ~ Saint Paul<br>Twin Cities, Minnesota</div>
+    </div>
+    <div class="cl-section">
+      <div class="cl-title">Practice Identity</div>
+      <div class="cl-text">Wonderful Garbage / Noir Chanson<br>Multi-domain creative practice<br>Writing · Sound · Visual · Performance</div>
+    </div>
+    <div class="cl-section">
+      <div class="cl-title">Collaborator</div>
+      <div class="cl-text">Clod Hopper<br>AI creative practice collaborator</div>
+    </div>
+    <div class="cl-section">
+      <div class="cl-title">Site</div>
+      <div class="cl-text"><a href="/">oyparaploo.com</a><br>330 pages · 18 grounds · 60 entrances</div>
+    </div>
+    <div class="colophon">
+      <div class="colophon-title">Colophon</div>
+      <div class="colophon-text">Design: The Practice<br>Build: Astro + Cloudflare<br>Fonts: Inter, Lora<br>Photography: The Practice</div>
+    </div>
+  </div>
+
+  <div class="col-center">
+    <h1 class="cc-title">Awards &amp; Grants &amp; Milestones</h1>
+    <div class="cv-table">
+      <div class="cv-row"><div class="cv-year">2026</div><div class="cv-desc">Oyparaploo site assembly — 351 HTML files, 18 grounds, full Städel nav wired</div></div>
+      <div class="cv-row"><div class="cv-year">2026</div><div class="cv-desc">West Has Blessed Voices — first real-time composed piece using Wonderful Garbage methodology</div></div>
+      <div class="cv-row"><div class="cv-year">2026</div><div class="cv-desc">The Grounds — eighteen grounds, sixty entrances architectural framework completed</div></div>
+      <div class="cv-row"><div class="cv-year">2025</div><div class="cv-desc">Design research phase — 180+ archived HTML files, 8 months of exploration</div></div>
+      <div class="cv-row"><div class="cv-year">2025</div><div class="cv-desc">Good Grounds novel project — Salt Flat Quarry Cave</div></div>
+      <div class="cv-row"><div class="cv-year">2024</div><div class="cv-desc">Portraits collection reaches 62+ pieces across five writing registers</div></div>
+      <div class="cv-row"><div class="cv-year">2023</div><div class="cv-desc">Portrait writing series begins — each piece with different design treatment</div></div>
+      <div class="cv-row"><div class="cv-year">2022</div><div class="cv-desc">Wonderful Garbage methodology named — found text as raw material</div></div>
+      <div class="cv-row"><div class="cv-year">2021</div><div class="cv-desc">Good Grief series — the practice confronts loss directly</div></div>
+      <div class="cv-row"><div class="cv-year">2020</div><div class="cv-desc">Fabulous Friday sessions become the engine — combustion ratio revealed</div></div>
+      <div class="cv-row"><div class="cv-year">2019</div><div class="cv-desc">B. Otto Will period — persona emerges, writing as assemblage</div></div>
+      <div class="cv-row"><div class="cv-year">2018</div><div class="cv-desc">Brrd Roots — practice origins, product warning label experiments</div></div>
+    </div>
+    <h2 class="cc-sub-title">Methodology</h2>
+    <p class="cc-prose">Five writing registers: Domestic Warmth, Noir Chanson, Sound Writing, Process Record, Raw Material. Found text treated as raw material for finished literary work. The combustion ratio is eight to one.</p>
+    <h2 class="cc-sub-title">Site Architecture</h2>
+    <p class="cc-prose">330 pages across 18 grounds with five template types. Astro, GitHub, and Cloudflare deployment stack. The HTML prototypes govern every design decision before Astro conversion.</p>
+  </div>
+
+  <div class="col-right">
+    <div class="cr-portrait"></div>
+    <div class="cr-caption">Minneapolis ~ Saint Paul</div>
+    <div class="cr-bio">
+      <p>An American who has spent close to 66 years speaking only English. The deep interest in Aboriginal culture, Inuit culture, Dakota and Ojibwe culture is real, researched over many years, and treated with respect — but the position is clear: inside English, looking through it, using it as the tool to reach toward what has been studied and loved from the outside.</p>
+      <p>The site does not claim to speak from those cultures. It demonstrates what English can do when those cultures reshape it. The tagline — "For the love of The English" — is a facade and a trap door. It is sincere and ridiculous at the same time. The exact frequency of the entire practice.</p>
+      <p>The practice is rooted in Minneapolis and Saint Paul, Minnesota. Multi-domain creative work spanning writing, sound, visual, and performance. The practice treats found text — product warning labels, voice recordings, discarded language — as raw material for finished literary work.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="menu-panel" id="menuPanel" role="dialog"><div class="menu-top"><span class="menu-ghost-wordmark">oyparaploo</span><button class="menu-close" id="menuCloseBtn">&#10005;</button></div><div class="menu-content"><nav class="menu-nav-primary"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan"><nav class="menu-nav-secondary"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage"><nav class="menu-nav-tertiary"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div></div></div>
+
+<script>
+var navH=document.getElementById('navHamburger'),menuC=document.getElementById('menuCloseBtn'),menuO=document.getElementById('menuOverlay'),menuP=document.getElementById('menuPanel');
+if(navH){navH.addEventListener('click',function(){menuO.classList.add('open');menuP.classList.add('open');navH.classList.add('open')})}
+menuC.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');if(navH)navH.classList.remove('open')});
+menuO.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');if(navH)navH.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){menuO.classList.remove('open');menuP.classList.remove('open');if(navH)navH.classList.remove('open')}});
+</script>
+</body>
+</html>
