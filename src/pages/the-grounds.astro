@@ -1,0 +1,164 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grounds — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+html { font-size: var(--root-size, 17px); scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background: #f9f7f4; color: #2a2320; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+:root { --oy-radius: 4px; --soil: linear-gradient(to bottom, #662a1e, #573228, #44403f); }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.header { position: sticky; top: 0; z-index: 100; background: #f9f7f4; border-top: 3px solid; border-image: linear-gradient(to right, #a8c8e0 70%, #a8d4b0) 1; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
+.header-brand { font-family: 'Lora', serif; font-size: 32px; font-weight: 700; letter-spacing: 0.02em; background: var(--soil); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.header-right { display: flex; gap: 12px; align-items: center; }
+.header-right button { color: #2a2320; font-size: 22px; min-height: 44px; padding: 0 8px; }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #2a2320; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.stats-bar { display: grid; grid-template-columns: repeat(5, 1fr); max-width: 900px; margin: 0 auto; padding: 32px 40px; border-bottom: 1px solid #e0d8cc; }
+.stat { text-align: center; padding: 8px 0; }
+.stat-number { font-family: 'Lora', serif; font-size: 28px; font-weight: 700; color: #2a2320; letter-spacing: -0.02em; margin-bottom: 2px; }
+.stat-label { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #7d7168; }
+.page-intro { max-width: 900px; margin: 0 auto; padding: 48px 40px 32px; }
+.pi-title { font-family: 'Lora', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #2a2320; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; background: var(--soil); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.pi-desc { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 500; color: #5a4f47; line-height: 1.75; max-width: 600px; }
+.accordion { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+.acc-item { border-bottom: 1px solid #e0d8cc; }
+.acc-item:first-child { border-top: 1px solid #e0d8cc; }
+.acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 0; cursor: pointer; transition: background 0.2s; text-align: left; }
+.acc-trigger:hover { background: #f4f2ee; margin: 0 -16px; padding: 20px 16px; }
+.acc-trigger-left { display: flex; align-items: center; gap: 16px; }
+.acc-num { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: #7d7168; min-width: 28px; }
+.acc-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.acc-name { font-family: 'Lora', serif; font-size: 22px; font-weight: 700; color: #2a2320; letter-spacing: -0.01em; }
+.acc-arrow { font-size: 20px; color: #7d7168; transition: transform 0.3s; flex-shrink: 0; }
+.acc-item.open .acc-arrow { transform: rotate(180deg); }
+.acc-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.acc-item.open .acc-content { max-height: 500px; }
+.acc-body { padding: 0 0 28px 44px; }
+.acc-entrance { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: #6b4930; line-height: 1.4; margin-bottom: 12px; }
+.acc-atmosphere { font-family: 'Inter', sans-serif; font-size: 17px; color: #5a4f47; line-height: 1.7; margin-bottom: 16px; max-width: 560px; }
+.acc-link { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #662a1e; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+.acc-link:hover { gap: 14px; }
+.acc-tags { display: flex; gap: 8px; margin-bottom: 12px; }
+.acc-tag { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #5a4f47; background: #f4f2ee; padding: 4px 12px; border-radius: 100px; }
+.site-footer { background: #2a2320; padding: 48px 40px; }
+.footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; }
+.sf-brand { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: #f9f7f4; }
+.sf-sub { font-family: 'Inter', sans-serif; font-size: 17px; color: #7d7168; margin-top: 4px; }
+.sf-links a { font-family: 'Inter', sans-serif; font-size: 17px; color: #7d7168; display: block; padding: 3px 0; transition: color 0.2s; }
+.sf-links a:hover { color: #f9f7f4; }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius)); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; transition: opacity 0.2s; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px; border-radius: var(--oy-radius); background: transparent; cursor: pointer; min-height: 44px; }
+@media (max-width: 768px) { .stats-bar { grid-template-columns: repeat(3, 1fr); padding: 24px; } .page-intro, .accordion { padding-left: 24px; padding-right: 24px; } .site-footer { padding: 40px 24px; } .footer-inner { flex-direction: column; gap: 24px; } .menu-panel { width: 100%; max-width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="header"><div class="header-inner"><a href="/" class="header-brand">Oyparaploo</a><div class="header-right"><button id="contrastBtn" aria-label="Toggle" style="font-size:22px;">◐</button><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div></div></header>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-number">18</div><div class="stat-label">Grounds</div></div>
+  <div class="stat"><div class="stat-number">60</div><div class="stat-label">Entrances</div></div>
+  <div class="stat"><div class="stat-number">330</div><div class="stat-label">Pages</div></div>
+  <div class="stat"><div class="stat-number">62+</div><div class="stat-label">Portraits</div></div>
+  <div class="stat"><div class="stat-number">80+</div><div class="stat-label">Prayers</div></div>
+</div>
+
+<div class="page-intro">
+  <h1 class="pi-title">The Grounds</h1>
+  <p class="pi-desc">Eighteen grounds, sixty entrances. Not rooms — because sixty percent of the work is experienced outdoors. A ground can be sheltered or wide open. The soil changes. The light changes. But the earth is continuous.</p>
+</div>
+
+<div class="accordion">
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">01</span><span class="acc-dot" style="background:#c4956a;"></span><span class="acc-name">The Lobby</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Eclipse Prayer Shadow Impossible Mirror</div><div class="acc-tags"><span class="acc-tag">Light native</span><span class="acc-tag">Sand #f0efed</span></div><div class="acc-atmosphere">The front door to everything. Four stages of seeing what can't be seen. The sun disappears. You pray. Your shadow changes. The mirror shows the impossible.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">02</span><span class="acc-dot" style="background:#D4A574;"></span><span class="acc-name">Writing</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">River Delta Dry Creek Without Roof and Walls Bedroom</div><div class="acc-tags"><span class="acc-tag">Dark native</span></div><div class="acc-atmosphere">The most intimate practice in the most open space. A bedroom with no enclosure. A dry creek is still a creek — the path is cut even when the water isn't running.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">03</span><span class="acc-dot" style="background:#c4956a;"></span><span class="acc-name">Methodology</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Badlands Wonderful Goodness Hole In The Wall</div><div class="acc-atmosphere">The terrain before transformation, the transformation itself, and the way in. You don't enter through the front door — you find the hole in the wall.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">04</span><span class="acc-dot" style="background:#a8c8e0;"></span><span class="acc-name">The Journey</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Floating Between Earth and Stone Canyon Basin</div><div class="acc-atmosphere">Suspended between what happened and what it became. A canyon basin holds everything that flows into it. 26 parts of a practice telling its own story.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">05</span><span class="acc-dot" style="background:#D4A574;"></span><span class="acc-name">Essential Ten</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Glacial Erratic Stable Sinkhole</div><div class="acc-atmosphere">Boulders deposited by the glacier of the whole practice. Each one stable. Each one an opening downward. Ten gateway pieces.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">06</span><span class="acc-dot" style="background:#a8d4b0;"></span><span class="acc-name">The Witnesses</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Limestone Bluff Mouth</div><div class="acc-atmosphere">The land opened over millennia and their scenes came out. Marie, Herb, Nell, Jean, Hahnu Youn. The bluff is the mouth.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">07</span><span class="acc-dot" style="background:#B2916C;"></span><span class="acc-name">Good Grounds</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Salt Flat Quarry Cave</div><div class="acc-atmosphere">Blinding surface, extracted depth, the darkness where the voices actually meet. The novel that sits on the surface as conversation but has been quarried from deep material.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">08</span><span class="acc-dot" style="background:#6a4a7a;"></span><span class="acc-name">Making</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Gloriously Grooved Volcanic Caldera</div><div class="acc-atmosphere">The eruption already happened. What's left is the shape of it — grooved, marked, gorgeous. The workshop after the explosion.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">09</span><span class="acc-dot" style="background:#662a1e;"></span><span class="acc-name">The Portraits</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Fjord Tool Face Landing</div><div class="acc-tags"><span class="acc-tag">Light native</span><span class="acc-tag">Cream #f9f7f4</span></div><div class="acc-atmosphere">A fjord carved by ancient force. The tool is the nerd door. The face is the portrait. The landing is where you finally arrive at the person after the deep passage in. 62+ pieces.</div><a href="/portraits" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">10</span><span class="acc-dot" style="background:#B2916C;"></span><span class="acc-name">The Prayers</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Natural Built Then Ruined or Softened Shelter</div><div class="acc-atmosphere">Something was natural, then someone built it, then it was ruined or softened by time. And now it shelters anyway. The outsider's architecture. 80+ prayers.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">11</span><span class="acc-dot" style="background:#a8c8e0;"></span><span class="acc-name">The Novel</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Tidal Pool Sandbar Sea Turtle Castle</div><div class="acc-atmosphere">Coastal, tidal, ancient, fortified by something alive long before you arrived. Echoes of Glass Stones. Feldkirch to Collioure to Pigalle.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">12</span><span class="acc-dot" style="background:#c4956a;"></span><span class="acc-name">The Puppets</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Permanent to Temporary Underground Fortified Space that has Linear Cracks of Sunlight</div><div class="acc-atmosphere">Underground theater beneath Malheur National Forest. The light comes through damage. Ten characters. Three plays.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">13</span><span class="acc-dot" style="background:#7a8ea0;"></span><span class="acc-name">Sound</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Peat Bog Notes Cliff</div><div class="acc-atmosphere">Everything preserved in peat survives. Notes at the precipice. Noir Song Frequencies. The space between noise and listening.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">14</span><span class="acc-dot" style="background:#D4A574;"></span><span class="acc-name">The Broadcast</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Mesa Top Arroyo</div><div class="acc-atmosphere">Flat elevated ground with a carved channel running through it. Dispatches from the practice, channeled outward.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">15</span><span class="acc-dot" style="background:#c4bac4;"></span><span class="acc-name">La Log</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Decommissioned Mushroom Factory Intake</div><div class="acc-atmosphere">The archive. The mouth of the place that used to grow things in the dark. Where raw material enters. 1,033+ pieces.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">16</span><span class="acc-dot" style="background:#a8d4b0;"></span><span class="acc-name">What Persists</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Sideways Slot Machine Garden Plot</div><div class="acc-atmosphere">Tilted, part chance, part cultivation. Current work growing in improbable soil.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">17</span><span class="acc-dot" style="background:#a8c8e0;"></span><span class="acc-name">Wavelength</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Ghost Light Rehearsal Loft</div><div class="acc-atmosphere">The single bare bulb left on in an empty theater so the ghosts can perform. The signal that keeps transmitting when nobody's watching.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+<div class="acc-item"><button class="acc-trigger"><div class="acc-trigger-left"><span class="acc-num">18</span><span class="acc-dot" style="background:#c4956a;"></span><span class="acc-name">The Collaboration</span></div><span class="acc-arrow">&#9662;</span></button><div class="acc-content"><div class="acc-body"><div class="acc-entrance">Demilitarized Isthmus Bar Between Two Waters</div><div class="acc-atmosphere">Two voices, one narrow strip of shared ground, a drink on the table. The zone of enforced peace between two oceans.</div><a href="#" class="acc-link">Enter this ground &#8594;</a></div></div></div>
+
+</div>
+
+<footer class="site-footer"><div class="footer-inner"><div><div class="sf-brand">Oyparaploo</div><div class="sf-sub">Minneapolis ~ Saint Paul</div></div><div class="sf-links"><a href="#">Writing</a><a href="/portraits">Portraits</a><a href="#">Sound</a><a href="#">Archive</a></div></div></footer>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="menu-panel" id="menuPanel" role="dialog"><div class="menu-top"><span class="menu-ghost-wordmark">oyparaploo</span><button class="menu-close" id="menuCloseBtn">&#10005;</button></div><div class="menu-content"><nav class="menu-nav-primary"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan"><nav class="menu-nav-secondary"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage"><nav class="menu-nav-tertiary"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div></div></div>
+
+<script>
+document.querySelectorAll('.acc-trigger').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=this.parentElement;
+    var wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.acc-item').forEach(function(i){i.classList.remove('open')});
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+var navH=document.getElementById('navHamburger'),menuC=document.getElementById('menuCloseBtn'),menuO=document.getElementById('menuOverlay'),menuP=document.getElementById('menuPanel');
+navH.addEventListener('click',function(){menuO.classList.add('open');menuP.classList.add('open');navH.classList.add('open')});
+menuC.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')});
+menuO.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')}});
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Puppets — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+html { font-size: var(--root-size, 17px); scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background: #F7F3EC; color: #1E1C1A; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+:root { --oy-radius: 4px; --wine: #4A1028; --deep-wine: #2D0A18; --terracotta: #C4754B; --parchment: #F7F3EC; --stone: #8A847A; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--deep-wine); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; border-top: 3px solid; border-image: linear-gradient(to right, #a8c8e0 70%, #a8d4b0) 1; }
+.header-brand { font-family: 'Lora', serif; font-size: 22px; font-weight: 700; color: #f9f7f4; letter-spacing: 0.02em; }
+.header-right { display: flex; gap: 12px; align-items: center; }
+.header-right button { color: rgba(249,247,244,0.5); font-size: 22px; min-height: 44px; padding: 0 8px; transition: color 0.2s; }
+.header-right button:hover { color: #f9f7f4; }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(249,247,244,0.5); transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.hero-slider { position: relative; height: 88vh; margin-top: 59px; overflow: hidden; background: var(--deep-wine); }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; display: flex; align-items: flex-end; }
+.hero-slide.active { opacity: 1; }
+.hero-slide-bg { position: absolute; inset: 0; }
+.hero-slide-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(45,10,24,0.92) 0%, rgba(45,10,24,0.4) 40%, rgba(45,10,24,0.15) 100%); }
+.hero-slide-text { position: relative; z-index: 2; padding: 72px 64px; max-width: 560px; }
+.hst-eyebrow { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
+.hst-title { font-family: 'Lora', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #FEFCF8; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+.hst-desc { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: rgba(254,252,248,0.7); line-height: 1.7; margin-bottom: 24px; }
+.hst-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #FEFCF8; padding: 12px 28px; border: 1px solid rgba(254,252,248,0.4); transition: all 0.3s; }
+.hst-btn:hover { background: rgba(254,252,248,0.1); border-color: rgba(254,252,248,0.7); }
+.slide-bg-1 { background: linear-gradient(145deg, #4A1028 0%, #2D0A18 100%); }
+.slide-bg-2 { background: linear-gradient(145deg, #1a2a3a 0%, #0a1520 100%); }
+.slide-bg-3 { background: linear-gradient(145deg, #2a2320 0%, #1a1510 100%); }
+.hero-dots { position: absolute; bottom: 32px; right: 64px; z-index: 10; display: flex; gap: 12px; }
+.hero-dot { width: 40px; height: 3px; background: rgba(254,252,248,0.25); cursor: pointer; transition: background 0.4s; }
+.hero-dot.active { background: var(--terracotta); }
+.characters-section { max-width: 1100px; margin: 0 auto; padding: 64px 48px; }
+.cs-title { font-family: 'Lora', serif; font-size: 28px; font-weight: 700; color: #1E1C1A; letter-spacing: -0.02em; margin-bottom: 8px; }
+.cs-sub { font-family: 'Inter', sans-serif; font-size: 17px; color: var(--stone); margin-bottom: 40px; }
+.char-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
+.char-block { background: var(--deep-wine); padding: 32px 24px; cursor: pointer; transition: background 0.3s; position: relative; overflow: hidden; }
+.char-block:hover { background: var(--wine); }
+.char-num { font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 700; color: rgba(254,252,248,0.08); line-height: 1; margin-bottom: 16px; }
+.char-name { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: #FEFCF8; line-height: 1.2; margin-bottom: 6px; }
+.char-role { font-family: 'Inter', sans-serif; font-size: 17px; color: var(--terracotta); }
+.entrance-quote { max-width: 800px; margin: 0 auto; padding: 64px 48px; text-align: center; border-top: 1px solid #C9C3B8; }
+.eq-text { font-family: 'Lora', serif; font-size: clamp(22px, 2.5vw, 30px); font-weight: 700; color: #1E1C1A; line-height: 1.4; }
+.eq-attr { font-family: 'Inter', sans-serif; font-size: 17px; color: var(--stone); margin-top: 16px; }
+.site-footer { background: var(--deep-wine); padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+.sf-brand { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: #FEFCF8; }
+.sf-sub { font-family: 'Inter', sans-serif; font-size: 17px; color: rgba(254,252,248,0.4); margin-top: 4px; }
+.sf-links a { font-family: 'Inter', sans-serif; font-size: 17px; color: rgba(254,252,248,0.4); display: block; padding: 3px 0; transition: color 0.2s; }
+.sf-links a:hover { color: var(--terracotta); }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius)); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px; border-radius: var(--oy-radius); background: transparent; cursor: pointer; min-height: 44px; }
+@media (max-width: 900px) { .char-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .header { padding: 0 24px; } .hero-slide-text { padding: 48px 24px; } .hero-dots { right: 24px; bottom: 24px; } .characters-section { padding: 40px 24px; } .entrance-quote { padding: 40px 24px; } .site-footer { flex-direction: column; gap: 24px; padding: 40px 24px; } .menu-panel { width: 100%; max-width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="header-brand">Oyparaploo</a>
+  <div class="header-right"><button id="contrastBtn" aria-label="Toggle" style="font-size:22px; color:rgba(249,247,244,0.5);">◑</button><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
+</header>
+
+<div class="hero-slider">
+  <div class="hero-slide active"><div class="hero-slide-bg slide-bg-1"></div><div class="hero-slide-grad"></div><div class="hero-slide-text"><div class="hst-eyebrow">Play One</div><h2 class="hst-title">The Underground Theater</h2><div class="hst-desc">Beneath Malheur National Forest. The light comes through damage. Linear cracks of sunlight in a fortified space.</div><a href="#" class="hst-btn">Enter &#8594;</a></div></div>
+  <div class="hero-slide"><div class="hero-slide-bg slide-bg-2"></div><div class="hero-slide-grad"></div><div class="hero-slide-text"><div class="hst-eyebrow">Play Two</div><h2 class="hst-title">The Kiva Sessions</h2><div class="hst-desc">Kiva and Sipapu Corridor Entrance. The ceremonial space where characters descend to speak truths that can't survive above ground.</div><a href="#" class="hst-btn">Enter &#8594;</a></div></div>
+  <div class="hero-slide"><div class="hero-slide-bg slide-bg-3"></div><div class="hero-slide-grad"></div><div class="hero-slide-text"><div class="hst-eyebrow">Play Three</div><h2 class="hst-title">Cistern Cenote</h2><div class="hst-desc">Tube Catacombs. Water collects in carved stone. The puppets speak from the deepest chamber.</div><a href="#" class="hst-btn">Enter &#8594;</a></div></div>
+  <div class="hero-dots"><div class="hero-dot active" data-slide="0"></div><div class="hero-dot" data-slide="1"></div><div class="hero-dot" data-slide="2"></div></div>
+</div>
+
+<section class="characters-section">
+  <h2 class="cs-title">Ten Characters</h2>
+  <div class="cs-sub">The puppets who perform underground</div>
+  <div class="char-grid">
+    <div class="char-block"><div class="char-num">01</div><div class="char-name">The Warden</div><div class="char-role">Keeper</div></div>
+    <div class="char-block"><div class="char-num">02</div><div class="char-name">The Translator</div><div class="char-role">Bridge</div></div>
+    <div class="char-block"><div class="char-num">03</div><div class="char-name">The Soil Reader</div><div class="char-role">Witness</div></div>
+    <div class="char-block"><div class="char-num">04</div><div class="char-name">The Radio</div><div class="char-role">Signal</div></div>
+    <div class="char-block"><div class="char-num">05</div><div class="char-name">The Architect</div><div class="char-role">Builder</div></div>
+    <div class="char-block"><div class="char-num">06</div><div class="char-name">The Ghost</div><div class="char-role">Memory</div></div>
+    <div class="char-block"><div class="char-num">07</div><div class="char-name">The Cook</div><div class="char-role">Sustainer</div></div>
+    <div class="char-block"><div class="char-num">08</div><div class="char-name">The Comedian</div><div class="char-role">Load-Bearer</div></div>
+    <div class="char-block"><div class="char-num">09</div><div class="char-name">The Child</div><div class="char-role">Future</div></div>
+    <div class="char-block"><div class="char-num">10</div><div class="char-name">The River</div><div class="char-role">Passage</div></div>
+  </div>
+</section>
+
+<section class="entrance-quote">
+  <div class="eq-text">Permanent to Temporary Underground Fortified Space that has Linear Cracks of Sunlight</div>
+  <div class="eq-attr">Primary Entrance — Ground 12</div>
+</section>
+
+<footer class="site-footer">
+  <div><div class="sf-brand">Oyparaploo</div><div class="sf-sub">Minneapolis ~ Saint Paul</div></div>
+  <div class="sf-links"><a href="#">Writing</a><a href="/portraits">Portraits</a><a href="#">Sound</a><a href="#">Archive</a></div>
+</footer>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="menu-panel" id="menuPanel" role="dialog"><div class="menu-top"><span class="menu-ghost-wordmark">oyparaploo</span><button class="menu-close" id="menuCloseBtn">&#10005;</button></div><div class="menu-content"><nav class="menu-nav-primary"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan"><nav class="menu-nav-secondary"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage"><nav class="menu-nav-tertiary"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div></div></div>
+
+<script>
+var slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot'),current=0;
+function showSlide(n){slides.forEach(function(s){s.classList.remove('active')});dots.forEach(function(d){d.classList.remove('active')});current=n;slides[current].classList.add('active');dots[current].classList.add('active')}
+dots.forEach(function(d){d.addEventListener('click',function(){showSlide(parseInt(this.dataset.slide))})});
+setInterval(function(){showSlide((current+1)%slides.length)},5000);
+var navH=document.getElementById('navHamburger'),menuC=document.getElementById('menuCloseBtn'),menuO=document.getElementById('menuOverlay'),menuP=document.getElementById('menuPanel');
+navH.addEventListener('click',function(){menuO.classList.add('open');menuP.classList.add('open');navH.classList.add('open')});
+menuC.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')});
+menuO.addEventListener('click',function(){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){menuO.classList.remove('open');menuP.classList.remove('open');navH.classList.remove('open')}});
+</script>
+</body>
+</html>
