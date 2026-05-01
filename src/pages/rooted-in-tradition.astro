@@ -1,0 +1,192 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.O.M.S Rooted in Tradition and Nuanced Relatives — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: var(--root-size, 18px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; transition: background 0.4s ease, color 0.3s ease; background: linear-gradient(to bottom, #000000 0%, #020203 20%, #060810 40%, #0a0d16 60%, #0d111b 80%, #111521 100%); background-attachment: fixed; min-height: 100vh; color: #d0c8bf; }
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+:root { --oy-sand: #D4C4A8; --oy-tan: #D4A574; --oy-radius: 4px; }
+html.size-1 { --root-size: 18px; } html.size-2 { --root-size: 19px; } html.size-3 { --root-size: 21px; }
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { color: rgba(232,224,214,0.68) !important; opacity: 1; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; } .font-size-btn .sz[data-size="2"] { font-size: 18px; } .font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: background 0.3s; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; }
+.wordmark { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; color: rgba(232,224,214,0.68); letter-spacing: 0.02em; flex-shrink: 0; transition: color 0.2s; }
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; letter-spacing: 0.02em; color: rgba(232,224,214,0.68); transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+.nav-utils { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.nav-utils button, .nav-utils a { font-family: 'Inter', sans-serif; color: rgba(232,224,214,0.68); background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.nav-hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(232,224,214,0.68); transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule { display: block; height: 2px; border: none; background: linear-gradient(90deg, transparent 0%, rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%, rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%, rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%, rgba(122,90,74,0.30) 90%, transparent 100%); opacity: 0.6; }
+
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-panel { position: fixed; top: 0; right: -400px; bottom: 0; z-index: 202; width: 400px; background: #faf6f0; color: #2a2320; overflow-y: auto; transition: right 0.55s cubic-bezier(0.23,1,0.32,1); font-size: 17px; }
+.menu-panel.open { right: 0; }
+.menu-top { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px 16px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; letter-spacing: 0.02em; opacity: 0.38; }
+.menu-close { font-size: 22px; color: #2a2320 !important; background: none; border: none; cursor: pointer; min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center; }
+.menu-content { padding: 0 32px 48px; }
+.menu-nav-primary a { display: block; font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; padding: 10px 0; transition: opacity 0.2s; letter-spacing: -0.01em; }
+.menu-nav-primary a:hover { opacity: 0.65; }
+.menu-rule-tan { border: none; height: 2px; background: #D4A574; margin: 20px 0; }
+.menu-nav-secondary a { display: block; font-size: 18px; font-weight: 600; color: #2a2320; padding: 8px 0; transition: opacity 0.2s; }
+.menu-nav-secondary a:hover { opacity: 0.65; }
+.menu-rule-sage { border: none; height: 2px; background: #8BA89A; margin: 20px 0; }
+.menu-nav-tertiary { display: block; margin-bottom: 12px; }
+.menu-nav-tertiary a { display: block; font-size: 18px; font-weight: 600; color: #2a2320; padding: 6px 0; transition: color 0.2s; }
+.menu-nav-tertiary a:hover { color: #5a5048; }
+.menu-address { font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; letter-spacing: 0.02em; }
+.menu-bottom-btns { display: flex; gap: 10px; margin-top: 20px; }
+.menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 20px; border: 1px solid #5a5048; color: #2a2320; background: transparent; cursor: pointer; transition: all 0.2s; }
+.menu-btn:hover { background: #2a2320; color: #faf6f0; border-color: #2a2320; }
+
+.page-outer { max-width: 960px; margin: 0 auto; padding: 0 48px 120px; }
+.breadcrumb-wrap { padding: 40px 0 0; }
+.breadcrumb { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 425; color: #a09888; transition: color 0.2s; }
+.breadcrumb:hover { color: #d0c8bf; }
+.breadcrumb svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+.piece-subtitle { font-size: 1rem; font-weight: 500; color: #a09888; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 48px; margin-bottom: 16px; }
+.piece-title { font-family: 'Lora', serif; font-size: clamp(32px, 3.5vw, 40px); font-weight: 600; color: #d0c8bf; line-height: 1.2; margin-bottom: 80px; }
+.lot-hero { margin-bottom: 72px; }
+.lot-hero .object-line { font-family: 'Lora', serif; font-size: clamp(22px, 2.5vw, 28px); font-weight: 600; color: #d0c8bf; line-height: 1.4; margin-bottom: 20px; }
+.lot-hero .expansion { font-size: 1rem; font-weight: 400; color: #d0c8bf; line-height: 1.75; max-width: 600px; }
+.lot-pair { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; padding: 36px 0; border-top: 1px solid #3a3430; }
+.lot-pair .object-line { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: #d0c8bf; line-height: 1.45; }
+.lot-pair .expansion { font-size: 1rem; font-weight: 400; color: #d0c8bf; line-height: 1.75; }
+.lot-compact { padding: 28px 0; border-top: 1px solid #3a3430; }
+.lot-compact .object-line { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: #d0c8bf; line-height: 1.45; margin-bottom: 8px; }
+.lot-compact .expansion { font-size: 1rem; font-weight: 400; color: #d0c8bf; line-height: 1.75; }
+.lot-close { margin-top: 64px; padding-top: 40px; border-top: 1px solid #3a3430; }
+.lot-close .line { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: #d0c8bf; line-height: 1.55; }
+.seq-nav { margin-top: 140px; padding-top: 32px; border-top: 1.2px solid #5a5048; display: flex; flex-direction: column; gap: 20px; }
+.seq-nav a { font-size: 19px; font-weight: 400; color: #a09888; transition: color 0.2s; }
+.seq-nav a:hover { color: #d0c8bf; }
+.seq-nav-next { align-self: flex-end; order: -1; }
+
+body.light-mode { background: #faf6f0; background-attachment: scroll; color: #2a2320; }
+body.light-mode .site-nav { background: rgba(250,246,240,0.92); }
+body.light-mode .wordmark { color: rgba(42,35,32,0.68); }
+body.light-mode .wordmark:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-links a { color: rgba(42,35,32,0.68); }
+body.light-mode .nav-links a:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-utils button, body.light-mode .nav-utils a { color: rgba(42,35,32,0.68); }
+body.light-mode .nav-utils button:hover, body.light-mode .nav-utils a:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-hamburger span { background: rgba(42,35,32,0.68); }
+body.light-mode .nav-accent-rule { opacity: 0.45; }
+body.light-mode .font-size-btn .sz { color: rgba(42,35,32,0.68) !important; }
+body.light-mode .breadcrumb { color: #5a4f47; }
+body.light-mode .breadcrumb:hover { color: #2a2320; }
+body.light-mode .piece-subtitle { color: #5a4f47; }
+body.light-mode .piece-title { color: #3d352e; }
+body.light-mode .lot-hero .object-line { color: #2a2320; }
+body.light-mode .lot-hero .expansion { color: #2a2320; }
+body.light-mode .lot-pair { border-top-color: #b8a088; }
+body.light-mode .lot-pair .object-line { color: #2a2320; }
+body.light-mode .lot-pair .expansion { color: #2a2320; }
+body.light-mode .lot-compact { border-top-color: #b8a088; }
+body.light-mode .lot-compact .object-line { color: #2a2320; }
+body.light-mode .lot-compact .expansion { color: #2a2320; }
+body.light-mode .lot-close { border-top-color: #b8a088; }
+body.light-mode .lot-close .line { color: #2a2320; }
+body.light-mode .seq-nav { border-top-color: #777777; }
+body.light-mode .seq-nav a { color: #5a4f47; }
+body.light-mode .seq-nav a:hover { color: #2a2320; }
+
+@media (max-width: 1100px) { .nav-links { display: none; } }
+@media (max-width: 768px) { .nav-inner { padding: 0 24px; } .page-outer { padding: 0 24px 80px; } .lot-pair { grid-template-columns: 1fr; gap: 12px; } .piece-title { font-size: clamp(28px, 5vw, 36px); } .menu-panel { width: 100vw; right: -100vw; } .menu-panel.open { right: 0; } }
+@media (max-width: 480px) { .page-outer { padding: 0 20px 60px; } }
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation"><div class="nav-inner"><a href="/" class="wordmark">oyparaploo</a><ul class="nav-links"><li><a href="#">Writing</a></li><li><a href="#">Portraits</a></li><li><a href="#">Our Practice</a></li><li><a href="#">Dispatches</a></li></ul><div class="nav-utils"><button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button><button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">&#9681;</button><a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a><button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button></div></div><div class="nav-accent-rule" aria-hidden="true"></div></nav>
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu"><div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div><div class="menu-content"><nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav><hr class="menu-rule-tan" aria-hidden="true"><nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav><hr class="menu-rule-sage" aria-hidden="true"><nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav><div class="menu-address">Minneapolis ~ Saint Paul</div><div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button><button class="menu-btn">Newsletter</button></div></div></div>
+<main>
+<div class="page-outer">
+  <div class="breadcrumb-wrap"><a href="/" class="breadcrumb"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>Writing</a></div>
+  <div class="piece-subtitle">Ode to Los Angeles 30 fictitious angles.</div>
+  <h1 class="piece-title">B.O.M.S Rooted in Tradition and Nuanced Relatives</h1>
+
+  <div class="piece-body">
+    <div class="lot-hero">
+      <div class="object-line">They belong to a Living Herd, Feeding School, Shoal, Brood Flock, Throng, Bevy Assemblage, Crush Drove, Multitude Populace, and Rusty Rabble.</div>
+      <div class="expansion">A youthful thing isolated among other things.</div>
+    </div>
+
+    <div class="lot-pair">
+      <div class="object-line">Hone your 'Wayne Shorter United' sink salutes. Suspended synchronization of irregular edge lines mingling with curly marks.</div>
+      <div class="expansion">Moods of grandma fragrances, so sweet buried in night flower garden polyester shirts. The couple who argued over the right way to load a dishwasher only to realize the fight wasn't about forks.</div>
+    </div>
+
+    <div class="lot-pair">
+      <div class="object-line">They also seem to enjoy literally digging grounds, Digging in all kinds of reddish to brown to black sacred soils. Cotton bolls.</div>
+      <div class="expansion">Even the late D. Reinhardt, taken away to some lovely French landscape would be proud of this lyricism. The smell of green moss and wet winters mingled with the cello music.</div>
+    </div>
+
+    <div class="lot-compact">
+      <div class="object-line">These human ~ sophisticated cats and best intuitive dogs.</div>
+      <div class="expansion">Necessities of Curious Pure Sweetness. Everyday sweet nectar smooth non-sexual pleasure.</div>
+    </div>
+
+    <div class="lot-compact">
+      <div class="object-line">Every opportunity is another ghost of a chance.</div>
+      <div class="expansion">Calling to mind book leaves about ferrets and forgotten fuels.</div>
+    </div>
+
+    <div class="lot-close">
+      <div class="line">Where you, The Visitor, are at this moment</div>
+      <div class="line">could be a tempest arch</div>
+      <div class="line">or freedom secretly cloaked in red, with a satin robe.</div>
+      <div class="line">Horizons that float.</div>
+    </div>
+  </div>
+
+  <nav class="seq-nav" aria-label="Sequential navigation">
+    <a href="#" class="seq-nav-next">Finals Leah All The Stained-Glass Bottles Are Full &#8594;</a>
+  </nav>
+</div>
+</main>
+<script>
+var sizeStep=1;var fontBtn=document.getElementById('fontSizeBtn');var sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'\u25D0':'\u25D1';});
+var navHamburger=document.getElementById('navHamburger');var menuCloseBtn=document.getElementById('menuCloseBtn');var menuOverlay=document.getElementById('menuOverlay');var menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+</script>
+</body>
+</html>

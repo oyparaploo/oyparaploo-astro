@@ -1,0 +1,449 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Portraits — Oyparaploo</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+a, a:hover, a:visited, a:active, a:focus { color: inherit; text-decoration: none; }
+a, button, [role="button"], select { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+html { overflow-x: hidden; scroll-behavior: smooth; font-size: var(--root-size, 17px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; overflow-wrap: break-word; word-break: break-word; transition: background 0.4s ease, color 0.3s ease; background: linear-gradient(180deg, #000 0%, #111521 100%); background-attachment: fixed; color: #d0c8bf; min-height: 100vh; }
+:root { --oy-sand: #D4C4A8; --oy-tan: #D4A574; --oy-radius: 4px; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { color: rgba(232,224,214,0.68) !important; opacity: 1; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; } .font-size-btn .sz[data-size="2"] { font-size: 18px; } .font-size-btn .sz[data-size="3"] { font-size: 15px; }
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: background 0.3s; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; }
+.wordmark { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; color: rgba(232,224,214,0.68); letter-spacing: 0.02em; flex-shrink: 0; transition: color 0.2s; }
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; letter-spacing: 0.02em; color: rgba(232,224,214,0.68); transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+.nav-utils { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.nav-utils button, .nav-utils a { font-family: 'Inter', sans-serif; color: rgba(232,224,214,0.68); background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.nav-hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: rgba(232,224,214,0.68); transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule { display: block; height: 2px; border: none; background: linear-gradient(90deg, transparent 0%, rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%, rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%, rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%, rgba(122,90,74,0.30) 90%, transparent 100%); opacity: 0.6; }
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201; display: flex; flex-direction: row; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none; }
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1.4s cubic-bezier(0.25,0.1,0.25,1); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; color: #fff; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); border-radius: 0; background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); letter-spacing: 0.01em; transition: all 0.3s; }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { display: flex; align-items: center; gap: 12px; min-width: 200px; padding: 10px 14px; border-radius: 8px; overflow: hidden; flex-shrink: 0; position: relative; }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; z-index: 0; }
+.mobile-strip-card-text { position: relative; z-index: 1; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #fff; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.8); }
+.menu-panel { position: fixed; top: 0; right: -400px; bottom: 0; z-index: 202; width: 400px; background: #faf6f0; color: #2a2320; overflow-y: auto; transition: right 0.55s cubic-bezier(0.23,1,0.32,1); font-size: 17px; }
+.menu-panel.open { right: 0; }
+.menu-top { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px 16px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; letter-spacing: 0.02em; opacity: 0.35; }
+.menu-close { font-size: 22px; color: #2a2320 !important; background: none; border: none; cursor: pointer; min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center; }
+.menu-content { padding: 0 32px 48px; }
+.menu-nav-primary a { display: block; font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; padding: 10px 0; transition: opacity 0.2s; letter-spacing: -0.01em; }
+.menu-nav-primary a:hover { opacity: 0.65; }
+.menu-nav-label { font-size: 17px; font-weight: 500; color: #8a8078; margin-bottom: 6px; letter-spacing: 0.02em; }
+.menu-nav-secondary a { display: block; font-size: 20px; font-weight: 500; color: #2a2320; padding: 8px 0; transition: opacity 0.2s; }
+.menu-nav-secondary a:hover { opacity: 0.65; }
+.menu-rule-tan { border: none; height: 1px; background: #D4C4A8; margin: 16px 0; opacity: 0.4; }
+.menu-rule-sage { border: none; height: 1px; background: #8BA89A; margin: 16px 0; opacity: 0.3; }
+.menu-nav-tertiary { display: block; margin-bottom: 12px; }
+.menu-nav-tertiary a { display: block; font-size: 17px; font-weight: 450; color: #5a5048; padding: 6px 0; transition: color 0.2s; }
+.menu-nav-tertiary a:hover { color: #2a2320; }
+.menu-address { font-size: 17px; font-weight: 450; color: #8a8078; margin-top: 20px; letter-spacing: 0.02em; }
+.menu-bottom-btns { display: flex; gap: 10px; margin-top: 20px; }
+.menu-btn { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; padding: 10px 20px; border: 1px solid #5a5048; color: #2a2320; background: transparent; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.menu-btn:hover { border-color: #2a2320; }
+.zone-hero { min-height: 80vh; display: flex; align-items: flex-end; padding: 0 60px 80px; }
+.hero-inner { max-width: 640px; }
+.hero-room { font-size: 1rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8078; margin-bottom: 32px; }
+.hero-h1 { font-family: 'Lora', serif; font-size: clamp(1.3529rem, 2.8vw, 1.7059rem); font-weight: 600; color: #ccc5bc; line-height: 1.1; letter-spacing: -0.025em; }
+.hero-sub { margin-top: 24px; font-size: 1.1rem; font-weight: 400; color: #a09888; line-height: 1.6; max-width: 480px; }
+.section-nav { border-top: 1px solid #3a3430; border-bottom: 1px solid #3a3430; padding: 0 60px; display: flex; align-items: center; }
+.sn-link { padding: 20px 32px; font-size: 1rem; font-weight: 500; color: #a09888; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.3s; border-right: 1px solid #3a3430; }
+.sn-link:last-child { border-right: none; }
+.sn-link:hover { color: #d0c8bf; }
+.sn-count { font-weight: 400; color: #8a8078; margin-left: 6px; font-size: 0.88rem; }
+.writing-section { padding: 0 60px; }
+.ws-header { padding: 64px 0 24px; border-bottom: 1px solid #2a2520; }
+.ws-name { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 600; color: #d0c8bf; letter-spacing: -0.01em; }
+.ws-count { font-size: 1rem; font-weight: 400; color: #8a8078; margin-left: 16px; }
+.wp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; padding: 0 0 80px; background: #2a2520; }
+.wp { display: block; padding: 28px 28px 24px; background: linear-gradient(180deg, #000 0%, #111521 100%); background-attachment: fixed; cursor: pointer; transition: background 0.3s ease; }
+.wp:hover { background: #141210; }
+.wp-title { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: #ccc5bc; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px; transition: color 0.3s; }
+.wp:hover .wp-title { color: #e8e0d8; }
+.wp-excerpt { font-size: 0.94rem; font-weight: 400; color: #8a8078; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.breathe { padding: 120px 60px; text-align: center; }
+.breathe-text { font-family: 'Lora', serif; font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; color: #a09888; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+.gg-intro { padding: 80px 60px 0; max-width: 700px; }
+.gg-label { font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8078; margin-bottom: 20px; }
+.gg-headline { font-family: 'Lora', serif; font-size: clamp(1.3529rem, 2.8vw, 1.7059rem); font-weight: 600; color: #ccc5bc; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+.gg-sub { font-size: 1.05rem; font-weight: 400; color: #a09888; line-height: 1.6; }
+.zone-strip { border-top: 1px solid #3a3430; border-bottom: 1px solid #3a3430; padding: 0 60px; margin-top: 48px; display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.zone-strip::-webkit-scrollbar { display: none; }
+.ts-link { padding: 20px 28px; font-size: 1rem; font-weight: 500; color: #a09888; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.3s; border-right: 1px solid #3a3430; }
+.ts-link:last-child { border-right: none; }
+.ts-link:hover { color: #d0c8bf; }
+.ts-count { font-weight: 400; color: #8a8078; margin-left: 6px; font-size: 0.88rem; }
+.territory-zone { padding: 0 60px; }
+.tz-header { display: flex; justify-content: space-between; align-items: baseline; padding: 64px 0 24px; border-bottom: 1px solid #2a2520; }
+.tz-name { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 600; color: #d0c8bf; letter-spacing: -0.01em; }
+.tz-count { font-size: 1rem; font-weight: 400; color: #8a8078; }
+.pc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 24px 0 48px; }
+.pc { display: block; cursor: pointer; transition: opacity 0.4s; }
+.pc:hover { opacity: 0.75; }
+.pc-img { width: 100%; aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 16px; }
+.pc-img svg { width: 100%; height: 100%; display: block; }
+.pc-title { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: #ccc5bc; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 4px; }
+.pc-artist { font-size: 1rem; font-weight: 400; color: #a09888; }
+.zone-close { padding: 140px 60px; text-align: center; }
+.close-num { font-family: 'Lora', serif; font-size: clamp(4rem, 8vw, 7rem); font-weight: 700; color: #a09888; letter-spacing: -0.04em; line-height: 1; }
+.close-label { font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8078; margin-top: 16px; }
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2.4s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+@media (max-width: 768px) { .reveal { transition: opacity 0.6s ease; } .reveal-slow { transition: opacity 1s ease; } }
+body.light-mode { background: #faf6f0; background-attachment: scroll; color: #2a2320; }
+body.light-mode .site-nav { background: rgba(250,246,240,0.92); }
+body.light-mode .wordmark { color: rgba(42,35,32,0.68); }
+body.light-mode .wordmark:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-links a { color: rgba(42,35,32,0.68); }
+body.light-mode .nav-links a:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-utils button, body.light-mode .nav-utils a { color: rgba(42,35,32,0.68); }
+body.light-mode .nav-utils button:hover, body.light-mode .nav-utils a:hover { color: rgba(42,35,32,0.88); }
+body.light-mode .nav-hamburger span { background: rgba(42,35,32,0.68); }
+body.light-mode .nav-accent-rule { opacity: 0.45; }
+body.light-mode .font-size-btn .sz { color: rgba(42,35,32,0.68) !important; }
+body.light-mode .hero-room { color: #5a4f47; }
+body.light-mode .hero-h1 { color: #2a2320; }
+body.light-mode .hero-sub { color: #5a4f47; }
+body.light-mode .section-nav { border-color: #c0b8b0; }
+body.light-mode .sn-link { color: #5a4f47; border-right-color: #c0b8b0; }
+body.light-mode .sn-link:hover { color: #2a2320; }
+body.light-mode .sn-count { color: #8a8078; }
+body.light-mode .ws-header { border-bottom-color: #e0d8d0; }
+body.light-mode .ws-name { color: #2a2320; }
+body.light-mode .ws-count { color: #5a4f47; }
+body.light-mode .wp-grid { background: #e0d8d0; }
+body.light-mode .wp { background: #faf6f0; }
+body.light-mode .wp:hover { background: #faf7f3; }
+body.light-mode .wp-title { color: #2a2320; }
+body.light-mode .wp:hover .wp-title { color: #000; }
+body.light-mode .wp-excerpt { color: #5a4f47; }
+body.light-mode .breathe-text { color: #5a4f47; }
+body.light-mode .gg-label { color: #5a4f47; }
+body.light-mode .gg-headline { color: #2a2320; }
+body.light-mode .gg-sub { color: #5a4f47; }
+body.light-mode .zone-strip { border-color: #c0b8b0; }
+body.light-mode .ts-link { color: #5a4f47; border-right-color: #c0b8b0; }
+body.light-mode .ts-link:hover { color: #2a2320; }
+body.light-mode .ts-count { color: #8a8078; }
+body.light-mode .tz-header { border-bottom-color: #e0d8d0; }
+body.light-mode .tz-name { color: #2a2320; }
+body.light-mode .tz-count { color: #5a4f47; }
+body.light-mode .pc-img svg rect { fill: #e8e4de; }
+body.light-mode .pc-img svg circle { fill: #e0dcd6; }
+body.light-mode .pc-title { color: #2a2320; }
+body.light-mode .pc-artist { color: #5a4f47; }
+body.light-mode .close-num { color: #c0b8b0; }
+body.light-mode .close-label { color: #8a8078; }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+@media (max-width: 1024px) { .pc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .nav-inner { padding: 0 24px; } .zone-hero { padding: 0 28px 60px; min-height: 70vh; } .section-nav { padding: 0 28px; } .writing-section { padding: 0 28px; } .breathe { padding: 80px 28px; } .gg-intro { padding: 60px 28px 0; } .zone-strip { padding: 0 28px; } .territory-zone { padding: 0 28px; } .zone-close { padding: 100px 28px; } .wp-grid { grid-template-columns: 1fr; } .pc-grid { grid-template-columns: 1fr 1fr; gap: 16px; } .menu-strips { display: none !important; } .mobile-strips { display: flex; } .menu-panel { width: 100vw; right: -100vw; } .menu-panel.open { right: 0; } }
+@media (max-width: 480px) { .pc-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="#">Writing</a></li>
+      <li><a href="/portraits" class="active">Portraits</a></li>
+      <li><a href="#">Our Practice</a></li>
+      <li><a href="#">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">&#9681;</button>
+      <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div>
+  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div>
+  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div>
+  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div>
+</div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+  <div class="menu-content">
+    <div class="mobile-strips">
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+    </div>
+    <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <div class="menu-nav-label">All Info for</div>
+    <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button><button class="menu-btn">Newsletter</button></div>
+  </div>
+</div>
+
+<main>
+
+  <section class="zone-hero">
+    <div class="hero-inner reveal-slow">
+      <div class="hero-room">The Portraits</div>
+      <h1 class="hero-h1">One hundred and twenty-two subjects, held still long enough to speak</h1>
+      <div class="hero-sub">Sixty-seven literary portraits from the writing practice. Fifty-five fictional musicians from the novel Good Grounds.</div>
+    </div>
+  </section>
+
+  <nav class="section-nav reveal" aria-label="Browse by collection">
+    <a class="sn-link" href="#the-writing">The Writing <span class="sn-count">67</span></a>
+    <a class="sn-link" href="#good-grounds">Good Grounds <span class="sn-count">55</span></a>
+  </nav>
+
+  <section class="writing-section" id="the-writing">
+    <div class="ws-header reveal">
+      <span class="ws-name">The Writing</span>
+      <span class="ws-count">67 portraits</span>
+    </div>
+    <div class="wp-grid reveal">
+      <a class="wp" href="#"><div class="wp-title">A Word Is A Room</div></a>
+      <a class="wp" href="#"><div class="wp-title">All Senses Human and Other Natures</div><div class="wp-excerpt">Oldboy maestro … an American who defined sound operating under conditions other traditions never fathomed.</div></a>
+      <a class="wp" href="#"><div class="wp-title">All These Difficult Human Realities Inspirational</div><div class="wp-excerpt">here is how it happened</div></a>
+      <a class="wp" href="#"><div class="wp-title">All This Stuff Gratefully Will Carry Us to Our Deathbed Days</div><div class="wp-excerpt">Miss Mr … lonely butterfly alone come down … royal butterfly … come down from up there.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Also Backwards and Right Side Up</div><div class="wp-excerpt">Take kindness back begins with us. Again. Again.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Are We Working Too Much Inside English</div><div class="wp-excerpt">Not taking enough risks? Not breaking it… mining it… fragmenting it… letting grammar crack where meaning cracks.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Big Problems Take Longer To Fix</div><div class="wp-excerpt">So like when you accidentally put your t-shirt on backwards … then as a result lost it.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Big Time Art</div><div class="wp-excerpt">Here comes a one percent-er in a silk suit with entitlement pockets … the endless museum ceiling is a delusional dream.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Blended Zebra Mussel Memory</div><div class="wp-excerpt">Arriving in the ballast water of a vessel carrying something unknown.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Blue Ball Mess And Mix</div><div class="wp-excerpt">this is who we are … no axe to grind … no drama …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Board Of Meeting Seriously</div><div class="wp-excerpt">We love this … from the top and bottom of our heart and soul combined!</div></a>
+      <a class="wp" href="#"><div class="wp-title">Border Wall Size Mirror of Nonbiodegradable Stuff</div><div class="wp-excerpt">We want to be that that is in between two targets … two bull&#x27;s eyes.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Both Natures Spell on Us</div><div class="wp-excerpt">Earthly heavenly conflict zone and conflict zones …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Bowed Cello Playing Sound Of Words Next To A Killing Field</div><div class="wp-excerpt">we sometimes have a lot of fear … our nation has a lot of fear …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Broken Caucasian Ruler</div><div class="wp-excerpt">Of European origin. Rule of thirds … rule of thirds … rule of thirds.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Brrd Message To All Senses Active Receivers</div><div class="wp-excerpt">mend hurts … mend hurts … mend mend hurts and shattered past experiences …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Buried Disclosure</div><div class="wp-excerpt">We&#x27;re in an archeological dig right now, but we&#x27;re not supposed to tell you the location.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Busy Mind To Silent Monk Walking</div><div class="wp-excerpt">we are desperate because we sense deceased kindred spirits … really great workers …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Careful Children</div><div class="wp-excerpt">SAfeTy First. Keep THIS ARt worK AWAy From THE Scalding Hot WATER.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Catch Our Hug Hold Ride</div><div class="wp-excerpt">Opening is always a risk …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Clasp Of The Political Class</div><div class="wp-excerpt">The children we grew up with in buckskin … Working people …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Compost Aroma Almost Poem</div><div class="wp-excerpt">&quot;Stinky&quot; was a joke. &quot;Interesting aromatic&quot; was an elder leaning into manure … and finding a study.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Conduction</div><div class="wp-excerpt">A grandmother&#x27;s kitchen in Milwaukee. An ornament in a melody that traveled from Sarajevo.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Contemporary Subdued Deep Red Blend</div><div class="wp-excerpt">It is just too painful to show red blood. So the white stains and marks represent red human and animal blood.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Could Of Should Of Sentence</div><div class="wp-excerpt">Written sentence and prison sentence combined or wonderfully woven together in speech.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Different Animal</div><div class="wp-excerpt">Ten digits from caked chemical resistant gloves and half of a slightly rusty tin snips.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Early Morning To Midafternoon Conversation With A Baobab Tree</div><div class="wp-excerpt">We came before we were ready. That&#x27;s the way to meet someone a thousand years older.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Ever So Present Ruining of Our Nation</div><div class="wp-excerpt">The rest of our body is not a floating parade …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Fluid Mosaic</div><div class="wp-excerpt">Regarding portrait paintings … portrait photographs and sculptures of figures … absolutely still in time.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Fourteen Frequencies of We&#x27;re Going To Shine</div><div class="wp-excerpt">Warm bodies in a room and one dog. Radiating. Infrared prose.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Hand Me the Matches</div><div class="wp-excerpt">Hand me the matches. Sleep comes dropping slow now in these our later years.</div></a>
+      <a class="wp" href="#"><div class="wp-title">How Bad We Love This Type Of Life</div><div class="wp-excerpt">Prompts humming in heads wanting to pick up another sweet rotation …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Lake Salt Broken Flight</div><div class="wp-excerpt">Flocks of migrating birds … Invitations to go inward …</div></a>
+      <a class="wp" href="#"><div class="wp-title">LAST Fall</div><div class="wp-excerpt">Four hours. Three acts. Forty-five scenes. Silences lasting three minutes.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Let the Wild Thing with a Pulse Move</div><div class="wp-excerpt">Yes, we have a banana to hold with our left or right hand. Four fire horns.</div></a>
+      <a class="wp" href="#"><div class="wp-title">León (Lion) oder (or) Agneau (Lamb)</div></a>
+      <a class="wp" href="#"><div class="wp-title">Minutes Open</div><div class="wp-excerpt">How is the start of your morning going? Honestly?</div></a>
+      <a class="wp" href="#"><div class="wp-title">Night Tell Us Why Lomah</div><div class="wp-excerpt">Every hour we walk by displays and synchronicity of people going from here to there and back again …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Noir Song</div></a>
+      <a class="wp" href="#"><div class="wp-title">Not Close To A River This Time</div><div class="wp-excerpt">It has rhythm but is more like a tributary system … fast to slow multiple feeding.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Palimpsest</div><div class="wp-excerpt">Revision as archaeology. The layers show through. What was written first is still underneath.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Plantless Garden</div><div class="wp-excerpt">We can&#x27;t tell you how it all works.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Red Tongues First</div><div class="wp-excerpt">Oyparaploo speaking on the surface of Indigenous red tongues first.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Sad Things and Disturbing Objects</div><div class="wp-excerpt">Typical humans get famous for something and too easily lose sight of … forget what their original dream was.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Sensing If There Might Be Another Major Collapse</div><div class="wp-excerpt">Hey. We are not going to fix anything in the next few sentences.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Voices</div><div class="wp-excerpt">The people, concepts, and places that populate the practice. Each card holds a world.</div></a>
+      <a class="wp" href="#"><div class="wp-title">Water Can Be a Worldly to Local Collective Practice</div><div class="wp-excerpt">Listen to the trickles of waters … that are part of the Minnehaha Creek experience …</div></a>
+      <a class="wp" href="#"><div class="wp-title">We Think You Misunderstood</div><div class="wp-excerpt">Thirty or so rules and hard stops … hitting a wall every paragraph …</div></a>
+      <a class="wp" href="#"><div class="wp-title">We Tried Our Best To Resolve The Situations</div><div class="wp-excerpt">Thankfully nobody organized against the work …</div></a>
+      <a class="wp" href="#"><div class="wp-title">What is the Rationale for No Hands</div><div class="wp-excerpt">Frames crop hands on rifles … hands reaching through busted doors.</div></a>
+      <a class="wp" href="#"><div class="wp-title">What the Bluffs Returned</div></a>
+      <a class="wp" href="#"><div class="wp-title">What Went Wrong?</div><div class="wp-excerpt">No Backlash Periods what so ever … No Sellout Accusations surprisingly …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Where To Place The Chairs</div><div class="wp-excerpt">She had her back to them. The chairs were arranged that way …</div></a>
+      <a class="wp" href="#"><div class="wp-title">Why Another Foot Is Important</div><div class="wp-excerpt">Every previous piece started from an object and described what it saw.</div></a>
+    </div>
+  </section>
+
+  <section class="breathe reveal-slow">
+    <div class="breathe-text">Each portrait begins with a territory.<br>The place that shaped the sound before the sound had a name.</div>
+  </section>
+
+  <section class="gg-intro reveal" id="good-grounds">
+    <div class="gg-label">Good Grounds</div>
+    <div class="gg-headline">Fifty-five musicians who do not exist</div>
+    <div class="gg-sub">Each one given a territory, an instrument, and a door.</div>
+  </section>
+
+  <nav class="zone-strip reveal" aria-label="Browse by territory">
+    <a class="ts-link" href="#territory-minnesota">Minnesota <span class="ts-count">31</span></a>
+    <a class="ts-link" href="#territory-northeast">Northeast <span class="ts-count">6</span></a>
+    <a class="ts-link" href="#territory-southwest">Southwest <span class="ts-count">7</span></a>
+    <a class="ts-link" href="#territory-northwest-lakes">Northwest &amp; Lakes <span class="ts-count">5</span></a>
+    <a class="ts-link" href="#territory-international">International <span class="ts-count">6</span></a>
+  </nav>
+
+  <section class="territory-zone" id="territory-minnesota">
+    <div class="tz-header reveal"><span class="tz-name">Minnesota</span><span class="tz-count">31 portraits</span></div>
+    <div class="pc-grid reveal">
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">Conduction</div><div class="pc-artist">Lena Petrović</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">The Guitar in the Broken Case</div><div class="pc-artist">Mare&#x27;s Tail</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Machine Held</div><div class="pc-artist">Aino Mäkelä</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">The Voice He Hated</div><div class="pc-artist">Anders Lindqvist</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What Aire Held</div><div class="pc-artist">Alma Lindgren</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Bluffs Returned</div><div class="pc-artist">Lenore Strand</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Building Held</div><div class="pc-artist">Nils Torvik</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Coin Held</div><div class="pc-artist">Elise Sørensen</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Curfew Held</div><div class="pc-artist">Kai Eriksen</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Hermitage Held</div><div class="pc-artist">Hale Bergson</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the House Heard</div><div class="pc-artist">Mariel / Mars / Red Moon</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Inlet Held</div><div class="pc-artist">Petra Voss</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Lake Held</div><div class="pc-artist">Sofie Dahl</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Ledger Held</div><div class="pc-artist">Rowan Ash</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Light Held</div><div class="pc-artist">Ingrid Moen</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Marsh Held</div><div class="pc-artist">Dag Holst</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Mill Held</div><div class="pc-artist">Frida Holm</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Mirror Held</div><div class="pc-artist">Birte Lund</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Night Held</div><div class="pc-artist">Oskar Vang</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Porch Held</div><div class="pc-artist">Turid Bakke</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Prairie Held</div><div class="pc-artist">Sven Thorsen</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Rain Held</div><div class="pc-artist">Astrid Kvam</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the River Held</div><div class="pc-artist">Leif Strand</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Road Held</div><div class="pc-artist">Hanna Berg</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Snow Held</div><div class="pc-artist">Mikkel Dahl</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Stone Held</div><div class="pc-artist">Ragna Foss</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Train Held</div><div class="pc-artist">Lars Kolstad</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Tree Held</div><div class="pc-artist">Sigrid Aas</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Water Held</div><div class="pc-artist">Tor Lie</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Wind Held</div><div class="pc-artist">Knut Haug</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Winter Held</div><div class="pc-artist">Bente Vik</div></a>
+    </div>
+  </section>
+
+  <section class="territory-zone" id="territory-northeast">
+    <div class="tz-header reveal"><span class="tz-name">Northeast</span><span class="tz-count">6 portraits</span></div>
+    <div class="pc-grid reveal">
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Archive Held</div><div class="pc-artist">Maren Cole</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Bridge Held</div><div class="pc-artist">Jonas Webb</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Harbor Held</div><div class="pc-artist">Cecile Roux</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Shore Held</div><div class="pc-artist">Ida Marsh</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Kitchen Held</div><div class="pc-artist">June Lam</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the First Take Held</div><div class="pc-artist">Manon Roustan</div></a>
+    </div>
+  </section>
+
+  <section class="territory-zone" id="territory-southwest">
+    <div class="tz-header reveal"><span class="tz-name">Southwest</span><span class="tz-count">7 portraits</span></div>
+    <div class="pc-grid reveal">
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Canyon Held</div><div class="pc-artist">Sol Reyes</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Desert Held</div><div class="pc-artist">Calla Wren</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Dust Held</div><div class="pc-artist">Milo Cross</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Mesa Held</div><div class="pc-artist">Ren Yates</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Door Held</div><div class="pc-artist">Margot Lund</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Autoharp Held</div><div class="pc-artist">Thea Visser</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">Ghost</div><div class="pc-artist">Jonah Lind</div></a>
+    </div>
+  </section>
+
+  <section class="territory-zone" id="territory-northwest-lakes">
+    <div class="tz-header reveal"><span class="tz-name">Northwest &amp; Lakes</span><span class="tz-count">5 portraits</span></div>
+    <div class="pc-grid reveal">
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Current Held</div><div class="pc-artist">River North</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Forest Held</div><div class="pc-artist">Birch Lane</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Frost Held</div><div class="pc-artist">Wren Holt</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Ice Held</div><div class="pc-artist">Finn Lake</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Shore Held</div><div class="pc-artist">Elin Grove</div></a>
+    </div>
+  </section>
+
+  <section class="territory-zone" id="territory-international">
+    <div class="tz-header reveal"><span class="tz-name">International</span><span class="tz-count">6 portraits</span></div>
+    <div class="pc-grid reveal">
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Name Held</div><div class="pc-artist">Ellery Ames</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Address Held</div><div class="pc-artist">Rémi Brassard</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Tuning Held Open</div><div class="pc-artist">Simone Thibault</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">The Pour She Was Always Carrying</div><div class="pc-artist">Nóra Varga</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Letters Held</div><div class="pc-artist">Delia Soria</div></a>
+      <a class="pc" href="#"><div class="pc-img"><svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg></div><div class="pc-title">What the Wind Held</div><div class="pc-artist">Amira Osman</div></a>
+    </div>
+  </section>
+
+  <section class="zone-close reveal-slow">
+    <div class="close-num">122</div>
+    <div class="close-label">portraits</div>
+  </section>
+
+</main>
+
+<script>
+var sizeStep=1;var fontBtn=document.getElementById('fontSizeBtn');var sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'\u25D0':'\u25D1';});
+var navHamburger=document.getElementById('navHamburger');var menuCloseBtn=document.getElementById('menuCloseBtn');var menuOverlay=document.getElementById('menuOverlay');var menuStrips=document.getElementById('menuStrips');var menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+(function(){var els=document.querySelectorAll('.reveal,.reveal-slow');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target);}});},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});els.forEach(function(el){obs.observe(el);});})();
+</script>
+</body>
+</html>
