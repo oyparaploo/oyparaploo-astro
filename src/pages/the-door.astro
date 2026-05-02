@@ -1,0 +1,285 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+import '@fontsource/lora/700.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oyparaploo — The Door</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+p,h1,h2,h3,h4,li,blockquote{text-wrap:pretty;}
+em,i,cite,address,dfn,var{font-style:normal;}
+*{font-style:normal;}
+html{overflow-x:hidden;scroll-behavior:smooth;font-size:var(--root-size,17px);-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word;word-break:break-word;transition:background 0.4s ease,color 0.3s ease;background:linear-gradient(to bottom,#000000 0%,#000000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);background-attachment:fixed;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+a,button,[role="button"],select{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;}
+ul,ol{list-style:none;}
+img{max-width:100%;height:auto;display:block;}
+:root{--oy-sand:#D4C4A8;--oy-tan:#D4A574;--oy-radius:4px;}
+html.size-1{--root-size:17px;}html.size-2{--root-size:18px;}html.size-3{--root-size:20px;}
+.font-size-btn{display:flex;gap:2px;font-weight:600;align-items:baseline;}
+.font-size-btn .sz{color:rgba(232,224,214,0.68) !important;opacity:1;transition:opacity 0.25s;line-height:1;}
+.font-size-btn .sz.active{opacity:1;}
+.font-size-btn .sz[data-size="1"]{font-size:22px;}.font-size-btn .sz[data-size="2"]{font-size:18px;}.font-size-btn .sz[data-size="3"]{font-size:15px;}
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:background 0.3s;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;}
+.wordmark{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;color:rgba(232,224,214,0.68);letter-spacing:0.02em;flex-shrink:0;transition:color 0.2s;}
+.wordmark:hover{color:rgba(232,224,214,0.88);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;padding-left:0;margin-left:48px;flex-shrink:0;}
+.nav-links a{font-family:'Inter',sans-serif;font-size:21px;font-weight:500;letter-spacing:0.02em;color:rgba(232,224,214,0.68);transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.nav-utils button,.nav-utils a{font-family:'Inter',sans-serif;color:rgba(232,224,214,0.68);background:none;border:none;cursor:pointer;min-height:44px;padding:0 8px;display:flex;align-items:center;justify-content:center;transition:color 0.2s;}
+.nav-utils button:hover,.nav-utils a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils svg{stroke:currentColor;fill:none;}
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-height:44px;padding:0 8px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:rgba(232,224,214,0.68);transition:transform 0.25s,opacity 0.2s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:0.6;}
+.menu-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.45);opacity:0;pointer-events:none;transition:opacity 0.6s;}
+.menu-overlay.open{opacity:1;pointer-events:auto;}
+.menu-strips{position:fixed;top:0;bottom:0;left:0;right:400px;z-index:201;display:flex;flex-direction:row;overflow:hidden;opacity:0;transition:opacity 0.5s ease 0.15s;pointer-events:none;}
+.menu-strips.open{opacity:1;pointer-events:auto;}
+.strip{flex:1;position:relative;overflow:hidden;cursor:pointer;transition:flex 1.2s cubic-bezier(0.25,0.1,0.25,1);min-width:0;}
+.strip:hover{flex:4;}
+.strip-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.4s cubic-bezier(0.25,0.1,0.25,1);}
+.strip::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;z-index:1;background:linear-gradient(to top,rgba(0,0,0,0.28) 0%,transparent 100%);pointer-events:none;}
+.strip:hover .strip-bg{transform:scale(1.04);}
+.strip-bottom{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.4);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:40px 36px 44px;z-index:2;opacity:0;transition:opacity 0.8s ease 0.3s;}
+.strip:hover .strip-bottom{opacity:1;}
+.strip-content{color:#fff;}
+.strip-title{font-family:'Inter',sans-serif;font-size:34px;font-weight:700;line-height:1.12;margin-bottom:8px;color:#fff;}
+.strip-subtitle{font-family:'Lora',serif;font-size:26px;font-weight:500;color:rgba(255,255,255,0.9);line-height:1.25;margin-bottom:14px;}
+.strip-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+.strip-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:17px;font-weight:500;color:#fff;padding:10px 20px;border:1px solid rgba(255,255,255,0.75);border-radius:0;background:rgba(255,255,255,0.28);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);letter-spacing:0.01em;transition:all 0.3s;}
+.strip-btn:hover{background:rgba(255,255,255,0.40);border-color:#fff;}
+.strip-1 .strip-bg{background:linear-gradient(160deg,#c9bcac 0%,#8a7a6a 100%);}
+.strip-2 .strip-bg{background:linear-gradient(160deg,#8BA89A 0%,#5a7a6a 100%);}
+.strip-3 .strip-bg{background:linear-gradient(160deg,#D4A574 0%,#a07050 100%);}
+.strip-4 .strip-bg{background:linear-gradient(160deg,#7a8aaa 0%,#4a5a7a 100%);}
+.mobile-strips{display:none;gap:10px;margin-bottom:24px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.mobile-strips::-webkit-scrollbar{display:none;}
+.mobile-strip-card{flex:0 0 140px;height:100px;border-radius:var(--oy-radius);position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(0,0,0,0.28);}
+.mobile-strip-card .strip-bg{position:absolute;inset:0;border-radius:var(--oy-radius);}
+.mobile-strip-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 60%);border-radius:var(--oy-radius);}
+.mobile-strip-card-text{position:absolute;bottom:10px;left:12px;right:8px;z-index:2;color:#fff;}
+.mobile-strip-card-title{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;line-height:1.2;margin-bottom:2px;}
+.mobile-strip-card-sub{font-family:'Lora',serif;font-size:17px;font-weight:500;color:rgba(255,255,255,0.75);line-height:1.2;}
+.menu-panel{position:fixed;top:0;right:0;bottom:0;z-index:201;width:400px;max-width:90vw;background:#faf6f0;color:#2a2320;font-size:17px;clip-path:inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));transition:clip-path 0.6s cubic-bezier(0.4,0,0.1,1),opacity 0.2s ease;overflow-y:auto;padding:24px 32px 40px;pointer-events:none;opacity:0;}
+.menu-panel.open{clip-path:inset(0 0 0 0 round 0);pointer-events:auto;opacity:1;}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+.menu-ghost-wordmark{font-family:'Inter',sans-serif;font-size:22px;font-weight:500;color:#2a2320;opacity:0.38;letter-spacing:0.02em;user-select:none;pointer-events:none;}
+.menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#2a2320 !important;cursor:pointer;}
+.menu-nav-primary a{font-family:'Lora',serif;font-size:24px;font-weight:600;color:#2a2320;display:block;padding:10px 0;line-height:1.2;transition:opacity 0.2s;}
+.menu-nav-primary a:hover{opacity:0.55;}
+.menu-rule-tan{height:2px;border:none;background:var(--oy-tan);margin:20px 0;}
+.menu-rule-sage{height:2px;border:none;background:#8BA89A;margin:20px 0;}
+.menu-nav-secondary a,.menu-nav-tertiary a{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;color:#2a2320;display:block;padding:4px 0;transition:opacity 0.2s;}
+.menu-nav-secondary a:hover,.menu-nav-tertiary a:hover{opacity:0.55;}
+.menu-address{font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:#5a4f47;margin-top:20px;line-height:1.6;}
+.menu-bottom-btns{display:flex;gap:8px;margin-top:20px;}
+.menu-bottom-btns .menu-btn{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#2a2320;border:1px solid rgba(42,35,32,0.40);padding:8px 16px;border-radius:var(--oy-radius);background:transparent;cursor:pointer;transition:background 0.2s,color 0.2s,border-color 0.2s;min-height:44px;}
+.menu-bottom-btns .menu-btn:hover{background:#2a2320;color:#faf8f5;border-color:#2a2320;}
+.reveal{opacity:0;transition:opacity 1s ease;}
+.reveal.visible{opacity:1;}
+.bottom-safe{padding-bottom:env(safe-area-inset-bottom,0px);}
+.door-container{max-width:1200px;margin:0 auto;padding:0 40px;}
+.door-hero{padding:120px 0 64px;border-bottom:1px solid #3a3430;}
+.door-logotype{font-family:'Lora',serif;font-size:clamp(36px,5.5vw,64px);font-weight:700;color:#d0c8bf;letter-spacing:-0.02em;line-height:1.05;margin-bottom:32px;}
+.door-tagline{font-size:1.0588rem;font-weight:400;color:#b5ada5;line-height:1.75;max-width:540px;margin-bottom:36px;}
+.door-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.door-cta{font-size:1rem;font-weight:500;color:#d0c8bf;background:transparent;border:1px solid #5a5048;padding:12px 24px;border-radius:var(--oy-radius);transition:border-color 0.2s,color 0.2s;min-height:44px;display:inline-flex;align-items:center;}
+.door-cta:hover{border-color:#d0c8bf;color:#e8e0d8;}
+.door-location{font-size:1rem;font-weight:400;color:#8a8078;margin-top:40px;}
+.door-section{padding:56px 0;border-bottom:1px solid #3a3430;}
+.door-section:last-of-type{border-bottom:none;}
+.door-section-label{font-size:1rem;font-weight:600;color:#a09888;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;}
+.door-section-title{font-family:'Lora',serif;font-size:clamp(23px,2.8vw,29px);font-weight:600;color:#d0c8bf;margin-bottom:8px;}
+.door-section-desc{font-size:1rem;font-weight:400;color:#8a8078;line-height:1.65;max-width:520px;margin-bottom:36px;}
+.writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.writing-card{border:1px solid #3a3430;border-radius:var(--oy-radius);padding:28px 24px;display:flex;flex-direction:column;transition:border-color 0.2s,background 0.2s;}
+.writing-card:hover{border-color:#5a5048;background:#141210;}
+.writing-card-category{font-size:1rem;font-weight:500;color:#a09888;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:12px;}
+.writing-card-title{font-family:'Lora',serif;font-size:1.2353rem;font-weight:600;color:#ccc5bc;line-height:1.3;margin-bottom:12px;transition:color 0.2s;}
+.writing-card:hover .writing-card-title{color:#e8e0d8;}
+.writing-card-excerpt{font-size:1rem;font-weight:400;color:#b5ada5;line-height:1.65;flex:1;}
+.section-link{display:inline-block;font-size:1rem;font-weight:500;color:#a09888;margin-top:28px;transition:color 0.2s;}
+.section-link:hover{color:#d0c8bf;}
+.room-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.room-card{border:1px solid #3a3430;border-radius:var(--oy-radius);padding:28px 24px;display:flex;flex-direction:column;transition:border-color 0.2s,background 0.2s;}
+.room-card:hover{border-color:#5a5048;background:#141210;}
+.room-card-name{font-family:'Lora',serif;font-size:1.2353rem;font-weight:600;color:#ccc5bc;margin-bottom:10px;transition:color 0.2s;}
+.room-card:hover .room-card-name{color:#e8e0d8;}
+.room-card-desc{font-size:1rem;font-weight:400;color:#8a8078;line-height:1.65;flex:1;}
+.room-card-count{font-size:1rem;font-weight:500;color:#a09888;margin-top:16px;}
+.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.domain-card{border:1px solid #3a3430;border-radius:var(--oy-radius);padding:28px 24px;background:#0a0a0c;transition:border-color 0.2s,background 0.2s;}
+.domain-card:hover{border-color:#5a5048;background:#141210;}
+.domain-card-name{font-family:'Lora',serif;font-size:1.2353rem;font-weight:600;color:#ccc5bc;margin-bottom:10px;transition:color 0.2s;}
+.domain-card:hover .domain-card-name{color:#e8e0d8;}
+.domain-card-desc{font-size:1rem;font-weight:400;color:#8a8078;line-height:1.65;}
+body.light-mode{background:#ffffff;background-image:linear-gradient(to bottom,#ffffff 0px,#ffffff 300px,#fdfcfb 700px,#f9f7f4 100%);background-attachment:scroll;}
+body.light-mode .site-nav{background:rgba(255,255,255,0.97);}
+body.light-mode .wordmark{color:#333;}body.light-mode .wordmark:hover{color:#5c3a1e;}
+body.light-mode .nav-links a{color:#333;}body.light-mode .nav-links a:hover{color:#5c3a1e;}
+body.light-mode .nav-utils button,body.light-mode .nav-utils a{color:#000;}
+body.light-mode .nav-hamburger span{background:#333;}
+body.light-mode .font-size-btn .sz{color:#000 !important;}
+body.light-mode .nav-accent-rule{opacity:1;}
+body.light-mode .door-hero{border-bottom-color:#d0c9c4;}
+body.light-mode .door-logotype{color:#2a2320;}
+body.light-mode .door-tagline{color:#4a4038;}
+body.light-mode .door-cta{color:#2a2320;border-color:#c4bdb8;}
+body.light-mode .door-cta:hover{border-color:#2a2320;}
+body.light-mode .door-location{color:#5a4f47;}
+body.light-mode .door-section{border-bottom-color:#d0c9c4;}
+body.light-mode .door-section-label{color:#5a4f47;}
+body.light-mode .door-section-title{color:#2a2320;}
+body.light-mode .door-section-desc{color:#5a4f47;}
+body.light-mode .writing-card{border-color:#c4bdb8;}
+body.light-mode .writing-card:hover{border-color:#959088;background:#f7f4f2;}
+body.light-mode .writing-card-category{color:#5a4f47;}
+body.light-mode .writing-card-title{color:#2a2320;}
+body.light-mode .writing-card-excerpt{color:#4a4038;}
+body.light-mode .section-link{color:#5a4f47;}body.light-mode .section-link:hover{color:#2a2320;}
+body.light-mode .room-card{border-color:#c4bdb8;}
+body.light-mode .room-card:hover{border-color:#959088;background:#f7f4f2;}
+body.light-mode .room-card-name{color:#2a2320;}
+body.light-mode .room-card-desc{color:#5a4f47;}
+body.light-mode .room-card-count{color:#5a4f47;}
+body.light-mode .domain-card{border-color:#c4bdb8;background:#f7f4f2;}
+body.light-mode .domain-card:hover{border-color:#959088;background:#efebe6;}
+body.light-mode .domain-card-name{color:#2a2320;}
+body.light-mode .domain-card-desc{color:#5a4f47;}
+@media(max-width:1100px){.nav-links{display:none;}}
+@media(max-width:1024px){.writing-grid{grid-template-columns:repeat(2,1fr);}.room-grid{grid-template-columns:repeat(2,1fr);}.domain-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.nav-inner{padding:0 24px;}.menu-strips{display:none;}.mobile-strips{display:flex;}.menu-panel{width:100%;max-width:100%;}.reveal{transition:opacity 0.6s ease;}.door-container{padding:0 24px;}.door-hero{padding:72px 0 48px;}.writing-grid{grid-template-columns:1fr;}.room-grid{grid-template-columns:1fr;}.domain-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.door-container{padding:0 24px;}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="#">Writing</a></li>
+      <li><a href="/portraits">Portraits</a></li>
+      <li><a href="/our-practice">Practice</a></li>
+      <li><a href="#">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◑</button>
+      <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div>
+  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">63 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div>
+  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual and object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div>
+  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div>
+</div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+  <div class="menu-content">
+    <div class="mobile-strips">
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">63 pieces</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+    </div>
+    <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+  </div>
+</div>
+
+<main>
+<div class="door-container">
+
+  <section class="door-hero">
+    <h1 class="door-logotype">Oyparaploo</h1>
+    <p class="door-tagline">Wonderful Garbage and Noir Song Frequencies. Thirty years of picking up what the world threw away and making it matter. Writing, making, sound, puppets, prayers, portraits, and a novel. Minneapolis ~ Saint Paul.</p>
+    <div class="door-ctas">
+      <a href="#" class="door-cta">Read the Writing</a>
+      <a href="/our-practice" class="door-cta">The Practice</a>
+    </div>
+    <p class="door-location">Same work. Different shift.</p>
+  </section>
+
+  <section class="door-section reveal">
+    <div class="door-section-label">Writing</div>
+    <h2 class="door-section-title">From the Ledger</h2>
+    <p class="door-section-desc">63 shaped pieces and growing. Five categories, each with its own posture.</p>
+    <div class="writing-grid">
+      <a href="#" class="writing-card"><div class="writing-card-category">Witness</div><div class="writing-card-title">Brown Paint</div><div class="writing-card-excerpt">Two women. Dead children. The inadequacy of brown paint. R43.20 with VAT.</div></a>
+      <a href="#" class="writing-card"><div class="writing-card-category">Declaration</div><div class="writing-card-title">She Had a Hammer</div><div class="writing-card-excerpt">Craft as love across time. The hammer that knew the difference between building and breaking.</div></a>
+      <a href="/americas-weirdest-annual-variety-show" class="writing-card"><div class="writing-card-category">Conversation</div><div class="writing-card-title">America's Weirdest Annual Variety Show</div><div class="writing-card-excerpt">Watching from Saint Paul. Seven degrees outside. The Mississippi under ice.</div></a>
+    </div>
+    <a href="#" class="section-link">All 63 pieces in La Log &#8594;</a>
+  </section>
+
+  <section class="door-section reveal">
+    <div class="door-section-label">The Building</div>
+    <h2 class="door-section-title">Eleven Rooms</h2>
+    <div class="room-grid">
+      <a href="#" class="room-card"><div class="room-card-name">Writing</div><div class="room-card-desc">The literary work. Five categories. The Essential Ten as gateway.</div><div class="room-card-count">~70 pages</div></a>
+      <a href="/portraits" class="room-card"><div class="room-card-name">Portraits</div><div class="room-card-desc">55 fictional portraits. A territory that spans continents.</div><div class="room-card-count">~65 pages</div></a>
+      <a href="#" class="room-card"><div class="room-card-name">Good Grounds</div><div class="room-card-desc">A novel in 22 chapters. Eight children. Moved from Austria to France.</div><div class="room-card-count">~26 pages</div></a>
+      <a href="#" class="room-card"><div class="room-card-name">Prayers</div><div class="room-card-desc">80 daily prayers. One for each day. The practice's devotional wing.</div><div class="room-card-count">~93 pages</div></a>
+      <a href="/the-puppets" class="room-card"><div class="room-card-name">Puppets</div><div class="room-card-desc">LAST FAll in 45 scenes. Ten puppet characters. The Rangmanch Collective.</div><div class="room-card-count">~62 pages</div></a>
+      <a href="#" class="room-card"><div class="room-card-name">Making</div><div class="room-card-desc">Visual and object practice. Soft sculpture, assemblage, installation.</div><div class="room-card-count">8 pages</div></a>
+      <a href="#" class="room-card"><div class="room-card-name">Methodology</div><div class="room-card-desc">The tools. 70 shaping prompts, rotation prompts, the living documents.</div><div class="room-card-count">14 pages</div></a>
+      <a href="#" class="room-card"><div class="room-card-name">Artists</div><div class="room-card-desc">Collaborations. The LOVES framework. Noir Song frequencies.</div><div class="room-card-count">16 pages</div></a>
+    </div>
+  </section>
+
+  <section class="door-section reveal">
+    <div class="door-section-label">The ground</div>
+    <h2 class="door-section-title">What This Practice Does</h2>
+    <div class="domain-grid">
+      <div class="domain-card"><div class="domain-card-name">Wonderful Garbage</div><div class="domain-card-desc">This thing that the world threw away matters. I will make it matter. Not aesthetic. Ethical. The shift from beautiful to wonderful honors the amazement that arrived after thirty years.</div></div>
+      <div class="domain-card"><div class="domain-card-name">Pressure Ghosts</div><div class="domain-card-desc">What the objects remember. What the characters carry. What the writing reveals. The accumulated weight of everything that happened in this forest since the organism began growing.</div></div>
+      <div class="domain-card"><div class="domain-card-name">Middle Eye</div><div class="domain-card-desc">Sees connection before explanation. Notices the gap between what someone says and what someone does. Finds the optical illusion in the natural system.</div></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<div class="bottom-safe"></div>
+
+<script>
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'◐':'◑';});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuStrips=document.getElementById('menuStrips'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+(function(){var els=document.querySelectorAll('.reveal');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target);}});},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});els.forEach(function(el){obs.observe(el);});})();
+</script>
+</body>
+</html>

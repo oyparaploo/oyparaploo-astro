@@ -1,0 +1,279 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>America's Weirdest Annual Variety Show — Oyparaploo</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+p,h1,h2,h3,h4,li,blockquote{text-wrap:pretty;}
+em,i,cite,address,dfn,var{font-style:normal;}
+*{font-style:normal;}
+html{overflow-x:hidden;scroll-behavior:smooth;font-size:var(--root-size,18px);-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word;word-break:break-word;transition:background 0.4s ease,color 0.3s ease;background:linear-gradient(to bottom,#000000 0%,#000000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);background-attachment:fixed;min-height:100vh;color:#d0c8bf;}
+a{color:inherit;text-decoration:none;}
+a,button,[role="button"],select{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;}
+ul,ol{list-style:none;}
+img{max-width:100%;height:auto;display:block;}
+:root{--oy-sand:#D4C4A8;--oy-tan:#D4A574;--oy-radius:4px;}
+html.size-1{--root-size:18px;}html.size-2{--root-size:19px;}html.size-3{--root-size:21px;}
+.font-size-btn{display:flex;gap:2px;font-weight:600;align-items:baseline;}
+.font-size-btn .sz{color:rgba(232,224,214,0.68) !important;opacity:1;transition:opacity 0.25s;line-height:1;}
+.font-size-btn .sz.active{opacity:1;}
+.font-size-btn .sz[data-size="1"]{font-size:22px;}.font-size-btn .sz[data-size="2"]{font-size:18px;}.font-size-btn .sz[data-size="3"]{font-size:15px;}
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:background 0.3s;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;}
+.wordmark{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;color:rgba(232,224,214,0.68);letter-spacing:0.02em;flex-shrink:0;transition:color 0.2s;}
+.wordmark:hover{color:rgba(232,224,214,0.88);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;padding-left:0;margin-left:48px;flex-shrink:0;}
+.nav-links a{font-family:'Inter',sans-serif;font-size:21px;font-weight:500;letter-spacing:0.02em;color:rgba(232,224,214,0.68);transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.nav-utils button,.nav-utils a{font-family:'Inter',sans-serif;color:rgba(232,224,214,0.68);background:none;border:none;cursor:pointer;min-height:44px;padding:0 8px;display:flex;align-items:center;justify-content:center;transition:color 0.2s;}
+.nav-utils button:hover,.nav-utils a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils svg{stroke:currentColor;fill:none;}
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-height:44px;padding:0 8px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:rgba(232,224,214,0.68);transition:transform 0.25s,opacity 0.2s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:0.6;}
+.menu-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.45);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity 0.6s;}
+.menu-overlay.open{opacity:1;pointer-events:auto;}
+.menu-strips{display:none !important;}
+.menu-panel{position:fixed;top:0;right:0;bottom:0;z-index:201;width:400px;max-width:90vw;background:#faf6f0;color:#2a2320;font-size:17px;clip-path:inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));transition:clip-path 0.6s cubic-bezier(0.4,0,0.1,1),opacity 0.2s ease;overflow-y:auto;padding:24px 32px 40px;pointer-events:none;opacity:0;}
+.menu-panel.open{clip-path:inset(0 0 0 0 round 0);pointer-events:auto;opacity:1;}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+.menu-ghost-wordmark{font-family:'Inter',sans-serif;font-size:22px;font-weight:500;color:#2a2320;opacity:0.38;letter-spacing:0.02em;user-select:none;pointer-events:none;}
+.menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#2a2320;cursor:pointer;}
+.menu-nav-primary a{font-family:'Lora',serif;font-size:24px;font-weight:600;color:#2a2320;display:block;padding:10px 0;line-height:1.2;transition:opacity 0.2s;}
+.menu-nav-primary a:hover{opacity:0.55;}
+.menu-rule-tan{height:2px;border:none;background:var(--oy-tan);margin:20px 0;}
+.menu-rule-sage{height:2px;border:none;background:#8BA89A;margin:20px 0;}
+.menu-nav-secondary a,.menu-nav-tertiary a{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;color:#2a2320;display:block;padding:4px 0;transition:opacity 0.2s;}
+.menu-nav-secondary a:hover,.menu-nav-tertiary a:hover{opacity:0.55;}
+.menu-address{font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:#5a4f47;margin-top:20px;line-height:1.6;}
+.menu-bottom-btns{display:flex;gap:8px;margin-top:20px;}
+.menu-bottom-btns .menu-btn{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#2a2320;border:1px solid rgba(42,35,32,0.40);padding:8px 16px;border-radius:var(--oy-radius);background:transparent;cursor:pointer;min-height:44px;}
+.mobile-strips{display:none !important;}
+@keyframes edge-breathe-left{0%,100%{opacity:0.12;}50%{opacity:0.28;}}
+@keyframes edge-breathe-right{0%,100%{opacity:0.14;}50%{opacity:0.30;}}
+@keyframes fade-in-slow{from{opacity:0;}to{opacity:1;}}
+.screen-glow{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:550px;background:radial-gradient(ellipse 100% 80% at 50% 45%,rgba(178,150,110,0.10) 0%,rgba(178,150,110,0.05) 40%,transparent 75%);pointer-events:none;z-index:0;filter:blur(40px);}
+.edge-strip{position:fixed;top:0;bottom:0;width:6px;z-index:1;pointer-events:none;filter:blur(12px);}
+.edge-strip-left{left:0;background:linear-gradient(to bottom,transparent 0%,rgba(196,149,106,0.35) 15%,rgba(196,149,106,0.55) 40%,rgba(196,149,106,0.48) 60%,rgba(196,149,106,0.30) 85%,transparent 100%);animation:edge-breathe-left 18s ease-in-out infinite;}
+.edge-strip-right{right:0;background:linear-gradient(to bottom,transparent 0%,rgba(196,149,106,0.30) 20%,rgba(196,149,106,0.48) 45%,rgba(196,149,106,0.40) 65%,rgba(196,149,106,0.25) 80%,transparent 100%);animation:edge-breathe-right 22s ease-in-out 4s infinite;}
+.reading-room{max-width:700px;margin:0 auto;padding:40px 40px 80px;position:relative;z-index:10;}
+.reading-breadcrumb{font-family:'Inter',sans-serif;font-size:1rem;font-weight:425;color:#8a8078;display:flex;align-items:center;gap:6px;margin-bottom:32px;animation:fade-in-slow 1.8s ease both;}
+.reading-breadcrumb svg{stroke:currentColor;fill:none;flex-shrink:0;}
+.reading-breadcrumb a{color:#8a8078;transition:color 0.2s;}
+.reading-breadcrumb a:hover{color:#d0c8bf;}
+.reading-title{font-family:'Lora',serif;font-size:clamp(32px,3.5vw,40px);font-weight:600;color:#d0c8bf;letter-spacing:0em;line-height:1.2;margin-bottom:12px;opacity:0;animation:fade-in-slow 2s ease 0.4s forwards;}
+.reading-parenthetical{font-family:'Inter',sans-serif;font-size:1rem;font-weight:400;color:#8a8078;letter-spacing:0.01em;line-height:1.5;margin-bottom:0;opacity:0;animation:fade-in-slow 2s ease 0.8s forwards;}
+.screen-edge{width:80px;height:1px;background:linear-gradient(90deg,rgba(196,149,106,0.0) 0%,rgba(196,149,106,0.45) 30%,rgba(196,149,106,0.45) 70%,rgba(196,149,106,0.0) 100%);margin:48px 0 56px;opacity:0;animation:fade-in-slow 2s ease 1.2s forwards;}
+.reading-body{font-family:'Inter',sans-serif;font-size:1rem;font-weight:400;color:#b5ada5;letter-spacing:-0.01em;line-height:1.75;opacity:0;animation:fade-in-slow 2s ease 1.6s forwards;}
+.reading-body p{margin-bottom:2em;}
+.reading-body p:last-of-type{margin-bottom:0;}
+.section-break{font-family:'Lora',serif;font-size:1.15rem;font-weight:400;color:#8a6e50;text-align:center;letter-spacing:0.35em;margin:3em 0;text-shadow:0 0 12px rgba(196,149,106,0.18),0 0 28px rgba(196,149,106,0.08);user-select:none;}
+.seq-nav{margin-top:140px;padding-top:24px;border-top:1.2px solid #3a3430;display:flex;flex-direction:column;gap:20px;}
+.seq-nav a{font-family:'Inter',sans-serif;font-size:19px;font-weight:400;color:#8a8078;display:flex;align-items:center;gap:8px;min-height:44px;transition:color 0.2s;}
+.seq-nav a:hover{color:#d0c8bf;}
+.seq-nav-next{align-self:flex-end;order:-1;}
+.seq-nav-prev{align-self:flex-start;}
+body.light-mode{background:#ffffff;background-image:linear-gradient(to bottom,#ffffff 0px,#ffffff 300px,#fdfcfb 700px,#f9f7f4 100%);background-attachment:scroll;color:#2a2320;}
+body.light-mode .site-nav{background:rgba(255,255,255,0.97);}
+body.light-mode .wordmark{color:#333;}
+body.light-mode .wordmark:hover{color:#5c3a1e;}
+body.light-mode .nav-links a{color:#333;}
+body.light-mode .nav-utils button,body.light-mode .nav-utils a{color:#000;}
+body.light-mode .nav-hamburger span{background:#333;}
+body.light-mode .font-size-btn .sz{color:#000 !important;}
+body.light-mode .nav-accent-rule{opacity:1;}
+body.light-mode .screen-glow,body.light-mode .edge-strip-left,body.light-mode .edge-strip-right{visibility:hidden;opacity:0;animation:none;}
+body.light-mode .reading-breadcrumb,body.light-mode .reading-breadcrumb a{color:#5a4f47;}
+body.light-mode .reading-breadcrumb a:hover{color:#2a2320;}
+body.light-mode .reading-title{color:#3d352e;}
+body.light-mode .reading-parenthetical{color:#7d7168;}
+body.light-mode .screen-edge{background:linear-gradient(90deg,rgba(122,90,74,0.0) 0%,rgba(122,90,74,0.30) 30%,rgba(122,90,74,0.30) 70%,rgba(122,90,74,0.0) 100%);}
+body.light-mode .reading-body{color:#2a2320;}
+body.light-mode .section-break{color:#b8a088;text-shadow:none;}
+body.light-mode .seq-nav{border-top-color:#777777;}
+body.light-mode .seq-nav a{color:#5a4f47;}
+body.light-mode .seq-nav a:hover{color:#2a2320;}
+@media(max-width:1400px){.edge-strip{width:4px;}}
+@media(max-width:1100px){.nav-links{display:none;}}
+@media(max-width:768px){.nav-inner{padding:0 24px;}.menu-panel{width:100%;max-width:100%;}.reading-title{font-size:clamp(28px,5vw,36px);}.screen-glow{width:500px;height:350px;}.edge-strip{filter:blur(10px);width:4px;}}
+@media(max-width:480px){.nav-inner{padding:0 24px;}.reading-room{padding:24px 24px 64px;}.reading-title{font-size:clamp(28px,5vw,36px);line-height:1.25;}.reading-parenthetical{font-size:0.9375rem;}.screen-edge{margin:28px 0 36px;width:60px;}.section-break{margin:2.5em 0;}.seq-nav{gap:12px;}.edge-strip{display:none;}.screen-glow{width:320px;height:240px;}}
+.bottom-safe{padding-bottom:env(safe-area-inset-bottom,0px);}
+</style>
+</head>
+<body>
+
+<div class="screen-glow" aria-hidden="true"></div>
+<div class="edge-strip edge-strip-left" aria-hidden="true"></div>
+<div class="edge-strip edge-strip-right" aria-hidden="true"></div>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Writing</a></li>
+      <li><a href="/portraits">Portraits</a></li>
+      <li><a href="/our-practice">Practice</a></li>
+      <li><a href="#">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◑</button>
+      <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+  </div>
+</div>
+
+<main>
+<div class="reading-room">
+
+  <nav class="reading-breadcrumb" aria-label="Breadcrumb">
+    <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
+    <a href="#">Writing</a>
+  </nav>
+
+  <h1 class="reading-title">America's Weirdest Annual Variety&nbsp;Show</h1>
+  <div class="reading-parenthetical">( our day-old memory of a very different bud bowl )</div>
+  <div class="screen-edge" aria-hidden="true"></div>
+
+  <div class="reading-body">
+
+    <p>Green Day opened with pumps of visible steam and played three songs whose titles read like a schedule for the week: Holiday, Boulevard of Broken Dreams, American Idiot.</p>
+    <p>Two days earlier, Friday night in San Francisco, Billie Joe Armstrong dedicated a song to every ICE agent in the building. Wherever you are, he said, quit your shitty-ass job. His words, not ours. Then on Sunday he played the opening ceremony at a stadium where those same agents said they would be working the crowd.</p>
+    <p>Armstrong has been yelling at administrations since Bush. He said maybe he over-exaggerated with Bush, but Trump is the worst problem Americans are facing and he just cannot wait. Our politics divided and polarized, he said. We had an insurrection. Everything coming onto your algorithm feed so fast it stresses everyone out. The anxiety of being an American right now, and how overwhelming it can be.</p>
+    <p>The steam was the local touch. Bay Area band, Bay Area stadium. The steam rose and nobody asked where it went. Steam never asks permission to leave a room.</p>
+    <p>Here is what the program did not mention. The field sits on Ohlone land. Tamyen-speaking people were there before the Spanish were there before the English were there before Levi Strauss sold work pants to gold miners and put his name on a stadium that charges forty dollars to park. Layers of whose land and whose labor baked into the concrete, and nobody printing that on the ticket.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Coco Jones sang Lift Every Voice and Sing, and then Brandi Carlile walked out with an acoustic guitar and did something that should not have worked as well as it did.</p>
+    <p>America the Beautiful is the gentler twin. The one that does not dare you to crack, the one most people half-remember from grade school and assume is easy. Carlile said she put it in a key right at her ceiling. She chose the register where her voice could either open or shatter with no middle ground.</p>
+    <p>She played the guitar herself. No click track, no pyrotechnics. Beside her stood SistaStrings, Monique and Chauntee Ross, a sister duo on violin and cello who have played with her for years and who turned the interlude into something that belonged in a cathedral while the cameras cut to cityscapes of Seattle and New England, two cities about to watch their teams collide, shown in silence under strings.</p>
+    <p>The arrangement was melodically centered, her word, not rhythmically centered. The song floated instead of marched. She let the vibrato arrive where it wanted to, and when her voice climbed into the upper register it did not push. It pulled. The way a tide comes in, not crashing, just arriving, covering more ground than you expected.</p>
+    <p>She said she went into it with her own moral code in mind. As a wife and mother. As a queer woman standing on the largest stage in America to acknowledge what she called the fragile hope for where this country could be. She said if we are going to save this country as a people, we have to be reminded that deep down we love it. And the way she sang it you could hear exactly what she meant. Not the love that waves a flag and dares you to disagree. The love that holds something broken and says I am not putting this down.</p>
+    <p>An eleven-time Grammy winner from Washington state, Seahawks territory, standing on a field in California singing a song written in 1893 by a woman who never married a man. Katherine Lee Bates lived for twenty-five years with another woman and called it a Boston marriage, a fact that almost never comes up at football games. And here was Carlile singing it with that history alive in her throat whether the crowd knew it or not.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Then Charlie Puth walked onto a white platform on the field in a brown leather bomber jacket over a shirt and tie, sat down at an electric piano, and began the anthem so quietly you had to lean in.</p>
+    <p>The Star-Spangled Banner spans from a low D to a high A. Most songs ask for one octave. This one asks for an octave and a half and dares you to crack in front of a hundred and twenty million people. When they announced him, somebody posted that we had fallen from Whitney Houston. Puth quoted the post and said he would never claim to be as good as Whitney Houston ever was, but he assured them he was putting a special arrangement together, in D major, and it would be one of his best vocal performances.</p>
+    <p>And it was. He played the piano himself, no backing track, just his hands and a choir dressed in white behind him. He started soft and let the melody do what it wanted, and then on the rockets' red glare his voice climbed into the place where most voices break and his did not. It opened up. Not shouting, not oversinging. Just a man letting a song be as big as it is. The choir swelled behind him and the fireworks went off on the stadium screen and the camera found an American flag with the Golden Gate Bridge behind it.</p>
+    <p>He chose control over spectacle, clarity over flourish, which is its own kind of courage on a stage that rewards the opposite. When it was done he lifted his arms and stood taking it in. A thirty-four-year-old kid from New Jersey about to become a father for the first time, having just sung the hardest song in the American catalog without flinching.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Then a man from Puerto Rico who had refused to tour the mainland walked onto the field.</p>
+    <p>He would not bring his audience into a country raiding its own neighborhoods. One exception. One night. Bad Bunny, the first Latino solo artist to headline the halftime show, performing almost entirely in Spanish. Trump called him a terrible choice. Conservatives spent months demanding he sing in English. Homeland Security Secretary Kristi Noem announced ICE agents would be working the stadium. The week before, at the Grammys, Bad Bunny had said two words into the microphone: ICE out. And then he came anyway.</p>
+    <p>Think about that. A man who stayed home to protect his people decided the one place worth the risk was the loudest room in the country. Not a concert hall, not a protest. A football game. Because that is where Americans actually sit still long enough to hear something.</p>
+    <p>He walked out of sugar cane. Stalks tall enough to hide a man, the original colonial crop, the thing that built the plantations and broke the people who worked them. Out of those stalks came dancers in pava hats, jíbaros, the agricultural workers who are the backbone of the island that is still called a territory by the country that took it.</p>
+    <p>Whose land. Whose labor. The question answered itself before he sang a note.</p>
+    <p>Spanish was spoken on that soil three hundred years before English arrived. California was a Spanish word before it was a state. So who exactly was the guest language on that field.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Then came the telephone poles.</p>
+    <p>Dancers dressed as utility workers climbed vintage poles that sparked and exploded around them. The song was El Apagón, The Blackout, about Puerto Rico's power grid that has been failing since Hurricane Maria tore it apart in 2017. A private company took over the grid and the lights still go out. Christmas Eve 2025, thousands of families in the dark again. And here, on the brightest field in America, the poles were sparking and the workers were dancing on them, because what else do you do when the infrastructure keeps collapsing and nobody comes to fix it.</p>
+    <p>Bad Bunny climbed to the top of one of those poles himself and pointed straight into the camera. A man standing on the thing that keeps failing his people, using the largest spotlight on earth to show what it looks like when the lights go out.</p>
+    <p>The poles looked vintage, like something from the forties or fifties, which is about how old the grid actually is.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Lady Gaga walked out as a surprise and sang a salsa version of her own song. Think about that. They demanded he sing in English. Instead he got the biggest white pop star on the planet to sing in his style. She adapted to him, not the other way around.</p>
+    <p>Ricky Martin sang Lo Que Le Pasó a Hawaii, what happened to Hawaii, a song about another American sugar colony, another island taken, the pattern repeating itself in a different ocean.</p>
+    <p>Piragua stands on the field, old men playing dominoes, a nail salon, a street corner market. He rebuilt an entire neighborhood on a football field and filled it with people living in it. Pedro Pascal and Cardi B and Jessica Alba danced in the background like neighbors at a block party. A real wedding happened during the performance, and Bad Bunny signed their certificate between songs.</p>
+    <p>He walked over to a little boy sitting in front of a television set and handed him a Grammy. Viewers at home noticed the child looked like the five-year-old who had been arrested with his father outside their home in Minneapolis and sent to a detention center in Texas. The boy's last name was Conejo, which means bunny.</p>
+    <p>We watched that from Saint Paul. Seven degrees outside, the Mississippi under ice, eleven miles from where that child lived.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Then the game came back, and it was like walking from a kitchen full of music into a room where the ceiling fan clicks and nobody is talking.</p>
+    <p>The Patriots did not score a single point in the first three quarters. Not one. Nine-nothing at the half, twelve-nothing after three. The number one defense in the league swallowed everything Drake Maye tried. Six sacks, three turnovers, eight punts. The whole offense stiff and airless like a suit that does not fit.</p>
+    <p>Between those punts and sacks and incompletions the cameras kept finding Robert Kraft in his glass luxury box, the billionaire owner of a team not showing up. His face said nothing for most of the night. Then late in the fourth quarter, down twenty-two to seven, the camera caught him yawning.</p>
+    <p>A yawn. On the biggest stage in American sports. A man in a glass room above a field where twelve minutes earlier jíbaros had danced on sparking telephone poles and a Puerto Rican singer had pointed into the lens and demanded the country look at what it had done to his island.</p>
+    <p>One floor held all the fire in the world. The other held a yawn.</p>
+    <p>This is the Super Bowl. One is a neighborhood rebuilt on a football field with domino tables and weddings and a man handing a child the thing that says you matter. The other is a billionaire watching his investment stall in a glass box that costs more per square foot than most people's apartments.</p>
+    <p>They share a roof and nothing else, and that is the whole country in one stadium.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>A screen doing what screens do. Making distance feel like closeness, making closeness feel like distance. Our own city has its own version of every one of these problems. Different accents, same raids, same algorithms feeding anxiety at the same speed.</p>
+    <p>From here the fireworks were silent, just light on a screen, no sulfur, no chest vibration. And still something got through.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>During the commercials, a clump of shaved body hair opened its eyes in a shower drain, blinked, and sang a love ballad to the man who cut it off.</p>
+    <p>I was your scruff, your loyal friend.</p>
+    <p>Anthropomorphic hair swirling toward the pipe, crooning a melancholy song about the men they once called home. Grotesque and tender. And we sat with that longer than we expected to.</p>
+    <p>Because that is grief. Actual grief dressed in a costume so strange that it got past every defense. A clump of hair mourning its body the way a neighborhood mourns a family that got loaded into a van at four in the morning. The way a language mourns the mouth that stopped speaking it. The way anything cut from where it grew looks back up the drain and sings.</p>
+    <p>Nobody planned for the hair to be the most honest moment of the night. Ten million dollars for thirty seconds and the thing that stayed was the blinking eyes of something discarded.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>Then four Claude ads. Betrayal, Deception, Treachery, Violation. Each one showed a person asking a real question about their life, and the answer started helpful before pivoting into a product pitch. A thin guy at a pull-up bar getting sold height-boosting insoles for short kings. A son asking how to talk to his mother and the chatbot sending him to a cougar dating site called Golden Encounters.</p>
+    <p>Sam Altman called the ads funny but clearly dishonest. TechCrunch is what you say if the ads landed.</p>
+    <p>Using advertising's biggest stage to argue that advertising does not belong everywhere. A good contradiction is one that does not resolve cleanly, and our whole practice lives in that sentence.</p>
+    <p>We make things out of what gets thrown away. We trust contradictions that refuse to resolve. We are drawn to the blinking eye in the drain.</p>
+
+    <div class="section-break" aria-hidden="true">. . .</div>
+
+    <p>So here is the whole night laid out on the workbench.</p>
+    <p>A punk band played an anti-war song and the establishment applauded. A queer woman from Washington sang a song written by a woman who loved women and made it sound like holding something broken and not putting it down. A kid from New Jersey sat at a piano and sang the hardest song in the American catalog without flinching. A man who would not come here came here, and the agents who hunt his people watched from the concourse. Farmers danced on sparking telephone poles to show us what a blackout looks like under the brightest lights in the country. A pop star learned salsa instead of the other way around. A child received a Grammy from a man whose name means the same animal as the child's last name. Hairballs grieved their lost bodies. A Claude ad sold insoles to a short king. An AI company spent a fortune telling us it would not sell us anything. And somewhere in that stadium a real couple got married between songs.</p>
+    <p>Meanwhile a football team went scoreless for three quarters and its billionaire owner yawned in a glass box.</p>
+    <p>The Super Bowl. America's weirdest annual variety show, where everything happening at once is the only accurate description of what happened, where the contradictions stack so high they become a kind of architecture. The steam keeps rising. The Spanish keeps carrying. The hair keeps singing from the drain. The poles keep sparking and the grid keeps failing and somebody keeps climbing up anyway.</p>
+    <p>And in the luxury box the man who owns the team that did not show up tonight is covering his mouth, mid-yawn, while below him a whole island is on fire with joy.</p>
+    <p>We are still watching from the cold, eleven miles from where a five-year-old used to live, our own land under our own feet, wondering who will ask whose land this is.</p>
+
+  </div>
+
+  <nav class="seq-nav" aria-label="Sequential navigation">
+    <a href="#" class="seq-nav-next">Let the Wild Thing with a Pulse Move &#8594;</a>
+    <a href="/are-we-working-too-much-inside-english" class="seq-nav-prev">&#8592; Are We Working Too Much Inside English</a>
+  </nav>
+
+</div>
+</main>
+
+<div class="bottom-safe"></div>
+
+<script>
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'◐':'◑';});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+</script>
+</body>
+</html>

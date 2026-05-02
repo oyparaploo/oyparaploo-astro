@@ -1,0 +1,214 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/500.css';
+import '@fontsource/lora/600.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are We Working Too Much Inside English — Oyparaploo</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+p,h1,h2,h3,h4,li,blockquote{text-wrap:pretty;}
+em,i,cite,address,dfn,var{font-style:normal;}
+*{font-style:normal;}
+html{overflow-x:hidden;scroll-behavior:smooth;font-size:var(--root-size,18px);-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word;word-break:break-word;transition:background 0.4s ease,color 0.3s ease;background:linear-gradient(to bottom,#000000 0%,#000000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);background-attachment:fixed;min-height:100vh;color:#d0c8bf;}
+a{color:inherit;text-decoration:none;}
+a,button,[role="button"],select{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;}
+ul,ol{list-style:none;}
+img{max-width:100%;height:auto;display:block;}
+:root{--oy-sand:#D4C4A8;--oy-tan:#D4A574;--oy-radius:4px;}
+html.size-1{--root-size:18px;}html.size-2{--root-size:19px;}html.size-3{--root-size:21px;}
+.font-size-btn{display:flex;gap:2px;font-weight:600;align-items:baseline;}
+.font-size-btn .sz{color:rgba(232,224,214,0.68) !important;opacity:1;transition:opacity 0.25s;line-height:1;}
+.font-size-btn .sz.active{opacity:1;}
+.font-size-btn .sz[data-size="1"]{font-size:22px;}.font-size-btn .sz[data-size="2"]{font-size:18px;}.font-size-btn .sz[data-size="3"]{font-size:15px;}
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:background 0.3s;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;}
+.wordmark{font-family:'Inter',sans-serif;font-weight:500;font-size:22px;color:rgba(232,224,214,0.68);letter-spacing:0.02em;flex-shrink:0;transition:color 0.2s;}
+.wordmark:hover{color:rgba(232,224,214,0.88);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;padding-left:0;margin-left:48px;flex-shrink:0;}
+.nav-links a{font-family:'Inter',sans-serif;font-size:21px;font-weight:500;letter-spacing:0.02em;color:rgba(232,224,214,0.68);transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils{display:flex;align-items:center;gap:12px;margin-left:auto;}
+.nav-utils button,.nav-utils a{font-family:'Inter',sans-serif;color:rgba(232,224,214,0.68);background:none;border:none;cursor:pointer;min-height:44px;padding:0 8px;display:flex;align-items:center;justify-content:center;transition:color 0.2s;}
+.nav-utils button:hover,.nav-utils a:hover{color:rgba(232,224,214,0.88);}
+.nav-utils svg{stroke:currentColor;fill:none;}
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-height:44px;padding:0 8px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:rgba(232,224,214,0.68);transition:transform 0.25s,opacity 0.2s;transform-origin:center;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:0.6;}
+.menu-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.45);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity 0.6s;}
+.menu-overlay.open{opacity:1;pointer-events:auto;}
+.menu-strips{display:none !important;}
+.menu-panel{position:fixed;top:0;right:0;bottom:0;z-index:201;width:400px;max-width:90vw;background:#faf6f0;color:#2a2320;font-size:17px;clip-path:inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));transition:clip-path 0.6s cubic-bezier(0.4,0,0.1,1),opacity 0.2s ease;overflow-y:auto;padding:24px 32px 40px;pointer-events:none;opacity:0;}
+.menu-panel.open{clip-path:inset(0 0 0 0 round 0);pointer-events:auto;opacity:1;}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+.menu-ghost-wordmark{font-family:'Inter',sans-serif;font-size:22px;font-weight:500;color:#2a2320;opacity:0.38;letter-spacing:0.02em;user-select:none;pointer-events:none;}
+.menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#2a2320;cursor:pointer;}
+.menu-nav-primary a{font-family:'Lora',serif;font-size:24px;font-weight:600;color:#2a2320;display:block;padding:10px 0;line-height:1.2;transition:opacity 0.2s;}
+.menu-nav-primary a:hover{opacity:0.55;}
+.menu-rule-tan{height:2px;border:none;background:var(--oy-tan);margin:20px 0;}
+.menu-rule-sage{height:2px;border:none;background:#8BA89A;margin:20px 0;}
+.menu-nav-secondary a,.menu-nav-tertiary a{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;color:#2a2320;display:block;padding:4px 0;transition:opacity 0.2s;}
+.menu-nav-secondary a:hover,.menu-nav-tertiary a:hover{opacity:0.55;}
+.menu-address{font-family:'Inter',sans-serif;font-size:19px;font-weight:500;color:#5a4f47;margin-top:20px;line-height:1.6;}
+.menu-bottom-btns{display:flex;gap:8px;margin-top:20px;}
+.menu-bottom-btns .menu-btn{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#2a2320;border:1px solid rgba(42,35,32,0.40);padding:8px 16px;border-radius:var(--oy-radius);background:transparent;cursor:pointer;min-height:44px;}
+.mobile-strips{display:none !important;}
+.reading-room{max-width:700px;margin:0 auto;padding:40px 40px 80px;position:relative;z-index:10;}
+.reading-breadcrumb{font-family:'Inter',sans-serif;font-size:1rem;font-weight:425;color:#8a8078;display:flex;align-items:center;gap:6px;margin-bottom:32px;}
+.reading-breadcrumb svg{stroke:currentColor;fill:none;flex-shrink:0;}
+.reading-breadcrumb a{color:#8a8078;transition:color 0.2s;}
+.reading-breadcrumb a:hover{color:#d0c8bf;}
+.piece{max-width:580px;margin:0 auto;}
+.title{font-family:'Lora',serif;font-size:clamp(22px,2.5vw,28px);font-weight:600;color:#d0c8bf;letter-spacing:0.02em;line-height:1.2;margin-bottom:12px;opacity:0;animation:breathIn 2s ease forwards;}
+.subtitle{font-family:'Inter',sans-serif;font-size:1rem;font-weight:400;color:#8a8078;letter-spacing:0.01em;line-height:1.5;margin-bottom:48px;opacity:0;animation:breathIn 2s ease 0.3s forwards;}
+.breath{font-family:'Inter',sans-serif;font-size:1.0588rem;font-weight:400;color:#b5ada5;line-height:1.75;letter-spacing:0.01em;margin-bottom:20px;opacity:0;animation:breathIn 1.8s ease forwards;}
+.breath:last-of-type{margin-bottom:0;}
+.ellipsis{color:#a09888;letter-spacing:0.25em;}
+.breath.question{color:#8a8078;padding-left:3em;}
+.breath .debut{color:#ccc5bc;font-weight:450;}
+.breath.closing{font-family:'Lora',serif;font-size:clamp(20px,2.2vw,24px);font-weight:500;color:#d0c8bf;line-height:1.5;text-align:center;max-width:500px;margin:40px auto 0;letter-spacing:0em;}
+.colophon{margin-top:64px;height:1px;border:none;background:#5a5048;opacity:0;animation:breathIn 2s ease forwards;}
+@keyframes breathIn{from{opacity:0;}to{opacity:1;}}
+.breath:nth-of-type(1){animation-delay:0.8s;}
+.breath:nth-of-type(2){animation-delay:1.2s;}
+.breath:nth-of-type(3){animation-delay:1.6s;}
+.breath:nth-of-type(4){animation-delay:2.0s;}
+.breath:nth-of-type(5){animation-delay:2.4s;}
+.breath:nth-of-type(6){animation-delay:2.8s;}
+.breath:nth-of-type(7){animation-delay:3.2s;}
+.breath:nth-of-type(8){animation-delay:3.6s;}
+.breath:nth-of-type(9){animation-delay:4.0s;}
+.breath:nth-of-type(10){animation-delay:4.4s;}
+.breath:nth-of-type(11){animation-delay:4.8s;}
+.breath:nth-of-type(12){animation-delay:5.2s;}
+.breath:nth-of-type(13){animation-delay:5.6s;}
+.colophon{animation-delay:6.2s;}
+.seq-nav{max-width:580px;margin:140px auto 0;padding-top:24px;border-top:1.2px solid #3a3430;display:flex;flex-direction:column;gap:20px;}
+.seq-nav a{font-family:'Inter',sans-serif;font-size:19px;font-weight:400;color:#8a8078;min-height:44px;transition:color 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.seq-nav a:hover{color:#d0c8bf;}
+.seq-nav-next{align-self:flex-end;order:-1;}
+.seq-nav-prev{align-self:flex-start;}
+body.light-mode{background:#ffffff;background-image:linear-gradient(to bottom,#ffffff 0px,#ffffff 300px,#fdfcfb 700px,#f9f7f4 100%);background-attachment:scroll;color:#2a2320;}
+body.light-mode .site-nav{background:rgba(255,255,255,0.97);}
+body.light-mode .wordmark{color:#333;}
+body.light-mode .wordmark:hover{color:#5c3a1e;}
+body.light-mode .nav-links a{color:#333;}
+body.light-mode .nav-links a:hover{color:#5c3a1e;}
+body.light-mode .nav-utils button,body.light-mode .nav-utils a{color:#000;}
+body.light-mode .nav-hamburger span{background:#333;}
+body.light-mode .font-size-btn .sz{color:#000 !important;}
+body.light-mode .reading-breadcrumb,body.light-mode .reading-breadcrumb a{color:#5a4f47;}
+body.light-mode .reading-breadcrumb a:hover{color:#2a2320;}
+body.light-mode .title{color:#3d352e;}
+body.light-mode .subtitle{color:#7d7168;}
+body.light-mode .breath{color:#4a4038;}
+body.light-mode .ellipsis{color:#5a4f47;}
+body.light-mode .breath.question{color:#7d7168;}
+body.light-mode .breath .debut{color:#2a2320;}
+body.light-mode .breath.closing{color:#3d352e;}
+body.light-mode .colophon{background:#c0b8b0;}
+body.light-mode .seq-nav{border-top-color:#777777;}
+body.light-mode .seq-nav a{color:#5a4f47;}
+body.light-mode .seq-nav a:hover{color:#2a2320;}
+@media(max-width:1100px){.nav-links{display:none;}}
+@media(max-width:768px){.nav-inner{padding:0 24px;}.menu-panel{width:100%;max-width:100%;}}
+@media(max-width:480px){.nav-inner{padding:0 24px;}.reading-room{padding:24px 24px 64px;}.breath.question{padding-left:2em;}.seq-nav{gap:12px;}}
+.bottom-safe{padding-bottom:env(safe-area-inset-bottom,0px);}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Writing</a></li>
+      <li><a href="/portraits">Portraits</a></li>
+      <li><a href="/our-practice">Practice</a></li>
+      <li><a href="#">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◑</button>
+      <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="/our-practice">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+  </div>
+</div>
+
+<main>
+<div class="reading-room">
+
+  <nav class="reading-breadcrumb" aria-label="Breadcrumb">
+    <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
+    <a href="#">Writing</a>
+  </nav>
+
+  <div class="piece">
+    <h1 class="title">Are We Working Too Much Inside English</h1>
+    <div class="subtitle">( the room at the end of the hall )</div>
+
+    <p class="breath">Are we working too much inside English?</p>
+    <p class="breath question">Not taking enough risks?</p>
+    <p class="breath question">Not breaking it<span class="ellipsis">...</span> mining it<span class="ellipsis">...</span> fragmenting it<span class="ellipsis">...</span> letting grammar crack where meaning cracks</p>
+    <p class="breath question">enough?</p>
+    <p class="breath">Even "brrds" is English with an intentional misspelling that became an accent</p>
+    <p class="breath">Phonetic camouflage is not English broken<span class="ellipsis">...</span> it is English disguised as <span class="debut">the mouth working before the mind can follow</span></p>
+    <p class="breath">No one else unfortunately or fortunately asks that of the reader</p>
+    <p class="breath">The closest relatives are readable listenable on first pass</p>
+    <p class="breath">That is a different relationship</p>
+    <p class="breath">Oyparaploo Tongues, English, Tongues, architecture<span class="ellipsis">...</span> is becoming something else</p>
+    <p class="breath"><span class="debut">The form is content</span></p>
+    <p class="breath">sitting at the edge</p>
+    <p class="breath closing">León is the room at the end of the hall that some will walk past<span class="ellipsis">...</span> and some will enter and never forget what they sensed</p>
+
+    <hr class="colophon" aria-hidden="true">
+  </div>
+
+  <nav class="seq-nav" aria-label="Sequential navigation">
+    <a href="#" class="seq-nav-prev">&#8592; Americas Weirdest Annual Variety Show</a>
+  </nav>
+
+</div>
+</main>
+
+<div class="bottom-safe"></div>
+
+<script>
+var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'◐':'◑';});
+var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuPanel=document.getElementById('menuPanel');
+function openMenu(){menuOverlay.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeMenu(){menuOverlay.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('click',closeMenu);menuOverlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+</script>
+</body>
+</html>
