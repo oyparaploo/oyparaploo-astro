@@ -1,0 +1,42 @@
+---
+const { title = "Oyparaploo" } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <style is:global>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #0e0e0e;
+        color: #d0c8bf;
+        padding: 4rem 2rem;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      h1, h2, h3 {
+        font-family: 'Lora', serif;
+        font-weight: 600;
+        color: #e8e4da;
+        margin-bottom: 3rem;
+      }
+      h1 { font-size: 1.5rem; }
+      
+      
+      
+      ul { list-style: none; padding: 0; }
+li { margin-bottom: 1rem; }
+a, a:visited { color: #c8b99a; font-family: 'Lora', serif; text-decoration: none; }
+a:hover { color: #e8e4da; }
+      a:hover { color: #e8e4da; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
