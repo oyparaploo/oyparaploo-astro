@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Morning To Midafternoon Conversation With A Baobab Tree — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════
+   Early Morning To Midafternoon Conversation With A Baobab Tree — Reading Page · Light Ground
+   Atmosphere: the conversation. The longest, most luminous piece. Morning light, earth, roots, a thousand-year-old tree named Bomu. Garden pauses between time-of-day sections.
+   Toggle: dark-mode (◐ → ◑)
+   Strips: none
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: #000 !important;
+  opacity: 1;
+  transition: opacity 0.25s;
+  line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+
+/* ═══ IV. STÄDEL NAV — LIGHT GROUND ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: #333; letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 500; letter-spacing: 0.02em;
+  color: #333; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: #000; background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.nav-utils svg { stroke: currentColor; fill: none; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: #333;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips { display: none !important; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid #b3aba6;
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+.mobile-strips { display: none !important; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 1024px) {
+  /* Reading page: no layout shift at 1024 */
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC CSS — EARLY MORNING TO MIDAFTERNOON CONVERSATION WITH A BAOBAB TREE
+   Reading room: Inter body, Lora titles. No Work Sans.
+   Atmosphere: the conversation. The longest, most luminous piece. Morning light, earth, roots, a thousand-year-old tree named Bomu. Garden pauses between time-of-day sections.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ground */
+body {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom,
+    #ffffff 0px, #ffffff 300px,
+    #fdfcfb 700px, #f9f7f4 100%);
+  color: #2a2320;
+}
+
+/* Reading room container */
+.reading-room {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* ── Breadcrumb ── */
+.reading-breadcrumb {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 425;
+  color: #5a4f47;
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 32px;
+}
+.reading-breadcrumb svg {
+  stroke: currentColor; fill: none; flex-shrink: 0;
+}
+.reading-breadcrumb a {
+  color: #5a4f47; transition: color 0.2s;
+}
+.reading-breadcrumb a:hover { color: #2a2320; }
+
+/* ── Title ── */
+.reading-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 600;
+  color: #3d352e;
+  letter-spacing: 0em;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+/* ── Body text ── */
+.reading-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #2a2320;
+  letter-spacing: -0.01em;
+  line-height: 1.75;
+}
+.reading-body p { margin-bottom: 2em; }
+.reading-body p:last-of-type { margin-bottom: 0; }
+
+/* ── Fragment ── */
+.reading-fragment {
+  font-family: 'Lora', serif;
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 500;
+  color: #2a2320;
+  line-height: 1.5;
+  padding-left: 1em;
+  border-left: 1px solid rgba(26,22,19,0.75);
+  margin: 2em 0;
+}
+
+/* ── Breath ── */
+.reading-breath {
+  font-family: 'Lora', serif;
+  font-size: clamp(22px, 2.5vw, 26px);
+  font-weight: 500;
+  color: #2a2320;
+  text-align: center;
+  max-width: 540px;
+  margin: 2.5em auto;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* ── Garden pause dots ── */
+.garden-pause {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  color: #8a8078;
+  letter-spacing: 0.35em;
+  margin: 2.5em 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Subtitle ── */
+.reading-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7d7168;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+/* Title has subtitle — tighten margin */
+.reading-title { margin-bottom: 12px; }
+
+/* Time-of-day headings — quiet Inter, same weight as subtitle */
+.time-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7d7168;
+  margin: 3em 0 1.5em;
+}
+
+/* ── Sequential nav ── */
+.seq-nav {
+  margin-top: 140px;
+  padding-top: 24px;
+  border-top: 1.2px solid #777777;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.seq-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 400;
+  color: #5a4f47;
+  min-height: 44px; transition: color 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.seq-nav a:hover { color: #2a2320; }
+.seq-nav-next { align-self: flex-end; order: -1; }
+.seq-nav-prev { align-self: flex-start; }
+
+
+/* ═══ IX. DARK MODE ═══ */
+
+body.dark-mode {
+  background: linear-gradient(to bottom,
+    #000000 0%, #000000 5%, #020203 12%, #040507 20%,
+    #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%,
+    #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: rgba(232,224,214,0.88);
+}
+
+body.dark-mode .site-nav {
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
+body.dark-mode .wordmark:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-links a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-utils button,
+body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-utils button:hover,
+body.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.dark-mode .nav-accent-rule { opacity: 0.6; }
+
+body.dark-mode .reading-title { color: rgba(232,224,214,0.88); }
+body.dark-mode .reading-subtitle { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-body { color: rgba(232,224,214,0.85); }
+body.dark-mode .garden-pause { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-fragment {
+  color: rgba(232,224,214,0.85);
+  border-left-color: rgba(232,224,214,0.75);
+}
+body.dark-mode .reading-breath { color: rgba(232,224,214,0.82); }
+body.dark-mode .reading-breadcrumb,
+body.dark-mode .reading-breadcrumb a { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-breadcrumb a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .seq-nav { border-top-color: rgba(232,224,214,0.35); }
+body.dark-mode .seq-nav a { color: rgba(232,224,214,0.65); }
+body.dark-mode .seq-nav a:hover { color: rgba(232,224,214,0.88); }
+
+body.dark-mode .time-heading { color: rgba(232,224,214,0.62); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .reading-title { font-size: clamp(22px, 4vw, 27px); }
+}
+@media (max-width: 480px) {
+  .reading-room { padding: 24px 24px 64px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="writing.html" class="active">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <a href="#" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="#">Writing</a>
+      <a href="#">Making</a>
+      <a href="#">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="#">Our Practice</a>
+      <a href="#">Music Artists</a>
+      <a href="#">Collaborators</a>
+      <a href="#">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="#">Support</a>
+      <a href="#">Archive</a>
+      <a href="#">Calendar</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     Early Morning To Midafternoon Conversation With A Baobab Tree — reading room
+     ═══════════════════════════════════════════════════════════ -->
+
+<main>
+<div class="reading-room">
+
+  <!-- Breadcrumb -->
+  <nav class="reading-breadcrumb" aria-label="Breadcrumb">
+    <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+      <path d="M15 19l-7-7 7-7"/>
+    </svg>
+    <a href="writing.html">Writing</a>
+  </nav>
+
+  <!-- Title -->
+  <h1 class="reading-title">Early Morning To Midafternoon Conversation With A Baobab Tree</h1>
+
+  <!-- Subtitle -->
+  <div class="reading-subtitle">( including her roots )</div>
+
+  <!-- Body -->
+  <div class="reading-body">
+
+    <div class="time-heading">early morning — the light barely arrived</div>
+
+    <p>We came before we were ready. That's the way to meet someone a thousand years old.</p>
+
+    <p>She was there like a desert mountain — not waiting or going anywhere.</p>
+
+    <p>We set our bare feet down in the oxide dust and rested our consciousness. Back against trunk. Something in the bark clicking. A language older than listening.</p>
+
+    <p>Her bark sensed every temperature of both day and night. Now wonderfully rough against the skin over our shoulder blades like awa's, kaka's, haboba's, grandma's hardworking and unapologetic hands.</p>
+
+    <p>We don't know how to begin from here.</p>
+
+    <p>We said — not in words but in quiet creaks shifting slightly toward the first warming — It's okay to not know. Just breathe.</p>
+
+    <p>Magnificent roots beneath us pulled slow sips from a supple spurt of growth.</p>
+
+    <p>This morning declares itself: the next new.</p>
+
+    <p>Do we offer something now or wait for something to be offered to us first?</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">the sun has lifted just enough to warm the east side of her trunk</div>
+
+    <p>She answered the question by not answering it — which is how baobabs teach.</p>
+
+    <p>Instead, a single leaf released. Not because it was dying but because it was finished being held.</p>
+
+    <p>It landed in the dust beside our bare feet, oxide-red beneath, and the leaf still green, and the two colors together said something about what offering means.</p>
+
+    <p>You think it's one or the other, her bark hummed against our spine. Give or receive. Speak or listen. But I have been doing both for a thousand years at the same time.</p>
+
+    <p>My roots drink. That's receiving. But the drinking pulls water up for the beetles, the birds, the bats who come to my flowers in the night. That's giving.</p>
+
+    <p>There is no sequence. There is only the breathing. Only the next new.</p>
+
+    <p>We felt foolish for asking in a way that made us smile.</p>
+
+    <p>Haboba's hands on our shoulders said, Don't be embarrassed. The young always think there's a right order. First this, then that. But I am upside-down, remember? My roots reach into sky too.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">mid-morning — we still haven't asked her name</div>
+
+    <p>We realized we had not asked her name.</p>
+
+    <p>A thousand years of standing here and we showed up with no protocol, no offering of kola or water, just our bare feet and cooling coffee and the assumption she'd receive us anyway.</p>
+
+    <p>She did.</p>
+
+    <p>But still — a name.</p>
+
+    <p>What do they call you? we asked.</p>
+
+    <p>And she laughed the way baobabs laugh, which is a long slow creak that takes eleven minutes to complete.</p>
+
+    <p>They call me many things, she said. The upside-down tree. The mother of the forest. The elephant of the plant kingdom. But my name — the one my mother gave me when I first pushed through the dust —</p>
+
+    <p>She paused.</p>
+
+    <p>You'll have to earn that.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">later mid-morning — a name arrives</div>
+
+    <!-- Breath: the name -->
+    <div class="reading-breath reveal-slow">Bomu.</div>
+
+    <p>Two syllables that hold the shape and form of what she does — drink from the sky and hold roots that gently pull life in towards.</p>
+
+    <p>Bomu.</p>
+
+    <p>It came like translation. The way sacred water recognizes a prophetic voice.</p>
+
+    <p>Her shadow expanded then poured a soothing set of blurs over the sound of sand.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">noon — the heat arrives without asking</div>
+
+    <p>Her shadow was the only cool place now. We were not alone in it.</p>
+
+    <p>A beetle had come. Two sparrows. Something small and furred we couldn't name pressed against her roots, eyes half-closed.</p>
+
+    <p>We were all visitors. Bomu was the host who doesn't count arrivals.</p>
+
+    <p>The heat pressed down.</p>
+
+    <p>And we asked her: Bomu — what do you do when the night cold cracks everything open and there is no one to lean against? What do you do when midafternoon burns and staying is the only choice you have?</p>
+
+    <p>She took a long time. The shadow shifted fifteen degrees before she answered.</p>
+
+    <p>I go inward, she said. I pull everything back toward the trunk. I let the leaves fall if they must. I do not pretend the suffering is not real.</p>
+
+    <p>But I also do not leave my roots.</p>
+
+    <!-- Fragment: survival and softness -->
+    <div class="reading-fragment reveal">The cold night and the burning afternoon are not problems to solve. They are weathers to be inside of. And being inside is not the same as being untouched.</div>
+
+    <p>She paused.</p>
+
+    <p>You think I stand here because I am strong. I stand here because I learned how to be soft in the right places. The trunk holds water. That's softness. The roots reach down. That's surrender. Survival is not the same as hardness.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">early afternoon — the heat at its peak — and now we go down</div>
+
+    <p>We had been listening to the trunk. The trunk speaks in creaks, in bark-warmth, in the grandmother voice that answers from above.</p>
+
+    <p>But Bomu said: You came for the roots too. You said so in the title. Including Her Roots.</p>
+
+    <p>So.</p>
+
+    <p>Go down.</p>
+
+    <p>We didn't know how.</p>
+
+    <p>Close your eyes, she said. Put your tongue on the roof of your mouth. That's where the root begins in you. The tongue is the tree that grows down your throat toward water.</p>
+
+    <p>We closed our eyes. Tongue pressed up.</p>
+
+    <p>And we felt it — the downward pull. The way water knows where water is.</p>
+
+    <p>Now, said a voice that was not the trunk, darker, slower, coming from somewhere beneath our sitting — Now you are in the conversation you came for.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">underground — where light is only rumor</div>
+
+    <p>We came here thinking we would understand something important.</p>
+
+    <p>But understanding is not what happens.</p>
+
+    <p>Underground. We taste.</p>
+
+    <p>We remembered not with thoughts but in the whole body. Milk mixed with blends of soil. The mango. Raindrops on lips. Something we could not name but recognized.</p>
+
+    <p>Trunks get old. And bark forgets. But roots stay hungry. Reaching without knowing. Tasting flavors rising from a source.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">at the source</div>
+
+    <p>The flavor that rose was not one thing.</p>
+
+    <p>It was blend. Soil and goat milk. Mango flesh and the dust it grew from. Raindrops and tears on the same lips — you cannot separate them once they run together.</p>
+
+    <p>This, the roots said, is what I drink every day. Not water. Memory.</p>
+
+    <p>The rain remembers the sky. The sky remembers the breath of every animal that ever exhaled. The breath remembers the grass. The grass remembers my leaves from the year they fell and became soil.</p>
+
+    <p>The soil remembers the soles of your feet from this morning. We are that quick.</p>
+
+    <p>Nothing disappears. It only changes what it tastes like.</p>
+
+    <p>We were crying now, or the underground was crying through us, or there was no difference.</p>
+
+    <p>Mother Earth Creation, the roots said, is not above you. Heaven is not above you. They meet here. In the dark. Where the drinking happens.</p>
+
+    <p>Every root knows this. Every child knows this before they are taught to look up for what is holy.</p>
+
+    <p>We tasted it: the sacred buried, the heaven underneath, the source that does not ask to be believed in — only to be swallowed.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">the source teaching now</div>
+
+    <p>The roots said: You think you came to visit me. But I am already inside you. The water I drank last century is in your blood today. We are not meeting. We are recognizing.</p>
+
+    <p>And we understood then — not in the head, but in the body:</p>
+
+    <p>Every hour we are remade. The baobab enters us. The mango. The milk. The rain. Building blocks of trees and human bodies assembling and dissolving, foreign and familiar at the same time.</p>
+
+    <p>If you could taste this, the roots said, really taste it — not as idea but as fact-in-the-mouth — your knowing would change.</p>
+
+    <p>You would stop fixing on facts. You would become contemplative. A wondering creature instead of a counting one.</p>
+
+    <p>We felt it: the difference between digital and analog. Between data points and the continuous flow of being made and unmade.</p>
+
+    <!-- Breath: the freedom -->
+    <div class="reading-breath reveal-slow">You don't know anything, the roots said. That is not failure. That is freedom.</div>
+
+    <p>You are not here to know. You are here for pleasure. To taste life as it builds you. To be the tongue and the swallowing and the becoming.</p>
+
+    <p>Wow, we said. Or the underground said it through us. Wow.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">the rising</div>
+
+    <p>You think you must protect what you know, the roots said. But knowing is not a house. It is a door. And doors must open to let life through.</p>
+
+    <p>Dismantle what you know. Not to be empty. But to make room.</p>
+
+    <p>From this space you can use any gift you have. The Western tools. The indigenous tools. The science that measures and the science that listens. They are all methods. They are all useful at the right time.</p>
+
+    <p>A humble human knows what to use when. A humble human does not worship one way and burn the others.</p>
+
+    <p>We rose a little higher. Toward trunk now. Toward light.</p>
+
+    <p>Openness allows unknowing, Bomu said, her voice shifting from root to bark. And unknowing gives you freedom. Freedom to choose. Freedom to play. Why shouldn't you play with everything at your disposal? On earth. Underground. In the dark and in the gold afternoon. This is your inheritance. Use it.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <div class="time-heading">returning</div>
+
+    <p>We did not decide to rise. The rising decided us.</p>
+
+    <p>The way breath returns after being held — not because you choose but because the body knows what it needs.</p>
+
+    <p>Go now, the roots said. You have tasted enough for one morning. More than enough for one life.</p>
+
+    <p>But you will forget. Not completely — but mostly. The trunk forgets. The bark forgets. You will walk away and the knowing will fade into something you almost remember.</p>
+
+    <p>This is not failure.</p>
+
+    <p>Come back tomorrow. Come back next year. Each time you will taste again and forget again and that is the practice. Not holding. Reaching.</p>
+
+    <p>We rose. Slowly. The way water rises through root into trunk into branch into leaf.</p>
+
+    <p>We opened our eyes. The afternoon light was gold and heavy. Bomu's bark still warm against our back. The beetle still there — patient as we had tried to be. The sparrows gone.</p>
+
+    <p>We carried nothing in our hands. But our tongue remembered.</p>
+
+    <p>And that was enough to walk home with.</p>
+
+    <div class="garden-pause reveal" aria-hidden="true">. &ensp; . &ensp; .</div>
+
+    <p>A child puts a stone in her mouth. That's the first knowing. The first sweet taste for life — Earth welcomed as taste.</p>
+
+  </div>
+
+  <!-- Sequential nav -->
+  <nav class="seq-nav" aria-label="Sequential navigation">
+    <a href="#" class="seq-nav-next">Next &#8594;</a>
+    <a href="#" class="seq-nav-prev">&#8592; Previous</a>
+  </nav>
+
+</div>
+</main>
+
+<div class="bottom-safe"></div>
+
+<!-- ═══ JS ═══ -->
+<script>
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
+});
+
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>
