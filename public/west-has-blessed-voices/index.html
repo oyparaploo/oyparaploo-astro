@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West Has Blessed Voices — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(to bottom,
+    #000000 0%, #020203 20%, #060810 40%,
+    #0a0d16 60%, #0d111b 80%, #111521 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.piece {
+  max-width: 580px;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Lora', serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 600;
+  color: #d0c8bf;
+  letter-spacing: 0.02em;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: breathIn 2s ease forwards;
+}
+
+.breath {
+  font-size: 1.0588rem;
+  font-weight: 400;
+  color: #b5ada5;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: breathIn 1.8s ease forwards;
+}
+
+.breath:last-of-type { margin-bottom: 0; }
+
+.breath.return {
+  color: #d0c8bf;
+  margin-top: 40px;
+}
+
+.breath.question {
+  color: #8a8078;
+  padding-left: 3em;
+}
+
+.breath .debut {
+  color: #ccc5bc;
+  font-weight: 450;
+}
+
+.ellipsis {
+  color: #a09888;
+  letter-spacing: 0.25em;
+}
+
+/* Staggered reveals — desktop: 0.3s intervals, ~4.3s total */
+.breath:nth-of-type(1) { animation-delay: 0.4s; }
+.breath:nth-of-type(2) { animation-delay: 0.7s; }
+.breath:nth-of-type(3) { animation-delay: 1.0s; }
+.breath:nth-of-type(4) { animation-delay: 1.3s; }
+.breath:nth-of-type(5) { animation-delay: 1.6s; }
+.breath:nth-of-type(6) { animation-delay: 1.9s; }
+.breath:nth-of-type(7) { animation-delay: 2.2s; }
+.breath:nth-of-type(8) { animation-delay: 2.5s; }
+.breath:nth-of-type(9) { animation-delay: 2.8s; }
+.breath:nth-of-type(10) { animation-delay: 3.1s; }
+.breath:nth-of-type(11) { animation-delay: 3.4s; }
+.breath:nth-of-type(12) { animation-delay: 3.7s; }
+.breath:nth-of-type(13) { animation-delay: 4.0s; }
+
+@keyframes breathIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.colophon {
+  margin-top: 64px;
+  height: 1px;
+  border: none;
+  background: #5a5048;
+  opacity: 0;
+  animation: breathIn 2s ease 4.6s forwards;
+}
+
+@media (max-width: 480px) {
+  body { padding: 48px 24px; }
+  .breath.question { padding-left: 2em; }
+
+  /* Mobile: faster fade, tighter stagger — ~2.4s total */
+  .title { animation-duration: 1s; }
+  .breath { animation-duration: 1s; }
+  .breath:nth-of-type(1) { animation-delay: 0.2s; }
+  .breath:nth-of-type(2) { animation-delay: 0.35s; }
+  .breath:nth-of-type(3) { animation-delay: 0.5s; }
+  .breath:nth-of-type(4) { animation-delay: 0.65s; }
+  .breath:nth-of-type(5) { animation-delay: 0.8s; }
+  .breath:nth-of-type(6) { animation-delay: 0.95s; }
+  .breath:nth-of-type(7) { animation-delay: 1.1s; }
+  .breath:nth-of-type(8) { animation-delay: 1.25s; }
+  .breath:nth-of-type(9) { animation-delay: 1.4s; }
+  .breath:nth-of-type(10) { animation-delay: 1.55s; }
+  .breath:nth-of-type(11) { animation-delay: 1.7s; }
+  .breath:nth-of-type(12) { animation-delay: 1.85s; }
+  .breath:nth-of-type(13) { animation-delay: 2.0s; }
+  .colophon { animation-delay: 2.4s; animation-duration: 1s; }
+}
+</style>
+</head>
+<body>
+
+<div class="piece">
+  <h1 class="title">West Has Blessed Voices</h1>
+
+  <p class="breath">West has blessed voices <span class="ellipsis">...</span> mushy soil known for ignoring language barriers <span class="ellipsis">...</span></p>
+
+  <p class="breath">Practicing through emotions found in melodies <span class="ellipsis">...</span></p>
+
+  <p class="breath">Swept intriguing isolation <span class="ellipsis">...</span></p>
+
+  <p class="breath">Retreating into outsider forms of solace <span class="ellipsis">...</span></p>
+
+  <p class="breath">Sometimes only comfort coming from revisiting picture collections featuring other mammals, plant responses, childhood home studio influences <span class="ellipsis">...</span> deeply rooted in Ghibli <span class="ellipsis">...</span> whimsical all sensory weaving throughout Oyparaploo assemblages <span class="ellipsis">...</span></p>
+
+  <p class="breath">Touch and smell play <span class="ellipsis">...</span></p>
+
+  <p class="breath">A doorway passage follow through towards Oyparaploo driftwood <span class="ellipsis">...</span> raw natural material transformed into a new type of puppet. Sensing this play which crosses language without trying too hard. The influence is acknowledged by its authentic presence. Not analyzed. Not described. Just there, the way a distinct aroma is there when entering a room or living space <span class="ellipsis">...</span></p>
+
+  <p class="breath">It took some time before Reach found their reluctant first <span class="debut">"debut for doubt"</span> full sensory noir music <span class="ellipsis">...</span></p>
+
+  <p class="breath">This is Arrival. Arriving at a path that has not yet been created.</p>
+
+  <p class="breath">Loneliness as a comfortable space carved out <span class="ellipsis">...</span> knowing it's going somewhere that has a circular emphasis<span class="ellipsis">...</span></p>
+
+  <p class="breath">This shouldn't explain before you have had a chance to conjure its intentional ambiguity <span class="ellipsis">...</span></p>
+
+  <p class="breath question">Is this a loose biography segment, extended prayer, or portrait in English to carry forward? <span class="ellipsis">...</span> shoulder shrug <span class="ellipsis">...</span> Who knows, Mode <span class="ellipsis">...</span></p>
+
+  <p class="breath return">West has blessed voices <span class="ellipsis">...</span></p>
+
+  <hr class="colophon" aria-hidden="true">
+</div>
+
+</body>
+</html>
