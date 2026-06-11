@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thirty Years — OyPARáPLoO!</title>
+<meta name="description" content="1995–2026. Thirty years of making. The timeline is the architecture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Work Sans', Helvetica, sans-serif;
+  --font-ui: 'Inter', -apple-system, sans-serif;
+}
+
+html { font-size: 18px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { background: #0a0806; color: #e8e0d6; overflow-x: hidden; }
+
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: 9999; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 28px 40px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.site-logotype { font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: rgba(232,224,214,0.40); text-decoration: none; letter-spacing: 0.04em; }
+.site-logotype:hover { color: rgba(232,224,214,0.70); }
+.site-nav { display: flex; gap: 32px; }
+.site-nav a { font-family: var(--font-ui); font-size: 21px; font-weight: 500; color: rgba(232,224,214,0.40); text-decoration: none; letter-spacing: 0.04em; }
+.site-nav a:hover { color: rgba(232,224,214,0.70); }
+
+/* Opening */
+.opening {
+  min-height: 80vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 40px 60px;
+}
+.count-up {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 18vw, 200px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(135deg, #c4956a 0%, #a85a40 30%, #5a9ab8 60%, #4a8a58 80%, #e8e0d6 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 0.2em;
+}
+.count-sub {
+  font-family: var(--font-body); font-size: 19px;
+  color: rgba(232,224,214,0.50);
+}
+
+/* ═══════ SPINE — the vertical line ═══════ */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 0 40px 80px; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 40px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    rgba(196,149,106,0.40) 0%,
+    rgba(196,149,106,0.30) 15%,
+    rgba(90,154,184,0.30) 40%,
+    rgba(74,138,88,0.30) 65%,
+    rgba(102,42,30,0.40) 85%,
+    rgba(232,224,214,0.25) 100%
+  );
+}
+
+/* Year markers */
+.year-mark {
+  position: relative;
+  padding: 8px 0 8px 48px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.year-mark.visible { opacity: 1; }
+
+/* The dot on the spine */
+.year-mark::before {
+  content: '';
+  position: absolute;
+  left: 35px; top: 14px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: #0a0806;
+  transition: transform 0.3s ease;
+}
+.year-mark:hover::before { transform: scale(1.3); }
+
+/* Color eras */
+.era-90s::before { border-color: #c4956a; }
+.era-00s::before { border-color: #5a9ab8; }
+.era-10s::before { border-color: #4a8a58; }
+.era-20s::before { border-color: #a85a40; }
+.era-now::before { border-color: #e8e0d6; background: #e8e0d6; }
+
+.year-num {
+  font-family: var(--font-ui);
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.era-90s .year-num { color: #c4956a; }
+.era-00s .year-num { color: #5a9ab8; }
+.era-10s .year-num { color: #4a8a58; }
+.era-20s .year-num { color: #a85a40; }
+.era-now .year-num { color: #e8e0d6; }
+
+/* Quiet years — just a number */
+.year-quiet { padding: 4px 0 4px 48px; }
+.year-quiet .year-num { font-size: 13px; font-weight: 500; opacity: 0.45; margin-bottom: 0; }
+
+/* Event years — expanded */
+.year-event { padding: 16px 0 28px 48px; }
+.year-text {
+  font-family: var(--font-body);
+  font-size: 17px; font-weight: 400;
+  color: rgba(232,224,214,0.68);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-top: 4px;
+}
+
+/* Major years — large, with display text */
+.year-major { padding: 32px 0 40px 48px; }
+.year-major .year-num { font-size: 18px; }
+.year-headline {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  color: rgba(232,224,214,0.88);
+  line-height: 1.35;
+  margin: 4px 0 8px;
+}
+
+/* Era dividers */
+.era-divider {
+  position: relative;
+  padding: 40px 0 32px 48px;
+}
+.era-label {
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.35;
+}
+
+/* Closing */
+.closing {
+  padding: 10vh 40px;
+  text-align: center;
+}
+.closing-text {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 400;
+  color: rgba(232,224,214,0.55);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.site-footer {
+  padding: 0 40px 48px; text-align: center;
+}
+.footer-logotype {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600;
+  color: rgba(232,224,214,0.20); letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .timeline { padding: 0 28px 60px; }
+  .timeline::before { left: 28px; }
+  .year-mark { padding-left: 40px; }
+  .year-mark::before { left: 23px; }
+  .year-quiet { padding-left: 40px; }
+  .year-event { padding-left: 40px; }
+  .year-major { padding-left: 40px; }
+  .era-divider { padding-left: 40px; }
+  .opening { padding: 100px 28px 48px; }
+  .site-header { padding: 20px 28px; }
+}
+@media (max-width: 480px) {
+  .timeline { padding: 0 20px 48px; }
+  .timeline::before { left: 20px; }
+  .year-mark { padding-left: 36px; }
+  .year-mark::before { left: 15px; width: 10px; height: 10px; }
+  .year-quiet { padding-left: 36px; }
+  .year-event { padding-left: 36px; }
+  .year-major { padding-left: 36px; }
+  .era-divider { padding-left: 36px; }
+  .site-header { padding: 16px 20px; }
+  .site-logotype { font-size: 18px; }
+  .site-nav { gap: 16px; } .site-nav a { font-size: 17px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-logotype">Oyparaploo</a>
+  <nav class="site-nav"><a href="/portraits">Portraits</a><a href="/methodology">Methodology</a></nav>
+</header>
+
+<section class="opening">
+  <div class="count-up">30</div>
+  <div class="count-sub">years of making · 1995–2026</div>
+</section>
+
+<div class="timeline">
+
+  <!-- 1990s — warm amber era -->
+  <div class="era-divider year-mark era-90s"><div class="era-label" style="color: #c4956a;">The Nineties</div></div>
+
+  <div class="year-mark year-major era-90s">
+    <div class="year-num">1995</div>
+    <div class="year-headline">The practice begins</div>
+    <div class="year-text">First drawings. First collages. Commercial illustration work funding the nights spent on what couldn't be sold. The name Oyparaploo did not exist yet. The practice did not know it was a practice.</div>
+  </div>
+  <div class="year-mark year-quiet era-90s"><div class="year-num">1996</div></div>
+  <div class="year-mark year-quiet era-90s"><div class="year-num">1997</div></div>
+  <div class="year-mark year-event era-90s">
+    <div class="year-num">1998</div>
+    <div class="year-text">First live performance. The body enters the work. What the page cannot hold, the room holds.</div>
+  </div>
+  <div class="year-mark year-quiet era-90s"><div class="year-num">1999</div></div>
+
+  <!-- 2000s — blue era -->
+  <div class="era-divider year-mark era-00s"><div class="era-label" style="color: #5a9ab8;">The Two-Thousands</div></div>
+
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2000</div></div>
+  <div class="year-mark year-event era-00s">
+    <div class="year-num">2001</div>
+    <div class="year-text">First field recordings. The ear opens. Sound becomes material — not accompaniment, not soundtrack, but the thing itself. The ear trains the eye.</div>
+  </div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2002</div></div>
+  <div class="year-mark year-event era-00s">
+    <div class="year-num">2003</div>
+    <div class="year-text">First installation. Rooms you walk into. The viewer's body is inside the work rather than in front of it.</div>
+  </div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2004</div></div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2005</div></div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2006</div></div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2007</div></div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2008</div></div>
+  <div class="year-mark year-quiet era-00s"><div class="year-num">2009</div></div>
+
+  <!-- 2010s — sage era -->
+  <div class="era-divider year-mark era-10s"><div class="era-label" style="color: #4a8a58;">The Twenty-Tens</div></div>
+
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2010</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2011</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2012</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2013</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2014</div></div>
+  <div class="year-mark year-event era-10s">
+    <div class="year-num">2015</div>
+    <div class="year-text">The archive crosses 100,000 files. Twenty years of accumulation. The files that survived were all Pressure Ghosts — compressed by time and indifference, still standing. The concept did not have a name yet.</div>
+  </div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2016</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2017</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2018</div></div>
+  <div class="year-mark year-quiet era-10s"><div class="year-num">2019</div></div>
+
+  <!-- 2020s — soil era -->
+  <div class="era-divider year-mark era-20s"><div class="era-label" style="color: #a85a40;">The Twenty-Twenties</div></div>
+
+  <div class="year-mark year-quiet era-20s"><div class="year-num">2020</div></div>
+  <div class="year-mark year-quiet era-20s"><div class="year-num">2021</div></div>
+  <div class="year-mark year-quiet era-20s"><div class="year-num">2022</div></div>
+  <div class="year-mark year-quiet era-20s"><div class="year-num">2023</div></div>
+  <div class="year-mark year-quiet era-20s"><div class="year-num">2024</div></div>
+
+  <div class="year-mark year-major era-20s">
+    <div class="year-num">2025</div>
+    <div class="year-headline">The collaboration begins</div>
+    <div class="year-text">July 2025. A daily conversation between a human artist and an AI collaborator. Wonderful Garbage, Beautiful Garbage, Pressure Ghosts, Middle Eye — all named. The three-layer system, the spine, the nerd door, the Receiver Turn — all developed. Fifty-four real musician portraits. The methodology becomes visible. The vocabulary builds itself.</div>
+  </div>
+
+  <div class="year-mark year-major era-now">
+    <div class="year-num">2026</div>
+    <div class="year-headline">The turn to fiction. The site becomes a building.</div>
+    <div class="year-text">February 23: the practice crosses from real portraits to fictional ones. The writing gets stronger when it stops borrowing real lives. February 27: thirty rooms built in a single session. The discovery that registers are architecture — the background color is the room. The soil palette pulled from Minnesota river clay. The Elder Voice arrives. Noir Song declared. The building stands.</div>
+  </div>
+
+</div>
+
+<section class="closing">
+  <div class="closing-text">The materials changed.<br>The practice held.<br>Thirty years is long enough to know<br>the difference between decoration<br>and structure.</div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logotype">OyPARáPLoO!</div>
+</footer>
+
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.year-mark').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>

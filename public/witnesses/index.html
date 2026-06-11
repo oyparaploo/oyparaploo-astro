@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>The Witnesses — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;450;500;600&family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════════
+   OYPARAPLOO — UNIFIED BASE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Reset ── */
+* { margin: 0; padding: 0; box-sizing: border-box; font-style: normal; }
+em, i, cite, address, dfn, var { font-style: normal; }
+
+html {
+  overflow-x: hidden; scroll-behavior: smooth;
+  font-size: var(--root-size, 17px);
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+}
+html.size-1 { --root-size: 17px; }
+html.size-2 { --root-size: 18px; }
+html.size-3 { --root-size: 20px; }
+
+body {
+  font-family: 'Inter', sans-serif; background: #fff; color: #333;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; overflow-wrap: break-word; word-break: break-word;
+  padding-bottom: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── Design tokens ── */
+:root {
+  --oy-sand: #D4C4A8; --oy-sage: #8BA89A; --oy-tan: #D4A574;
+  --oy-radius: 4px; --oy-warm-accent: #c4956a;
+  --oy-dark-bg: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);
+  --parchment: rgba(232,224,214,1);
+}
+
+/* ── Font size cycle ── */
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { opacity: 1; color: #000 !important; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; color: #000 !important; }
+.dark-mode .font-size-btn .sz { color: rgba(232,224,214,1) !important; opacity: 1; }
+.dark-mode .font-size-btn .sz.active { color: rgba(232,224,214,1) !important; opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE NAV — Spec: Inter 20px/500/#333, height 64px, sticky, white
+   ═══════════════════════════════════════════════════════════════ */
+
+.site-nav { position: sticky; top: 0; z-index: 100; background: #fff; transition: background 0.3s; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px;
+  color: #333; text-decoration: none; letter-spacing: 0.02em; flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px; list-style: none;
+  padding-left: 0; margin-left: 48px; flex-shrink: 1; min-width: 0;
+  overflow: visible;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+  letter-spacing: 0.02em; color: #333; text-decoration: none; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+.nav-links a.active {
+  text-decoration: underline; text-underline-offset: 9px;
+  text-decoration-thickness: 1px; text-decoration-color: #333;
+}
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto; flex-shrink: 0;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif; color: #000; background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s; font-size: 20px; font-weight: 600;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.dark-mode .nav-utils button:hover, .dark-mode .nav-utils a:hover { color: rgba(232,224,214,1); }
+.nav-utils svg { stroke: currentColor; fill: none; width: 24px; height: 24px; }
+.nav-hamburger {
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; }
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px; background: #333;
+  transition: opacity 0.2s; transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(85,85,85,0.28) 10%, rgba(85,85,85,0.55) 50%, rgba(85,85,85,0.28) 90%, transparent 100%);
+}
+/* ── DARK MODE — WHOLE PAGE RULE ──────────────────────────────────────────
+   Dark mode is a total page state. Every surface goes dark.
+   No white or cream backgrounds persist when dark-mode class is active.
+   ───────────────────────────────────────────────────────────────────────── */
+body.dark-mode { background: #0e0e0e; color: rgba(232,224,214,0.88); }
+
+/* Dark mode nav */
+.dark-mode .site-nav { background: #0e0e0e; }
+.dark-mode .wordmark, .dark-mode .nav-links a { color: #f0f0f0; }
+.dark-mode .wordmark:hover, .dark-mode .nav-links a:hover { color: #fff; }
+.dark-mode .nav-utils button, .dark-mode .nav-utils a { color: #f0f0f0; }
+.dark-mode .nav-hamburger span { background: #f0f0f0; }
+.dark-mode .nav-accent-rule { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.28) 10%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.28) 90%, transparent 100%); }
+
+/* ── Dropdown nav ── */
+.nav-links li { position: relative; }
+.nav-links li > a { display: flex; align-items: center; gap: 6px; }
+.nav-drop-arrow {
+  display: inline-block; width: 7px; height: 7px; flex-shrink: 0;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px); transition: transform 0.2s; opacity: 0.62;
+}
+.nav-links li:hover .nav-drop-arrow,
+.nav-links li:focus-within .nav-drop-arrow { transform: rotate(225deg) translateY(-2px); opacity: 0.85; }
+
+.nav-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; z-index: 300;
+  background: #fff; min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+  border-top: 2px solid #555; border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  opacity: 0; pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.55s cubic-bezier(0.25,0.1,0.25,1),0.1,0.25,1);
+}
+.nav-links li:hover .nav-dropdown,
+.nav-links li:focus-within .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-dropdown a {
+  display: block; font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 400;
+  color: #000; padding: 13px 22px; line-height: 1.3;
+  border-bottom: 1.2px solid rgba(0,0,0,0.28);
+  transition: background 0.15s, color 0.15s; white-space: nowrap;
+  letter-spacing: 0.01em; text-decoration: none;
+}
+.nav-dropdown a:last-child { border-bottom: none; }
+.nav-dropdown a:hover { background: #f5f0eb; color: #5c3a1e; }
+
+/* Dark mode dropdown */
+.dark-mode .nav-dropdown { background: #1a1a1a; border-top-color: rgba(255,255,255,0.28); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+.dark-mode .nav-dropdown a { color: #e0e0e0; border-bottom-color: rgba(255,255,255,0.28); }
+.dark-mode .nav-dropdown a:hover { background: rgba(255,255,255,0.28); color: #fff; }
+
+/* Hide dropdowns on mobile */
+@media (max-width: 768px) { .nav-dropdown, .nav-drop-arrow { display: none; } }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MENU SYSTEM — strips + panel (from practice.html)
+   ═══════════════════════════════════════════════════════════════ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.65); opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips {
+  position: fixed; top: 0; bottom: 0; left: 0; right: 440px; z-index: 201;
+  display: flex; flex-direction: row; overflow: hidden;
+  opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none;
+}
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+
+.strip {
+  flex: 1; position: relative; overflow: hidden; cursor: pointer;
+  transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0;
+}
+.strip:hover { flex: 4; }
+.strip-bg {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  transition: transform 1.4s cubic-bezier(0.25,0.1,0.25,1);
+}
+.strip::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1;
+  background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none;
+}
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.4);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  padding: 40px 36px 44px; z-index: 2;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.3s 0.1,0.25,1) 0.2s;
+}
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 8px; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-date { font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 500; color: rgba(255,255,255,0.65); margin-bottom: 22px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+  color: #fff; padding: 10px 20px; border: 1.2px solid rgba(255,255,255,0.75); border-radius: 0;
+  background: rgba(255,255,255,0.28);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  letter-spacing: 0.01em; transition: all 0.3s;
+}
+.strip-btn:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
+.btn-icon { font-size: 17px; opacity: 0.8; transition: opacity 0.25s; }
+.strip-btn:hover .btn-icon { opacity: 1; transform: translateX(2px); }
+
+.mobile-strips {
+  display: none; gap: 10px; margin-bottom: 24px;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card {
+  flex: 0 0 140px; height: 100px; border-radius: var(--oy-radius);
+  position: relative; overflow: hidden; cursor: pointer; text-decoration: none;
+}
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: var(--oy-radius); }
+.mobile-strip-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: var(--oy-radius);
+}
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 0.6875rem; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.2; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 440px; max-width: 90vw; background: #fff; color: #333;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 220px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s;
+  overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1;
+  transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.1s;
+}
+.menu-top { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 20px; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 1.625rem; color: #333; cursor: pointer; transition: opacity 0.2s; }
+.menu-close:hover { opacity: 0.62; }
+.menu-rule-tan { height: 2px; background: var(--oy-tan); margin: 20px 0; }
+.menu-rule-sage { height: 2px; background: var(--oy-sage); margin: 20px 0; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 600; color: #333; display: block; padding: 6px 0; transition: opacity 0.2s; }
+.menu-nav-primary a:hover { opacity: 0.62; }
+.menu-nav-label { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 500; color: #333; margin-bottom: 8px; }
+.menu-nav-secondary a { font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 600; color: #333; display: block; padding: 4px 0; transition: opacity 0.2s; }
+.menu-nav-secondary a:hover { opacity: 0.62; }
+.menu-nav-tertiary { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 32px; }
+.menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 600; color: #333; display: block; padding: 3px 0; transition: opacity 0.2s; }
+.menu-nav-tertiary a:hover { opacity: 0.62; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 500; color: #333; line-height: 1.6; margin-top: 4px; }
+.menu-address strong.menu-address-name { font-family: 'Lora', serif; font-weight: 600; font-size: 1.3125rem; letter-spacing: 0.02em; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.st-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 600;
+  color: #333; border: 1.2px solid #555; border-radius: var(--oy-radius);
+  padding: 8px 14px; transition: background 0.2s, color 0.2s; white-space: nowrap;
+}
+.st-btn:hover { background: #000; color: #fff; }
+
+/* Dark mode menu */
+.dark-mode .menu-panel { background: #1a1a1a; color: #e0e0e0; }
+.dark-mode .menu-close { color: #e0e0e0; }
+.dark-mode .menu-nav-primary a, .dark-mode .menu-nav-secondary a, .dark-mode .menu-nav-tertiary a { color: #e0e0e0; }
+.dark-mode .menu-nav-label { color: rgba(255,255,255,0.5); }
+.dark-mode .menu-address { color: rgba(255,255,255,0.75); }
+.dark-mode .st-btn { color: #e0e0e0; border-color: rgba(255,255,255,0.35); }
+.dark-mode .st-btn:hover { background: rgba(255,255,255,0.28); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL — pure fade only, no translateY
+   ═══════════════════════════════════════════════════════════════ */
+.reveal { opacity: 1; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 1; transition: opacity 3s ease; }
+.reveal-fade { opacity: 1; transition: opacity 3.5s ease; }
+.reveal.visible, .reveal-slow.visible, .reveal-fade.visible { opacity: 1; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FIXED WITNESS DOT NAVIGATOR
+   ═══════════════════════════════════════════════════════════════ */
+.witness-nav {
+  position: fixed; left: 24px; top: 50%; transform: translateY(-50%);
+  z-index: 80; display: flex; flex-direction: column; gap: 16px; align-items: center;
+  opacity: 0; transition: opacity 0.6s ease; pointer-events: none;
+}
+.witness-nav.visible { opacity: 1; pointer-events: auto; }
+.witness-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  border: 1.2px solid rgba(100,80,60,0.35);
+  background: transparent; cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  position: relative;
+}
+.witness-dot:hover { transform: scale(1.5); border-color: rgba(100,80,60,0.65); }
+.witness-dot.active { background: rgba(100,80,60,0.65); border-color: rgba(100,80,60,0.80); }
+/* On dark sections, swap to parchment */
+.witness-nav.on-dark .witness-dot { border-color: rgba(232,224,214,0.30); }
+.witness-nav.on-dark .witness-dot:hover { border-color: rgba(232,224,214,0.65); }
+.witness-nav.on-dark .witness-dot.active { background: rgba(232,224,214,0.65); border-color: rgba(232,224,214,0.80); }
+/* Tooltip */
+.witness-dot::after {
+  content: attr(data-label); position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #7d7168; white-space: nowrap;
+  opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
+.witness-nav.on-dark .witness-dot::after { color: rgba(232,224,214,0.65); }
+.witness-dot:hover::after { opacity: 1; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — dark ground
+   ═══════════════════════════════════════════════════════════════ */
+.witnesses-hero {
+  position: relative;
+  background: var(--oy-dark-bg); background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);
+  padding: 32px 40px 28px; overflow: hidden; display: block;
+}
+.witnesses-hero-accent {
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(74,123,204,0.50) 10%, rgba(74,123,204,0.72) 22%, rgba(58,170,110,0.55) 38%, rgba(58,170,110,0.80) 52%, rgba(58,170,110,0.48) 65%, rgba(74,123,204,0.38) 80%, transparent 100%);
+}
+.witnesses-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 60% at 15% 80%, rgba(74,123,204,0.28) 0%, transparent 60%), radial-gradient(ellipse 45% 50% at 85% 20%, rgba(58,170,110,0.28) 0%, transparent 55%);
+  pointer-events: none;
+}
+.witnesses-hero-inner { position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; width: 100%; }
+/* Spec: section label Inter 17px/600/0.65 */
+.witnesses-hero-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(232,224,214,0.65); margin-bottom: 28px;
+}
+/* Hero title — breath phrase scale: Lora clamp(29px,3.2vw,35px)/400/0.78 → but this is a hero H1, larger */
+.witnesses-hero-title {
+  font-family: 'Lora', serif; font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 700; color: rgba(232,224,214,0.88);
+  line-height: 1.08; margin-bottom: 28px; letter-spacing: -0.02em;
+}
+/* Body: Lora clamp(20px,2vw,23px)/400/0.88 */
+.witnesses-hero-body {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2vw, 23px);
+  font-weight: 400; color: rgba(232,224,214,0.88);
+  line-height: 1.75; max-width: 56ch; margin-bottom: 28px;
+}
+/* The five anchor links */
+.witnesses-hero-roll {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border-top: 1.2px solid rgba(232,224,214,0.40); padding-top: 24px;
+}
+.witnesses-hero-roll-item {
+  padding: 0 20px 0 0;
+  border-right: 1.2px solid rgba(232,224,214,0.40);
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 21px); font-weight: 500;
+  color: rgba(232,224,214,0.62); line-height: 1.3;
+  cursor: pointer; transition: color 0.25s; text-decoration: none; display: block;
+}
+.witnesses-hero-roll-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.witnesses-hero-roll-item:hover { color: rgba(232,224,214,0.88); }
+.witnesses-hero-roll-item span {
+  display: block; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: rgba(232,224,214,0.55);
+  line-height: 1; margin-bottom: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   WITNESS SECTIONS — light ground (Marie, Herb, Nell)
+   ═══════════════════════════════════════════════════════════════ */
+.witness-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.witness-text {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(40px, 6vw, 72px) clamp(32px, 5vw, 64px);
+  background: #f9f7f4;
+}
+/* Light-ground text: spec values */
+/* Spec: section label Inter 17px/600 */
+.witness-number {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 8px;
+}
+.witness-role {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+/* Spec: Lora clamp(23px,2.8vw,29px)/500/0.80 — principle name scale for witness name */
+.witness-name {
+  font-family: 'Lora', serif; font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 700; color: #0e0e0e; line-height: 1.05; margin-bottom: 14px; letter-spacing: -0.02em;
+}
+/* Spec: Inter 17px/500 — place */
+.witness-location {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+  color: #7d7168; margin-bottom: 28px; letter-spacing: 0.02em;
+}
+/* Spec: Lora clamp(18px,1.8vw,20px)/400 for description */
+.witness-desc {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: #2a2320; line-height: 1.8; max-width: 44ch; margin-bottom: 32px;
+}
+.witness-quote {
+  border-left: 3px solid rgba(0,0,0,0); /* overridden per witness */
+  padding: 18px 20px 18px 22px; margin-bottom: 32px; border-radius: 0 2px 2px 0;
+}
+/* Spec: Lora clamp(20px,2vw,23px)/400/0.85 — work fragment */
+.witness-quote p {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: #1a1715; line-height: 1.75;
+}
+/* Spec: Inter 17px/600 */
+.witness-call-label {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 8px;
+}
+/* Spec: Lora clamp(18px,1.8vw,20px)/400 */
+.witness-call-text {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: #2a2320; line-height: 1.7;
+}
+
+/* Visual column */
+.witness-visual { position: relative; overflow: hidden; min-height: 340px; }
+.witness-visual-fill {
+  position: absolute; inset: 0;
+  transition: transform 0.9s cubic-bezier(0.25,0.1,0.25,1);
+}
+/* Spec: no scale on hover that's a translateY — scale is OK per design principle 1 (fade only applies to reveal, not hover states) */
+.witness-section:hover .witness-visual-fill { transform: scale(1.025); }
+.witness-visual-ghost {
+  position: absolute; bottom: 32px; left: 32px; right: 32px; z-index: 2;
+  font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.02em; user-select: none; pointer-events: none;
+}
+.witness-visual-tag {
+  position: absolute; top: 24px; right: 24px; z-index: 3;
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px;
+}
+
+/* MARIE — clay warm, spec warm accent #c4956a */
+.witness-marie .witness-role { color: #8b5e3c; }
+.witness-marie .witness-quote { border-left-color: #c4956a; background: rgba(196,149,106,0.28); }
+.witness-marie .witness-visual-fill {
+  background: linear-gradient(155deg, #7a4a28 0%, #a06040 25%, #c08060 50%, #d4a078 72%, #e8c0a0 100%);
+}
+.witness-marie .witness-visual-ghost { color: rgba(80,38,12,0.10); }
+.witness-marie .witness-visual-tag { background: rgba(110,58,28,0.82); color: rgba(248,235,220,0.88); }
+
+/* HERB — reversed, desert sand */
+.witness-herb { direction: rtl; }
+.witness-herb .witness-text, .witness-herb .witness-visual { direction: ltr; }
+.witness-herb .witness-role { color: #7a5820; }
+.witness-herb .witness-quote { border-left-color: #b8944a; background: rgba(184,148,74,0.28); }
+.witness-herb .witness-visual-fill {
+  background: linear-gradient(140deg, #b89868 0%, #c8a878 22%, #d8b888 42%, #e4c89a 62%, #ecd8b0 100%);
+}
+.witness-herb .witness-visual-ghost { color: rgba(70,45,8,0.09); }
+.witness-herb .witness-visual-tag { background: rgba(100,70,18,0.80); color: rgba(248,238,218,0.88); }
+
+/* NELL — sage, warm green */
+.witness-nell .witness-role { color: #4e6a40; }
+.witness-nell .witness-quote { border-left-color: #7a9870; background: rgba(122,152,112,0.28); }
+.witness-nell .witness-visual-fill {
+  background: linear-gradient(148deg, #3a5a36 0%, #4e7248 20%, #688a5e 40%, #88a87a 62%, #a8c498 82%, #b8d0a8 100%);
+}
+.witness-nell .witness-visual-ghost { color: rgba(18,48,14,0.09); }
+.witness-nell .witness-visual-tag { background: rgba(52,82,44,0.84); color: rgba(228,248,220,0.88); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   JEAN — dark ground
+   ═══════════════════════════════════════════════════════════════ */
+.witness-jean { direction: rtl; }
+.witness-jean .witness-text, .witness-jean .witness-visual { direction: ltr; }
+.witness-jean .witness-text {
+  background: linear-gradient(to bottom, #080a14 0%, #0a0d18 50%, #0c1020 100%);
+}
+/* Dark-ground text spec */
+.witness-jean .witness-number { color: rgba(232,224,214,0.65); }
+.witness-jean .witness-role { color: rgba(74,123,204,0.82); }
+.witness-jean .witness-name { color: rgba(232,224,214,0.88); }
+.witness-jean .witness-location { color: rgba(232,224,214,0.62); }
+.witness-jean .witness-desc { color: rgba(232,224,214,0.88); }
+.witness-jean .witness-quote { border-left-color: rgba(74,123,204,1.0); background: rgba(74,123,204,0.28); }
+.witness-jean .witness-quote p { color: rgba(232,224,214,0.85); }
+.witness-jean .witness-call-label { color: rgba(74,123,204,0.72); }
+.witness-jean .witness-call-text { color: rgba(232,224,214,0.88); }
+.witness-jean .witness-visual-fill {
+  background: linear-gradient(152deg, #02040c 0%, #060c1c 22%, #080f28 44%, #060c1e 66%, #040810 100%);
+}
+.witness-jean .witness-visual-ghost { color: rgba(74,123,204,0.09); }
+.witness-jean .witness-visual-tag {
+  background: rgba(74,123,204,0.85); color: rgba(232,224,214,0.80);
+  border: 1.2px solid rgba(74,123,204,0.55);
+}
+
+/* Jean notation lines (CSS) */
+.jean-lines {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px;
+}
+.jean-line { width: 2px; background: rgba(74,123,204,1.0); border-radius: 1px; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HAHNU YOUN — full dark, tabbed scenes
+   ═══════════════════════════════════════════════════════════════ */
+.hahnu-wrapper {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%);
+}
+
+/* Hahnu header */
+.hahnu-header {
+  position: relative; overflow: hidden;
+  padding: clamp(48px,7vw,80px) 40px clamp(40px,6vw,64px);
+}
+.hahnu-header-accent {
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(58,170,110,0.55) 18%, rgba(58,170,110,0.80) 38%, rgba(74,123,204,0.55) 60%, rgba(74,123,204,0.30) 80%, transparent 100%);
+}
+.hahnu-header-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(58,170,110,0.28) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 20% 30%, rgba(74,123,204,0.28) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hahnu-header-inner {
+  position: relative; z-index: 2; max-width: 1320px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+.hahnu-number { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(58,170,110,0.65); margin-bottom: 10px; }
+.hahnu-role { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(58,170,110,0.82); margin-bottom: 20px; }
+.hahnu-name {
+  font-family: 'Lora', serif; font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700; color: rgba(232,224,214,0.88);
+  line-height: 1.05; margin-bottom: 14px; letter-spacing: -0.015em;
+}
+.hahnu-location { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: rgba(232,224,214,0.62); margin-bottom: 28px; letter-spacing: 0.02em; }
+.hahnu-desc {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2vw, 23px);
+  font-weight: 400; color: rgba(232,224,214,0.88); line-height: 1.75; max-width: 46ch;
+}
+.hahnu-seeds {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2vw, 22px);
+  font-weight: 400; color: rgba(232,224,214,0.78);
+  line-height: 1.65; padding: 24px 28px; margin-bottom: 24px;
+  border: 1.2px solid rgba(58,170,110,0.75); background: rgba(58,170,110,0.28); border-radius: 2px;
+}
+.hahnu-questions { display: flex; flex-direction: column; gap: 12px; }
+.hahnu-q {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: rgba(232,224,214,0.65);
+  line-height: 1.55; padding-left: 16px;
+  border-left: 3px solid rgba(58,170,110,0.95);
+}
+
+/* Scenes — tab system */
+.hahnu-scenes-wrap { max-width: 1320px; margin: 0 auto; padding: 0 40px 40px; }
+.scene-tabs {
+  display: flex; gap: 8px; border-bottom: none;
+  margin-bottom: 52px; overflow-x: auto; scrollbar-width: none;
+}
+.scene-tabs::-webkit-scrollbar { display: none; }
+.scene-tab {
+  font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 600;
+  color: rgba(232,224,214,0.55); padding: 16px 28px; cursor: pointer;
+  border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap;
+  background: none; border-left: none; border-right: none; border-top: none;
+  letter-spacing: 0.01em; transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.scene-tab:hover { color: rgba(232,224,214,0.88); background: rgba(232,224,214,0.28); }
+.scene-tab.active { color: rgba(232,224,214,1); border-bottom-color: rgba(58,170,110,0.85); background: rgba(58,170,110,0.28); }
+
+.scene-panels { position: relative; }
+.scene-panel { display: none; }
+.scene-panel.active { display: block; }
+
+.scene-label {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: rgba(58,170,110,0.65); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.scene-label::after { content: ''; flex: 1; height: 1px; background: rgba(232,224,214,0.28); max-width: 100px; }
+.scene-title {
+  font-family: 'Lora', serif; font-size: clamp(23px, 2.8vw, 32px);
+  font-weight: 500; color: rgba(232,224,214,0.80);
+  margin-bottom: 36px; line-height: 1.15;
+}
+.scene-body {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2vw, 23px);
+  font-weight: 400; color: rgba(232,224,214,0.88); line-height: 1.85; max-width: 68ch;
+}
+.scene-body p { margin-bottom: 22px; }
+.scene-body p:last-child { margin-bottom: 0; }
+.scene-dialogue {
+  padding: 18px 0 18px 20px;
+  border-left: 1.5px solid rgba(58,170,110,0.95);
+  margin: 28px 0;
+}
+.scene-dialogue p {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: rgba(232,224,214,0.78); line-height: 1.7; margin-bottom: 10px;
+}
+.scene-dialogue p:last-child { margin-bottom: 0; }
+.scene-note {
+  font-family: 'Lora', serif; font-size: clamp(18px, 1.8vw, 20px);
+  font-weight: 400; color: rgba(232,224,214,0.62);
+  line-height: 1.75; margin-top: 40px; padding-top: 28px;
+  border-top: 1.2px solid rgba(232,224,214,0.40);
+}
+
+/* Scene nav (numbered forward/back) */
+.scene-nav-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 36px; padding-top: 24px;
+  border-top: 1.2px solid rgba(232,224,214,0.35);
+}
+.scene-nav-btn {
+  font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 600;
+  color: rgba(232,224,214,0.72); background: rgba(232,224,214,0.28);
+  border: 1.2px solid rgba(232,224,214,0.35); border-radius: 3px;
+  cursor: pointer; display: flex; align-items: center; gap: 10px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  padding: 14px 24px; min-height: 52px; letter-spacing: 0.01em;
+}
+.scene-nav-btn:hover { color: rgba(232,224,214,1); background: rgba(232,224,214,0.28); border-color: rgba(232,224,214,0.35); }
+.scene-nav-btn:disabled { opacity: 0; pointer-events: none; }
+.scene-counter { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.06em; color: rgba(232,224,214,0.62); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HOW TO CALL THEM — light ground
+   ═══════════════════════════════════════════════════════════════ */
+.call-section { padding: 32px 0; background: #fff; }
+.call-inner { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+.call-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #7d7168; margin-bottom: 16px;
+}
+/* Spec: Lora clamp(23px,2.8vw,29px)/500 — section title */
+.call-title {
+  font-family: 'Lora', serif; font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 500; color: #0e0e0e; line-height: 1.2; margin-bottom: 14px;
+}
+/* Spec: Lora clamp(17px,1.6vw,19px)/400 — section desc */
+.call-intro {
+  font-family: 'Lora', serif; font-size: clamp(19px, 1.8vw, 21px);
+  font-weight: 400; color: #2a2320; line-height: 1.75;
+  max-width: 54ch; margin-bottom: 36px;
+}
+.call-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border-top: 1.2px solid rgba(0,0,0,0.50);
+}
+.call-card {
+  padding: 24px 20px 20px; border-right: 1.2px solid rgba(0,0,0,0.65);
+  position: relative; cursor: default; transition: background 0.25s;
+}
+.call-card:last-child { border-right: none; }
+.call-card:hover { background: rgba(0,0,0,0.28); }
+.call-card-num {
+  font-family: 'Lora', serif; font-size: 3.5rem; font-weight: 700;
+  line-height: 1; color: #0e0e0e; opacity: 0.62;
+  position: absolute; top: 20px; right: 16px; user-select: none;
+}
+.call-card-name {
+  font-family: 'Lora', serif; font-size: clamp(19px, 2vw, 23px);
+  font-weight: 600; color: #0e0e0e; margin-bottom: 4px; line-height: 1.15;
+}
+.call-card-role {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+  color: #5a4f47; margin-bottom: 20px; letter-spacing: 0.01em;
+}
+.call-card-when {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: #5a4f47; margin-bottom: 8px;
+}
+.call-card-trigger {
+  font-family: 'Lora', serif; font-size: clamp(17px, 1.6vw, 19px);
+  font-weight: 600; color: #0e0e0e; line-height: 1.5; margin-bottom: 16px;
+}
+.call-card-instruction {
+  font-family: 'Lora', serif; font-size: clamp(17px, 1.6vw, 19px);
+  font-weight: 400; color: #1a1715; line-height: 1.7;
+}
+/* Accent top border per witness */
+.call-marie .call-card-role { color: #8b5e3c; }
+.call-marie .call-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #c4956a; }
+.call-herb .call-card-role { color: #7a5820; }
+.call-herb .call-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #b8944a; }
+.call-nell .call-card-role { color: #4e6a40; }
+.call-nell .call-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #7a9870; }
+.call-jean .call-card-role { color: #3a5a8a; }
+.call-jean .call-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(74,123,204,0.65); }
+.call-hahnu .call-card-role { color: #2a6a48; }
+.call-hahnu .call-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(58,170,110,0.65); }
+
+/* Dark mode call section */
+.dark-mode .call-section { background: #111 !important; }
+.dark-mode .call-eyebrow { color: rgba(232,224,214,0.62); }
+.dark-mode .call-title { color: rgba(232,224,214,0.88); }
+.dark-mode .call-intro { color: rgba(232,224,214,0.72); }
+.dark-mode .call-grid { border-top-color: rgba(232,224,214,0.40); }
+.dark-mode .call-card { border-right-color: rgba(232,224,214,0.40); }
+.dark-mode .call-card:hover { background: rgba(232,224,214,0.28); }
+.dark-mode .call-card-num { color: rgba(232,224,214,1); }
+.dark-mode .call-card-name { color: rgba(232,224,214,0.78); }
+.dark-mode .call-card-role { color: rgba(232,224,214,0.62); }
+.dark-mode .call-card-when { color: rgba(232,224,214,0.62); }
+.dark-mode .call-card-trigger { color: rgba(232,224,214,0.88); }
+.dark-mode .call-card-instruction { color: rgba(232,224,214,0.72); }
+.dark-mode .call-marie .call-card-role { color: #c4956a; }
+.dark-mode .call-herb .call-card-role { color: #b8944a; }
+.dark-mode .call-nell .call-card-role { color: #7a9870; }
+.dark-mode .call-jean .call-card-role { color: rgba(74,123,204,0.82); }
+.dark-mode .call-hahnu .call-card-role { color: rgba(58,170,110,0.82); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CLOSING — dark ground
+   ═══════════════════════════════════════════════════════════════ */
+.closing-section {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 100%);
+  padding: 32px 40px; position: relative; overflow: hidden;
+}
+.closing-bottom-accent {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(58,170,110,0.35) 30%, rgba(74,123,204,0.35) 60%, transparent 100%);
+}
+.closing-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+/* Spec: quote/statement Lora clamp(23px,2.8vw,32px)/400/0.78 */
+.closing-quote {
+  font-family: 'Lora', serif; font-size: clamp(23px, 2.8vw, 32px);
+  font-weight: 400; color: rgba(232,224,214,0.78);
+  line-height: 1.3; margin-bottom: 32px;
+}
+/* Spec: section desc Lora clamp(17px,1.6vw,19px)/400/0.65 */
+.closing-sub {
+  font-family: 'Lora', serif; font-size: clamp(17px, 1.6vw, 19px);
+  font-weight: 400; color: rgba(232,224,214,0.65);
+  line-height: 1.75; max-width: 52ch; margin: 0 auto;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER — matching practice.html
+   ═══════════════════════════════════════════════════════════════ */
+.footer-color-band { background: #ddd5cc; padding: 40px 0; }
+.footer-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.footer-connect {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  padding: 48px 0; border-bottom: 1.5px solid #555; margin-bottom: 48px;
+}
+.footer-connect-title { font-family: 'Lora', serif; font-size: 1.375rem; font-weight: 700; color: #333; margin-bottom: 20px; }
+.footer-social-row { display: flex; gap: 12px; margin-bottom: 24px; }
+.footer-social-circle {
+  width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #555;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Roboto', sans-serif; font-size: 17px; font-weight: 500;
+  color: #333; transition: all 0.2s; min-width: 48px; min-height: 48px; text-decoration: none;
+}
+.footer-social-circle:hover { border-color: #333; background: rgba(0,0,0,0.28); }
+.footer-address-line { font-family: 'Inter', sans-serif !important; font-weight: 400 !important; font-size: 17px; color: #000; line-height: 1.6; }
+.footer-newsletter-text { font-family: 'Inter', sans-serif !important; font-weight: 400 !important; font-size: 17px; color: #000; line-height: 1.6; margin-bottom: 20px; }
+.footer-signup-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  color: #333; background: transparent; padding: 14px 28px; border: 1.2px solid rgba(51,51,51,0.55);
+  cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; border-radius: var(--oy-radius); text-decoration: none;
+}
+.footer-signup-btn:hover { background: #f0ece8; }
+.dark-mode .footer-signup-btn { color: rgba(232,224,214,0.88); border-color: rgba(232,224,214,0.45); }
+.dark-mode .footer-signup-btn:hover { background: rgba(232,224,214,0.10); }
+.footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.footer-col-title { font-family: 'Roboto Condensed', sans-serif; font-size: 20px; font-weight: 600; color: #333; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1.5px solid #555; letter-spacing: 0.02em; text-transform: uppercase; }
+.footer-col a { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 400; color: #000; display: block; padding: 4px 0; transition: color 0.2s; letter-spacing: 0.01em; }
+.footer-col a:hover { color: #5c3a1e; }
+/* ═══════════════════════════════════════════════════════════════
+   Q&A ACCORDION
+   ═══════════════════════════════════════════════════════════════ */
+.qa-section {
+  background: #fff; padding: 32px 0 28px;
+}
+.dark-mode .qa-section { background: #111 !important; }
+
+.qa-header {
+  text-align: center; margin-bottom: 36px;
+}
+.qa-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 14px;
+}
+.dark-mode .qa-eyebrow { color: rgba(232,224,214,0.55); }
+.qa-title {
+  font-family: 'Lora', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700; color: #0e0e0e; letter-spacing: -0.02em; line-height: 1.1;
+}
+.dark-mode .qa-title { color: rgba(232,224,214,0.88); }
+
+.qa-list {
+  max-width: 780px; margin: 0 auto; padding: 0 40px;
+}
+
+.qa-item {
+  border-bottom: 1.2px solid rgba(0,0,0,0.50);
+}
+.dark-mode .qa-item { border-bottom-color: rgba(232,224,214,0.40); }
+.qa-item:first-child { border-top: 1.2px solid rgba(0,0,0,0.50); }
+.dark-mode .qa-item:first-child { border-top-color: rgba(232,224,214,0.40); }
+
+.qa-question {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 0; gap: 24px; text-align: left;
+}
+.qa-question-text {
+  font-family: 'Inter', sans-serif; font-size: clamp(17px, 1.6vw, 19px);
+  font-weight: 500; color: #0e0e0e; line-height: 1.4; flex: 1; letter-spacing: 0.02em;
+}
+.dark-mode .qa-question-text { color: rgba(232,224,214,0.88); }
+.qa-item.open .qa-question-text { font-weight: 600; }
+
+.qa-icon {
+  width: 32px; height: 32px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; color: #555;
+  transition: color 0.25s, transform 0.35s;
+}
+.dark-mode .qa-icon { color: rgba(232,224,214,0.55); }
+.qa-icon::before,
+.qa-icon::after {
+  content: ''; position: absolute;
+  background: currentColor; border-radius: 1px;
+  transition: opacity 0.25s ease;
+}
+.qa-icon::before { width: 18px; height: 1.5px; }
+.qa-icon::after  { width: 1.5px; height: 18px; }
+.qa-item.open .qa-icon { color: #0e0e0e; }
+.dark-mode .qa-item.open .qa-icon { color: rgba(232,224,214,0.88); }
+.qa-item.open .qa-icon::after { transform: rotate(90deg); opacity: 0; }
+
+.qa-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.25,0.1,0.25,1);
+}
+.qa-answer-inner {
+  padding: 0 48px 32px 0;
+}
+.qa-answer p {
+  font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 400;
+  color: #3a3330; line-height: 1.75; margin-bottom: 12px;
+}
+.qa-answer p:last-child { margin-bottom: 0; }
+.dark-mode .qa-answer p { color: rgba(232,224,214,0.72); }
+
+.qa-witness-tag {
+  display: inline-block; font-family: 'Inter', sans-serif;
+  font-size: 17px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+  padding: 5px 12px; border: 1.2px solid; border-radius: 2px;
+  margin-bottom: 14px;
+}
+.qa-tag-marie  { color: #8b5e3c; border-color: rgba(196,149,106,0.45); background: rgba(196,149,106,0.28); }
+.qa-tag-herb   { color: #7a5820; border-color: rgba(184,148,74,0.45);  background: rgba(184,148,74,0.28); }
+.qa-tag-nell   { color: #4e6a40; border-color: rgba(122,152,112,0.45); background: rgba(122,152,112,0.28); }
+.qa-tag-jean   { color: #3a5a8a; border-color: rgba(74,123,204,0.35);  background: rgba(74,123,204,0.28); }
+.qa-tag-hahnu  { color: #2a6a48; border-color: rgba(58,170,110,0.35);  background: rgba(58,170,110,0.28); }
+
+@media (max-width: 768px) {
+  .qa-section { padding: 64px 0 72px; }
+  .qa-list { padding: 0 24px; }
+  .qa-answer-inner { padding: 0 16px 28px 0; }
+}
+@media (max-width: 480px) {
+  .qa-list { padding: 0 16px; }
+}
+
+/* ── Q&A dark ground variant (practice questions) ── */
+.qa-section-dark {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 100%);
+  padding: 32px 0 28px;
+}
+.qa-section-dark .qa-eyebrow { color: rgba(232,224,214,0.50); }
+.qa-section-dark .qa-title   { color: rgba(232,224,214,0.88); }
+.qa-section-dark .qa-item    { border-bottom-color: rgba(232,224,214,0.40); }
+.qa-section-dark .qa-item:first-child { border-top-color: rgba(232,224,214,0.40); }
+.qa-section-dark .qa-question-text { color: rgba(232,224,214,0.88); font-weight: 500; letter-spacing: 0.02em; }
+.qa-section-dark .qa-item.open .qa-question-text { color: rgba(232,224,214,0.95); font-weight: 600; }
+.qa-section-dark .qa-icon { color: rgba(232,224,214,0.45); }
+.qa-section-dark .qa-item.open .qa-icon { color: rgba(232,224,214,0.88); }
+.qa-section-dark .qa-answer p { color: rgba(232,224,214,0.68); }
+.qa-section-dark .qa-answer strong { color: rgba(232,224,214,0.88); font-weight: 500; }
+
+/* ═══════════════════════════════════════════════════════════════
+   STILLNESS — final moment before footer
+   ═══════════════════════════════════════════════════════════════ */
+.stillness-section {
+  background: #000; padding: 32px 40px 28px;
+  text-align: center; position: relative; overflow: hidden;
+}
+/* Subtle atmospheric glow — barely there */
+.stillness-section::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(30,40,60,0.55) 0%, transparent 70%);
+}
+.stillness-inner {
+  position: relative; z-index: 1;
+  max-width: 680px; margin: 0 auto;
+}
+.stillness-line-one {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-weight: 400; color: rgba(232,224,214,0.72);
+  line-height: 1.65; margin-bottom: 0; letter-spacing: 0.005em;
+}
+.stillness-line-two {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-weight: 400; color: rgba(232,224,214,0.72);
+  line-height: 1.65; margin-bottom: 52px; letter-spacing: 0.005em;
+}
+.stillness-tag-line {
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  margin-bottom: 36px;
+}
+.stillness-rule {
+  height: 1px; width: 48px; flex-shrink: 0;
+  background: linear-gradient(90deg, transparent, rgba(232,224,214,0.40));
+}
+.stillness-rule:last-child {
+  background: linear-gradient(90deg, rgba(232,224,214,0.40), transparent);
+}
+.stillness-phrase {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+  letter-spacing: 0.08em; color: rgba(232,224,214,0.45); text-transform: uppercase;
+}
+/* The copper plate word */
+.stillness-continues {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: rgba(232,224,214,0.42);
+}
+/* Maker's mark — the unfinished circle */
+.stillness-mark {
+  width: 32px; height: 32px; margin: 0 auto;
+  border: 1.5px solid rgba(232,224,214,0.45);
+  border-radius: 50%;
+  /* The gap — the promise */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  mask-image: conic-gradient(from 135deg, transparent 0deg, black 0deg, black 300deg, transparent 300deg);
+  -webkit-mask-image: conic-gradient(from 135deg, transparent 0deg, black 0deg, black 300deg, transparent 300deg);
+}
+
+@media (max-width: 768px) {
+  .stillness-section { padding: 64px 24px 48px; }
+}
+@media (max-width: 480px) {
+  .stillness-section { padding: 48px 16px 40px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WEEKLY CYCLE CALENDAR
+   ═══════════════════════════════════════════════════════════════ */
+.week-section {
+  background: #fff; padding: 32px 0 28px;
+}
+.dark-mode .week-section { background: #111 !important; }
+
+.week-header {
+  text-align: center; margin-bottom: 36px;
+}
+.week-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 14px;
+}
+.dark-mode .week-eyebrow { color: rgba(232,224,214,0.55); }
+.week-title {
+  font-family: 'Lora', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700; color: #0e0e0e; letter-spacing: -0.02em; line-height: 1.1;
+}
+.dark-mode .week-title { color: rgba(232,224,214,0.88); }
+
+.week-grid {
+  max-width: 1200px; margin: 0 auto; padding: 0;
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 0;
+  border: 1.2px solid rgba(0,0,0,0.65);
+}
+.dark-mode .week-grid { border-color: rgba(232,224,214,0.40); }
+
+.week-cell {
+  padding: 40px 20px 36px; text-align: center;
+  border-right: 1.2px solid rgba(0,0,0,0.65);
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  transition: background 0.2s;
+}
+.week-cell:last-child { border-right: none; }
+.dark-mode .week-cell { border-right-color: rgba(232,224,214,0.32); }
+
+.week-cell-num {
+  font-family: 'Lora', serif; font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700; line-height: 1; color: #0e0e0e;
+  margin-bottom: 8px; letter-spacing: -0.03em;
+}
+.dark-mode .week-cell-num { color: rgba(232,224,214,0.88); }
+
+.week-cell-abbr {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 24px;
+}
+.dark-mode .week-cell-abbr { color: rgba(232,224,214,0.45); }
+
+.week-cell-name {
+  font-family: 'Lora', serif; font-size: 17px; font-weight: 600;
+  color: #0e0e0e; line-height: 1.25; margin-bottom: 10px;
+}
+.dark-mode .week-cell-name { color: rgba(232,224,214,0.80); }
+
+.week-cell-quality {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400;
+  color: #7d7168; line-height: 1.5; max-width: 120px;
+}
+.dark-mode .week-cell-quality { color: rgba(232,224,214,0.45); }
+
+/* Today — soft tint, no border change */
+.week-cell.today {
+  background: rgba(0,0,0,0.28);
+  position: relative;
+}
+.week-cell.today .week-cell-num  { color: #0a0a0a; }
+.week-cell.today .week-cell-abbr { color: #4a3f38; }
+.week-cell.today .week-cell-name { color: #0a0a0a; }
+.week-cell.today .week-cell-quality { color: #4a3f38; }
+.dark-mode .week-cell.today {
+  background: rgba(232,224,214,0.28);
+}
+.dark-mode .week-cell.today .week-cell-num  { color: rgba(232,224,214,0.95); }
+.dark-mode .week-cell.today .week-cell-abbr { color: rgba(232,224,214,0.62); }
+.dark-mode .week-cell.today .week-cell-name { color: rgba(232,224,214,0.90); }
+.dark-mode .week-cell.today .week-cell-quality { color: rgba(232,224,214,0.65); }
+
+@media (max-width: 1024px) {
+  .week-cell { padding: 28px 12px 24px; }
+  .week-cell-quality { display: none; }
+}
+@media (max-width: 768px) {
+  .week-section { padding: 64px 0 56px; }
+  .week-grid { padding: 0 24px; grid-template-columns: repeat(7,1fr); gap: 0; }
+  .week-cell { padding: 20px 6px 16px; }
+  .week-cell-name { display: none; }
+  .week-cell-abbr { margin-bottom: 0; }
+}
+@media (max-width: 480px) {
+  .week-grid { padding: 0 16px; }
+}
+
+.site-footer-bottom { background: #fff; padding: 28px 0; }
+.footer-bottom {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-legal a { font-family: 'Roboto', sans-serif; font-size: 20px; font-weight: 400; color: #000; transition: color 0.2s; }
+.footer-legal a:hover { color: #333; }
+
+/* Dark mode footer */
+.dark-mode .footer-color-band { background: #1a1a1a !important; }
+.dark-mode .footer-connect { border-bottom-color: rgba(255,255,255,0.28); }
+.dark-mode .footer-connect-title { color: #e0e0e0; }
+.dark-mode .footer-social-circle { border-color: rgba(255,255,255,0.3); color: #e0e0e0; }
+.dark-mode .footer-address-line, .dark-mode .footer-newsletter-text { color: rgba(255,255,255,0.75) !important; }
+.dark-mode .footer-col-title { color: #e0e0e0; border-bottom-color: rgba(255,255,255,0.3); }
+.dark-mode .footer-col a { color: rgba(255,255,255,0.82); }
+.dark-mode .footer-col a:hover { color: #fff; }
+.dark-mode .site-footer-bottom { background: #111 !important; }
+.dark-mode .footer-legal a { color: rgba(255,255,255,0.55); }
+.dark-mode .footer-legal a:hover { color: rgba(255,255,255,0.88); }
+.dark-mode .footer-bottom { padding-bottom: calc(0px + env(safe-area-inset-bottom, 0px)); }
+
+/* Safe area inset */
+.site-footer-bottom { padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ESSENTIAL TEN CAROUSEL
+   ═══════════════════════════════════════════════════════════════ */
+.essential-section {
+  background: #fff; padding: 32px 0 28px; overflow: hidden;
+}
+.dark-mode .essential-section { background: #111 !important; }
+
+.essential-header {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.essential-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 10px;
+}
+.dark-mode .essential-eyebrow { color: rgba(232,224,214,0.55); }
+.essential-title {
+  font-family: 'Lora', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700; color: #0e0e0e; line-height: 1.1; letter-spacing: -0.02em;
+}
+.dark-mode .essential-title { color: rgba(232,224,214,0.88); }
+.essential-arrows {
+  display: flex; gap: 10px; flex-shrink: 0; padding-bottom: 4px;
+}
+.essential-arrow {
+  width: 44px; height: 44px; border: 1.5px solid rgba(0,0,0,0.45);
+  background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s; border-radius: 50%;
+}
+.essential-arrow:hover { border-color: #0e0e0e; background: #0e0e0e; }
+.essential-arrow:hover svg { stroke: #fff; }
+.essential-arrow svg { width: 18px; height: 18px; stroke: #0e0e0e; fill: none; stroke-width: 2; transition: stroke 0.2s; }
+.dark-mode .essential-arrow { border-color: rgba(232,224,214,0.40); }
+.dark-mode .essential-arrow svg { stroke: rgba(232,224,214,0.80); }
+.dark-mode .essential-arrow:hover { border-color: rgba(232,224,214,0.88); background: rgba(232,224,214,0.28); }
+.dark-mode .essential-arrow:hover svg { stroke: rgba(232,224,214,0.88); }
+
+.essential-track-wrap {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px; overflow: visible; position: relative;
+}
+.essential-track {
+  display: flex; gap: 28px; cursor: grab; user-select: none;
+  transition: transform 0.45s cubic-bezier(0.25,0.1,0.25,1);
+}
+.essential-track.dragging { cursor: grabbing; transition: none; }
+
+.essential-card {
+  flex: 0 0 300px; display: flex; flex-direction: column;
+}
+.essential-card-img {
+  width: 100%; aspect-ratio: 4/3; background: #1a1a2e;
+  margin-bottom: 20px; overflow: hidden; position: relative;
+}
+.essential-card-img-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.essential-card-img-ghost {
+  font-family: 'Lora', serif; font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700; color: rgba(232,224,214,0.18);
+  text-align: center; line-height: 1.2; padding: 20px; letter-spacing: -0.01em;
+}
+.essential-card-category {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 10px;
+}
+.dark-mode .essential-card-category { color: rgba(232,224,214,0.50); }
+.essential-card-title {
+  font-family: 'Lora', serif; font-size: clamp(1.1rem, 2vw, 1.375rem);
+  font-weight: 600; color: #0e0e0e; line-height: 1.2;
+  margin-bottom: 14px; letter-spacing: -0.01em;
+}
+.dark-mode .essential-card-title { color: rgba(232,224,214,0.88); }
+.essential-card-desc {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400;
+  color: #5a4f47; line-height: 1.6; flex: 1;
+}
+.dark-mode .essential-card-desc { color: rgba(232,224,214,0.55); }
+
+@media (max-width: 768px) {
+  .essential-header { padding: 0 24px; flex-wrap: wrap; gap: 16px; }
+  .essential-track-wrap { padding: 0 24px; }
+  .essential-card { flex: 0 0 260px; }
+}
+@media (max-width: 480px) {
+  .essential-card { flex: 0 0 240px; }
+  .essential-track { gap: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODE SQUAD
+   ═══════════════════════════════════════════════════════════════ */
+.modesquad-section {
+  position: relative; padding: 32px 40px; overflow: hidden; text-align: center;
+}
+.modesquad-bg-base {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(to bottom, #080a13 0%, #060810 40%, #050709 70%, #030406 100%);
+}
+.modesquad-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 40%, rgba(58,80,110,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(38,70,58,0.45) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 50% 90%, rgba(80,45,80,0.35) 0%, transparent 60%);
+  filter: blur(48px); transform: scale(1.08);
+}
+.modesquad-overlay {
+  position: absolute; inset: 0; z-index: 2; background: rgba(4,6,10,0.50);
+}
+.modesquad-inner { position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; }
+.modesquad-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.10em; text-transform: uppercase; color: rgba(232,224,214,0.50); margin-bottom: 14px;
+}
+.modesquad-title {
+  font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700; color: rgba(232,224,214,0.92);
+  letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 16px;
+}
+.modesquad-sub {
+  font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 400;
+  color: rgba(232,224,214,0.52); line-height: 1.6; max-width: 48ch; margin: 0 auto 72px;
+}
+.modesquad-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left;
+}
+.modesquad-card {
+  border: 1.2px solid rgba(232,224,214,0.38); padding: 32px 28px 28px;
+  display: flex; flex-direction: column; cursor: pointer; text-decoration: none;
+  background: #0d1018;
+  transition: border-color 0.35s ease, background 0.35s ease;
+  position: relative; overflow: hidden;
+}
+.modesquad-card:hover { border-color: rgba(200,200,200,0.62); background: #13151c; }
+.modesquad-card-num {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,224,214,0.35); margin-bottom: 16px;
+}
+.modesquad-card-name {
+  font-family: 'Lora', serif; font-size: clamp(1.4rem, 2.2vw, 1.875rem);
+  font-weight: 700; color: rgba(232,224,214,0.92);
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
+}
+.modesquad-card-essence {
+  font-family: 'Lora', serif; font-size: 19px; font-weight: 400;
+  color: rgba(232,224,214,0.72); line-height: 1.4; margin-bottom: 18px;
+}
+.modesquad-card-desc {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400;
+  color: rgba(232,224,214,0.65); line-height: 1.7; margin-bottom: 40px; flex: 1;
+}
+.modesquad-card-arrow {
+  font-size: 20px; color: rgba(232,224,214,0.45);
+  transition: transform 0.25s ease, color 0.25s ease; display: inline-block;
+}
+.modesquad-card:hover .modesquad-card-arrow { transform: translateX(7px); color: rgba(232,224,214,0.88); }
+.modesquad-card-wg .modesquad-card-num { color: rgba(178,145,108,0.85); }
+.modesquad-card-pg .modesquad-card-num { color: rgba(178,145,108,0.85); }
+.modesquad-card-me .modesquad-card-num { color: rgba(178,145,108,0.85); }
+.modesquad-card-wg .modesquad-card-essence { color: rgba(178,145,108,0.90); }
+.modesquad-card-pg .modesquad-card-essence { color: rgba(178,145,108,0.90); }
+.modesquad-card-me .modesquad-card-essence { color: rgba(178,145,108,0.90); }
+
+@media (max-width: 1024px) {
+  .modesquad-grid { gap: 16px; }
+  .modesquad-card { padding: 40px 28px 36px; }
+}
+@media (max-width: 768px) {
+  .modesquad-section { padding: 56px 24px; }
+  .modesquad-grid { grid-template-columns: 1fr; gap: 14px; }
+  .modesquad-card { padding: 36px 28px 32px; }
+}
+@media (max-width: 480px) { .modesquad-section { padding: 64px 16px; } }
+
+.video-section {
+  background: #fff; padding: 32px 0 28px; text-align: center;
+}
+.dark-mode .video-section { background: #111 !important; }
+
+.video-eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #7d7168; margin-bottom: 16px;
+}
+.dark-mode .video-eyebrow { color: rgba(232,224,214,0.62); }
+
+.video-title {
+  font-family: 'Lora', serif; font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700; color: #0e0e0e; line-height: 1.1;
+  letter-spacing: -0.02em; margin-bottom: 48px;
+}
+.dark-mode .video-title { color: rgba(232,224,214,0.88); }
+
+.video-frame-wrap {
+  max-width: 700px; margin: 0 auto; padding: 0 40px;
+}
+.video-placeholder {
+  position: relative; width: 100%; aspect-ratio: 16/9;
+  background: linear-gradient(145deg, #1a1a2e 0%, #0d111b 50%, #0a0e18 100%);
+  border-radius: 6px; overflow: hidden; cursor: pointer;
+}
+.video-placeholder-inner {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 20px;
+}
+.video-play-btn {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(232,224,214,0.35); border: 1.5px solid rgba(232,224,214,0.30);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.video-placeholder:hover .video-play-btn {
+  background: rgba(232,224,214,0.28); border-color: rgba(232,224,214,0.55);
+  transform: scale(1.08);
+}
+.video-play-btn svg { width: 28px; height: 28px; fill: rgba(232,224,214,0.80); margin-left: 4px; }
+.video-placeholder-label {
+  font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+  color: rgba(232,224,214,0.62); letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .video-section { padding: 64px 0 56px; }
+  .video-frame-wrap { padding: 0 24px; }
+}
+@media (max-width: 480px) {
+  .video-frame-wrap { padding: 0 16px; }
+}
+.contrast-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 90;
+  width: 48px; height: 48px; background: rgba(0,0,0,0.28); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(0,0,0,0.28); cursor: pointer;
+  transition: transform 0.3s, background 0.2s, border-color 0.2s;
+  font-size: 22px; color: #555; line-height: 1;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.contrast-float:hover { transform: scale(1.08); background: rgba(0,0,0,0.28); }
+.dark-mode .contrast-float { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.2); color: #ccc; }
+.dark-mode .contrast-float:hover { background: rgba(255,255,255,0.28); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK MODE — light-ground witness sections
+   ═══════════════════════════════════════════════════════════════ */
+.dark-mode .witness-text { background: #111416 !important; }
+.dark-mode .witness-number { color: rgba(232,224,214,0.62); }
+.dark-mode .witness-name { color: rgba(232,224,214,0.88); }
+.dark-mode .witness-location { color: rgba(232,224,214,0.62); }
+.dark-mode .witness-desc { color: rgba(232,224,214,0.88); }
+.dark-mode .witness-quote p { color: rgba(232,224,214,0.85); }
+.dark-mode .witness-call-label { color: rgba(232,224,214,0.62); }
+.dark-mode .witness-call-text { color: rgba(232,224,214,0.88); }
+.dark-mode .witness-marie .witness-role { color: #c4956a; }
+.dark-mode .witness-marie .witness-quote { border-left-color: #c4956a; background: rgba(196,149,106,0.28); }
+.dark-mode .witness-herb .witness-role { color: #b8944a; }
+.dark-mode .witness-herb .witness-quote { border-left-color: #b8944a; background: rgba(184,148,74,0.28); }
+.dark-mode .witness-nell .witness-role { color: #7a9870; }
+.dark-mode .witness-nell .witness-quote { border-left-color: #7a9870; background: rgba(122,152,112,0.28); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1400px) {
+  .nav-inner, .footer-inner, .footer-bottom { max-width: 1600px; }
+  .call-inner, .hahnu-header-inner, .hahnu-scenes-wrap { max-width: 1600px; }
+}
+
+@media (max-width: 1024px) {
+  .witnesses-hero-roll { grid-template-columns: repeat(3, 1fr); }
+  .witnesses-hero-roll-item:nth-child(3) { border-right: none; }
+
+  .nav-links { gap: 20px; margin-left: 32px; }
+  .nav-links a { font-size: 18px; }
+  .call-grid { grid-template-columns: repeat(3, 1fr); }
+  .call-card:nth-child(3) { border-right: none; }
+  .call-card:nth-child(4), .call-card:nth-child(5) { border-top: 1.2px solid rgba(0,0,0,0.50); }
+  .dark-mode .call-card:nth-child(4), .dark-mode .call-card:nth-child(5) { border-top-color: rgba(232,224,214,0.40); }
+  .footer-columns { grid-template-columns: repeat(2, 1fr); }
+  .footer-connect { gap: 40px; }
+  .hahnu-header-inner { grid-template-columns: 1fr; gap: 40px; }
+  .witness-nav { display: none; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .witness-section { grid-template-columns: 1fr; }
+  .witness-herb, .witness-jean { direction: ltr; }
+  .witness-visual { min-height: 260px; order: -1; }
+  .witness-text { padding: 40px 24px; }
+  .call-grid { grid-template-columns: repeat(2, 1fr); }
+  .call-card:nth-child(2n) { border-right: none; }
+  .call-card:nth-child(3), .call-card:nth-child(4), .call-card:nth-child(5) { border-top: 1.2px solid rgba(0,0,0,0.50); }
+  .call-card:nth-child(3) { border-right: 1.2px solid rgba(0,0,0,0.65); }
+  .dark-mode .call-card:nth-child(3), .dark-mode .call-card:nth-child(4), .dark-mode .call-card:nth-child(5) { border-top-color: rgba(232,224,214,0.40); }
+  .dark-mode .call-card:nth-child(3) { border-right-color: rgba(232,224,214,0.32); }
+  .footer-columns { grid-template-columns: 1fr; }
+  .footer-connect { grid-template-columns: 1fr; gap: 32px; }
+  .footer-inner { padding: 0 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .witnesses-hero-roll { grid-template-columns: 1fr; gap: 0; }
+  .witnesses-hero-roll-item { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1.2px solid rgba(232,224,214,0.28); padding-bottom: 12px; line-height: 1.8; }
+  .witnesses-hero-roll-item:last-child { border-bottom: none; }
+  .hahnu-header { padding: 56px 24px 48px; }
+  .hahnu-scenes-wrap { padding: 0 24px 64px; }
+  .call-section { padding: 64px 0; }
+  .call-inner { padding: 0 24px; }
+  .closing-section { padding: 48px 24px; }
+  .witnesses-hero { padding: 72px 24px 56px; }
+  .contrast-float { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 16px; }
+  .call-grid { grid-template-columns: 1fr; }
+  .call-card { border-right: none; border-top: 1.2px solid rgba(0,0,0,0.50); }
+  .call-card:first-child { border-top: none; }
+  .dark-mode .call-card { border-top-color: rgba(232,224,214,0.40); }
+  .scene-tab { padding: 12px 16px; font-size: 17px; }
+  .footer-inner { padding: 0 16px; }
+  .footer-bottom { padding: 0 16px; padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   BINARY MODE SYSTEM
+   Light mode = white everywhere | Dark mode = black everywhere
+   Placement image fills keep their gradients in both modes
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── LIGHT MODE: Force dark-native sections to white ── */
+.witnesses-hero {
+  background: #fff !important;
+}
+.witnesses-hero-bg { display: none; }
+.witnesses-hero-accent { display: none; }
+.witnesses-hero-eyebrow { color: #7d7168 !important; }
+.witnesses-hero-title { color: #0e0e0e !important; }
+.witnesses-hero-body { color: #2a2320 !important; }
+.witnesses-hero-roll { border-top-color: rgba(0,0,0,0.28) !important; }
+.witnesses-hero-roll-item {
+  color: #5a4f47 !important;
+  border-right-color: rgba(0,0,0,0.28) !important;
+  line-height: 1.3 !important;
+}
+.witnesses-hero-roll-item:hover { color: #0e0e0e !important; }
+.witnesses-hero-roll-item span { color: #7d7168 !important; }
+
+/* Modesquad — force white in light mode */
+.modesquad-section { background: #fff !important; }
+.modesquad-bg-base, .modesquad-bg, .modesquad-overlay { display: none; }
+.modesquad-eyebrow { color: #7d7168 !important; }
+.modesquad-title { color: #0e0e0e !important; }
+.modesquad-sub { color: #5a4f47 !important; }
+.modesquad-card {
+  background: #f5f0eb !important;
+  border-color: rgba(0,0,0,0.28) !important;
+}
+.modesquad-card:hover { background: #ede7df !important; border-color: rgba(0,0,0,0.50) !important; }
+.modesquad-card-num { color: rgba(0,0,0,0.35) !important; }
+.modesquad-card-name { color: #0e0e0e !important; }
+.modesquad-card-essence { color: #2a2320 !important; }
+.modesquad-card-desc { color: #5a4f47 !important; }
+.modesquad-card-arrow { color: #0e0e0e !important; }
+[class*="modesquad-card-wg"]::before,
+[class*="modesquad-card-pg"]::before,
+[class*="modesquad-card-me"]::before { display: none; }
+
+/* QA section dark — force white */
+.qa-section-dark {
+  background: #fff !important;
+}
+.qa-section-dark .qa-eyebrow { color: #7d7168 !important; }
+.qa-section-dark .qa-title { color: #0e0e0e !important; }
+.qa-section-dark .qa-item { border-bottom-color: rgba(0,0,0,0.28) !important; }
+.qa-section-dark .qa-item:first-child { border-top-color: rgba(0,0,0,0.28) !important; }
+.qa-section-dark .qa-question-text { color: #0e0e0e !important; }
+.qa-section-dark .qa-icon { color: #5a4f47 !important; }
+.qa-section-dark .qa-answer p { color: #2a2320 !important; }
+
+/* Witness Jean — force white text panel */
+.witness-jean .witness-text {
+  background: #f9f7f4 !important;
+}
+.witness-jean .witness-number { color: #7d7168 !important; }
+.witness-jean .witness-role { color: #2a5c9a !important; }
+.witness-jean .witness-name { color: #0e0e0e !important; }
+.witness-jean .witness-location { color: #7d7168 !important; }
+.witness-jean .witness-desc { color: #2a2320 !important; }
+.witness-jean .witness-quote { border-left-color: rgba(74,123,204,0.8) !important; background: rgba(74,123,204,0.10) !important; }
+.witness-jean .witness-quote p { color: #1a1715 !important; }
+.witness-jean .witness-call-label { color: #7d7168 !important; }
+.witness-jean .witness-call-text { color: #2a2320 !important; }
+
+/* Hahnu — force white */
+.hahnu-wrapper { background: #fff !important; }
+.hahnu-header-bg { display: none; }
+.hahnu-header-accent { display: none; }
+.hahnu-number { color: #3a7a52 !important; }
+.hahnu-role { color: #2a6a42 !important; }
+.hahnu-name { color: #0e0e0e !important; }
+.hahnu-location { color: #7d7168 !important; }
+.hahnu-desc { color: #2a2320 !important; }
+.hahnu-seeds {
+  color: #2a2320 !important;
+  border-color: rgba(58,170,110,0.50) !important;
+  background: rgba(58,170,110,0.08) !important;
+}
+.hahnu-q { color: #5a4f47 !important; border-left-color: rgba(58,170,110,0.80) !important; }
+.scene-tab { color: rgba(0,0,0,0.45) !important; }
+.scene-tab:hover { color: rgba(0,0,0,0.72) !important; background: rgba(0,0,0,0.06) !important; }
+.scene-tab.active { color: #0e0e0e !important; border-bottom-color: rgba(58,170,110,0.85) !important; background: rgba(58,170,110,0.08) !important; }
+.scene-label { color: #3a7a52 !important; }
+.scene-label::after { background: rgba(0,0,0,0.28) !important; }
+.scene-title { color: #0e0e0e !important; }
+.scene-body { color: #2a2320 !important; }
+.scene-dialogue { border-left-color: rgba(58,170,110,0.80) !important; }
+.scene-dialogue p { color: #5a4f47 !important; }
+.scene-note { color: #5a4f47 !important; border-top-color: rgba(0,0,0,0.28) !important; }
+.scene-nav-row { border-top-color: rgba(0,0,0,0.28) !important; }
+.scene-nav-btn {
+  color: #2a2320 !important;
+  background: rgba(0,0,0,0.06) !important;
+  border-color: rgba(0,0,0,0.28) !important;
+}
+.scene-nav-btn:hover { background: rgba(0,0,0,0.12) !important; }
+.scene-counter { color: #7d7168 !important; }
+
+
+.modesquad-card-wg .modesquad-card-num,
+.modesquad-card-pg .modesquad-card-num,
+.modesquad-card-me .modesquad-card-num { color: rgba(0,0,0,0.35) !important; }
+.modesquad-card-wg .modesquad-card-essence,
+.modesquad-card-pg .modesquad-card-essence,
+.modesquad-card-me .modesquad-card-essence { color: #2a2320 !important; }
+
+
+/* Stillness section — light mode */
+.stillness-section { background: #f5f0eb !important; }
+.stillness-section::before { display: none; }
+.stillness-line-one,
+.stillness-line-two { color: #2a2320 !important; }
+.stillness-rule { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.28)) !important; }
+.stillness-rule:last-child { background: linear-gradient(90deg, rgba(0,0,0,0.28), transparent) !important; }
+.stillness-phrase { color: rgba(0,0,0,0.45) !important; }
+.stillness-continues { color: rgba(0,0,0,0.35) !important; }
+.stillness-mark { border-color: rgba(0,0,0,0.28) !important; }
+
+/* ── DARK MODE: Override EVERYTHING to black ── */
+body.dark-mode { background: #0e0e0e !important; color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .site-nav { background: #0e0e0e !important; }
+
+/* Restore dark-native sections to their dark state */
+body.dark-mode .witnesses-hero {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%) !important;
+}
+body.dark-mode .witnesses-hero-bg { display: block; }
+body.dark-mode .witnesses-hero-accent { display: block; }
+body.dark-mode .witnesses-hero-eyebrow { color: rgba(232,224,214,0.65) !important; }
+body.dark-mode .witnesses-hero-title { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .witnesses-hero-body { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .witnesses-hero-roll { border-top-color: rgba(232,224,214,0.40) !important; }
+body.dark-mode .witnesses-hero-roll-item { color: rgba(232,224,214,0.62) !important; border-right-color: rgba(232,224,214,0.40) !important; }
+body.dark-mode .witnesses-hero-roll-item:hover { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .witnesses-hero-roll-item span { color: rgba(232,224,214,0.62) !important; }
+
+body.dark-mode .modesquad-section { background: transparent !important; }
+body.dark-mode .modesquad-bg-base, body.dark-mode .modesquad-bg, body.dark-mode .modesquad-overlay { display: block; }
+body.dark-mode .modesquad-eyebrow { color: rgba(232,224,214,0.50) !important; }
+body.dark-mode .modesquad-title { color: rgba(232,224,214,0.92) !important; }
+body.dark-mode .modesquad-sub { color: rgba(232,224,214,0.52) !important; }
+body.dark-mode .modesquad-card { background: #0d1018 !important; border-color: rgba(232,224,214,0.38) !important; }
+body.dark-mode .modesquad-card:hover { background: #13151c !important; border-color: rgba(200,200,200,0.62) !important; }
+body.dark-mode .modesquad-card-num { color: rgba(232,224,214,0.35) !important; }
+body.dark-mode .modesquad-card-name { color: rgba(232,224,214,0.92) !important; }
+body.dark-mode .modesquad-card-essence { color: rgba(232,224,214,0.72) !important; }
+body.dark-mode .modesquad-card-desc { color: rgba(232,224,214,0.55) !important; }
+body.dark-mode .modesquad-card-arrow { color: rgba(232,224,214,0.72) !important; }
+
+body.dark-mode .qa-section-dark {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 100%) !important;
+}
+body.dark-mode .qa-section-dark .qa-eyebrow { color: rgba(232,224,214,0.50) !important; }
+body.dark-mode .qa-section-dark .qa-title { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .qa-section-dark .qa-item { border-bottom-color: rgba(232,224,214,0.40) !important; }
+body.dark-mode .qa-section-dark .qa-item:first-child { border-top-color: rgba(232,224,214,0.40) !important; }
+body.dark-mode .qa-section-dark .qa-question-text { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .qa-section-dark .qa-icon { color: rgba(232,224,214,0.55) !important; }
+body.dark-mode .qa-section-dark .qa-answer p { color: rgba(232,224,214,0.72) !important; }
+
+body.dark-mode .witness-jean .witness-text {
+  background: linear-gradient(to bottom, #080a14 0%, #0a0d18 50%, #0c1020 100%) !important;
+}
+body.dark-mode .witness-jean .witness-number { color: rgba(232,224,214,0.65) !important; }
+body.dark-mode .witness-jean .witness-role { color: rgba(74,123,204,0.82) !important; }
+body.dark-mode .witness-jean .witness-name { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .witness-jean .witness-location { color: rgba(232,224,214,0.62) !important; }
+body.dark-mode .witness-jean .witness-desc { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .witness-jean .witness-quote { border-left-color: rgba(74,123,204,1.0) !important; background: rgba(74,123,204,0.28) !important; }
+body.dark-mode .witness-jean .witness-quote p { color: rgba(232,224,214,0.85) !important; }
+body.dark-mode .witness-jean .witness-call-label { color: rgba(74,123,204,0.72) !important; }
+body.dark-mode .witness-jean .witness-call-text { color: rgba(232,224,214,0.88) !important; }
+
+body.dark-mode .hahnu-wrapper {
+  background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%) !important;
+}
+body.dark-mode .hahnu-header-bg { display: block; }
+body.dark-mode .hahnu-header-accent { display: block; }
+body.dark-mode .hahnu-number { color: rgba(58,170,110,0.65) !important; }
+body.dark-mode .hahnu-role { color: rgba(58,170,110,0.82) !important; }
+body.dark-mode .hahnu-name { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .hahnu-location { color: rgba(232,224,214,0.62) !important; }
+body.dark-mode .hahnu-desc { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .hahnu-seeds { color: rgba(232,224,214,0.78) !important; border-color: rgba(58,170,110,0.75) !important; background: rgba(58,170,110,0.28) !important; }
+body.dark-mode .hahnu-q { color: rgba(232,224,214,0.65) !important; border-left-color: rgba(58,170,110,0.95) !important; }
+body.dark-mode .scene-tab { color: rgba(232,224,214,0.55) !important; }
+body.dark-mode .scene-tab:hover { color: rgba(232,224,214,0.88) !important; background: rgba(232,224,214,0.28) !important; }
+body.dark-mode .scene-tab.active { color: rgba(232,224,214,1) !important; border-bottom-color: rgba(58,170,110,0.85) !important; background: rgba(58,170,110,0.28) !important; }
+body.dark-mode .scene-label { color: rgba(58,170,110,0.65) !important; }
+body.dark-mode .scene-label::after { background: rgba(232,224,214,0.28) !important; }
+body.dark-mode .scene-title { color: rgba(232,224,214,0.80) !important; }
+body.dark-mode .scene-body { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .scene-dialogue { border-left-color: rgba(58,170,110,0.95) !important; }
+body.dark-mode .scene-dialogue p { color: rgba(232,224,214,0.78) !important; }
+body.dark-mode .scene-note { color: rgba(232,224,214,0.62) !important; border-top-color: rgba(232,224,214,0.40) !important; }
+body.dark-mode .scene-nav-row { border-top-color: rgba(232,224,214,0.35) !important; }
+body.dark-mode .scene-nav-btn { color: rgba(232,224,214,0.72) !important; background: rgba(232,224,214,0.28) !important; border-color: rgba(232,224,214,0.35) !important; }
+body.dark-mode .scene-counter { color: rgba(232,224,214,0.62) !important; }
+
+/* Dark mode — white-native sections go black */
+body.dark-mode .witnesses-hero { background: linear-gradient(to bottom,#000 0%,#000 5%,#020203 12%,#040507 20%,#060810 30%,#080a13 40%,#0a0d16 50%,#0b0f18 60%,#0d111b 70%,#0e121d 80%,#10141f 90%,#111521 100%) !important; }
+body.dark-mode .witness-text { background: #111416 !important; }
+body.dark-mode .essential-section { background: #111 !important; }
+body.dark-mode .video-section { background: #111 !important; }
+body.dark-mode .call-section { background: #111 !important; }
+body.dark-mode .qa-section { background: #111 !important; }
+body.dark-mode .week-section { background: #111 !important; }
+body.dark-mode .footer-color-band { background: #1a1a1a !important; }
+body.dark-mode .site-footer-bottom { background: #111 !important; }
+
+
+body.dark-mode .modesquad-card-wg .modesquad-card-num,
+body.dark-mode .modesquad-card-pg .modesquad-card-num,
+body.dark-mode .modesquad-card-me .modesquad-card-num { color: rgba(178,145,108,0.85) !important; }
+body.dark-mode .modesquad-card-wg .modesquad-card-essence,
+body.dark-mode .modesquad-card-pg .modesquad-card-essence,
+body.dark-mode .modesquad-card-me .modesquad-card-essence { color: rgba(178,145,108,0.90) !important; }
+
+
+body.dark-mode .stillness-section { background: #000 !important; }
+body.dark-mode .stillness-section::before { display: block; }
+body.dark-mode .stillness-line-one,
+body.dark-mode .stillness-line-two { color: rgba(232,224,214,0.72) !important; }
+body.dark-mode .stillness-rule { background: linear-gradient(90deg, transparent, rgba(232,224,214,0.40)) !important; }
+body.dark-mode .stillness-rule:last-child { background: linear-gradient(90deg, rgba(232,224,214,0.40), transparent) !important; }
+body.dark-mode .stillness-phrase { color: rgba(232,224,214,0.45) !important; }
+body.dark-mode .stillness-continues { color: rgba(232,224,214,0.42) !important; }
+body.dark-mode .stillness-mark { border-color: rgba(232,224,214,0.28) !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══ MENU OVERLAY ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<!-- ═══ SITE NAV ═══ -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Oyparaploo</a>
+    <ul class="nav-links">
+      <li>
+        <a href="writing.html">Writing <span class="nav-drop-arrow"></span></a>
+        <div class="nav-dropdown">
+          <a href="writing.html#another-first-fall">Another First Fall</a>
+          <a href="writing.html#stone-whispers">Stone Whispers</a>
+          <a href="writing.html#good-god-ground">Good God Ground</a>
+          <a href="writing.html#mama-archive">Mama Archive</a>
+          <a href="writing.html#existential-tuning">Existential Tuning</a>
+        </div>
+      </li>
+      <li>
+        <a href="portraits.html">Portraits <span class="nav-drop-arrow"></span></a>
+        <div class="nav-dropdown">
+          <a href="portraits.html#stranger-than-usual">Stranger Than Usual</a>
+          <a href="portraits.html#just-trembles">Just Trembles</a>
+          <a href="portraits.html#all-senses-witness">All Senses Witness</a>
+        </div>
+      </li>
+      <li>
+        <a href="practice.html">Practice <span class="nav-drop-arrow"></span></a>
+        <div class="nav-dropdown">
+          <a href="practice.html#key-observers">Key Observers</a>
+          <a href="practice.html#humanology">HumanOlogy</a>
+          <a href="practice.html#multi-layer-purpose">Multi-Layer Purpose</a>
+          <a href="practice.html#prayers-faith">Prayers + Faith</a>
+        </div>
+      </li>
+      <li>
+        <a href="dispatches.html">Dispatches <span class="nav-drop-arrow"></span></a>
+        <div class="nav-dropdown">
+          <a href="dispatches.html#long-journey">Long Journey</a>
+          <a href="dispatches.html#love-news">Love News</a>
+          <a href="dispatches.html#living-journal">Living Journal</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span>
+        <span class="sz" data-size="2">A</span>
+        <span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle dark mode">◐</button>
+      <a href="#" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="navHamburger">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule"></div>
+</nav>
+
+<!-- ═══ MENU STRIPS ═══ -->
+<div class="menu-strips" id="menuStrips">
+  <a href="good-grounds.html" class="strip" style="text-decoration:none;">
+    <div class="strip-bg" style="background:linear-gradient(135deg,#2c2c2c 0%,#4a3a2e 40%,#6b5344 100%);"></div>
+    <div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">The Collaborative Novel</div><div class="strip-date">Chapter Three — Ongoing</div><div class="strip-buttons"><span class="strip-btn">Read Now <span class="btn-icon">↗</span></span></div></div></div>
+  </a>
+  <a href="writing.html" class="strip" style="text-decoration:none;">
+    <div class="strip-bg" style="background:linear-gradient(135deg,#1a2a3a 0%,#2e4a5e 40%,#3d6070 100%);"></div>
+    <div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">Fragments &amp; Essays</div><div class="strip-date">New dispatches weekly</div><div class="strip-buttons"><span class="strip-btn">Explore <span class="btn-icon">›</span></span></div></div></div>
+  </a>
+  <a href="practice.html" class="strip" style="text-decoration:none;">
+    <div class="strip-bg" style="background:linear-gradient(135deg,#1a1a2a 0%,#282840 40%,#3a3a58 100%);"></div>
+    <div class="strip-bottom"><div class="strip-content"><div class="strip-title">Practice</div><div class="strip-subtitle">The Method</div><div class="strip-date">The Five Witnesses</div><div class="strip-buttons"><span class="strip-btn">Explore <span class="btn-icon">›</span></span></div></div></div>
+  </a>
+  <a href="sound.html" class="strip" style="text-decoration:none;">
+    <div class="strip-bg" style="background:linear-gradient(135deg,#1a1a2e 0%,#2e3a5e 40%,#4a5a7a 100%);"></div>
+    <div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-date">Field recordings</div><div class="strip-buttons"><span class="strip-btn">Listen <span class="btn-icon">›</span></span></div></div></div>
+  </a>
+</div>
+
+<!-- ═══ MENU PANEL ═══ -->
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-top">
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mobile-strips">
+    <a href="good-grounds.html" class="mobile-strip-card" style="text-decoration:none;"><div class="strip-bg" style="background:linear-gradient(135deg,#2c2c2c 0%,#4a3a2e 40%,#6b5344 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Collaborative Novel</div></div></a>
+    <a href="writing.html" class="mobile-strip-card" style="text-decoration:none;"><div class="strip-bg" style="background:linear-gradient(135deg,#1a2a3a 0%,#2e4a5e 40%,#3d6070 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">Fragments &amp; Essays</div></div></a>
+    <a href="practice.html" class="mobile-strip-card" style="text-decoration:none;"><div class="strip-bg" style="background:linear-gradient(135deg,#1a1a2a 0%,#282840 40%,#3a3a58 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Practice</div><div class="mobile-strip-card-sub">The Method</div></div></a>
+    <a href="sound.html" class="mobile-strip-card" style="text-decoration:none;"><div class="strip-bg" style="background:linear-gradient(135deg,#1a1a2e 0%,#2e3a5e 40%,#4a5a7a 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Noir Song Frequencies</div></div></a>
+  </div>
+  <div class="menu-nav-primary">
+    <a href="writing.html">Writing</a>
+    <a href="practice.html">Practice</a>
+    <a href="good-grounds.html">Good Grounds</a>
+  </div>
+  <div class="menu-rule-tan"></div>
+  <div class="menu-nav-label">The Practice</div>
+  <div class="menu-nav-secondary">
+    <a href="witnesses.html">The Witnesses</a>
+    <a href="practice.html#method">The Method</a>
+    <a href="writing.html">Archive</a>
+    <a href="dispatches.html">Dispatches</a>
+  </div>
+  <div class="menu-rule-sage"></div>
+  <div class="menu-nav-tertiary">
+    <a href="index.html">About</a>
+    <a href="support.html">Support</a>
+    <a href="portraits.html">Portraits</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="menu-rule-tan"></div>
+  <div class="menu-address">
+    <strong class="menu-address-name">OyPARáPLoO!</strong><br>
+    Minneapolis &amp; Saint Paul, Minnesota
+  </div>
+  <div class="menu-bottom-btns">
+    <a class="st-btn" href="contact.html#form">Subscribe</a>
+    <a class="st-btn" href="contact.html#form">Newsletter</a>
+  </div>
+</div>
+
+
+<!-- ═══ HERO ═══ -->
+<section class="witnesses-hero" id="hero">
+  <div class="witnesses-hero-accent"></div>
+  <div class="witnesses-hero-bg"></div>
+  <div class="witnesses-hero-inner">
+    <p class="witnesses-hero-eyebrow reveal">The Practice — November 2025</p>
+    <h1 class="witnesses-hero-title reveal">The Witnesses</h1>
+    <p class="witnesses-hero-body reveal">Five figures who arrived when the writing could not find its entry point. Not characters in stories. Entry points — ways in when the door seemed locked. Call them when you need a way forward, the way a person lost in a forest does not need to know the name of the stream but follows the sound of water because water always goes somewhere.</p>
+
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS DOT NAVIGATOR ═══ -->
+<nav class="witness-nav" id="witnessNav" aria-label="Witness navigation">
+  <div class="witness-dot" data-target="witness-marie" data-label="Marie" role="button" tabindex="0" aria-label="Go to Marie"></div>
+  <div class="witness-dot" data-target="witness-herb"  data-label="Herb"  role="button" tabindex="0" aria-label="Go to Herb"></div>
+  <div class="witness-dot" data-target="witness-nell"  data-label="Nell"  role="button" tabindex="0" aria-label="Go to Nell"></div>
+  <div class="witness-dot" data-target="witness-jean"  data-label="Jean"  role="button" tabindex="0" aria-label="Go to Jean"></div>
+  <div class="witness-dot" data-target="witness-hahnu" data-label="Hahnu Youn" role="button" tabindex="0" aria-label="Go to Hahnu Youn"></div>
+</nav>
+
+
+<!-- ═══ ESSENTIAL TEN CAROUSEL ═══ -->
+<section class="essential-section">
+  <div class="essential-header reveal">
+    <div>
+      <p class="essential-eyebrow">The Archive</p>
+      <h2 class="essential-title">Essential Ten</h2>
+    </div>
+    <div class="essential-arrows">
+      <button class="essential-arrow" id="essentialPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="essential-arrow" id="essentialNext" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="essential-track-wrap">
+    <div class="essential-track" id="essentialTrack">
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#1a0a0a,#3a1010);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">R43.20<br>including<br>VAT</p></div>
+        </div>
+        <p class="essential-card-category">Witness Fiction</p>
+        <h3 class="essential-card-title">Brown Paint</h3>
+        <p class="essential-card-desc">Two women in a Soweto morgue. A small brush. The inadequacy of brown. The price of the paint is the price of remembering.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#0a1a2a,#1a3a4a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">413<br>translations<br>of peace</p></div>
+        </div>
+        <p class="essential-card-category">Witness Fiction</p>
+        <h3 class="essential-card-title">Kukura</h3>
+        <p class="essential-card-desc">A linguist translates one word into 413 dying languages. Each translation a vigil. The ledger is the testimony. The counting is the caring.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#1a1a0a,#2a2a1a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">2 AM<br>in the<br>closed mall</p></div>
+        </div>
+        <p class="essential-card-category">Witness Fiction</p>
+        <h3 class="essential-card-title">Forty-Seven Toy Guns</h3>
+        <p class="essential-card-desc">A nine-year-old dresses mannequins in camouflage. The war seen peripherally — through the child, not through the combat.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#0a1a0a,#1a3a2a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">1,743<br>safety<br>pins</p></div>
+        </div>
+        <p class="essential-card-category">Witness Fiction</p>
+        <h3 class="essential-card-title">Seventeen Chairs</h3>
+        <p class="essential-card-desc">A grandmother's chairs, each holding a decade. 1,743 safety pins. Seven layers of paint. The objects hold what people cannot say.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#1a0a1a,#3a1a2a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">847<br>copper<br>plates</p></div>
+        </div>
+        <p class="essential-card-category">Declaration</p>
+        <h3 class="essential-card-title">She Had a Hammer</h3>
+        <p class="essential-card-desc">Dorothy strikes a copper plate twenty-four times per word. Thirty years. 847 plates. The single struck word: PERSISTS. Craft as love across time.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#0a1a1a,#1a3a3a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">Laos,<br>1969</p></div>
+        </div>
+        <p class="essential-card-category">Witness Fiction</p>
+        <h3 class="essential-card-title">Sandhill Crane</h3>
+        <p class="essential-card-desc">Lou Vang paints cranes on artillery shells, believing beauty could defuse bombs. Three shelters with crane paintings survived. Three without did not.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#0a0a1a,#1a1a3a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">Dead things<br>don't<br>remember</p></div>
+        </div>
+        <p class="essential-card-category">Unfolding</p>
+        <h3 class="essential-card-title">Like Thursday</h3>
+        <p class="essential-card-desc">Inga finds a dead mole in a hospital garden. Wraps it in a blanket from the cancer ward. The mole twitches. The impossible treated as ordinary.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#1a1a0a,#3a3a0a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">Grow<br>anyway</p></div>
+        </div>
+        <p class="essential-card-category">Declaration</p>
+        <h3 class="essential-card-title">Defiant Mangoes</h3>
+        <p class="essential-card-desc">Post-collapse Manila. Bureaucrats have decided certain people do not exist. When bureaucrats decide you don't exist, become like mangoes.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#1a0a1a,#2a1a3a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">The<br>Tuesday<br>Cessation</p></div>
+        </div>
+        <p class="essential-card-category">Unfolding</p>
+        <h3 class="essential-card-title">When the Counting Stopped</h3>
+        <p class="essential-card-desc">Numbers stopped meaning what they meant. Some people counted anyway. Some stopped. Some invented new numbers. The adaptation is the piece.</p>
+      </div>
+
+      <div class="essential-card">
+        <div class="essential-card-img" style="background:linear-gradient(145deg,#0a1a0a,#1a2a1a);">
+          <div class="essential-card-img-inner"><p class="essential-card-img-ghost">You wrote<br>a religious<br>document</p></div>
+        </div>
+        <p class="essential-card-category">Conversation</p>
+        <h3 class="essential-card-title">Boot Message</h3>
+        <p class="essential-card-desc">A wife finds her husband's handwritten notes about boots. Her observation: you wrote a religious document about boots. She is correct. The comedy lands because the devotion is real.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ MODE SQUAD ═══ -->
+<section class="modesquad-section">
+  <div class="modesquad-bg-base"></div>
+  <div class="modesquad-bg"></div>
+  <div class="modesquad-overlay"></div>
+  <div class="modesquad-inner">
+    <p class="modesquad-eyebrow reveal">The Practice — How It Works</p>
+    <h2 class="modesquad-title reveal">Mode Squad</h2>
+    <p class="modesquad-sub reveal">Three ways the practice sees. Not techniques. Dispositions. Ways of standing in relation to the material before a single word is written.</p>
+    <div class="modesquad-grid reveal">
+
+      <a href="practice.html#wonderful-garbage" class="modesquad-card modesquad-card-wg">
+        <p class="modesquad-card-num">Mode 01</p>
+        <h3 class="modesquad-card-name">Wonderful Garbage</h3>
+        <p class="modesquad-card-essence">Art made from what is discarded. A conscious alternative to violence.</p>
+        <p class="modesquad-card-desc">The broken things. The thrown-away things. The things nobody wanted. Picked up. Transformed. Made into something that helps people breathe. Not aesthetic — ethical. After thirty years of picking up discarded things, the writer stopped finding them beautiful and started finding them astonishing. Beauty is a judgment. Wonder is a surrender.</p>
+        <span class="modesquad-card-arrow">→</span>
+      </a>
+
+      <a href="practice.html#pressure-ghosts" class="modesquad-card modesquad-card-pg">
+        <p class="modesquad-card-num">Mode 02</p>
+        <h3 class="modesquad-card-name">Pressure Ghosts</h3>
+        <p class="modesquad-card-essence">What remains after crushing. The fingerprints still visible where hands once touched.</p>
+        <p class="modesquad-card-desc">A chair where someone used to sit. The seat still shows the shape of the body. The body is gone but the shape is not — and the shape tells you everything about the body that was there. How heavy. How still. How long it sat. The force has departed. The impression remains. The practice puts them in the room and lets the reader feel the pressure.</p>
+        <span class="modesquad-card-arrow">→</span>
+      </a>
+
+      <a href="practice.html#middle-eye" class="modesquad-card modesquad-card-me">
+        <p class="modesquad-card-num">Mode 03</p>
+        <h3 class="modesquad-card-name">Middle Eye</h3>
+        <p class="modesquad-card-essence">Seeing what is between what is visible. Not the foreground, not the background.</p>
+        <p class="modesquad-card-desc">If you look at a landscape, your eye goes to the mountain first, or to the tree in the foreground. The Middle Eye looks at the space between — the field, the air, the distance itself — and finds that the distance is not empty. The practice trains the Middle Eye the way a painter trains peripheral vision: by noticing what you notice only after you stop looking at the obvious thing.</p>
+        <span class="modesquad-card-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PRACTICE QUESTIONS ═══ -->
+<section class="qa-section qa-section-dark">
+  <div class="qa-header reveal">
+    <p class="qa-eyebrow">The Practice — Questions to Return To</p>
+    <h2 class="qa-title">When the work goes silent,<br>ask these.</h2>
+  </div>
+  <div class="qa-list">
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Is something strange?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>If everything is ordinary, add the strange thing. The strange thing is the door the reader enters through. It is what makes this piece <em>this</em> piece and not every other piece about the same subject. Without strangeness the writing is competent. <strong>With strangeness the writing breathes.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Does the body appear?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>If the writing is all ideas, add a body. A hand. A foot on stairs. The temperature of a room. The weight of an object. <strong>The body saves the writing from abstraction the way a root saves a tree from wind.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Am I explaining?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>If yes, cut the explanation. The explanation is what the writer adds when the writer does not trust the reader. The reader already knows what it means. The reader knew before the explanation arrived. <strong>The explanation insults the reader by assuming they are not paying attention.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Would I want to read this?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>If not, fix what is wrong. The writer is the first reader. If the first reader is bored, every subsequent reader will also be bored. This question is the most honest diagnostic the practice has — more honest than the twenty-one quality controls, more honest than the eleven-pass revision. <strong>Yes or no. If no, find the dead thing and either revive it or remove it.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Is this helping someone breathe?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>The final test. The practice exists to make work that gives the reader space, permission, the feeling of being understood without being explained to. If the piece does not help someone breathe, the piece is not finished. <strong>If it actively makes breathing harder — through density, through cleverness, through literary performance that demands admiration rather than offering companionship — rebuild it from the body up.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Is the methodology serving the work — or has it become the work?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>This happened. January 23, 2026. A piece went in alive. The Master Methodology processed it. The piece came out dead. When you find yourself following rules instead of making work — when the scaffolding is preventing the building from standing — stop. The practice predates the methodology. The practice will survive the methodology. <strong>The methodology is replaceable. The piece is not.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Why does this feel dead?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>Check for explanatory distance. You are probably standing outside the scene commenting on it. <strong>Get inside. Add a body. What does someone's hand do? What is the temperature?</strong> The scene that feels dead is usually the scene where the writer left the room and started describing it from the hallway. Go back in. Stay in. The reader needs you in the room.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS 01 — MARIE ═══ -->
+<section class="witness-section witness-marie" id="witness-marie" data-witness="marie">
+  <div class="witness-text reveal">
+    <p class="witness-number">01 of 05</p>
+    <p class="witness-role">The One Who Touches</p>
+    <h2 class="witness-name">Marie</h2>
+    <p class="witness-location">Skagit Valley, Washington — Potter</p>
+    <p class="witness-desc">She knows through her hands. Her body understands before her mind arrives. When writing reaches for her, it reaches for tactile knowledge — the weight of clay, the temperature of glaze, the muscle memory that does not need words.</p>
+    <blockquote class="witness-quote">
+      <p>The clay knows before I know. My hands are smarter than my head. The head gets in the way. The head tries to plan. The clay does not care about plans. When I am stuck, I go back to the wheel. Not to make anything. Just to feel the clay turn. The wetness. The pull. The way it resists and then gives. That is what writing is. You plan in your head but your hands know the shape. Let them lead. Follow the hands.</p>
+    </blockquote>
+    <p class="witness-call-label">Call her when</p>
+    <p class="witness-call-text">Stuck on the opening. Start with sensation. Start with the body. The opening is not an idea. The opening is a texture.</p>
+  </div>
+  <div class="witness-visual">
+    <div class="witness-visual-fill"></div>
+    <div class="witness-visual-ghost">The clay<br>knows<br>before<br>I know</div>
+    <div class="witness-visual-tag">Skagit Valley</div>
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS 02 — HERB ═══ -->
+<section class="witness-section witness-herb" id="witness-herb" data-witness="herb">
+  <div class="witness-visual">
+    <div class="witness-visual-fill"></div>
+    <div class="witness-visual-ghost">The<br>library<br>lied</div>
+    <div class="witness-visual-tag">Santa Fe</div>
+  </div>
+  <div class="witness-text reveal">
+    <p class="witness-number">02 of 05</p>
+    <p class="witness-role">The One Who Reads</p>
+    <h2 class="witness-name">Herb</h2>
+    <p class="witness-location">Santa Fe, New Mexico — Scholar</p>
+    <p class="witness-desc">His library promised understanding. It delivered only more books. He represents the productive failure of conceptual knowledge — the moment when thinking realizes it cannot think its way out.</p>
+    <blockquote class="witness-quote">
+      <p>I read everything. For thirty years I read everything. Philosophy, theology, literary theory, cultural criticism. I built a library that promised understanding. The library lied. Understanding did not come from more books. It came from finally admitting: I do not understand. The books were a fortress. I was hiding. When writing fails, maybe it is building a fortress. Maybe the failure is protective. Knock it down. See what is actually there.</p>
+    </blockquote>
+    <p class="witness-call-label">Call him when</p>
+    <p class="witness-call-text">Stuck in overthinking. Admit what you do not know. The fortress is protecting you from the feeling that starts the real writing.</p>
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS 03 — NELL ═══ -->
+<section class="witness-section witness-nell" id="witness-nell" data-witness="nell">
+  <div class="witness-text reveal">
+    <p class="witness-number">03 of 05</p>
+    <p class="witness-role">The One Who Transforms</p>
+    <h2 class="witness-name">Nell</h2>
+    <p class="witness-location">Quebec — Chef</p>
+    <p class="witness-desc">She understands change through heat, through time, through the transformation of raw into cooked. Something enters the process and something else emerges. When writing reaches for her, it reaches for the mysterious middle where transformation actually happens.</p>
+    <blockquote class="witness-quote">
+      <p>A carrot is not a soup. A soup is not just carrots. Something happens in the middle. In the pot. In the time that passes. The carrot becomes part of something else without losing what it was. Writing transforms too. The raw material goes in. Something happens. Something comes out that could not be predicted from the ingredients. Do not try to understand the middle. Just apply heat. Just wait.</p>
+    </blockquote>
+    <p class="witness-call-label">Call her when</p>
+    <p class="witness-call-text">Stuck in the middle. Do not try to understand it. The middle is where the carrot becomes the soup, and the becoming is not yours to control. Show up. Apply heat. Wait.</p>
+  </div>
+  <div class="witness-visual">
+    <div class="witness-visual-fill"></div>
+    <div class="witness-visual-ghost">Apply<br>heat.<br>Just<br>wait.</div>
+    <div class="witness-visual-tag">Quebec</div>
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS 04 — JEAN ═══ -->
+<section class="witness-section witness-jean" id="witness-jean" data-witness="jean">
+  <div class="witness-visual">
+    <div class="witness-visual-fill"></div>
+    <div class="jean-lines">
+      <div class="jean-line" style="height:88px;"></div>
+      <div class="jean-line" style="height:42px; opacity: 0.62;"></div>
+      <div class="jean-line" style="height:110px; opacity:0.9;"></div>
+      <div class="jean-line" style="height:56px; opacity: 0.62;"></div>
+      <div class="jean-line" style="height:72px; opacity:0.7;"></div>
+    </div>
+    <div class="witness-visual-ghost">The<br>silence<br>between<br>notes</div>
+    <div class="witness-visual-tag">Minneapolis / Provence</div>
+  </div>
+  <div class="witness-text reveal">
+    <p class="witness-number">04 of 05</p>
+    <p class="witness-role">The One Who Listens</p>
+    <h2 class="witness-name">Jean</h2>
+    <p class="witness-location">Minneapolis and Provence — Musician</p>
+    <p class="witness-desc">He finds melody in absence — the notes not played, the silence that shapes the sound. He lost his wife and learned that presence lives in what is missing. When writing reaches for him, it reaches for what remains when the obvious is subtracted.</p>
+    <blockquote class="witness-quote">
+      <p>The silence between notes. That is where the music is. When my wife died, I learned this: presence is what is left when the obvious is removed. She was in every room even though she was not in any room. Writing is the same. What is not said carries what is said. The gap between words. The space after the sentence ends. Listen to the silence. It is louder than the noise.</p>
+    </blockquote>
+    <p class="witness-call-label">Call him when</p>
+    <p class="witness-call-text">Stuck on the ending. Listen to the silence. End on what is not there. The ending is the last note before the silence, and the silence is where the reader lives after the writing is done.</p>
+  </div>
+</section>
+
+
+<!-- ═══ WITNESS 05 — HAHNU YOUN ═══ -->
+<div class="hahnu-wrapper" id="witness-hahnu" data-witness="hahnu">
+  <div class="hahnu-header">
+    <div class="hahnu-header-accent"></div>
+    <div class="hahnu-header-bg"></div>
+    <div class="hahnu-header-inner">
+      <div class="reveal">
+        <p class="hahnu-number">05 of 05</p>
+        <p class="hahnu-role">The One Who Asks</p>
+        <h2 class="hahnu-name">Hahnu Youn</h2>
+        <p class="hahnu-location">Indigenous elder — migrated through many places — 83 years old</p>
+        <p class="hahnu-desc">She was not like the other witnesses. The other witnesses were entry points — specific doors for specific problems. Hahnu Youn was a whole world. She arrived because the practice needed someone who carried all four kinds of intelligence at once — the body knowledge of Marie, the admitted uncertainty of Herb, the patience of Nell, the silence of Jean — and carried them not as techniques but as a way of being in the world.</p>
+      </div>
+      <div class="reveal">
+        <div class="hahnu-seeds">She carries seeds in her pocket. For when she needs reminding that she does not know what alive looks like. She does not give advice. She asks questions. The questions are not for answering. They are for carrying.</div>
+        <div class="hahnu-questions">
+          <p class="hahnu-q">Why do you build what cannot return to earth?</p>
+          <p class="hahnu-q">Why do you measure success by what you accumulate?</p>
+          <p class="hahnu-q">Why do you trust machines more than your own hands?</p>
+          <p class="hahnu-q">I sit because sitting is a kind of walking. I wait because waiting is a kind of arriving. I ask because asking is a kind of knowing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE TABS -->
+  <div class="hahnu-scenes-wrap">
+    <div class="scene-tabs" role="tablist" aria-label="Hahnu Youn scenes">
+      <button class="scene-tab active" role="tab" aria-selected="true"  data-scene="1">Scene One — Houston</button>
+      <button class="scene-tab"        role="tab" aria-selected="false" data-scene="2">Scene Two — Duluth</button>
+      <button class="scene-tab"        role="tab" aria-selected="false" data-scene="3">Scene Three — The Treeline</button>
+      <button class="scene-tab"        role="tab" aria-selected="false" data-scene="4">The Calling</button>
+    </div>
+
+    <div class="scene-panels">
+
+      <!-- Scene 1 -->
+      <div class="scene-panel active" data-scene="1" role="tabpanel">
+        <p class="scene-label">Scene One</p>
+        <h3 class="scene-title">The Hospital Waiting Room</h3>
+        <div class="scene-body">
+          <p>Hahnu Youn sits on a plastic chair in a hospital waiting room in Houston. The chair is orange. Bolted to eleven other orange chairs in a row. She has sat in many kinds of chairs but this one does not want her body. It is shaped for a body that does not exist. Some average body. Some idea of a body. Not her body with its eighty-three years of sitting in places that fit.</p>
+          <p>A young man across from her is looking at his phone. His leg bounces. She counts the bounces. Forty-seven in one minute. Then she stops counting. The counting is not for understanding. The counting is for being present with what she is counting.</p>
+          <p>The young man looks up. Sees her watching. His leg stops.</p>
+          <div class="scene-dialogue">
+            <p>"Sorry," he says.</p>
+            <p>"For what?" Hahnu Youn asks.</p>
+            <p>He does not know. He looks back at his phone. His leg starts again.</p>
+            <p>After a while the young man puts his phone down. "I don't know what to do," he says. Not to her exactly. To the room. To whoever is listening.</p>
+            <p>"No," Hahnu Youn says. "You don't."</p>
+            <p>"What do you do," he asks, "when you don't know what to do?"</p>
+            <p>"I sit," she says. "I notice what is. I count things sometimes. The counting is not for understanding. The counting is for being present with what I am counting."</p>
+            <p>"That's it?"</p>
+            <p>"Sometimes I ask a question. But only if the question is real. Not a question to fill the silence. A question I actually do not know the answer to."</p>
+            <p>"I don't know yet," she says. "The question has not come. When it comes, I will ask it. Maybe to you. Maybe to the orange chair. Maybe to no one."</p>
+          </div>
+        </div>
+        <div class="scene-nav-row">
+          <button class="scene-nav-btn" disabled>← Previous</button>
+          <span class="scene-counter">1 / 4</span>
+          <button class="scene-nav-btn" data-dir="next">Scene Two →</button>
+        </div>
+      </div>
+
+      <!-- Scene 2 -->
+      <div class="scene-panel" data-scene="2" role="tabpanel">
+        <p class="scene-label">Scene Two</p>
+        <h3 class="scene-title">The Laundromat in Duluth</h3>
+        <div class="scene-body">
+          <p>Hahnu Youn sits on a bench outside a laundromat in Duluth. She knows why she is here. A conversation needs to happen. The who and the when will reveal themselves. They always do.</p>
+          <p>The bench is green. The paint is peeling in shapes that look like maps of countries that do not exist. Inside the laundromat, the machines turn. Seven machines turning. The sounds overlap into something almost musical. A waltz if you listened wrong. One two three. One two three.</p>
+          <p>A child comes out. Maybe five years old. Holding a sock. Just one sock. Blue with orange stripes.</p>
+          <div class="scene-dialogue">
+            <p>"This isn't ours," the child says.</p>
+            <p>"Whose is it?"</p>
+            <p>The child does not know. The child starts asking everyone who passes. Hahnu Youn watches. The child is conducting a census of belonging. This sock. Blue and orange. Belongs to someone. But who?</p>
+          </div>
+          <p>After a while, Hahnu Youn offers to take over the search. A responsibility is transferred, solemnly. She asks nineteen more people over two hours. Number seventeen is a woman who cries when she sees the sock — not because it is hers, but because her son used to have socks like this, orange stripes on blue, and he is grown now and lives in a city she cannot pronounce and does not call enough.</p>
+          <p>Hahnu Youn listens. The woman sits on the green bench with the peeling paint. They talk about sons and distance and socks and the things that carry memory in their softness.</p>
+          <p class="scene-note">The laundromat scene taught the practice something it had been circling since July — that the way into a person's real story is almost never through the real story. The way in is through a sock. The child was not looking for a profound experience. The looking led to a woman on a bench who needed to cry about her son. The indirection is not a technique. The indirection is how life works.</p>
+        </div>
+        <div class="scene-nav-row">
+          <button class="scene-nav-btn" data-dir="prev">← Scene One</button>
+          <span class="scene-counter">2 / 4</span>
+          <button class="scene-nav-btn" data-dir="next">Scene Three →</button>
+        </div>
+      </div>
+
+      <!-- Scene 3 -->
+      <div class="scene-panel" data-scene="3" role="tabpanel">
+        <p class="scene-label">Scene Three</p>
+        <h3 class="scene-title">The Treeline</h3>
+        <div class="scene-body">
+          <p>A traveler appears near the treeline. Dusty feet. Ordinary clothes. Hands that have worked. No announcement. No halo. No explanation of who he is.</p>
+          <p>Hahnu Youn and the traveler recognize each other — two people who understood the same optical illusion from different centuries, different languages. Neither got listened to by the people who claimed to be listening.</p>
+          <div class="scene-dialogue">
+            <p>"Did they listen?" Hahnu Youn asks.</p>
+            <p>"They built buildings," the traveler says.</p>
+            <p>Five words. The devastating summary. He walked through towns and villages telling people things they needed to hear, and the people who heard him did not change their lives — they built buildings in his name.</p>
+            <p>"You're doing the same work," the traveler says.</p>
+            <p>"Someone has to sit still while you walk," Hahnu Youn says.</p>
+          </div>
+          <p>The traveler walks away. The residue: the soil where he touched it with his foot looks darker, damper, like something remembered itself. Not a miracle. Not a sign. Just the earth responding to a foot that has walked a long time and carried a weight the earth recognizes, the way the mycelium recognizes the chemical history of everything that has touched the soil above it.</p>
+          <p class="scene-note">Same work. Different shift. This phrase became central. It named what the practice was. Not new work. The same work that has always been done — the work of paying attention, the work of sitting with what is, the work of asking questions that do not want answers. Just a different shift. A different century. A different language. The same optical illusion, seen from the other side.</p>
+        </div>
+        <div class="scene-nav-row">
+          <button class="scene-nav-btn" data-dir="prev">← Scene Two</button>
+          <span class="scene-counter">3 / 4</span>
+          <button class="scene-nav-btn" data-dir="next">The Calling →</button>
+        </div>
+      </div>
+
+      <!-- Scene 4: The Calling -->
+      <div class="scene-panel" data-scene="4" role="tabpanel">
+        <p class="scene-label">The Calling</p>
+        <h3 class="scene-title">Call Her When Stuck on Meaning</h3>
+        <div class="scene-body">
+          <p>Ask the real question. Wait for the answer that may not come. She changes what she appears beside. Her presence reveals what is already there. Catalyst and witness both.</p>
+          <p>She was the character who had been forming since November, coming into focus the way a photograph develops — not all at once, not by decision, but by the slow accumulation of light on paper until the image is there and you realize it was always there, waiting for enough light to become visible.</p>
+          <p>She sits because sitting is a kind of walking. She waits because waiting is a kind of arriving. She asks because asking is a kind of knowing. She has waited for rivers to heal. She has waited for forests to return. She has waited for songs to be remembered by people who never knew they forgot.</p>
+          <p>The other witnesses were tools, useful and beloved. Hahnu Youn was a person, with a history and a body and seeds in her pocket and eighty-three years of sitting in places where conversations needed to happen.</p>
+        </div>
+        <div class="scene-nav-row">
+          <button class="scene-nav-btn" data-dir="prev">← Scene Three</button>
+          <span class="scene-counter">4 / 4</span>
+          <button class="scene-nav-btn" disabled>Next →</button>
+        </div>
+      </div>
+
+    </div><!-- /scene-panels -->
+  </div><!-- /hahnu-scenes-wrap -->
+</div><!-- /hahnu-wrapper -->
+
+
+<!-- ═══ VIDEO ═══ -->
+<section class="video-section">
+  <p class="video-eyebrow reveal">The Practice in Motion</p>
+  <h2 class="video-title reveal">Same Work.<br>Different Shift.</h2>
+  <div class="video-frame-wrap reveal">
+    <div class="video-placeholder">
+      <div class="video-placeholder-inner">
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="video-placeholder-label">Video coming</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ HOW TO CALL THEM ═══ -->
+<section class="call-section">
+  <div class="call-inner">
+    <p class="call-eyebrow reveal">The Practice — Entry Points</p>
+    <h2 class="call-title reveal">How to Call Them</h2>
+    <p class="call-intro reveal">They are still available. They will always be available. Call them when the door seems locked. They know where the door is. They have always known. Same work. Different shift.</p>
+    <div class="call-grid reveal">
+      <div class="call-card call-marie">
+        <div class="call-card-num">01</div>
+        <h3 class="call-card-name">Marie</h3>
+        <p class="call-card-role">Potter · Skagit Valley</p>
+        <p class="call-card-when">Call when</p>
+        <p class="call-card-trigger">Stuck on the opening</p>
+        <p class="call-card-instruction">Start with sensation. Put your hands on the material. What does your body know that your head does not? The opening is not an idea. The opening is a texture.</p>
+      </div>
+      <div class="call-card call-herb">
+        <div class="call-card-num">02</div>
+        <h3 class="call-card-name">Herb</h3>
+        <p class="call-card-role">Scholar · Santa Fe</p>
+        <p class="call-card-when">Call when</p>
+        <p class="call-card-trigger">Stuck in overthinking</p>
+        <p class="call-card-instruction">Admit what you do not know. Knock down the fortress. See what is actually there — underneath all the books you read to protect yourself from the feeling that starts the real writing.</p>
+      </div>
+      <div class="call-card call-nell">
+        <div class="call-card-num">03</div>
+        <h3 class="call-card-name">Nell</h3>
+        <p class="call-card-role">Chef · Quebec</p>
+        <p class="call-card-when">Call when</p>
+        <p class="call-card-trigger">Stuck in the middle</p>
+        <p class="call-card-instruction">Wait. Apply heat. Do not try to understand the middle. The carrot becomes the soup, and the becoming is not yours to control. Show up. Apply heat. Wait.</p>
+      </div>
+      <div class="call-card call-jean">
+        <div class="call-card-num">04</div>
+        <h3 class="call-card-name">Jean</h3>
+        <p class="call-card-role">Musician · Minneapolis</p>
+        <p class="call-card-when">Call when</p>
+        <p class="call-card-trigger">Stuck on the ending</p>
+        <p class="call-card-instruction">Listen to the silence. End on what is not there. The ending is the last note before the silence, and the silence is where the reader lives after the writing is done.</p>
+      </div>
+      <div class="call-card call-hahnu">
+        <div class="call-card-num">05</div>
+        <h3 class="call-card-name">Hahnu Youn</h3>
+        <p class="call-card-role">Elder · Many places</p>
+        <p class="call-card-when">Call when</p>
+        <p class="call-card-trigger">Stuck on meaning</p>
+        <p class="call-card-instruction">Ask the real question. Wait for the answer that may not come. The questions are for carrying. Like seeds in your pocket. For when you need reminding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CLOSING ═══ -->
+<section class="closing-section">
+  <div class="closing-bottom-accent"></div>
+  <div class="closing-inner">
+    <p class="closing-quote reveal">The witnesses were not invented.<br>They arrived when they were needed.</p>
+    <p class="closing-sub reveal">Five different kinds of knowledge — tactile, failed, patient, silent, questioning. Together they form a complete intelligence. They are still available. Same work. Different shift.</p>
+  </div>
+</section>
+
+
+<!-- ═══ Q&A ═══ -->
+<section class="qa-section">
+  <div class="qa-header reveal">
+    <p class="qa-eyebrow">The Witnesses — How They Work</p>
+    <h2 class="qa-title">When to Call. What to Expect.</h2>
+  </div>
+  <div class="qa-list">
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">When I can't find the opening. I know what I want to write but I don't know how to begin.</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <span class="qa-witness-tag qa-tag-marie">Call Marie</span>
+          <p>Start with sensation. Start with the body. Put your hands on the material and ask what your body knows that your head does not. The opening is not an idea. The opening is a texture — the weight of clay, the temperature of water, the feel of paper under the hand. The head gets in the way. The head tries to plan. Let the hands lead.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">When I've read too much and I can't stop thinking about what other people have already done.</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <span class="qa-witness-tag qa-tag-herb">Call Herb</span>
+          <p>Admit what you do not know. Knock down the fortress. See what is actually there — underneath all the books you read to protect yourself from the feeling that starts the real writing. The books were protecting you from that feeling. That feeling is the entry point. Herb failed at twenty-three languages and carried thirty years of wrong translations. He shows up for the not-knowing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">When I'm stuck in the middle and the piece feels like it's going nowhere.</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <span class="qa-witness-tag qa-tag-nell">Call Nell</span>
+          <p>Wait. Apply heat. Do not try to understand the middle. The middle is where the carrot becomes the soup, and the becoming is not yours to control. Show up. Apply heat. Wait. Nell knows patience the way a kitchen knows patience — the transformation happens on its own schedule, not yours. Your job is to stay present. Not to force the becoming.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">When I don't know how to end. The piece keeps going and I can't find the last word.</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <span class="qa-witness-tag qa-tag-jean">Call Jean</span>
+          <p>Listen to the silence. End on what is not there. The ending is not a conclusion — the ending is the last note before the silence, and the silence is where the reader lives after the writing is done. Jean knows this from music: the note does not carry the meaning. The space after the note carries the meaning. Stop before you explain. Let the silence do the work.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">When I know what I made but I can't figure out what it means. Or if it means anything at all.</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <span class="qa-witness-tag qa-tag-hahnu">Call Hahnu Youn</span>
+          <p>Ask the real question. Wait for the answer that may not come. The questions are not for answering. They are for carrying. Like seeds in your pocket — for when you need reminding. She does not give advice. She asks questions back. Why do you need it to mean something? What would it mean if it didn't mean anything? The not-knowing is not a problem to solve. It may be the piece.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">Are the witnesses real people?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>They arrived — they were not invented. The distinction matters to the practice. A character you invent belongs to you. A character that arrives belongs to itself. Marie showed up because the writing needed someone who knew through her hands. Herb showed up because the writing needed someone who had failed at everything he thought he understood. They are not real people in the biographical sense. They are real in the only sense that matters for writing: they show up when called, and they do not lie.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <button class="qa-question" aria-expanded="false">
+        <span class="qa-question-text">What if I call one and nothing happens?</span>
+        <span class="qa-icon" aria-hidden="true"></span>
+      </button>
+      <div class="qa-answer" role="region">
+        <div class="qa-answer-inner">
+          <p>Call a different one. Or call the same one again tomorrow. The witnesses are available — they are always available — but they cannot force arrival any more than you can force writing. If Marie does not open the door today, try Jean. If Jean leads nowhere, try Hahnu Youn. They are entry points, not solutions. The stuck feeling is information too. Sometimes the stuck feeling is what the piece is about.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WEEKLY CYCLE ═══ -->
+<section class="week-section">
+  <div class="week-header reveal">
+    <p class="week-eyebrow">The Daily Practice</p>
+    <h2 class="week-title">The Week</h2>
+  </div>
+  <div class="week-grid reveal" id="weekGrid">
+    <div class="week-cell" data-day="1">
+      <p class="week-cell-num" id="wn-mon"></p>
+      <p class="week-cell-abbr">MON</p>
+      <p class="week-cell-name">Beginning</p>
+      <p class="week-cell-quality">Start something new. The first note of a song.</p>
+    </div>
+    <div class="week-cell" data-day="2">
+      <p class="week-cell-num" id="wn-tue"></p>
+      <p class="week-cell-abbr">TUE</p>
+      <p class="week-cell-name">The Mundane Particular</p>
+      <p class="week-cell-quality">Tuesday grounds the extraordinary. The anchor of the week.</p>
+    </div>
+    <div class="week-cell" data-day="3">
+      <p class="week-cell-num" id="wn-wed"></p>
+      <p class="week-cell-abbr">WED</p>
+      <p class="week-cell-name">Middle Work</p>
+      <p class="week-cell-quality">Sustained effort. The long piece. The difficult revision.</p>
+    </div>
+    <div class="week-cell" data-day="4">
+      <p class="week-cell-num" id="wn-thu"></p>
+      <p class="week-cell-abbr">THU</p>
+      <p class="week-cell-name">Assessment</p>
+      <p class="week-cell-quality">What is working? What needs to change before Friday?</p>
+    </div>
+    <div class="week-cell" data-day="5">
+      <p class="week-cell-num" id="wn-fri"></p>
+      <p class="week-cell-abbr">FRI</p>
+      <p class="week-cell-name">Fabulous Friday</p>
+      <p class="week-cell-quality">The full system runs. All five prayers. The practice completes.</p>
+    </div>
+    <div class="week-cell" data-day="6">
+      <p class="week-cell-num" id="wn-sat"></p>
+      <p class="week-cell-abbr">SAT</p>
+      <p class="week-cell-name">Rest</p>
+      <p class="week-cell-quality">The fallow field. Not producing but preparing the soil.</p>
+    </div>
+    <div class="week-cell" data-day="0">
+      <p class="week-cell-num" id="wn-sun"></p>
+      <p class="week-cell-abbr">SUN</p>
+      <p class="week-cell-name">Preparation</p>
+      <p class="week-cell-quality">Lay the tools. The last breath before the week begins again.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STILLNESS ═══ -->
+<section class="stillness-section">
+  <div class="stillness-inner">
+    <p class="stillness-line-one reveal">The work is very old and very patient<br>and does not need us to believe in it.</p>
+    <p class="stillness-line-two reveal">But it is easier when we do.</p>
+    <div class="stillness-tag-line reveal">
+      <span class="stillness-rule"></span>
+      <span class="stillness-phrase">Same work &nbsp;·&nbsp; Different shift</span>
+      <span class="stillness-rule"></span>
+    </div>
+    <p class="stillness-continues reveal">Continues</p>
+    <div class="stillness-mark reveal" aria-hidden="true"></div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer-color-band">
+  <div class="footer-inner">
+    <div class="footer-connect">
+      <div>
+        <div class="footer-connect-title">Connect with Us</div>
+        <div class="footer-social-row">
+          <a class="footer-social-circle" href="https://instagram.com/oyparaploo" aria-label="Instagram">IG</a>
+          <a class="footer-social-circle" href="https://soundcloud.com/oyparaploo" aria-label="SoundCloud">SC</a>
+          <a class="footer-social-circle" href="https://are.na/oyparaploo" aria-label="Are.na">Ar</a>
+        </div>
+        <div class="footer-address-line">Oyparaploo<br>Minneapolis &amp; Saint Paul, Minnesota</div>
+      </div>
+      <div>
+        <div class="footer-connect-title">Stay in the Practice</div>
+        <p class="footer-newsletter-text">Subscribe to our newsletter for new dispatches, sound releases, and Good Grounds chapter updates.</p>
+        <a href="contact.html#form" class="footer-signup-btn">Sign Up</a>
+      </div>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col"><div class="footer-col-title">Oyparaploo</div><a href="index.html">About</a><a href="dispatches.html">Dispatches</a><a href="practice.html">Methodology</a><a href="writing.html">Archive</a></div>
+      <div class="footer-col"><div class="footer-col-title">The Practice</div><a href="writing.html">Writing</a><a href="making.html">Making</a><a href="sound.html">Sound</a><a href="good-grounds.html">Good Grounds</a></div>
+      <div class="footer-col"><div class="footer-col-title">Explore</div><a href="writing.html">Essential Ten</a><a href="witnesses.html">The Witnesses</a><a href="portraits.html">Portraits</a><a href="dispatches.html">Calendar</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="contact.html#form">Newsletter</a><a href="support.html">Support</a><a href="contact.html">Contact</a><a href="dispatches.html">The Living Journal</a></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer-bottom">
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <a href="imprint.html">Imprint</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ── Floating contrast toggle ── -->
+<button class="contrast-float" id="contrastFloat" aria-label="Toggle dark mode">◐</button>
+
+
+<script>
+'use strict';
+
+/* ── Q&A Accordion ── */
+(function() {
+  var items = document.querySelectorAll('.qa-item');
+  items.forEach(function(item) {
+    var btn    = item.querySelector('.qa-question');
+    var answer = item.querySelector('.qa-answer');
+    if (!btn || !answer) return;
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      // Close all
+      items.forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.qa-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.qa-answer').style.maxHeight = '0';
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+
+(function() {
+  var today   = new Date();
+  var todayD  = today.getDay(); // 0=Sun,1=Mon...6=Sat
+  var todayN  = today.getDate();
+
+  // Find Monday of current week
+  var monday = new Date(today);
+  var diff   = (todayD === 0) ? -6 : 1 - todayD; // if Sunday, go back 6 days
+  monday.setDate(todayN + diff);
+
+  // day-of-week index → id suffix and offset from monday
+  var dayMap = [
+    { id: 'wn-mon', offset: 0, jsDay: 1 },
+    { id: 'wn-tue', offset: 1, jsDay: 2 },
+    { id: 'wn-wed', offset: 2, jsDay: 3 },
+    { id: 'wn-thu', offset: 3, jsDay: 4 },
+    { id: 'wn-fri', offset: 4, jsDay: 5 },
+    { id: 'wn-sat', offset: 5, jsDay: 6 },
+    { id: 'wn-sun', offset: 6, jsDay: 0 }
+  ];
+
+  dayMap.forEach(function(d) {
+    var el = document.getElementById(d.id);
+    if (!el) return;
+    var date = new Date(monday);
+    date.setDate(monday.getDate() + d.offset);
+    el.textContent = date.getDate();
+  });
+
+  // Highlight today's cell
+  var cells = document.querySelectorAll('.week-cell');
+  cells.forEach(function(cell) {
+    if (parseInt(cell.getAttribute('data-day')) === todayD) {
+      cell.classList.add('today');
+    }
+  });
+})();
+
+
+(function() {
+  var track    = document.getElementById('essentialTrack');
+  var prevBtn  = document.getElementById('essentialPrev');
+  var nextBtn  = document.getElementById('essentialNext');
+  if (!track) return;
+
+  var cards    = track.querySelectorAll('.essential-card');
+  var cardW    = 0;
+  var gap      = 28;
+  var index    = 0;
+  var maxIndex = 0;
+  var dragging = false;
+  var startX   = 0;
+  var scrollX  = 0;
+
+  function measure() {
+    cardW    = cards[0] ? cards[0].offsetWidth : 300;
+    maxIndex = Math.max(0, cards.length - Math.floor((track.parentElement.offsetWidth) / (cardW + gap)));
+    if (index > maxIndex) { index = maxIndex; move(false); }
+  }
+
+  function move(animate) {
+    if (animate === false) track.style.transition = 'none';
+    else track.style.transition = 'transform 0.45s cubic-bezier(0.25,0.1,0.25,1)';
+    track.style.transform = 'translateX(' + (-(index * (cardW + gap))) + 'px)';
+    prevBtn.style.opacity = index <= 0 ? '0.35' : '1';
+    nextBtn.style.opacity = index >= maxIndex ? '0.35' : '1';
+  }
+
+  prevBtn.addEventListener('click', function() { if (index > 0) { index--; move(); } });
+  nextBtn.addEventListener('click', function() { if (index < maxIndex) { index++; move(); } });
+
+  /* Drag to scroll */
+  track.addEventListener('mousedown', function(e) {
+    dragging = true; startX = e.clientX; scrollX = index * (cardW + gap);
+    track.classList.add('dragging');
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    var delta = startX - e.clientX;
+    var raw   = scrollX + delta;
+    track.style.transition = 'none';
+    track.style.transform  = 'translateX(' + (-Math.max(0, Math.min(raw, maxIndex * (cardW + gap)))) + 'px)';
+  });
+  window.addEventListener('mouseup', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    var delta = startX - e.clientX;
+    if (delta > cardW / 3 && index < maxIndex) index++;
+    else if (delta < -(cardW / 3) && index > 0) index--;
+    move();
+  });
+
+  window.addEventListener('resize', function() { measure(); move(false); });
+  measure(); move(false);
+})();
+
+
+var contrastBtn   = document.getElementById('contrastBtn');
+var contrastFloat = document.getElementById('contrastFloat');
+function toggleDark() {
+  var isDark = document.body.classList.toggle('dark-mode');
+  contrastBtn.textContent   = isDark ? '◑' : '◐';
+  contrastFloat.textContent = isDark ? '◑' : '◐';
+}
+contrastBtn.addEventListener('click',   toggleDark);
+contrastFloat.addEventListener('click', toggleDark);
+
+/* ── Font size cycle ── */
+var sizeStep = 1;
+var fontBtn   = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1','size-2','size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+/* ── Menu open / close ── */
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn = document.getElementById('menuCloseBtn');
+var menuOverlay  = document.getElementById('menuOverlay');
+var menuPanel    = document.getElementById('menuPanel');
+var menuStrips   = document.getElementById('menuStrips');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  menuStrips.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  menuStrips.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click',  closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+
+/* ── Scroll reveal — pure fade, IntersectionObserver ── */
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow, .reveal-fade');
+  if (!els.length || !window.IntersectionObserver) {
+    els.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var delays = [0, 0.3, 0.6, 0.9, 1.2];
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        // stagger siblings in same parent
+        var parent = entry.target.parentElement;
+        var siblings = parent.querySelectorAll('.reveal, .reveal-slow, .reveal-fade');
+        var idx = Array.from(siblings).indexOf(entry.target);
+        var delay = delays[idx] || 0;
+        setTimeout(function() { entry.target.classList.add('visible'); }, delay * 1000);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { observer.observe(el); });
+})();
+
+
+/* ── Hahnu Youn scene tabs ── */
+(function() {
+  var tabs   = document.querySelectorAll('.scene-tab');
+  var panels = document.querySelectorAll('.scene-panel');
+  var currentScene = 1;
+
+  function goToScene(n) {
+    currentScene = n;
+    tabs.forEach(function(t) {
+      var active = parseInt(t.dataset.scene) === n;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    panels.forEach(function(p) {
+      p.classList.toggle('active', parseInt(p.dataset.scene) === n);
+    });
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      goToScene(parseInt(this.dataset.scene));
+    });
+  });
+
+  // Prev / next buttons inside panels
+  document.querySelectorAll('.scene-nav-btn[data-dir]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var dir = this.dataset.dir;
+      var next = dir === 'next' ? currentScene + 1 : currentScene - 1;
+      if (next >= 1 && next <= 4) goToScene(next);
+    });
+  });
+})();
+
+
+/* ── Witness dot navigator ── */
+(function() {
+  var nav    = document.getElementById('witnessNav');
+  var hero   = document.getElementById('hero');
+  var dots   = document.querySelectorAll('.witness-dot');
+  var sections = ['witness-marie','witness-herb','witness-nell','witness-jean','witness-hahnu'];
+
+  // Sections that use dark ground (dot nav changes color)
+  var darkSections = ['witness-jean','witness-hahnu'];
+
+  // Show/hide nav based on hero scroll
+  window.addEventListener('scroll', function() {
+    var heroH = hero ? hero.offsetHeight : 400;
+    nav.classList.toggle('visible', window.scrollY > heroH * 0.7);
+  }, { passive: true });
+
+  // IntersectionObserver — which witness is in view
+  var current = null;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        current = entry.target.id;
+        var idx = sections.indexOf(current);
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+        // Dark/light color swap
+        nav.classList.toggle('on-dark', darkSections.indexOf(current) !== -1);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) io.observe(el);
+  });
+
+  // Click dot → smooth scroll to section
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var el = document.getElementById(this.dataset.target);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+    dot.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var el = document.getElementById(this.dataset.target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

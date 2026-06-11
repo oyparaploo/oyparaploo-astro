@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pressure Ghosts — OyPARáPLoO!</title>
+<meta name="description" content="What remains when everything unnecessary has been removed. The residue of something stripped to its essential structure. That remainder is the work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --font-display: 'Lora', Georgia, serif; --font-body: 'Work Sans', Helvetica, sans-serif; --font-ui: 'Inter', -apple-system, sans-serif; --text-warm: #e8e0d6; }
+html { font-size: 21px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: #000000; color: var(--text-warm); overflow-x: hidden; }
+body::after { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 9999; opacity: 0.024; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 256px 256px; }
+.ground { background: linear-gradient(to bottom, #000000 0%, #000000 5%, #020203 12%, #040507 20%, #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%); min-height: 100vh; padding-bottom: 80px; }
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 40px 50px; display: flex; justify-content: space-between; align-items: flex-start; background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.8) 65%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%); min-height: 100px; }
+.site-logotype { font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em; transition: color 0.6s ease; }
+.site-logotype:hover { color: rgba(232, 224, 214, 0.85); }
+.site-nav { display: flex; gap: 32px; }
+.site-nav a { font-family: var(--font-ui); font-size: 21px; font-weight: 500; color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em; transition: color 0.5s ease; }
+.site-nav a:hover { color: rgba(232, 224, 214, 0.85); }
+.region-narrow { max-width: 680px; margin: 0 auto; padding: 0 40px; }
+.page-header { padding-top: 160px; padding-bottom: 2vh; }
+.page-category { font-family: var(--font-ui); font-size: 14px; font-weight: 600; color: rgba(232, 224, 214, 0.40); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5em; }
+.page-title { font-family: var(--font-display); font-size: clamp(26px, 3.2vw, 35px); font-weight: 500; color: rgba(232, 224, 214, 0.78); line-height: 1.4; margin-bottom: 0.4em; letter-spacing: 0.01em; }
+.page-subtitle { font-family: var(--font-ui); font-size: 17px; font-weight: 500; color: rgba(232, 224, 214, 0.55); letter-spacing: 0.06em; margin-bottom: 3em; }
+.elder-voice { font-family: var(--font-display); font-size: clamp(20px, 2vw, 23px); font-weight: 400; color: rgba(232, 224, 214, 0.88); line-height: 1.85; margin-bottom: 2em; }
+.elder-voice:last-child { margin-bottom: 0; }
+.work-fragment { font-family: var(--font-display); font-size: clamp(20px, 2vw, 23px); font-weight: 400; color: rgba(232, 224, 214, 0.85); line-height: 1.85; margin-top: 1.5em; margin-bottom: 2em; padding-left: 0.8em; border-left: 1px solid rgba(232, 224, 214, 0.75); }
+.work-link { color: rgba(168, 200, 224, 0.75); text-decoration: underline; text-decoration-color: rgba(168, 200, 224, 0.6); text-underline-offset: 9px; text-decoration-thickness: 1px; transition: color 0.4s ease, text-decoration-color 0.4s ease; }
+.work-link:hover { color: rgba(168, 200, 224, 0.95); text-decoration-color: rgba(168, 200, 224, 0.7); }
+.content-space { padding-top: 4vh; padding-bottom: 4vh; }
+.breath-divider { height: 2vh; }
+.section-label { font-family: var(--font-ui); font-size: 17px; font-weight: 600; color: rgba(232, 224, 214, 0.58); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 2em; }
+.metadata-block { margin-top: 4em; padding-top: 2em; border-top: 1px solid rgba(232, 224, 214, 0.15); }
+.metadata-line { font-family: var(--font-ui); font-size: 15px; font-weight: 400; color: rgba(232, 224, 214, 0.45); line-height: 1.8; letter-spacing: 0.02em; }
+.metadata-signature { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: rgba(232, 224, 214, 0.55); margin-top: 1.5em; letter-spacing: 0.03em; }
+.page-nav { display: flex; justify-content: space-between; align-items: flex-start; padding: 3em 0; margin-top: 2em; border-top: 1px solid rgba(232, 224, 214, 0.1); }
+.page-nav a { font-family: var(--font-ui); font-size: 16px; font-weight: 450; color: rgba(232, 224, 214, 0.55); text-decoration: none; letter-spacing: 0.03em; transition: color 0.4s ease; }
+.page-nav a:hover { color: rgba(232, 224, 214, 0.85); }
+.nav-label { font-family: var(--font-ui); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(232, 224, 214, 0.35); margin-bottom: 0.4em; display: block; }
+.nav-next { text-align: right; }
+.reveal { opacity: 0; transition: opacity 1.8s ease; }
+.reveal.visible { opacity: 1; }
+.reveal-slow { opacity: 0; transition: opacity 3s ease; }
+.reveal-slow.visible { opacity: 1; }
+@media (max-width: 768px) { .region-narrow { padding: 0 28px; } .site-header { padding: 20px 28px 40px; } .site-nav a { font-size: 20px; } .site-nav { gap: 24px; } .page-header { padding-top: 120px; } }
+@media (max-width: 480px) { .region-narrow { padding: 0 20px; } .site-header { padding: 16px 20px 32px; } .site-logotype { font-size: 18px; } .site-nav { gap: 16px; } .site-nav a { font-size: 17px; } .page-header { padding-top: 100px; } .work-fragment { padding-left: 1em; } .page-nav { flex-direction: column; gap: 2em; text-align: center; } .nav-next { text-align: center; } }
+</style>
+</head>
+<body>
+<div class="ground">
+  <header class="site-header">
+    <a href="/" class="site-logotype">Oyparaploo</a>
+    <nav class="site-nav"><a href="/portraits">Portraits</a><a href="/methodology">Methodology</a></nav>
+  </header>
+
+  <section class="page-header region-narrow">
+    <div class="reveal">
+      <div class="page-category">Methodology</div>
+      <h1 class="page-title">Pressure Ghosts</h1>
+      <div class="page-subtitle">What persists after compression</div>
+    </div>
+  </section>
+
+  <section class="content-space region-narrow">
+    <div class="reveal">
+      <p class="elder-voice">A Pressure Ghost is what remains when everything unnecessary has been removed. The ghost is not the absence. It is the thing that persists. It is the residue of something that was once fully present — loud, complex, sprawling — and has been stripped to its essential structure through sustained pressure.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">The pressure can be time. The pressure can be revision. The pressure can be the simple fact of living with a piece of work long enough that everything decorative falls away and what is left is the shape that will not go away no matter how many times you try to simplify it further. That shape is the Pressure Ghost. It still exerts pressure on the room. It still shapes what happens around it. It is the thing the work was trying to be all along, before the work knew what it was trying to be.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">The practice treats every piece of work as a potential Pressure Ghost. The question is always: what would remain if you took away everything that was not load-bearing? Not everything that was not beautiful — beauty can be load-bearing. Not everything that was not efficient — efficiency is sometimes the enemy of the thing the work needs to do. The question is specifically about load. What is holding the structure up? What can you remove without the structure collapsing? What is left when you stop?</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">That remainder is the work.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">The concept came from the archive. Thirty years of creative files — a hundred and forty thousand of them — and the ones that survived, the ones that still had something to say after decades of neglect, were all Pressure Ghosts. They had been compressed by time and indifference and they were still standing. The practice learned from those survivors. It learned that the thing that persists is the thing worth building around.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice"><!-- BODY CONTINUES — Pressure Ghosts in the portraits: how each portrait is itself a compression of a life into its essential structure. The relationship between Pressure Ghosts and Wonderful Garbage: the discarded material that gets picked up is already a Pressure Ghost — it survived being thrown away. The relationship between the concept and architecture, geology, the way a river compresses a landscape over centuries into its essential drainage pattern. --></p>
+    </div>
+  </section>
+
+  <div class="breath-divider"></div>
+
+  <section class="content-space region-narrow">
+    <div class="reveal"><div class="section-label">Related methodology</div></div>
+    <div class="reveal">
+      <div class="work-fragment">
+        The Middle Eye holds the whole piece in view and knows where the weight needs to shift. It can feel the load-bearing sentences. It can feel which ones are decorative. <a href="/methodology/middle-eye" class="work-link">Read: Middle Eye</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="work-fragment">
+        The spine is the single image or fact that holds an entire portrait. The load-bearing truth that everything else hangs from. <a href="/methodology/finding-the-spine" class="work-link">Read: Finding the Spine</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-space region-narrow">
+    <div class="reveal-slow">
+      <div class="metadata-block">
+        <div class="metadata-line">February 2026<br>Category: Methodology<br>Methodology: Wonderful Garbage<br>Style: Noir Song</div>
+        <div class="metadata-signature">Oyparaploo.</div>
+      </div>
+    </div>
+    <nav class="page-nav">
+      <a href="/methodology/middle-eye"><span class="nav-label">Previous</span>Middle Eye</a>
+      <a href="/methodology/the-three-layer-system" class="nav-next"><span class="nav-label">Next</span>The Three-Layer System</a>
+    </nav>
+  </section>
+</div>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal, .reveal-slow').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the Bluffs Returned — Lenore Strand — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════
+   OYPARAPLOO — PORTRAIT READING PAGE TEMPLATE
+   Reading Page · Dark Ground Native · Standard Gradient
+   Room 9: The Artists · Portraits
+   Toggle: light-mode (◑ → ◐)
+   Strips: yes (desktop accordion + mobile cards)
+   Accent: none (warm white only — Artists room)
+   Display: Surfacing — sections revealed on scroll,
+   landing moments pulled from the prose flow
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+  background: linear-gradient(to bottom,
+    #000000 0%, #020203 20%, #060810 40%,
+    #0a0d16 60%, #0d111b 80%, #111521 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #d0c8bf;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM — 18px READING BASE ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: rgba(232,224,214,0.68) !important;
+  opacity: 1; transition: opacity 0.25s; line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+
+/* ═══ IV. STÄDEL NAV — DARK GROUND NATIVE ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: rgba(232,224,214,0.68); letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px; font-weight: 500; letter-spacing: 0.02em;
+  color: rgba(232,224,214,0.68);
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: rgba(232,224,214,0.68);
+  background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.nav-utils svg { stroke: currentColor; fill: none; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: rgba(232,224,214,0.68);
+  transition: transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+  opacity: 0.6;
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+/* Overlay */
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* Accordion strips — desktop */
+.menu-strips {
+  position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201;
+  display: flex; flex-direction: row; overflow: hidden;
+  opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none;
+}
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; color: #fff; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); border-radius: 0; background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); letter-spacing: 0.01em; text-decoration: none; transition: all 0.3s; }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+
+/* Strip placeholder tints */
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+
+/* Mobile strip cards */
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; border-radius: var(--oy-radius); position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: var(--oy-radius); }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: var(--oy-radius); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.2; }
+
+/* Panel — 400px */
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2; transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan { height: 2px; border: none; background: var(--oy-tan); margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-label { display: none; }
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary { display: block; margin-bottom: 4px; }
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid rgba(42,35,32,0.40);
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.8s ease; }
+.reveal.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC CSS — PORTRAIT DISPLAY
+   "Surfacing" — the writing emerges from darkness,
+   section by section, the way memory surfaces.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ── Reading column ── */
+.reading-column {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  padding-top: 32px;
+  margin-bottom: 56px;
+}
+.breadcrumb a {
+  font-size: 1rem;
+  font-weight: 425;
+  color: #a09888;
+  letter-spacing: 0em;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.breadcrumb a:hover { color: #e8e0d8; }
+.breadcrumb svg {
+  width: 18px; height: 18px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+
+/* ── Series eyebrow ── */
+.series-eyebrow {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b5ada5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+
+/* ── Title ── */
+.portrait-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(32px, 3.5vw, 40px);
+  font-weight: 600;
+  color: #d0c8bf;
+  letter-spacing: 0em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+
+/* ── Subject line ── */
+.portrait-subject {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #a09888;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+
+/* ── Opening arrival — gentle fade on load ── */
+.portrait-opening {
+  opacity: 0;
+  animation: surfaceIn 2.4s ease 0.3s forwards;
+}
+@keyframes surfaceIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ── Section breathing ── */
+.portrait-movement {
+  padding-top: 80px;
+}
+
+
+/* ── Section divider — a breath mark, not infrastructure ── */
+.section-breath {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0 0;
+}
+.section-breath::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: #3a3430;
+}
+
+
+/* ── Body prose ── */
+.portrait-body p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #b5ada5;
+  line-height: 1.78;
+  letter-spacing: -0.01em;
+  margin-bottom: 2em;
+}
+.portrait-body p:last-child { margin-bottom: 0; }
+
+
+/* ══════════════════════════════════════════════════
+   LANDING — the portrait display's core transformation.
+   Where breath display pulls fragments at ellipses,
+   portrait display pulls declarative moments from prose.
+   The writing lands here. The reader surfaces.
+   ══════════════════════════════════════════════════ */
+
+.landing {
+  font-size: 1.0556rem;
+  font-weight: 450;
+  color: #b5ada5;
+  line-height: 1.72;
+  letter-spacing: 0em;
+  margin: 2.5em 0;
+}
+
+/* Major landing — the moment the section orbits */
+.landing.major {
+  color: #ccc5bc;
+  font-weight: 500;
+}
+
+
+/* ── Receiver turn — the voice enters ── */
+.receiver .portrait-body p {
+  color: #b5ada5;
+  line-height: 1.82;
+}
+.receiver .landing {
+  color: #ccc5bc;
+}
+
+.receiver {
+  max-width: 620px;
+}
+
+
+/* ── Closing line — the circle completes ── */
+.portrait-body p.closing {
+  color: #ccc5bc;
+  font-weight: 450;
+}
+
+
+/* ── Territory — quiet field ── */
+.territory-field {
+  padding-top: 100px;
+  margin-top: 40px;
+  border-top: 1px solid #3a3430;
+}
+
+.territory-label {
+  font-size: 0.8889rem;
+  font-weight: 600;
+  color: #b5ada5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.territory-entry {
+  font-size: 0.8889rem;
+  font-weight: 400;
+  color: #b5ada5;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.territory-entry:last-child { margin-bottom: 0; }
+
+.territory-entry strong {
+  font-weight: 500;
+  color: #ccc5bc;
+}
+
+
+/* ── Sequential nav ── */
+.seq-nav {
+  margin-top: 140px;
+  padding-top: 32px;
+  border-top: 1px solid #3a3430;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: max(80px, env(safe-area-inset-bottom, 80px));
+}
+.seq-nav-link {
+  font-size: 1.0556rem;
+  font-weight: 400;
+  color: #b5ada5;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.seq-nav-link:hover { color: #d0c8bf; }
+.seq-nav-link .seq-dir {
+  font-size: 0.8889rem;
+  font-weight: 500;
+  color: #a09888;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.seq-nav-next {
+  align-self: flex-end;
+  text-align: right;
+  order: -1;
+}
+.seq-nav-prev {
+  align-self: flex-start;
+}
+
+
+/* ═══ PAGE RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .reading-column { padding: 0 24px; }
+  .portrait-title { font-size: clamp(28px, 5vw, 36px); }
+  .portrait-movement { padding-top: 56px; }
+  .section-breath { padding: 56px 0 0; }
+  .receiver { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .reading-column { padding: 0 24px; }
+  .portrait-movement { padding-top: 48px; }
+  .section-breath { padding: 48px 0 0; }
+}
+
+
+/* ═══ LIGHT MODE OVERRIDES ═══ */
+body.light-mode {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom, #ffffff 0px, #ffffff 300px, #fdfcfb 700px, #f9f7f4 100%);
+  background-attachment: scroll;
+  color: #2a2320;
+}
+
+/* Nav */
+body.light-mode .site-nav { background: rgba(244,245,248,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+body.light-mode .wordmark { color: #333; }
+body.light-mode .wordmark:hover { color: #5c3a1e; }
+body.light-mode .nav-links a { color: #333; }
+body.light-mode .nav-links a:hover { color: #5c3a1e; }
+body.light-mode .nav-utils button, body.light-mode .nav-utils a { color: #000; }
+body.light-mode .nav-utils button:hover, body.light-mode .nav-utils a:hover { color: #5c3a1e; }
+body.light-mode .nav-hamburger span { background: #333; }
+body.light-mode .font-size-btn .sz { color: #000 !important; }
+body.light-mode .nav-accent-rule { opacity: 1; }
+
+/* Breadcrumb */
+body.light-mode .breadcrumb a { color: #3a3028; }
+body.light-mode .breadcrumb a:hover { color: #2a2320; }
+
+/* Header */
+body.light-mode .series-eyebrow { color: #3a3028; }
+body.light-mode .portrait-title { color: #2a2320; }
+body.light-mode .portrait-subject { color: #4a4038; }
+
+/* Body */
+body.light-mode .portrait-body p { color: #2a2320; }
+body.light-mode .landing { color: #2a2320; }
+body.light-mode .landing.major { color: #2a2320; }
+body.light-mode .receiver .portrait-body p { color: #2a2320; }
+body.light-mode .receiver .landing { color: #2a2320; }
+body.light-mode .portrait-body p.closing { color: #2a2320; }
+
+/* Dividers */
+body.light-mode .section-breath::before { background: #b8a088; }
+body.light-mode .territory-field { border-top-color: #b8a088; }
+
+/* Territory */
+body.light-mode .territory-label { color: #3a3028; }
+body.light-mode .territory-entry { color: #4a4038; }
+body.light-mode .territory-entry strong { color: #2a2320; }
+
+/* Seq nav */
+body.light-mode .seq-nav { border-top-color: #b8a088; }
+body.light-mode .seq-nav-link { color: #3a3028; }
+body.light-mode .seq-nav-link:hover { color: #2a2320; }
+body.light-mode .seq-nav-link .seq-dir { color: #4a4038; }
+
+
+</style>
+</head>
+<body>
+
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">&#9681;</button>
+      <a href="#" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Good Grounds</div>
+      <div class="strip-subtitle">A novel in progress</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-2">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Writing</div>
+      <div class="strip-subtitle">34 pieces, ongoing</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-3">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Making</div>
+      <div class="strip-subtitle">Visual &amp; object practice</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-4">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Sound</div>
+      <div class="strip-subtitle">Noir Song Frequencies</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <div class="mobile-strips">
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+    </div>
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="#">Writing</a>
+      <a href="#">Making</a>
+      <a href="#">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="#">Our Practice</a>
+      <a href="#">Music Artists</a>
+      <a href="#">Collaborators</a>
+      <a href="#">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="#">Support</a>
+      <a href="#">Archive</a>
+      <a href="#">Calendar</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ▼▼▼ PAGE CONTENT — Portrait: What the Bluffs Returned ▼▼▼
+     Text transformed: landing moments pulled from prose.
+     ═══════════════════════════════════════════════════════════ -->
+
+<main>
+<article class="reading-column">
+
+  <!-- ── OPENING — fades in on load ── -->
+  <div class="portrait-opening">
+
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="portraits.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        Portraits
+      </a>
+    </div>
+
+    <div class="series-eyebrow">Fictional Portrait</div>
+
+    <h1 class="portrait-title">What the Bluffs Returned</h1>
+
+    <div class="portrait-subject">Lenore Strand &mdash; voice, poems set to music, spoken-word folk &mdash; b. 1946, Winona, Minnesota &mdash; three albums</div>
+
+  </div>
+
+
+  <!-- ══ MOVEMENT I — The Prohibition ══ -->
+  <div class="portrait-movement reveal">
+    <div class="portrait-body">
+
+      <p>She made her first public appearance at fourteen, singing folk songs with her older sister June at the coffee house on Third Street in Winona. They had learned the songs from a Pete Seeger record that belonged to their uncle and from a Weavers anthology they found at the public library on Fifth Street, and they sang them together in the front room of the house on Huff Street before they sang them anywhere else &mdash; June on guitar, Lenore singing, the two voices finding each other the way voices do when they have been in the same house since birth, the intervals already understood before the notes are named. They performed at the coffee house three times.</p>
+
+      <p class="landing">Their mother Harriet Strand &mdash; professor of English at the college, department chair by forty, a woman whose life had been organized entirely around discipline and institutional respectability &mdash; stopped the act. Not serious. Not a path. The prohibition came from the woman of authority and it held.</p>
+
+      <p>June died in a car accident on Highway 61 between Winona and Red Wing in 1969. She was twenty-three. Lenore was twenty. The sister who had been her first musical partner, her first companion in the form the mother had stopped, was gone. The highway that runs along the Mississippi through the bluff country, through the driftless landscape where the glaciers did not reach and the limestone rises five hundred feet above the river &mdash; that highway took June on a November evening when the road was wet and the curve near Kellogg did not forgive the speed she was carrying.</p>
+
+      <p class="landing">Lenore did not sing again for thirty-six years.</p>
+
+      <p>The grief ran beneath everything that followed without surfacing into it directly, present in the texture of every reading she gave, every poem she published, every classroom she stood in front of &mdash; but not named. Not addressed in the form of the original act. What could not be named in the poems would eventually be addressed in the form of the beginning, the form the mother had stopped, but not yet.</p>
+
+      <p class="landing major">The forty years between the prohibition and the first album were not empty. They were the preparation.</p>
+
+    </div>
+  </div>
+
+
+  <!-- ══ MOVEMENT II — The Landscape ══ -->
+  <div class="section-breath" aria-hidden="true"></div>
+  <div class="portrait-movement reveal">
+    <div class="portrait-body">
+
+      <p>Winona sits between the bluffs and the Mississippi River in the driftless area of southeastern Minnesota &mdash; the region the glaciers passed around, leaving the ancient landscape unscoured, the limestone bluffs standing as they have stood for millions of years while the land to the north and west was scraped flat by ice. Dakota homeland &mdash; Wap&aacute;&scaron;a band. Sugar Loaf bluff rises above the eastern edge of town, its peak quarried flat in the 1880s by the same limestone industry that built the downtown. Garvin Heights overlooks the valley from the west.</p>
+
+      <p class="landing">The town sits in the bottom of a vertical landscape, the river on one side and the stone on the other, and the sound of the town &mdash; the trains along the river, the church bells, the college carillon &mdash; rises into the bluffs and comes back changed.</p>
+
+      <p>The bluffs are exposed faces of Oneota dolomite and Prairie du Chien limestone &mdash; sedimentary strata laid down 450 million years ago, alternating layers of harder limestone and softer sandstone with different densities and different acoustic absorption coefficients. Sound directed at these layered faces produces frequency-dependent reflection: the denser limestone reflects higher frequencies more efficiently while the softer sandstone absorbs them, and the irregular surface of the exposed strata scatters the reflected energy rather than returning it as a clean echo. The result is a natural filtering &mdash; a voice projected toward the bluffs comes back with the high frequencies softened and the mid and low frequencies sustaining, the stone acting as a low-pass filter that delivers warmth by subtraction.</p>
+
+      <p class="landing">The bluffs do not return what they receive unchanged. They return it gentler, deeper, the sharp edges absorbed by the sandstone, the warmth delivered by the limestone.</p>
+
+      <p>Lenore grew up inside this acoustic environment. The landscape trained the ear before the voice arrived at the form, and when the voice finally arrived at the form &mdash; decades later, carrying everything the years had deposited &mdash; the ear already knew what it was listening for.</p>
+
+      <p class="landing major">The bluffs had been teaching it the whole time.</p>
+
+    </div>
+  </div>
+
+
+  <!-- ══ MOVEMENT III — The Preparation ══ -->
+  <div class="section-breath" aria-hidden="true"></div>
+  <div class="portrait-movement reveal">
+    <div class="portrait-body">
+
+      <p>What Lenore did for forty years was write poems. Not famous &mdash; published in journals, in small presses, in the accumulated labor of a literary life that does not make anyone rich or recognized but that trains the instrument in ways no conservatory can replicate. Six collections over thirty years. The poems were spare, precise, built from the same discipline Harriet had demanded but applied to a purpose Harriet had not authorized.</p>
+
+      <p>The voice that carried these poems into bookstores and classrooms and living rooms across Minnesota and Wisconsin and Iowa &mdash; the voice of the readings, the voice that spoke the texts to small audiences who sat in folding chairs and listened &mdash; was being trained without knowing it was being trained. Thirty years of readings trained the speaking voice into an instrument of controlled emotional weight, capable of making a room feel the presence of something not in the text, the pause between stanzas carrying as much as the words, the breath audible because the rooms were small enough to hear breathing.</p>
+
+      <p class="landing">The poem as text before melody. The voice carrying text. The preparation was happening the whole time, in the adjacent art, and Lenore did not know it was preparation because she did not know what it was preparing for.</p>
+
+      <p>From 1980 to 1998 she was married to a jazz pianist in Minneapolis &mdash; a working musician who played the clubs on Nicollet Avenue and the Dakota Jazz Club, who practiced in the house on Lyndale every morning at nine, the piano audible from the kitchen where Lenore wrote. She was among the first to hear his trio recordings, and she would tell him plainly what held and what did not, with the same precision she applied to a line of verse. Eighteen years inside that musical household, at close proximity to the sustained creative process of a musician who took the work seriously enough to do it every day whether anyone was listening or not. She largely observed rather than participated. But observation of that quality and duration is its own form of musical education &mdash; absorbed into the body the way a climate is absorbed, present in the sensing without being articulable as knowledge.</p>
+
+      <p class="landing">She learned what seriousness sounds like. She learned what it costs. She learned how a phrase is shaped by the silence around it, how a chord resolves not because it must but because the musician decides it will, how the space between notes is as composed as the notes themselves.</p>
+
+      <p class="landing major">When she finally made her own albums, she knew what she was doing because she had watched what doing it looked like from the inside for eighteen years.</p>
+
+    </div>
+  </div>
+
+
+  <!-- ══ MOVEMENT IV — The Albums ══ -->
+  <div class="section-breath" aria-hidden="true"></div>
+  <div class="portrait-movement reveal">
+    <div class="portrait-body">
+
+      <p>The first album was released in 2002 under the name Bluff Country Recordings. She was fifty-six. The name signed the return with the landscape of her origins &mdash; the driftless bluffs, the river, the town between them. The collaborators were a pianist from the Winona community orchestra and a bassist from Rochester, both of whom understood that their role was to carry the text without competing with it. The arrangements were spare: piano, upright bass, her voice.</p>
+
+      <p>Not trained singing &mdash; not the voice of someone who had studied technique, not the voice that arrives already shaped by years of vocal exercises and repertoire. The voice of someone who had spent thirty years reading poems aloud in small rooms and eighteen years listening to a jazz pianist practice and forty years carrying a grief that had no form until the form arrived. The poems set to music. The text carried by the voice with the full authority of a lived life rather than the polished instrument of conventional singing.</p>
+
+      <p class="landing">The tradition she entered without naming it is the tradition of women who understood that a song is a text before it is a melody and that the right voice can make a text live more powerfully than any trained soprano &mdash; the tradition of the speaker of songs, the woman whose authority comes from what the voice has been through rather than what the voice has been taught.</p>
+
+      <p>The second album, What Remains, was released at sixty-four. It was described by the one reviewer who covered it in the regional press as more sung than the first &mdash; the voice going further into the form on the second return, learning the territory with more confidence, more willingness to commit to pitch rather than shelter in the speaking register. An album about residue. What love leaves behind in everything it touches. What a sister leaves behind in a voice that stopped singing for thirty-six years and then started again. What a highway leaves behind in a family. What the bluffs leave behind in a sound they have filtered and returned.</p>
+
+      <p class="landing">The grains that remain after the wave has withdrawn.</p>
+
+      <p>The third album was released in 2022, when she was seventy-six. The voice on it is not the voice that sang with June in the coffee house on Third Street. The voice at seventy-six carries the specific acoustic signature of what time does to the vocal apparatus: the laryngeal cartilages have progressively ossified, reducing the range of pitch the folds can produce; the mucosal tissue of the vocal folds has thinned; the hormonal changes of menopause have caused the folds to thicken slightly, lowering the fundamental frequency &mdash; the voice deepens with age in women, contrary to the common assumption that all voices thin. Lung capacity has decreased, reducing the subglottal pressure available to drive the voice, introducing breathiness as the folds no longer close completely on each vibration cycle. The result is a narrowing of range, a deepening, a grain and texture that no young voice can produce &mdash; the acoustic signature of time deposited in the instrument. Every year of the prohibition is in the frequency. Every year of the poems and the readings and the jazz piano from the kitchen and the grief that ran beneath everything is in the grain of the folds.</p>
+
+      <p class="landing major">The delay is audible. The age is not despite the art. The age is the art.</p>
+
+    </div>
+  </div>
+
+
+  <!-- ══ MOVEMENT V — The Receiver Turn ══ -->
+  <div class="section-breath" aria-hidden="true"></div>
+  <div class="portrait-movement receiver reveal">
+    <div class="portrait-body">
+
+      <p>I was standing on the levee walk along the Mississippi in Winona on a November evening. The river was low &mdash; late autumn, the water drawing down before the freeze, the current visible only in the way the surface caught the last light and carried it downstream without letting go of it entirely. The bluffs were dark on both sides. Sugar Loaf to the east, its quarried top flat against the sky. Garvin Heights to the west, the observation point where the whole valley opens and the river is a line of silver in the dusk.</p>
+
+      <p>From the bookstore on Third Street &mdash; the same block where the coffee house had been fifty years before, the building changed but the block the same &mdash; the door was propped open and the voice came out into the evening air. A reading that had become something other than a reading. Poems spoken and half-sung over piano, the voice of a woman in her seventies carrying the forty years in its grain, the breathiness where the folds no longer fully close, the deepened fundamental, the text arriving with the authority of everything the delay had deposited. The piano beneath the voice the way the river runs beneath the bluffs &mdash; present, continuous, the accompaniment that does not compete but holds.</p>
+
+      <p>The voice reached the bluffs and the bluffs did their work. The reflected sound arrived a fraction of a second after the direct sound &mdash; the limestone returning the mid and low frequencies while the sandstone absorbed the highs, the voice heard twice, once as she sent it and once as the stone gave it back, gentler, deeper, the sharp edges removed by four hundred and fifty million years of sedimentation.</p>
+
+      <p class="landing">My chest received the bluff-filtered voice the way the ear receives a voice it has been waiting for without knowing it was waiting &mdash; the settling, the recognition, the sense that the sound arriving is the sound the landscape was built to return.</p>
+
+      <p>The woman in the bookstore was singing in the form the mother had forbidden. The sister was in the voice because the sister had been the first voice it sang with. The piano was the space between the notes. The river carried the last light downstream. The bluffs returned what they were asked to hold, changed by the holding, warmer for the passage through the stone.</p>
+
+      <p class="closing">She is still returning to the form. She is still going further in. The mother forbade the act. She could not forbid the voice from becoming what the voice was going to become. She only managed to delay it until the delay itself was audible in it &mdash; until the voice arrived at the form carrying everything the years had deposited that could not have been there if the act had never been stopped. The prohibition was part of the preparation. There are always grains of sand.</p>
+
+    </div>
+  </div>
+
+
+  <!-- ══ TERRITORY — quiet field ══ -->
+  <div class="territory-field reveal">
+    <div class="territory-label">Territory</div>
+
+    <p class="territory-entry"><strong>Winona, Minnesota.</strong> Mississippi River bluff country. Driftless area &mdash; glaciers passed around, ancient landscape unscoured. Limestone bluffs 500 feet above river valley. Dakota homeland, Wap&aacute;&scaron;a band. Sugar Loaf bluff east, peak quarried flat 1880s. Garvin Heights west. Town between bluffs and river, vertical landscape. Trains along river, church bells, college carillon &mdash; sound rises into bluffs and comes back changed.</p>
+
+    <p class="territory-entry"><strong>Limestone bluff acoustics.</strong> Oneota dolomite and Prairie du Chien limestone. Sedimentary strata 450 million years. Alternating harder limestone and softer sandstone. Frequency-dependent reflection: limestone reflects higher frequencies, sandstone absorbs. Natural low-pass filter: voice comes back with highs softened, mid and low sustaining. Bluffs return sound gentler, deeper, warmth by subtraction. Landscape trained the ear before voice arrived at form.</p>
+
+    <p class="territory-entry"><strong>Harriet Strand.</strong> Professor of English at college. Department chair by forty. Life organized around discipline and institutional respectability. Stopped the act: not serious, not a path. Prohibition from woman of authority, it held.</p>
+
+    <p class="territory-entry"><strong>June Strand.</strong> Older sister. Guitar and voice. Folk songs from Pete Seeger record and Weavers anthology. Coffee house Third Street, Winona, three performances. Died car accident Highway 61 between Winona and Red Wing, 1969, age 23. November, road wet, curve near Kellogg. First musical partner gone. Grief ran beneath everything without surfacing directly.</p>
+
+    <p class="territory-entry"><strong>Forty years of poetry.</strong> Not famous. Journals, small presses. Six collections over thirty years. Spare, precise. Readings in bookstores, classrooms, living rooms. Folding chairs. Thirty years of readings trained speaking voice into instrument of controlled emotional weight. Pause between stanzas carrying as much as words. Breath audible in small rooms. Poem as text before melody. Preparation happening in adjacent art without knowing.</p>
+
+    <p class="territory-entry"><strong>Marriage to jazz pianist, 1980&ndash;1998.</strong> Working musician. Clubs on Nicollet Avenue, Dakota Jazz Club. Practiced house on Lyndale every morning at nine. Piano audible from kitchen where Lenore wrote. Told him plainly what held. Eighteen years observing sustained creative process. Observation as musical education. Learned what seriousness sounds like, what it costs. Space between notes as composed as notes. Knew what doing it looked like from inside.</p>
+
+    <p class="territory-entry"><strong>First album, 2002.</strong> Bluff Country Recordings. Age 56. Name signed return with landscape of origins. Pianist from Winona community orchestra, bassist from Rochester. Arrangements: piano, upright bass, voice. Not trained singing. Voice of thirty years reading poems, eighteen years listening to jazz piano, forty years carrying grief. Poems set to music. Text carried by voice with authority of lived life. Tradition of speaker of songs: authority from what voice has been through, not what taught.</p>
+
+    <p class="territory-entry"><strong>Second album, What Remains.</strong> Age 64. More sung than first &mdash; voice going further into form. Residue: what love leaves, what sister leaves in voice that stopped thirty-six years, what highway leaves in family, what bluffs leave in filtered sound. Grains that remain after wave withdraws.</p>
+
+    <p class="territory-entry"><strong>Third album, 2022.</strong> Age 76. Still returning, still going further in.</p>
+
+    <p class="territory-entry"><strong>Vocal aging acoustics.</strong> Laryngeal cartilages progressively ossify: range narrows. Mucosal tissue of vocal folds thins. Postmenopausal hormonal changes: folds thicken slightly, fundamental frequency lowers &mdash; voice deepens in women with age. Lung capacity decreases: subglottal pressure reduced, breathiness as folds no longer fully close. Narrowing, deepening, grain and texture no young voice can produce. Acoustic signature of time deposited in instrument. Every year of prohibition in the frequency. Delay is audible. Age is the art.</p>
+
+    <p class="territory-entry"><strong>Receiver turn.</strong> Levee walk along Mississippi, November evening. River low, late autumn. Bluffs dark both sides. Bookstore Third Street &mdash; same block as coffee house fifty years before. Door propped open, voice coming out. Reading become something other than reading. Poems spoken and half-sung over piano. Voice in seventies carrying forty years in grain. Voice reached bluffs: reflected sound fraction of second after direct. Limestone returning mid and low, sandstone absorbing highs. Voice heard twice: once as sent, once as stone returned. Settling, recognition. Sister in voice because sister was first voice it sang with. Piano as space between notes. River carried last light. Bluffs returned what asked to hold, changed by holding, warmer for passage through stone. Prohibition was part of preparation. Still returning, still going further in.</p>
+  </div>
+
+
+  <!-- ══ SEQUENTIAL NAV ══ -->
+  <nav class="seq-nav reveal" aria-label="Portrait navigation">
+    <a href="what-the-building-held-nils-torvik.html" class="seq-nav-link seq-nav-next">
+      <span class="seq-dir">Next Portrait &rarr;</span>
+      What the Building Held &mdash; Nils Torvik
+    </a>
+    <a href="what-the-voice-carried-vera-lucero.html" class="seq-nav-link seq-nav-prev">
+      <span class="seq-dir">&larr; Previous Portrait</span>
+      What the Voice Carried &mdash; Vera Lucero
+    </a>
+  </nav>
+
+</article>
+</main>
+
+
+<script>
+// ── Font size (3 steps) — reading page: 18/19/21px
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+// ── Contrast toggle — dark ground native: ◑ toggles to light-mode
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('light-mode');
+  this.innerHTML = document.body.classList.contains('light-mode') ? '&#9680;' : '&#9681;';
+});
+
+// ── Menu open/close
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuStrips    = document.getElementById('menuStrips');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  if (menuStrips) menuStrips.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  if (menuStrips) menuStrips.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+// ── Scroll reveal — sections surface as the reader arrives
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>

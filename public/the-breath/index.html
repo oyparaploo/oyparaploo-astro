@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Breath — OyPARáPLoO!</title>
+<meta name="description" content="The space between making and not making. The pause that holds the practice together.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Work Sans', Helvetica, sans-serif;
+  --font-ui: 'Inter', -apple-system, sans-serif;
+  --warm: #c4956a;
+  --blue: #a8c8e0;
+  --sage: #a8d4b0;
+}
+
+html { font-size: 21px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  background: #050506;
+  color: #e8e0d6;
+  overflow-x: hidden;
+}
+
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 40px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.site-logotype { font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: rgba(232,224,214,0.25); text-decoration: none; letter-spacing: 0.04em; }
+.site-logotype:hover { color: rgba(232,224,214,0.50); }
+.site-nav { display: flex; gap: 32px; }
+.site-nav a { font-family: var(--font-ui); font-size: 21px; font-weight: 500; color: rgba(232,224,214,0.25); text-decoration: none; letter-spacing: 0.04em; }
+.site-nav a:hover { color: rgba(232,224,214,0.50); }
+
+
+/* ═══════ BREATHING ANIMATIONS ═══════ */
+@keyframes breathe-slow {
+  0%, 100% { opacity: 0.35; letter-spacing: 0.02em; }
+  50% { opacity: 0.70; letter-spacing: 0.06em; }
+}
+@keyframes breathe-medium {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.65; }
+}
+@keyframes breathe-fast {
+  0%, 100% { opacity: 0.40; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.01); }
+}
+@keyframes breathe-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.40; }
+}
+@keyframes pulse-line {
+  0%, 100% { width: 40px; opacity: 0.20; }
+  50% { width: 120px; opacity: 0.45; }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+
+/* ═══════ SECTIONS ═══════ */
+.breath-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  position: relative;
+}
+
+/* The living title */
+.breath-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 300;
+  color: rgba(232, 224, 214, 0.70);
+  letter-spacing: 0.02em;
+  animation: breathe-slow 10s ease-in-out infinite;
+}
+
+/* Pulse line — the heartbeat */
+.pulse {
+  height: 1px;
+  background: var(--warm);
+  margin: 6vh auto;
+  animation: pulse-line 8s ease-in-out infinite;
+  border-radius: 1px;
+}
+.pulse-blue { background: var(--blue); animation-delay: 2s; }
+.pulse-sage { background: var(--sage); animation-delay: 4s; }
+
+/* Breathing text blocks */
+.breath-text {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 400;
+  line-height: 1.75;
+  max-width: 600px;
+  animation: breathe-medium 12s ease-in-out infinite;
+}
+.breath-delay-1 { animation-delay: 1.5s; }
+.breath-delay-2 { animation-delay: 3s; }
+.breath-delay-3 { animation-delay: 4.5s; }
+
+/* Drifting words */
+.drift-word {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 500;
+  font-style: italic;
+  animation: drift 14s ease-in-out infinite, breathe-fast 10s ease-in-out infinite;
+}
+.drift-warm { color: var(--warm); animation-delay: 0s, 0s; }
+.drift-blue { color: var(--blue); animation-delay: 2s, 3s; }
+.drift-sage { color: var(--sage); animation-delay: 4s, 6s; }
+
+/* Glow orbs — ambient light */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: breathe-glow 16s ease-in-out infinite;
+}
+.orb-warm { background: var(--warm); width: 200px; height: 200px; }
+.orb-blue { background: var(--blue); width: 160px; height: 160px; animation-delay: 5s; }
+.orb-sage { background: var(--sage); width: 140px; height: 140px; animation-delay: 10s; }
+
+/* Small breathing text */
+.breath-small {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(232,224,214,0.55);
+  line-height: 1.85;
+  max-width: 480px;
+  animation: breathe-medium 14s ease-in-out infinite;
+}
+
+/* Counter — the years breathing */
+.breath-counter {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(232,224,214,0.20);
+  animation: breathe-slow 20s ease-in-out infinite;
+}
+
+.site-footer { padding: 0 40px 48px; text-align: center; }
+.footer-logotype {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600;
+  color: rgba(232,224,214,0.12); letter-spacing: 0.03em;
+  animation: breathe-glow 12s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .breath-section { padding: 60px 28px; min-height: 70vh; }
+  .site-header { padding: 20px 28px; }
+  .glow-orb { display: none; }
+}
+@media (max-width: 480px) {
+  .breath-section { padding: 48px 20px; min-height: 60vh; }
+  .site-header { padding: 16px 20px; }
+  .site-logotype { font-size: 18px; }
+  .site-nav { gap: 16px; } .site-nav a { font-size: 17px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-logotype">Oyparaploo</a>
+  <nav class="site-nav"><a href="/portraits">Portraits</a><a href="/methodology">Methodology</a></nav>
+</header>
+
+<!-- 1 -->
+<section class="breath-section">
+  <div class="glow-orb orb-warm" style="top: 20%; left: 15%;"></div>
+  <div class="breath-title">Breathe</div>
+</section>
+
+<!-- 2 -->
+<section class="breath-section">
+  <div class="breath-text breath-delay-1">Between every piece of finished work there is a space where nothing is being made. The practice does not fear this space. The practice lives in it.</div>
+</section>
+
+<div class="pulse"></div>
+
+<!-- 3 -->
+<section class="breath-section">
+  <div class="glow-orb orb-blue" style="top: 30%; right: 10%;"></div>
+  <div class="drift-word drift-warm">stillness</div>
+</section>
+
+<!-- 4 -->
+<section class="breath-section">
+  <div class="breath-text breath-delay-2">Lovely Quietness is not a technique. It is the acknowledgment that the work arrives when the maker stops performing the act of working and simply waits. The waiting is the work. The breath between the notes is what makes them music.</div>
+</section>
+
+<div class="pulse pulse-blue"></div>
+
+<!-- 5 -->
+<section class="breath-section">
+  <div class="drift-word drift-blue">patience</div>
+</section>
+
+<!-- 6 -->
+<section class="breath-section">
+  <div class="glow-orb orb-sage" style="bottom: 25%; left: 20%;"></div>
+  <div class="breath-small">Three hours of garbage. Then the sentence that opens the portrait arrives in the fourth hour, not because you worked harder in the fourth hour but because the first three hours were the breath before the voice. The garbage was the inhale. The sentence was the exhale. You cannot have one without the other.</div>
+</section>
+
+<div class="pulse pulse-sage"></div>
+
+<!-- 7 -->
+<section class="breath-section">
+  <div class="drift-word drift-sage">presence</div>
+</section>
+
+<!-- 8 -->
+<section class="breath-section">
+  <div class="breath-text breath-delay-3">The Middle Eye opens in the pause. Not in the making. Not in the analyzing. In the moment between them — when the hand is still and the mind has not yet decided what to do next. That is where you see the work as it actually is.</div>
+</section>
+
+<div class="pulse"></div>
+
+<!-- 9 -->
+<section class="breath-section">
+  <div class="breath-small" style="animation-delay: 6s;">Thirty years of making. The practice that survived was the one that knew when to stop. Not stop forever. Stop for the length of the breath. Then begin again. The breath is the spine. Remove the pauses and the music collapses into noise.</div>
+</section>
+
+<!-- 10 -->
+<section class="breath-section" style="min-height: 50vh;">
+  <div class="breath-counter">1995 · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · 2026</div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logotype">OyPARáPLoO!</div>
+</footer>
+
+</body>
+</html>

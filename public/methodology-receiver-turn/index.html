@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Receiver Turn — OyPARáPLoO!</title>
+<meta name="description" content="The moment when the work stops being about the maker and becomes about the person receiving it. The shift from testimony to invitation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --font-display: 'Lora', Georgia, serif; --font-body: 'Work Sans', Helvetica, sans-serif; --font-ui: 'Inter', -apple-system, sans-serif; --text-warm: #e8e0d6; }
+html { font-size: 21px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: #000000; color: var(--text-warm); overflow-x: hidden; }
+body::after { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 9999; opacity: 0.024; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 256px 256px; }
+.ground { background: linear-gradient(to bottom, #000000 0%, #000000 5%, #020203 12%, #040507 20%, #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%); min-height: 100vh; padding-bottom: 80px; }
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 40px 50px; display: flex; justify-content: space-between; align-items: flex-start; background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.8) 65%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%); min-height: 100px; }
+.site-logotype { font-family: var(--font-ui); font-size: 22px; font-weight: 500; color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em; transition: color 0.6s ease; }
+.site-logotype:hover { color: rgba(232, 224, 214, 0.85); }
+.site-nav { display: flex; gap: 32px; }
+.site-nav a { font-family: var(--font-ui); font-size: 21px; font-weight: 500; color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em; transition: color 0.5s ease; }
+.site-nav a:hover { color: rgba(232, 224, 214, 0.85); }
+.region-narrow { max-width: 680px; margin: 0 auto; padding: 0 40px; }
+.page-header { padding-top: 160px; padding-bottom: 2vh; }
+.page-category { font-family: var(--font-ui); font-size: 14px; font-weight: 600; color: rgba(232, 224, 214, 0.40); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5em; }
+.page-title { font-family: var(--font-display); font-size: clamp(26px, 3.2vw, 35px); font-weight: 500; color: rgba(232, 224, 214, 0.78); line-height: 1.4; margin-bottom: 0.4em; letter-spacing: 0.01em; }
+.page-subtitle { font-family: var(--font-ui); font-size: 17px; font-weight: 500; color: rgba(232, 224, 214, 0.55); letter-spacing: 0.06em; margin-bottom: 3em; }
+.elder-voice { font-family: var(--font-display); font-size: clamp(20px, 2vw, 23px); font-weight: 400; color: rgba(232, 224, 214, 0.88); line-height: 1.85; margin-bottom: 2em; }
+.elder-voice:last-child { margin-bottom: 0; }
+.work-fragment { font-family: var(--font-display); font-size: clamp(20px, 2vw, 23px); font-weight: 400; color: rgba(232, 224, 214, 0.85); line-height: 1.85; margin-top: 1.5em; margin-bottom: 2em; padding-left: 0.8em; border-left: 1px solid rgba(232, 224, 214, 0.75); }
+.work-link { color: rgba(168, 200, 224, 0.75); text-decoration: underline; text-decoration-color: rgba(168, 200, 224, 0.6); text-underline-offset: 9px; text-decoration-thickness: 1px; transition: color 0.4s ease, text-decoration-color 0.4s ease; }
+.work-link:hover { color: rgba(168, 200, 224, 0.95); text-decoration-color: rgba(168, 200, 224, 0.7); }
+.content-space { padding-top: 4vh; padding-bottom: 4vh; }
+.breath-divider { height: 2vh; }
+.section-label { font-family: var(--font-ui); font-size: 17px; font-weight: 600; color: rgba(232, 224, 214, 0.58); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 2em; }
+.metadata-block { margin-top: 4em; padding-top: 2em; border-top: 1px solid rgba(232, 224, 214, 0.15); }
+.metadata-line { font-family: var(--font-ui); font-size: 15px; font-weight: 400; color: rgba(232, 224, 214, 0.45); line-height: 1.8; letter-spacing: 0.02em; }
+.metadata-signature { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: rgba(232, 224, 214, 0.55); margin-top: 1.5em; letter-spacing: 0.03em; }
+.page-nav { display: flex; justify-content: space-between; align-items: flex-start; padding: 3em 0; margin-top: 2em; border-top: 1px solid rgba(232, 224, 214, 0.1); }
+.page-nav a { font-family: var(--font-ui); font-size: 16px; font-weight: 450; color: rgba(232, 224, 214, 0.55); text-decoration: none; letter-spacing: 0.03em; transition: color 0.4s ease; }
+.page-nav a:hover { color: rgba(232, 224, 214, 0.85); }
+.nav-label { font-family: var(--font-ui); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; color: rgba(232, 224, 214, 0.35); margin-bottom: 0.4em; display: block; }
+.nav-next { text-align: right; }
+.reveal { opacity: 0; transition: opacity 1.8s ease; }
+.reveal.visible { opacity: 1; }
+.reveal-slow { opacity: 0; transition: opacity 3s ease; }
+.reveal-slow.visible { opacity: 1; }
+@media (max-width: 768px) { .region-narrow { padding: 0 28px; } .site-header { padding: 20px 28px 40px; } .site-nav a { font-size: 20px; } .site-nav { gap: 24px; } .page-header { padding-top: 120px; } }
+@media (max-width: 480px) { .region-narrow { padding: 0 20px; } .site-header { padding: 16px 20px 32px; } .site-logotype { font-size: 18px; } .site-nav { gap: 16px; } .site-nav a { font-size: 17px; } .page-header { padding-top: 100px; } .work-fragment { padding-left: 1em; } .page-nav { flex-direction: column; gap: 2em; text-align: center; } .nav-next { text-align: center; } }
+</style>
+</head>
+<body>
+<div class="ground">
+  <header class="site-header">
+    <a href="/" class="site-logotype">Oyparaploo</a>
+    <nav class="site-nav"><a href="/portraits">Portraits</a><a href="/methodology">Methodology</a></nav>
+  </header>
+
+  <section class="page-header region-narrow">
+    <div class="reveal">
+      <div class="page-category">Methodology</div>
+      <h1 class="page-title">The Receiver Turn</h1>
+      <div class="page-subtitle">From testimony to invitation</div>
+    </div>
+  </section>
+
+  <section class="content-space region-narrow">
+    <div class="reveal">
+      <p class="elder-voice">The Receiver Turn is a principle coined inside this practice because no existing term described what was actually happening. It names the moment — the precise structural moment — when the work stops being about the maker and becomes about the person receiving it.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">In a portrait, the Receiver Turn happens when the writing crosses from describing the musician to describing what the music does when it arrives in the listener's body. The portrait of the contralto singer begins in Braddock, Pennsylvania, inside a bedroom, inside a voice. But the Receiver Turn happens when the writing says: the Pacinian corpuscles in the listener's chest activate at 200 hertz. Suddenly the portrait is no longer about the singer. It is about you. Your chest. Your body responding to a frequency it did not choose to respond to.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">In a methodology piece, the Receiver Turn happens when the writing stops explaining how the work is made and starts asking what happens when someone encounters the finished thing. The method is not the point. The encounter is the point. The method exists to make the encounter possible.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice">The shift is from "I" to "we" — from testimony to invitation. The work is not complete until the receiver has a place to stand.</p>
+    </div>
+    <div class="reveal">
+      <p class="elder-voice"><!-- BODY CONTINUES — examples of the Receiver Turn in each portrait. The structural markers that signal the turn is approaching. What happens when a piece fails to make the turn — it remains testimony, admirable but closed. The relationship between the Receiver Turn and the land acknowledgments: asking "whose land?" is itself a Receiver Turn, because it shifts the reader from observer to participant. --></p>
+    </div>
+  </section>
+
+  <div class="breath-divider"></div>
+
+  <section class="content-space region-narrow">
+    <div class="reveal"><div class="section-label">Related methodology</div></div>
+    <div class="reveal">
+      <div class="work-fragment">
+        The nerd door is the technical section where the science lives. The door the reader walks through when they want to know how it actually works. <a href="/methodology/the-nerd-door" class="work-link">Read: The Nerd Door</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="work-fragment">
+        The state of consciousness that sees the work as it actually is — not as the artist hopes it is, not as the critic fears it is. <a href="/methodology/middle-eye" class="work-link">Read: Middle Eye</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-space region-narrow">
+    <div class="reveal-slow">
+      <div class="metadata-block">
+        <div class="metadata-line">February 2026<br>Category: Methodology<br>Methodology: Wonderful Garbage<br>Style: Noir Song</div>
+        <div class="metadata-signature">Oyparaploo.</div>
+      </div>
+    </div>
+    <nav class="page-nav">
+      <a href="/methodology/the-nerd-door"><span class="nav-label">Previous</span>The Nerd Door</a>
+      <a href="/methodology/middle-eye" class="nav-next"><span class="nav-label">Next</span>Middle Eye</a>
+    </nav>
+  </section>
+</div>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal, .reveal-slow').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
