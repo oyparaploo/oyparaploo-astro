@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Both Natures Spell on Us — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════
+   Both Natures Spell on Us — Reading Page · Light Ground
+   Atmosphere: the spell. Incantation of short lines with an asterisk turn. Each line barely a sentence. The piece is the spell it names.
+   Toggle: dark-mode (◐ → ◑)
+   Strips: none
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: #000 !important;
+  opacity: 1;
+  transition: opacity 0.25s;
+  line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+
+/* ═══ IV. STÄDEL NAV — LIGHT GROUND ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: #333; letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 500; letter-spacing: 0.02em;
+  color: #333; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: #000; background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.nav-utils svg { stroke: currentColor; fill: none; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: #333;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips { display: none !important; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid #b3aba6;
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+.mobile-strips { display: none !important; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 1024px) {
+  /* Reading page: no layout shift at 1024 */
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC CSS — BOTH NATURES SPELL ON US
+   Reading room: Inter body, Lora titles. No Work Sans.
+   Atmosphere: the spell. Incantation of short lines with an asterisk turn. Each line barely a sentence. The piece is the spell it names.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ground */
+body {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom,
+    #ffffff 0px, #ffffff 300px,
+    #fdfcfb 700px, #f9f7f4 100%);
+  color: #2a2320;
+}
+
+/* Reading room container */
+.reading-room {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* ── Breadcrumb ── */
+.reading-breadcrumb {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 425;
+  color: #5a4f47;
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 32px;
+}
+.reading-breadcrumb svg {
+  stroke: currentColor; fill: none; flex-shrink: 0;
+}
+.reading-breadcrumb a {
+  color: #5a4f47; transition: color 0.2s;
+}
+.reading-breadcrumb a:hover { color: #2a2320; }
+
+/* ── Title ── */
+.reading-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 600;
+  color: #3d352e;
+  letter-spacing: 0em;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+/* ── Body text ── */
+.reading-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #2a2320;
+  letter-spacing: -0.01em;
+  line-height: 1.75;
+}
+.reading-body p { margin-bottom: 2em; }
+.reading-body p:last-of-type { margin-bottom: 0; }
+
+/* ── Fragment ── */
+.reading-fragment {
+  font-family: 'Lora', serif;
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 500;
+  color: #2a2320;
+  line-height: 1.5;
+  padding-left: 1em;
+  border-left: 1px solid rgba(26,22,19,0.75);
+  margin: 2em 0;
+}
+
+/* ── Breath ── */
+.reading-breath {
+  font-family: 'Lora', serif;
+  font-size: clamp(22px, 2.5vw, 26px);
+  font-weight: 500;
+  color: #2a2320;
+  text-align: center;
+  max-width: 540px;
+  margin: 2.5em auto;
+  line-height: 1.5;
+}
+
+/* ── Garden pause dots ── */
+.garden-pause {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  color: #8a8078;
+  letter-spacing: 0.35em;
+  margin: 2.5em 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Subtitle ── */
+.reading-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7d7168;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin-bottom: 48px;
+}
+
+/* Title has subtitle — tighten margin */
+.reading-title { margin-bottom: 12px; }
+
+/* Asterisk turn — the spell's hinge */
+.spell-turn {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: clamp(22px, 2.5vw, 26px);
+  color: #8a8078;
+  margin: 2.5em 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Sequential nav ── */
+.seq-nav {
+  margin-top: 140px;
+  padding-top: 24px;
+  border-top: 1.2px solid #777777;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.seq-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 400;
+  color: #5a4f47;
+  min-height: 44px; transition: color 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.seq-nav a:hover { color: #2a2320; }
+.seq-nav-next { align-self: flex-end; order: -1; }
+.seq-nav-prev { align-self: flex-start; }
+
+
+/* ═══ IX. DARK MODE ═══ */
+
+body.dark-mode {
+  background: linear-gradient(to bottom,
+    #000000 0%, #000000 5%, #020203 12%, #040507 20%,
+    #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%,
+    #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: rgba(232,224,214,0.88);
+}
+
+body.dark-mode .site-nav {
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
+body.dark-mode .wordmark:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-links a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-utils button,
+body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-utils button:hover,
+body.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.dark-mode .nav-accent-rule { opacity: 0.6; }
+
+body.dark-mode .reading-title { color: rgba(232,224,214,0.88); }
+body.dark-mode .reading-subtitle { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-body { color: rgba(232,224,214,0.85); }
+body.dark-mode .garden-pause { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-fragment {
+  color: rgba(232,224,214,0.85);
+  border-left-color: rgba(232,224,214,0.75);
+}
+body.dark-mode .reading-breath { color: rgba(232,224,214,0.82); }
+body.dark-mode .reading-breadcrumb,
+body.dark-mode .reading-breadcrumb a { color: rgba(232,224,214,0.62); }
+body.dark-mode .reading-breadcrumb a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .seq-nav { border-top-color: rgba(232,224,214,0.35); }
+body.dark-mode .seq-nav a { color: rgba(232,224,214,0.65); }
+body.dark-mode .seq-nav a:hover { color: rgba(232,224,214,0.88); }
+
+body.dark-mode .spell-turn { color: rgba(232,224,214,0.62); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .reading-title { font-size: clamp(22px, 4vw, 27px); }
+}
+@media (max-width: 480px) {
+  .reading-room { padding: 24px 24px 64px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="writing.html" class="active">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <a href="#" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="#">Writing</a>
+      <a href="#">Making</a>
+      <a href="#">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="#">Our Practice</a>
+      <a href="#">Music Artists</a>
+      <a href="#">Collaborators</a>
+      <a href="#">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="#">Support</a>
+      <a href="#">Archive</a>
+      <a href="#">Calendar</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     Both Natures Spell on Us — reading room
+     ═══════════════════════════════════════════════════════════ -->
+
+<main>
+<div class="reading-room">
+
+  <!-- Breadcrumb -->
+  <nav class="reading-breadcrumb" aria-label="Breadcrumb">
+    <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+      <path d="M15 19l-7-7 7-7"/>
+    </svg>
+    <a href="writing.html">Writing</a>
+  </nav>
+
+  <!-- Title -->
+  <h1 class="reading-title">Both Natures Spell on Us</h1>
+
+  <!-- Subtitle -->
+  <div class="reading-subtitle">( on the smart dumb donkey )</div>
+
+  <!-- Body -->
+  <div class="reading-body">
+
+    <p>Earthly heavenly conflict zone and conflict zones ...</p>
+
+    <p>Honey ... kiss me ... with that rural fields now city streets mouth of yours ...</p>
+
+    <p>Love of human nature ... and planet Earth ...</p>
+
+    <p>Peter ... 1010 Peter ... March ... Martin ...</p>
+
+    <p>When will you be coming ...</p>
+
+    <div class="spell-turn reveal" aria-hidden="true">*</div>
+
+    <p>Ay ay ay ay ay ay ...</p>
+
+    <p>They are not separate ...</p>
+
+    <p>April ... Peter ...</p>
+
+  </div>
+
+  <!-- Sequential nav -->
+  <nav class="seq-nav" aria-label="Sequential navigation">
+    <a href="#" class="seq-nav-next">Next &#8594;</a>
+    <a href="#" class="seq-nav-prev">&#8592; Previous</a>
+  </nav>
+
+</div>
+</main>
+
+<div class="bottom-safe"></div>
+
+<!-- ═══ JS ═══ -->
+<script>
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
+});
+
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>
