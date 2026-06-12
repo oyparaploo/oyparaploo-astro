@@ -65,13 +65,13 @@ html.size-3 { --root-size: 21px; }
 .font-size-btn .sz {
   color: #000 !important;
   opacity: 1;
-  transition: opacity 0.25s;
+  transition: opacity 0.25s, color 0.2s;
   line-height: 1;
 }
 .font-size-btn .sz.active { opacity: 1; }
-.font-size-btn .sz[data-size="1"] { font-size: 22px; }
-.font-size-btn .sz[data-size="2"] { font-size: 18px; }
-.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+.font-size-btn .sz[data-size="1"] { font-size: 20px; }
+.font-size-btn .sz[data-size="2"] { font-size: 17px; }
+.font-size-btn .sz[data-size="3"] { font-size: 14px; }
 
 
 /* ═══ IV. STÄDEL NAV — LIGHT GROUND ═══ */
@@ -102,7 +102,7 @@ html.size-3 { --root-size: 21px; }
 }
 .nav-links a {
   font-family: 'Inter', sans-serif;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 500; letter-spacing: 0.02em;
   color: #333; transition: color 0.2s; white-space: nowrap;
 }
@@ -119,22 +119,25 @@ html.size-3 { --root-size: 21px; }
   transition: color 0.2s;
 }
 .nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
-.nav-utils svg { stroke: currentColor; fill: none; }
+.font-size-btn:hover .sz { color: #5c3a1e !important; }
+.nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-icon { width: 22px; height: 22px; display: block; }
 
 .nav-hamburger {
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   gap: 5px; min-height: 44px; padding: 0 8px;
 }
-.nav-hamburger span {
-  display: block; width: 22px; height: 1.5px;
-  background: #333;
+.nav-hamburger line {
+  stroke: #333;
+  stroke-width: 2.5;
   transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box;
   transform-origin: center;
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .nav-accent-rule {
   display: block; height: 2px; border: none;
@@ -279,6 +282,8 @@ html.size-3 { --root-size: 21px; }
 }
 @media (max-width: 480px) {
   .nav-inner { padding: 0 24px; }
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
 }
 
 
@@ -443,8 +448,10 @@ body.dark-mode .nav-utils button,
 body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
 body.dark-mode .nav-utils button:hover,
 body.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
-body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .nav-hamburger line { stroke: rgba(232,224,214,0.68); }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.dark-mode .font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
 body.dark-mode .nav-accent-rule { opacity: 0.6; }
 
 body.dark-mode .reading-title { color: rgba(232,224,214,0.88); }
@@ -491,14 +498,20 @@ body.dark-mode .seq-nav a:hover { color: rgba(232,224,214,0.88); }
       <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
         <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
       </button>
-      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="7"/><path d="M12 5 A7 7 0 0 0 12 19 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
       <a href="#" aria-label="Search">
-        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
         </svg>
       </a>
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
-        <span></span><span></span><span></span>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
       </button>
     </div>
   </div>
@@ -628,7 +641,6 @@ fontBtn.addEventListener('click', function() {
 
 document.getElementById('contrastBtn').addEventListener('click', function() {
   document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
 });
 
 var navHamburger = document.getElementById('navHamburger');
