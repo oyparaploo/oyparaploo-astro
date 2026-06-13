@@ -18,6 +18,12 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+}
+
+.piece-stage {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 80px 40px;
@@ -102,7 +108,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  body { padding: 48px 24px; }
+  .piece-stage { padding: 48px 24px; }
   .breath.question { padding-left: 2em; }
 
   /* Mobile: faster fade, tighter stagger — ~2.4s total */
@@ -123,10 +129,25 @@ body {
   .breath:nth-of-type(13) { animation-delay: 2.0s; }
   .colophon { animation-delay: 2.4s; animation-duration: 1s; }
 }
+
+/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) — dark-native ===== */
+.site-footer{background:rgba(0,0,0,0.25);}
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;color:rgba(232,224,214,.5);}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:15px;line-height:2;letter-spacing:.01em;text-decoration:none;color:rgba(232,224,214,.72);}
+.footer-col a{transition:color .2s;}
+.footer-col a:hover{color:rgba(232,224,214,.95);}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;margin:36px 0 18px;background:rgba(232,224,214,.12);}
+.footer-copyright{font-size:12px;letter-spacing:.02em;color:rgba(232,224,214,.42);}
 </style>
 </head>
 <body>
 
+<main class="piece-stage">
 <div class="piece">
   <h1 class="title">West Has Blessed Voices</h1>
 
@@ -158,6 +179,20 @@ body {
 
   <hr class="colophon" aria-hidden="true">
 </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col"><div class="footer-col-title">Grounds</div><span class="footer-soon">Writing</span><a href="/portraits/">Portraits</a><span class="footer-soon">Methodology</span><span class="footer-soon">Good Grounds</span><span class="footer-soon">The Prayers</span></div>
+      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><span class="footer-soon">Making</span><a href="/listening-room/">Sound</a><span class="footer-soon">The Broadcast</span><span class="footer-soon">Wavelength</span></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><span class="footer-soon">Archive</span><span class="footer-soon">Calendar</span><a href="mailto:info@oyparaploo.com">Contact</a></div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
 
 </body>
 </html>
