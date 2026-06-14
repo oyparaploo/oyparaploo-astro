@@ -647,6 +647,9 @@ body.light-mode .footer-col a,body.light-mode .footer-col .footer-soon{color:#5a
 body.light-mode .footer-col a:hover{color:#2a2320;}
 body.light-mode .footer-copyright{color:#9a9088;}
 body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
+
+/* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
+.nav-links a:not([href]), .menu-panel a:not([href]) { pointer-events: none; cursor: default; }
 </style>
 </head>
 <body>
@@ -654,12 +657,12 @@ body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
 <!-- ═══ STÄDEL NAV ═══ -->
 <nav class="site-nav" aria-label="Site navigation">
   <div class="nav-inner">
-    <a href="index.html" class="wordmark">oyparaploo</a>
+    <a href="/" class="wordmark">oyparaploo</a>
     <ul class="nav-links">
-      <li><a href="writing.html">Writing</a></li>
-      <li><a href="portraits.html">Portraits</a></li>
-      <li><a href="practice.html">Practice</a></li>
-      <li><a href="dispatches.html">Dispatches</a></li>
+      <li><a aria-disabled="true">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a aria-disabled="true">Practice</a></li>
+      <li><a aria-disabled="true">Dispatches</a></li>
     </ul>
     <div class="nav-utils">
       <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
@@ -736,23 +739,23 @@ body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
       <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
     </div>
     <nav class="menu-nav-primary" aria-label="Primary menu">
-      <a href="#">Writing</a>
-      <a href="#">Making</a>
-      <a href="#">Good Grounds</a>
+      <a aria-disabled="true">Writing</a>
+      <a aria-disabled="true">Making</a>
+      <a aria-disabled="true">Good Grounds</a>
     </nav>
     <hr class="menu-rule-tan" aria-hidden="true">
     <nav class="menu-nav-secondary" aria-label="Secondary menu">
-      <a href="#">Our Practice</a>
-      <a href="#">Music Artists</a>
-      <a href="#">Collaborators</a>
-      <a href="#">Methodology</a>
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a aria-disabled="true">Methodology</a>
     </nav>
     <hr class="menu-rule-sage" aria-hidden="true">
     <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
-      <a href="#">Support</a>
-      <a href="#">Archive</a>
-      <a href="#">Calendar</a>
-      <a href="#">Contact</a>
+      <a aria-disabled="true">Support</a>
+      <a aria-disabled="true">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
     </nav>
     <div class="menu-address">Minneapolis ~ Saint Paul</div>
     <div class="menu-bottom-btns">
