@@ -448,7 +448,7 @@ body.dark-mode {
 
 
 /* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
-.nav-links a:not([href]), .menu-panel a:not([href]) { pointer-events: none; cursor: default; }
+.nav-links a:not([href]), .menu-panel a:not([href]), .back-link:not([href]), .seq-link:not([href]) { pointer-events: none; cursor: default; }
 </style>
 </head>
 <body>
@@ -532,7 +532,7 @@ body.dark-mode {
 
 <!-- ═══ PAGE ═══ -->
 <nav class="reading-nav" aria-label="Reading navigation">
-  <a href="essential-ten.html" class="back-link">
+  <a aria-disabled="true" class="back-link">
     <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2L4 7l5 5"/></svg>
     The Essential Ten
   </a>
@@ -593,7 +593,7 @@ body.dark-mode {
 
   <nav class="seq-nav" aria-label="Previous and next pieces">
     <span class="seq-link" style="visibility: hidden;">← Previous</span>
-    <a href="writing/seventeen-chairs.html" class="seq-link">Next →</a>
+    <a aria-disabled="true" class="seq-link">Next →</a>
   </nav>
 
 </article>
