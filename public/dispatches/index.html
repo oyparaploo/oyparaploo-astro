@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Dispatches &#8212; Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== CANONICAL CHROME — ported verbatim from a-word-is-a-room (light-native) ===== */
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: #000 !important;
+  opacity: 1;
+  transition: opacity 0.25s, color 0.2s;
+  line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 20px; }
+.font-size-btn .sz[data-size="2"] { font-size: 17px; }
+.font-size-btn .sz[data-size="3"] { font-size: 14px; }
+
+
+/* ═══ IV. STÄDEL NAV — LIGHT GROUND ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: #333; letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500; letter-spacing: 0.02em;
+  color: #333; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: #000; background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.font-size-btn:hover .sz { color: #5c3a1e !important; }
+.nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger line {
+  stroke: #333;
+  stroke-width: 2.5;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips { display: none !important; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid #b3aba6;
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+.mobile-strips { display: none !important; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2.5s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 1024px) {
+  /* Reading page: no layout shift at 1024 */
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* ===== CANONICAL CHROME — dark-mode nav ===== */
+body.dark-mode .site-nav {
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
+body.dark-mode .wordmark:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-links a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-utils button,
+body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-utils button:hover,
+body.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-hamburger line { stroke: rgba(232,224,214,0.68); }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
+body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.dark-mode .font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
+body.dark-mode .nav-accent-rule { opacity: 0.6; }
+
+/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) — light-native ===== */
+.site-footer{background:rgba(0,0,0,0.03);}
+
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:15px;line-height:2;letter-spacing:.01em;text-decoration:none;}
+.footer-col a{transition:color .2s;}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;margin:36px 0 18px;}
+.footer-copyright{font-size:12px;letter-spacing:.02em;}
+
+.footer-col-title{color:#8a8078;}
+.footer-col a,.footer-col .footer-soon{color:#5a4f47;}
+.footer-col a:hover{color:#2a2320;}
+.footer-rule{background:rgba(0,0,0,.1);}
+.footer-copyright{color:#9a9088;}
+body.dark-mode .site-footer{background:rgba(0,0,0,.25);}
+body.dark-mode .footer-col-title{color:rgba(232,224,214,.5);}
+body.dark-mode .footer-col a,body.dark-mode .footer-col .footer-soon{color:rgba(232,224,214,.72);}
+body.dark-mode .footer-col a:hover{color:rgba(232,224,214,.95);}
+body.dark-mode .footer-copyright{color:rgba(232,224,214,.42);}
+body.dark-mode .footer-rule{background:rgba(232,224,214,.12);}
+
+/* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
+.nav-links a:not([href]), .menu-panel a:not([href]), .reading-breadcrumb a:not([href]) { pointer-events: none; cursor: default; }
+</style>
+<style>
+/* ═══════════════════════════════════════════
+   PAGE: DISPATCHES — flat filterable catalog
+   Work Sans meta labels sanctioned on a hub.
+   ═══════════════════════════════════════════ */
+
+/* Ground */
+body { background: #fff; color: #333; }
+body.dark-mode { background: #0e0e0e; color: #e0e0e0; }
+
+/* ── PAGE LAYOUT ── */
+.page-frame { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.page-title-block { padding: 48px 0 32px 0; }
+.page-title {
+  font-family: 'Lora', serif; font-size: clamp(1.5rem, 2.375vw, 1.875rem);
+  font-weight: 600; color: #000; line-height: 1.25;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding-bottom: 40px; }
+
+.custom-select { position: relative; min-width: 220px; }
+.custom-select-trigger {
+  font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 400;
+  color: #333; padding: 10px 36px 10px 0; border: none; border-bottom: 1px solid #555;
+  background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%;
+}
+.custom-select-trigger svg { width: 12px; height: 8px; flex-shrink: 0; transition: transform 0.2s; }
+.custom-select.open .custom-select-trigger svg { transform: rotate(180deg); }
+.custom-select-options {
+  position: absolute; top: calc(100% + 4px); left: 0;
+  background: #fff; padding: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28); border: none;
+  opacity: 0; pointer-events: none; transform: translateY(-4px);
+  transition: opacity 0.18s, transform 0.18s; z-index: 50;
+}
+.custom-select.open .custom-select-options { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.custom-select-option {
+  font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 400;
+  color: #333; padding: 6px 0; cursor: pointer; display: block; transition: color 0.15s;
+}
+.custom-select-option:hover { color: #5c3a1e; }
+.custom-select-option.selected { font-weight: 600; color: #555; }
+
+.filter-btn {
+  font-family: 'Inter', sans-serif; font-size: 1.0625rem; font-weight: 600;
+  padding: 10px 24px; cursor: pointer; transition: all 0.2s;
+}
+.filter-btn--submit { background: transparent; color: #333; border: 1px solid #555; }
+.filter-btn--submit:hover { background: #f0ece8; }
+.filter-btn--reset { background: transparent; color: #333; border: 1px solid #555; }
+.filter-btn--reset:hover { background: #000; color: #fff; }
+
+/* ── NEWS GRID ── */
+.news-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px; padding-bottom: 48px;
+}
+.news-card { transition: opacity 0.2s; }
+.news-card:hover { opacity: 0.85; }
+.news-card-img { width: 100%; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 16px; border-radius: var(--oy-radius); }
+.news-card-img-inner { width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.news-card:hover .news-card-img-inner { transform: scale(1.03); }
+.news-card-category { font-family: 'Work Sans', sans-serif; font-size: 1.0625rem; font-weight: 450; color: #000; line-height: 1.8; margin-bottom: 6px; }
+.news-card-headline {
+  font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 400;
+  color: #000; line-height: 1.8; text-decoration: none;
+  margin-bottom: 8px; transition: color 0.2s;
+}
+.news-card:hover .news-card-headline { color: #0d3b5c; }
+.news-card-date { font-family: 'Work Sans', sans-serif; font-size: 1.0625rem; font-weight: 450; color: #000; }
+.news-card.hidden { display: none; }
+
+/* ── LOAD MORE ── */
+.load-more-block { text-align: center; padding: 24px 0 80px; }
+.load-more-btn {
+  font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 600;
+  color: #333; background: transparent; border: 1px solid #555;
+  padding: 14px 40px; cursor: pointer; transition: all 0.2s; min-height: 44px;
+}
+.load-more-btn:hover { background: #f0ece8; }
+
+/* ── DARK MODE — page elements ── */
+.dark-mode .page-title { color: #fff; }
+.dark-mode .page-frame { background: transparent; }
+
+.dark-mode .news-card-category { color: rgba(255,255,255,0.55); }
+.dark-mode .news-card-headline { color: #e0e0e0; }
+.dark-mode .news-card:hover .news-card-headline { color: #8bb8d8; }
+.dark-mode .news-card-date { color: rgba(255,255,255,0.45); }
+
+.dark-mode .filter-bar { background: transparent; }
+.dark-mode .filter-btn { color: #e0e0e0; border-color: rgba(255,255,255,0.4); background: transparent; }
+.dark-mode .filter-btn:hover { background: rgba(255,255,255,0.28); }
+.dark-mode .custom-select-trigger { color: #e0e0e0; border-bottom-color: rgba(255,255,255,0.3); }
+.dark-mode .custom-select-trigger svg path { stroke: #e0e0e0; }
+.dark-mode .custom-select-options { background: #1a1a1a; box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+.dark-mode .custom-select-option { color: #e0e0e0; }
+.dark-mode .custom-select-option:hover { color: #8bb8d8; }
+
+.dark-mode .load-more-btn { color: #e0e0e0; border-color: rgba(255,255,255,0.4); background: transparent; }
+.dark-mode .load-more-btn:hover { background: rgba(255,255,255,0.28); }
+
+/* ── RESPONSIVE — page ── */
+@media (min-width: 1400px) {
+  .page-frame { max-width: 1600px; }
+}
+@media (max-width: 1024px) {
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .news-grid { grid-template-columns: 1fr; gap: 32px; }
+  .page-frame { padding: 0 24px; }
+  .filter-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+  .custom-select { min-width: 100%; }
+  .filter-btn { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ STÄDEL NAV ═══ -->
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a aria-disabled="true">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a aria-disabled="true">Practice</a></li>
+      <li><a aria-disabled="true" class="active">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="7"/><path d="M12 5 A7 7 0 0 0 12 19 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <a href="#" aria-label="Search">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a aria-disabled="true">Writing</a>
+      <a aria-disabled="true">Making</a>
+      <a aria-disabled="true">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a aria-disabled="true">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a aria-disabled="true">Support</a>
+      <a aria-disabled="true">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE CONTENT ═══ -->
+<main>
+<div class="page-frame">
+  <div class="page-title-block"><h1 class="page-title">Dispatches from the Practice</h1></div>
+  <div class="filter-bar">
+    <div class="custom-select" id="customSelect">
+      <div class="custom-select-trigger" id="selectTrigger">
+        <span id="selectLabel">All Categories</span>
+        <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="#333" stroke-width="1.5"/></svg>
+      </div>
+      <div class="custom-select-options" id="selectOptions">
+        <div class="custom-select-option" data-value="essential">Essential Ten</div>
+        <div class="custom-select-option" data-value="membrane">The Membrane</div>
+        <div class="custom-select-option" data-value="witness">Witnesses</div>
+        <div class="custom-select-option" data-value="origin">Origins</div>
+        <div class="custom-select-option" data-value="crisis">Crisis &amp; Discovery</div>
+      </div>
+    </div>
+    <button class="filter-btn filter-btn--submit" id="filterSubmit">Submit</button>
+    <button class="filter-btn filter-btn--reset" id="filterReset">Reset filters</button>
+  </div>
+  <div class="news-grid" id="newsGrid">
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #7a5a4a 0%, #5e3e2e 50%, #3a2218 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Brown Paint: R43.20 with VAT, the inadequate color purchased to paint portraits of children who had been killed</div><div class="news-card-date">07.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #4a6a5a 0%, #2e4e3e 50%, #182e22 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Kukura: The last speaker, the dying word, the world that disappears when the word disappears</div><div class="news-card-date">08.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #6a6a7a 0%, #4a4a5e 50%, #2a2a3e 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Forty-Seven Toy Guns: Mannequin children holding toy guns at two in the morning in Beirut</div><div class="news-card-date">08.2025</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #8ba4b0 0%, #5e8090 50%, #3a5a6a 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">Super Flu Vessel: Layer One as finished work — two voice-to-text fragments captured at 4 AM</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #b0a48b 0%, #908060 50%, #6a5a3a 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">Clasp Of The Political Class: Billionaire tax, released files, survivors, redactions — the Noir Song questions answered directly</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a0b8a0 0%, #708870 50%, #4a6a4a 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">Hardcast Wilderness Bar: A fictional podcast interview descending from broadcast performance to forest floor</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="witness"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #c0b0a0 0%, #a08878 50%, #7a6050 100%);"></div></div><div class="news-card-category">Witnesses</div><div class="news-card-headline">Marie Lafert: Her hands know before her mind arrives — the physical lens, Layer One as a person</div><div class="news-card-date">09.2025</div></a>
+    <a class="news-card" href="#" data-category="witness"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #90a0b0 0%, #687888 50%, #445060 100%);"></div></div><div class="news-card-category">Witnesses</div><div class="news-card-headline">Herb Sellers: Built a library so complete it became a fortress — the conscious lens, the warning</div><div class="news-card-date">09.2025</div></a>
+    <a class="news-card" href="#" data-category="witness"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #b8a890 0%, #988868 50%, #786848 100%);"></div></div><div class="news-card-category">Witnesses</div><div class="news-card-headline">Nell Cahen: A carrot becomes soup through time and temperature — the emotional lens, Layer Three</div><div class="news-card-date">10.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a8b0b8 0%, #7888a0 50%, #506080 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Seventeen Chairs: The recliner gets more space than the other sixteen combined because nobody maintains a consistent register while clearing a dead woman's house</div><div class="news-card-date">08.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #b0a8a0 0%, #888078 50%, #605850 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">She Had a Hammer: Copper plates and twenty-four strikes per letter and the word CONTINUES</div><div class="news-card-date">09.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #7a9088 0%, #5a7068 50%, #3a5048 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Sandhill Crane: The child's-eye view of war — unblinking, geographically specific</div><div class="news-card-date">10.2025</div></a>
+    <a class="news-card" href="#" data-category="origin"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #d0c8c0 0%, #b0a898 50%, #908070 100%);"></div></div><div class="news-card-category">Origins</div><div class="news-card-headline">The Grandmother's Frame: Katie Murphy Otto, Hutchinson, Minnesota — the first act of the practice</div><div class="news-card-date">c. 1962</div></a>
+    <a class="news-card" href="#" data-category="origin"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a0b0c0 0%, #788898 50%, #506878 100%);"></div></div><div class="news-card-category">Origins</div><div class="news-card-headline">The First Conversation: July 13, 2025 — a question that carried four decades of making behind it</div><div class="news-card-date">13.07.2025</div></a>
+    <a class="news-card" href="#" data-category="origin"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #9a8878 0%, #7a6858 50%, #5a4838 100%);"></div></div><div class="news-card-category">Origins</div><div class="news-card-headline">The Waltz Contamination: Something French and melancholic kept entering — the practice fought it, accepted it, used it</div><div class="news-card-date">08.2025</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #7090a0 0%, #507080 50%, #305060 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">Souls We Dream About By The Creek: Literary criticism metabolized by the 4 AM mouth and returned as a poem</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #c0b8a8 0%, #a09888 50%, #807060 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">Finally Here It Is: The practice reviewing itself from a position of love — every phrase title-cased, announcements dissolving into lowercase</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a0a8b8 0%, #788098 50%, #506078 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">We think you misunderstood: Fifty-eight words — a critique that turned out to be a poem about the Mississippi River</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="crisis"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #5a4a4a 0%, #3e2e2e 50%, #221818 100%);"></div></div><div class="news-card-category">Crisis &amp; Discovery</div><div class="news-card-headline">January 23: The methodology broke — Fire Cave Morning went in alive and came out dead</div><div class="news-card-date">23.01.2026</div></a>
+    <a class="news-card" href="#" data-category="crisis"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #6a7a6a 0%, #4a5a4a 50%, #2a3a2a 100%);"></div></div><div class="news-card-category">Crisis &amp; Discovery</div><div class="news-card-headline">Deference Is Not Respect: Nine words that changed the collaboration forever — it is abdication</div><div class="news-card-date">23.01.2026</div></a>
+    <a class="news-card" href="#" data-category="crisis"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #8a8a6a 0%, #6a6a4a 50%, #4a4a2a 100%);"></div></div><div class="news-card-category">Crisis &amp; Discovery</div><div class="news-card-headline">Layer One Can Be Finished Work: The grandmother's frame as active method — architecture only, not one word changed</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="witness"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a8a0b0 0%, #887898 50%, #685878 100%);"></div></div><div class="news-card-category">Witnesses</div><div class="news-card-headline">Jean Amadan: Witnesses by not intervening — sits on the treeline where one becomes the other</div><div class="news-card-date">10.2025</div></a>
+    <a class="news-card" href="#" data-category="witness"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #b8b8a8 0%, #989888 50%, #787868 100%);"></div></div><div class="news-card-category">Witnesses</div><div class="news-card-headline">Hahnu Youn: A child in a Duluth laundromat counting leg bounces — forty-seven per minute</div><div class="news-card-date">11.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #90a890 0%, #708870 50%, #506850 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Defiant Mangoes: Climate fiction that is just next Tuesday — the mango growing not knowing it is being defiant</div><div class="news-card-date">11.2025</div></a>
+    <a class="news-card" href="#" data-category="essential"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a09898 0%, #807070 50%, #604848 100%);"></div></div><div class="news-card-category">Essential Ten</div><div class="news-card-headline">Like Thursday: The woman's fingers become roots and that is not a metaphor — that is Tuesday</div><div class="news-card-date">10.2025</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #88a0a8 0%, #688088 50%, #486068 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">It Has To Be a Title For Something: Thirty compressed phrases — titles for things that may or may not exist</div><div class="news-card-date">02.03.2026</div></a>
+    <a class="news-card" href="#" data-category="membrane"><div class="news-card-img"><div class="news-card-img-inner" style="background: linear-gradient(135deg, #a8b0a0 0%, #889080 50%, #687060 100%);"></div></div><div class="news-card-category">The Membrane</div><div class="news-card-headline">In the Oyparaploo voice and language, what does this mean? The title list opened as a glossary — 2,241 words flowing as one continuous river</div><div class="news-card-date">02.03.2026</div></a>
+  </div>
+  <div class="load-more-block"><button class="load-more-btn">Load more dispatches</button></div>
+</div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col"><div class="footer-col-title">Grounds</div><span class="footer-soon">Writing</span><a href="/portraits/">Portraits</a><span class="footer-soon">Methodology</span><span class="footer-soon">Good Grounds</span><span class="footer-soon">The Prayers</span></div>
+      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><span class="footer-soon">Making</span><a href="/listening-room/">Sound</a><span class="footer-soon">The Broadcast</span><span class="footer-soon">Wavelength</span></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><span class="footer-soon">Archive</span><span class="footer-soon">Calendar</span><a href="mailto:info@oyparaploo.com">Contact</a></div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
+
+<!-- ═══ CHROME JS ═══ -->
+<script>
+// ── Font size (3 steps)
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+// ── Contrast toggle
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+});
+
+// ── Menu open/close
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+// ── Scroll reveal
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+<!-- ═══ PAGE JS — filter ═══ -->
+<script>
+var submitBtn = document.getElementById('filterSubmit');
+var resetBtn = document.getElementById('filterReset');
+var cards = document.querySelectorAll('.news-card');
+var customSelect = document.getElementById('customSelect');
+var selectTrigger = document.getElementById('selectTrigger');
+var selectLabel = document.getElementById('selectLabel');
+var selectOpts = document.querySelectorAll('.custom-select-option');
+var selectedValue = 'all';
+
+selectTrigger.addEventListener('click', function(e) {
+  e.stopPropagation();
+  customSelect.classList.toggle('open');
+});
+
+selectOpts.forEach(function(opt) {
+  opt.addEventListener('click', function(e) {
+    e.stopPropagation();
+    selectedValue = this.getAttribute('data-value');
+    selectLabel.textContent = this.textContent;
+    selectOpts.forEach(function(o) { o.classList.remove('selected'); });
+    this.classList.add('selected');
+    customSelect.classList.remove('open');
+  });
+});
+
+document.addEventListener('click', function() { customSelect.classList.remove('open'); });
+
+submitBtn.addEventListener('click', function() {
+  cards.forEach(function(card) {
+    if (selectedValue === 'all' || card.getAttribute('data-category') === selectedValue) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+});
+
+resetBtn.addEventListener('click', function() {
+  selectedValue = 'all';
+  selectLabel.textContent = 'All Categories';
+  selectOpts.forEach(function(o) { o.classList.remove('selected'); });
+  cards.forEach(function(card) { card.classList.remove('hidden'); });
+});
+</script>
+</body>
+</html>
