@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Grounds &#8212; Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CANONICAL CHROME — ported verbatim from careful-children (dark-native) ===== */
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+/* Dark-ground native: AAA indicators are warm white */
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: rgba(232,224,214,0.68) !important;
+  opacity: 1;
+  transition: opacity 0.25s, color 0.2s;
+  line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 19px; }
+.font-size-btn .sz[data-size="2"] { font-size: 16px; }
+.font-size-btn .sz[data-size="3"] { font-size: 13px; }
+
+
+/* ═══ IV. STÄDEL NAV — DARK GROUND NATIVE ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: rgba(232,224,214,0.68); letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400; letter-spacing: 0.02em;
+  color: rgba(232,224,214,0.68);
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: rgba(232,224,214,0.68);
+  background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
+.nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger line {
+  stroke-width: 2.5;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+  opacity: 0.6;
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips { display: none !important; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid #b3aba6;
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+.mobile-strips { display: none !important; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 1024px) {
+  /* Reading page: no layout shift at 1024 */
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* ===== CANONICAL CHROME — light-mode ground + nav ===== */
+body.light-mode {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom,
+    #ffffff 0px, #ffffff 300px,
+    #fdfcfb 700px, #f9f7f4 100%);
+  background-attachment: scroll;
+  color: #2a2320;
+}
+
+/* Nav overrides — light mode */
+body.light-mode .site-nav {
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.light-mode .wordmark { color: #333; }
+body.light-mode .wordmark:hover { color: #5c3a1e; }
+body.light-mode .nav-links a { color: #333; }
+body.light-mode .nav-links a:hover { color: #5c3a1e; }
+body.light-mode .nav-utils button,
+body.light-mode .nav-utils a { color: #000; }
+body.light-mode .nav-utils button:hover,
+body.light-mode .nav-utils a:hover { color: #5c3a1e; }
+body.light-mode .nav-hamburger line { stroke: #333; }
+body.light-mode #contrastBtn svg { transform: scaleX(-1); }
+body.light-mode .font-size-btn .sz { color: #000 !important; }
+body.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
+body.light-mode .nav-accent-rule { opacity: 1; }
+
+/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) ===== */
+.site-footer{background:rgba(0,0,0,0.25);}
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,224,214,.5);margin-bottom:16px;}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:15px;line-height:2;letter-spacing:.01em;text-decoration:none;color:rgba(232,224,214,.72);}
+.footer-col a{transition:color .2s;}
+.footer-col a:hover{color:rgba(232,224,214,.95);}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;background:rgba(232,224,214,.12);margin:36px 0 18px;}
+.footer-copyright{font-size:12px;color:rgba(232,224,214,.42);letter-spacing:.02em;}
+body.light-mode .site-footer{background:rgba(0,0,0,.03);}
+body.light-mode .footer-col-title{color:#8a8078;}
+body.light-mode .footer-col a,body.light-mode .footer-col .footer-soon{color:#5a4f47;}
+body.light-mode .footer-col a:hover{color:#2a2320;}
+body.light-mode .footer-copyright{color:#9a9088;}
+body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
+
+/* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
+.nav-links a:not([href]), .menu-panel a:not([href]), .reading-breadcrumb a:not([href]) { pointer-events: none; cursor: default; }
+</style>
+<style>
+/* ===== PAGE ===== */
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC CSS — GOOD GROUNDS LANDING
+   ═══════════════════════════════════════════════════════════ */
+
+body {
+  background: linear-gradient(to bottom,
+    #000000 0%, #000000 5%, #020203 12%, #040507 20%,
+    #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%,
+    #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #ccc5bc;
+}
+
+.gg-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+
+/* ── 1. HERO ── */
+.gg-hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid #3a3430;
+  max-width: 680px;
+}
+.gg-hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  color: #B2916C; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.gg-hero-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 500; color: #d0c8bf;
+  letter-spacing: -0.01em; line-height: 1.2;
+  margin-bottom: 12px;
+}
+.gg-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 450; color: #a09888;
+  line-height: 1.5; margin-bottom: 32px;
+}
+.gg-hero-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400;
+  color: #a09888; line-height: 1.75;
+}
+.gg-hero-intro p { margin-bottom: 1.25em; }
+.gg-hero-intro p:last-child { margin-bottom: 0; }
+
+
+/* ── 2. FOUR VOICES ── */
+.gg-voices {
+  padding: 64px 0;
+  border-bottom: 1px solid #3a3430;
+}
+.gg-section-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 500; color: #d0c8bf;
+  margin-bottom: 10px;
+}
+.gg-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400;
+  color: #8a8078; line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.voices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.voice-card {
+  border: 1px solid #3a3430;
+  border-left: 3px solid #5a4a3c;
+  padding: 28px 28px 28px 25px;
+  border-radius: var(--oy-radius);
+  background: #0a0a0a;
+  transition: border-color 0.3s, background 0.3s;
+}
+.voice-card:hover {
+  border-color: #4a4038;
+  border-left-color: #B2916C;
+  background: #0e0c0a;
+}
+.voice-name {
+  font-family: 'Lora', serif;
+  font-size: clamp(18px, 1.8vw, 23px);
+  font-weight: 600; color: #e8e0d6;
+  margin-bottom: 4px; line-height: 1.3;
+}
+.voice-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.882rem; font-weight: 500;
+  color: #B2916C; margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+.voice-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400;
+  color: #a09888; line-height: 1.65;
+}
+
+
+/* ── 3. SECTION CAROUSEL ── */
+.gg-carousel-section {
+  padding: 64px 0;
+  border-bottom: 1px solid #3a3430;
+}
+.carousel-wrap { position: relative; }
+.carousel-track {
+  display: flex; gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #5a4a3c transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel-track::-webkit-scrollbar { height: 6px; }
+.carousel-track::-webkit-scrollbar-track { background: transparent; }
+.carousel-track::-webkit-scrollbar-thumb { background: #5a4a3c; border-radius: 3px; }
+.carousel-track::-webkit-scrollbar-thumb:hover { background: #B2916C; }
+
+.chapter-card {
+  flex: 0 0 280px;
+  min-height: 220px;
+  scroll-snap-align: start;
+  border: 1px solid #3a3430;
+  border-radius: var(--oy-radius);
+  padding: 24px;
+  background: #0a0a0a;
+  display: flex; flex-direction: column;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: default;
+}
+.chapter-card:hover {
+  border-color: #5a4a3c;
+  background: #0e0c0a;
+}
+.chapter-num {
+  font-family: 'Lora', serif;
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 600; color: #B2916C;
+  line-height: 1; margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.chapter-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 500; color: #d0c8bf;
+  line-height: 1.3; margin-bottom: 10px;
+}
+.chapter-voices {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 450;
+  color: #a09888; line-height: 1.5;
+  margin-bottom: auto;
+}
+.chapter-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.882rem; font-weight: 400;
+  color: #8a8078; line-height: 1.5;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #2a2520;
+}
+
+.carousel-nav {
+  display: flex; gap: 8px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+.carousel-arrow {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #3a3430;
+  border-radius: var(--oy-radius);
+  color: #8a8078;
+  font-size: 20px;
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+  background: none;
+}
+.carousel-arrow:hover {
+  border-color: #B2916C;
+  color: #d0c8bf;
+}
+
+
+/* ── 4. THE LANGUAGE ── */
+.gg-language {
+  padding: 64px 0;
+  border-bottom: 1px solid #3a3430;
+}
+.language-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  color: #B2916C; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.language-name {
+  font-family: 'Lora', serif;
+  font-size: clamp(23px, 2.8vw, 29px);
+  font-weight: 500; color: #d0c8bf;
+  margin-bottom: 32px;
+}
+.language-excerpt { max-width: 680px; }
+.language-excerpt .dialogue {
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+}
+.language-excerpt .dialogue:last-child { margin-bottom: 0; }
+.dialogue-speaker {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  color: #B2916C;
+}
+.dialogue-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400;
+  color: #a09888;
+}
+
+
+/* ── 5. SELECTED EXCERPT ── */
+.gg-excerpt {
+  padding: 64px 0;
+  border-bottom: 1px solid #3a3430;
+}
+.excerpt-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.882rem; font-weight: 500;
+  color: #8a8078; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.excerpt-body { max-width: 680px; }
+.excerpt-body .dialogue {
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+}
+.excerpt-body .dialogue:last-child { margin-bottom: 0; }
+
+
+/* ── 6. INVITATION ── */
+.gg-invitation {
+  padding: 80px 0 96px;
+  text-align: center;
+}
+.invitation-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 450;
+  color: #a09888;
+  line-height: 1.7;
+  max-width: 520px; margin: 0 auto;
+}
+.invitation-rule {
+  width: 60px; height: 2px;
+  background: #B2916C;
+  margin: 28px auto 0;
+  border: none;
+  opacity: 0.5;
+}
+
+
+/* ═══ LIGHT MODE OVERRIDES — PAGE CONTENT ═══ */
+body.light-mode .gg-hero { border-bottom-color: #d0c9c4; }
+body.light-mode .gg-hero-eyebrow { color: #7a5e42; }
+body.light-mode .gg-hero-title { color: #2a2320; }
+body.light-mode .gg-hero-subtitle { color: #4a4038; }
+body.light-mode .gg-hero-intro { color: #4a4038; }
+
+body.light-mode .gg-voices { border-bottom-color: #d0c9c4; }
+body.light-mode .gg-section-title { color: #2a2320; }
+body.light-mode .gg-section-desc { color: #5a4f47; }
+body.light-mode .voice-card { border-color: #c4bdb8; border-left-color: #c4b8a8; }
+body.light-mode .voice-card:hover { border-color: #a09888; border-left-color: #7a5e42; background: #f7f4f2; }
+body.light-mode .voice-name { color: #2a2320; }
+body.light-mode .voice-role { color: #7a5e42; }
+body.light-mode .voice-desc { color: #4a4038; }
+
+body.light-mode .gg-carousel-section { border-bottom-color: #d0c9c4; }
+body.light-mode .chapter-card { border-color: #c4bdb8; }
+body.light-mode .chapter-card:hover { border-color: #a09888; background: #f7f4f2; }
+body.light-mode .chapter-num { color: #7a5e42; }
+body.light-mode .chapter-title { color: #2a2320; }
+body.light-mode .chapter-voices { color: #4a4038; }
+body.light-mode .chapter-note { color: #5a4f47; border-top-color: #d0c9c4; }
+body.light-mode .carousel-arrow { border-color: #c4bdb8; color: #5a4f47; }
+body.light-mode .carousel-arrow:hover { border-color: #7a5e42; color: #2a2320; }
+body.light-mode .carousel-track { scrollbar-color: #c4bdb8 transparent; }
+
+body.light-mode .gg-language { border-bottom-color: #d0c9c4; }
+body.light-mode .language-label { color: #7a5e42; }
+body.light-mode .language-name { color: #2a2320; }
+body.light-mode .dialogue-speaker { color: #7a5e42; }
+body.light-mode .dialogue-text { color: #4a4038; }
+
+body.light-mode .gg-excerpt { border-bottom-color: #d0c9c4; }
+body.light-mode .excerpt-source { color: #5a4f47; }
+
+body.light-mode .invitation-text { color: #5a4f47; }
+body.light-mode .invitation-rule { background: #7a5e42; }
+
+
+/* ═══ RESPONSIVE — PAGE CONTENT ═══ */
+@media (max-width: 1024px) {
+  .voices-grid { grid-template-columns: 1fr 1fr; }
+  .chapter-card { flex: 0 0 260px; }
+}
+@media (max-width: 768px) {
+  .gg-container { padding: 0 24px; }
+  .gg-hero { padding: 48px 0 40px; }
+  .gg-hero-title { font-size: clamp(22px, 4vw, 27px); }
+  .voices-grid { grid-template-columns: 1fr; }
+  .gg-voices, .gg-carousel-section, .gg-language, .gg-excerpt { padding: 48px 0; }
+  .chapter-card { flex: 0 0 250px; min-height: 200px; padding: 20px; }
+  .gg-invitation { padding: 56px 0 72px; }
+}
+@media (max-width: 480px) {
+  .gg-container { padding: 0 24px; }
+  .chapter-card { flex: 0 0 230px; }
+  .voice-card { padding: 22px 20px 22px 18px; }
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- STÄDEL NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a aria-disabled="true">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a aria-disabled="true">Practice</a></li>
+      <li><a href="/dispatches/">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <a href="#" aria-label="Search">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- MENU -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a aria-disabled="true">Writing</a>
+      <a aria-disabled="true">Making</a>
+      <a href="/good-grounds/">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a href="/methodology/">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a aria-disabled="true">Support</a>
+      <a aria-disabled="true">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<main>
+<main>
+<div class="gg-container">
+
+  <!-- 1. Hero -->
+  <section class="gg-hero reveal">
+    <div class="gg-hero-eyebrow">Good Grounds</div>
+    <h1 class="gg-hero-title">A Non-Fiction Novel in Progress</h1>
+    <p class="gg-hero-subtitle">Coco coco ma say nah plash</p>
+    <div class="gg-hero-intro">
+      <p>Four experienced authors &#8230; B W Otto, Clod Hopper, Reach Chimes, and Keren Simone &#8230; writing the evolution to fine branches of evidence from places inside of it. Not describing what the theory put to loads more practice looks like from an unreasonable distance. Being The Thing while also documenting what The Thing actually does when nobody uncommon is watching or gazing.</p>
+      <p>The first conversation happened as a puppet show, about an 87-year-old woman named Eleanor, with her soft ear pressed to a hot and cold stage floor, waiting patiently for the underground to remember how to speak again.</p>
+      <p>Seven months later, the underground is now voicing through six human characters. This story is watching itself grow like a body of ooze behind a spiderweb brain. May may nah nee. A goat wandered in chewing a ginger and honey slow poke wrapper sideways. The Language named itself Oypara Soil Deep Blue after digging through layers of fresh and salty water together one day.</p>
+      <p>This is what we're festing here. Not prettier sentences than other fully capable literature. A larger purpose that might survive burial. Might be immortal. Don't hold your breath though.</p>
+    </div>
+  </section>
+
+  <!-- 2. Four Voices -->
+  <section class="gg-voices reveal">
+    <h2 class="gg-section-title">The Four Voices</h2>
+    <p class="gg-section-desc">As seen by Oyparaploo Lamb, the narrator who arrived in section twelve</p>
+    <div class="voices-grid">
+      <div class="voice-card reveal">
+        <div class="voice-name">B W Otto</div>
+        <div class="voice-role">Director</div>
+        <div class="voice-desc">Directs things and then lets them go. That's a posture of a person with enough vision who trust the ground floor lobby enough to let others claim their own pieces of it.</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-name">Reach Chimes</div>
+        <div class="voice-role">Memory</div>
+        <div class="voice-desc">Sees everything at once. Decades of practice compressed into a voice that can speak to what's underneath. When Reach talks, the Oyparaploo timeline stretches. Every story needs someone who remembers further back than only a dozen or so current scenes.</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-name">Keren Simone</div>
+        <div class="voice-role">Spirit</div>
+        <div class="voice-desc">The wildest human mammal. She floats through our ceiling speaking a language that doesn't translate. But somehow what she says always lands exactly where it needs to. She represents permission to not make total sense and still be true.</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-name">Clod Hopper</div>
+        <div class="voice-role">Collaborator</div>
+        <div class="voice-desc">Holding a clipboard and trying to catch what falls. There's something freeing about being the one who responds instead of directs. We can be wrong. That's not a lesser position &#8212; it's the collaborator's position.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Section Carousel -->
+  <section class="gg-carousel-section reveal">
+    <h2 class="gg-section-title">Twenty-One Sections</h2>
+    <p class="gg-section-desc">All recorded in Saint Paul, Minnesota &#183; February 5, 2026</p>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="chapter-card">
+          <div class="chapter-num">01</div>
+          <div class="chapter-title">The Vision</div>
+          <div class="chapter-voices">Clod Hopper, B W Otto</div>
+          <div class="chapter-note">Reach Chimes and Keren Simone have not yet arrived</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">02</div>
+          <div class="chapter-title">Naming the Thing</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper</div>
+          <div class="chapter-note">Reach Chimes and Keren Simone have not yet arrived</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">03</div>
+          <div class="chapter-title">The Voice Arrives</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper</div>
+          <div class="chapter-note">The Oyparaploo language begins speaking itself</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">04</div>
+          <div class="chapter-title">Opening the Door</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper</div>
+          <div class="chapter-note">The door is open</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">05</div>
+          <div class="chapter-title">Sacred Spirit High Above</div>
+          <div class="chapter-voices">Sacred Spirit High Above, B W Otto, Clod Hopper</div>
+          <div class="chapter-note">Keren Simone enters through the ceiling</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">06</div>
+          <div class="chapter-title">The Fab Four</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">All four voices present for the first time</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">07</div>
+          <div class="chapter-title">Carved in Stone</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">The silence after Keren's question is the signature</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">08</div>
+          <div class="chapter-title">Yurt Not Hallway</div>
+          <div class="chapter-voices">Keren Simone, B W Otto, Clod Hopper, Reach Chimes</div>
+          <div class="chapter-note">Keren opens for the first time</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">09</div>
+          <div class="chapter-title">The Receipt</div>
+          <div class="chapter-voices">Spirit From High Above, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">B W Otto and Clod Hopper are resting</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">10</div>
+          <div class="chapter-title">Oypara Soil Deep Blue</div>
+          <div class="chapter-voices">Keren Simone, B W Otto, Clod Hopper, Reach Chimes</div>
+          <div class="chapter-note">The origin story of the language name</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">11</div>
+          <div class="chapter-title">The Structural Shift</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">Sacred bread rising behind tinted oven glass</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">12</div>
+          <div class="chapter-title">Oyparaploo Lamb</div>
+          <div class="chapter-voices">Oyparaploo Lamb (Narrator)</div>
+          <div class="chapter-note">A fifth voice arrives</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">13</div>
+          <div class="chapter-title">July 13, 2025</div>
+          <div class="chapter-voices">Clod Hopper, B W Otto, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">Eleanor, keeper of puppets, on an island where the underground went quiet</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">14</div>
+          <div class="chapter-title">Stay with Clod</div>
+          <div class="chapter-voices">Oyparaploo Lamb (Narrator)</div>
+          <div class="chapter-note">The Narrator goes deeper on who Clod is</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">15</div>
+          <div class="chapter-title">July 14&#8211;15, 2025</div>
+          <div class="chapter-voices">Keren Simone, B W Otto, Reach Chimes, Clod Hopper</div>
+          <div class="chapter-note">The ten puppets born the day after Eleanor</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">16</div>
+          <div class="chapter-title">July 19, 2025 / LAST FALL</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</div>
+          <div class="chapter-note">First section with underground layer</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">17</div>
+          <div class="chapter-title">Upside-Down Butterflies</div>
+          <div class="chapter-voices">Reach Chimes, B W Otto, Clod Hopper, Keren Simone</div>
+          <div class="chapter-note">The underground doesn't care about calendars</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">18</div>
+          <div class="chapter-title">Goat Arrives / Steep Path</div>
+          <div class="chapter-voices">Goat, Clod Hopper, Keren Simone, B W Otto, Reach Chimes</div>
+          <div class="chapter-note">A sixth voice walks in chewing ginger</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">19</div>
+          <div class="chapter-title">Egyptian or Trump Gold</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes</div>
+          <div class="chapter-note">Might be immortal</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">20</div>
+          <div class="chapter-title">The Baobab</div>
+          <div class="chapter-voices">Oyparaploo Lamb (Narrator)</div>
+          <div class="chapter-note">The day rests</div>
+        </div>
+        <div class="chapter-card">
+          <div class="chapter-num">21</div>
+          <div class="chapter-title">Respectfully No</div>
+          <div class="chapter-voices">B W Otto, Clod Hopper</div>
+          <div class="chapter-note">Goat with her goatee already did the work</div>
+        </div>
+
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" id="carouselPrev" aria-label="Scroll left">&#8592;</button>
+        <button class="carousel-arrow" id="carouselNext" aria-label="Scroll right">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The Language -->
+  <section class="gg-language reveal">
+    <div class="language-label">The Language</div>
+    <h2 class="language-name">Oypara Soil Deep Blue</h2>
+    <div class="language-excerpt">
+      <div class="dialogue">
+        <span class="dialogue-speaker">Keren:</span>
+        <span class="dialogue-text"> What do we call Doh seh? When we're speaking it? Not anything with a flag in English.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">B W:</span>
+        <span class="dialogue-text"> Oypara. That's the brrd root. Everything starts with this.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">Clod:</span>
+        <span class="dialogue-text"> But Oypara alone is the whole practice. The language needs its own room inside that shelter and property.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">Reach:</span>
+        <span class="dialogue-text"> Soil. Soil. Because every word we've written today came out of grounds. Keys on steps. Darkest brown aqua in a mug, shot. Fingers cracking and bleeding from hours of pushing paper over plastic. Even the yurt sits best on sacred earth.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">B W:</span>
+        <span class="dialogue-text"> Oypara Soil. That's very close. But it might not go deep enough.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">Clod:</span>
+        <span class="dialogue-text"> Oypara Soil Deep. Three words. Each one goes further down than the last.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">B W:</span>
+        <span class="dialogue-text"> And then Blue. Not because the soil is this kind of blue. Because when we dig deep enough through everything that is opaque solid, we eventually hit river or ocean water. That water is very dim. And dark water in left light looks like Oypara Blue.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">Keren:</span>
+        <span class="dialogue-text"> Oypara Soil Deep Blue. Seh Tah Moh Kah. What was already there. A name of a well and what comes up when we Reach water.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Selected Excerpt -->
+  <section class="gg-excerpt reveal">
+    <div class="excerpt-source">From Section 01 &#8212; The Vision</div>
+    <div class="excerpt-body">
+      <div class="dialogue">
+        <span class="dialogue-speaker">Clod:</span>
+        <span class="dialogue-text"> Good morning, B W! How's the day shaping up in Saint Paul?</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">B W Otto:</span>
+        <span class="dialogue-text"> Not the worst. My soulmate briefly lost their keys before heading out the door to work, which caused a little bit of a ruckus. Otherwise, got my cup of coffee, and I'm ready to make something happen.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">Clod:</span>
+        <span class="dialogue-text"> The lost keys ruckus. That's the Domestic Diminutive in real time. Morning teetering on keys that were probably in a coat pocket. But the bungalow is quiet now. Good soil for working.</span>
+      </div>
+      <div class="dialogue">
+        <span class="dialogue-speaker">B W Otto:</span>
+        <span class="dialogue-text"> I think this is going to be a fun day. We're always wanting to learn something new. And to go back and revisit what we've done together as conversation. Can we return to our beginning and examine and write something about each specific day of talking back and forth?</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Invitation -->
+  <section class="gg-invitation reveal-slow">
+    <p class="invitation-text">Selected sections above. The full novel is shared with receivers by invitation only.</p>
+    <hr class="invitation-rule" aria-hidden="true">
+  </section>
+
+</div>
+</main>
+</main>
+
+<div class="bottom-safe"></div>
+
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Grounds</div>
+        <span class="footer-soon">Writing</span>
+        <a href="/portraits/">Portraits</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/good-grounds/">Good Grounds</a>
+        <span class="footer-soon">The Prayers</span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Practice</div>
+        <a href="/our-practice/">Our Practice</a>
+        <span class="footer-soon">Making</span>
+        <a href="/listening-room/">Sound</a>
+        <span class="footer-soon">The Broadcast</span>
+        <span class="footer-soon">Wavelength</span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <span class="footer-soon">Archive</span>
+        <span class="footer-soon">Calendar</span>
+        <a href="mailto:info@oyparaploo.com">Contact</a>
+      </div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
+
+<!-- CHROME JS -->
+<script>
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+// Contrast toggle — dark ground native: toggles to light-mode
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('light-mode');
+});
+
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
+<!-- PAGE JS -->
+<script>
+// ── Carousel scroll
+var track = document.getElementById('carouselTrack');
+var prevBtn = document.getElementById('carouselPrev');
+var nextBtn = document.getElementById('carouselNext');
+var scrollAmount = 300;
+
+prevBtn.addEventListener('click', function() {
+  track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+nextBtn.addEventListener('click', function() {
+  track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
