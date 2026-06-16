@@ -12,7 +12,7 @@
 /* ═══════════════════════════════════════════════════════════
    THE DRAWER THAT STAYS CLOSED — Oyparaploo
    Reading Page · Light Ground Native · Register: domestic / warm
-   Toggle: dark-mode (◐ → ◑)
+   Toggle: dark-mode (light/dark)
    Fonts: Inter (body, epigraph, closing, margins), Lora (title)
    Ground: amber #fffdf9 · Two-glow architecture
    Circular: epigraph (collective) → closing (singular)
@@ -309,7 +309,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .reading-field > .reading-nav,
 .reading-field > .piece-container,
-.reading-field > .comments-section,
 .reading-field > .seq-nav { grid-column: 2; }
 
 .margin-left,
@@ -403,18 +402,6 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 1.5em; color: rgba(42,35,32,0.78);
 }
 
-/* Comments */
-.comments-section {
-  margin-top: 64px; padding: 24px 40px 0;
-  border-top: 1.2px solid rgba(138,110,80,0.55);
-}
-.comments-label { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #555555; margin-bottom: 28px; }
-.comment { margin-bottom: 28px; }
-.comment-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-.comment-name { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #555555; }
-.comment-time { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #555555; }
-.comment-body { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #555555; line-height: 1.65; text-wrap: pretty; }
-
 /* Sequential nav */
 .seq-nav {
   margin-top: 64px;
@@ -494,6 +481,7 @@ body.dark-mode {
 .dark-mode .font-size-btn .sz,
 .dark-mode .font-size-btn .sz.active { color: #a6a098 !important; }
 .dark-mode .nav-hamburger span { background: #a6a098; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 
 .dark-mode .ambient-glow { opacity: 0.30; }
 .dark-mode .ambient-glow-low { opacity: 0.20; }
@@ -504,11 +492,6 @@ body.dark-mode {
 .dark-mode .piece-epigraph { color: rgba(232,224,214,0.88); }
 .dark-mode .piece-body p { color: rgba(232,224,214,0.88); }
 .dark-mode .piece-body .closing-line { color: rgba(232,224,214,0.78); }
-.dark-mode .comments-section { border-top-color: rgba(232,224,214,0.35); }
-.dark-mode .comments-label,
-.dark-mode .comment-name,
-.dark-mode .comment-time,
-.dark-mode .comment-body { color: rgba(232,224,214,0.62); }
 .dark-mode .seq-nav { border-top-color: rgba(232,224,214,0.35); }
 .dark-mode .seq-link { color: rgba(232,224,214,0.65); }
 .dark-mode .seq-link:hover { color: #d0c8bf; }
@@ -554,7 +537,6 @@ body.dark-mode {
   .reading-nav { padding: 24px 28px 0; }
   .piece-container { padding: 44px 28px 0; }
   .piece-title { font-size: clamp(1.3529rem, 4vw, 1.7059rem); }
-  .comments-section { padding: 24px 28px 0; margin-top: 48px; }
   .seq-nav { padding: 24px 28px calc(80px + env(safe-area-inset-bottom, 0px)); margin-top: 48px; flex-direction: column; align-items: flex-start; gap: 16px; }
   .ambient-glow { width: 360px; height: 260px; top: -60px; }
   .ambient-glow-low { width: 300px; height: 240px; }
@@ -567,7 +549,6 @@ body.dark-mode {
   .reading-nav { padding: 20px 24px 0; }
   .piece-container { padding: 36px 24px 0; }
   .piece-title { font-size: clamp(1.3529rem, 4vw, 1.7059rem); }
-  .comments-section { padding: 24px 24px 0; margin-top: 40px; }
   .seq-nav { padding: 24px 24px calc(64px + env(safe-area-inset-bottom, 0px)); margin-top: 40px; }
   .ambient-glow { display: none; }
   .ambient-glow-low { display: none; }
@@ -585,7 +566,27 @@ body.dark-mode {
 
 
 /* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
-.nav-links a:not([href]), .menu-panel a:not([href]) { pointer-events: none; cursor: default; }
+.nav-links a:not([href]), .menu-panel a:not([href]), .back-link:not([href]) { pointer-events: none; cursor: default; }
+
+/* ===== CANONICAL SITE FOOTER (light-native) ===== */
+.site-footer{background:rgba(0,0,0,0.03);}
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;color:#8a8078;}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:15px;line-height:2;letter-spacing:.01em;text-decoration:none;color:#5a4f47;}
+.footer-col a{transition:color .2s;}
+.footer-col a:hover{color:#2a2320;}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;margin:36px 0 18px;background:rgba(0,0,0,.1);}
+.footer-copyright{font-size:12px;letter-spacing:.02em;color:#9a9088;}
+body.dark-mode .site-footer{background:rgba(0,0,0,.25);}
+body.dark-mode .footer-col-title{color:rgba(232,224,214,.5);}
+body.dark-mode .footer-col a,body.dark-mode .footer-col .footer-soon{color:rgba(232,224,214,.72);}
+body.dark-mode .footer-col a:hover{color:rgba(232,224,214,.95);}
+body.dark-mode .footer-copyright{color:rgba(232,224,214,.42);}
+body.dark-mode .footer-rule{background:rgba(232,224,214,.12);}
 </style>
 </head>
 <body>
@@ -608,7 +609,7 @@ body.dark-mode {
       <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
         <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
       </button>
-      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <button id="contrastBtn" aria-label="Toggle contrast"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/></svg></button>
       <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
       <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="navHamburger">
         <span></span><span></span><span></span>
@@ -706,7 +707,7 @@ body.dark-mode {
 
   <!-- Reading column -->
   <nav class="reading-nav" aria-label="Reading navigation">
-    <a href="writing.html" class="back-link">
+    <a aria-disabled="true" class="back-link">
       <svg viewBox="0 0 14 14" aria-hidden="true"><polyline points="9 2 4 7 9 12"/></svg>
       Writing
     </a>
@@ -737,34 +738,6 @@ body.dark-mode {
     </div>
 
   </main>
-
-  <section class="comments-section" aria-label="Reader comments">
-    <p class="comments-label">3 Comments</p>
-
-    <div class="comment">
-      <div class="comment-header">
-        <span class="comment-name">Margaret O.</span>
-        <span class="comment-time">2 hours ago</span>
-      </div>
-      <p class="comment-body">Read this twice before I realized I was holding my breath. The kitchen drawer got me.</p>
-    </div>
-
-    <div class="comment">
-      <div class="comment-header">
-        <span class="comment-name">David F.</span>
-        <span class="comment-time">5 hours ago</span>
-      </div>
-      <p class="comment-body">Carlos running uncollared and never once looking back. I've been thinking about that sentence for an hour now.</p>
-    </div>
-
-    <div class="comment">
-      <div class="comment-header">
-        <span class="comment-name">Ruth P.</span>
-        <span class="comment-time">18 hours ago</span>
-      </div>
-      <p class="comment-body">The calendar a drumbeat we dance badly to and don't care. That's a whole life in twelve words.</p>
-    </div>
-  </section>
 
   <nav class="seq-nav" aria-label="Sequential navigation">
     <a href="#" class="seq-link">
@@ -811,6 +784,20 @@ body.dark-mode {
   </div>
 </div>
 
+
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col"><div class="footer-col-title">Grounds</div><span class="footer-soon">Writing</span><a href="/portraits/">Portraits</a><span class="footer-soon">Methodology</span><span class="footer-soon">Good Grounds</span><span class="footer-soon">The Prayers</span></div>
+      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><span class="footer-soon">Making</span><a href="/listening-room/">Sound</a><span class="footer-soon">The Broadcast</span><span class="footer-soon">Wavelength</span></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><span class="footer-soon">Archive</span><span class="footer-soon">Calendar</span><a href="mailto:info@oyparaploo.com">Contact</a></div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
+
 <script>
 // Font size toggle (3 steps)
 var sizeStep = 1;
@@ -828,7 +815,6 @@ fontBtn.addEventListener('click', function() {
 // Contrast toggle
 document.getElementById('contrastBtn').addEventListener('click', function() {
   document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
 });
 
 // Menu
