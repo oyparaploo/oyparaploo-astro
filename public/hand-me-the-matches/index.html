@@ -166,13 +166,15 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center; gap: 5px; background: none; border: none;
   cursor: pointer; min-height: 44px; padding: 0 8px;
 }
-.nav-hamburger span {
-  display: block; width: 22px; height: 1.5px; background: #333;
-  transition: transform 0.25s, opacity 0.2s; transform-origin: center;
+.nav-icon { width: 22px; height: 22px; display: block; }
+.nav-hamburger line {
+  stroke: #333; stroke-width: 2.5;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box; transform-origin: center;
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .nav-accent-rule {
   display: block; height: 2px; border: none;
@@ -398,11 +400,15 @@ body.dark-mode {
 .dark-mode .wordmark,
 .dark-mode .nav-links a,
 .dark-mode .nav-utils button,
-.dark-mode .nav-utils a { color: #a6a098; }
-.dark-mode .nav-links a.active { text-decoration-color: #a6a098; }
+.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+.dark-mode .wordmark:hover,
+.dark-mode .nav-links a:hover,
+.dark-mode .nav-utils button:hover,
+.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.dark-mode .nav-links a.active { text-decoration-color: rgba(232,224,214,0.68); }
 .dark-mode .font-size-btn .sz,
-.dark-mode .font-size-btn .sz.active { color: #a6a098 !important; }
-.dark-mode .nav-hamburger span { background: #a6a098; }
+.dark-mode .font-size-btn .sz.active { color: rgba(232,224,214,0.68) !important; }
+.dark-mode .nav-hamburger line { stroke: rgba(232,224,214,0.68); }
 body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 
 /* Glows */
@@ -508,8 +514,10 @@ body.dark-mode .footer-rule{background:rgba(232,224,214,.12);}
       </button>
       <button id="contrastBtn" aria-label="Toggle contrast"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/></svg></button>
       <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
-      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="navHamburger">
-        <span></span><span></span><span></span>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
       </button>
     </div>
   </div>
