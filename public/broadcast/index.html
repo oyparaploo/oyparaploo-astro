@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Broadcast &#8212; Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CANONICAL CHROME — careful-children (dark-native) ===== */
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+em, i, cite, address, dfn, var { font-style: normal; }
+* { font-style: normal; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 18px; }
+html.size-2 { --root-size: 19px; }
+html.size-3 { --root-size: 21px; }
+
+/* Dark-ground native: AAA indicators are warm white */
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: rgba(232,224,214,0.68) !important;
+  opacity: 1;
+  transition: opacity 0.25s, color 0.2s;
+  line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 19px; }
+.font-size-btn .sz[data-size="2"] { font-size: 16px; }
+.font-size-btn .sz[data-size="3"] { font-size: 13px; }
+
+
+/* ═══ IV. STÄDEL NAV — DARK GROUND NATIVE ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: rgba(232,224,214,0.68); letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400; letter-spacing: 0.02em;
+  color: rgba(232,224,214,0.68);
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: rgba(232,224,214,0.68);
+  background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
+.nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger line {
+  stroke-width: 2.5;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+  opacity: 0.6;
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+.menu-strips { display: none !important; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid #b3aba6;
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+.mobile-strips { display: none !important; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 1024px) {
+  /* Reading page: no layout shift at 1024 */
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* ===== CANONICAL CHROME — light-mode ground + nav ===== */
+body.light-mode {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom,
+    #ffffff 0px, #ffffff 300px,
+    #fdfcfb 700px, #f9f7f4 100%);
+  background-attachment: scroll;
+  color: #2a2320;
+}
+
+/* Nav overrides — light mode */
+body.light-mode .site-nav {
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.light-mode .wordmark { color: #333; }
+body.light-mode .wordmark:hover { color: #5c3a1e; }
+body.light-mode .nav-links a { color: #333; }
+body.light-mode .nav-links a:hover { color: #5c3a1e; }
+body.light-mode .nav-utils button,
+body.light-mode .nav-utils a { color: #000; }
+body.light-mode .nav-utils button:hover,
+body.light-mode .nav-utils a:hover { color: #5c3a1e; }
+body.light-mode .nav-hamburger line { stroke: #333; }
+body.light-mode #contrastBtn svg { transform: scaleX(-1); }
+body.light-mode .font-size-btn .sz { color: #000 !important; }
+body.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
+body.light-mode .nav-accent-rule { opacity: 1; }
+
+/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) ===== */
+.site-footer{background:rgba(0,0,0,0.25);}
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:17px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,224,214,.5);margin-bottom:16px;}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:17px;line-height:2;letter-spacing:.01em;text-decoration:none;color:rgba(232,224,214,.72);}
+.footer-col a{transition:color .2s;}
+.footer-col a:hover{color:rgba(232,224,214,.95);}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;background:rgba(232,224,214,.12);margin:36px 0 18px;}
+.footer-copyright{font-size:17px;color:rgba(232,224,214,.42);letter-spacing:.02em;}
+body.light-mode .site-footer{background:rgba(0,0,0,.03);}
+body.light-mode .footer-col-title{color:#8a8078;}
+body.light-mode .footer-col a,body.light-mode .footer-col .footer-soon{color:#5a4f47;}
+body.light-mode .footer-col a:hover{color:#2a2320;}
+body.light-mode .footer-copyright{color:#9a9088;}
+body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
+
+/* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
+.nav-links a:not([href]), .menu-panel a:not([href]), .reading-breadcrumb a:not([href]) { pointer-events: none; cursor: default; }
+</style>
+<style>
+/* ===== PAGE: THE BROADCAST — PBS-SoCal DNA ===== */
+:root { --accent-cool: #7a8ea0; }
+body { background: linear-gradient(to bottom, #000000 0%, #000000 5%, #020203 12%, #040507 20%, #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%); background-attachment: fixed; min-height: 100vh; color: #d0c8bf; }
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC — THE BROADCAST
+   All proven hex. Zero rgba on content.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Section containers ── */
+.section { padding: 4vh 40px; }
+.section-wide { max-width: 1200px; margin: 0 auto; }
+.section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2.5em; }
+.section-title { font-family: 'Lora', serif; font-size: clamp(1.3529rem, 2.8vw, 1.7059rem); font-weight: 600; color: #d0c8bf; }
+.section-link { font-size: 1rem; font-weight: 450; color: var(--accent-cool); text-decoration: underline; text-underline-offset: 9px; text-decoration-thickness: 1px; text-decoration-color: #5a6a7a; transition: color 0.3s; }
+.section-link:hover { color: #b5c8d8; text-decoration-color: #8a9aaa; }
+.breath-divider { height: 2vh; }
+
+/* ── Hero carousel ── */
+.hero-carousel { position: relative; width: 100%; height: 75vh; min-height: 500px; overflow: hidden; }
+.hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.8s ease; }
+.hero-slide.active { opacity: 1; }
+.hero-image { width: 100%; height: 100%; background: #0d111b; }
+.hero-image-alt { background: #0e121d; }
+.hero-gradient { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); }
+.hero-content { position: absolute; bottom: 60px; left: 40px; max-width: 600px; z-index: 2; }
+.hero-category { font-size: 1rem; font-weight: 600; color: #a09888; letter-spacing: 0.02em; margin-bottom: 12px; }
+.hero-badge { font-weight: 400; color: #8a8078; margin-left: 12px; }
+.hero-title { font-family: 'Lora', serif; font-size: clamp(1.3529rem, 2.8vw, 1.7059rem); font-weight: 600; color: #d0c8bf; line-height: 1.3; margin-bottom: 20px; }
+.hero-button { display: inline-block; font-size: 1rem; font-weight: 450; color: #a09888; border: 1px solid #3a3430; padding: 6px 14px; border-radius: 3px; transition: all 0.3s; }
+.hero-button:hover { color: #d0c8bf; border-color: #5a5048; }
+.hero-indicators { position: absolute; bottom: 24px; right: 40px; display: flex; gap: 8px; z-index: 3; }
+.hero-dot { width: 8px; height: 8px; border-radius: 50%; background: #3a3430; cursor: pointer; transition: background 0.3s; }
+.hero-dot.active { background: #a09888; }
+
+/* ── Featured works — poster scroll (2:3) ── */
+.show-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; }
+.show-carousel::-webkit-scrollbar { display: none; }
+.show-card { flex: 0 0 calc((100% - 100px) / 6); min-width: 140px; scroll-snap-align: start; cursor: pointer; transition: opacity 0.3s; }
+.show-card:hover { opacity: 0.85; }
+.show-card-image { width: 100%; aspect-ratio: 2/3; background: #0d111b; margin-bottom: 10px; }
+.show-card-image-alt { background: #0e121d; }
+.show-card-title { font-family: 'Lora', serif; font-size: clamp(1.0588rem, 1.8vw, 1.1765rem); font-weight: 600; color: #ccc5bc; line-height: 1.3; }
+
+/* ── Episode cards — 16:9 with badges ── */
+.episode-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; }
+.episode-carousel::-webkit-scrollbar { display: none; }
+.episode-card { flex: 0 0 calc((100% - 40px) / 3); min-width: 280px; scroll-snap-align: start; cursor: pointer; }
+.episode-card:hover .episode-card-image { opacity: 0.85; }
+.episode-card-visual { position: relative; margin-bottom: 12px; }
+.episode-card-image { width: 100%; aspect-ratio: 16/9; background: #0d111b; transition: opacity 0.3s; }
+.episode-card-image-alt { background: #0e121d; }
+.episode-badge { position: absolute; bottom: 8px; left: 8px; display: flex; align-items: center; gap: 6px; background: #000000; padding: 4px 10px; border-radius: 3px; }
+.badge-play { width: 0; height: 0; border-left: 7px solid #d0c8bf; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.badge-duration { font-size: 1rem; font-weight: 400; color: #d0c8bf; }
+.episode-lock { position: absolute; top: 8px; right: 8px; font-size: 1rem; font-weight: 500; color: #d0c8bf; background: #000000; padding: 4px 10px; border-radius: 3px; }
+.episode-meta { font-size: 1rem; font-weight: 400; color: #a09888; margin-bottom: 4px; }
+.episode-subtitle a { font-size: 1rem; font-weight: 500; color: #a09888; transition: color 0.2s; }
+.episode-subtitle a:hover { color: #d0c8bf; }
+.episode-subtitle { margin-bottom: 4px; }
+.episode-title { font-family: 'Lora', serif; font-size: clamp(1.0588rem, 1.8vw, 1.3529rem); font-weight: 600; color: #ccc5bc; line-height: 1.35; }
+.episode-title a { color: inherit; transition: color 0.2s; }
+.episode-title a:hover { color: #e8e0d8; }
+
+/* ── Schedule ── */
+.schedule-section { padding: 4vh 40px; background: #141210; }
+.schedule-inner { max-width: 1200px; margin: 0 auto; }
+.schedule-layout { display: flex; gap: 40px; align-items: flex-start; }
+.schedule-controls { flex: 0 0 200px; }
+.schedule-label { font-size: 1rem; font-weight: 600; color: #a09888; margin-bottom: 12px; display: block; }
+.schedule-select { width: 100%; font-family: inherit; font-size: 1rem; font-weight: 400; color: #d0c8bf; background: #1a1815; border: 1px solid #3a3430; border-radius: 3px; padding: 8px 12px; appearance: none; cursor: pointer; transition: border-color 0.3s; }
+.schedule-select:hover { border-color: #5a5048; }
+.schedule-list { flex: 1; list-style: none; }
+.schedule-item { display: flex; gap: 24px; padding: 16px 0; border-bottom: 1px solid #2a2520; transition: background 0.3s; }
+.schedule-item:hover { background: #1a1815; }
+.schedule-item:last-child { border-bottom: none; }
+.schedule-time { flex: 0 0 80px; font-size: 1rem; font-weight: 500; color: #ccc5bc; }
+.schedule-info { flex: 1; }
+.schedule-program { font-family: 'Lora', serif; font-size: clamp(1.0588rem, 1.8vw, 1.1765rem); font-weight: 600; color: #ccc5bc; margin-bottom: 4px; }
+.schedule-episode { font-size: 1rem; font-weight: 400; color: #a09888; }
+.schedule-footer { margin-top: 24px; text-align: right; }
+
+/* ── Section divider ── */
+.section-divider { width: 1px; height: 120px; margin: 0.5em auto 2em; background: linear-gradient(to bottom, transparent 0%, #5a5048 50%, transparent 100%); }
+
+
+/* light mode + responsive */
+body.light-mode .section-title { color: #3a3028; }
+body.light-mode .section-link { color: #5a7080; text-decoration-color: #8aa0b0; }
+body.light-mode .section-link:hover { color: #3a5060; }
+body.light-mode .hero-image { background: #e8e4de; }
+body.light-mode .hero-image-alt { background: #e0dcd6; }
+body.light-mode .hero-category { color: #5a4f47; }
+body.light-mode .hero-badge { color: #8a8078; }
+body.light-mode .hero-title { color: #2a2320; }
+body.light-mode .hero-button { color: #5a4f47; border-color: #c0b8b0; }
+body.light-mode .hero-button:hover { color: #2a2320; border-color: #8a8078; }
+body.light-mode .hero-dot { background: #c0b8b0; }
+body.light-mode .hero-dot.active { background: #5a4f47; }
+body.light-mode .show-card-image { background: #e8e4de; }
+body.light-mode .show-card-image-alt { background: #e0dcd6; }
+body.light-mode .show-card-title { color: #2a2320; }
+body.light-mode .episode-card-image { background: #e8e4de; }
+body.light-mode .episode-card-image-alt { background: #e0dcd6; }
+body.light-mode .episode-badge { background: #2a2320; }
+body.light-mode .badge-duration { color: #e8e0d8; }
+body.light-mode .badge-play { border-left-color: #e8e0d8; }
+body.light-mode .episode-lock { background: #2a2320; color: #e8e0d8; }
+body.light-mode .episode-meta { color: #5a4f47; }
+body.light-mode .episode-subtitle a { color: #5a4f47; }
+body.light-mode .episode-subtitle a:hover { color: #2a2320; }
+body.light-mode .episode-title { color: #2a2320; }
+body.light-mode .episode-title a:hover { color: #000; }
+body.light-mode .schedule-section { background: #f5f2ee; }
+body.light-mode .schedule-label { color: #5a4f47; }
+body.light-mode .schedule-select { color: #2a2320; background: #ffffff; border-color: #c0b8b0; }
+body.light-mode .schedule-select:hover { border-color: #8a8078; }
+body.light-mode .schedule-item { border-bottom-color: #e0d8d0; }
+body.light-mode .schedule-item:hover { background: #faf7f3; }
+body.light-mode .schedule-time { color: #3a3028; }
+body.light-mode .schedule-program { color: #2a2320; }
+body.light-mode .schedule-episode { color: #5a4f47; }
+body.light-mode .section-divider { background: linear-gradient(to bottom, transparent 0%, #c0b8b0 50%, transparent 100%); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) { .section { padding: 4vh 24px; } .schedule-section { padding: 4vh 24px; } .schedule-layout { flex-direction: column; gap: 20px; } .schedule-controls { flex: none; width: 100%; } .show-card { flex: 0 0 calc((100% - 40px) / 3); min-width: 110px; } .episode-card { flex: 0 0 85%; min-width: 260px; } .hero-content { left: 24px; bottom: 40px; max-width: calc(100% - 48px); } }
+@media (max-width: 480px) { .show-card { flex: 0 0 calc((100% - 40px) / 3); min-width: 110px; } }
+</style>
+</head>
+<body>
+
+<!-- STÄDEL NAV -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a aria-disabled="true">Practice</a></li>
+      <li><a href="/dispatches/">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <a href="#" aria-label="Search">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- MENU -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="/writing/">Writing</a>
+      <a href="/making/">Making</a>
+      <a href="/good-grounds/">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a href="/methodology/">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a aria-disabled="true">Support</a>
+      <a href="/archive/">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<main>
+<main>
+<div class="hero-carousel">
+  <div class="hero-slide active"><div class="hero-image"></div><div class="hero-gradient"></div><div class="hero-content"><div class="hero-category">Witness<span class="hero-badge">Writing</span></div><h2 class="hero-title">What the River Held Before the Map Arrived</h2><a href="#" class="hero-button">Read this piece</a></div></div>
+  <div class="hero-slide"><div class="hero-image hero-image-alt"></div><div class="hero-gradient"></div><div class="hero-content"><div class="hero-category">Good Grounds<span class="hero-badge">Section 18</span></div><h2 class="hero-title">The Goat Arrives and Says Nothing for Two Pages</h2><a href="#" class="hero-button">Continue reading</a></div></div>
+  <div class="hero-slide"><div class="hero-image"></div><div class="hero-gradient"></div><div class="hero-content"><div class="hero-category">Sound<span class="hero-badge">Archive</span></div><h2 class="hero-title">Fourteen Frequencies for a Room That Remembers</h2><a href="#" class="hero-button">Listen</a></div></div>
+  <div class="hero-indicators"><div class="hero-dot active" data-slide="0"></div><div class="hero-dot" data-slide="1"></div><div class="hero-dot" data-slide="2"></div></div>
+</div>
+
+<!-- ═══ FEATURED WORKS ═══ -->
+<section class="section"><div class="section-wide">
+  <div class="section-header reveal"><h2 class="section-title">Featured Works</h2><a href="#" class="section-link">View all works</a></div>
+  <div class="show-carousel reveal">
+    <div class="show-card"><div class="show-card-image"></div><div class="show-card-title">Reckoning in a Bone White Space</div></div>
+    <div class="show-card"><div class="show-card-image show-card-image-alt"></div><div class="show-card-title">Good Grounds</div></div>
+    <div class="show-card"><div class="show-card-image"></div><div class="show-card-title">Noir Song Frequencies</div></div>
+    <div class="show-card"><div class="show-card-image show-card-image-alt"></div><div class="show-card-title">Witness Portraits</div></div>
+    <div class="show-card"><div class="show-card-image"></div><div class="show-card-title">Beautiful Garbage</div></div>
+    <div class="show-card"><div class="show-card-image show-card-image-alt"></div><div class="show-card-title">Impulse Art</div></div>
+    <div class="show-card"><div class="show-card-image"></div><div class="show-card-title">Hospital Sculptures</div></div>
+    <div class="show-card"><div class="show-card-image show-card-image-alt"></div><div class="show-card-title">Pressure Ghosts</div></div>
+    <div class="show-card"><div class="show-card-image"></div><div class="show-card-title">The Playbook</div></div>
+  </div>
+</div></section>
+
+<div class="breath-divider"></div>
+
+<!-- ═══ WITNESS WRITING ═══ -->
+<section class="section"><div class="section-wide">
+  <div class="section-header reveal"><h2 class="section-title">Witness Writing</h2><a href="#" class="section-link">All witness pieces</a></div>
+  <div class="episode-carousel reveal">
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">12 min</span></div></div><div class="episode-meta">Origin · Writing</div><div class="episode-subtitle"><a href="#">Witness Portraits</a></div><div class="episode-title"><a href="#">What the Door Held</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">8 min</span></div><div class="episode-lock">Archive</div></div><div class="episode-meta">Witness · Writing</div><div class="episode-subtitle"><a href="#">Noir Song Frequencies</a></div><div class="episode-title"><a href="#">What the Whisper Held</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">15 min</span></div></div><div class="episode-meta">Witness · Writing</div><div class="episode-subtitle"><a href="#">Witness Portraits</a></div><div class="episode-title"><a href="#">What the Machine Held</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">10 min</span></div></div><div class="episode-meta">Witness · Writing</div><div class="episode-subtitle"><a href="#">Witness Portraits</a></div><div class="episode-title"><a href="#">What the Word Held</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">7 min</span></div><div class="episode-lock">Archive</div></div><div class="episode-meta">Witness · Writing</div><div class="episode-subtitle"><a href="#">Noir Song Frequencies</a></div><div class="episode-title"><a href="#">What the Silence Held</a></div></div>
+  </div>
+</div></section>
+
+<div class="breath-divider"></div>
+
+<!-- ═══ WHAT'S HAPPENING NOW ═══ -->
+<section class="schedule-section">
+  <div class="schedule-inner">
+    <div class="section-header reveal"><h2 class="section-title">What's Happening Now</h2></div>
+    <div class="schedule-layout reveal">
+      <div class="schedule-controls"><span class="schedule-label">Select Category</span><select class="schedule-select"><option>All Projects</option><option>Writing</option><option>Sound</option><option>Visual</option><option>Performance</option></select></div>
+      <ul class="schedule-list">
+        <li class="schedule-item"><span class="schedule-time">Active</span><div class="schedule-info"><div class="schedule-program">Good Grounds</div><div class="schedule-episode">Section 19 in progress · Conversation novel</div></div></li>
+        <li class="schedule-item"><span class="schedule-time">Active</span><div class="schedule-info"><div class="schedule-program">Witness Portrait Series</div><div class="schedule-episode">Portrait 60 · Musicological research complete</div></div></li>
+        <li class="schedule-item"><span class="schedule-time">Building</span><div class="schedule-info"><div class="schedule-program">Website Template Library</div><div class="schedule-episode">24 of 47 templates · Dark ground system</div></div></li>
+        <li class="schedule-item"><span class="schedule-time">Archive</span><div class="schedule-info"><div class="schedule-program">Fictional Portrait Series</div><div class="schedule-episode">Three benchmarks complete · 41 transformations ahead</div></div></li>
+      </ul>
+    </div>
+    <div class="schedule-footer reveal"><a href="#" class="section-link">See full project timeline</a></div>
+  </div>
+</section>
+
+<div class="breath-divider"></div>
+
+<!-- ═══ WHOSE LAND? ═══ -->
+<section class="section"><div class="section-wide">
+  <div class="section-header reveal"><h2 class="section-title">Whose Land?</h2><a href="#" class="section-link">Explore this thread</a></div>
+  <div class="episode-carousel reveal">
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">20 min</span></div></div><div class="episode-meta">Declaration · Writing</div><div class="episode-subtitle"><a href="#">Oyparaploo Noir</a></div><div class="episode-title"><a href="#">Brief History of Colonial Development on Dakota Land</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">6 min</span></div></div><div class="episode-meta">Witness · Writing</div><div class="episode-subtitle"><a href="#">Pressure Ghosts</a></div><div class="episode-title"><a href="#">The Security Threat Is Already Inside</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">9 min</span></div></div><div class="episode-meta">Origin · Writing</div><div class="episode-subtitle"><a href="#">Wonderful Garbage</a></div><div class="episode-title"><a href="#">We're All Allowed to Be Political Here</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">11 min</span></div><div class="episode-lock">Archive</div></div><div class="episode-meta">Declaration · Writing</div><div class="episode-subtitle"><a href="#">Oyparaploo Noir</a></div><div class="episode-title"><a href="#">Reckoning in a Bone White Space</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">14 min</span></div></div><div class="episode-meta">Unfolding · Writing</div><div class="episode-subtitle"><a href="#">Noir Song</a></div><div class="episode-title"><a href="#">State of the Arts on Earth</a></div></div>
+  </div>
+</div></section>
+
+<div class="breath-divider"></div>
+
+<!-- ═══ PRESSURE GHOSTS ═══ -->
+<section class="section"><div class="section-wide">
+  <div class="section-header reveal"><h2 class="section-title">Pressure Ghosts</h2><a href="#" class="section-link">All pressure ghost pieces</a></div>
+  <div class="episode-carousel reveal">
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">5 min</span></div></div><div class="episode-meta">Conversation · Writing</div><div class="episode-subtitle"><a href="#">Good Grounds</a></div><div class="episode-title"><a href="#">Goodnight Snail</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">8 min</span></div></div><div class="episode-meta">Origin · Writing</div><div class="episode-subtitle"><a href="#">Wonderful Garbage</a></div><div class="episode-title"><a href="#">People Who Start Things</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">4 min</span></div><div class="episode-lock">Archive</div></div><div class="episode-meta">Unfolding · Writing</div><div class="episode-subtitle"><a href="#">Noir Song</a></div><div class="episode-title"><a href="#">The Snail Is Still Moving</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">7 min</span></div></div><div class="episode-meta">Witness · Sound</div><div class="episode-subtitle"><a href="#">Noir Song Frequencies</a></div><div class="episode-title"><a href="#">Instrument Played by a Building Being Torn Down</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">6 min</span></div></div><div class="episode-meta">Declaration · Writing</div><div class="episode-subtitle"><a href="#">Pressure Ghosts</a></div><div class="episode-title"><a href="#">Permission to Wonder</a></div></div>
+  </div>
+</div></section>
+
+<div class="breath-divider"></div>
+
+<!-- ═══ FROM THE ARCHIVE ═══ -->
+<section class="section"><div class="section-wide">
+  <div class="section-header reveal"><h2 class="section-title">From the Archive</h2><a href="#" class="section-link">Browse full archive</a></div>
+  <div class="episode-carousel reveal">
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">10 min</span></div></div><div class="episode-meta">Origin · Writing</div><div class="episode-subtitle"><a href="#">Wonderful Garbage</a></div><div class="episode-title"><a href="#">Trash</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">12 min</span></div></div><div class="episode-meta">Declaration · Writing</div><div class="episode-subtitle"><a href="#">Oyparaploo Noir</a></div><div class="episode-title"><a href="#">Serious Local Absurdity</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">3 min</span></div></div><div class="episode-meta">Unfolding · Writing</div><div class="episode-subtitle"><a href="#">Noir Song</a></div><div class="episode-title"><a href="#">Coda to Light Melancholy</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image episode-card-image-alt"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">9 min</span></div><div class="episode-lock">Archive</div></div><div class="episode-meta">Origin · Sound</div><div class="episode-subtitle"><a href="#">Noir Song Frequencies</a></div><div class="episode-title"><a href="#">When a Million Teeny Feathers</a></div></div>
+    <div class="episode-card"><div class="episode-card-visual"><div class="episode-card-image"></div><div class="episode-badge"><span class="badge-play"></span><span class="badge-duration">6 min</span></div></div><div class="episode-meta">Conversation · Writing</div><div class="episode-subtitle"><a href="#">Good Grounds</a></div><div class="episode-title"><a href="#">Show Up</a></div></div>
+  </div>
+</div></section>
+
+</main>
+</main>
+<div class="bottom-safe"></div>
+
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Grounds</div>
+        <a href="/writing/">Writing</a>
+        <a href="/portraits/">Portraits</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/good-grounds/">Good Grounds</a>
+        <a href="/prayers/">The Prayers</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Practice</div>
+        <a href="/our-practice/">Our Practice</a>
+        <a href="/making/">Making</a>
+        <a href="/listening-room/">Sound</a>
+        <a href="/broadcast/">The Broadcast</a>
+        <a href="/wavelength/">Wavelength</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/archive/">Archive</a>
+        <span class="footer-soon">Calendar</span>
+        <a href="mailto:info@oyparaploo.com">Contact</a>
+      </div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
+
+<!-- CHROME JS -->
+<script>
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+// Contrast toggle — dark ground native: toggles to light-mode
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('light-mode');
+});
+
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
+<!-- PAGE JS — hero carousel -->
+<script>(function(){var slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot'),current=0,timer;function goTo(i){slides[current].classList.remove('active');dots[current].classList.remove('active');current=i;slides[current].classList.add('active');dots[current].classList.add('active')}function next(){goTo((current+1)%slides.length)}function startTimer(){timer=setInterval(next,6000)}dots.forEach(function(dot){dot.addEventListener('click',function(){clearInterval(timer);goTo(parseInt(this.dataset.slide));startTimer()})});startTimer()})();</script>
+</body>
+</html>
