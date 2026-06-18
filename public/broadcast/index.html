@@ -737,6 +737,7 @@ menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click'
   }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
   els.forEach(function(el) { obs.observe(el); });
 })();
+</script>
 
 <!-- PAGE JS — hero carousel -->
 <script>(function(){var slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot'),current=0,timer;function goTo(i){slides[current].classList.remove('active');dots[current].classList.remove('active');current=i;slides[current].classList.add('active');dots[current].classList.add('active')}function next(){goTo((current+1)%slides.length)}function startTimer(){timer=setInterval(next,6000)}dots.forEach(function(dot){dot.addEventListener('click',function(){clearInterval(timer);goTo(parseInt(this.dataset.slide));startTimer()})});startTimer()})();</script>
