@@ -84,7 +84,6 @@ html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-
 .menu-content { padding: 0 32px 48px; }
 .menu-nav-primary a { display: block; font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; padding: 10px 0; transition: opacity 0.2s; letter-spacing: -0.01em; }
 .menu-nav-primary a:hover { opacity: 0.65; }
-.menu-nav-label { font-size: 17px; font-weight: 500; color: #8a8078; margin-bottom: 6px; letter-spacing: 0.02em; }
 .menu-nav-secondary a { display: block; font-size: 20px; font-weight: 500; color: #2a2320; padding: 8px 0; transition: opacity 0.2s; }
 .menu-nav-secondary a:hover { opacity: 0.65; }
 .menu-rule-tan { border: none; height: 1px; background: #D4C4A8; margin: 16px 0; opacity: 0.4; }
@@ -194,6 +193,25 @@ body.light-mode .close-label { color: #8a8078; }
 @media (max-width: 1024px) { .pc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .nav-inner { padding: 0 24px; } .zone-hero { padding: 0 28px 60px; min-height: 70vh; } .section-nav { padding: 0 28px; } .writing-section { padding: 0 28px; } .breathe { padding: 80px 28px; } .gg-intro { padding: 60px 28px 0; } .zone-strip { padding: 0 28px; } .territory-zone { padding: 0 28px; } .zone-close { padding: 100px 28px; } .wp-grid { grid-template-columns: 1fr; } .pc-grid { grid-template-columns: 1fr 1fr; gap: 16px; } .menu-strips { display: none !important; } .mobile-strips { display: flex; } .menu-panel { width: 100vw; right: -100vw; } .menu-panel.open { right: 0; } }
 @media (max-width: 480px) { .pc-grid { grid-template-columns: 1fr; } }
+/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) — dark-native ===== */
+.site-footer{background:rgba(0,0,0,0.25);}
+.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
+.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
+.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
+.footer-col{min-width:160px;}
+.footer-col-title{font-size:17px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,224,214,.5);margin-bottom:16px;}
+.footer-col a,.footer-col .footer-soon{display:block;font-size:17px;line-height:2;letter-spacing:.01em;text-decoration:none;color:rgba(232,224,214,.72);}
+.footer-col a{transition:color .2s;}
+.footer-col a:hover{color:rgba(232,224,214,.95);}
+.footer-col .footer-soon{cursor:default;}
+.footer-rule{height:1px;border:none;background:rgba(232,224,214,.12);margin:36px 0 18px;}
+.footer-copyright{font-size:17px;color:rgba(232,224,214,.42);letter-spacing:.02em;}
+body.light-mode .site-footer{background:rgba(0,0,0,.03);}
+body.light-mode .footer-col-title{color:#8a8078;}
+body.light-mode .footer-col a,body.light-mode .footer-col .footer-soon{color:#5a4f47;}
+body.light-mode .footer-col a:hover{color:#2a2320;}
+body.light-mode .footer-copyright{color:#9a9088;}
+body.light-mode .footer-rule{background:rgba(0,0,0,.1);}
 </style>
 </head>
 <body>
@@ -237,12 +255,11 @@ body.light-mode .close-label { color: #8a8078; }
     </div>
     <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
     <hr class="menu-rule-tan" aria-hidden="true">
-    <div class="menu-nav-label">All Info for</div>
     <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
     <hr class="menu-rule-sage" aria-hidden="true">
     <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
     <div class="menu-address">Minneapolis ~ Saint Paul</div>
-    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button><button class="menu-btn">Newsletter</button></div>
+    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
   </div>
 </div>
 
@@ -445,5 +462,36 @@ navHamburger.addEventListener('click',openMenu);menuCloseBtn.addEventListener('c
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});menuPanel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
 (function(){var els=document.querySelectorAll('.reveal,.reveal-slow');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target);}});},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});els.forEach(function(el){obs.observe(el);});})();
 </script>
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Grounds</div>
+        <a href="/writing/">Writing</a>
+        <a href="/portraits/">Portraits</a>
+        <a href="/methodology/">Methodology</a>
+        <a href="/good-grounds/">Good Grounds</a>
+        <a href="/prayers/">The Prayers</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Practice</div>
+        <a href="/our-practice/">Our Practice</a>
+        <a href="/making/">Making</a>
+        <a href="/listening-room/">Sound</a>
+        <a href="/broadcast/">The Broadcast</a>
+        <a href="/wavelength/">Wavelength</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/archive/">Archive</a>
+        <span class="footer-soon">Calendar</span>
+        <a href="mailto:info@oyparaploo.com">Contact</a>
+      </div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
 </body>
 </html>
