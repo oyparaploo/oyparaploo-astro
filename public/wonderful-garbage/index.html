@@ -7,7 +7,7 @@
 <meta name="description" content="The philosophy. What has been discarded can be picked up and transformed into something that matters. A conscious alternative to violence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
 <style>
 
 /* ===========================================
@@ -22,7 +22,7 @@
 
 :root {
   --font-display: 'Lora', Georgia, serif;
-  --font-body: 'Work Sans', Helvetica, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
   --font-ui: 'Inter', -apple-system, sans-serif;
   --text-warm: #e8e0d6;
   --soil-dark: #662a1e;
@@ -39,21 +39,10 @@ html {
 }
 
 body {
-  background: #000000;
+  background: #0e0e0e;
   color: var(--text-warm);
   overflow-x: hidden;
   font-size: 21px;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
 }
 
 /* Header — barely there */
@@ -64,17 +53,17 @@ body::after {
 }
 .site-logotype {
   font-family: var(--font-ui); font-size: 22px; font-weight: 500;
-  color: rgba(232, 224, 214, 0.40); text-decoration: none; letter-spacing: 0.04em;
+  color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em;
   transition: color 0.6s ease;
 }
-.site-logotype:hover { color: rgba(232, 224, 214, 0.70); }
+.site-logotype:hover { color: rgba(232, 224, 214, 0.85); }
 .site-nav { display: flex; gap: 32px; }
 .site-nav a {
   font-family: var(--font-ui); font-size: 21px; font-weight: 500;
-  color: rgba(232, 224, 214, 0.40); text-decoration: none; letter-spacing: 0.04em;
+  color: rgba(232, 224, 214, 0.68); text-decoration: none; letter-spacing: 0.04em;
   transition: color 0.5s ease;
 }
-.site-nav a:hover { color: rgba(232, 224, 214, 0.70); }
+.site-nav a:hover { color: rgba(232, 224, 214, 0.85); }
 
 
 /* ═══════ MONUMENTAL SECTIONS ═══════ */
@@ -109,14 +98,14 @@ body::after {
 /* Scale 2 — declaration, large */
 .scale-declaration {
   font-size: clamp(36px, 6vw, 80px);
-  color: rgba(232, 224, 214, 0.88);
+  color: #d0c8bf;
   font-weight: 600;
 }
 
 /* Scale 3 — statement, reading size but still big */
 .scale-statement {
   font-size: clamp(24px, 3.5vw, 44px);
-  color: rgba(232, 224, 214, 0.78);
+  color: #ccc5bc;
   font-weight: 500;
   line-height: 1.35;
   max-width: 900px;
@@ -125,7 +114,7 @@ body::after {
 /* Scale 4 — elder voice, the familiar reading register */
 .scale-elder {
   font-size: clamp(20px, 2vw, 23px);
-  color: rgba(232, 224, 214, 0.88);
+  color: #d0c8bf;
   font-weight: 400;
   line-height: 1.85;
   max-width: 680px;
@@ -159,8 +148,7 @@ body::after {
   font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 64px);
   font-weight: 400;
-  font-style: italic;
-  color: rgba(232, 224, 214, 0.55);
+  color: #b5ada5;
   letter-spacing: 0.01em;
   text-align: center;
   opacity: 0;
@@ -168,7 +156,7 @@ body::after {
 }
 .question.visible {
   opacity: 1;
-  color: rgba(232, 224, 214, 0.72);
+  color: #d0c8bf;
 }
 
 
@@ -195,13 +183,12 @@ body::after {
   font-weight: 600;
   color: var(--warm-accent);
   margin-bottom: 0.5em;
-  opacity: 0.85;
 }
 .trinity-desc {
   font-family: var(--font-display);
   font-size: clamp(18px, 2vw, 21px);
   font-weight: 400;
-  color: rgba(232, 224, 214, 0.65);
+  color: #b5ada5;
   line-height: 1.75;
 }
 
@@ -223,11 +210,17 @@ body::after {
 }
 .footer-logotype {
   font-family: var(--font-display); font-size: 18px; font-weight: 600;
-  letter-spacing: 0.03em; color: rgba(232, 224, 214, 0.20);
+  letter-spacing: 0.03em; color: #a09888;
 }
 
 
 /* Responsive */
+@media (max-width: 1100px) {
+  .monument, .questions-section { padding: 76px 44px; }
+}
+@media (max-width: 1024px) {
+  .monument, .questions-section { padding: 68px 40px; }
+}
 @media (max-width: 768px) {
   .monument, .questions-section { padding: 60px 28px; }
   .trinity-section { padding: 8vh 28px; }
@@ -291,7 +284,7 @@ body::after {
 
 <!-- 6. THE ALTERNATIVE -->
 <section class="monument">
-  <div class="monument-text scale-declaration" style="color: var(--warm-accent); opacity: 0.85;">A conscious alternative<br>to violence.</div>
+  <div class="monument-text scale-declaration" style="color: var(--warm-accent);">A conscious alternative<br>to violence.</div>
 </section>
 
 
