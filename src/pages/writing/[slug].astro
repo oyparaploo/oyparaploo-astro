@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReadingLayout from '../../layouts/ReadingLayout.astro';
 
 export async function getStaticPaths() {
   const pieces = await getCollection('writing');
@@ -8,41 +9,76 @@ export async function getStaticPaths() {
 }
 
 const { piece } = Astro.props;
-const { title, hero } = piece.data;
+const { title, hero, variant } = piece.data;
 
-// ── Body -> breath markup. Matches west-has-blessed-voices structure exactly:
-//    blank line  => a <p class="breath"> block
-//    inline ...  => <span class="ellipsis">...</span>
-//    (return) /(question) prefix => variant class on the breath
 function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-function toBreaths(body) {
-  return (body || '')
-    .trim()
-    .split(/\n\s*\n+/)
-    .filter((b) => b.trim().length)
-    .map((blk) => {
-      let t = blk.trim();
-      let cls = 'breath';
-      const m = t.match(/^\((return|question)\)\s*/);
-      if (m) { cls = 'breath ' + m[1]; t = t.slice(m[0].length); }
-      const html = esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>');
-      return `  <p class="${cls}">${html}</p>`;
-    })
-    .join('\n\n');
+function inline(s) {
+  // escape, then **bold** -> <strong>, then inline ... -> ellipsis span
+  return esc(s)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/\.\.\./g, '<span class="ellipsis">...</span>');
 }
-const bodyHtml = toBreaths(piece.body);
+function isDivider(l) {
+  const s = l.trim();
+  return s === '.' || s === '*' || s === '::' || /^-{3,}$/.test(s) || /^\*{3,}$/.test(s) || /^(\*\s*){3,}$/.test(s);
+}
+
+// ── breath-display (dark): blank line => <p class="breath">, inline ... => ellipsis span
+function toBreaths(body) {
+  return (body || '').trim().split(/\n\s*\n+/).filter((b) => b.trim().length).map((blk) => {
+    let t = blk.trim();
+    let cls = 'breath';
+    const m = t.match(/^\((return|question)\)\s*/);
+    if (m) { cls = 'breath ' + m[1]; t = t.slice(m[0].length); }
+    return `  <p class="${cls}">${esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>')}</p>`;
+  }).join('\n\n');
+}
+
+// ── reading (light): render markdown normally — ## -> h2, ### -> h3, paragraphs, lists,
+//    blockquote, bold; inline ... -> ellipsis span; standalone divider line -> gap (no mark).
+function toReading(body) {
+  const lines = (body || '').replace(/\r/g, '').split('\n');
+  const out = []; let para = []; let list = null;
+  const flushPara = () => { if (para.length) { out.push('<p>' + inline(para.join(' ')) + '</p>'); para = []; } };
+  const flushList = () => { if (list) { out.push('<' + list.t + '>' + list.items.map((i) => '<li>' + inline(i) + '</li>').join('') + '</' + list.t + '>'); list = null; } };
+  const flush = () => { flushPara(); flushList(); };
+  for (const raw of lines) {
+    const t = raw.trim();
+    if (!t) { flush(); continue; }
+    if (isDivider(raw)) { flush(); continue; }              // divider -> gap
+    let m;
+    if ((m = t.match(/^(#{2,6})\s+(.*)$/))) { flush(); const tag = m[1].length === 2 ? 'h2' : 'h3'; out.push(`<${tag}>${inline(m[2])}</${tag}>`); continue; }
+    if (t.startsWith('# ')) { flush(); out.push('<h2>' + inline(t.slice(2)) + '</h2>'); continue; }
+    if ((m = t.match(/^>\s?(.*)$/))) { flushPara(); flushList(); out.push('<blockquote>' + inline(m[1]) + '</blockquote>'); continue; }
+    if ((m = t.match(/^[-*]\s+(.*)$/))) { flushPara(); if (!list || list.t !== 'ul') { flushList(); list = { t: 'ul', items: [] }; } list.items.push(m[1]); continue; }
+    if ((m = t.match(/^\d+[.)]\s+(.*)$/))) { flushPara(); if (!list || list.t !== 'ol') { flushList(); list = { t: 'ol', items: [] }; } list.items.push(m[1]); continue; }
+    flushList(); para.push(t);
+  }
+  flush();
+  return out.join('\n');
+}
+
+const isReading = variant === 'reading';
+const bodyHtml = isReading ? toReading(piece.body) : toBreaths(piece.body);
 ---
-<BaseLayout title={title}>
-<main class="piece-stage">
-<div class="piece">
-  {hero
-    ? <figure class="window-out"><img src={hero.src} alt={hero.alt} /></figure>
-    : <figure class="window-out" aria-hidden="true"><div class="window-fill"></div></figure>}
-  <h1 class="title">{title}</h1>
-  <Fragment set:html={bodyHtml} />
-  <hr class="colophon" aria-hidden="true" />
-</div>
-</main>
-</BaseLayout>
+{isReading ? (
+  <ReadingLayout title={title}>
+    <Fragment set:html={bodyHtml} />
+  </ReadingLayout>
+) : (
+  <BaseLayout title={title}>
+    <main class="piece-stage">
+    <div class="piece">
+      {hero
+        ? <figure class="window-out"><img src={hero.src} alt={hero.alt} /></figure>
+        : <figure class="window-out" aria-hidden="true"><div class="window-fill"></div></figure>}
+      <h1 class="title">{title}</h1>
+      <Fragment set:html={bodyHtml} />
+      <hr class="colophon" aria-hidden="true" />
+    </div>
+    </main>
+  </BaseLayout>
+)}
