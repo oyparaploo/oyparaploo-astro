@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-24"
 slug: "the-tone-of-depths-hidden-voice"
+category: "How Ambient Sound and Space Shape Connection"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## Echoes of Space ~ The Quest for Your Acoustic Presence

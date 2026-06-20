@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "altruisms-light-shining-through-a-wall-that-has-no-windows"
+category: "Heaven and Honesty Rooms Where Walls Become Windows"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## *How Barriers and Divisions Crumble*

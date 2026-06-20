@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-29"
 slug: "eternal-transparent-blue-line-trauma-and-time-finding-dreams"
+category: "Intergenerational and Inherited Trauma Carried in the Body"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Happy Friday ... Today is a great day ... We begin a new novel titled ~ Eternal Transparent Blue Line and subtitled in parentheses (Trauma and Time Finding Dreams) ...

@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-possibility-manuscript"
+category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
+cluster: "Labor, Value & the Made Object"
+secondaryCategory: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 ---
 
 ## Part I: The Yellow Room

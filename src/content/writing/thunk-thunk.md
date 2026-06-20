@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "thunk-thunk"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 ## Part One: Tokyo

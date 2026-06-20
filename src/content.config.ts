@@ -19,6 +19,9 @@ const writing = defineCollection({
       })
       .optional(),
     readNext: z.array(z.string()).optional(),
+    category: z.string().optional(),
+    cluster: z.string().optional(),
+    secondaryCategory: z.string().optional(),
   }),
 });
 

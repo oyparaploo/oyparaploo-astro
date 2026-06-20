@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-13"
 slug: "the-body-broadcast-our-30-trillion-cells-are-throwing-a-party-and-youre-all-invited"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 ## **The Show Already Playing Inside You**

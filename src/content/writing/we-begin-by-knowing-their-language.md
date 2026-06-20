@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-14"
 slug: "we-begin-by-knowing-their-language"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 We begin by knowing their language ... then carry ourselves to their passage and sit cross legged ... Everything we brought in is heavy enough to flatten a ... hippo ... pot ... amus ... or large thick-skinned semiaquatic mammal ... with massive jaws and large tusks ... So we kindly leave it on our side of the threshold ... Speaking to the outside is just listening with our sandals off ... UNQUALIFIED ... circles don't push wider ... they thin out until we're already inside ... and what's left is a soulmate couple standing in the middle of an aisle ... instead of choosing a right or left place to stand ... Breaking Bread While Holding a Big Question ... The best language during this get together doesn't require a rehearsal ...

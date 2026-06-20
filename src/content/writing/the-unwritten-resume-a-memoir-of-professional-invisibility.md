@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-unwritten-resume-a-memoir-of-professional-invisibility"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 ## Part One: The Symphony of the Overlooked

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "different-animal"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Pandemic times. Despite what many news articles say ... now is not the time to visualize and produce artworks that are safe.

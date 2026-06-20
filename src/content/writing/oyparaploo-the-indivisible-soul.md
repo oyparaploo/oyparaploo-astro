@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-06-06"
 slug: "oyparaploo-the-indivisible-soul"
+category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 A Chanson in Seeping or Trickling into the Indivisible Soul ...

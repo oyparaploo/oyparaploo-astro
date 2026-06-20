@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "radio-stations-without-radios"
+category: "The Endangerment and Discipline of Listening"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Gamified Voice

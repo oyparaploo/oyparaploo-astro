@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "show-and-tell-for-adults-finding-your-inner-childs-voice"
+category: "Finding an Authentic Speaking Voice over Polished Delivery"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Pure Discovery

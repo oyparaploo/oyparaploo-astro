@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-prophets-mechanical-garden"
+category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
+cluster: "Labor, Value & the Made Object"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 ## Part I: The Inheritance

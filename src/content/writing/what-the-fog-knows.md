@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "what-the-fog-knows"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Mei Chen painted the Santa Cruz mountains every morning, but she never painted what was there. She painted what was leaving.

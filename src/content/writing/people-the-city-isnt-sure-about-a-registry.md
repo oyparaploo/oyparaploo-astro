@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "people-the-city-isnt-sure-about-a-registry"
+category: "Mock Bureaucratic Registries of Half-Existent People"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *Lead-in:*

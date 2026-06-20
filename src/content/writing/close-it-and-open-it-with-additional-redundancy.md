@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-09"
 slug: "close-it-and-open-it-with-additional-redundancy"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ### I. The Morning Mirror While Half-Asleep

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "and-now-moving-on-to-this-piece"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 So why is this so important. Because they got your first curator ... not good enough.

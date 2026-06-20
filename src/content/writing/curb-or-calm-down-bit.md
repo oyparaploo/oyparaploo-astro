@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "curb-or-calm-down-bit"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Just so ... a new member has joined bird. Their name is simply means. And listen to plexus chakras during the evening hours.

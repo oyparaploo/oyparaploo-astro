@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "on-to-off-course"
+category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *A city archivist following reports of strange documents pinned to trees discovers they're all connected—fragments of a movement that transformed garbage into gospel, leading her off course into something she never expected to find.*

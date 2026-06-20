@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "speaking-in-tongues-the-art-of-switching-between-professional-and-personal"
+category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Reading the Room's Language

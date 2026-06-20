@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "as-a-shock-to-minor-surprises-1"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Present. Present three. What you are experiencing now is a major renewal of your spirit. The kind that is positive and not only for human life on planet Earth. But also fairness for all long overdue.

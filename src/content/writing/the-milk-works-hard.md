@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-09"
 slug: "the-milk-works-hard"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 The milk works hard at being our perfect mundane failure. 

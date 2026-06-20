@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-07-16"
 slug: "the-illuminated-window-a-study-in-sacred-geometry"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
+secondaryCategory: "Heaven and Honesty Rooms Where Walls Become Windows"
 ---
 
 This mesmerizing tableau unfolds like a fevered dream of Byzantine splendor, where molten gold cascades in vertical rivulets against a cerulean twilight. The image pulses with an almost liturgical rhythm, as though one were peering through the stained glass of some impossibly ornate cathedral whilst the sun performs its evening genuflection.

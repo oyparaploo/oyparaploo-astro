@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 15, 2026"
 slug: "another-minneapolis-urgency-entering-a-new-frame"
+category: "Minneapolis State-Violence Witness-Poems"
+cluster: "Justice, Witness & the State"
 ---
 
 *01.15.2026, early morning, Saint Paul, Minnesota*

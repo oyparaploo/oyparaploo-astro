@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "walking-at-speed-of-an-ancient-prophet-a-long-form-passion-song"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Verse One: Jupiter's Whisper (hushed beginning)

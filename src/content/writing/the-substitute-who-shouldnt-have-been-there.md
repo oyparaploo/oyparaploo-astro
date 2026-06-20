@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-substitute-who-shouldnt-have-been-there"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 *Lead-in:*

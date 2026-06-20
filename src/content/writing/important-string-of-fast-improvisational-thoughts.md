@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2026"
 slug: "important-string-of-fast-improvisational-thoughts"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 A catalog of the mind at full speed ... Everything it touched in the time it takes to forget where you put the keys ...

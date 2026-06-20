@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-gift-youre-giving-when-speaking-becomes-generosity"
+category: "Speaking as Generosity, Love, and Connection"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## From Performance to Present

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-moving-images-that-live-through-us"
+category: "Empathy Technology and Felt Inherited Memory"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Part I: The Authority of Memory

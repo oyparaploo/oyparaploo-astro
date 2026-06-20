@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-carpenters-daughter-stories-i-should-have-written-down-sooner"
+category: "Luminous Shape-Shifting Women and Affirming Metamorphosis"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Stories I Should Have Written Down Sooner

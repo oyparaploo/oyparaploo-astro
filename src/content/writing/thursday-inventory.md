@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-16"
 slug: "thursday-inventory"
+category: "Grief Routinized as Obsessive Counting and Measuring"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 The Danish butter cookie tin sits on apartment 4B's kitchen counter at 1247 Pembina Highway. Royal Dansk, the kind with the pretzel-shaped ones nobody actually likes. Inside: three keys to doors that no longer exist, a hospital bracelet reading KOWALSKI, HELEN 05/23/2019, and forty-seven Canadian pennies, which stopped being legal tender in 2013 but Marion's mother kept saving anyway, dropping them into the tin with the specific clink of obsolete currency finding its purpose.

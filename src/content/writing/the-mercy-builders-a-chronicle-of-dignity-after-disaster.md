@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-mercy-builders-a-chronicle-of-dignity-after-disaster"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 ## Part One: What the Fire Left

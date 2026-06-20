@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-mercy-fragments-a-charitable-descent"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Fragment ∞: The Blessed Diminishment

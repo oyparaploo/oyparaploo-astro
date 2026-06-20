@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-prison-dance-therapist-movement-as-survival-in-war-zones"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 ## Part I: The Authority of Motion

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-25"
 slug: "household-names-and-other-wonderful-items"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 What does it mean to be Tracé? ... Tracé is a past "Particulate(s) Protest of tracers" ... To ... draw a vessel filled up to the brink ... To ... Provide an outline for a child's 6th birthday ... To ... mark the paths of a tourist's nightmare ...

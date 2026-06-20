@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-19"
 slug: "a-few-good-outland-mistral-pangs"
+category: "Pure Sound-Poems and Invented Glossolalia"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Timeless striking field ... Raw , Rugged , Pasteurized ... Stretching across decades ago removed borders ... Plain as day flowery Rhône offering spots of relief ... Ranging from Toux through ... O ... aume ... lifting up Rous , sillon ... bubbling river moving under historically meaningful ground ... including an unnamed concave mound ... iconic low fertile ... C tat & C rau ... mushy meets meditative sea curl ... all day and night ... soothing repeats ... flam, splash, squel, swish, woosh ... flam, squel, swish, woosh ... swish, woosh ... Steady like a heartbeat ... Or ... breath ... rumbling growl waves of unforced effort gathering momentum ... then hiss splash spray retreating from visible sands ... sibilant whispering ... then another eyebrow-raising water-onto-rock crash ... then another very quiet high~pitched brake of foam on pebbles ... Water restfully lapping ... like a forever held secret ... then the groaning as a resonant pullback ... mirroring the sea's breath ... then a swift surging current hum ... mixed with turbulent churning and swirling ... visiting a sandpiper ... scol O paci dae ... bed ... Salts of the Sea ... Fine~night continuous moistened air ... one black Croc sneaker half sunken by the persistent tide ... clouded rumbles moving around it ...

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-08"
 slug: "the-colony-journals-love-letters-from-tomorrows-edge-the-blessed-diminishment"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 **Entry ∞: The Beautiful Becoming**

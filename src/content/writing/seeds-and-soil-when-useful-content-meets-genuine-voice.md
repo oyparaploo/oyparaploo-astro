@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "seeds-and-soil-when-useful-content-meets-genuine-voice"
+category: "Finding an Authentic Speaking Voice over Polished Delivery"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## The Incomplete Halves

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-wind-engineers"
+category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part I: The Stillness

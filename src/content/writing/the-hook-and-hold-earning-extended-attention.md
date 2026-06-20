@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-hook-and-hold-earning-extended-attention"
+category: "Framing, Hooks, and the Architecture of a Talk"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Start with Dessert

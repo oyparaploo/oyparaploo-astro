@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-02-09"
 slug: "super-bowl-60-experience-in-a-nutshell"
+category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 What a night. Bad Bunny headlining as the first Latino solo artist to perform the halftime show almost entirely in Spanish. Lady Gaga and Ricky Martin as surprise guests. Green Day and pumps of visible steam opening, Charlie Puth on the anthem, and Brandi Carlile doing America the Beautiful. Bad Bunny refused to tour the mainland US over ICE raid concerns, then made this his one exception. He said "ICE out" during his Grammy acceptance speech the week before. Bay Area Levi's Stadium fireworks. Green Day steam was the local touch. 

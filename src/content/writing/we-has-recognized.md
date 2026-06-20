@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "we-has-recognized"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *The night janitor at the city's contemporary art museum begins creating unauthorized exhibitions from what artists throw away, discovering that the labor of maintaining art might be more important than making it—and that a cornucopia of necessary and useful things already exists in what everyone else calls garbage.*

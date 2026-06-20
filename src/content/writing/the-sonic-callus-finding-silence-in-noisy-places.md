@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-sonic-callus-finding-silence-in-noisy-places"
+category: "Silence, the Pause, and the Power of Saying Less"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Numbness We Wear

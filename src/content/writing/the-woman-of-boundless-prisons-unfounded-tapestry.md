@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-woman-of-boundless-prisons-unfounded-tapestry"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## A Chronicle of Mandatory Metamorphosis

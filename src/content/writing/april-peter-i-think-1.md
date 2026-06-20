@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "april-peter-i-think-1"
+category: "Pure Sound-Poems and Invented Glossolalia"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 On the smart damn boat so donkey.

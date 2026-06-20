@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-11-19"
 slug: "oyparaploo-diagnosis-and-symptoms"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 *Capturing a recursive quality ... Examining the condition and manifesting it ... Identifying the spell of class while casting it ... We become infected through engagement with translations ... Subverting medical authority ... Diagnosis as contagion ... symptoms as methodology ... No promise of a cure ... just a spreading condition of consciousness ... We cannot separate our analysis from our implication ... We are all patients in the same ward ...*

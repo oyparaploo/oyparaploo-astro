@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-06-06"
 slug: "oyparaploo-twenty-four-seven-wonder"
+category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 How are you doing today? ...

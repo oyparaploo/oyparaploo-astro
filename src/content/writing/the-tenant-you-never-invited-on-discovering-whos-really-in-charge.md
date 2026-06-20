@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-22"
 slug: "the-tenant-you-never-invited-on-discovering-whos-really-in-charge"
+category: "The Inner Critic as Squatter, Tenant, and Comedy"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Part One: The Lease Nobody Signed

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-29"
 slug: "les-os-du-lac"
+category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 Where we are from, we do not have very many walls.

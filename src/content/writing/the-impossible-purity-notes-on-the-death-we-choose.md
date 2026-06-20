@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-impossible-purity-notes-on-the-death-we-choose"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 ## Opening: The Biology of Betrayal

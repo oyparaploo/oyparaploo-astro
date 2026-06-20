@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-24"
 slug: "when-masks-are-a-little-too-heavy"
+category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
+cluster: "Senses, Tone & the Body"
 ---
 
 *Notes on the Moment Two People Stop Pretending*

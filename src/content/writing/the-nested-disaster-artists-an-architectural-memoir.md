@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-nested-disaster-artists-an-architectural-memoir"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Part One: The Museum of Failed Shelters

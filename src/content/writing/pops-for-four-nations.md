@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-31"
 slug: "pops-for-four-nations"
+category: "Faith Confronting Climate Catastrophe"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## *When the Prophet Speaks Through Fire and the Young Woman's Voice Becomes Four Countries' Sacred Sound*

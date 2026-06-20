@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-14"
 slug: "the-illusion-of-motion-how-digital-busyness-became-our-most-deceptive-comfort"
+category: "Digital Busyness, Attention, and the Illusion of Motion"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 Let me help you understand something profound about what constant digital engagement is doing to our minds, our productivity, and our sense of safety in the world. Your intuition about this being a "false sense of security" is remarkably astute, and to fully grasp why, we need to examine how these behaviors hijack ancient survival systems in our brains while giving us the illusion that we're accomplishing something meaningful.

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "metal-prayers-for-the-living"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 ## Part One: Mumbai

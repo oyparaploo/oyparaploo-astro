@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "theodores-pills"
+category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 ## Part One: Thunder Bay, Ontario

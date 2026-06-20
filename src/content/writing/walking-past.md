@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "walking-past"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
+secondaryCategory: "Birds, Bison, and Animals as Unheeded Warnings"
 ---
 
 Diane teaches a photography workshop on Miami Beach every Saturday. Eight years now. "Finding the Extraordinary in the Ordinary" is what she calls it. $200 for three hours. Tourists mostly, wanting better vacation photos.

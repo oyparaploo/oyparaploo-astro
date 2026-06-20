@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "the-wall-of-truth-where-light-pours-through"
+category: "Heaven and Honesty Rooms Where Walls Become Windows"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Room One: The Cracks Begin to Show

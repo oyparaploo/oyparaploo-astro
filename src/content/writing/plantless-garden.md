@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 21, 2026"
 slug: "plantless-garden"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We can't tell you how it all works.

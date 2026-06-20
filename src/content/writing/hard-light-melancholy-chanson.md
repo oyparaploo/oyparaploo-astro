@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-12-15"
 slug: "hard-light-melancholy-chanson"
+category: "Incarceration, Disappearance, and Grief as Resistance"
+cluster: "Justice, Witness & the State"
 ---
 
 *(Melancholy Chanson)*

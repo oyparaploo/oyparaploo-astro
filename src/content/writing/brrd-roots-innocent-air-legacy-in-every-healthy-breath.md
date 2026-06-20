@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-10"
 slug: "brrd-roots-innocent-air-legacy-in-every-healthy-breath"
+category: "Atmosphere, Breath, and Air That Rewrites the Body"
+cluster: "Ecology, Climate & Animals"
 ---
 
 The air that morning was impossibly clear—so clear it felt like the world had been freshly laundered overnight. Sunlight slid through the trees with gentle insistence, brushing the sidewalk in patterns too precise to be accidental. And when she stepped outside, she paused—not because something was wrong, but because, for once, *nothing* was.

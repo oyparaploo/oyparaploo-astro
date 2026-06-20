@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "October 16, 2024"
 slug: "the-spore-print"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## San Juan Island, Washington

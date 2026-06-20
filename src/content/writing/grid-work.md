@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "grid-work"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Vera has been drawing grids for two years and four months. Every morning. Graph paper. Purple pen. One hundred squares per page. She fills the page, tapes it to the wall, starts another.

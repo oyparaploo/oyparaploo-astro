@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "May 27, 2026"
 slug: "dont-stick-your-tongue-out-dense-jee-jee"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
 ---
 
 *Wonderful Exit*

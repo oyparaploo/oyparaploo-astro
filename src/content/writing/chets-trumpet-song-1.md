@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "chets-trumpet-song-1"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Nervousness escalated to panic attack ... which escalated to us feeling like we were going to have a heart attack.

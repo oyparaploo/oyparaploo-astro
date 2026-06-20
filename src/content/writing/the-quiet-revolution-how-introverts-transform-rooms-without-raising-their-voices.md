@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-quiet-revolution-how-introverts-transform-rooms-without-raising-their-voices"
+category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Distillery in the Basement of the Mind

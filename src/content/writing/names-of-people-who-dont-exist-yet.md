@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "names-of-people-who-dont-exist-yet"
+category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
+cluster: "Labor, Value & the Made Object"
 ---
 
 Listen—I've been collecting names like other people collect bottle caps or reasons to worry. Not normal names. Names that feel wrong and absolutely right at the same time, like philosophy in action.

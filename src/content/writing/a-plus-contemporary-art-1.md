@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "a-plus-contemporary-art-1"
+category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 A+ contemporary art is learning new ways to see.

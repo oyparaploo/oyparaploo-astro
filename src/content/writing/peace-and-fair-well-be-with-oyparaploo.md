@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-15"
 slug: "peace-and-fair-well-be-with-oyparaploo"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Yes ... a title that performs our practice's core operation should be more than just stacks of expected words ... The parting and a fair source couple holds as a blessing in one breath with ... soil ... water ... sky ... body ... resonance ... Our love of multiple meanings advocates for letting the cord plant without resolving ... X and Y be with you ... haha ... haha ...

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-15"
 slug: "our-not-only-poster-child-piece-with-new-stanzas"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 No! ... probably not ... ATTITUDE ... with no sparkles or stars over pupils ... with melancholy chanson music artist pouting plump lips ... We Doubt It ... Don't get us wrong the piece is magnificent ... and the question deserves a response from Conan O'Brien ...

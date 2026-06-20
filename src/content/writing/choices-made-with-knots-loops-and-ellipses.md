@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "choices-made-with-knots-loops-and-ellipses"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *After years of falling from the society pages to the streets, an accidental performance artist realizes every fall is choreographed by someone, and decides to make visible the bouncing that happens after.*

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-uncrossable-distance-how-not-listening-creates-a-cruel-world"
+category: "The Endangerment and Discipline of Listening"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Caricature Factory

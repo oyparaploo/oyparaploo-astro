@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "and-fluid-mosaic"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 Regarding portrait paintings ... portrait photographs and sculptures of figures ... because they are absolutely still in time. They are not close enough to actual life reality.

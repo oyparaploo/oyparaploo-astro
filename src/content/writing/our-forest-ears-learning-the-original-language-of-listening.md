@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "our-forest-ears-learning-the-original-language-of-listening"
+category: "The Endangerment and Discipline of Listening"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Morning: Art of Beginnings

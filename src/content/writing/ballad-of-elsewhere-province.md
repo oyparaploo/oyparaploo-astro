@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-11-21"
 slug: "ballad-of-elsewhere-province"
+category: "Pandemic, Surveillance, and Performing the Self Under Watch"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Counter Counted

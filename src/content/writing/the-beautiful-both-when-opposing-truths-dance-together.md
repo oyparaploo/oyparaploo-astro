@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-beautiful-both-when-opposing-truths-dance-together"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Elephant in Every Room

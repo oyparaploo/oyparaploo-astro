@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "blue-cords"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *After her daughter's overdose, a woman begins collecting electrical cords from demolished buildings, convinced their hum contains messages, while the city collapses around her in ways she no longer notices.*

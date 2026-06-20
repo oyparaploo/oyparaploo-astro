@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-14"
 slug: "when-god-stopped-listening-to-half-the-sky"
+category: "Religion, Gender, and the Suppressed Voices of Women"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 Someone I loved once told me that wisdom is like water—it finds its way through any crack, around any stone, into any vessel that will hold it. I think about this when I walk into churches, mosques, temples, and notice how the light falls through windows designed by men, onto floors where women kneel but do not stand to speak.

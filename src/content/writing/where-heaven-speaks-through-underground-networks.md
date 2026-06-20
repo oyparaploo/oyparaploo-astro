@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "where-heaven-speaks-through-underground-networks"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part I: The Discovery

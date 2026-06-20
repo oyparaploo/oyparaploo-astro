@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "flower-and-not-sure-crumb"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 We love your color scheme so to speak. We like Georgia out in the desert around Taos New Mexico.

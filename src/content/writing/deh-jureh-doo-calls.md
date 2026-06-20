@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-19"
 slug: "deh-jureh-doo-calls"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Diagnostic doctrine "Line O Ear" splits "linear" into Line , O , Ear ... all three living at once ... Operational Solidity ... dog gone ... holding ... extends the doo across the ground page ... fresh heap ... Onomatopoeia ... thrrp, pfft, poot, whip, flog, crack, thud, slap, hiss, sizzle ... as source metabolization ... Head-on claiming it in whatever space ... rather than dodging the odorous discharge ... That moving thing instead of a scolding political policy ... including intentional seams carefully placed ... Exposing the oyparaploo intuitive engine without flattening into a type of public proclamation ... A couple sprinkles of genuine ambiguity ... Then vs Than ... running as a temporal beat ... Empty vs Unrestrained ... empty is stranger and stronger because it pairs with opposites that hold ... Tight density stretch voice addressing the receiver ... Landing on the ready ...

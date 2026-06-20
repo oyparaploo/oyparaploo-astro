@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "unauthorized-curriculum"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 *When the regular grief counselor quit mid-semester, a substitute teacher with no credentials except her own losses taught students to open what she called their "middle eye"—that state of awareness that only emerges during difficulties, when the mind stops dividing things into opposite categories.*

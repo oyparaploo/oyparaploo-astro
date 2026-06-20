@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 5, 2021"
 slug: "another-balloon-that-doesnt-rhyme-3"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
 ---
 
 Miss Mr ... Miss Mr ... lonely butterfly alone come down ... Miss Mr alone ... royal butterfly ... come down from up there ...

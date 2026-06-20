@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2026-04-13"
 slug: "leading-to-light-cast-like-a-skeleton-and-wonderous-driven-like-a-nail"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
+secondaryCategory: "Migration, Exile, and the Lost Mother Tongue"
 ---
 
 Leading to Light Cast Like A Skeleton and Wonderous Driven Like A Nail

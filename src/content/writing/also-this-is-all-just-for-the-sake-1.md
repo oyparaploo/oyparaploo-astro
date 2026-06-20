@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "also-this-is-all-just-for-the-sake-1"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 It was when we became the biggest fans of ourselves that everything took off. And then crashed and took off and crashed again.

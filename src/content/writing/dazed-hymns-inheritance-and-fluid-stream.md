@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-01"
 slug: "dazed-hymns-inheritance-and-fluid-stream"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 May arrives with tears, the way my grandmother's May always did—orange blossoms mixed with tear gas, sweetness and burning. Sheep ahh to cure what the old women knew needed no curing, only witnessing. *Pata spak ee aye*—my mother's nonsense words when words failed her, when heritage wasn't safe, when silence grew teeth.

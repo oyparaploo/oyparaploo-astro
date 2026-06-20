@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "blackfin-icefish"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 Just another reminder. The best ways to reduce chronic inflammation are exercise regularly ... eat healthy ... and get at least seven hours or more of sleep every night. Is seven hours enough.

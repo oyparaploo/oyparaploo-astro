@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "when-buildings-remember-an-essay-on-breath-memory-and-survival"
+category: "Atmosphere, Breath, and Air That Rewrites the Body"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: The Authority of Suffocation

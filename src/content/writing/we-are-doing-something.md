@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "we-are-doing-something"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *When the overnight cleaning crew at the abandoned mall discovered they were all artists, writers, and philosophers surviving on minimum wage, they stopped just maintaining the empty stores and started transforming them into something else—a cornucopia of necessary and useful things nobody knew they needed.*

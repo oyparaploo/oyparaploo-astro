@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "for-us-nothing-really-ever-stops-flowing-a-song-for-both-grammy-and-grandma"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Verse One: Winter Kids (hushed beginning)

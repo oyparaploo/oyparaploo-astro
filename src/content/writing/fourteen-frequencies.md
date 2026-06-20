@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 19, 2026"
 slug: "fourteen-frequencies"
+category: "Stillness, Withholding, and Refusing to Name"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 Warm bodies in a room and one dog. Radiating. Infrared prose.

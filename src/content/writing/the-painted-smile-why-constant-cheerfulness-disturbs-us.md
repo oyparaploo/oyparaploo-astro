@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-painted-smile-why-constant-cheerfulness-disturbs-us"
+category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## Weight of Performed Joy

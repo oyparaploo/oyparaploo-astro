@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "do-this-and-succeed"
+category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Throne ... put your gloves on and give it your strongest punch. Classified under art.

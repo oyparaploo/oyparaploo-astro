@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "March 3, 2021"
 slug: "brrd-message-to-all-senses-active-receivers"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 we want to move more towards helping individuals mend hurts ... mend hurts ... mend mend hurts and shattered past experiences ...

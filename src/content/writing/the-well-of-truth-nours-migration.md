@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-well-of-truth-nours-migration"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 ## Part One: The Departure

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-09"
 slug: "none-of-them-home"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Internal critical voices 

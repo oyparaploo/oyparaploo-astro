@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 15, 2026"
 slug: "the-fog-is-in-the-words-themselves"
+category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+cluster: "Justice, Witness & the State"
 ---
 
 Highest court speaks in language

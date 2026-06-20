@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "in-our-room-that-has-no-walls-or-borders"
+category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 The first time Sonah brought me here, I thought we were simply going to her studio. She'd said something about needing to show me where she worked, and I expected the usual—north-facing windows, paint-splattered floors, maybe a coffee pot in the corner. We walked through an ordinary door into what seemed like an ordinary room. It took me several minutes to notice that the far wall wasn't exactly there. Or rather, it was there when you looked directly at it, but when you turned to speak to Sonah, when you got involved in what you were doing, it dissolved into garden, into sky, into possibility. "We call it the Outside Room," she said, watching me understand. That was three years ago. Now I come here every day, though I still can't explain it properly to anyone who hasn't seen it. The best I can do is this:

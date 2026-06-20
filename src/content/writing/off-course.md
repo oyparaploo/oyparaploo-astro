@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "off-course"
+category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *City archivists document what power wants preserved, but when reports flood in about unauthorized stories pinned to trees across Cleveland, one archivist starts collecting them after hours, discovering that some movements can't be archived because they're still moving, still breathing, still pulling people off their designated paths.*

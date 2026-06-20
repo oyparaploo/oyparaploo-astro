@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 2026"
 slug: "the-phone-videos-will-outlast-them"
+category: "Minneapolis State-Violence Witness-Poems"
+cluster: "Justice, Witness & the State"
 ---
 
 The videos and statements exist. Gaps between them are crimes happening in broad daylight.

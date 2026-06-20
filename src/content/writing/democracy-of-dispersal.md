@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-30"
 slug: "democracy-of-dispersal"
+category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Objects outlive their purposes. Purple tissue flowers bloom eternally beside a wheelbarrow that will never carry another load. A rubber duck, decades past its last bath. The ironing board, tagged 0106, still bears the ghost-marks of pressed clothes. Coral chunks that someone, somewhere, once thought looked nice on a shelf. Bamboo poles lean at angles that suggest collapsed structures, their purpose now purely compositional. That plastic lobster—who can say why anyone kept it this long?

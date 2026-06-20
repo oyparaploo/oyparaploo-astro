@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-algorithms-lullaby-a-digital-resistance-memoir"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 ## Part One: The Deleted Song

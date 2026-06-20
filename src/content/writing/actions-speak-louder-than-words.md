@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "April 7, 2026"
 slug: "actions-speak-louder-than-words"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 Breeze Way Cloister

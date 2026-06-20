@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 2026"
 slug: "innocent-visitors"
+category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 (the other kind of excavation)

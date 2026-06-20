@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "be-aware-of-violent-crimes-1"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 Every possibility ... every possibility possible ... give it enough time ... actually lots and lots of time ... between one and two hours at least.

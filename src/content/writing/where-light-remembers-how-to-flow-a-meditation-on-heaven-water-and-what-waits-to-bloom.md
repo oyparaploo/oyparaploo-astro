@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-15"
 slug: "where-light-remembers-how-to-flow-a-meditation-on-heaven-water-and-what-waits-to-bloom"
+category: "Heaven and Honesty Rooms Where Walls Become Windows"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 On specific good days, life feels like stepping from a cathedral (taken over by a lovely non-denominational faith organization) into morning sunlight, with rays illuminating outward in all directions. 

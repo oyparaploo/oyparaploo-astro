@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-mercy-ward-a-play-in-three-acts"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 ### Characters

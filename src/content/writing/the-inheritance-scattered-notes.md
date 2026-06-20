@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-inheritance-scattered-notes"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Note 7: Last Count

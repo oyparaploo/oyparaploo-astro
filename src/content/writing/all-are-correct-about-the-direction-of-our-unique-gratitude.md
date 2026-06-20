@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-30"
 slug: "all-are-correct-about-the-direction-of-our-unique-gratitude"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Yes ... Yes ... Yes ... 

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "half-digital"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Kenji carves wood. Traditional. His father taught him. His grandfather taught his father.

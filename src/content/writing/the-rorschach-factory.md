@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-rorschach-factory"
+category: "Coded Folk Craft Smuggling Female Power and Memory"
+cluster: "Migration, Lineage & Belonging"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 ## Part I: The Test Subject

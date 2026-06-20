@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-08-25"
 slug: "the-burden-of-significance-second-and-last-performance"
+category: "Birds, Bison, and Animals as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
+secondaryCategory: "Grief as Sacred Listening and Communal Witnessing"
 ---
 
 "Do you remember the doves?"

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 5, 2021"
 slug: "as-words-protests-and-much-more-2"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 in protest in protest in protest in protest in protest in protest ... rocks rocks rocks rocks rocks rocks ... teach proper protest protest

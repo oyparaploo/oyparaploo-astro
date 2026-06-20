@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 10, 2021"
 slug: "before-the-orange-sky-changed-to-fire-red"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 white dirt ... go wash your dirty hands and face ... angels of hell wearing plain clothes ...

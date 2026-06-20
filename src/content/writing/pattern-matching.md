@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "pattern-matching"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
+secondaryCategory: "Intergenerational and Inherited Trauma Carried in the Body"
 ---
 
 Nina learned to disappear in seventh grade, the year her body changed and the world noticed. Not invisibility exactly, but something more deliberate - studying wallpaper patterns, the way crowds moved, how to stand so still she became furniture.

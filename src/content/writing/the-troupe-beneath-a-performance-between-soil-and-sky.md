@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-troupe-beneath-a-performance-between-soil-and-sky"
+category: "Rhizome Story-Cycle Finales Where All Stories Converge"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Traveling Makers

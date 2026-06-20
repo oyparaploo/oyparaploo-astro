@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "beneath-the-surface-where-heaven-grows-in-soil"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: The Underground Discovery

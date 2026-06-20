@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-mercy-ward-notes-from-our-settlements-days"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ##Notes from Our Settlement's Final Days

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "April 7, 2026"
 slug: "white-tape"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Rock, Paper, Scissors ... Ink, Fabric, Wire, Clay ... the grown ups were playing a muse according to no rules ...

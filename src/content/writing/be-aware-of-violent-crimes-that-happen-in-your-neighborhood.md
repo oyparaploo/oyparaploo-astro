@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 9, 2021"
 slug: "be-aware-of-violent-crimes-that-happen-in-your-neighborhood"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 every possibility ... every possibility possible ... give it enough time ... actually lots and lots of time ... between one and two hours at least ... stand up and sing or hum ... like a good harmless courageous confident human bird ...

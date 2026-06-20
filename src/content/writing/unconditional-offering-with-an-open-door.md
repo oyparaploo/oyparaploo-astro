@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 12, 2026"
 slug: "unconditional-offering-with-an-open-door"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Charity says: you are broken ... let me fix you ... Mutual aid says: the system is broken ... let me stand beside you ...

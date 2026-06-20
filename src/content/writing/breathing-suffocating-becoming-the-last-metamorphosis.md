@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "breathing-suffocating-becoming-the-last-metamorphosis"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Fragment ∞: The Question

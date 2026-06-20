@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-10-15"
 slug: "boards"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
+secondaryCategory: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 ---
 
 ## I. Rafah

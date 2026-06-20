@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-24"
 slug: "the-music-of-touch-when-skin-becomes-sound"
+category: "Sound, Light, Color, and the Unity of the Senses"
+cluster: "Senses, Tone & the Body"
 ---
 
 Have you ever noticed how your voice changes when you're cold, or how different surfaces create distinct sounds when you touch them? There's a hidden connection between what we feel through our skin and the world of sound that surrounds us. Throughout history, healers have listened to the body's warmth, musicians have chosen materials by their texture, and poets have described touch using the language of music. This journey reveals something remarkable: our skin, with all its changing temperatures and textures, is actually participating in a vast symphony of vibrations. From the chattering of teeth when we're cold to the warm hum of contentment, from the smooth whisper of silk to the rough percussion of sandpaper, every sensation on our skin has its own tone, its own frequency, its own place in the endless music of physical existence.

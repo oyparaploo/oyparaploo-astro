@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-pulse-of-survival-when-mushrooms-witness-the-digital-pirates"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part I: The Authority of Static

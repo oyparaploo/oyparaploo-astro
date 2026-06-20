@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "when-the-wind-dies-and-were-still-here-making-things"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *Lead-in:*

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "what-we-carry-when-we-fly"
+category: "Intergenerational and Inherited Trauma Carried in the Body"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 The gallery in Oakland was nearly empty, just white walls and concrete floor, when Marcus brought his daughter Zara to see it. She was eight, the same age he'd been when his grandmother first showed him the photograph.

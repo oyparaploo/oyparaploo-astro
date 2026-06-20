@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "earthlings-guide-to-hearing-each-other"
+category: "The Endangerment and Discipline of Listening"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Humbling Start

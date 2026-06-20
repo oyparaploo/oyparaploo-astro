@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-architecture-of-anticipation-framing-your-message-for-maximum-impact"
+category: "Framing, Hooks, and the Architecture of a Talk"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Beyond the Three-Point Prison

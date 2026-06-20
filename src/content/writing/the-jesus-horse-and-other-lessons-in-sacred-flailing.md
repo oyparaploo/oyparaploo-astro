@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-jesus-horse-and-other-lessons-in-sacred-flailing"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 ## Part One: The Authority of Movement

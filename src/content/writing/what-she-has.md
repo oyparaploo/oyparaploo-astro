@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-09"
 slug: "what-she-has"
+category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 She's washing the fork again, the one with the scratch down the middle tine. Tuesday morning, 7:12. She knows it's a scratch now, has known for months, but her thumb still finds the groove, still rubs along it. The morning light through the kitchen window makes the metal shine except where the scratch is. The scratch swallows light.

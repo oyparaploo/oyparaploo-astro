@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "the-medicine-we-each-carry-revised"
+category: "\"Good Grief\" Cosmic-Visitor Meditations"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 **The Medicine We Each Carry (Revised)**

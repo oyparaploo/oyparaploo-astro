@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "the-storm-room"
+category: "Hostile Architecture Met with Softness and Shelter"
+cluster: "Justice, Witness & the State"
 ---
 
 Later, Jing would think about wings—not the bread shaped like birds that they baked that morning, not the storm birds her student's daughter imagined in dough, but the invisible wings we give each other when the ground gives way. How we lift one another without meaning to, without planning, without even touching. She'd think about how a room with no walls could be the strongest shelter, how an accordion inherited from a dead mother could teach a banker to fly, how seventeen neighbors gathering at 2 AM could become, briefly, one creature with thirty-four wings, all beating toward morning.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "small-circles-of-sorrow-revised"
+category: "\"Good Grief\" Cosmic-Visitor Meditations"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 **Small Circles of Sorrow (Revised)**

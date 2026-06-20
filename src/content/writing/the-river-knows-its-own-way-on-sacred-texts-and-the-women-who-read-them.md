@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-16"
 slug: "the-river-knows-its-own-way-on-sacred-texts-and-the-women-who-read-them"
+category: "Religion, Gender, and the Suppressed Voices of Women"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## I. The Nature of Water

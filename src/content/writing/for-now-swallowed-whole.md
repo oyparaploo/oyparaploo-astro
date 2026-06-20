@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 12, 2026"
 slug: "for-now-swallowed-whole"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 They stood up and raised their hands.

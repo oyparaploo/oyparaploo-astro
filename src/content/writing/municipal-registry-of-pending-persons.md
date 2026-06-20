@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-29"
 slug: "municipal-registry-of-pending-persons"
+category: "Mock Bureaucratic Registries of Half-Existent People"
+cluster: "Labor, Value & the Made Object"
 ---
 
 ### Department of Ontological Affairs

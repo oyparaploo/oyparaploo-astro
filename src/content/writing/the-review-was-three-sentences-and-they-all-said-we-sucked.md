@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-review-was-three-sentences-and-they-all-said-we-sucked"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *Lead-in:*

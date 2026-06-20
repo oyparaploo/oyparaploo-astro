@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "decorated-onesie-jammy"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Independent ... so wonderfully free to regulate all their own affairs.

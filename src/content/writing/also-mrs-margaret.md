@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "also-mrs-margaret"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
+secondaryCategory: "Intergenerational and Inherited Trauma Carried in the Body"
 ---
 
 ## Part One: Sarajevo, 1994

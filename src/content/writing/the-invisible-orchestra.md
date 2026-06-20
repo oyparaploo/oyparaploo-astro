@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-invisible-orchestra"
+category: "How Ambient Sound and Space Shape Connection"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## Sonic Competition

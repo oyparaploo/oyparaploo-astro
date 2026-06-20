@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-10"
 slug: "u-could-be-right-in-front-u-could-be-left-behind"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 A snail nail does not know it's holding a cell shell ... They could be broke but [ Wow ] will stay strong ...

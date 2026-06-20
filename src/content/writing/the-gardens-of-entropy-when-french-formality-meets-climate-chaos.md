@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-gardens-of-entropy-when-french-formality-meets-climate-chaos"
+category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## OPENING AUTHORITY

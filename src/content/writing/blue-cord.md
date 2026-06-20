@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-16"
 slug: "blue-cord"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Marion threads the blue cord through the doorknob at 4 AM, when sleep refuses to come. The doorknob that sticks at twenty-three degrees, that everyone in the house learned to turn without discussing it. Her mother's doorknob, removed from the house on Wolseley before the estate sale. 

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-woman-who-taught-rich-people-how-to-fall"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *Lead-in:*

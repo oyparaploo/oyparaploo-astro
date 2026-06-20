@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "smooth-talk-empty-words-when-perfect-delivery-says-nothing"
+category: "Finding an Authentic Speaking Voice over Polished Delivery"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 At art openings, someone speaks for twenty minutes with perfect intonation—strategic pauses, confident emphasis, flawless technique. You walk away thinking, "What did they just say?" All style, no substance. Like watching perfect brush strokes with no painting. Technique flawless but nothing there.

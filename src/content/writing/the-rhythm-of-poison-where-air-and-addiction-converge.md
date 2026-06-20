@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-rhythm-of-poison-where-air-and-addiction-converge"
+category: "Atmosphere, Breath, and Air That Rewrites the Body"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: Authority Through Collapse

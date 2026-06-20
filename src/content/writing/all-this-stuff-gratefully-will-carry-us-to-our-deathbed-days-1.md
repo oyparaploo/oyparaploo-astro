@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 10, 2021"
 slug: "all-this-stuff-gratefully-will-carry-us-to-our-deathbed-days-1"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 God ... God ... God ... to get out of this zone ...

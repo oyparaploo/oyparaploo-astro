@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "systems-of-understanding-why-no-two-people-listen-in-the-same-way"
+category: "The Endangerment and Discipline of Listening"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Fundamental Mismatch

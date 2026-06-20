@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-garden-waits"
+category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+cluster: "Justice, Witness & the State"
 ---
 
 ## Part I: The Question

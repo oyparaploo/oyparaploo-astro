@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 12, 2026"
 slug: "coulds-of-nauseous"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 The door closes and now he has to describe what he just ate.

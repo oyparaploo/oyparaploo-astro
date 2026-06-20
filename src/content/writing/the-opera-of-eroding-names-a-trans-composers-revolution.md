@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-opera-of-eroding-names-a-trans-composers-revolution"
+category: "Surreal Theater, Operas, and Performance Scores"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part I: The Authority of Erosion

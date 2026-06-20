@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "bender-bender-1"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
+secondaryCategory: "Pure Sound-Poems and Invented Glossolalia"
 ---
 
 ray guns freaks ... big babies in tech ... suicide ... dada da da da da ... fake tweets ... orange hair for expression ...

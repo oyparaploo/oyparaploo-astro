@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "the-reality-of-relationships-multiple-attempts-self-knowledge-and-finding-connection"
+category: "Relationships, Soulmates, and the Myth of the Perfect Partner"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 ## Many Relationships Not Working Out Is Normal

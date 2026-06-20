@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "and-specifically-adult-female-hips-1"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
 ---
 
 KUYOZ e ku Ku AOZ ku yay oval. Brinda ku qu FOSS FOSS A o qu RC RC RC ... our air bites better data bytes are read so our besc Arabic ... non verbal mortal.

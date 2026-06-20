@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-last-change-a-chronicle-from-tomorrows-edge"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ### Part One: What the Birds Know

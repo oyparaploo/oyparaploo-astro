@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "what-we-tie-together"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *In the rust belt's abandoned spaces, former museum workers run illegal schools in warehouses, teaching anyone who shows up how to make art from garbage—not metaphorically but literally, with motor oil and expired yogurt and the specific knowledge that comes from being fired for letting people touch what they weren't supposed to touch.*

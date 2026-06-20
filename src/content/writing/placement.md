@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "placement"
+category: "Children of the Foster and Courthouse System"
+cluster: "Justice, Witness & the State"
 ---
 
 Madison's social worker dropped her at the courthouse at 9 AM and said wait here.

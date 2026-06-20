@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "empire-of-cells-where-grief-becomes-resistance"
+category: "Incarceration, Disappearance, and Grief as Resistance"
+cluster: "Justice, Witness & the State"
 ---
 
 ## I. The Photograph

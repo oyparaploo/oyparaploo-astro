@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "everything-buried-in-silence-still-glows-a-braided-essay-on-breath-memory-and-belonging"
+category: "Atmosphere, Breath, and Air That Rewrites the Body"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: The Authority of Light

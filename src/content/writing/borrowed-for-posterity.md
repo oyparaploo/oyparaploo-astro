@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "borrowed-for-posterity"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 ## Part One: Vancouver

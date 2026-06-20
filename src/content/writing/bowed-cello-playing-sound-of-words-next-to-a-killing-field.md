@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 10, 2021"
 slug: "bowed-cello-playing-sound-of-words-next-to-a-killing-field"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 we sometimes have a lot of fear ... our nation has a lot of fear also ... a lot of fears also today and in numerous cases rightly so ... fear has rarely accomplished positive actions for any society ...

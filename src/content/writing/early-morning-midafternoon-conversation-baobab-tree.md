@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 17, 2026"
 slug: "early-morning-midafternoon-conversation-baobab-tree"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 (Including Her Roots)

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-circle-that-connects-where-speaking-and-listening-become-one"
+category: "Speaking as Generosity, Love, and Connection"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Listener Who Speaks Without Words

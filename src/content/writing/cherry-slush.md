@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "cherry-slush"
+category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 Alex goes to the state fair alone. Her roommate bailed. Sister didn't answer.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-sixteen-the-valleys-murmur"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 The valley remembered. It remembered even when it didn’t want to.

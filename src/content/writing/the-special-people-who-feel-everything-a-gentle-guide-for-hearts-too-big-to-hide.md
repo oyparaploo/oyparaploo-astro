@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-01"
 slug: "the-special-people-who-feel-everything-a-gentle-guide-for-hearts-too-big-to-hide"
+category: "Empaths and Hearts Too Big to Hide"
+cluster: "Senses, Tone & the Body"
 ---
 
 In a world where emotional sensitivity is often treated as weakness, imagine sitting with someone who sees it as your greatest strength—someone who understands that feeling deeply isn't something to fix but something to honor. Through the voices of four neighbors who carry the weight of everyone's emotions, this gentle theatrical journey transforms the overwhelming experience of being an empath into a shared story of recognition and acceptance. Like sitting in a warm living room where difficult truths can be spoken softly, these interwoven testimonies reveal what it means to have a heart as big as a house in a world that sometimes forgets how to feel, offering not solutions but something far more valuable: the reassurance that you're not broken, you're special, and your big heart is exactly the size it needs to be.

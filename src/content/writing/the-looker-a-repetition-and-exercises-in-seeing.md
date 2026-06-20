@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-07-27"
 slug: "the-looker-a-repetition-and-exercises-in-seeing"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 *A Repetition and Exercises in Seeing*

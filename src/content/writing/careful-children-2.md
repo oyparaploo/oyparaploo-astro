@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "December 14, 2022"
 slug: "careful-children-2"
+category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 ALWAyS Let GO AFtER use.

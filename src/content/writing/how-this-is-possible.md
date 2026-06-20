@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-23"
 slug: "how-this-is-possible"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 **You:** How is it possible for the speaker and the listener to have very different views and both be right?

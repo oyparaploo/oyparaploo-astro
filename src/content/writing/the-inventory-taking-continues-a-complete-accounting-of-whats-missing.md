@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-11-24"
 slug: "the-inventory-taking-continues-a-complete-accounting-of-whats-missing"
+category: "Birds, Bison, and Animals as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## The Inventory Taking Continues: A Complete Accounting of What's Missing

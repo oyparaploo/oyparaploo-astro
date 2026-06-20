@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "graveyard-shift"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 The phone rang at 2:17 AM. Marlène was awake, dressed. Had been sleeping in her clothes since the eviction notice.

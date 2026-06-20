@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "during-mostly-without-light"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Because often insanities need works to resolve. Help to soothe perceptive minds.

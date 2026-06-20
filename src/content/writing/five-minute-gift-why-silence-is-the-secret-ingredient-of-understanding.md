@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "five-minute-gift-why-silence-is-the-secret-ingredient-of-understanding"
+category: "Silence, the Pause, and the Power of Saying Less"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Weight We Don't Know We're Carrying

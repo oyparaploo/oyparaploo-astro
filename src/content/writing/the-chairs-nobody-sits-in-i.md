@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-15"
 slug: "the-chairs-nobody-sits-in-i"
+category: "Coded Folk Craft Smuggling Female Power and Memory"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 ## I. Tahlequah

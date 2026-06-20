@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "the-earth-remembers-every-tenderness-revised"
+category: "\"Good Grief\" Cosmic-Visitor Meditations"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 **The Earth Remembers Every Tenderness (Revised)**

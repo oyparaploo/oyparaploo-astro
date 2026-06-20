@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-22"
 slug: "the-comedy-of-inner-tyranny-a-conversation-with-the-voice-that-isnt-you"
+category: "The Inner Critic as Squatter, Tenant, and Comedy"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Part One: The Discovery

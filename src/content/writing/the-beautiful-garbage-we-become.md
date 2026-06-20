@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-24"
 slug: "the-beautiful-garbage-we-become"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 *Letter to a Stranger Finding Pieces*

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "rough-voice-to-clear-message-finding-your-authentic-professional-sound"
+category: "Finding an Authentic Speaking Voice over Polished Delivery"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## The Paradox of Perfect

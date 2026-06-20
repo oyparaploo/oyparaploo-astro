@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "be-your-different-selves-and-nobody-gets-hurt"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 we owe it to our parents ... after all we put them through to get this thing to take off ...

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 9, 2021"
 slug: "apartment-house-shelter-flow-with-compassion-1"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Palabras ... bird bird soul ... brah bird ... brah bird ... pop palabras amigable ...

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-opera-of-forgotten-names-a-performance-in-earth-and-time"
+category: "Rhizome Story-Cycle Finales Where All Stories Converge"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Conductor Arrives

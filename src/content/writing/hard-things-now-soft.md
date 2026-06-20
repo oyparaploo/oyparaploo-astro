@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "hard-things-now-soft"
+category: "Hostile Architecture Met with Softness and Shelter"
+cluster: "Justice, Witness & the State"
 ---
 
 The city had installed hostile architecture throughout MacArthur Park - benches with dividers, spikes under overpasses, surfaces angled to prevent rest. But Sofia Reyes had brought softness anyway, dragging it through Los Angeles at dawn in a borrowed truck.

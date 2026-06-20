@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-24"
 slug: "every-gesture-is-an-altar"
+category: "The Sacred in Ordinary Gestures and Small Mercies"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 *From Still Movement, including Prayers to Planetary Activity*

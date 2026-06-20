@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-11-25"
 slug: "dakota-and-ojibwe-traditional-foodways-before-european-colonization"
+category: "Indigenous Foodways and Food Sovereignty"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Dakota and Ojibwe peoples developed remarkably sophisticated food systems within Minnesota's diverse landscape of prairies ... woodlands ... and over 10,000 lakes ... systems refined across millennia that sustained populations through harsh winters ... and dramatic changing seasons ... The Dakota ... who consider Minnesota ... Mni Sota Makoce ... their ancestral homeland ... cultivated a mixed economy of wild rice harvesting ... bison hunting ... maple sugaring ... and river valley gardening ... The Ojibwe following a prophetic migration to find the food that grows on water ... adapted woodland traditions centered on wild rice ... fish ... maple sugar ... and deer hunting ... Both nations organized their lives around the Seasonal Round ... or a sophisticated calendar of movement between nutritional resources locations.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-12-15"
 slug: "a-corn-farm-on-a-bridge"
+category: "Indigenous Foodways and Food Sovereignty"
+cluster: "Ecology, Climate & Animals"
 ---
 
 We said to our father ... Dad we are going to start a loving garden ... We had this elaborate collection of Mayan seeds ... Saved for years ... Waiting in jars like little prophecies ... Sometimes we would hear them during the night ...

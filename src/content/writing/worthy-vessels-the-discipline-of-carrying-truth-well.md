@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "worthy-vessels-the-discipline-of-carrying-truth-well"
+category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## The Weight of What We Carry

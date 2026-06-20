@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "what-you-say-how-you-say-it-finding-your-authentic-voice"
+category: "Finding an Authentic Speaking Voice over Polished Delivery"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## The Cereal Box Delivery

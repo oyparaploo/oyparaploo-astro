@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-herm-s-at-the-food-bank"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *When the wealthy fall from grace, they fall in designer clothes, carrying the arithmetic of their former lives: a $247 monthly storage unit holding half a million in assets they can't access, an $8,000 coat that's the only warm thing they own, the specific weight of shame that comes from accepting charity while wearing couture.*

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-30"
 slug: "no-one-else-holds-our-feat"
+category: "Incarceration, Disappearance, and Grief as Resistance"
+cluster: "Justice, Witness & the State"
 ---
 
 The half of us who sleeps ... signs a quiet treaty ... with the other half that won't ... Socks on ... feet pointed at the exit ... Mind and body agreeing to rest but refusing to surrender ... The open eye keeps its watch over that door ... guarding everything at once ... The way a porch light burns for a vehicle that left the driveway ...

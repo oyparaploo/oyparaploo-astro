@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "sacred-pause-why-noble-words-are-born-in-silence"
+category: "Silence, the Pause, and the Power of Saying Less"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Fear Fills Every Gap

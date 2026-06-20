@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "the-garden-singers"
+category: "Coded Folk Craft Smuggling Female Power and Memory"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Nina discovered the quilts in her grandmother's attic in Bethlehem, Pennsylvania, the week after the funeral. Each one told a different story in appliqué and embroidery - gardens where women floated above the ground, their hands full of impossible fruits, rain that fell upward into waiting flowers.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "the-bubble-lesson"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 *On a powder-blue morning after the market crashed, a father teaches his daughter about bubbles while standing in the ruins of his retirement portfolio. What begins as a distraction becomes a meditation on destruction, transformation, and the peculiar human habit of building beautiful things we know will break.*

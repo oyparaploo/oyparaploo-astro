@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "December 9, 2013"
 slug: "big-time-art-1"
+category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
+cluster: "Grief, Loss & Compulsive Making"
+secondaryCategory: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 ---
 
 here comes a one percent-er in a silk suit with entitlement pockets ... the endless museum ceiling is a delusional dream ... nose up in the air no i mean big ultra realistic nose made of resin suspended above ... clip those goat nose hairs ... and over there a fraternity house made of clear glass ... around the corner a napoleon-ite wearing a modern version of a tsar's dinner jacket ... living sculpture ... down the hall a mannequin art party installation in a red lit room with a grainy transgressive orange video of an echo chamber of 90s creature comforts ... and high contrast photos of big box plastic projected on a cubby space wall with lots of white space ... mesmerizing not ... fleeting fancies yes ... a troupe waltzes in spinning and holding up pickets with the words GENERAL PUBLIC on each sign ... one of the dancers is wearing an oktoberfest-size crazed or euphoric head for short attention spans ... gaze and stare ... look pink haywire ... if you are seeking messages of hope you are in the wrong place ... this is shock and jolt ... bizarre prestige ... big primary color plexiglass drug addict portraits and disfigured street person still performances ... even though reflections of dysfunctional and passive observers is high peaking interest visual art -- lovely winged angels are still a favorite for most ... turn a six foot dime to monster consuming media and complex cubic display of emergency ambulance blurs ... everything is groundless and desperate ... and certainly not all of what the world is

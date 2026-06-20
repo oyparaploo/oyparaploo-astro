@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-26"
 slug: "class-identity-jokes-food-for-sensing"
+category: "Indigenous Foodways and Food Sovereignty"
+cluster: "Ecology, Climate & Animals"
 ---
 
 There is something quietly honest about the way food exposes class ... The things we ate growing up ... that we later learned were Poor Food or Fancy Food ... depending on who was encountering it ... The meal made from whatever was in a tipi or pantry ... Specific shame or pride attached to assimilation boarding school lunch or western world noon dinner ... Sensing instead of just analyzing with thoughts what feels true ... Class is not something we think our way into understanding first ... It is in the human body ... That hesitation ... The way we hold a tool or utensil ... Whether we immediately don't or do know everything about sacred bread

@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-last-executive"
+category: "Faith Confronting Climate Catastrophe"
+cluster: "Ecology, Climate & Animals"
+secondaryCategory: "Human Obsolescence, Automation, and the Economy of Shadows"
 ---
 
 ## Part I: The Observation Deck

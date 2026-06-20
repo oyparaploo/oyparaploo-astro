@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "too-much"
+category: "Anorexia, Self-Neglect, and the Body Quietly Disappearing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Yuki paints her face before work. Not makeup—face paint. Neon pink and electric blue, swirls on her cheeks, geometric shit on her forehead. Been doing this three months.

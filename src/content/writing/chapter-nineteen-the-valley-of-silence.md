@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-nineteen-the-valley-of-silence"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 The mountains had always known how to hold their breath. But now the Grosses Walsertal did it too well.

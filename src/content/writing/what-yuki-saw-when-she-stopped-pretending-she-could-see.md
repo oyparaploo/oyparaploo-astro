@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "what-yuki-saw-when-she-stopped-pretending-she-could-see"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
+secondaryCategory: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 ---
 
 *Lead-in:*

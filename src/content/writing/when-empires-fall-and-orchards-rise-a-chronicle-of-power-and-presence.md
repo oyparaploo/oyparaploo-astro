@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "when-empires-fall-and-orchards-rise-a-chronicle-of-power-and-presence"
+category: "Tyranny Exhausting into Presence and Mercy-Orchards"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Part One: The Throne Room

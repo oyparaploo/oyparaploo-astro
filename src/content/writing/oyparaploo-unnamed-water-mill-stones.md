@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-06-06"
 slug: "oyparaploo-unnamed-water-mill-stones"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Landing cold from out of the blue ... with no absolute knowledge of where it came from ...

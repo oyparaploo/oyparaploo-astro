@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-24"
 slug: "the-naked-archaeologist"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 *Instructions for Climbing the Oyparaploo Spiral*

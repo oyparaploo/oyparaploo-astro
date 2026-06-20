@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "also-what-will-this-be-further-1"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We tried to save that man but he did not want to be saved. He wanted us to leave him alone. On the ledges at the edge.

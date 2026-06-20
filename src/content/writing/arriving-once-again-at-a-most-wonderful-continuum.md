@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "arriving-once-again-at-a-most-wonderful-continuum"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## I. Kids Rebelling Into Hope

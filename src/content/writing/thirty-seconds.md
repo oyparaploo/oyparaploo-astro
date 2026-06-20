@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 2026"
 slug: "thirty-seconds"
+category: "Minneapolis State-Violence Witness-Poems"
+cluster: "Justice, Witness & the State"
 ---
 
 Thirty seconds. Phone in hand. Pushed toward the sidewalk. Stepped between a falling protester and the officer who shoved her. Arms reaching out. Pepper spray. Surrounded. Wrestled down. Hit. Gun removed from his waist by an officer backing away.

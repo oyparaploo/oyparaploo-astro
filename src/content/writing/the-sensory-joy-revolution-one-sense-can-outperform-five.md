@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-13"
 slug: "the-sensory-joy-revolution-one-sense-can-outperform-five"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 ## *Your Spoon-Washing Symphony Awaits*

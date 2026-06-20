@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "the-substitute"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *A dance teacher who falls for a living arrives at a corporate office to teach executives how to fail gracefully, discovering that the most underwhelming person in the room might be operating on divine frequency.*

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 12, 2026"
 slug: "cut-from-firm-posturing"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 Two tables in the same city on the same day.

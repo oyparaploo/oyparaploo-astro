@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "wings-we-give-each-other"
+category: "Hostile Architecture Met with Softness and Shelter"
+cluster: "Justice, Witness & the State"
 ---
 
 Jing hadn't meant to become the person everyone turned to after storms. It had started three years ago, after Hurricane Isabel, when she'd opened her music studio at 2 AM because she couldn't sleep and found seventeen neighbors gathered in the hallway, all wakeful, all wordless, all waiting for something they couldn't name. Now it was just what happened: storm hits, people gather, Jing opens doors—first the studio, then later Briano's bakery where she had a key, then the community garden where they'd built what Briano called his "storm room," though it wasn't a room at all, just four benches facing each other under empty sky.

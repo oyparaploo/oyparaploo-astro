@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "kinship-chorus-in-bloom"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Kinship is an auto-renewal we forgot we subscribed to.

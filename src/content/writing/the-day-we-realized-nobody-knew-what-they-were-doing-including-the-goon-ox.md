@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-day-we-realized-nobody-knew-what-they-were-doing-including-the-goon-ox"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *Lead-in:*

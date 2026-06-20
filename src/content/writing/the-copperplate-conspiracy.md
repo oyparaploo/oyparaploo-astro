@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-copperplate-conspiracy"
+category: "Coded Folk Craft Smuggling Female Power and Memory"
+cluster: "Migration, Lineage & Belonging"
+secondaryCategory: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 ---
 
 ## Part I: The Inheritance

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "between-guilty-and-innocent"
+category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+cluster: "Justice, Witness & the State"
 ---
 
 *In courtrooms where verdicts destroy lives, a court reporter who types everything but sees more begins teaching others how to look through events rather than at them, discovering that the real justice happens in the spaces between guilty and innocent.*

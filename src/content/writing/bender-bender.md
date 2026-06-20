@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "bender-bender"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
+secondaryCategory: "Pure Sound-Poems and Invented Glossolalia"
 ---
 
 Ray guns freaks. Big babies in tech jump ... air types condo windows ... dada da da da da.

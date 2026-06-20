@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "night-shift"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 The Basquiat wasn't a Basquiat. Just some art student's copy. Still better than most of what hung in Gallery F, which nobody visited anyway because it was too far from the bathrooms.

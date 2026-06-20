@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-03-30"
 slug: "local-elder-women"
+category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+cluster: "Justice, Witness & the State"
 ---
 
 The soil had been placing bets in our yard longer than deeds existed. Mint and other winning territories in the northeast corner ... through a campaign so slow it made every extreme conflict seem like a tantrum.

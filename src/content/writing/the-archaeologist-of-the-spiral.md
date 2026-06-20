@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-24"
 slug: "the-archaeologist-of-the-spiral"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 *Following the Debris Trail*

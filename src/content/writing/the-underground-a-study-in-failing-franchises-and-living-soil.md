@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-underground-a-study-in-failing-franchises-and-living-soil"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## OPENING AUTHORITY

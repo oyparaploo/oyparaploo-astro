@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-07-23"
 slug: "chambers-of-breath-a-gesture-based-performance-sequence"
+category: "Surreal Theater, Operas, and Performance Scores"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *Performance Note: Each chamber represents a single breath cycle. Performers should speak only what can be voiced in one exhalation.*

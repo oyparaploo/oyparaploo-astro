@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "purple-scaffold"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Rita builds scaffolding in her living room. Purple pipes. Found them at a yard sale. Didn't know what she'd do with them. Now they're holding her family photos.

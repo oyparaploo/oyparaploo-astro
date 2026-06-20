@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-16"
 slug: "little-syn-wobbles-on-all-sides"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We are more alive ... together joined ... O ... ee anz ah saye ... Transgressive bare sound ... of small slips ... bothe vo kea ... Compression preserved ... Every Action doing measurable work ... with a kind elder voice at a sacred threshold ... Never collapsing a passage ... mayeh koan daye ... Pause for a few seconds on Syn ... de adjourn is signaling another middle ground move ...

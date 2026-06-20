@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "ane-trolle"
+category: "Sound, Light, Color, and the Unity of the Senses"
+cluster: "Senses, Tone & the Body"
 ---
 
 When Ane Trolle begins singing the opening lines, her gentle melody immediately draws the audience in, as if she’s beckoning us to lean in and listen closely. Indeed, over the mix of instruments and styles, Trolle manages to assemble “a whole that **draws one into her mind, into her world**”. The listener is pulled into the song’s intimate emotional space, ready to experience the narrative that unfolds.

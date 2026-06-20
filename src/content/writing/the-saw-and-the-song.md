@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2026"
 slug: "the-saw-and-the-song"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 The garage does not sort its music ...

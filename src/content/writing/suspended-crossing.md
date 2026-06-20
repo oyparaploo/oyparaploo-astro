@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "suspended-crossing"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
+secondaryCategory: "Compulsive Repetitive Making as Inarticulate Grief"
 ---
 
 Giulia has been making boats for thirty-two years. Small ones. Six to eight inches. Started the day after her husband's funeral. Didn't plan to keep going. Just made one. Then another. Now she has two hundred and forty-seven hanging from her workshop ceiling on fishing line, spinning slowly in the air from the window fan.

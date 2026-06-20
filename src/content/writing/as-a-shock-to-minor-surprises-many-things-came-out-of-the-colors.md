@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 11, 2021"
 slug: "as-a-shock-to-minor-surprises-many-things-came-out-of-the-colors"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 present ... present three ... what you are experiencing now is a major renewal of your spirit ... the kind that is positive ... and not only for human life on planet Earth ... but also fairness for all ... long overdue ...

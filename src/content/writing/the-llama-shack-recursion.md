@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-09-04"
 slug: "the-llama-shack-recursion"
+category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
+cluster: "Connection, Relationships & the Digital"
+secondaryCategory: "Stillness, Withholding, and Refusing to Name"
 ---
 
 Omar found Wuanet in the closet organizing clothes by degrees of failure. Tuesday's shirt with the wine stain. Thursday's dress she'd worn to the thing she couldn't remember.

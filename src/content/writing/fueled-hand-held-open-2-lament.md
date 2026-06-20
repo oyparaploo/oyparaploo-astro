@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-13"
 slug: "fueled-hand-held-open-2-lament"
+category: "Asylum Law and the Burden of Proving Fear"
+cluster: "Justice, Witness & the State"
 ---
 
 Genuine love carries our ... metabolism ... burning energy ... merciful mezzz-cal ... original ruptures ... zero feral dead weight ... and everything else this is ...

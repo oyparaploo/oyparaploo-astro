@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "the-color-of-staying"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 The paint arrived on a Tuesday, three gallons of what the hardware store called "Marigold Supreme" but what Elena knew was closer to the color of her daughter's laugh before everything changed. She'd driven from her apartment in Oakland to the old house in Scranton, Pennsylvania, where her sister Margaret still lived, carrying the paint cans like precious cargo through two airports.

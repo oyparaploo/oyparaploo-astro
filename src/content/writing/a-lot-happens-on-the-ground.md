@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "a-lot-happens-on-the-ground"
+category: "Children of the Foster and Courthouse System"
+cluster: "Justice, Witness & the State"
 ---
 
 *After the eviction notice, a child artist and her bankrupt neighbors discover that the real revolution isn't in the sky or in theory but right here on the pavement, where paper puppets and mausoleum ashes and inflatable dinosaurs become weapons of joyful disorder.*

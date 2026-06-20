@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 15, 2026"
 slug: "whether-or-not-justice-can-even-address-what-happened"
+category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+cluster: "Justice, Witness & the State"
 ---
 
 No one can say how this ends.

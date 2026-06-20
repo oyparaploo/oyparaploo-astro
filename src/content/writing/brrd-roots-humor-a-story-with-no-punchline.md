@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-10"
 slug: "brrd-roots-humor-a-story-with-no-punchline"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 I came here with a suitcase full of broken metaphors and a joke I couldn’t finish.

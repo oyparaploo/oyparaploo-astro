@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-16"
 slug: "the-river-essay-incident"
+category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 "Jamie."

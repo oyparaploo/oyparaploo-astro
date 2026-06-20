@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-girl-who-sings-fire-into-four-languages"
+category: "Faith Confronting Climate Catastrophe"
+cluster: "Ecology, Climate & Animals"
+secondaryCategory: "Music as Survival, Failure, and Honest Imperfection"
 ---
 
 *Lead-in:*

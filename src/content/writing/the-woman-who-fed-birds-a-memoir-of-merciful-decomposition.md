@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-woman-who-fed-birds-a-memoir-of-merciful-decomposition"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## A Memoir of Merciful Decomposition

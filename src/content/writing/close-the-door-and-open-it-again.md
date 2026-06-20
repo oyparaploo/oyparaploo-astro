@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-09"
 slug: "close-the-door-and-open-it-again"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 The milk expired on Tuesday but she doesn't discover this until Thursday morning at 6:34, standing in her kitchen in Cleveland Heights, the carton already tipped toward her coffee. The date stamp reads like an accusation. She pours it anyway, watches it curdle into small islands floating in the dark.

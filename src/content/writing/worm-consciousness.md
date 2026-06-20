@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-12-03"
 slug: "worm-consciousness"
+category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+cluster: "Justice, Witness & the State"
+secondaryCategory: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 ---
 
 Hands sink into the earth ... sacred dirt embeds stains into the hands ... we stop noticing when this becomes the same act ... Soil under the fingernails for days ... we stop scrubbing ... What would be the ... not sure ... We kneel here and do not know why ... The ground says hear it before listening ...

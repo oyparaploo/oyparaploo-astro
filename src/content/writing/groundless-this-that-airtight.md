@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-03-29"
 slug: "groundless-this-that-airtight"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 That afternoon smelled like iron and sage and the screen door didn't latch ... something left open ... someone not home ...

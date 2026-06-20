@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "our-most-treasured-portable-and-temporary-shelter"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Lawrence stood in the doorway of his mother's music room, watching her sort through what looked like a lifetime of paper. The late afternoon light caught the dust motes spinning above the stacks of sheet music, and he thought of snow globes, of contained worlds you could shake and settle, shake and settle.

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-11"
 slug: "brrd-roots-moving-through-greenland-as-a-pistol-ghost"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 **The Whisper That Never Fades**  

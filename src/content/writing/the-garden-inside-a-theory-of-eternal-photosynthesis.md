@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-02"
 slug: "the-garden-inside-a-theory-of-eternal-photosynthesis"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## When grief transforms a botanist's question about death into a revelation that every act of kindness seeds tomorrow's seemingly impossible gardens

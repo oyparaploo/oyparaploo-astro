@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-waiting-room"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Marie was dragging chairs around the bankruptcy court waiting room when the guard asked what the hell she was doing.

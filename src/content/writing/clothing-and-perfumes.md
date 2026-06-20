@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "clothing-and-perfumes"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 We like to smell what is left behind. On a garment ... perfume of former living now deceased.

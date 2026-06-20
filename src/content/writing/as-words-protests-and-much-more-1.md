@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "as-words-protests-and-much-more-1"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 In protest in protest in protest in protest in protest in protest ... bing bang test test test test test ... holes to task this this is this this task ... grotesque pester test.

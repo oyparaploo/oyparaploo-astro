@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-10"
 slug: "flesh-bound-manuscript-and-more"
+category: "Joy, Wonder, and Chosen Innocence as Resistance"
+cluster: "Joy, Innocence & Wonder"
 ---
 
 Divine Sense and Being Human

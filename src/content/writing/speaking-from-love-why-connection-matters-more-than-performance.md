@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "speaking-from-love-why-connection-matters-more-than-performance"
+category: "Speaking as Generosity, Love, and Connection"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## When Everything Shifts

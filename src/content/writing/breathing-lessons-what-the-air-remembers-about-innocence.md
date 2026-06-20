@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "breathing-lessons-what-the-air-remembers-about-innocence"
+category: "Atmosphere, Breath, and Air That Rewrites the Body"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: The Weight of Clear Skies

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-27"
 slug: "what-if-we-just-lived-a-love-letter-to-everyone-performing-themselves-and-other-characters"
+category: "Pandemic, Surveillance, and Performing the Self Under Watch"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *A Love Letter to Everyone Performing Themselves and Other Characters*  

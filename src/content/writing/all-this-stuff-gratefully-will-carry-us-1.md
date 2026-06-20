@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "all-this-stuff-gratefully-will-carry-us-1"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 To get out of this zone ... we keep tripping on red bricks and broken gray bricks.

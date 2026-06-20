@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-transformations-a-mosaic"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Fragment ∞: What We Were

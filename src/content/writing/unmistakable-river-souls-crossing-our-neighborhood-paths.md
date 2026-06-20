@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-07-22"
 slug: "unmistakable-river-souls-crossing-our-neighborhood-paths"
+category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+cluster: "Justice, Witness & the State"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 river in the road … red island … run rotten darling run … parade ground … scored scape … if you want to be loved … medication room … indoctrination and spectacle for us all … upa oo ya oo … power up children in formation … b2 organ here … which orange burn? willow tree in a breeze hanging from a cloud … when you say that … it's dead and gone … love’s poison curls … no lost male … no female in your bed … no trans … smile and move on … last night a little angel came bumping on our door … fast approaching ... runs in the roots vines look like veins

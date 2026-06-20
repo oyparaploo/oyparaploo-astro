@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "small-vessels-for-what-remains-revised"
+category: "\"Good Grief\" Cosmic-Visitor Meditations"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 **Small Vessels for What Remains (Revised)**

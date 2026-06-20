@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-sommeliers-last-pour-a-study-in-wine-and-difficult-people"
+category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## OPENING AUTHORITY

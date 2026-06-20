@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "radio-shack-eucharist"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 Moth found Lint hammering circuit boards to the ceiling at 2:47 AM, which was a problem because they were supposed to be cleaning.

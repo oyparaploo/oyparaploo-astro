@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 15, 2026"
 slug: "the-vocabulary-arrives-before-the-bullet"
+category: "Minneapolis State-Violence Witness-Poems"
+cluster: "Justice, Witness & the State"
 ---
 
 *01.15.2026 ... Minneapolis ... Saint Paul*

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-11-17"
 slug: "whatever-here-happens-to-be"
+category: "Stillness, Withholding, and Refusing to Name"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Lead-in

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-12-15"
 slug: "friday-is-a-perfect-day"
+category: "Indigenous Foodways and Food Sovereignty"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Friday is a Perfect Day to create a fresh new project about Food Insecurity and Many Other Related Things ... Friday carries a particular looseness ... The sense that we can begin something without Monday through Thursday pressing down on it ...  

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 13, 2026"
 slug: "people-who-start-things"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 We know people who start things...

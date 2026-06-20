@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "circle-work"
+category: "Coded Folk Craft Smuggling Female Power and Memory"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 June quilts. Every Thursday. Community center. Been doing this eight years.

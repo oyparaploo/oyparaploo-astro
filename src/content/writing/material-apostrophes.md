@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-21"
 slug: "material-apostrophes"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 My mother kept the wrapper from every antibiotic I ever took. Silver foil, each one, pressed flat between pages of a book she called *The Archive of Recoveries*. The book itself smelled of fever dreams and ginger ale, its spine cracked from twenty years of opening to the same pages. When I turned thirty-seven—the age she was when she started collecting—I found them all, along with the cracked thermometer that had taken my first fever, the tissue that caught my last baby tooth, and a small jar labeled *Tuesday's rain, the day you learned to lie*.

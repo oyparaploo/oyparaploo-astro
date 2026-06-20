@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-23"
 slug: "the-gift-wrapped-in-words-framing-what-you-say-for-maximum-effect"
+category: "Framing, Hooks, and the Architecture of a Talk"
+cluster: "Voice, Listening & Speaking Craft"
 ---
 
 ## Transformation Promise

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 13, 2026"
 slug: "the-security-threat-is-already-inside"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Values we've worked with over years of trying...

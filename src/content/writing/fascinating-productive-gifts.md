@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "fascinating-productive-gifts"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We pay attention to many contemporary artists and or visual artists that apply numerous mortal human multi sensory experienced methods.

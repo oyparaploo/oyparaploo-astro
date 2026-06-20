@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "February 12, 2024"
 slug: "the-mycologists-last-paper"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Dr. Sarah Chen, mycologist, Royal BC Museum. February 12, 2024. 

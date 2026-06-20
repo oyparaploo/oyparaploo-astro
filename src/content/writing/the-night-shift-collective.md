@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "the-night-shift-collective"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *After losing her spot in the orchestra, a violinist takes a job playing ambient music for night-shift workers, discovering that 3 AM in a distribution center might be the most honest venue for finding out what music really does—helping bodies survive repetitive motion.*

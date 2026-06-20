@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "becoming-essential-passages-where-big-river-light-of-hope-thrives"
+category: "Heaven and Honesty Rooms Where Walls Become Windows"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Room One: Hearing Through Walls

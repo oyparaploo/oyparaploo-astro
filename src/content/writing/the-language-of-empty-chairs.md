@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-12"
 slug: "the-language-of-empty-chairs"
+category: "Incarceration, Disappearance, and Grief as Resistance"
+cluster: "Justice, Witness & the State"
 ---
 
 In the square where pigeons once gossiped over breadcrumbs, empty chairs began appearing. First one, then three, then dozens—each bearing a photograph weighted down with stones. The authorities removed them nightly. By morning, new ones had taken their place.

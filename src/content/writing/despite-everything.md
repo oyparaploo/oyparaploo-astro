@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "despite-everything"
+category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *A woman delivering food to a warehouse starts finding photocopied pages about herself under windshield wipers, in bathroom stalls, taped to dumpsters—not understanding she's already inside the story she thinks she's reading.*

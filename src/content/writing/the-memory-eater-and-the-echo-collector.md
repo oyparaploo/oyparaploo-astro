@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-01"
 slug: "the-memory-eater-and-the-echo-collector"
+category: "Stillness, Withholding, and Refusing to Name"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## I. ARRIVAL

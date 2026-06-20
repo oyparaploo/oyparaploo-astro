@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-11-14"
 slug: "when-the-green-dream-opens-its-mouth"
+category: "Stillness, Withholding, and Refusing to Name"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ### Lead-in:

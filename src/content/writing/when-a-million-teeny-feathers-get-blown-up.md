@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 16, 2026"
 slug: "when-a-million-teeny-feathers-get-blown-up"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 What otherwise happens to buildings. To nations. To policies. To people we watch who are on the news. Language of deep sorrow mixed with the emotional weight of catastrophic violence.

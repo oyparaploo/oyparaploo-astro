@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-song-where-roots-become-wings"
+category: "Rhizome Story-Cycle Finales Where All Stories Converge"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Fire Survivor

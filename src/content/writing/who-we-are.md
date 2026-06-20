@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 2026"
 slug: "who-we-are"
+category: "Biographical About-Statements and Who-We-Are Pieces"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 (south west east north)

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-shadow-cycle-opera"
+category: "Surreal Theater, Operas, and Performance Scores"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part I: The Audition

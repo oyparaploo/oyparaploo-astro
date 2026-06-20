@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-09-22"
 slug: "the-eviction-notice-a-meditation-on-the-squatter-in-your-mind"
+category: "The Inner Critic as Squatter, Tenant, and Comedy"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Chapter One: The Authority Question

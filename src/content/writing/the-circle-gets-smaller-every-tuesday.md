@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-circle-gets-smaller-every-tuesday"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *Lead-in:*

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "eight-hours"
+category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 Mira tests VR for a startup in SoMa. Eight hours a day with a headset on. Blue explosions get a 7. Sparklers get a 9. Gold discs floating over virtual grass get a 10.

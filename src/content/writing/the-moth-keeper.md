@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "the-moth-keeper"
+category: "Birds, Bison, and Animals as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
 ---
 
 In what used to be her mother's garage in Davis, Marla discovered the last project: a military surplus ammunition box transformed into an incubator, lined with raw silk and moss. Inside, cocoons hung like prayers, each one labeled with her mother's careful script: "Luna - found 7/15," "Polyphemus - emerged 8/2," "Cecropia - waiting."

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "the-murmuration"
+category: "Birds, Bison, and Animals as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
 ---
 
 The birds came to Helen Choi the week she stopped sleeping. Not metaphorically - actual birds, clustering at her apartment window in Sacramento, their small bodies creating patterns against the glass that looked like writing she couldn't read.

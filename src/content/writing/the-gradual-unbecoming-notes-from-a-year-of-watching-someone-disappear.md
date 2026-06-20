@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-gradual-unbecoming-notes-from-a-year-of-watching-someone-disappear"
+category: "Stillness, Withholding, and Refusing to Name"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Notes from a Year of Watching Someone Disappear

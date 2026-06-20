@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-10-14"
 slug: "what-ants-would-worship"
+category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 ## Naples

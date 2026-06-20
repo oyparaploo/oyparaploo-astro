@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 12, 2026"
 slug: "get-up"
+category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 You don't need a ... college degree ... certificate ... years of training ... or a list of key reasons to start ...

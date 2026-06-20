@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "names-i-keep-writing-down-at-3-am"
+category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *Lead-in:*

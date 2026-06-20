@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-09"
 slug: "brrd-roots-allegorical-and-spiritual-art-of-storytelling-ii"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Life is chaos—  

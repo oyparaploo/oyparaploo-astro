@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "follow-your-center-eye-a-gentle-revolution"
+category: "Heaven and Honesty Rooms Where Walls Become Windows"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ## Verse One: The Whisper Begins (hushed)

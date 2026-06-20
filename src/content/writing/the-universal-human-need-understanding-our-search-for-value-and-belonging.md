@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "the-universal-human-need-understanding-our-search-for-value-and-belonging"
+category: "Family, Belonging, and Who Gets to Build Connection"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 ## The Impossible Measurement

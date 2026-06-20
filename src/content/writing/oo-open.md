@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-01"
 slug: "oo-open"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 &nbsp;

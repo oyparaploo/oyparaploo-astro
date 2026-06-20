@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 12, 2026"
 slug: "morton-salty-bland"
+category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
+cluster: "Senses, Tone & the Body"
 ---
 
 The kitchen where they make the images has two settings ... fast and faster ...

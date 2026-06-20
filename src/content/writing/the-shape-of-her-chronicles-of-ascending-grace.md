@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-shape-of-her-chronicles-of-ascending-grace"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Part 1: Marina's Moth Prayer - The Gift of Soft Navigation

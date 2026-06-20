@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 5, 2021"
 slug: "and-specifically-adult-female-hips-2"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
 ---
 
 KUYOZ e ku ... ku yay oval ...

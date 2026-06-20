@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-thirteen-the-marble-corridor"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Vienna took sound seriously. It wrapped it in carpet, tucked it behind heavy doors, taught it to behave in rooms with names longer than the meetings inside them. Even the trams that chimed their delicate warnings along the Ringstraße seemed to do so with good posture.

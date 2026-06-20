@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-22"
 slug: "the-archaeologist-of-cant"
+category: "Impermanence, Mortality, and Holding Things with Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 There's a particular kind of morning light that only comes after loss—thin, uncertain, asking nothing of you except that you witness it. I learned to paint in that light. Not because I could paint, but because I couldn't bear not to. My hands, still trembling from grief, mixed colors that had no names: the grey-green of absence, the ochre of almost-remembering, that terrible shade of blue that lives between goodbye and gone. The canvas became a map of everything I couldn't do, which, it turns out, was the only way to begin doing it.

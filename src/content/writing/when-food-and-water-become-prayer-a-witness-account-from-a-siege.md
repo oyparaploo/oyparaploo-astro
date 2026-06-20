@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-28"
 slug: "when-food-and-water-become-prayer-a-witness-account-from-a-siege"
+category: "Siege, Famine, and Tenderness Engineered Out of Existence"
+cluster: "Justice, Witness & the State"
 ---
 
 *A Witness Account from a Siege*

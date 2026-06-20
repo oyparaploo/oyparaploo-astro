@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "the-journey-of-connection-understanding-relationships-solitude-and-self-discovery"
+category: "Relationships, Soulmates, and the Myth of the Perfect Partner"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 ## When Relationships Don't Work Out As Expected

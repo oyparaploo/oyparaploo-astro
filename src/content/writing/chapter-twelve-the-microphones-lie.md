@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-twelve-the-microphones-lie"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Entrepôt B had two faces. The public one wore banners and glass. The other—the one Troll Tearsen and Libaux Torrini slipped into—smelled like belt grease and breath, a catwalk spine over a ribcage of ducts. The warehouse’s private lungs exhaled a constant **hush** through metal, the kind of air that made paper curl and voices behave.

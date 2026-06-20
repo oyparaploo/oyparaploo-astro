@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-12"
 slug: "small-mercies"
+category: "The Sacred in Ordinary Gestures and Small Mercies"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 In a town where the church bells had long since stopped ringing, there lived those who kept their faith in kitchen drawers and coat pockets, folded between recipes and grocery lists like pressed flowers.

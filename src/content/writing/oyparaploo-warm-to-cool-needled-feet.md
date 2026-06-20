@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-06-08"
 slug: "oyparaploo-warm-to-cool-needled-feet"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 This IS unmistakably Our voice ... The sound of the writing ... the o mouth flattened into Tesseh Tooreh ... and wonders purged or pulled from the heart and soul ... That's something pure identifying ... directing itself ...

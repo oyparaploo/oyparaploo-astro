@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "bottles"
+category: "Anorexia, Self-Neglect, and the Body Quietly Disappearing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Marcus runs a community center in Third Ward. Five years now.

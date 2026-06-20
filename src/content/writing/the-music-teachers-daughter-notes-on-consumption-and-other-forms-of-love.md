@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-music-teachers-daughter-notes-on-consumption-and-other-forms-of-love"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ---

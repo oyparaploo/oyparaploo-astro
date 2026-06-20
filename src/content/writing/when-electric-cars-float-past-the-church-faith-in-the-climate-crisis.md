@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "when-electric-cars-float-past-the-church-faith-in-the-climate-crisis"
+category: "Faith Confronting Climate Catastrophe"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part I: The Authority of Drowning

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "apartment-house-shelter-flow-1"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Solon Bravo palabras de are more bird bird soul. Dad brah bird brah bird. Pop palabras amigable mi mi amenable.

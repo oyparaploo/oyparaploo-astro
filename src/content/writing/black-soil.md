@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 10, 2009"
 slug: "black-soil"
+category: "Biographical About-Statements and Who-We-Are Pieces"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Black soil ... a grandmother's bedroom wall ... a name that keeps changing ...

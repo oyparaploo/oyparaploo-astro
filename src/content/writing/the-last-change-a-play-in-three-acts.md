@@ -4,6 +4,9 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-last-change-a-play-in-three-acts"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 ### Characters

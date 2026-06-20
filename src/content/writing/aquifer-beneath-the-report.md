@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-12-04"
 slug: "aquifer-beneath-the-report"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 The concept of flow was stolen the way land was ... the way time goes by so fast ... First time belonged to the naked infant ... now machines need to belong to something ...

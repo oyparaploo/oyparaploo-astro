@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "what-she-finds"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Nadia collects things from the beach. Been doing it since she was eight. Shells mostly. Sawa shells with the spiral patterns. Smooth stones.

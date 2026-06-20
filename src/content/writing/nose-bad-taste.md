@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 12, 2026"
 slug: "nose-bad-taste"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 We are not tired. That is the thing.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "connection-on-and-beneath-surfaces"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *The students from all the previous movements—the mall transformers, the bankruptcy dancers, the museum garbage artists—gather to create a manual for those who come after, discovering that teaching what you've learned changes both the knowledge and the teacher.*

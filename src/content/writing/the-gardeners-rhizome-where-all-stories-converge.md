@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-gardeners-rhizome-where-all-stories-converge"
+category: "Rhizome Story-Cycle Finales Where All Stories Converge"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Origin Garden

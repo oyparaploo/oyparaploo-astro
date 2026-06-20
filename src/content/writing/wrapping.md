@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-15"
 slug: "wrapping"
+category: "Compulsive Repetitive Making as Inarticulate Grief"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Sara wraps flowers in bandages. Has been doing it for weeks now. Buys the flowers from the bodega. Buys the bandages from the pharmacy. Wraps them at her kitchen table.

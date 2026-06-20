@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-08-02"
 slug: "fragments-through-a-fractured-prism"
+category: "Defiant Body and Aging Riffs Against Beauty Standards"
+cluster: "Senses, Tone & the Body"
+secondaryCategory: "Pure Sound-Poems and Invented Glossolalia"
 ---
 
 Meek meow the light fuzzy owl babies eyes closed before God creates seeing meek meow space rockets shooting through Love ... Kindness gets so lost in the days passing like honor-trust-anthem vibrating when willing to stay put run away grief simultaneously existing in unspecified lengths of awakening time

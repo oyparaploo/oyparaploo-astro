@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-brook-that-remembered-everything"
+category: "Dying Brooks, Watersheds, and Inherited Water Records"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## Part One: The Inheritance

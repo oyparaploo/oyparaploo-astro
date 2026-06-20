@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "any-thursday-terrible-and-wonderful-contradictions"
+category: "Holding Contradictory Truths at Once"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 My mother-in-law Rosanna moved in with us last Tuesday. I'm not sure why I'm calling her Rosanna when for twelve years she's been Mom, but something about having her in my kitchen every morning makes me need the distance of her actual name.

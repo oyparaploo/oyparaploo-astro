@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "the-middle-eye-opens-a-memoir-of-sound-and-disappearance"
+category: "How Ambient Sound and Space Shape Connection"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## Part One: The Engineering Lab in Lyon

@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-08-25"
 slug: "the-burden-of-significance-first-try"
+category: "Birds, Bison, and Animals as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
+secondaryCategory: "Grief as Sacred Listening and Communal Witnessing"
 ---
 
 My great aunt kept doves in a hutch that rotted into the color of old teeth. She also poisoned pigeons with strychnine breadcrumbs, and when I asked her about this contradiction at seven years old, she said: "The doves are mine."

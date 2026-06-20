@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "the-possibility-and-complexity-of-joyful-family-for-all"
+category: "Family, Belonging, and Who Gets to Build Connection"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 ## Can Everyone Have Joyful Family? Yes.

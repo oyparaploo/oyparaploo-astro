@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "the-sacred-decomposition-field-notes-on-voluntary-metamorphosis"
+category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Field Notes on Voluntary Metamorphosis and Its Witnesses

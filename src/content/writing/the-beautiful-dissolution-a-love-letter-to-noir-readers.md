@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-26"
 slug: "the-beautiful-dissolution-a-love-letter-to-noir-readers"
+category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
+cluster: "Metamorphosis & Transformation"
 ---
 
 Certain cases transform those who pursue them, yet DISSIPATE proposes something more radical—perhaps pursuer and pursued were never separate, merely perspectives of a singular entity observing itself. A collective of twenty-three individuals uncover their shared fractured awareness. Physical evidence fluctuates between states prior to examination, resembling quantum uncertainty rendered in crystalline traces. A pencil's warmth increases alongside reality's progression. Some claim the book's mass fluctuates across readings, density correlating with comprehension.

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-25"
 slug: "our-next-automatic-broadcast"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 ### *The Study Ends Where Vera Begins*

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "good-grief-part-one"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Existence itself is utterance. Not just the obvious voices - birdsong, wind, human speech - but the silent expressions: how moss grows toward moisture, how stones hold heat then release it, how grief moves through a body like water through soil. The Original People knew that everything is constantly speaking its nature. Even silence is expression. Even stillness streams.

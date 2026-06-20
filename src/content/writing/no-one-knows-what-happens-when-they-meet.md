@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 15, 2026"
 slug: "no-one-knows-what-happens-when-they-meet"
+category: "Minneapolis State-Violence Witness-Poems"
+cluster: "Justice, Witness & the State"
 ---
 
 Washington sends signals.

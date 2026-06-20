@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-10"
 slug: "brrd-roots-emotional-compost-whispered-rituals-and-wild-bloom"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Collective Invocation of the Semi-Healed

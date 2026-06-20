@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "assembled-aspects"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *When a contemporary art museum accidentally leaves its doors open during a climate protest, the activists discover the museum's questions written on walls match their own, leading to a three-week occupation where the difference between art and revolution dissolves.*

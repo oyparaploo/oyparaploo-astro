@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "conflict-zone-air-type"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 As an adult mortal human bird Earth laying ... if I had to make a choice ... to be down to earth and prejudice or not at all prejudice and up in the air ... I would every time choose to be up in the air.

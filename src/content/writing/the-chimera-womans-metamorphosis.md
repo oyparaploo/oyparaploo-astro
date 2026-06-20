@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-07"
 slug: "the-chimera-womans-metamorphosis"
+category: "Luminous Shape-Shifting Women and Affirming Metamorphosis"
+cluster: "Metamorphosis & Transformation"
 ---
 
 ## Part One: The Medusa's Sanctuary

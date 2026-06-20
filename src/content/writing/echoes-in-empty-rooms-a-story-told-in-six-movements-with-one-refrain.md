@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-08"
 slug: "echoes-in-empty-rooms-a-story-told-in-six-movements-with-one-refrain"
+category: "How Ambient Sound and Space Shape Connection"
+cluster: "Senses, Tone & the Body"
 ---
 
 ---

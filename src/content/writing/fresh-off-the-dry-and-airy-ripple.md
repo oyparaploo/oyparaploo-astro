@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-24"
 slug: "fresh-off-the-dry-and-airy-ripple"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 o'Ose ... Yes ... because specifics are spent on stanza stands ... SSSS ... Build something fresh that doesn't close on water ... Gluteus Maximus ... God tell us and them about the ethics of structured and nonstructured unconditional signing ... sign work ... ( shrug ) ... Let this end in resignation ... This is not good for America ... So where should the foundation of our remote makeshift shelter be ... On what ground should we exist going forward?

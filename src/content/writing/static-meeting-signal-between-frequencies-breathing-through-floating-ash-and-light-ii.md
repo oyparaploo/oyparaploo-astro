@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-29"
 slug: "static-meeting-signal-between-frequencies-breathing-through-floating-ash-and-light-ii"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 The smoke rises like a whisper unanswered, and I think of the old archivist in her room, recording the city's sounds before the dust storms arrive. Everything will be buried in silt, she knows, but still she works—her steady hands transcribing what remains. This is determination, perhaps: continuing when the ash clogs the atmosphere, when even breathing becomes an act of will.

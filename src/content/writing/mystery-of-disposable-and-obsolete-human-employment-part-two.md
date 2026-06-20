@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-20"
 slug: "mystery-of-disposable-and-obsolete-human-employment-part-two"
+category: "Human Obsolescence, Automation, and the Economy of Shadows"
+cluster: "Labor, Value & the Made Object"
 ---
 
 **Mystery of Disposable and Obsolete Human Employment (Version Three)**

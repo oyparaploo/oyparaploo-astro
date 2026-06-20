@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "ode-to-tile-her"
+category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Hazel stood in the doorway of the bathroom, holding the first hexagon of honeycomb ceramic up to the morning light. October in rural Oregon meant everything was wet—the cedars, the air, the ground that squelched beneath your feet—but inside this tile she could see something dry and ancient, like crystallized honey from a hive abandoned decades ago.

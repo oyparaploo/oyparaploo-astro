@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "whats-left"
+category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *When the city finally demolishes the warehouse, they find one thing too large to move: a massive pile of everything that was ever made there, with a kid sitting in front of it charging five dollars for tours.*

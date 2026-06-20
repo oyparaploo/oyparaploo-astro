@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-05"
 slug: "oypraploo-seeds-are-generous"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Oypraploo seeds are a generous offer ... peaceful piece meal tells the receiver at the start that we can deliver something ... A big youthful claim to honor as ... Plural Conductor ... regression against time's arrow ...

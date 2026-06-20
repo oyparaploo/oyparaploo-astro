@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "pivotal-moments-that-have-no-endpoint"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 *In the moment between losing everything and starting over, a group of strangers in a bankruptcy court waiting room discover that saying "we are doing something" changes reality itself—not through magic but through the simple act of shifting from separate to together, from frozen to moving.*

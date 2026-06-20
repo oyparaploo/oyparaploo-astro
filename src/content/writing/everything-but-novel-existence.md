@@ -4,6 +4,9 @@ variant: breath-display
 ground: dark
 date: "2025-07-17"
 slug: "everything-but-novel-existence"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
+secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 
 Look at these hands—one slightly larger than the other, like mismatched quotation marks around an unfinished sentence. The way my Gerald's were, before the arthritis made them into question marks. Stained with invisible ink from stories that write themselves in the dark. Hawaiian shirt missing the third button since 1993, the gap a tiny window where the universe peeks through...

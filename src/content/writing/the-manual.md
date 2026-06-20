@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "the-manual"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *In abandoned warehouses across the rust belt, people who fell through various systems attempt to write instruction manuals for survival, discovering that teaching what poverty taught you requires a language that doesn't exist yet, so they invent one using motor oil and string and the specific knowledge of which debts follow you past bankruptcy.*

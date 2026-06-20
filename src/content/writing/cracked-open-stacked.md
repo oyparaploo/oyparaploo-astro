@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-12"
 slug: "cracked-open-stacked"
+category: "Asylum Law and the Burden of Proving Fear"
+cluster: "Justice, Witness & the State"
 ---
 
 Cracked open and stacked for Grandmother's final assembly ... Eight tools forged ... four flowers with buried letters ... Minneapolis inside grief ... Flowers and fire share the same bones ... A consonant cluster lodged at the node of the word the way Cage's bolts are lodged between strings of a piano ... dampening the fundamental ... amplifying what is underneath ...

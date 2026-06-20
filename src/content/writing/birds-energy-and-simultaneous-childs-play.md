@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "birds-energy-and-simultaneous-childs-play"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Now we feel our immediate handwritings at best should be like paths many actual birds took ... went on for ... float on for ... created a new.

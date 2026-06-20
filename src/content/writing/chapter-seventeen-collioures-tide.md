@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-seventeen-collioures-tide"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 The train sighed them back into the south as if exhaling an old story. Collioure rose out of a blue that knew how to pretend calm. The harbor’s curve caught the light and refused to return it, nets breathed their salt-wet rhythm, and the tramontane kept its opinions to itself for once.

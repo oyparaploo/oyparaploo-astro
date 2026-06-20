@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-12"
 slug: "where-the-river-dreams-in-secret"
+category: "Empathy Technology and Felt Inherited Memory"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 ## Part I: The Authority of Immersion

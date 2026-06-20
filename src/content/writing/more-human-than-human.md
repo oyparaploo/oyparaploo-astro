@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "January 2026"
 slug: "more-human-than-human"
+category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Ask yourself: is this warm and sweet? That's what the work should be, mostly. Not always — fury has its place, and sometimes the throat needs to open all the way. But not too furious. Not so hot that the fire forgets what it was trying to protect. Tenderness is not a retreat from the difficult. It's the reason we move toward it.

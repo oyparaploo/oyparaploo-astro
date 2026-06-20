@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-09"
 slug: "notes-to-a-lost-mother-tongue"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 You only come back when I lie.

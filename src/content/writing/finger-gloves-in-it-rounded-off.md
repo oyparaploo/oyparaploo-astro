@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "finger-gloves-in-it-rounded-off"
+category: "Intergenerational and Inherited Trauma Carried in the Body"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Ten digits from caked chemical resistant gloves and half of a slightly rusty tin snips.

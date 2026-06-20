@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-05-30"
 slug: "pounds-of-crush"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We hear you ... repeat repeat repeat ... the thing ... material ... Cool slots missing all those who have been witnessed in this piece of light ... Caged Clerk ... Worldly Room Parents from generations of strict inventions ... Yes ... editing can sharpen dumbed down language ... but it can't turn a RIP Saw into a hollow self-improvement goal ... We all want this to vary ... until there is nothing true underneath all of it ...

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "living-passion-takes-systems-of-intricate-roots"
+category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## *A Meadow Song*

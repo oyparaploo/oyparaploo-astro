@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-twenty-one-the-aftermath"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Dawn scraped pale light across the Grosses Walsertal, weak but unafraid. The valley breathed again: owls calling, brooks resuming their small quarrels, the clap of a farmer’s gate carrying down slope. The night’s engineered silence had been broken, but the residue of it clung like soot on lungs.

@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2021"
 slug: "busy-as-squirrels-and-bees"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Our vomit writings ... sight ... smell stuff. Before I cried. Then I died ... became fully alive again.

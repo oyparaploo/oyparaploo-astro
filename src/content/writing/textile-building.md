@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2026"
 slug: "textile-building"
+category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 We move into the popular Textile Building and occasionally see a human body pass in the hall ... Frequent safety lock sounds ... Most close their doors to others or the peddlers ...

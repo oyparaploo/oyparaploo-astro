@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-05"
 slug: "generative-restoration-soil-for-life"
+category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## I. Morning Granules & Sacred Objects

@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "choosing-your-path-means-choosing-your-future-family"
+category: "Partner Choice as Architecting a Future Family"
+cluster: "Connection, Relationships & the Digital"
 ---
 
 When you pick a life partner, you're not just choosing one person. You're choosing your whole future family - and maybe even the family for generations after you. This simple truth changes everything about how we think about big life decisions.

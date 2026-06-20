@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "blue-ball-mess-and-mix-1"
+category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 this is who we are ... and we have no problem whatsoever with trends ... no axe to grind about anything ... no drama to put humans on their heels ...

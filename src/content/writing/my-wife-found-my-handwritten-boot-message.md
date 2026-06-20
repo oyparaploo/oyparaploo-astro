@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-16"
 slug: "my-wife-found-my-handwritten-boot-message"
+category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 So my wife calls me into the kitchen last week. She's holding a piece of paper, and she has that face - you know the face. It's the "we need to talk about what I just found" face.

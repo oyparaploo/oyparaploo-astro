@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "standing-in-the-shrinking-circle-while-systems-that-never-deserved-to-exist-begin-to-collapse"
+category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Understanding the emotional core beneath questions teaches us something important about how worry and fear disguise themselves as practical concerns. When we pause to really listen, we discover that questions can circle around terrifying ideas, orbiting them like worried planets around an unstable sun.

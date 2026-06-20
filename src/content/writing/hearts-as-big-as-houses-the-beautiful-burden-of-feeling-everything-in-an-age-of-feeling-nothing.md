@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-01"
 slug: "hearts-as-big-as-houses-the-beautiful-burden-of-feeling-everything-in-an-age-of-feeling-nothing"
+category: "Empaths and Hearts Too Big to Hide"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## The Beautiful Burden of Feeling Everything in an Age of Feeling Nothing

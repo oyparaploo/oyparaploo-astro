@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2026-04-13"
 slug: "what-holds-the-ground"
+category: "Self-Referential Poetics of Broken Language and the Pause"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Dig ... hands go into ground ... simplest passage making act there is ... No engineering ... Just pressure downward into granular material that gives way ... Archaeological excavation ... ground opened because something is buried ... A dig is a remark that cuts through someone's surface ...

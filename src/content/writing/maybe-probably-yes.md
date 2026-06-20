@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-09-02"
 slug: "maybe-probably-yes"
+category: "The Sacred in Ordinary Gestures and Small Mercies"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 There are certain things you do for family that you wouldn't do for anyone else. Not the big things—those are easier somehow, the showing up for surgeries and funerals, the lending of money you know won't come back. I mean the small, embarrassing things. The things that require you to step outside your carefully maintained sense of self and stand there, exposed, pretending this is perfectly normal. Which is how I found myself, on a Thursday evening when I could have been watching the PBS mystery I'd recorded, walking down the stairs to a church basement to attend something called a "River Meeting."

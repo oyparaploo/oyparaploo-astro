@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-21"
 slug: "the-same-beautiful-failure"
+category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
+cluster: "Mind, Faith, Satire & Other Threads"
 ---
 
 Vera sits down to review Paloma's "We Keep Our Bedroom Open" and immediately faces a problem: the door metaphor. Must resist door puns, she thinks, then writes "A Door Left Ajar" as her title anyway.

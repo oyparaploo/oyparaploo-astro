@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-29"
 slug: "the-tuning-fork"
+category: "Music as Survival, Failure, and Honest Imperfection"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 *After the concert hall emptied and the reviews came in savage, a violinist discovers that falling from grace sounds different when you let yourself sing along to the descent—a meditation on how we tune ourselves back to life after public failure.*

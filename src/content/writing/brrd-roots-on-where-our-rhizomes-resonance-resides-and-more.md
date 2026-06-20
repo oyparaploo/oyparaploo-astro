@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-10"
 slug: "brrd-roots-on-where-our-rhizomes-resonance-resides-and-more"
+category: "Rhizome Story-Cycle Finales Where All Stories Converge"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 **Sprouts Whisper of New Beginnings and Transformation, While a Most Wonderful Source of Light Calls Us Home**  

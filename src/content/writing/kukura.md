@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-25"
 slug: "kukura"
+category: "Migration, Exile, and the Lost Mother Tongue"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 Paloma whispered *kukura* to the doves each morning, though they couldn't understand her any more than the mail carrier could. The birds tilted their heads at the sound. They knew it meant seeds were coming.

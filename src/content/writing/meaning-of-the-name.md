@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-07-11"
 slug: "meaning-of-the-name"
+category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
+cluster: "Ecology, Climate & Animals"
 ---
 
 **beneath skins** ... **what the name remembers** of echoes ... the soil ... where it began ... a name made of **roots under ruin** ... **when it became us** ... **we were quiet** ... **woven from frost** ... **a vast organism spoke** ... **the appellation** ... **dreamt in moonlight** ... **of shadow-touched remembering** ... the soil below us **whispering this very name** ... during sleep ... stitched from loam ... called by that **lucid choir** ... we who were also hidden when the **hyphaes** and/or thread-like filaments learned everything about our now established **epithet and moniker**

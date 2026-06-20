@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 8, 2021"
 slug: "binary-blend-beings-connected-to-you"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 we are fucked ... do not swear ... it is all fucked ... I said do not swear ...

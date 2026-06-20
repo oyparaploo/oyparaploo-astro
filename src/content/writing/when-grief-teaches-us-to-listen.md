@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-11-06"
 slug: "when-grief-teaches-us-to-listen"
+category: "Grief as Sacred Listening and Communal Witnessing"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Everything speaks. Moss whispers its way toward moisture. Stones hold yesterday's heat in their bellies, breathing it out when evening comes. Grief moves through the body like water through soil - finding every hidden channel, feeding roots we didn't know were thirsty.

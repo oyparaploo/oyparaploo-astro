@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-eighteen-the-pigalle-return"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Paris breathed its old perfume: damp stone, bread, exhaust, perfume that had once been roses and was now something sharper. Pigalle at night was as lit as confession and as crowded as an excuse. Neon combed the wet streets with light; bass from the clubs walked the pavements with a swagger that claimed no shame.

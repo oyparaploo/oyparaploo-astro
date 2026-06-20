@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-13"
 slug: "the-green-curtain"
+category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Iris hung the plastic grass curtain in her daughter's room while Zoe was at school. Sixty strands of manufactured green, each one textured to feel almost real, cascading from ceiling to floor like the memory of rain.

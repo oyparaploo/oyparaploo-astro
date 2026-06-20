@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-10-31"
 slug: "questions-behind-things"
+category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+cluster: "Labor, Value & the Made Object"
 ---
 
 *In the early morning hours before museums open to the public, maintenance workers move through galleries worth millions earning fourteen dollars an hour, some of them writing small questions in pencil where nobody looks, documenting the specific distance between those who clean art and those who own it.*

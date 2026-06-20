@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "2025-08-27"
 slug: "chapter-fifteen-the-dissonant-act"
+category: "Serialized Sonic-Detective Thriller Chapters"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 Morning came like a curtain reluctantly pulled—grey light sneaking in through the Viennese fog. The conference quarter stirred with the exact noises bureaucracy allows itself: car doors shutting in practiced rhythm, polished shoes scuffing marble with restraint, translators’ bags rolling soft wheels across carpet.

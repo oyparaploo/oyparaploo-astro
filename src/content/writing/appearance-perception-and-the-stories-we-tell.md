@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "appearance-perception-and-the-stories-we-tell"
+category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## The Necessity Question

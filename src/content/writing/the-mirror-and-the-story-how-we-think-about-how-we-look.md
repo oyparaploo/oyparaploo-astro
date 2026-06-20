@@ -4,6 +4,8 @@ variant: reading
 ground: light
 date: "2025-08-14"
 slug: "the-mirror-and-the-story-how-we-think-about-how-we-look"
+category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
+cluster: "Senses, Tone & the Body"
 ---
 
 ## What's Really Necessary?

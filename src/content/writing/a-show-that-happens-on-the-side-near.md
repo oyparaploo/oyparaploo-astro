@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "February 4, 2026"
 slug: "a-show-that-happens-on-the-side-near"
+category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 Real and artificial flowers ... symbolizing life ... positivity ... hope ... Suggesting a funeral or memorial service ... Remembrance of a loved one ... The real and the artificial standing next to each other ... Both doing the job ...
