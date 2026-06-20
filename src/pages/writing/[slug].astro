@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const pieces = await getCollection('writing');
+  return pieces.map((piece) => ({ params: { slug: piece.id }, props: { piece } }));
+}
+
+const { piece } = Astro.props;
+const { title, hero } = piece.data;
+
+// ── Body -> breath markup. Matches west-has-blessed-voices structure exactly:
+//    blank line  => a <p class="breath"> block
+//    inline ...  => <span class="ellipsis">...</span>
+//    (return) /(question) prefix => variant class on the breath
+function esc(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function toBreaths(body) {
+  return (body || '')
+    .trim()
+    .split(/\n\s*\n+/)
+    .filter((b) => b.trim().length)
+    .map((blk) => {
+      let t = blk.trim();
+      let cls = 'breath';
+      const m = t.match(/^\((return|question)\)\s*/);
+      if (m) { cls = 'breath ' + m[1]; t = t.slice(m[0].length); }
+      const html = esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>');
+      return `  <p class="${cls}">${html}</p>`;
+    })
+    .join('\n\n');
+}
+const bodyHtml = toBreaths(piece.body);
+---
+<BaseLayout title={title}>
+<main class="piece-stage">
+<div class="piece">
+  {hero
+    ? <figure class="window-out"><img src={hero.src} alt={hero.alt} /></figure>
+    : <figure class="window-out" aria-hidden="true"><div class="window-fill"></div></figure>}
+  <h1 class="title">{title}</h1>
+  <Fragment set:html={bodyHtml} />
+  <hr class="colophon" aria-hidden="true" />
+</div>
+</main>
+</BaseLayout>
