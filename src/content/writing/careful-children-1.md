@@ -1,0 +1,21 @@
+---
+title: "careful children (1)"
+variant: breath-display
+ground: dark
+date: "December 14, 2022"
+slug: "careful-children-1"
+---
+
+SAfeTy First.
+Keep THIS ARt worK
+da La La ba La
+AWAy From THE Scalding
+Hot WATER ~-
+You Will Suffer
+third degree Burns
+if exposed to
+150 degree Water
+for two seconds.
+
+December 14, 2022 (source) / February 2026 (edit)
+Declaration
