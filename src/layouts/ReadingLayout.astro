@@ -30,7 +30,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 ul, ol { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
 html { overflow-x: hidden; scroll-behavior: smooth; font-size: var(--root-size, 18px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-body {
+body.ground-light {
   font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased;
   overflow-x: hidden; overflow-wrap: break-word; word-break: break-word;
   transition: background 0.4s ease, color 0.3s ease;
@@ -195,7 +195,7 @@ html.size-1 { --root-size: 18px; } html.size-2 { --root-size: 19px; } html.size-
 }
 
 /* ═══ IX. DARK MODE (chrome grafted + page content overrides) ═══ */
-body.dark-mode {
+body.ground-light.dark-mode {
   background: linear-gradient(to bottom, #000000 0%, #000000 5%, #020203 12%, #040507 20%, #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
   background-attachment: fixed; min-height: 100vh; color: #d0c8bf;
 }
@@ -291,7 +291,7 @@ body.dark-mode .reading-body .ellipsis { color: #a09888; }
 body.dark-mode .reading-colophon { background: rgba(232,224,214,0.12); }
 </style>
 </head>
-<body>
+<body class="ground-light">
 
 
 <!-- ═══ STÄDEL NAV (grafted verbatim from a-word-is-a-room) ═══ -->

@@ -14,7 +14,7 @@ const { title = 'Untitled' } = Astro.props;
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 * { font-style: normal; }
 
-body {
+body.ground-dark {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   background: linear-gradient(to bottom,
@@ -412,7 +412,7 @@ body.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
 body.light-mode .nav-accent-rule { opacity: 1; }
 
 /* ═══ BREATH CONTENT — LIGHT MODE ═══ */
-body.light-mode { background: linear-gradient(to bottom, #ffffff 0%, #fdfcfb 60%, #f5f3ef 100%); }
+body.ground-dark.light-mode { background: linear-gradient(to bottom, #ffffff 0%, #fdfcfb 60%, #f5f3ef 100%); }
 body.light-mode .title { color: #3d352e; }
 body.light-mode .breath { color: #2a2320; }
 body.light-mode .breath.return { color: #3d352e; }
@@ -457,7 +457,7 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
 @keyframes windowBreathIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
-<body>
+<body class="ground-dark">
 
 
 <!-- ═══ STÄDEL NAV ═══ -->
