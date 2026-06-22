@@ -722,10 +722,10 @@ body.dark-mode .cl-intro { color: #b5ada5; }
     <div class="page-stat">{total} pieces &middot; {clusters.length} clusters</div>
   </header>
 
-  <section class="cl-section reveal">
+  <section class="cl-section">
     <div class="cl-grid">
-      {clusters.map((c) => (
-        <a class="cl-card reveal" href={`/writing/clusters/${c.slug}/`}>
+      {clusters.map((c, i) => (
+        <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/clusters/${c.slug}/`}>
           <div class="cl-count">{c.count} pieces{c.span && ` · ${c.span}`}</div>
           <div class="cl-name">{c.name}</div>
           <div class="cl-intro">{c.intro}</div>
