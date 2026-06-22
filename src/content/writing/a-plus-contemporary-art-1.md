@@ -2,7 +2,7 @@
 title: "A+ contemporary art"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-07-15"
 slug: "a-plus-contemporary-art-1"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

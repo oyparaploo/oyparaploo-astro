@@ -2,7 +2,7 @@
 title: "Blackfin icefish"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-01"
 slug: "blackfin-icefish"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

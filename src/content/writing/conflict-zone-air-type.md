@@ -2,7 +2,7 @@
 title: "Conflict zone air type"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-08"
 slug: "conflict-zone-air-type"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

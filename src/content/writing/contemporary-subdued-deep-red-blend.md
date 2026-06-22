@@ -2,7 +2,7 @@
 title: "Contemporary subdued deep red blend"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-08"
 slug: "contemporary-subdued-deep-red-blend"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

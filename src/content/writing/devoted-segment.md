@@ -2,7 +2,7 @@
 title: "Devoted segment"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-10"
 slug: "devoted-segment"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

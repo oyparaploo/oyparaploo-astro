@@ -2,7 +2,7 @@
 title: "Apartment house shelter flow with compassion"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-07-22"
 slug: "apartment-house-shelter-flow-with-compassion-1"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

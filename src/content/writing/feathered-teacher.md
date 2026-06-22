@@ -2,7 +2,7 @@
 title: "Feathered teacher"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-12"
 slug: "feathered-teacher"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

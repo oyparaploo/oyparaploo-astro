@@ -2,7 +2,7 @@
 title: "Bird's energy and simultaneous child's play"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-07-31"
 slug: "birds-energy-and-simultaneous-childs-play"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

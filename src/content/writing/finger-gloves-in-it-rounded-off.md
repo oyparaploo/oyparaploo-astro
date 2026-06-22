@@ -2,7 +2,7 @@
 title: "Finger gloves in it rounded off"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-13"
 slug: "finger-gloves-in-it-rounded-off"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

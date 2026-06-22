@@ -2,7 +2,7 @@
 title: "careful children (2)"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-06"
 slug: "careful-children-2"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "border wall size mirror of nonbiodegradable stuff"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-02"
 slug: "border-wall-size-mirror-of-nonbiodegradable-stuff"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

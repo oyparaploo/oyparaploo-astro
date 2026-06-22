@@ -2,7 +2,7 @@
 title: "both natures spell on us"
 variant: breath-display
 ground: dark
-date: "2025-07-01"
+date: "2025-08-02"
 slug: "both-natures-spell-on-us"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"
