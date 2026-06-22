@@ -464,6 +464,44 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
   box-shadow: inset 0 0 24px 4px rgba(0,0,0,0.18);
 }
 @keyframes windowBreathIn { from { opacity: 0; } to { opacity: 1; } }
+/* ═══ SEARCH OVERLAY (lazy MiniSearch) — nav infrastructure ═══ */
+.oy-search { position: fixed; inset: 0; z-index: 300; display: flex; justify-content: center; padding: 96px 24px 32px; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.oy-search.open { opacity: 1; pointer-events: auto; }
+.oy-search-inner { width: 100%; max-width: 680px; }
+.oy-search-close { position: absolute; top: 24px; right: 24px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 24px; line-height: 1; background: none; border: none; cursor: pointer; }
+.oy-search-input { width: 100%; background: none; border: none; border-bottom: 1px solid; font-family: 'Lora', serif; font-size: clamp(1.7059rem, 3.2vw, 2.0588rem); font-weight: 400; letter-spacing: -0.01em; padding: 0 0 16px; margin-bottom: 24px; outline: none; }
+.oy-search-status { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.02em; margin-bottom: 20px; }
+.oy-search-results { list-style: none; margin: 0; padding: 0; }
+.oy-search-item { border-top: 1px solid; }
+.oy-search-link { display: block; padding: 18px 0; text-decoration: none; transition: background 0.2s ease; }
+.oy-search-title { display: block; font-family: 'Lora', serif; font-size: 1.2353rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 6px; transition: color 0.2s ease; }
+.oy-search-meta { display: block; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 8px; }
+.oy-search-excerpt { display: block; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; text-wrap: pretty; }
+@media (max-width: 480px) { .oy-search { padding: 80px 24px 24px; } .oy-search-close { top: 16px; right: 16px; } }
+/* light theme (light-native, or dark-native toggled to light) */
+body.ground-light .oy-search, body.ground-dark.light-mode .oy-search { background: rgba(255,255,255,0.97); }
+body.ground-light .oy-search-close, body.ground-dark.light-mode .oy-search-close { color: #2a2320; }
+body.ground-light .oy-search-input, body.ground-dark.light-mode .oy-search-input { color: #2a2320; border-bottom-color: #b8a088; }
+body.ground-light .oy-search-input::placeholder, body.ground-dark.light-mode .oy-search-input::placeholder { color: #5a4f47; }
+body.ground-light .oy-search-status, body.ground-dark.light-mode .oy-search-status { color: #5a4f47; }
+body.ground-light .oy-search-item, body.ground-dark.light-mode .oy-search-item { border-top-color: #c0b8b0; }
+body.ground-light .oy-search-link:hover, body.ground-dark.light-mode .oy-search-link:hover { background: #faf7f3; }
+body.ground-light .oy-search-title, body.ground-dark.light-mode .oy-search-title { color: #2a2320; }
+body.ground-light .oy-search-link:hover .oy-search-title, body.ground-dark.light-mode .oy-search-link:hover .oy-search-title { color: #000000; }
+body.ground-light .oy-search-meta, body.ground-dark.light-mode .oy-search-meta { color: #5a4f47; }
+body.ground-light .oy-search-excerpt, body.ground-dark.light-mode .oy-search-excerpt { color: #4a4038; }
+/* dark theme (dark-native, or light-native toggled to dark) */
+body.ground-dark .oy-search, body.ground-light.dark-mode .oy-search { background: rgba(8,9,13,0.95); }
+body.ground-dark .oy-search-close, body.ground-light.dark-mode .oy-search-close { color: #d0c8bf; }
+body.ground-dark .oy-search-input, body.ground-light.dark-mode .oy-search-input { color: #d0c8bf; border-bottom-color: #5a5048; }
+body.ground-dark .oy-search-input::placeholder, body.ground-light.dark-mode .oy-search-input::placeholder { color: #a09888; }
+body.ground-dark .oy-search-status, body.ground-light.dark-mode .oy-search-status { color: #a09888; }
+body.ground-dark .oy-search-item, body.ground-light.dark-mode .oy-search-item { border-top-color: #3a3430; }
+body.ground-dark .oy-search-link:hover, body.ground-light.dark-mode .oy-search-link:hover { background: #141210; }
+body.ground-dark .oy-search-title, body.ground-light.dark-mode .oy-search-title { color: #d0c8bf; }
+body.ground-dark .oy-search-link:hover .oy-search-title, body.ground-light.dark-mode .oy-search-link:hover .oy-search-title { color: #e8e0d8; }
+body.ground-dark .oy-search-meta, body.ground-light.dark-mode .oy-search-meta { color: #a09888; }
+body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-excerpt { color: #b5ada5; }
 </style>
 </head>
 <body class="ground-dark">
@@ -488,7 +526,7 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
           <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
         </svg>
       </button>
-      <a href="#" aria-label="Search">
+      <a href="#" id="searchBtn" aria-label="Search">
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
         </svg>
@@ -603,5 +641,88 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
 </script>
 
+<!-- ═══ SEARCH OVERLAY ═══ -->
+<div class="oy-search" id="oySearch" role="dialog" aria-modal="true" aria-label="Search the writing" aria-hidden="true">
+  <button class="oy-search-close" id="oySearchClose" type="button" aria-label="Close search">&#10005;</button>
+  <div class="oy-search-inner">
+    <input type="search" id="oySearchInput" class="oy-search-input" placeholder="Search the writing…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Search the writing" aria-controls="oySearchResults" />
+    <div class="oy-search-status" id="oySearchStatus" aria-live="polite"></div>
+    <ul class="oy-search-results" id="oySearchResults"></ul>
+  </div>
+</div>
+
+<script>
+  // Lazy site search — index + MiniSearch load only on first open, never on page load.
+  const _btn = document.getElementById('searchBtn');
+  const _overlay = document.getElementById('oySearch');
+  const _input = document.getElementById('oySearchInput');
+  const _close = document.getElementById('oySearchClose');
+  const _status = document.getElementById('oySearchStatus');
+  const _results = document.getElementById('oySearchResults');
+  let _mini = null, _docs = null, _loading = null, _topHref = null;
+  const _esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  function ensureIndex() {
+    if (_loading) return _loading;
+    _loading = (async () => {
+      const [{ default: MiniSearch }, data] = await Promise.all([
+        import('minisearch'),
+        fetch('/search-index.json').then((r) => r.json()),
+      ]);
+      _docs = data;
+      _mini = new MiniSearch({
+        idField: 'slug',
+        fields: ['title', 'body'],
+        storeFields: ['slug', 'title', 'cluster', 'date', 'excerpt'],
+        searchOptions: { boost: { title: 3 }, prefix: true, fuzzy: 0.2 },
+      });
+      _mini.addAll(_docs);
+    })();
+    return _loading;
+  }
+
+  function render(q) {
+    q = (q || '').trim();
+    _topHref = null;
+    if (!q) { _results.innerHTML = ''; _status.textContent = _docs ? ('Search ' + _docs.length + ' pieces.') : 'Type to search.'; return; }
+    if (!_mini) { _status.textContent = 'Loading…'; return; }
+    const hits = _mini.search(q).slice(0, 40);
+    if (!hits.length) { _results.innerHTML = ''; _status.textContent = 'No matches for “' + q + '”.'; return; }
+    _status.textContent = hits.length + (hits.length === 1 ? ' result' : ' results');
+    _topHref = '/writing/' + hits[0].slug + '/';
+    _results.innerHTML = hits.map((h) =>
+      '<li class="oy-search-item"><a class="oy-search-link" href="/writing/' + encodeURIComponent(h.slug) + '/">' +
+      '<span class="oy-search-title">' + _esc(h.title) + '</span>' +
+      '<span class="oy-search-meta">' + _esc(h.cluster) + (h.date ? ' · ' + _esc(h.date) : '') + '</span>' +
+      '<span class="oy-search-excerpt">' + _esc(h.excerpt) + '</span>' +
+      '</a></li>').join('');
+  }
+
+  async function openSearch(e) {
+    if (e) e.preventDefault();
+    _overlay.classList.add('open');
+    _overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    _input.focus();
+    _status.textContent = 'Loading…';
+    await ensureIndex();
+    render(_input.value);
+  }
+  function closeSearch() {
+    _overlay.classList.remove('open');
+    _overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (_btn) _btn.addEventListener('click', openSearch);
+  if (_close) _close.addEventListener('click', closeSearch);
+  if (_overlay) _overlay.addEventListener('click', (e) => { if (e.target === _overlay) closeSearch(); });
+  if (_input) _input.addEventListener('input', () => render(_input.value));
+  document.addEventListener('keydown', (e) => {
+    if (!_overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeSearch();
+    else if (e.key === 'Enter' && _topHref) window.location.href = _topHref;
+  });
+</script>
 </body>
 </html>
