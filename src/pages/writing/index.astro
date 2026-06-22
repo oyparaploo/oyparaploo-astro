@@ -39,7 +39,68 @@ const clusters = Object.entries(counts).map(([name, count]) => {
   return { name, count, intro, slug: clusterSlug(name) };
 }).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 
-const navmenu = "<!-- \u2550\u2550\u2550 ST\u00c4DEL NAV \u2550\u2550\u2550 -->\n<nav class=\"site-nav\" aria-label=\"Site navigation\">\n  <div class=\"nav-inner\">\n    <a href=\"index.html\" class=\"wordmark\">oyparaploo</a>\n    <ul class=\"nav-links\">\n      <li><a href=\"writing.html\" class=\"active\">Writing</a></li>\n      <li><a href=\"portraits.html\">Portraits</a></li>\n      <li><a href=\"practice.html\">Practice</a></li>\n      <li><a href=\"dispatches.html\">Dispatches</a></li>\n    </ul>\n    <div class=\"nav-utils\">\n      <button id=\"fontSizeBtn\" class=\"font-size-btn\" aria-label=\"Adjust font size\">\n        <span class=\"sz active\" data-size=\"1\">A</span><span class=\"sz\" data-size=\"2\">A</span><span class=\"sz\" data-size=\"3\">A</span>\n      </button>\n      <button id=\"contrastBtn\" aria-label=\"Toggle contrast\" style=\"font-size:22px;\">\u25d0</button>\n      <a href=\"#\" aria-label=\"Search\">\n        <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" stroke-width=\"2\" aria-hidden=\"true\">\n          <circle cx=\"10\" cy=\"10\" r=\"7\"/><path d=\"M15 15l5 5\"/>\n        </svg>\n      </a>\n      <button class=\"nav-hamburger\" aria-label=\"Open menu\" aria-expanded=\"false\" id=\"navHamburger\">\n        <span></span><span></span><span></span>\n      </button>\n    </div>\n  </div>\n  <div class=\"nav-accent-rule\" aria-hidden=\"true\"></div>\n</nav>\n\n<!-- \u2550\u2550\u2550 MENU \u2550\u2550\u2550 -->\n<div class=\"menu-overlay\" id=\"menuOverlay\" aria-hidden=\"true\"></div>\n\n<!-- Accordion strips \u2014 desktop -->\n<div class=\"menu-strips\" id=\"menuStrips\">\n  <div class=\"strip strip-1\">\n    <div class=\"strip-bg\"></div>\n    <div class=\"strip-bottom\">\n      <div class=\"strip-content\">\n        <div class=\"strip-title\">Good Grounds</div>\n        <div class=\"strip-subtitle\">A novel in progress</div>\n        <div class=\"strip-buttons\"><a href=\"#\" class=\"strip-btn\">Read &#8594;</a></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"strip strip-2\">\n    <div class=\"strip-bg\"></div>\n    <div class=\"strip-bottom\">\n      <div class=\"strip-content\">\n        <div class=\"strip-title\">Writing</div>\n        <div class=\"strip-subtitle\">34 pieces, ongoing</div>\n        <div class=\"strip-buttons\"><a href=\"#\" class=\"strip-btn\">Explore &#8594;</a></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"strip strip-3\">\n    <div class=\"strip-bg\"></div>\n    <div class=\"strip-bottom\">\n      <div class=\"strip-content\">\n        <div class=\"strip-title\">Making</div>\n        <div class=\"strip-subtitle\">Visual &amp; object practice</div>\n        <div class=\"strip-buttons\"><a href=\"#\" class=\"strip-btn\">See &#8594;</a></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"strip strip-4\">\n    <div class=\"strip-bg\"></div>\n    <div class=\"strip-bottom\">\n      <div class=\"strip-content\">\n        <div class=\"strip-title\">Sound</div>\n        <div class=\"strip-subtitle\">Noir Song Frequencies</div>\n        <div class=\"strip-buttons\"><a href=\"#\" class=\"strip-btn\">Listen &#8594;</a></div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"menu-panel\" id=\"menuPanel\" aria-hidden=\"true\" role=\"dialog\" aria-label=\"Site menu\">\n  <div class=\"menu-top\">\n    <span class=\"menu-ghost-wordmark\" aria-hidden=\"true\">oyparaploo</span>\n    <button class=\"menu-close\" id=\"menuCloseBtn\" aria-label=\"Close menu\">&#10005;</button>\n  </div>\n  <div class=\"menu-content\">\n    <div class=\"mobile-strips\">\n      <a class=\"mobile-strip-card\" href=\"#\"><div class=\"strip-bg strip-1\"></div><div class=\"mobile-strip-card-text\"><div class=\"mobile-strip-card-title\">Good Grounds</div><div class=\"mobile-strip-card-sub\">Novel</div></div></a>\n      <a class=\"mobile-strip-card\" href=\"#\"><div class=\"strip-bg strip-2\"></div><div class=\"mobile-strip-card-text\"><div class=\"mobile-strip-card-title\">Writing</div><div class=\"mobile-strip-card-sub\">34 pieces</div></div></a>\n      <a class=\"mobile-strip-card\" href=\"#\"><div class=\"strip-bg strip-3\"></div><div class=\"mobile-strip-card-text\"><div class=\"mobile-strip-card-title\">Making</div><div class=\"mobile-strip-card-sub\">Visual</div></div></a>\n      <a class=\"mobile-strip-card\" href=\"#\"><div class=\"strip-bg strip-4\"></div><div class=\"mobile-strip-card-text\"><div class=\"mobile-strip-card-title\">Sound</div><div class=\"mobile-strip-card-sub\">Frequencies</div></div></a>\n    </div>\n    <nav class=\"menu-nav-primary\" aria-label=\"Primary menu\">\n      <a href=\"#\">Writing</a>\n      <a href=\"#\">Making</a>\n      <a href=\"#\">Good Grounds</a>\n    </nav>\n    <hr class=\"menu-rule-tan\" aria-hidden=\"true\">\n    <div class=\"menu-nav-label\">All Info for</div>\n    <nav class=\"menu-nav-secondary\" aria-label=\"Secondary menu\">\n      <a href=\"#\">Our Practice</a>\n      <a href=\"#\">Music Artists</a>\n      <a href=\"#\">Collaborators</a>\n      <a href=\"#\">Methodology</a>\n    </nav>\n    <hr class=\"menu-rule-sage\" aria-hidden=\"true\">\n    <nav class=\"menu-nav-tertiary\" aria-label=\"Tertiary menu\">\n      <a href=\"#\">Support</a>\n      <a href=\"#\">Archive</a>\n      <a href=\"#\">Calendar</a>\n      <a href=\"#\">Contact</a>\n    </nav>\n    <div class=\"menu-address\">Minneapolis ~ Saint Paul</div>\n    <div class=\"menu-bottom-btns\">\n      <button class=\"menu-btn\">Subscribe</button>\n      <button class=\"menu-btn\">Newsletter</button>\n    </div>\n  </div>\n</div>";
+const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="/writing/" class="active">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a href="/our-practice/">Practice</a></li>
+      <li><a href="/dispatches/">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <a href="#" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="/writing/">Writing</a>
+      <a href="/making/">Making</a>
+      <a href="/good-grounds/">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a href="/methodology/">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="/support/">Support</a>
+      <a href="/archive/">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>`;
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
