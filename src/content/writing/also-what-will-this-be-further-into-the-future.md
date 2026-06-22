@@ -2,7 +2,7 @@
 title: "Also ... what will this be further into the future"
 variant: breath-display
 ground: dark
-date: "February 10, 2021"
+date: "2025-07-01"
 slug: "also-what-will-this-be-further-into-the-future"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

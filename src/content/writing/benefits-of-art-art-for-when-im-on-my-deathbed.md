@@ -2,7 +2,7 @@
 title: "benefits of art -- art for when I am on my deathbed"
 variant: breath-display
 ground: dark
-date: "December 31, 2013"
+date: "2025-07-01"
 slug: "benefits-of-art-art-for-when-im-on-my-deathbed"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

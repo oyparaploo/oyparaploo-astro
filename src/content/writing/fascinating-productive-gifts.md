@@ -2,7 +2,7 @@
 title: "Fascinating productive gifts"
 variant: breath-display
 ground: dark
-date: "February 4, 2021"
+date: "2025-07-01"
 slug: "fascinating-productive-gifts"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

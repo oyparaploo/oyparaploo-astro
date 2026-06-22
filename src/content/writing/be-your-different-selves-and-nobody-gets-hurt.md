@@ -2,7 +2,7 @@
 title: "be your different selves and nobody gets hurt"
 variant: breath-display
 ground: dark
-date: "February 8, 2021"
+date: "2025-07-01"
 slug: "be-your-different-selves-and-nobody-gets-hurt"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

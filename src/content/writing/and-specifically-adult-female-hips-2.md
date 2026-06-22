@@ -2,7 +2,7 @@
 title: "And specifically adult female hips"
 variant: breath-display
 ground: dark
-date: "February 5, 2021"
+date: "2025-07-01"
 slug: "and-specifically-adult-female-hips-2"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

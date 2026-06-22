@@ -2,7 +2,7 @@
 title: "All senses examination of this aromous soil"
 variant: breath-display
 ground: dark
-date: "March 3, 2021"
+date: "2025-07-01"
 slug: "all-senses-examination-of-this-aromous-soil"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

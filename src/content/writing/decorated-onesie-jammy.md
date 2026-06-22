@@ -2,7 +2,7 @@
 title: "Decorated onesie jammy"
 variant: breath-display
 ground: dark
-date: "February 4, 2021"
+date: "2025-07-01"
 slug: "decorated-onesie-jammy"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

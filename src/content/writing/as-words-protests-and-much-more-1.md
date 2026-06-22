@@ -2,7 +2,7 @@
 title: "As words protests and much more"
 variant: breath-display
 ground: dark
-date: "February 4, 2021"
+date: "2025-07-01"
 slug: "as-words-protests-and-much-more-1"
 category: "Political Hearings, Cover-Ups, and the Word \"Children\""
 cluster: "Justice, Witness & the State"

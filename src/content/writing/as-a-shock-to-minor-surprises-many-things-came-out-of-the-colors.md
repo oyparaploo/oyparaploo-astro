@@ -2,7 +2,7 @@
 title: "as a shock to minor surprises many things came out of the colors"
 variant: breath-display
 ground: dark
-date: "February 11, 2021"
+date: "2025-07-01"
 slug: "as-a-shock-to-minor-surprises-many-things-came-out-of-the-colors"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

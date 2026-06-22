@@ -2,7 +2,7 @@
 title: "autobiographies gray hairs"
 variant: breath-display
 ground: dark
-date: "December 9, 2013"
+date: "2025-07-01"
 slug: "autobiographies-gray-hairs-1"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "blue ball mess and mix"
 variant: breath-display
 ground: dark
-date: "February 8, 2021"
+date: "2025-07-01"
 slug: "blue-ball-mess-and-mix-1"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

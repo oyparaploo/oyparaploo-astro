@@ -2,7 +2,7 @@
 title: "The Mycologist's Last Paper"
 variant: reading
 ground: light
-date: "February 12, 2024"
+date: "2025-07-01"
 slug: "the-mycologists-last-paper"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

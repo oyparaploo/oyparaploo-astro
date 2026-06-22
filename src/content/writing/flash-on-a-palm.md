@@ -2,7 +2,7 @@
 title: "Flash on a palm"
 variant: breath-display
 ground: dark
-date: "February 4, 2021"
+date: "2025-07-01"
 slug: "flash-on-a-palm"
 category: "Empathy Technology and Felt Inherited Memory"
 cluster: "Mind, Faith, Satire & Other Threads"

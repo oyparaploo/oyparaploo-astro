@@ -2,7 +2,7 @@
 title: "All these difficult human realities inspirational"
 variant: breath-display
 ground: dark
-date: "February 4, 2021"
+date: "2025-07-01"
 slug: "all-these-difficult-human-realities-1"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

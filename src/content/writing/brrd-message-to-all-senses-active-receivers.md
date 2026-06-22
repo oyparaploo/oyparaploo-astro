@@ -2,7 +2,7 @@
 title: "brrd message to all senses active receivers"
 variant: breath-display
 ground: dark
-date: "March 3, 2021"
+date: "2025-07-01"
 slug: "brrd-message-to-all-senses-active-receivers"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

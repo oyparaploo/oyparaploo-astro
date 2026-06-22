@@ -2,7 +2,7 @@
 title: "The Spore Print"
 variant: reading
 ground: light
-date: "October 16, 2024"
+date: "2025-07-01"
 slug: "the-spore-print"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"
