@@ -96,6 +96,8 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
 .dark-mode .nav-utils button:hover, .dark-mode .nav-utils a:hover { color: rgba(232,224,214,1); }
 .nav-utils svg { stroke: currentColor; fill: none; width: 24px; height: 24px; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 .nav-hamburger {
   display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
   background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; }
@@ -1733,7 +1735,11 @@ body.dark-mode .stillness-mark { border-color: rgba(232,224,214,0.28) !important
         <span class="sz" data-size="2">A</span>
         <span class="sz" data-size="3">A</span>
       </button>
-      <button id="contrastBtn" aria-label="Toggle dark mode">◐</button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
       <a href="#" aria-label="Search">
         <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg>
       </a>
@@ -2733,7 +2739,6 @@ var contrastBtn   = document.getElementById('contrastBtn');
 var contrastFloat = document.getElementById('contrastFloat');
 function toggleDark() {
   var isDark = document.body.classList.toggle('dark-mode');
-  contrastBtn.textContent   = isDark ? '◑' : '◐';
   contrastFloat.textContent = isDark ? '◑' : '◐';
 }
 contrastBtn.addEventListener('click',   toggleDark);

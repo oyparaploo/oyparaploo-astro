@@ -97,7 +97,11 @@ const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
       <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
         <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
       </button>
-      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
       <a href="#" id="searchBtn" aria-label="Search">
         <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
           <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
@@ -271,6 +275,8 @@ html.size-3 { --root-size: 20px; }
 }
 .nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
 .nav-utils svg { stroke: currentColor; fill: none; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 
 .nav-hamburger {
   display: flex; flex-direction: column;
@@ -740,7 +746,6 @@ fontBtn.addEventListener('click', function() {
 // ── Contrast toggle — light ground: toggles to dark-mode
 document.getElementById('contrastBtn').addEventListener('click', function() {
   document.body.classList.toggle('dark-mode');
-  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
 });
 
 // ── Menu open/close

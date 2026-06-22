@@ -43,6 +43,8 @@ html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-
 .nav-utils button, .nav-utils a { font-family: 'Inter', sans-serif; color: #2a2320; background: none; border: none; cursor: pointer; min-height: 44px; padding: 0 8px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
 .nav-utils button:hover, .nav-utils a:hover { color: #6b4930; }
 .nav-utils svg { stroke: currentColor; fill: none; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 .nav-hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; min-height: 44px; padding: 0 8px; }
 .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #2a2320; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -182,7 +184,11 @@ body.dark-mode .pull-quote-attr { color: #8a8078; }
 </ul>
 <div class="nav-utils">
 <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
-<button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+<button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
 <a href="#" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
 <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
 </div>
@@ -315,7 +321,7 @@ body.dark-mode .pull-quote-attr { color: #8a8078; }
 <script>
 var sizeStep=1,fontBtn=document.getElementById('fontSizeBtn'),sizeSpans=fontBtn.querySelectorAll('.sz');
 fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep)})});
-document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('dark-mode');this.textContent=document.body.classList.contains('dark-mode')?'◑':'◐'});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('dark-mode');});
 var navHamburger=document.getElementById('navHamburger'),menuCloseBtn=document.getElementById('menuCloseBtn'),menuOverlay=document.getElementById('menuOverlay'),menuStrips=document.getElementById('menuStrips'),menuPanel=document.getElementById('menuPanel');
 function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
 function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
