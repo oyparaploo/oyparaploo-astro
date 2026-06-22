@@ -7,6 +7,7 @@
 // Counts come live from getCollection('writing'); intros are the approved
 // writing-cluster-intros.md text, matched to each cluster by EXACT name.
 import { getCollection } from 'astro:content';
+import recoveredDates from '../../data/recovered-dates.json';
 
 const CLUSTER_INTROS = {
   "Ars Poetica & the Oyparaploo Method": "Manifestos, studio monologues, and ars-poetica fragments that name and enact the Oyparaploo method itself \u2014 discarded fragments composted into enterable meaning, split words and invented phonemes reporting on their own making, plural \"human bird\" credos, and confessional self-coaching past curator dismissals. Alongside them sit statements framing the maker as a non-extractive visitor who gives finished work away, who-we-are biographies, assemblage-as-evidence declarations, and pieces built from pure invented sound. Self-defining, neologistic, and declarative \u2014 the largest grouping, and the one most about its own making.",
@@ -29,15 +30,58 @@ function clusterSlug(name) {
   return name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
+// frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
+const raws = import.meta.glob('../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
+const dateMap = {};
+for (const k in raws) {
+  const slug = k.split('/').pop().replace(/\.md$/, '');
+  const m = raws[k].match(/^date:\s*"?(.*?)"?\s*$/m);
+  if (m) dateMap[slug] = m[1];
+}
+
+// Parse the mixed date formats into a comparable integer (YYYYMMDD; missing
+// month/day fall back to 01). Returns null when unparseable. This is the SAME
+// parser the interior pages use for their newest-first sort — reused verbatim.
+const MONTHS = { january:1, february:2, march:3, april:4, may:5, june:6, july:7, august:8, september:9, october:10, november:11, december:12 };
+function dateKey(s) {
+  if (!s) return null;
+  const t = String(s).trim();
+  let m;
+  if ((m = t.match(/^(\d{4})-(\d{2})-(\d{2})$/))) return +m[1] * 10000 + +m[2] * 100 + +m[3];   // ISO YYYY-MM-DD
+  if ((m = t.match(/^(\d{4})-(\d{2})$/)))          return +m[1] * 10000 + +m[2] * 100 + 1;      // partial ISO YYYY-MM
+  if ((m = t.match(/^(\d{4})$/)))                  return +m[1] * 10000 + 101;                  // year only
+  if ((m = t.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/))) {                                  // Month D, YYYY
+    const mo = MONTHS[m[1].toLowerCase()];
+    if (mo) return +m[3] * 10000 + mo * 100 + +m[2];
+  }
+  if ((m = t.match(/^([A-Za-z]+)\s+(\d{4})$/))) {                                               // Month YYYY
+    const mo = MONTHS[m[1].toLowerCase()];
+    if (mo) return +m[2] * 10000 + mo * 100 + 1;
+  }
+  return null;
+}
+
 const pieces = (await getCollection('writing')).filter((e) => e.id !== 'a-word-is-a-room');
 const total = pieces.length;
-const counts = {};
-for (const p of pieces) { const c = p.data.cluster || '(uncategorized)'; counts[c] = (counts[c] || 0) + 1; }
-const clusters = Object.entries(counts).map(([name, count]) => {
+
+// group each cluster's piece date keys (same date sourcing as the interior pages)
+const byCluster = {};
+for (const p of pieces) {
+  const c = p.data.cluster || '(uncategorized)';
+  (byCluster[c] ||= []).push(dateKey(recoveredDates[p.id] || dateMap[p.id] || ''));
+}
+
+const clusters = Object.entries(byCluster).map(([name, keys]) => {
   const intro = CLUSTER_INTROS[name];
   if (!intro) throw new Error(`writing/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
-  return { name, count, intro, slug: clusterSlug(name) };
-}).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  const dated = keys.filter((k) => k != null);
+  const years = dated.map((k) => Math.floor(k / 10000));
+  const minY = years.length ? Math.min(...years) : null;
+  const maxY = years.length ? Math.max(...years) : null;
+  const span = minY == null ? '' : (minY === maxY ? String(minY) : `${minY}–${maxY}`);  // en-dash
+  const mostRecent = dated.length ? Math.max(...dated) : -Infinity;
+  return { name, count: keys.length, intro, slug: clusterSlug(name), span, mostRecent };
+}).sort((a, b) => b.mostRecent - a.mostRecent || b.count - a.count || a.name.localeCompare(b.name));
 
 const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
 <nav class="site-nav" aria-label="Site navigation">
@@ -665,7 +709,7 @@ body.dark-mode .cl-intro { color: #b5ada5; }
     <div class="cl-grid">
       {clusters.map((c) => (
         <a class="cl-card reveal" href={`/writing/clusters/${c.slug}/`}>
-          <div class="cl-count">{c.count} pieces</div>
+          <div class="cl-count">{c.count} pieces{c.span && ` · ${c.span}`}</div>
           <div class="cl-name">{c.name}</div>
           <div class="cl-intro">{c.intro}</div>
         </a>
