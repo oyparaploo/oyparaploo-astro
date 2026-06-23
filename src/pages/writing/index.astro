@@ -77,9 +77,8 @@ const clusters = Object.entries(byCluster).map(([name, keys]) => {
   if (!intro) throw new Error(`writing/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
   const dated = keys.filter((k) => k != null);
   const years = dated.map((k) => Math.floor(k / 10000));
-  const minY = years.length ? Math.min(...years) : null;
   const maxY = years.length ? Math.max(...years) : null;
-  const span = minY == null ? '' : (minY === maxY ? String(minY) : `${minY}–${maxY}`);  // en-dash
+  const span = maxY == null ? '' : String(maxY);  // always the newest-piece year (never a range)
   const mostRecent = dated.length ? Math.max(...dated) : -Infinity;
   return { name, count: keys.length, intro, slug: clusterSlug(name), span, mostRecent };
 }).sort((a, b) => b.mostRecent - a.mostRecent || b.count - a.count || a.name.localeCompare(b.name));
