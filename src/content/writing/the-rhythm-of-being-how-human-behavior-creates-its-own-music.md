@@ -2,7 +2,7 @@
 title: "The Rhythm of Being ~ How Human Behavior Creates Its Own Music"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "22.08.2025"
 slug: "the-rhythm-of-being-how-human-behavior-creates-its-own-music"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

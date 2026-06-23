@@ -2,7 +2,7 @@
 title: "Also backwards and right side up"
 variant: breath-display
 ground: dark
-date: "2025-07-17"
+date: "17.07.2025"
 slug: "also-backwards-and-right-side-up"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

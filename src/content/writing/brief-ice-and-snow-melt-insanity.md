@@ -2,7 +2,7 @@
 title: "Brief ice and snow melt insanity"
 variant: breath-display
 ground: dark
-date: "2025-08-03"
+date: "03.08.2025"
 slug: "brief-ice-and-snow-melt-insanity"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

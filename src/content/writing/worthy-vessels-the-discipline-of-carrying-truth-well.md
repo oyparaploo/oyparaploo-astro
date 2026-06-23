@@ -2,7 +2,7 @@
 title: "Worthy Vessels ~ The Discipline of Carrying Truth Well"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "20.09.2025"
 slug: "worthy-vessels-the-discipline-of-carrying-truth-well"
 category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
 cluster: "Voice, Listening & Speaking Craft"

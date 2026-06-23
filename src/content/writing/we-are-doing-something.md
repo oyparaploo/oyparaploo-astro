@@ -2,7 +2,7 @@
 title: "We Are Doing Something"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "24.10.2025"
 slug: "we-are-doing-something"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

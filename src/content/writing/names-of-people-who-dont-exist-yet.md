@@ -2,7 +2,7 @@
 title: "Names of People Who Don't Exist Yet"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "names-of-people-who-dont-exist-yet"
 category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
 cluster: "Labor, Value & the Made Object"

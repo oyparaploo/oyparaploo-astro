@@ -2,7 +2,7 @@
 title: "The Possibility and Complexity of Joyful Family for All"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "the-possibility-and-complexity-of-joyful-family-for-all"
 category: "Family, Belonging, and Who Gets to Build Connection"
 cluster: "Connection, Relationships & the Digital"

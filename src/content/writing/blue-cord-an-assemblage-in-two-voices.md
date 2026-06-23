@@ -2,7 +2,7 @@
 title: "Blue Cord ~ An Assemblage in Two Voices"
 variant: breath-display
 ground: dark
-date: "2025-10-16"
+date: "15.10.2025"
 slug: "blue-cord-an-assemblage-in-two-voices"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

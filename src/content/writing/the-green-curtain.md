@@ -2,7 +2,7 @@
 title: "The Green Curtain"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "13.10.2025"
 slug: "the-green-curtain"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

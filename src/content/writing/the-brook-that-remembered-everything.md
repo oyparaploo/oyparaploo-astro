@@ -2,7 +2,7 @@
 title: "The Brook That Remembered Everything"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-brook-that-remembered-everything"
 category: "Dying Brooks, Watersheds, and Inherited Water Records"
 cluster: "Ecology, Climate & Animals"

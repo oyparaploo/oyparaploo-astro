@@ -2,7 +2,7 @@
 title: "The River Essay Incident"
 variant: breath-display
 ground: dark
-date: "2025-09-16"
+date: "15.09.2025"
 slug: "the-river-essay-incident"
 category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
 cluster: "Mind, Faith, Satire & Other Threads"

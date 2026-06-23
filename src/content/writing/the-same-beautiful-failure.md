@@ -2,7 +2,7 @@
 title: "The Same Beautiful Failure"
 variant: breath-display
 ground: dark
-date: "2025-08-21"
+date: "21.08.2025"
 slug: "the-same-beautiful-failure"
 category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
 cluster: "Mind, Faith, Satire & Other Threads"

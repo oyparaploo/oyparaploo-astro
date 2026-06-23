@@ -2,7 +2,7 @@
 title: "Good Grief"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "05.11.2025"
 slug: "field-notes-from-the-territory-of-mending-revised"
 category: "\"Good Grief\" Cosmic-Visitor Meditations"
 cluster: "Grief, Loss & Compulsive Making"

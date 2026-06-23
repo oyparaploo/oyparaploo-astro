@@ -2,7 +2,7 @@
 title: "Close It and Open It with Additional Redundancy"
 variant: reading
 ground: light
-date: "2025-10-09"
+date: "09.10.2025"
 slug: "close-it-and-open-it-with-additional-redundancy"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

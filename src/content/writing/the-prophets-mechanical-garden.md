@@ -2,7 +2,7 @@
 title: "The Prophet's Mechanical Garden"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-prophets-mechanical-garden"
 category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
 cluster: "Labor, Value & the Made Object"

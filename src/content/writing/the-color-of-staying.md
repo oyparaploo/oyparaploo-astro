@@ -2,7 +2,7 @@
 title: "The Color of Staying"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "01.10.2025"
 slug: "the-color-of-staying"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "What If We Just Lived?"
 variant: breath-display
 ground: dark
-date: "2025-07-27"
+date: "27.07.2025"
 slug: "what-if-we-just-lived-a-love-letter-to-everyone-performing-themselves-and-other-characters"
 category: "Pandemic, Surveillance, and Performing the Self Under Watch"
 cluster: "Story-Cycles, Thrillers & Performance"

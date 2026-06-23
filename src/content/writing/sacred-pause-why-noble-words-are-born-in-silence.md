@@ -2,7 +2,7 @@
 title: "Sacred Pause ~ Why Noble Words Are Born in Silence"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "sacred-pause-why-noble-words-are-born-in-silence"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

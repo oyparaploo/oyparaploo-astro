@@ -2,7 +2,7 @@
 title: "Crazy quilt"
 variant: breath-display
 ground: dark
-date: "2025-08-09"
+date: "09.08.2025"
 slug: "crazy-quilt"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

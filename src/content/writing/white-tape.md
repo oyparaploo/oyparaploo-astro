@@ -2,7 +2,7 @@
 title: "White Tape"
 variant: breath-display
 ground: dark
-date: "April 7, 2026"
+date: "19.12.2025"
 slug: "white-tape"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

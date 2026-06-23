@@ -2,7 +2,7 @@
 title: "Pounds of Crush"
 variant: breath-display
 ground: dark
-date: "2026-05-30"
+date: "28.10.2025"
 slug: "pounds-of-crush"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

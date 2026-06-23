@@ -2,7 +2,7 @@
 title: "We Has Recognized"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "23.10.2025"
 slug: "we-has-recognized"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

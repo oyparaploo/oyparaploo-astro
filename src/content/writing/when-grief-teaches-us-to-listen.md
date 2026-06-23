@@ -2,7 +2,7 @@
 title: "When Grief Teaches Us to Listen"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "04.11.2025"
 slug: "when-grief-teaches-us-to-listen"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"

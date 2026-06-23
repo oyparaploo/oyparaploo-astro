@@ -2,7 +2,7 @@
 title: "People Who Start Things"
 variant: breath-display
 ground: dark
-date: "January 13, 2026"
+date: "27.09.2025"
 slug: "people-who-start-things"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

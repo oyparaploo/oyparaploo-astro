@@ -2,7 +2,7 @@
 title: "The Architecture of Chosen Family ~ How Partner Selection Becomes Your Most Powerful Act of Creation"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "12.08.2025"
 slug: "the-architecture-of-chosen-family-how-partner-selection-becomes-your-most-powerful-act-of-creation"
 category: "Partner Choice as Architecting a Future Family"
 cluster: "Connection, Relationships & the Digital"

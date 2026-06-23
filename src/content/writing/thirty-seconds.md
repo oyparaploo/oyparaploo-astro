@@ -2,7 +2,7 @@
 title: "Thirty Seconds"
 variant: breath-display
 ground: dark
-date: "January 2026"
+date: "26.06.2025"
 slug: "thirty-seconds"
 category: "Minneapolis State-Violence Witness-Poems"
 cluster: "Justice, Witness & the State"

@@ -2,7 +2,7 @@
 title: "Generative Restoration ~ Soil for Life"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "generative-restoration-soil-for-life"
 category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
 cluster: "Ecology, Climate & Animals"

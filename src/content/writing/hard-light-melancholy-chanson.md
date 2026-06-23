@@ -2,7 +2,7 @@
 title: "Hard Light"
 variant: breath-display
 ground: dark
-date: "2025-12-15"
+date: "15.12.2025"
 slug: "hard-light-melancholy-chanson"
 category: "Incarceration, Disappearance, and Grief as Resistance"
 cluster: "Justice, Witness & the State"

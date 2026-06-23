@@ -2,7 +2,7 @@
 title: "Where Light Remembers How to Flow ~ A Meditation on Heaven, Water, and What Waits to Bloom"
 variant: breath-display
 ground: dark
-date: "2025-09-15"
+date: "15.09.2025"
 slug: "where-light-remembers-how-to-flow-a-meditation-on-heaven-water-and-what-waits-to-bloom"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

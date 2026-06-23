@@ -2,7 +2,7 @@
 title: "What the Fog Knows"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "12.10.2025"
 slug: "what-the-fog-knows"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

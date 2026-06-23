@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Moving Through Montreal as an Angelic Ghost"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "brrd-roots-moving-through-montreal-as-an-angelic-ghost"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

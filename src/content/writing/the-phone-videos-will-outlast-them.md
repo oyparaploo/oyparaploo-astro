@@ -2,7 +2,7 @@
 title: "The Phone Videos Will Outlast Them"
 variant: breath-display
 ground: dark
-date: "January 2026"
+date: "27.06.2025"
 slug: "the-phone-videos-will-outlast-them"
 category: "Minneapolis State-Violence Witness-Poems"
 cluster: "Justice, Witness & the State"

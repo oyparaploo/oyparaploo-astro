@@ -2,7 +2,7 @@
 title: "The Painted Smile ~ Why Constant Cheerfulness Disturbs Us"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "the-painted-smile-why-constant-cheerfulness-disturbs-us"
 category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
 cluster: "Senses, Tone & the Body"

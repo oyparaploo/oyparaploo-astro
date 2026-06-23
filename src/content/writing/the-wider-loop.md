@@ -2,7 +2,7 @@
 title: "The Wider Loop"
 variant: breath-display
 ground: dark
-date: "January 13, 2026"
+date: "16.12.2025"
 slug: "the-wider-loop"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

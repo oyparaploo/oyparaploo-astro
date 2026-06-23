@@ -2,7 +2,7 @@
 title: "Every Species Has Its Season"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "24.10.2025"
 slug: "every-species-has-its-season"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

@@ -2,7 +2,7 @@
 title: "A Passage Everyone Can Enter"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "14.08.2025"
 slug: "a-passage-everyone-can-enter"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

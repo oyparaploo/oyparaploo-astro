@@ -2,7 +2,7 @@
 title: "Eight Hours"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "14.10.2025"
 slug: "eight-hours"
 category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
 cluster: "Connection, Relationships & the Digital"

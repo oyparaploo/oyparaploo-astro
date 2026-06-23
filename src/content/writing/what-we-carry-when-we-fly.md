@@ -2,7 +2,7 @@
 title: "What We Carry When We Fly"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "12.10.2025"
 slug: "what-we-carry-when-we-fly"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "big time art"
 variant: breath-display
 ground: dark
-date: "2025-07-30"
+date: "30.07.2025"
 slug: "big-time-art-1"
 category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
 cluster: "Grief, Loss & Compulsive Making"

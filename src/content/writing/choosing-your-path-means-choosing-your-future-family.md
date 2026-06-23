@@ -2,7 +2,7 @@
 title: "Choosing Your Path Means Choosing Your Future Family"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "choosing-your-path-means-choosing-your-future-family"
 category: "Partner Choice as Architecting a Future Family"
 cluster: "Connection, Relationships & the Digital"

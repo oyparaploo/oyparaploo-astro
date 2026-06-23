@@ -2,7 +2,7 @@
 title: "Listen or Perish ~ The Survival Imperative We Keep Ignoring"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "19.09.2025"
 slug: "listen-or-perish-the-survival-imperative-we-keep-ignoring"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

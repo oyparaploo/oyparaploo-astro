@@ -2,7 +2,7 @@
 title: "Les os du lac"
 variant: breath-display
 ground: dark
-date: "2025-11-29"
+date: "29.11.2025"
 slug: "les-os-du-lac"
 category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
 cluster: "Spirit, Mortality & the Ordinary Divine"

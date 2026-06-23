@@ -2,7 +2,7 @@
 title: "The Last Change ~ A Chronicle from Tomorrow's Edge"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "06.08.2025"
 slug: "the-last-change-a-chronicle-from-tomorrows-edge"
 category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
 cluster: "Metamorphosis & Transformation"

@@ -2,7 +2,7 @@
 title: "Boards"
 variant: reading
 ground: light
-date: "2025-10-15"
+date: "15.10.2025"
 slug: "boards"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

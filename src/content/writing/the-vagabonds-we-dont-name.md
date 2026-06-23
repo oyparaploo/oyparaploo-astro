@@ -2,7 +2,7 @@
 title: "The Vagabonds We Don't Name"
 variant: reading
 ground: light
-date: "2025-11-17"
+date: "13.11.2025"
 slug: "the-vagabonds-we-dont-name"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

@@ -2,7 +2,7 @@
 title: "Intentional Listening May Be Our Most Endangered Human Capability"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "20.09.2025"
 slug: "intentional-listening-may-be-our-most-endangered-human-capability"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

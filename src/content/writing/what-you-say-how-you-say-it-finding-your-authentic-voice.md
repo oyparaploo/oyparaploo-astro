@@ -2,7 +2,7 @@
 title: "What You Say, How You Say It ~ Finding Your Authentic Voice"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "18.09.2025"
 slug: "what-you-say-how-you-say-it-finding-your-authentic-voice"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

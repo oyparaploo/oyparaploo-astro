@@ -2,7 +2,7 @@
 title: "The Cartographer of Disappeared Things"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-cartographer-of-disappeared-things"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

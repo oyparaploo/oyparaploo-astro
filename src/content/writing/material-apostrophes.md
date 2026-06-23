@@ -2,7 +2,7 @@
 title: "Material Apostrophes"
 variant: reading
 ground: light
-date: "2025-08-21"
+date: "21.08.2025"
 slug: "material-apostrophes"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

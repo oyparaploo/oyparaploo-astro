@@ -2,7 +2,7 @@
 title: "Coming Upon Laisse to Doelo Short"
 variant: breath-display
 ground: dark
-date: "2026-04-23"
+date: "25.07.2025"
 slug: "coming-upon-laisse-to-doelo-short"
 category: "Pure Sound-Poems and Invented Glossolalia"
 cluster: "Ars Poetica & the Oyparaploo Method"

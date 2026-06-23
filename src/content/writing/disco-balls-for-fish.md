@@ -2,7 +2,7 @@
 title: "Disco Balls for Fish"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "disco-balls-for-fish"
 category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
 cluster: "Grief, Loss & Compulsive Making"

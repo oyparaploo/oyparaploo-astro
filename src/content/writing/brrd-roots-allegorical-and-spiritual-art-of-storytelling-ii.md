@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Allegorical and Spiritual Art of Storytelling II"
 variant: breath-display
 ground: dark
-date: "2025-08-09"
+date: "07.08.2025"
 slug: "brrd-roots-allegorical-and-spiritual-art-of-storytelling-ii"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

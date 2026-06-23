@@ -2,7 +2,7 @@
 title: "The Mercy Builders ~ A Chronicle of Dignity After Disaster"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-mercy-builders-a-chronicle-of-dignity-after-disaster"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "The Architecture of Anticipation ~ Framing Your Message for Maximum Impact"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "the-architecture-of-anticipation-framing-your-message-for-maximum-impact"
 category: "Framing, Hooks, and the Architecture of a Talk"
 cluster: "Voice, Listening & Speaking Craft"

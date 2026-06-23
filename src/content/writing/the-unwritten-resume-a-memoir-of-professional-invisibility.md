@@ -2,7 +2,7 @@
 title: "The Unwritten Resume ~ A Memoir of Professional Invisibility"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "08.08.2025"
 slug: "the-unwritten-resume-a-memoir-of-professional-invisibility"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

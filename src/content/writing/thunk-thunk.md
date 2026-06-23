@@ -2,7 +2,7 @@
 title: "Thunk Thunk"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "03.10.2025"
 slug: "thunk-thunk"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

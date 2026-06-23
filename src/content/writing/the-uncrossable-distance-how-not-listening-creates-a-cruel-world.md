@@ -2,7 +2,7 @@
 title: "The Uncrossable Distance ~ How Not Listening Creates a Cruel World"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "14.09.2025"
 slug: "the-uncrossable-distance-how-not-listening-creates-a-cruel-world"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

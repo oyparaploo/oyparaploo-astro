@@ -2,7 +2,7 @@
 title: "The Chairs Nobody Sits In"
 variant: reading
 ground: light
-date: "2025-10-15"
+date: "13.10.2025"
 slug: "the-chairs-nobody-sits-in-ii"
 category: "Coded Folk Craft Smuggling Female Power and Memory"
 cluster: "Migration, Lineage & Belonging"

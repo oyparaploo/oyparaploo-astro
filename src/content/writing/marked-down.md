@@ -2,7 +2,7 @@
 title: "Marked Down"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "06.10.2025"
 slug: "marked-down"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

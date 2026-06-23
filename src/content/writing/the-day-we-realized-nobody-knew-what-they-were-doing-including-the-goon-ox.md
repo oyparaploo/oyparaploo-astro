@@ -2,7 +2,7 @@
 title: "The Day We Realized Nobody Knew What They Were Doing (Including the Goon Ox)"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "29.10.2025"
 slug: "the-day-we-realized-nobody-knew-what-they-were-doing-including-the-goon-ox"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

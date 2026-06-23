@@ -2,7 +2,7 @@
 title: "Kukura"
 variant: breath-display
 ground: dark
-date: "2025-08-25"
+date: "25.08.2025"
 slug: "kukura"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

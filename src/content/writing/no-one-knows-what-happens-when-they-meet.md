@@ -2,7 +2,7 @@
 title: "No One Knows What Happens When They Meet"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "29.06.2025"
 slug: "no-one-knows-what-happens-when-they-meet"
 category: "Minneapolis State-Violence Witness-Poems"
 cluster: "Justice, Witness & the State"

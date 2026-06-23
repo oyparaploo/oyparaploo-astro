@@ -2,7 +2,7 @@
 title: "What She Has"
 variant: breath-display
 ground: dark
-date: "2025-10-09"
+date: "09.10.2025"
 slug: "what-she-has"
 category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
 cluster: "Connection, Relationships & the Digital"

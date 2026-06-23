@@ -2,7 +2,7 @@
 title: "bowed cello playing 'sound of words' next to a killing field"
 variant: breath-display
 ground: dark
-date: "2025-08-03"
+date: "03.08.2025"
 slug: "bowed-cello-playing-sound-of-words-next-to-a-killing-field"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "U Could Be Right in Front U Could Be Left Behind"
 variant: breath-display
 ground: dark
-date: "2026-04-10"
+date: "29.09.2025"
 slug: "u-could-be-right-in-front-u-could-be-left-behind"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

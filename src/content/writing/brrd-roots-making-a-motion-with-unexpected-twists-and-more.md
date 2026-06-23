@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Making A Motion With Unexpected Twists and More"
 variant: breath-display
 ground: dark
-date: "2025-08-10"
+date: "02.08.2025"
 slug: "brrd-roots-making-a-motion-with-unexpected-twists-and-more"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

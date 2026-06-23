@@ -2,7 +2,7 @@
 title: "The Orchard Remembers ~ A Chronicle of Labor and Grace"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-orchard-remembers-a-chronicle-of-labor-and-grace"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

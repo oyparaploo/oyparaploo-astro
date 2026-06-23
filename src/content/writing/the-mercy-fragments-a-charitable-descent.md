@@ -2,7 +2,7 @@
 title: "The Mercy Fragments: A Charitable Descent"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "02.08.2025"
 slug: "the-mercy-fragments-a-charitable-descent"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

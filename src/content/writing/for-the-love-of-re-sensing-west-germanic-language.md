@@ -2,7 +2,7 @@
 title: "For the Love of Re-sensing West Germanic Language"
 variant: breath-display
 ground: dark
-date: "2026-04-24"
+date: "06.10.2025"
 slug: "for-the-love-of-re-sensing-west-germanic-language"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Groundless This That and The Other Thing"
 variant: breath-display
 ground: dark
-date: "2026-03-29"
+date: "02.11.2025"
 slug: "groundless-this-that-airtight"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

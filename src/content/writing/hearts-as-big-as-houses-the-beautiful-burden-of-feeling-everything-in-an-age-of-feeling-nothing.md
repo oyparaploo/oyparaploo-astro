@@ -2,7 +2,7 @@
 title: "Hearts as Big as Houses"
 variant: reading
 ground: light
-date: "2025-08-01"
+date: "01.08.2025"
 slug: "hearts-as-big-as-houses-the-beautiful-burden-of-feeling-everything-in-an-age-of-feeling-nothing"
 category: "Empaths and Hearts Too Big to Hide"
 cluster: "Senses, Tone & the Body"

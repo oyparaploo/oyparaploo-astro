@@ -2,7 +2,7 @@
 title: "A Great Place"
 variant: breath-display
 ground: dark
-date: "January 2026"
+date: "15.09.2025"
 slug: "a-great-place"
 category: "Biographical About-Statements and Who-We-Are Pieces"
 cluster: "Ars Poetica & the Oyparaploo Method"

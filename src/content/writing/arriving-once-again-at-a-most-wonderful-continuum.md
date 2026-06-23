@@ -2,7 +2,7 @@
 title: "Arriving Once Again at a Most Wonderful Continuum"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "arriving-once-again-at-a-most-wonderful-continuum"
 category: "Continuum Elegies: Death as Flow Rather Than Ending"
 cluster: "Spirit, Mortality & the Ordinary Divine"

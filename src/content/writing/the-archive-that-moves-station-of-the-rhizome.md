@@ -2,7 +2,7 @@
 title: "The Archive That Moves ~ Final Station of the Rhizome"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "the-archive-that-moves-station-of-the-rhizome"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

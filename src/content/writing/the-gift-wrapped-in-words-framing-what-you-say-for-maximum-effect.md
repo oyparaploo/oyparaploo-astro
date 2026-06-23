@@ -2,7 +2,7 @@
 title: "The Gift Wrapped in Words ~ Framing What You Say for Maximum Effect"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "the-gift-wrapped-in-words-framing-what-you-say-for-maximum-effect"
 category: "Framing, Hooks, and the Architecture of a Talk"
 cluster: "Voice, Listening & Speaking Craft"

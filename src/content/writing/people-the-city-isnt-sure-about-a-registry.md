@@ -2,7 +2,7 @@
 title: "People the City Isn't Sure About (A Registry)"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "people-the-city-isnt-sure-about-a-registry"
 category: "Mock Bureaucratic Registries of Half-Existent People"
 cluster: "Labor, Value & the Made Object"

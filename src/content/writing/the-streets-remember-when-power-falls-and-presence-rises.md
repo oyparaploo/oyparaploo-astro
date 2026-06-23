@@ -2,7 +2,7 @@
 title: "The Streets Remember ~ When Power Falls and Presence Rises"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-streets-remember-when-power-falls-and-presence-rises"
 category: "Tyranny Exhausting into Presence and Mercy-Orchards"
 cluster: "Mind, Faith, Satire & Other Threads"

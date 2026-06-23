@@ -2,7 +2,7 @@
 title: "we want everyone to love our anti art results"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "15.08.2025"
 slug: "we-want-everyone-to-love-our-anti-art-results"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

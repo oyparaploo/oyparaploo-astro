@@ -2,7 +2,7 @@
 title: "Mud Game (Fragments)"
 variant: breath-display
 ground: dark
-date: "2025-09-26"
+date: "26.09.2025"
 slug: "mud-game-fragments"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

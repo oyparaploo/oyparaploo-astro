@@ -2,7 +2,7 @@
 title: "Also Mrs. Margaret"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "13.10.2025"
 slug: "also-mrs-margaret"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

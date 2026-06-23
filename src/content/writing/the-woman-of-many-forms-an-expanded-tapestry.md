@@ -2,7 +2,7 @@
 title: "The Woman of Many Forms: An Expanded Tapestry"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "06.08.2025"
 slug: "the-woman-of-many-forms-an-expanded-tapestry"
 category: "Luminous Shape-Shifting Women and Affirming Metamorphosis"
 cluster: "Metamorphosis & Transformation"

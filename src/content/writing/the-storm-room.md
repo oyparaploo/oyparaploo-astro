@@ -2,7 +2,7 @@
 title: "The Storm Room"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "02.09.2025"
 slug: "the-storm-room"
 category: "Hostile Architecture Met with Softness and Shelter"
 cluster: "Justice, Witness & the State"

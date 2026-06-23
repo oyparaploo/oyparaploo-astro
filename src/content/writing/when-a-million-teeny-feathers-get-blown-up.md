@@ -2,7 +2,7 @@
 title: "When a Million Teeny Feathers Get Blown Up"
 variant: breath-display
 ground: dark
-date: "January 16, 2026"
+date: "16.10.2025"
 slug: "when-a-million-teeny-feathers-get-blown-up"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

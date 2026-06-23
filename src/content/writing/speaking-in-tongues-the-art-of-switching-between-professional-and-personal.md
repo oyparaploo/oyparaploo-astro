@@ -2,7 +2,7 @@
 title: "Speaking in Tongues ~ The Art of Switching Between Professional and Personal"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "speaking-in-tongues-the-art-of-switching-between-professional-and-personal"
 category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
 cluster: "Voice, Listening & Speaking Craft"

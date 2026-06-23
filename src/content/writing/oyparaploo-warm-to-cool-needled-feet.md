@@ -2,7 +2,7 @@
 title: "Warm to Cool Needled Feet"
 variant: breath-display
 ground: dark
-date: "2026-06-08"
+date: "18.10.2025"
 slug: "oyparaploo-warm-to-cool-needled-feet"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

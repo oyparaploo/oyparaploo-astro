@@ -2,7 +2,7 @@
 title: "The Hook and Hold ~ Earning Extended Attention"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "the-hook-and-hold-earning-extended-attention"
 category: "Framing, Hooks, and the Architecture of a Talk"
 cluster: "Voice, Listening & Speaking Craft"

@@ -2,7 +2,7 @@
 title: "The Mercy Ward"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "01.08.2025"
 slug: "the-mercy-ward-notes-from-our-settlements-days"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

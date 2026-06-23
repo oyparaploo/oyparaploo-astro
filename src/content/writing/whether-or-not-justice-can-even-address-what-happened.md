@@ -2,7 +2,7 @@
 title: "Whether Or Not Justice Can Even Address What Happened"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "01.11.2025"
 slug: "whether-or-not-justice-can-even-address-what-happened"
 category: "Justice, Legal Fog, and Whether Accountability Is Possible"
 cluster: "Justice, Witness & the State"

@@ -2,7 +2,7 @@
 title: "Get Up"
 variant: breath-display
 ground: dark
-date: "January 12, 2026"
+date: "25.09.2025"
 slug: "get-up"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "The Carpenter's Daughter"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "08.08.2025"
 slug: "the-carpenters-daughter-stories-i-should-have-written-down-sooner"
 category: "Luminous Shape-Shifting Women and Affirming Metamorphosis"
 cluster: "Metamorphosis & Transformation"

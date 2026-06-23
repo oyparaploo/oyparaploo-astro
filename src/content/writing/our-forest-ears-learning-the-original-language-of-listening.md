@@ -2,7 +2,7 @@
 title: "Our Forest Ears ~ Learning the Original Language of Listening"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "17.09.2025"
 slug: "our-forest-ears-learning-the-original-language-of-listening"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

@@ -2,7 +2,7 @@
 title: "The Spell We Like to Say But Not to Tell"
 variant: reading
 ground: light
-date: "2025-11-17"
+date: "15.11.2025"
 slug: "the-spell-we-like-to-say-but-not-to-tell"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

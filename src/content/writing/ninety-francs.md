@@ -2,7 +2,7 @@
 title: "Ninety Francs"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "05.10.2025"
 slug: "ninety-francs"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

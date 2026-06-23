@@ -2,7 +2,7 @@
 title: "Democracy of Dispersal"
 variant: breath-display
 ground: dark
-date: "2025-09-30"
+date: "30.09.2025"
 slug: "democracy-of-dispersal"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

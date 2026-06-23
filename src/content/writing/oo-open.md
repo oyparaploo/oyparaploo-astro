@@ -2,7 +2,7 @@
 title: "oO'open"
 variant: breath-display
 ground: dark
-date: "2026-05-01"
+date: "08.10.2025"
 slug: "oo-open"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

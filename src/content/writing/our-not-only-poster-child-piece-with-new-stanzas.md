@@ -2,7 +2,7 @@
 title: "Our Not Only Poster Child Piece"
 variant: breath-display
 ground: dark
-date: "2026-04-15"
+date: "22.12.2025"
 slug: "our-not-only-poster-child-piece-with-new-stanzas"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "The Beautiful Garbage We Become"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "21.10.2025"
 slug: "the-beautiful-garbage-we-become"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

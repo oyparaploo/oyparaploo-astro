@@ -2,7 +2,7 @@
 title: "When the Green Dream Opens Its Mouth"
 variant: reading
 ground: light
-date: "2025-11-14"
+date: "11.11.2025"
 slug: "when-the-green-dream-opens-its-mouth"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

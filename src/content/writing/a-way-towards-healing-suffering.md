@@ -2,7 +2,7 @@
 title: "A Way Towards Healing Suffering"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "06.11.2025"
 slug: "a-way-towards-healing-suffering"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"

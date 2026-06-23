@@ -2,7 +2,7 @@
 title: "Terre de Bruyère ~ The Archive's Original Song"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "terre-de-bruy-re-the-archives-original-song"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

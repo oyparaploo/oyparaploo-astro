@@ -2,7 +2,7 @@
 title: "Where the River Dreams in Secret"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "where-the-river-dreams-in-secret"
 category: "Empathy Technology and Felt Inherited Memory"
 cluster: "Mind, Faith, Satire & Other Threads"

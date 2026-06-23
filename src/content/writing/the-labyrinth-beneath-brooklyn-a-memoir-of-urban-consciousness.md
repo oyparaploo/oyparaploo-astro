@@ -2,7 +2,7 @@
 title: "The Labyrinth Beneath Brooklyn ~ A Memoir of Urban Consciousness"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-labyrinth-beneath-brooklyn-a-memoir-of-urban-consciousness"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

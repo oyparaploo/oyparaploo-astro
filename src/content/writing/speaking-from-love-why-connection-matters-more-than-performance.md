@@ -2,7 +2,7 @@
 title: "Speaking from Love ~ Why Connection Matters More Than Performance"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "speaking-from-love-why-connection-matters-more-than-performance"
 category: "Speaking as Generosity, Love, and Connection"
 cluster: "Voice, Listening & Speaking Craft"

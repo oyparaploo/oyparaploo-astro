@@ -2,7 +2,7 @@
 title: "The Morning After Everything Went to Shit"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "the-morning-after-everything-went-to-shit"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

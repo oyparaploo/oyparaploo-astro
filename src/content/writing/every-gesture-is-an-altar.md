@@ -2,7 +2,7 @@
 title: "Every Gesture Is an Altar"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "24.10.2025"
 slug: "every-gesture-is-an-altar"
 category: "The Sacred in Ordinary Gestures and Small Mercies"
 cluster: "Spirit, Mortality & the Ordinary Divine"

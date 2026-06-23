@@ -2,7 +2,7 @@
 title: "The Eviction Notice: A Meditation on the Squatter in Your Mind"
 variant: reading
 ground: light
-date: "2025-09-22"
+date: "20.09.2025"
 slug: "eviction-notice-meditation"
 category: "The Inner Critic as Squatter, Tenant, and Comedy"
 cluster: "Mind, Faith, Satire & Other Threads"

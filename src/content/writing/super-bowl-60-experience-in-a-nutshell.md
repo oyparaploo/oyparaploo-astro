@@ -2,7 +2,7 @@
 title: "Super Bowl 60 Experience in a Nutshell"
 variant: breath-display
 ground: dark
-date: "2026-02-09"
+date: "12.12.2025"
 slug: "super-bowl-60-experience-in-a-nutshell"
 category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
 cluster: "Mind, Faith, Satire & Other Threads"

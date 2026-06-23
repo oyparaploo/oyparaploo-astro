@@ -2,7 +2,7 @@
 title: "When Rage Opens A Door and Causes A Significant Change"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "24.10.2025"
 slug: "when-rage-opens-a-door-and-causes-a-significant-change"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

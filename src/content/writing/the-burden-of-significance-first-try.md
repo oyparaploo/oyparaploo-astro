@@ -2,7 +2,7 @@
 title: "The Burden of Significance ~ First Try"
 variant: breath-display
 ground: dark
-date: "2025-08-25"
+date: "25.08.2025"
 slug: "the-burden-of-significance-first-try"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

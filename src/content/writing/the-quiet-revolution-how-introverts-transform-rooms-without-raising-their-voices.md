@@ -2,7 +2,7 @@
 title: "The Quiet Revolution ~ How Introverts Transform Rooms Without Raising Their Voices"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "the-quiet-revolution-how-introverts-transform-rooms-without-raising-their-voices"
 category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
 cluster: "Voice, Listening & Speaking Craft"

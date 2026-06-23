@@ -2,7 +2,7 @@
 title: "Good Grief"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "27.10.2025"
 slug: "the-quiet-courage-of-naming-sorrow"
 category: "\"Good Grief\" Cosmic-Visitor Meditations"
 cluster: "Grief, Loss & Compulsive Making"

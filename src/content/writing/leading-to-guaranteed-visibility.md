@@ -2,7 +2,7 @@
 title: "Leading to Guaranteed Visibility"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "12.10.2025"
 slug: "leading-to-guaranteed-visibility"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

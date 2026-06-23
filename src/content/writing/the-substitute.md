@@ -2,7 +2,7 @@
 title: "The Substitute"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "27.10.2025"
 slug: "the-substitute"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

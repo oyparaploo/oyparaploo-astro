@@ -2,7 +2,7 @@
 title: "The Hermès at the Food Bank"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "28.10.2025"
 slug: "the-herm-s-at-the-food-bank"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

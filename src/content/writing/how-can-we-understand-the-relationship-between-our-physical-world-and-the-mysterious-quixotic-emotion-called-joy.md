@@ -2,7 +2,7 @@
 title: "How can we Understand the Relationship between our Physical World and The Mysterious Quixotic Emotion called Joy"
 variant: breath-display
 ground: dark
-date: "2025-08-13"
+date: "13.08.2025"
 slug: "how-can-we-understand-the-relationship-between-our-physical-world-and-the-mysterious-quixotic-emotion-called-joy"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

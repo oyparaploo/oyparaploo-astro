@@ -2,7 +2,7 @@
 title: "Close the Door and Open It Again"
 variant: breath-display
 ground: dark
-date: "2025-10-09"
+date: "08.10.2025"
 slug: "close-the-door-and-open-it-again"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

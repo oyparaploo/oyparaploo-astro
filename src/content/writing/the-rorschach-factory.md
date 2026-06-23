@@ -2,7 +2,7 @@
 title: "The Rorschach Factory"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-rorschach-factory"
 category: "Coded Folk Craft Smuggling Female Power and Memory"
 cluster: "Migration, Lineage & Belonging"

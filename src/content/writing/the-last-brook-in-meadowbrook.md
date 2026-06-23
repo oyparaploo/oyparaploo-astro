@@ -2,7 +2,7 @@
 title: "The Last Brook in Meadowbrook"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-last-brook-in-meadowbrook"
 category: "Dying Brooks, Watersheds, and Inherited Water Records"
 cluster: "Ecology, Climate & Animals"

@@ -2,7 +2,7 @@
 title: "Actions Speak Louder Than Words"
 variant: breath-display
 ground: dark
-date: "April 7, 2026"
+date: "28.09.2025"
 slug: "actions-speak-louder-than-words"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

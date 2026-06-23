@@ -2,7 +2,7 @@
 title: "Unnamed Water Mill Stones"
 variant: breath-display
 ground: dark
-date: "2026-06-06"
+date: "24.12.2025"
 slug: "oyparaploo-unnamed-water-mill-stones"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

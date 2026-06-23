@@ -2,7 +2,7 @@
 title: "Empire of Cells ~ Where Grief Becomes Resistance"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "empire-of-cells-where-grief-becomes-resistance"
 category: "Incarceration, Disappearance, and Grief as Resistance"
 cluster: "Justice, Witness & the State"

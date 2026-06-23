@@ -2,7 +2,7 @@
 title: "Your Vital Tone ~ The Hidden Symphony of Life"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "11.08.2025"
 slug: "your-vital-tone-the-hidden-symphony-of-life"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

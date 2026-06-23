@@ -2,7 +2,7 @@
 title: "Chapter Twelve ~ The Microphone’s Lie"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "21.08.2025"
 slug: "chapter-twelve-the-microphones-lie"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

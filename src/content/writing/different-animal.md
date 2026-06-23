@@ -2,7 +2,7 @@
 title: "Different animal"
 variant: breath-display
 ground: dark
-date: "2025-08-11"
+date: "11.08.2025"
 slug: "different-animal"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

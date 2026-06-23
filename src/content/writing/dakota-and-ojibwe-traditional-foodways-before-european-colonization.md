@@ -2,7 +2,7 @@
 title: "Dakota and Ojibwe Traditional Foodways Before European Colonization"
 variant: reading
 ground: light
-date: "2025-11-25"
+date: "25.11.2025"
 slug: "dakota-and-ojibwe-traditional-foodways-before-european-colonization"
 category: "Indigenous Foodways and Food Sovereignty"
 cluster: "Ecology, Climate & Animals"

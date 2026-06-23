@@ -2,7 +2,7 @@
 title: "The Last Executive"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-last-executive"
 category: "Faith Confronting Climate Catastrophe"
 cluster: "Ecology, Climate & Animals"

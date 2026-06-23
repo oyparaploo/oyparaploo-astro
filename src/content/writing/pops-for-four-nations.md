@@ -2,7 +2,7 @@
 title: "Pops For Four Nations"
 variant: reading
 ground: light
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "pops-for-four-nations"
 category: "Faith Confronting Climate Catastrophe"
 cluster: "Ecology, Climate & Animals"

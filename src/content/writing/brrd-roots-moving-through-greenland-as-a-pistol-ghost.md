@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Moving Through Greenland as a Pistol Ghost"
 variant: reading
 ground: light
-date: "2025-08-11"
+date: "07.08.2025"
 slug: "brrd-roots-moving-through-greenland-as-a-pistol-ghost"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

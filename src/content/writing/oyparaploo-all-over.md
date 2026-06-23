@@ -2,7 +2,7 @@
 title: "All Over"
 variant: breath-display
 ground: dark
-date: "2026-06-06"
+date: "17.10.2025"
 slug: "oyparaploo-all-over"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

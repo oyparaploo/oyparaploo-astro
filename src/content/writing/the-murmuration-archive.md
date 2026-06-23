@@ -2,7 +2,7 @@
 title: "The Murmuration Archive"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-murmuration-archive"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

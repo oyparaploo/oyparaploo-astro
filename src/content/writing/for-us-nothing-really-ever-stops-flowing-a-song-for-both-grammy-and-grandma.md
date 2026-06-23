@@ -2,7 +2,7 @@
 title: "For Us Nothing Really Ever Stops Flowing ~ A Song for both Grammy and Grandma"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "04.08.2025"
 slug: "for-us-nothing-really-ever-stops-flowing-a-song-for-both-grammy-and-grandma"
 category: "Continuum Elegies: Death as Flow Rather Than Ending"
 cluster: "Spirit, Mortality & the Ordinary Divine"

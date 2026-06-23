@@ -2,7 +2,7 @@
 title: "The Wind Engineers"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-wind-engineers"
 category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
 cluster: "Ecology, Climate & Animals"

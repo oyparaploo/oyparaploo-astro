@@ -2,7 +2,7 @@
 title: "The Night Shift Collective"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "28.10.2025"
 slug: "the-night-shift-collective"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

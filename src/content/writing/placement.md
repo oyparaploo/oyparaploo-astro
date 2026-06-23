@@ -2,7 +2,7 @@
 title: "Placement"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "placement"
 category: "Children of the Foster and Courthouse System"
 cluster: "Justice, Witness & the State"

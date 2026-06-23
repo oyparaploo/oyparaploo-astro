@@ -2,7 +2,7 @@
 title: "Deadly Sin of Being Right ~ How Dogmatism Kills Effective Communication"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "deadly-sin-of-being-right-how-dogmatism-kills-effective-communication"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

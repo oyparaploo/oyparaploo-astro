@@ -2,7 +2,7 @@
 title: "More Human Than Human"
 variant: breath-display
 ground: dark
-date: "January 2026"
+date: "12.08.2025"
 slug: "more-human-than-human"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

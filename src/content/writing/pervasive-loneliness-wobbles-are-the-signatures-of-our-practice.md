@@ -2,7 +2,7 @@
 title: "Pervasive Loneliness Wobbles Are the Signatures of Our Practice"
 variant: breath-display
 ground: dark
-date: "April 8, 2026"
+date: "21.12.2025"
 slug: "pervasive-loneliness-wobbles-are-the-signatures-of-our-practice"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

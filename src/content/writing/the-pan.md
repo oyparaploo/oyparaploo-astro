@@ -2,7 +2,7 @@
 title: "The Pan"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "the-pan"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

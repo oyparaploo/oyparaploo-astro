@@ -2,7 +2,7 @@
 title: "Mystery of Disposable and Obsolete Human Employment (Part Four)"
 variant: breath-display
 ground: dark
-date: "2025-11-20"
+date: "20.11.2025"
 slug: "mystery-of-disposable-and-obsolete-human-employment-part-four"
 category: "Human Obsolescence, Automation, and the Economy of Shadows"
 cluster: "Labor, Value & the Made Object"

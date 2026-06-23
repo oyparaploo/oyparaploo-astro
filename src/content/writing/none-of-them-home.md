@@ -2,7 +2,7 @@
 title: "None of Them Home"
 variant: breath-display
 ground: dark
-date: "2025-09-09"
+date: "09.09.2025"
 slug: "none-of-them-home"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Assembled Aspects"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "25.10.2025"
 slug: "assembled-aspects"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

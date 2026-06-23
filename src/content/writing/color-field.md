@@ -2,7 +2,7 @@
 title: "Color Field"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "14.10.2025"
 slug: "color-field"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

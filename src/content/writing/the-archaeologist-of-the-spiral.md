@@ -2,7 +2,7 @@
 title: "The Archaeologist of the Spiral"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "23.10.2025"
 slug: "the-archaeologist-of-the-spiral"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

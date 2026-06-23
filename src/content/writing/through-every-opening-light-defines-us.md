@@ -2,7 +2,7 @@
 title: "Through Every Opening ~ Light Defines Us"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "31.07.2025"
 slug: "through-every-opening-light-defines-us"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

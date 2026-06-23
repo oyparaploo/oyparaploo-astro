@@ -2,7 +2,7 @@
 title: "The Resonance of Being ~ How Different Ways of Identity Create Their Own Tones"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "23.08.2025"
 slug: "the-resonance-of-being-how-different-ways-of-identity-create-their-own-tones"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

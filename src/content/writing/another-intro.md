@@ -2,7 +2,7 @@
 title: "Another Intro"
 variant: breath-display
 ground: dark
-date: "2026-01-31"
+date: "13.08.2025"
 slug: "another-intro"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

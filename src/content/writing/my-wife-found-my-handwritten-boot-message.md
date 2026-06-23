@@ -2,7 +2,7 @@
 title: "My Wife Found My Handwritten Boot Message"
 variant: breath-display
 ground: dark
-date: "2025-09-16"
+date: "16.09.2025"
 slug: "my-wife-found-my-handwritten-boot-message"
 category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
 cluster: "Mind, Faith, Satire & Other Threads"

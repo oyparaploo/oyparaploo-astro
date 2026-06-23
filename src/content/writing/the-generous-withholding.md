@@ -2,7 +2,7 @@
 title: "The Generous Withholding"
 variant: reading
 ground: light
-date: "2025-11-17"
+date: "16.11.2025"
 slug: "the-generous-withholding"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

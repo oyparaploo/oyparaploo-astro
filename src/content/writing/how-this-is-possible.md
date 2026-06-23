@@ -2,7 +2,7 @@
 title: "How This Is Possible"
 variant: breath-display
 ground: dark
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "how-this-is-possible"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

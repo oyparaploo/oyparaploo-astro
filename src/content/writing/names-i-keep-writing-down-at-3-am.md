@@ -2,7 +2,7 @@
 title: "Names I Keep Writing Down at 3 AM"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "names-i-keep-writing-down-at-3-am"
 category: "Compulsive Name-Collecting of People Who Don't Exist Yet"
 cluster: "Labor, Value & the Made Object"

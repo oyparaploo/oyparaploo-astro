@@ -2,7 +2,7 @@
 title: "Systems of Understanding ~ Why No Two People Listen in the Same Way"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "15.09.2025"
 slug: "systems-of-understanding-why-no-two-people-listen-in-the-same-way"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

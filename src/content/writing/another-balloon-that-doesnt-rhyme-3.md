@@ -2,7 +2,7 @@
 title: "Another balloon that does not rhyme"
 variant: breath-display
 ground: dark
-date: "2025-07-22"
+date: "22.07.2025"
 slug: "another-balloon-that-doesnt-rhyme-3"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

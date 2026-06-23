@@ -2,7 +2,7 @@
 title: "All this stuff gratefully will carry us to our deathbed days"
 variant: breath-display
 ground: dark
-date: "2025-07-16"
+date: "12.07.2025"
 slug: "all-this-stuff-gratefully-will-carry-us-1"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

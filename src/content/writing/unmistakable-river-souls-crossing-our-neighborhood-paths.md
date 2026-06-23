@@ -2,7 +2,7 @@
 title: "Unmistakable River Souls Crossing Our Neighborhood Paths"
 variant: breath-display
 ground: dark
-date: "2025-07-22"
+date: "22.07.2025"
 slug: "unmistakable-river-souls-crossing-our-neighborhood-paths"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

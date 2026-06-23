@@ -2,7 +2,7 @@
 title: "The Final Song ~ Where Roots Become Wings"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "08.08.2025"
 slug: "the-song-where-roots-become-wings"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

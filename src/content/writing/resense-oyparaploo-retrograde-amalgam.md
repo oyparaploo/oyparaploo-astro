@@ -2,7 +2,7 @@
 title: "Resense Oyparaploo Retrograde Amalgam"
 variant: breath-display
 ground: dark
-date: "April 7, 2026"
+date: "20.12.2025"
 slug: "resense-oyparaploo-retrograde-amalgam"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Oh Coherent Weakness"
 variant: breath-display
 ground: dark
-date: "2026-06-01"
+date: "16.10.2025"
 slug: "oh-coherent-weakness"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

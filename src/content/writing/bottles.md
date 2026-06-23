@@ -2,7 +2,7 @@
 title: "Bottles"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "14.10.2025"
 slug: "bottles"
 category: "Anorexia, Self-Neglect, and the Body Quietly Disappearing"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "The Paradox of Infinite Choice ~ Why Perpetual Possibility Becomes Its Own Prison"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "13.08.2025"
 slug: "the-paradox-of-infinite-choice-why-perpetual-possibility-becomes-its-own-prison"
 category: "Commitment, Infinite Choice, and the Prison of Open Options"
 cluster: "Connection, Relationships & the Digital"

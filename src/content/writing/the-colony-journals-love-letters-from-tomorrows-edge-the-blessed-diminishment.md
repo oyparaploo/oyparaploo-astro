@@ -2,7 +2,7 @@
 title: "The Colony Journals ~ Love Letters from Tomorrow's Edge ~ The Blessed Diminishment"
 variant: breath-display
 ground: dark
-date: "2025-08-08"
+date: "08.08.2025"
 slug: "the-colony-journals-love-letters-from-tomorrows-edge-the-blessed-diminishment"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

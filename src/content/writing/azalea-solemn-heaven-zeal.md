@@ -2,7 +2,7 @@
 title: "AzaLea SoleMN HeaVen ZeaL"
 variant: breath-display
 ground: dark
-date: "2026-04-13"
+date: "23.06.2025"
 slug: "azalea-solemn-heaven-zeal"
 category: "Asylum Law and the Burden of Proving Fear"
 cluster: "Justice, Witness & the State"

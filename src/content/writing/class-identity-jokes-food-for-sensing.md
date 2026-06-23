@@ -2,7 +2,7 @@
 title: "Class Identity Jokes (food for sensing)"
 variant: breath-display
 ground: dark
-date: "2025-11-26"
+date: "26.11.2025"
 slug: "class-identity-jokes-food-for-sensing"
 category: "Indigenous Foodways and Food Sovereignty"
 cluster: "Ecology, Climate & Animals"

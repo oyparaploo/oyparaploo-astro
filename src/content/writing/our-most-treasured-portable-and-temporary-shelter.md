@@ -2,7 +2,7 @@
 title: "Our Most Treasured Portable and Temporary Shelter"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "01.09.2025"
 slug: "our-most-treasured-portable-and-temporary-shelter"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

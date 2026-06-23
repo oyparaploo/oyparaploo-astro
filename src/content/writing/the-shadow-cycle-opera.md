@@ -2,7 +2,7 @@
 title: "The Shadow Cycle Opera"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-shadow-cycle-opera"
 category: "Surreal Theater, Operas, and Performance Scores"
 cluster: "Story-Cycles, Thrillers & Performance"

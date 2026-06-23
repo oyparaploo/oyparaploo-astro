@@ -2,7 +2,7 @@
 title: "In Our Room That Has No Walls or Borders"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "02.09.2025"
 slug: "in-our-room-that-has-no-walls-or-borders"
 category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
 cluster: "Spirit, Mortality & the Ordinary Divine"

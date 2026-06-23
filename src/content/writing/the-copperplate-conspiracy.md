@@ -2,7 +2,7 @@
 title: "The Copperplate Conspiracy"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-copperplate-conspiracy"
 category: "Coded Folk Craft Smuggling Female Power and Memory"
 cluster: "Migration, Lineage & Belonging"

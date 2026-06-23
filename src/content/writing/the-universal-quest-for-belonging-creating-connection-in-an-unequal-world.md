@@ -2,7 +2,7 @@
 title: "The Universal Quest for Belonging ~ Creating Connection in an Unequal World"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "12.08.2025"
 slug: "the-universal-quest-for-belonging-creating-connection-in-an-unequal-world"
 category: "Family, Belonging, and Who Gets to Build Connection"
 cluster: "Connection, Relationships & the Digital"

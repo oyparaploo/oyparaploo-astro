@@ -2,7 +2,7 @@
 title: "a show that happens on the side, near"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "18.12.2025"
 slug: "a-show-that-happens-on-the-side-near"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

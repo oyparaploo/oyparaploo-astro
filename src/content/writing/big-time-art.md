@@ -2,7 +2,7 @@
 title: "big time art"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "15.10.2025"
 slug: "big-time-art"
 category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
 cluster: "Grief, Loss & Compulsive Making"

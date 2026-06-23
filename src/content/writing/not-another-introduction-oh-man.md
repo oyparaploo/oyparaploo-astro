@@ -2,7 +2,7 @@
 title: "Not Another Introduction, Oh Man"
 variant: breath-display
 ground: dark
-date: "2026-02-03"
+date: "14.08.2025"
 slug: "not-another-introduction-oh-man"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

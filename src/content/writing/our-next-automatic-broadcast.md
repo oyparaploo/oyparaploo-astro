@@ -2,7 +2,7 @@
 title: "Our Next Automatic Broadcast"
 variant: reading
 ground: light
-date: "2025-08-25"
+date: "25.08.2025"
 slug: "our-next-automatic-broadcast"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "The Comedy of Inner Tyranny ~ A Conversation with the Voice That Isn't You"
 variant: reading
 ground: light
-date: "2025-09-22"
+date: "22.09.2025"
 slug: "the-comedy-of-inner-tyranny-a-conversation-with-the-voice-that-isnt-you"
 category: "The Inner Critic as Squatter, Tenant, and Comedy"
 cluster: "Mind, Faith, Satire & Other Threads"

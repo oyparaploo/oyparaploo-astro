@@ -2,7 +2,7 @@
 title: "Your Emotional Tone ~ The Frequency of Feeling Through Sound"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "18.08.2025"
 slug: "your-emotional-tone-the-frequency-of-feeling-through-sound"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

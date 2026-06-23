@@ -2,7 +2,7 @@
 title: "Beneath the Surface ~ Where Heaven Grows in Soil"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "beneath-the-surface-where-heaven-grows-in-soil"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

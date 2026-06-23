@@ -2,7 +2,7 @@
 title: "Like Thursday"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "11.10.2025"
 slug: "like-thursday"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

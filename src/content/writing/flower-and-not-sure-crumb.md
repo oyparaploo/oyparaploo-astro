@@ -2,7 +2,7 @@
 title: "Flower and not sure crumb"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "flower-and-not-sure-crumb"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

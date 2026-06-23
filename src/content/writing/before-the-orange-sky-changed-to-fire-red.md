@@ -2,7 +2,7 @@
 title: "before the orange sky changed to fire red"
 variant: breath-display
 ground: dark
-date: "2025-07-28"
+date: "28.07.2025"
 slug: "before-the-orange-sky-changed-to-fire-red"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

@@ -2,7 +2,7 @@
 title: "Morton Salty Bland"
 variant: breath-display
 ground: dark
-date: "February 12, 2026"
+date: "25.10.2025"
 slug: "morton-salty-bland"
 category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
 cluster: "Senses, Tone & the Body"

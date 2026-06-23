@@ -2,7 +2,7 @@
 title: "MUNICIPAL REGISTRY OF PENDING PERSONS"
 variant: reading
 ground: light
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "municipal-registry-of-pending-persons"
 category: "Mock Bureaucratic Registries of Half-Existent People"
 cluster: "Labor, Value & the Made Object"

@@ -2,7 +2,7 @@
 title: "Do this and succeed"
 variant: breath-display
 ground: dark
-date: "2025-08-11"
+date: "10.08.2025"
 slug: "do-this-and-succeed"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

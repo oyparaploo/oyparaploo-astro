@@ -2,7 +2,7 @@
 title: "Not A Perfect Warm Togetherness Score Thank You"
 variant: breath-display
 ground: dark
-date: "2026-04-28"
+date: "19.11.2025"
 slug: "not-a-perfect-warm-togetherness-score-thank-you"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

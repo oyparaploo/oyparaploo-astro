@@ -2,7 +2,7 @@
 title: "Plantless Garden"
 variant: breath-display
 ground: dark
-date: "January 21, 2026"
+date: "17.12.2025"
 slug: "plantless-garden"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

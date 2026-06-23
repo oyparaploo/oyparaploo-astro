@@ -2,7 +2,7 @@
 title: "Your Changing Tone ~ How Every Human Action is a Full Sensory Bouquet of Music"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "19.08.2025"
 slug: "your-changing-tone-how-every-human-action-is-a-full-sensory-bouquet-of-music"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

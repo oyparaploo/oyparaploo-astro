@@ -2,7 +2,7 @@
 title: "The Sonic Callus ~ Finding Silence in Noisy Places"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "19.09.2025"
 slug: "the-sonic-callus-finding-silence-in-noisy-places"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

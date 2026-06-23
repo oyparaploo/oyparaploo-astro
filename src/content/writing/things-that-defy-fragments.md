@@ -2,7 +2,7 @@
 title: "Things That Defy (fragments)"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "things-that-defy-fragments"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

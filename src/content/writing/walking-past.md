@@ -2,7 +2,7 @@
 title: "Walking Past"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "15.10.2025"
 slug: "walking-past"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

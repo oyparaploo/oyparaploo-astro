@@ -2,7 +2,7 @@
 title: "The Tenant You Never Invited ~ On Discovering Who's Really in Charge"
 variant: reading
 ground: light
-date: "2025-09-22"
+date: "19.09.2025"
 slug: "the-tenant-you-never-invited-on-discovering-whos-really-in-charge"
 category: "The Inner Critic as Squatter, Tenant, and Comedy"
 cluster: "Mind, Faith, Satire & Other Threads"

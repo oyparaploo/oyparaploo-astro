@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ The Final Understanding of Still Quiet Growth"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-understanding-of-still-quiet-growth"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

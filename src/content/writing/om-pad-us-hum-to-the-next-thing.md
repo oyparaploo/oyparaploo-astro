@@ -2,7 +2,7 @@
 title: "Om Pad Us Hum To the Next Thing"
 variant: breath-display
 ground: dark
-date: "2026-04-24"
+date: "04.10.2025"
 slug: "om-pad-us-hum-to-the-next-thing"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

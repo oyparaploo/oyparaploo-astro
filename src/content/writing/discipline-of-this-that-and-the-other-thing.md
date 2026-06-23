@@ -2,7 +2,7 @@
 title: "Discipline of This That and The Other Thing"
 variant: breath-display
 ground: dark
-date: "2026-03-28"
+date: "01.11.2025"
 slug: "discipline-of-this-that-and-the-other-thing"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

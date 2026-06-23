@@ -2,7 +2,7 @@
 title: "The Work of Oyparaploo"
 variant: breath-display
 ground: dark
-date: "2025-12-12"
+date: "12.12.2025"
 slug: "the-work-of-oyparaploo"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

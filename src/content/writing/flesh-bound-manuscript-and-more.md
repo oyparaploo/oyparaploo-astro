@@ -2,7 +2,7 @@
 title: "Flesh Bound Manuscript and More"
 variant: breath-display
 ground: dark
-date: "2025-08-10"
+date: "04.08.2025"
 slug: "flesh-bound-manuscript-and-more"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

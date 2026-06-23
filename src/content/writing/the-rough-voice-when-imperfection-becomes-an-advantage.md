@@ -2,7 +2,7 @@
 title: "The Rough Voice ~ When Imperfection Becomes an Advantage"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "19.09.2025"
 slug: "the-rough-voice-when-imperfection-becomes-an-advantage"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

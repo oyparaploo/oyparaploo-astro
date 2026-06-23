@@ -2,7 +2,7 @@
 title: "The Resonance Between Worlds ~ Humanity's Quest to Hear the Light"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "22.08.2025"
 slug: "the-resonance-between-worlds-humanitys-quest-to-hear-the-light"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

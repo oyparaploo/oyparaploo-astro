@@ -2,7 +2,7 @@
 title: "What Ants Would Worship"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "12.10.2025"
 slug: "what-ants-would-worship"
 category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
 cluster: "Grief, Loss & Compulsive Making"

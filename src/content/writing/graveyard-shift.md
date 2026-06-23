@@ -2,7 +2,7 @@
 title: "Graveyard Shift"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "graveyard-shift"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

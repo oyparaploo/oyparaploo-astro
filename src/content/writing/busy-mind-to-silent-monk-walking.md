@@ -2,7 +2,7 @@
 title: "busy mind to silent monk walking"
 variant: breath-display
 ground: dark
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "busy-mind-to-silent-monk-walking"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

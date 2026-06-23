@@ -2,7 +2,7 @@
 title: "When Masks Are A Little Too Heavy"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "24.10.2025"
 slug: "when-masks-are-a-little-too-heavy"
 category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
 cluster: "Senses, Tone & the Body"

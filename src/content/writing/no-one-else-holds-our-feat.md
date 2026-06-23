@@ -2,7 +2,7 @@
 title: "No One Else Holds Our Feat"
 variant: breath-display
 ground: dark
-date: "2026-05-30"
+date: "16.12.2025"
 slug: "no-one-else-holds-our-feat"
 category: "Incarceration, Disappearance, and Grief as Resistance"
 cluster: "Justice, Witness & the State"

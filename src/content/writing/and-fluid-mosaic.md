@@ -2,7 +2,7 @@
 title: "And fluid mosaic"
 variant: breath-display
 ground: dark
-date: "2025-07-19"
+date: "19.07.2025"
 slug: "and-fluid-mosaic"
 category: "Continuum Elegies: Death as Flow Rather Than Ending"
 cluster: "Spirit, Mortality & the Ordinary Divine"

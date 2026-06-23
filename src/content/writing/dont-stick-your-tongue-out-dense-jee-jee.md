@@ -2,7 +2,7 @@
 title: "Don't Stick Your Tongue Out Dense Jee Jee Gushes Over Patience Induced Attention"
 variant: breath-display
 ground: dark
-date: "May 27, 2026"
+date: "15.10.2025"
 slug: "dont-stick-your-tongue-out-dense-jee-jee"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

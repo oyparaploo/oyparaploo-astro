@@ -2,7 +2,7 @@
 title: "Bet Do Feed Cut"
 variant: breath-display
 ground: dark
-date: "2026-04-23"
+date: "03.10.2025"
 slug: "bet-do-feed-cut"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Floating wildfire flake"
 variant: breath-display
 ground: dark
-date: "2025-08-13"
+date: "13.08.2025"
 slug: "floating-wildfire-flake"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

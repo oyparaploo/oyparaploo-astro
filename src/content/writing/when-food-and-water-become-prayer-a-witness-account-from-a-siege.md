@@ -2,7 +2,7 @@
 title: "When Food and Water Become Prayer"
 variant: breath-display
 ground: dark
-date: "2025-07-28"
+date: "28.07.2025"
 slug: "when-food-and-water-become-prayer-a-witness-account-from-a-siege"
 category: "Siege, Famine, and Tenderness Engineered Out of Existence"
 cluster: "Justice, Witness & the State"

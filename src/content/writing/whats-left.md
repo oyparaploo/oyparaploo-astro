@@ -2,7 +2,7 @@
 title: "What's Left"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "27.10.2025"
 slug: "whats-left"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

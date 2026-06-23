@@ -2,7 +2,7 @@
 title: "For Now Swallowed Whole"
 variant: breath-display
 ground: dark
-date: "February 12, 2026"
+date: "28.07.2025"
 slug: "for-now-swallowed-whole"
 category: "Political Hearings, Cover-Ups, and the Word \"Children\""
 cluster: "Justice, Witness & the State"

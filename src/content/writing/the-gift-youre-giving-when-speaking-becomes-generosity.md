@@ -2,7 +2,7 @@
 title: "The Gift You're Giving ~ When Speaking Becomes Generosity"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "20.09.2025"
 slug: "the-gift-youre-giving-when-speaking-becomes-generosity"
 category: "Speaking as Generosity, Love, and Connection"
 cluster: "Voice, Listening & Speaking Craft"

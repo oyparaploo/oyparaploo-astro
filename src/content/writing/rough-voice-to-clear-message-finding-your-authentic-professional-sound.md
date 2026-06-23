@@ -2,7 +2,7 @@
 title: "Rough Voice to Clear Message ~ Finding Your Authentic Professional Sound"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "rough-voice-to-clear-message-finding-your-authentic-professional-sound"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

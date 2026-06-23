@@ -2,7 +2,7 @@
 title: "Dazed Hymns ~ Inheritance and Fluid Stream"
 variant: breath-display
 ground: dark
-date: "2025-08-01"
+date: "01.08.2025"
 slug: "dazed-hymns-inheritance-and-fluid-stream"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

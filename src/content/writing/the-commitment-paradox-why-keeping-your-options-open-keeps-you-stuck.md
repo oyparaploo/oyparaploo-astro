@@ -2,7 +2,7 @@
 title: "The Commitment Paradox ~ Why Keeping Your Options Open Keeps You Stuck"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "the-commitment-paradox-why-keeping-your-options-open-keeps-you-stuck"
 category: "Commitment, Infinite Choice, and the Prison of Open Options"
 cluster: "Connection, Relationships & the Digital"

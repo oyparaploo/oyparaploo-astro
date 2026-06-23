@@ -2,7 +2,7 @@
 title: "Too Much"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "13.10.2025"
 slug: "too-much"
 category: "Anorexia, Self-Neglect, and the Body Quietly Disappearing"
 cluster: "Grief, Loss & Compulsive Making"

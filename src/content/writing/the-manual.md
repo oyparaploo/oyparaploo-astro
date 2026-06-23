@@ -2,7 +2,7 @@
 title: "The Manual"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "30.10.2025"
 slug: "the-manual"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

@@ -2,7 +2,7 @@
 title: "Metal Prayers for the Living"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "13.10.2025"
 slug: "metal-prayers-for-the-living"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

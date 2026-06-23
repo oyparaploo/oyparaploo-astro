@@ -2,7 +2,7 @@
 title: "THE BODY BROADCAST ~ Our 30 Trillion Cells Are Throwing a Party and You're All Invited"
 variant: reading
 ground: light
-date: "2025-08-13"
+date: "12.08.2025"
 slug: "the-body-broadcast-our-30-trillion-cells-are-throwing-a-party-and-youre-all-invited"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

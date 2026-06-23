@@ -2,7 +2,7 @@
 title: "The Magnetic Pull ~ Creating the Desire to Listen"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "the-magnetic-pull-creating-the-desire-to-listen"
 category: "Code-Switching, Magnetic Attention, and Carrying Truth Well"
 cluster: "Voice, Listening & Speaking Craft"

@@ -2,7 +2,7 @@
 title: "The Exhalation"
 variant: reading
 ground: light
-date: "2025-10-15"
+date: "15.10.2025"
 slug: "the-exhalation-i"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "The Naked Archaeologist"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "20.10.2025"
 slug: "the-naked-archaeologist"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

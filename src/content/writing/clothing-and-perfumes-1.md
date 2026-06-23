@@ -2,7 +2,7 @@
 title: "Clothing and perfumes"
 variant: breath-display
 ground: dark
-date: "2025-08-07"
+date: "07.08.2025"
 slug: "clothing-and-perfumes-1"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"

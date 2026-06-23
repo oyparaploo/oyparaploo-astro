@@ -2,7 +2,7 @@
 title: "The Vocabulary Arrives Before The Bullet"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "28.06.2025"
 slug: "the-vocabulary-arrives-before-the-bullet"
 category: "Minneapolis State-Violence Witness-Poems"
 cluster: "Justice, Witness & the State"

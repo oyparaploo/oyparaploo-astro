@@ -2,7 +2,7 @@
 title: "The Journey of Connection ~ Understanding Relationships, Solitude, and Self Discovery"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "the-journey-of-connection-understanding-relationships-solitude-and-self-discovery"
 category: "Relationships, Soulmates, and the Myth of the Perfect Partner"
 cluster: "Connection, Relationships & the Digital"

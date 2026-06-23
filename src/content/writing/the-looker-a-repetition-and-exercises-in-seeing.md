@@ -2,7 +2,7 @@
 title: "The Looker"
 variant: breath-display
 ground: dark
-date: "2025-07-27"
+date: "27.07.2025"
 slug: "the-looker-a-repetition-and-exercises-in-seeing"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

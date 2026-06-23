@@ -2,7 +2,7 @@
 title: "The Waiting Room"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "27.10.2025"
 slug: "the-waiting-room"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

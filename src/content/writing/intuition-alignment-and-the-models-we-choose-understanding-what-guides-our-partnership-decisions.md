@@ -2,7 +2,7 @@
 title: "Intuition, Alignment, and the Models We Choose ~ Understanding What Guides Our Partnership Decisions"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "13.08.2025"
 slug: "intuition-alignment-and-the-models-we-choose-understanding-what-guides-our-partnership-decisions"
 category: "Partner Choice as Architecting a Future Family"
 cluster: "Connection, Relationships & the Digital"

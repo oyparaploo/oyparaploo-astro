@@ -2,7 +2,7 @@
 title: "we-begin-by-knowing-their-language"
 variant: breath-display
 ground: dark
-date: "2026-04-14"
+date: "17.10.2025"
 slug: "we-begin-by-knowing-their-language"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

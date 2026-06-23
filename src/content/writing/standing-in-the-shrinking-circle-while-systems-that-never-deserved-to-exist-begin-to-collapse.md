@@ -2,7 +2,7 @@
 title: "Standing in the Shrinking Circle While Systems That Never Deserved to Exist Begin to Collapse"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "standing-in-the-shrinking-circle-while-systems-that-never-deserved-to-exist-begin-to-collapse"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

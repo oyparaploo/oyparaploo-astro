@@ -2,7 +2,7 @@
 title: "The Tone You Cannot Escape ~ How Space Reveals Your Hidden Voice"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "20.08.2025"
 slug: "the-tone-you-cannot-escape-how-space-reveals-your-hidden-voice"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

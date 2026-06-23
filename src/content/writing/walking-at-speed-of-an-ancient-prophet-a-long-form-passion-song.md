@@ -2,7 +2,7 @@
 title: "Walking at Speed of an Ancient Prophet (A Long Form Passion Song)"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "03.08.2025"
 slug: "walking-at-speed-of-an-ancient-prophet-a-long-form-passion-song"
 category: "Continuum Elegies: Death as Flow Rather Than Ending"
 cluster: "Spirit, Mortality & the Ordinary Divine"

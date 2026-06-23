@@ -2,7 +2,7 @@
 title: "Twenty-Four Seven Wonder"
 variant: breath-display
 ground: dark
-date: "2026-06-06"
+date: "02.12.2025"
 slug: "oyparaploo-twenty-four-seven-wonder"
 category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
 cluster: "Spirit, Mortality & the Ordinary Divine"

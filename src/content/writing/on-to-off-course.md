@@ -2,7 +2,7 @@
 title: "On To Off Course"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "on-to-off-course"
 category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
 cluster: "Story-Cycles, Thrillers & Performance"

@@ -2,7 +2,7 @@
 title: "What Yuki Saw When She Stopped Pretending She Could See"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "what-yuki-saw-when-she-stopped-pretending-she-could-see"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

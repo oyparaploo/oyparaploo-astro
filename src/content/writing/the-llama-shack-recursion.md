@@ -2,7 +2,7 @@
 title: "THE LLAMA SHACK RECURSION"
 variant: reading
 ground: light
-date: "2025-09-04"
+date: "04.09.2025"
 slug: "the-llama-shack-recursion"
 category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
 cluster: "Connection, Relationships & the Digital"

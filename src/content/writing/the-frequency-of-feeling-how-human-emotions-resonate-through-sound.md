@@ -2,7 +2,7 @@
 title: "The Frequency of Feeling ~ How Human Emotions Resonate Through Sound"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "24.08.2025"
 slug: "the-frequency-of-feeling-how-human-emotions-resonate-through-sound"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

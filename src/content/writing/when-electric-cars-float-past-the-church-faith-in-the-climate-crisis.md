@@ -2,7 +2,7 @@
 title: "When Electric Cars Float Past the Church ~ Faith in the Climate Crisis"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "when-electric-cars-float-past-the-church-faith-in-the-climate-crisis"
 category: "Faith Confronting Climate Catastrophe"
 cluster: "Ecology, Climate & Animals"

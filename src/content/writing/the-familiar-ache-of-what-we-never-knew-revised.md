@@ -2,7 +2,7 @@
 title: "Good Grief"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "29.10.2025"
 slug: "the-familiar-ache-of-what-we-never-knew-revised"
 category: "\"Good Grief\" Cosmic-Visitor Meditations"
 cluster: "Grief, Loss & Compulsive Making"

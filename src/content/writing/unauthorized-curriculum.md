@@ -2,7 +2,7 @@
 title: "Unauthorized Curriculum"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "unauthorized-curriculum"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

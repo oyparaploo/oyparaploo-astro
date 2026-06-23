@@ -2,7 +2,7 @@
 title: "Static meeting Signal between Frequencies ~ Breathing Through Floating Ash and Light II"
 variant: breath-display
 ground: dark
-date: "2025-07-29"
+date: "29.07.2025"
 slug: "static-meeting-signal-between-frequencies-breathing-through-floating-ash-and-light-ii"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

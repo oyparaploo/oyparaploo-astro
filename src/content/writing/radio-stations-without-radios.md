@@ -2,7 +2,7 @@
 title: "Radio Stations Without Radios"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "16.09.2025"
 slug: "radio-stations-without-radios"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

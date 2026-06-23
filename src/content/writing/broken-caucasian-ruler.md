@@ -2,7 +2,7 @@
 title: "Broken Caucasian ruler"
 variant: breath-display
 ground: dark
-date: "2025-08-04"
+date: "04.08.2025"
 slug: "broken-caucasian-ruler"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

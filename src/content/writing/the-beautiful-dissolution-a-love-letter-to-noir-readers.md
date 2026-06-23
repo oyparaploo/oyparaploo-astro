@@ -2,7 +2,7 @@
 title: "The Beautiful Dissolution ~ A Love Letter to Noir Readers"
 variant: breath-display
 ground: dark
-date: "2025-08-26"
+date: "26.08.2025"
 slug: "the-beautiful-dissolution-a-love-letter-to-noir-readers"
 category: "Post-Collapse Metamorphosis into Creatures and Living Walls"
 cluster: "Metamorphosis & Transformation"

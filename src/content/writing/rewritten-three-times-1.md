@@ -2,7 +2,7 @@
 title: "Rewritten three times after the ship was roped to the dock"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "rewritten-three-times-1"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

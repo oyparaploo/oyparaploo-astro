@@ -2,7 +2,7 @@
 title: "Steel Bars and Padded Walls Cell"
 variant: breath-display
 ground: dark
-date: "2025-12-15"
+date: "14.12.2025"
 slug: "steel-bars-and-padded-walls-cell"
 category: "Incarceration, Disappearance, and Grief as Resistance"
 cluster: "Justice, Witness & the State"

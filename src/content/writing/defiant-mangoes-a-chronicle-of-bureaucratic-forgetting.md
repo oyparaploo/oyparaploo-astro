@@ -2,7 +2,7 @@
 title: "Defiant Mangoes ~ A Chronicle of Bureaucratic Forgetting"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "defiant-mangoes-a-chronicle-of-bureaucratic-forgetting"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

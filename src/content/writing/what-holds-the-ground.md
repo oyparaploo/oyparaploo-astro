@@ -2,7 +2,7 @@
 title: "What Holds The Ground"
 variant: breath-display
 ground: dark
-date: "2026-04-13"
+date: "30.09.2025"
 slug: "what-holds-the-ground"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

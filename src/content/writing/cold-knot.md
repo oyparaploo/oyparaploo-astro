@@ -2,7 +2,7 @@
 title: "Cold Knot"
 variant: breath-display
 ground: dark
-date: "2025-12-11"
+date: "11.12.2025"
 slug: "cold-knot"
 category: "Wry Cultural Sketches, Comic Marital Banter, and Fact-Check Satire"
 cluster: "Mind, Faith, Satire & Other Threads"

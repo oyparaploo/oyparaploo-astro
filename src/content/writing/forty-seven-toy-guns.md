@@ -2,7 +2,7 @@
 title: "Forty-Seven Toy Guns"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "12.10.2025"
 slug: "forty-seven-toy-guns"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "Unique Aromas and Other Wonders of the Infinite Horizon"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "04.08.2025"
 slug: "unique-aromas-and-other-wonders-of-the-infinite-horizon"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

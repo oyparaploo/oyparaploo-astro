@@ -2,7 +2,7 @@
 title: "binary blend beings connected to you"
 variant: breath-display
 ground: dark
-date: "2025-07-31"
+date: "30.07.2025"
 slug: "binary-blend-beings-connected-to-you"
 category: "Continuum Elegies: Death as Flow Rather Than Ending"
 cluster: "Spirit, Mortality & the Ordinary Divine"

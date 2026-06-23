@@ -2,7 +2,7 @@
 title: "Evidence Leading To Imagined Violence (Fragments)"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "13.10.2025"
 slug: "evidence-leading-to-imagined-violence-fragments"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

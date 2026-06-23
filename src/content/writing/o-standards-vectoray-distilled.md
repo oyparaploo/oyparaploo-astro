@@ -2,7 +2,7 @@
 title: "O'Standards Vectoray Distilled"
 variant: breath-display
 ground: dark
-date: "2026-05-06"
+date: "10.10.2025"
 slug: "o-standards-vectoray-distilled"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

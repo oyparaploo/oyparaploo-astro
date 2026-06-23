@@ -2,7 +2,7 @@
 title: "The Substitute Who Shouldn't Have Been There"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "the-substitute-who-shouldnt-have-been-there"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

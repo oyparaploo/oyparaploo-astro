@@ -2,7 +2,7 @@
 title: "Good Grief"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "30.10.2025"
 slug: "the-earth-remembers-every-tenderness-revised"
 category: "\"Good Grief\" Cosmic-Visitor Meditations"
 cluster: "Grief, Loss & Compulsive Making"

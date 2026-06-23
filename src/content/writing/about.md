@@ -2,7 +2,7 @@
 title: "About"
 variant: breath-display
 ground: dark
-date: "2025-09-13"
+date: "13.09.2025"
 slug: "about"
 category: "Biographical About-Statements and Who-We-Are Pieces"
 cluster: "Ars Poetica & the Oyparaploo Method"

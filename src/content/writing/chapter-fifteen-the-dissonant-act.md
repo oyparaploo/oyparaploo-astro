@@ -2,7 +2,7 @@
 title: "Chapter Fifteen ~ The Dissonant Act"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "26.08.2025"
 slug: "chapter-fifteen-the-dissonant-act"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

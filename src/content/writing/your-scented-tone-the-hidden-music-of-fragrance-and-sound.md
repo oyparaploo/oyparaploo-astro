@@ -2,7 +2,7 @@
 title: "Your Scented Tone ~ The Hidden Music of Fragrance and Sound"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "15.08.2025"
 slug: "your-scented-tone-the-hidden-music-of-fragrance-and-sound"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

@@ -2,7 +2,7 @@
 title: "The Symphony of Flavors ~ How Musical Tones Dance with Taste on Our Tongues"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "21.08.2025"
 slug: "the-symphony-of-flavors-how-musical-tones-dance-with-taste-on-our-tongues"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

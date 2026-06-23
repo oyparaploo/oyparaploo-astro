@@ -2,7 +2,7 @@
 title: "Chapter Thirteen ~ The Marble Corridor"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "22.08.2025"
 slug: "chapter-thirteen-the-marble-corridor"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

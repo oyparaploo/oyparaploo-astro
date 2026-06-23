@@ -2,7 +2,7 @@
 title: "Elder Miss Blue New Moves"
 variant: breath-display
 ground: dark
-date: "2026-05-19"
+date: "14.10.2025"
 slug: "elder-miss-blue-new-moves"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

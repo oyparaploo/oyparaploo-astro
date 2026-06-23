@@ -2,7 +2,7 @@
 title: "Fresh Off the Dry and Airy Ripple"
 variant: breath-display
 ground: dark
-date: "2026-04-24"
+date: "05.10.2025"
 slug: "fresh-off-the-dry-and-airy-ripple"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

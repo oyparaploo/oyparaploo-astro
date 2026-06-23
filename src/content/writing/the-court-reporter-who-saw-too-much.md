@@ -2,7 +2,7 @@
 title: "The Court Reporter Who Saw Too Much"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "the-court-reporter-who-saw-too-much"
 category: "Justice, Legal Fog, and Whether Accountability Is Possible"
 cluster: "Justice, Witness & the State"

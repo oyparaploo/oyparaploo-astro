@@ -2,7 +2,7 @@
 title: "Leading_to_Light_Cast_Like_A_Skeleton_and_Wonderous_Driven_Like_A_Nail_LOCKED"
 variant: breath-display
 ground: dark
-date: "2026-04-13"
+date: "01.10.2025"
 slug: "leading-to-light-cast-like-a-skeleton-and-wonderous-driven-like-a-nail"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "The Voice of Vibration ~ Humanity's Search for Sound's Own Song"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "20.08.2025"
 slug: "the-voice-of-vibration-humanitys-search-for-sounds-own-song"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

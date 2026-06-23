@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Fractured Echoes of Life and the Unseen"
 variant: reading
 ground: light
-date: "2025-08-11"
+date: "11.08.2025"
 slug: "brrd-roots-fractured-echoes-of-life-and-the-unseen"
 category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
 cluster: "Ecology, Climate & Animals"

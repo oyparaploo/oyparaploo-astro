@@ -2,7 +2,7 @@
 title: "How Understanding Lubricates Human Connection"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "how-understanding-lubricates-human-connection"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

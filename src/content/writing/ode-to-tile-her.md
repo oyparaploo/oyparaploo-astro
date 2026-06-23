@@ -2,7 +2,7 @@
 title: "Ode to Tile Her"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "02.09.2025"
 slug: "ode-to-tile-her"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

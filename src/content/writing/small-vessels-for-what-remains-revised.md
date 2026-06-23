@@ -2,7 +2,7 @@
 title: "Good Grief"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "01.11.2025"
 slug: "small-vessels-for-what-remains-revised"
 category: "\"Good Grief\" Cosmic-Visitor Meditations"
 cluster: "Grief, Loss & Compulsive Making"

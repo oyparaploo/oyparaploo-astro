@@ -2,7 +2,7 @@
 title: "The Woman Who Sees Sound and the Forms That Won't Take Hoofprints"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "29.10.2025"
 slug: "the-woman-who-sees-sound-and-the-forms-that-wont-take-hoofprints"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

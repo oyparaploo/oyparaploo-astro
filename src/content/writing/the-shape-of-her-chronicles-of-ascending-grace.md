@@ -2,7 +2,7 @@
 title: "The Shape of Her ~ Chronicles of Ascending Grace"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "05.08.2025"
 slug: "the-shape-of-her-chronicles-of-ascending-grace"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

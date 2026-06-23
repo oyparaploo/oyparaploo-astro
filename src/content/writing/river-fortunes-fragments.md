@@ -2,7 +2,7 @@
 title: "River Fortunes (Fragments)"
 variant: breath-display
 ground: dark
-date: "2025-09-09"
+date: "08.09.2025"
 slug: "river-fortunes-fragments"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

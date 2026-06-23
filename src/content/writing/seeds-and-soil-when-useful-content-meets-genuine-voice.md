@@ -2,7 +2,7 @@
 title: "Seeds and Soil ~ When Useful Content Meets Genuine Voice"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "seeds-and-soil-when-useful-content-meets-genuine-voice"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

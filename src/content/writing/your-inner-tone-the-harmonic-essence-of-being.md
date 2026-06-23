@@ -2,7 +2,7 @@
 title: "Your Inner Tone ~ The Harmonic Essence of Being"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "17.08.2025"
 slug: "your-inner-tone-the-harmonic-essence-of-being"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

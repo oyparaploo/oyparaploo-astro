@@ -2,7 +2,7 @@
 title: "Between Guilty and Innocent"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "between-guilty-and-innocent"
 category: "Justice, Legal Fog, and Whether Accountability Is Possible"
 cluster: "Justice, Witness & the State"

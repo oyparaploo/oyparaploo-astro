@@ -2,7 +2,7 @@
 title: "The Mirror and the Story ~ How We Think About How We Look"
 variant: reading
 ground: light
-date: "2025-08-14"
+date: "13.08.2025"
 slug: "the-mirror-and-the-story-how-we-think-about-how-we-look"
 category: "Appearance, Cheerfulness, and the Stories We Tell About Worth"
 cluster: "Senses, Tone & the Body"

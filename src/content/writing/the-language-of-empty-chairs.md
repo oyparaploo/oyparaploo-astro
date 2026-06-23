@@ -2,7 +2,7 @@
 title: "The Language of Empty Chairs"
 variant: breath-display
 ground: dark
-date: "2025-10-12"
+date: "12.10.2025"
 slug: "the-language-of-empty-chairs"
 category: "Incarceration, Disappearance, and Grief as Resistance"
 cluster: "Justice, Witness & the State"

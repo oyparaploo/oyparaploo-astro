@@ -2,7 +2,7 @@
 title: "The Invisible Orchestra"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "the-invisible-orchestra"
 category: "How Ambient Sound and Space Shape Connection"
 cluster: "Senses, Tone & the Body"

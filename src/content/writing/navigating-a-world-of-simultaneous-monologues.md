@@ -2,7 +2,7 @@
 title: "Navigating a World of Simultaneous Monologues"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "18.09.2025"
 slug: "navigating-a-world-of-simultaneous-monologues"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

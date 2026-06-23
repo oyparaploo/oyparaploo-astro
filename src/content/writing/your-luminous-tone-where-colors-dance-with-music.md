@@ -2,7 +2,7 @@
 title: "Your Luminous Tone ~ Where Colors Dance with Music"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "16.08.2025"
 slug: "your-luminous-tone-where-colors-dance-with-music"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

@@ -2,7 +2,7 @@
 title: "Chambers of Breath: A Gesture-Based Performance Sequence"
 variant: reading
 ground: light
-date: "2025-07-23"
+date: "23.07.2025"
 slug: "chambers-of-breath-a-gesture-based-performance-sequence"
 category: "Surreal Theater, Operas, and Performance Scores"
 cluster: "Story-Cycles, Thrillers & Performance"

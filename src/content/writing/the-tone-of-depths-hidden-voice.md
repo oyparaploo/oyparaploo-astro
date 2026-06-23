@@ -2,7 +2,7 @@
 title: "The Tone of Depth's Hidden Voice"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "23.08.2025"
 slug: "the-tone-of-depths-hidden-voice"
 category: "How Ambient Sound and Space Shape Connection"
 cluster: "Senses, Tone & the Body"

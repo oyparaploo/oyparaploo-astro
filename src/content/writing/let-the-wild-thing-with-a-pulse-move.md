@@ -2,7 +2,7 @@
 title: "Let the Wild Thing with a Pulse Move"
 variant: breath-display
 ground: dark
-date: "2026-02-10"
+date: "26.10.2025"
 slug: "let-the-wild-thing-with-a-pulse-move"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

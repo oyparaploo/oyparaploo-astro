@@ -2,7 +2,7 @@
 title: "The Review Was Three Sentences and They All Said We Sucked"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "30.10.2025"
 slug: "the-review-was-three-sentences-and-they-all-said-we-sucked"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

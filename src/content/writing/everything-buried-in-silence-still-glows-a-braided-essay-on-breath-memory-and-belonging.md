@@ -2,7 +2,7 @@
 title: "Everything Buried in Silence Still Glows ~ A Braided Essay on Breath, Memory, and Belonging"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "everything-buried-in-silence-still-glows-a-braided-essay-on-breath-memory-and-belonging"
 category: "Atmosphere, Breath, and Air That Rewrites the Body"
 cluster: "Ecology, Climate & Animals"

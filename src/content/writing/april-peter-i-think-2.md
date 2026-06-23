@@ -2,7 +2,7 @@
 title: "April Peter ... I think"
 variant: breath-display
 ground: dark
-date: "2025-07-23"
+date: "23.07.2025"
 slug: "april-peter-i-think-2"
 category: "Pure Sound-Poems and Invented Glossolalia"
 cluster: "Ars Poetica & the Oyparaploo Method"

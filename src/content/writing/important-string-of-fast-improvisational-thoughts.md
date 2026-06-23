@@ -2,7 +2,7 @@
 title: "important string of fast improvisational thoughts"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "27.09.2025"
 slug: "important-string-of-fast-improvisational-thoughts"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

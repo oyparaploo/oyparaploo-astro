@@ -2,7 +2,7 @@
 title: "Smooth Talk, Empty Words ~ When Perfect Delivery Says Nothing"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "20.09.2025"
 slug: "smooth-talk-empty-words-when-perfect-delivery-says-nothing"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

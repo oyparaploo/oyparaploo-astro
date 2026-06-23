@@ -2,7 +2,7 @@
 title: "Chapter Twenty-One ~ The Aftermath"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "20.08.2025"
 slug: "chapter-twenty-one-the-aftermath"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

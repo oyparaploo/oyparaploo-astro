@@ -2,7 +2,7 @@
 title: "Theodore's Pills"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "13.10.2025"
 slug: "theodores-pills"
 category: "Garbage-Cathedral Breakdowns Aestheticized by the Art World"
 cluster: "Grief, Loss & Compulsive Making"

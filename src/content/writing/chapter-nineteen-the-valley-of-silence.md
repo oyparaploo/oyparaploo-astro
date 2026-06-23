@@ -2,7 +2,7 @@
 title: "Chapter Nineteen ~ The Valley of Silence"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "25.08.2025"
 slug: "chapter-nineteen-the-valley-of-silence"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

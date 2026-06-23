@@ -2,7 +2,7 @@
 title: "benefits of art -- artmaking process, possibilities, and hope"
 variant: breath-display
 ground: dark
-date: "2025-07-29"
+date: "29.07.2025"
 slug: "benefits-of-art-artmaking-process-possibilities-and-hope"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

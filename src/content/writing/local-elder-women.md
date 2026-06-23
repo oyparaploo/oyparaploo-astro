@@ -2,7 +2,7 @@
 title: "Local Elder Women On Creating a Flower Garden That Blooms Mostly"
 variant: breath-display
 ground: dark
-date: "2026-03-30"
+date: "04.12.2025"
 slug: "local-elder-women"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

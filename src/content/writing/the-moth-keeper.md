@@ -2,7 +2,7 @@
 title: "The Moth Keeper"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "13.10.2025"
 slug: "the-moth-keeper"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

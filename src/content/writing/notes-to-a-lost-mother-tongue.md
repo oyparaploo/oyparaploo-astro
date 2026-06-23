@@ -2,7 +2,7 @@
 title: "Notes to a Lost Mother Tongue"
 variant: breath-display
 ground: dark
-date: "2025-09-09"
+date: "09.09.2025"
 slug: "notes-to-a-lost-mother-tongue"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "Be aware of violent crimes that happen in your neighborhood"
 variant: breath-display
 ground: dark
-date: "2025-07-26"
+date: "26.07.2025"
 slug: "be-aware-of-violent-crimes-1"
 category: "Political Hearings, Cover-Ups, and the Word \"Children\""
 cluster: "Justice, Witness & the State"

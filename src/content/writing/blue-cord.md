@@ -2,7 +2,7 @@
 title: "Blue Cord"
 variant: breath-display
 ground: dark
-date: "2025-10-16"
+date: "16.10.2025"
 slug: "blue-cord"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "The Illusion of Motion ~ How Digital Busyness Became Our Most Deceptive Comfort"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "the-illusion-of-motion-how-digital-busyness-became-our-most-deceptive-comfort"
 category: "Digital Busyness, Attention, and the Illusion of Motion"
 cluster: "Connection, Relationships & the Digital"

@@ -2,7 +2,7 @@
 title: "During mostly without light"
 variant: breath-display
 ground: dark
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "during-mostly-without-light"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

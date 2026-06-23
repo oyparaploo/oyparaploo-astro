@@ -2,7 +2,7 @@
 title: "Unconditional Offering with an Open Door"
 variant: breath-display
 ground: dark
-date: "January 12, 2026"
+date: "24.09.2025"
 slug: "unconditional-offering-with-an-open-door"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

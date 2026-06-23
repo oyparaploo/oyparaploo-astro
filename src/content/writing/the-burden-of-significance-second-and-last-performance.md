@@ -2,7 +2,7 @@
 title: "The Burden of Significance ~ Second and Last Performance"
 variant: breath-display
 ground: dark
-date: "2025-08-25"
+date: "24.08.2025"
 slug: "the-burden-of-significance-second-and-last-performance"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

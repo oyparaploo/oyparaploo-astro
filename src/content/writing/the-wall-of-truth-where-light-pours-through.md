@@ -2,7 +2,7 @@
 title: "The Wall of Truth ~ Where Light Pours Through"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "01.08.2025"
 slug: "the-wall-of-truth-where-light-pours-through"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

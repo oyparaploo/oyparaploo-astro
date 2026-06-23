@@ -2,7 +2,7 @@
 title: "O.C.E.A.N."
 variant: breath-display
 ground: dark
-date: "2026-05-06"
+date: "09.10.2025"
 slug: "ocean-flipped-and-twisted"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

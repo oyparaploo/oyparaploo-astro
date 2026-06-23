@@ -2,7 +2,7 @@
 title: "The Tuning Fork"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "26.10.2025"
 slug: "the-tuning-fork"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

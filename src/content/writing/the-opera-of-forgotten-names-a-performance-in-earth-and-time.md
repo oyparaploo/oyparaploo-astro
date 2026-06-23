@@ -2,7 +2,7 @@
 title: "The Opera of Forgotten Names ~ A Performance in Earth and Time"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "05.08.2025"
 slug: "the-opera-of-forgotten-names-a-performance-in-earth-and-time"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

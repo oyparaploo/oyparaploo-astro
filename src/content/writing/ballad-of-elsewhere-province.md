@@ -2,7 +2,7 @@
 title: "Ballad of Elsewhere Province"
 variant: reading
 ground: light
-date: "2025-11-21"
+date: "21.11.2025"
 slug: "ballad-of-elsewhere-province"
 category: "Pandemic, Surveillance, and Performing the Self Under Watch"
 cluster: "Story-Cycles, Thrillers & Performance"

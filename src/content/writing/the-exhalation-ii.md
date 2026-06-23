@@ -2,7 +2,7 @@
 title: "The Exhalation"
 variant: reading
 ground: light
-date: "2025-10-15"
+date: "15.10.2025"
 slug: "the-exhalation-ii"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

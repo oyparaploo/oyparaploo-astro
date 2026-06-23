@@ -2,7 +2,7 @@
 title: "The Troupe Beneath ~ A Performance Between Soil and Sky"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "03.08.2025"
 slug: "the-troupe-beneath-a-performance-between-soil-and-sky"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

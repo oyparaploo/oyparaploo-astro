@@ -2,7 +2,7 @@
 title: "The Woman Who Taught Rich People How to Fall"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "29.10.2025"
 slug: "the-woman-who-taught-rich-people-how-to-fall"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

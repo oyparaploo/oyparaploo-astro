@@ -2,7 +2,7 @@
 title: "Show and Tell for Adults ~ Finding Your Inner Child's Voice"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "show-and-tell-for-adults-finding-your-inner-childs-voice"
 category: "Finding an Authentic Speaking Voice over Polished Delivery"
 cluster: "Voice, Listening & Speaking Craft"

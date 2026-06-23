@@ -2,7 +2,7 @@
 title: "What Went Wrong?"
 variant: breath-display
 ground: dark
-date: "2026-02-15"
+date: "27.10.2025"
 slug: "what-went-wrong"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

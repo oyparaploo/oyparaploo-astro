@@ -2,7 +2,7 @@
 title: "Aquifer Beneath the Report"
 variant: breath-display
 ground: dark
-date: "2025-12-04"
+date: "04.12.2025"
 slug: "aquifer-beneath-the-report"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

@@ -2,7 +2,7 @@
 title: "The Chimera Woman's Metamorphosis"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "07.08.2025"
 slug: "the-chimera-womans-metamorphosis"
 category: "Luminous Shape-Shifting Women and Affirming Metamorphosis"
 cluster: "Metamorphosis & Transformation"

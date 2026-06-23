@@ -2,7 +2,7 @@
 title: "Ane Trolle"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "ane-trolle"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

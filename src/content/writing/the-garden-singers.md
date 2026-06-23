@@ -2,7 +2,7 @@
 title: "The Garden Singers"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "12.10.2025"
 slug: "the-garden-singers"
 category: "Coded Folk Craft Smuggling Female Power and Memory"
 cluster: "Migration, Lineage & Belonging"

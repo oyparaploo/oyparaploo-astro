@@ -2,7 +2,7 @@
 title: "The Keeper of Uncontained Things"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-keeper-of-uncontained-things"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

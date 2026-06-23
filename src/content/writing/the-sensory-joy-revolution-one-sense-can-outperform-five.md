@@ -2,7 +2,7 @@
 title: "THE SENSORY JOY REVOLUTION ~ One Sense Can Outperform Five"
 variant: reading
 ground: light
-date: "2025-08-13"
+date: "11.08.2025"
 slug: "the-sensory-joy-revolution-one-sense-can-outperform-five"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

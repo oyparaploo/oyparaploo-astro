@@ -2,7 +2,7 @@
 title: "The Sacred Soil Artist ~ Growing Resistance Through Ancient Rituals"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-sacred-soil-artist-growing-resistance-through-ancient-rituals"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

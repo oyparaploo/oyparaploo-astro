@@ -2,7 +2,7 @@
 title: "Borrowed for Posterity"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "borrowed-for-posterity"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

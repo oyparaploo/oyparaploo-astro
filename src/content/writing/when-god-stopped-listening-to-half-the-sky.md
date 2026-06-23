@@ -2,7 +2,7 @@
 title: "When God Stopped Listening to Half the Sky"
 variant: breath-display
 ground: dark
-date: "2025-09-14"
+date: "14.09.2025"
 slug: "when-god-stopped-listening-to-half-the-sky"
 category: "Religion, Gender, and the Suppressed Voices of Women"
 cluster: "Mind, Faith, Satire & Other Threads"

@@ -2,7 +2,7 @@
 title: "Tatone Ahh non Treat"
 variant: breath-display
 ground: dark
-date: "2026-05-12"
+date: "13.08.2025"
 slug: "tatone-ahh-non-treat"
 category: "Surreal Theater, Operas, and Performance Scores"
 cluster: "Story-Cycles, Thrillers & Performance"

@@ -2,7 +2,7 @@
 title: "The Silent Sale ~ Why Words Are Often the Enemy of Success"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "20.09.2025"
 slug: "the-silent-sale-why-words-are-often-the-enemy-of-success"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

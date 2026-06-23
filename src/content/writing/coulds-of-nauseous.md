@@ -2,7 +2,7 @@
 title: "Coulds Of Nauseous"
 variant: breath-display
 ground: dark
-date: "February 12, 2026"
+date: "30.07.2025"
 slug: "coulds-of-nauseous"
 category: "Political Hearings, Cover-Ups, and the Word \"Children\""
 cluster: "Justice, Witness & the State"

@@ -2,7 +2,7 @@
 title: "Finally_LOCKED"
 variant: breath-display
 ground: dark
-date: "2026-04-13"
+date: "24.07.2025"
 slug: "finally"
 category: "Pure Sound-Poems and Invented Glossolalia"
 cluster: "Ars Poetica & the Oyparaploo Method"

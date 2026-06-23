@@ -2,7 +2,7 @@
 title: "Despite Everything"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "31.10.2025"
 slug: "despite-everything"
 category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
 cluster: "Story-Cycles, Thrillers & Performance"

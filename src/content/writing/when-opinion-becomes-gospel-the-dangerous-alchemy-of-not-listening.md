@@ -2,7 +2,7 @@
 title: "When Opinion Becomes Gospel ~ The Dangerous Alchemy of Not Listening"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "13.09.2025"
 slug: "when-opinion-becomes-gospel-the-dangerous-alchemy-of-not-listening"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

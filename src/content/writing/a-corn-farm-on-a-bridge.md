@@ -2,7 +2,7 @@
 title: "A Corn Farm on a Bridge"
 variant: breath-display
 ground: dark
-date: "2025-12-15"
+date: "15.12.2025"
 slug: "a-corn-farm-on-a-bridge"
 category: "Indigenous Foodways and Food Sovereignty"
 cluster: "Ecology, Climate & Animals"

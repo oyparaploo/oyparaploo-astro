@@ -2,7 +2,7 @@
 title: "The Steeping Hours"
 variant: reading
 ground: light
-date: "2025-11-17"
+date: "14.11.2025"
 slug: "the-steeping-hours"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

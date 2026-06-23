@@ -2,7 +2,7 @@
 title: "The Abundance of Surrendering Certain Thoughts"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-abundance-of-surrendering-certain-thoughts"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

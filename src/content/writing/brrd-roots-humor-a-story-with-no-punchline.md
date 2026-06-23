@@ -2,7 +2,7 @@
 title: "Brrd Roots Humor: A Story with No Punchline"
 variant: breath-display
 ground: dark
-date: "2025-07-10"
+date: "10.07.2025"
 slug: "brrd-roots-humor-a-story-with-no-punchline"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "bender bender"
 variant: breath-display
 ground: dark
-date: "2025-07-28"
+date: "27.07.2025"
 slug: "bender-bender-1"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

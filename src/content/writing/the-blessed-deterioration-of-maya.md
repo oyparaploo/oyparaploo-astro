@@ -2,7 +2,7 @@
 title: "The Blessed Deterioration of Maya"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "03.08.2025"
 slug: "the-blessed-deterioration-of-maya"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

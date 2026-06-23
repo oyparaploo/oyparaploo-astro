@@ -2,7 +2,7 @@
 title: "The Middle Eye Opens ~ A Memoir of Sound and Disappearance"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "the-middle-eye-opens-a-memoir-of-sound-and-disappearance"
 category: "How Ambient Sound and Space Shape Connection"
 cluster: "Senses, Tone & the Body"

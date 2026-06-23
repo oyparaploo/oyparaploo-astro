@@ -2,7 +2,7 @@
 title: "Take Whatever You Need"
 variant: breath-display
 ground: dark
-date: "2026-04-14"
+date: "14.10.2025"
 slug: "take-whatever-you-need"
 category: "Hostile Architecture Met with Softness and Shelter"
 cluster: "Justice, Witness & the State"

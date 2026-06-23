@@ -2,7 +2,7 @@
 title: "The Digital Paradox ~ Why Dating Apps Intensify Loneliness While Real World Connection Heals It"
 variant: breath-display
 ground: dark
-date: "2025-08-14"
+date: "14.08.2025"
 slug: "the-digital-paradox-why-dating-apps-intensify-loneliness-while-real-world-connection-heals-it"
 category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
 cluster: "Connection, Relationships & the Digital"

@@ -2,7 +2,7 @@
 title: "The Special People Who Feel Everything ~ A Gentle Guide for Hearts Too Big to Hide"
 variant: reading
 ground: light
-date: "2025-08-01"
+date: "31.07.2025"
 slug: "the-special-people-who-feel-everything-a-gentle-guide-for-hearts-too-big-to-hide"
 category: "Empaths and Hearts Too Big to Hide"
 cluster: "Senses, Tone & the Body"

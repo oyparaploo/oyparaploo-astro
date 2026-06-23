@@ -2,7 +2,7 @@
 title: "Meaning Of The Name"
 variant: breath-display
 ground: dark
-date: "2025-07-11"
+date: "11.07.2025"
 slug: "meaning-of-the-name"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

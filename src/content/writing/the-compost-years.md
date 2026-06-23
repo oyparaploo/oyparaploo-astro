@@ -2,7 +2,7 @@
 title: "The Compost Years"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "the-compost-years"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

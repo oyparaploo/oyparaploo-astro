@@ -2,7 +2,7 @@
 title: "The Garden Inside ~ A Theory of Eternal Photosynthesis"
 variant: reading
 ground: light
-date: "2025-08-02"
+date: "02.08.2025"
 slug: "the-garden-inside-a-theory-of-eternal-photosynthesis"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

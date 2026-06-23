@@ -2,7 +2,7 @@
 title: "Your Tone Has a Name ~ How Musical Flavors Dance on our Tongue"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "13.08.2025"
 slug: "your-tone-has-a-name-how-musical-flavors-dance-on-our-tongue"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

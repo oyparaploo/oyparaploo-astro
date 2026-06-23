@@ -2,7 +2,7 @@
 title: "Any Thursday ~ Terrible and Wonderful Contradictions"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "02.09.2025"
 slug: "any-thursday-terrible-and-wonderful-contradictions"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

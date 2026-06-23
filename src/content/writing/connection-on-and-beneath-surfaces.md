@@ -2,7 +2,7 @@
 title: "Connection On and Beneath Surfaces"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "28.10.2025"
 slug: "connection-on-and-beneath-surfaces"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

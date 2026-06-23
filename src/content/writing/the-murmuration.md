@@ -2,7 +2,7 @@
 title: "The Murmuration"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "12.10.2025"
 slug: "the-murmuration"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

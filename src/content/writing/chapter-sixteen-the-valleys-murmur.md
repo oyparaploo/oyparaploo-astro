@@ -2,7 +2,7 @@
 title: "Chapter Sixteen ~ The Valley’s Murmur"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "23.08.2025"
 slug: "chapter-sixteen-the-valleys-murmur"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

@@ -2,7 +2,7 @@
 title: "A Few Good Outland Mistral Pangs"
 variant: breath-display
 ground: dark
-date: "2026-05-19"
+date: "27.07.2025"
 slug: "a-few-good-outland-mistral-pangs"
 category: "Pure Sound-Poems and Invented Glossolalia"
 cluster: "Ars Poetica & the Oyparaploo Method"

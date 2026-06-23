@@ -2,7 +2,7 @@
 title: "The Jesus Horse and Other Lessons in Sacred Flailing"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "08.08.2025"
 slug: "the-jesus-horse-and-other-lessons-in-sacred-flailing"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

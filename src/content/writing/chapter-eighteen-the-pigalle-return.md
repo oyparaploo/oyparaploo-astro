@@ -2,7 +2,7 @@
 title: "Chapter Eighteen ~ The Pigalle Return"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "27.08.2025"
 slug: "chapter-eighteen-the-pigalle-return"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

@@ -2,7 +2,7 @@
 title: "Oypraploo Seeds Are Generous"
 variant: breath-display
 ground: dark
-date: "2026-05-05"
+date: "23.12.2025"
 slug: "oypraploo-seeds-are-generous"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

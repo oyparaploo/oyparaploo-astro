@@ -2,7 +2,7 @@
 title: "Cape + propagation of props"
 variant: breath-display
 ground: dark
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "cape-propagation-of-props"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

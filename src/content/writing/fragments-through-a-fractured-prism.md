@@ -2,7 +2,7 @@
 title: "Fragments Through a Fractured Prism"
 variant: breath-display
 ground: dark
-date: "2025-08-02"
+date: "02.08.2025"
 slug: "fragments-through-a-fractured-prism"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

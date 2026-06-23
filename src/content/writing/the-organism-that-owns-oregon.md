@@ -2,7 +2,7 @@
 title: "The Organism That Owns Oregon"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-organism-that-owns-oregon"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

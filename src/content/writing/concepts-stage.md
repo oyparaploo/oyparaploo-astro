@@ -2,7 +2,7 @@
 title: "Concepts stage"
 variant: breath-display
 ground: dark
-date: "2025-08-08"
+date: "08.08.2025"
 slug: "concepts-stage"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

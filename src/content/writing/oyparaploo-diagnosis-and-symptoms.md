@@ -2,7 +2,7 @@
 title: "OyParaploo Diagnosis and Symptoms"
 variant: breath-display
 ground: dark
-date: "2025-11-19"
+date: "19.11.2025"
 slug: "oyparaploo-diagnosis-and-symptoms"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

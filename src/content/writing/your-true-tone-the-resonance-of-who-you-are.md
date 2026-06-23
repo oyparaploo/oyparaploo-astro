@@ -2,7 +2,7 @@
 title: "Your True Tone ~ The Resonance of Who You Are"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "12.08.2025"
 slug: "your-true-tone-the-resonance-of-who-you-are"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

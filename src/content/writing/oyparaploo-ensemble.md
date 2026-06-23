@@ -2,7 +2,7 @@
 title: "Oyparaploo Ensemble"
 variant: breath-display
 ground: dark
-date: "2025-11-21"
+date: "21.11.2025"
 slug: "oyparaploo-ensemble"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "When The River Knows Your Name"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "08.08.2025"
 slug: "when-the-river-knows-your-name"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

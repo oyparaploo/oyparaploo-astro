@@ -2,7 +2,7 @@
 title: "Just(ly) Warming Up"
 variant: breath-display
 ground: dark
-date: "2026-04-29"
+date: "07.10.2025"
 slug: "justly-warming-up"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

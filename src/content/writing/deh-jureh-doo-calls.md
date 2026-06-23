@@ -2,7 +2,7 @@
 title: "Deh Jureh Doo Calls"
 variant: breath-display
 ground: dark
-date: "2026-05-19"
+date: "15.10.2025"
 slug: "deh-jureh-doo-calls"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "The Shimmer Collectors ~ A Narrative of Light and Ruin"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-shimmer-collectors-a-narrative-of-light-and-ruin"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

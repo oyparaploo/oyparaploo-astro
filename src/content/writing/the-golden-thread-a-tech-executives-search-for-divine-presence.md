@@ -2,7 +2,7 @@
 title: "The Golden Thread ~ A Tech Executive's Search for Divine Presence"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "the-golden-thread-a-tech-executives-search-for-divine-presence"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

@@ -2,7 +2,7 @@
 title: "The Gradual Unbecoming"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "08.08.2025"
 slug: "the-gradual-unbecoming-notes-from-a-year-of-watching-someone-disappear"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

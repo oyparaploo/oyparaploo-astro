@@ -2,7 +2,7 @@
 title: "Home_Passage"
 variant: breath-display
 ground: dark
-date: "2026-04-12"
+date: "16.10.2025"
 slug: "home-passage"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

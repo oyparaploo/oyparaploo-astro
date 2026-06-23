@@ -2,7 +2,7 @@
 title: "Cherry Slush"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "15.10.2025"
 slug: "cherry-slush"
 category: "Digital Loneliness, Dating Apps, and Screen-Saturated Isolation"
 cluster: "Connection, Relationships & the Digital"

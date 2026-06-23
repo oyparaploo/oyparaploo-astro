@@ -2,7 +2,7 @@
 title: "Squares"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "10.10.2025"
 slug: "squares"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

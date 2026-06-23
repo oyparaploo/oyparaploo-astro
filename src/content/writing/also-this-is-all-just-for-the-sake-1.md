@@ -2,7 +2,7 @@
 title: "Also this is all just for the sake of the work itself"
 variant: breath-display
 ground: dark
-date: "2025-07-17"
+date: "13.07.2025"
 slug: "also-this-is-all-just-for-the-sake-1"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

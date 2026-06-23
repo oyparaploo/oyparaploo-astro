@@ -2,7 +2,7 @@
 title: "The Well of Truth ~ Nour's Migration"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "the-well-of-truth-nours-migration"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

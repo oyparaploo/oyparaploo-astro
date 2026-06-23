@@ -2,7 +2,7 @@
 title: "When Buildings Remember ~ An Essay on Breath, Memory, and Survival"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "when-buildings-remember-an-essay-on-breath-memory-and-survival"
 category: "Atmosphere, Breath, and Air That Rewrites the Body"
 cluster: "Ecology, Climate & Animals"

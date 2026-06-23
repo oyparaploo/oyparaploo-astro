@@ -2,7 +2,7 @@
 title: "Hard Things Now Soft"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "13.10.2025"
 slug: "hard-things-now-soft"
 category: "Hostile Architecture Met with Softness and Shelter"
 cluster: "Justice, Witness & the State"

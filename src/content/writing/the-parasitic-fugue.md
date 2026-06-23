@@ -2,7 +2,7 @@
 title: "The Parasitic Fugue"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "30.07.2025"
 slug: "the-parasitic-fugue"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

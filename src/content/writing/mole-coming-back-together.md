@@ -2,7 +2,7 @@
 title: "Mole Coming Back Together"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "12.10.2025"
 slug: "mole-coming-back-together"
 category: "Bereaved Makers Building Assemblages from a Dead Parent's Things"
 cluster: "Grief, Loss & Compulsive Making"

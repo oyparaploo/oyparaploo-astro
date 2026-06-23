@@ -2,7 +2,7 @@
 title: "Number 413"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "04.10.2025"
 slug: "number-413"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

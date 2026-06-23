@@ -2,7 +2,7 @@
 title: "Breathing Lessons ~ What the Air Remembers About Innocence"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "12.08.2025"
 slug: "breathing-lessons-what-the-air-remembers-about-innocence"
 category: "Atmosphere, Breath, and Air That Rewrites the Body"
 cluster: "Ecology, Climate & Animals"

@@ -2,7 +2,7 @@
 title: "Altruism's Light Shining Through a Wall that has no Windows"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "altruisms-light-shining-through-a-wall-that-has-no-windows"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

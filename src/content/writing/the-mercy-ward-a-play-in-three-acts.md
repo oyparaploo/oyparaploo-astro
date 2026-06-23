@@ -2,7 +2,7 @@
 title: "The Mercy Ward ~ A Play in Three Acts"
 variant: reading
 ground: light
-date: "2025-08-07"
+date: "31.07.2025"
 slug: "the-mercy-ward-a-play-in-three-acts"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

@@ -2,7 +2,7 @@
 title: "The Sound of Who We Are ~ How Every Personality Sings Its Own Song"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "21.08.2025"
 slug: "the-sound-of-who-we-are-how-every-personality-sings-its-own-song"
 category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
 cluster: "Senses, Tone & the Body"

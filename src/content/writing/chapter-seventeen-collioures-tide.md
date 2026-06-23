@@ -2,7 +2,7 @@
 title: "Chapter Seventeen ~ Collioure’s Tide"
 variant: breath-display
 ground: dark
-date: "2025-08-27"
+date: "24.08.2025"
 slug: "chapter-seventeen-collioures-tide"
 category: "Serialized Sonic-Detective Thriller Chapters"
 cluster: "Story-Cycles, Thrillers & Performance"

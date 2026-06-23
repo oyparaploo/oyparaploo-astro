@@ -2,7 +2,7 @@
 title: "Echoes of Space ~ The Quest for Depth's Hidden Voice"
 variant: reading
 ground: light
-date: "2025-08-24"
+date: "24.08.2025"
 slug: "echoes-of-space-the-quest-for-depths-hidden-voice"
 category: "How Ambient Sound and Space Shape Connection"
 cluster: "Senses, Tone & the Body"

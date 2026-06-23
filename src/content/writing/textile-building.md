@@ -2,7 +2,7 @@
 title: "textile building"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "25.10.2025"
 slug: "textile-building"
 category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
 cluster: "Ars Poetica & the Oyparaploo Method"

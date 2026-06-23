@@ -2,7 +2,7 @@
 title: "Lake Salt Broken Flight"
 variant: breath-display
 ground: dark
-date: "2026-02-19"
+date: "25.11.2025"
 slug: "lake-salt-broken-flight"
 category: "Birds, Bison, and Animals as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"

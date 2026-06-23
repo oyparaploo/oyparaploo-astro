@@ -2,7 +2,7 @@
 title: "Follow Your Center Eye ~ A Gentle Revolution"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "03.08.2025"
 slug: "follow-your-center-eye-a-gentle-revolution"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

@@ -2,7 +2,7 @@
 title: "Giant Day"
 variant: breath-display
 ground: dark
-date: "2026-06-09"
+date: "25.12.2025"
 slug: "oyparaploo-giant-day"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

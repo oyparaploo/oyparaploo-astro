@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ On Where Our Rhizome’s Resonance Resides and More"
 variant: breath-display
 ground: dark
-date: "2025-08-10"
+date: "01.08.2025"
 slug: "brrd-roots-on-where-our-rhizomes-resonance-resides-and-more"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

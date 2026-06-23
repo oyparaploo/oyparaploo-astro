@@ -2,7 +2,7 @@
 title: "Whatever Here Happens to Be"
 variant: reading
 ground: light
-date: "2025-11-17"
+date: "12.11.2025"
 slug: "whatever-here-happens-to-be"
 category: "Stillness, Withholding, and Refusing to Name"
 cluster: "Spirit, Mortality & the Ordinary Divine"

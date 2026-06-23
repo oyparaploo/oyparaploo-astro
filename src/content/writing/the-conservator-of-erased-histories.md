@@ -2,7 +2,7 @@
 title: "The Conservator of Erased Histories"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-conservator-of-erased-histories"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

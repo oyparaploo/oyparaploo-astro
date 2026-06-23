@@ -2,7 +2,7 @@
 title: "The Radiant Fool ~ On Remaining Unbroken in a World That Doubts Everything"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "05.08.2025"
 slug: "the-radiant-fool-on-remaining-unbroken-in-a-world-that-doubts-everything"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

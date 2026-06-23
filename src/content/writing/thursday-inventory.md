@@ -2,7 +2,7 @@
 title: "Thursday Inventory"
 variant: breath-display
 ground: dark
-date: "2025-10-16"
+date: "16.10.2025"
 slug: "thursday-inventory"
 category: "Grief Routinized as Obsessive Counting and Measuring"
 cluster: "Grief, Loss & Compulsive Making"

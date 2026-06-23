@@ -2,7 +2,7 @@
 title: "The Weight of Gold Leaf"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "the-weight-of-gold-leaf"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

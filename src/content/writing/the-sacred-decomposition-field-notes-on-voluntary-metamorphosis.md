@@ -2,7 +2,7 @@
 title: "The Sacred Decomposition"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "06.08.2025"
 slug: "the-sacred-decomposition-field-notes-on-voluntary-metamorphosis"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

@@ -2,7 +2,7 @@
 title: "black soil"
 variant: breath-display
 ground: dark
-date: "2025-08-01"
+date: "01.08.2025"
 slug: "black-soil"
 category: "Biographical About-Statements and Who-We-Are Pieces"
 cluster: "Ars Poetica & the Oyparaploo Method"

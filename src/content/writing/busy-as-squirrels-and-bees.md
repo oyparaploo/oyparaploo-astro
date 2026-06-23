@@ -2,7 +2,7 @@
 title: "Busy as squirrels and bees human beings"
 variant: breath-display
 ground: dark
-date: "2025-08-04"
+date: "03.08.2025"
 slug: "busy-as-squirrels-and-bees"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Meaningful Passages the Oceans Taught Us About Songs and Giving"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "05.08.2025"
 slug: "meaningful-passages-the-oceans-taught-us-about-songs-and-giving"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

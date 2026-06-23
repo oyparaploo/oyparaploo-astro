@@ -2,7 +2,7 @@
 title: "Purple Scaffold"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "11.10.2025"
 slug: "purple-scaffold"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

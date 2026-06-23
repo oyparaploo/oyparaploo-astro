@@ -2,7 +2,7 @@
 title: "Brrd Roots’ Emotional Compost, Whispered Rituals and Wild Bloom"
 variant: breath-display
 ground: dark
-date: "2025-07-10"
+date: "10.07.2025"
 slug: "brrd-roots-emotional-compost-whispered-rituals-and-wild-bloom"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"

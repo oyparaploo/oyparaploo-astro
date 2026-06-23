@@ -2,7 +2,7 @@
 title: "The Prison Dance Therapist ~ Movement as Survival in War Zones"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "06.08.2025"
 slug: "the-prison-dance-therapist-movement-as-survival-in-war-zones"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

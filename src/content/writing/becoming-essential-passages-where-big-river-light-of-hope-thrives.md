@@ -2,7 +2,7 @@
 title: "Becoming Essential Passages ~ Where Big River Light of Hope Thrives"
 variant: reading
 ground: light
-date: "2025-08-05"
+date: "04.08.2025"
 slug: "becoming-essential-passages-where-big-river-light-of-hope-thrives"
 category: "Heaven and Honesty Rooms Where Walls Become Windows"
 cluster: "Spirit, Mortality & the Ordinary Divine"

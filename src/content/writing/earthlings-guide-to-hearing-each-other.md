@@ -2,7 +2,7 @@
 title: "Earthling's Guide to Hearing Each Other"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "earthlings-guide-to-hearing-each-other"
 category: "The Endangerment and Discipline of Listening"
 cluster: "Voice, Listening & Speaking Craft"

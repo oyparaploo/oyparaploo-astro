@@ -2,7 +2,7 @@
 title: "Eternal Transparent Blue Line ~ Trauma and Time Finding Dreams"
 variant: breath-display
 ground: dark
-date: "2025-11-29"
+date: "29.11.2025"
 slug: "eternal-transparent-blue-line-trauma-and-time-finding-dreams"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

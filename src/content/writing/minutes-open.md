@@ -2,7 +2,7 @@
 title: "Minutes Open"
 variant: breath-display
 ground: dark
-date: "January 24, 2026"
+date: "30.11.2025"
 slug: "minutes-open"
 category: "Open Mornings, Wall-less Rooms, and Agenda-less Beginning"
 cluster: "Spirit, Mortality & the Ordinary Divine"

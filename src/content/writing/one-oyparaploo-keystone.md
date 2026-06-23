@@ -2,7 +2,7 @@
 title: "One Oyparaploo Keystone"
 variant: breath-display
 ground: dark
-date: "2025-10-24"
+date: "24.10.2025"
 slug: "one-oyparaploo-keystone"
 category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Middle Oval Pause"
 variant: breath-display
 ground: dark
-date: "2026-04-22"
+date: "02.10.2025"
 slug: "middle-oval-pause"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

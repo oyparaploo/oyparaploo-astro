@@ -2,7 +2,7 @@
 title: "The Impossible Purity ~ Notes on the Death We Choose"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "the-impossible-purity-notes-on-the-death-we-choose"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

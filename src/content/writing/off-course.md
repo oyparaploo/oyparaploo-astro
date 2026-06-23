@@ -2,7 +2,7 @@
 title: "Off Course"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "30.10.2025"
 slug: "off-course"
 category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
 cluster: "Story-Cycles, Thrillers & Performance"

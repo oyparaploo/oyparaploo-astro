@@ -2,7 +2,7 @@
 title: "Another Minneapolis Urgency Entering A New Frame"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "30.06.2025"
 slug: "another-minneapolis-urgency-entering-a-new-frame"
 category: "Minneapolis State-Violence Witness-Poems"
 cluster: "Justice, Witness & the State"

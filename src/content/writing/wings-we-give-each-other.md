@@ -2,7 +2,7 @@
 title: "Wings We Give Each Other"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "01.09.2025"
 slug: "wings-we-give-each-other"
 category: "Hostile Architecture Met with Softness and Shelter"
 cluster: "Justice, Witness & the State"

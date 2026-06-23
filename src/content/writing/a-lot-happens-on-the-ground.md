@@ -2,7 +2,7 @@
 title: "A Lot Happens On The Ground"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "29.10.2025"
 slug: "a-lot-happens-on-the-ground"
 category: "Children of the Foster and Courthouse System"
 cluster: "Justice, Witness & the State"

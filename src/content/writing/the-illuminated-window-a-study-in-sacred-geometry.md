@@ -2,7 +2,7 @@
 title: "The Illuminated Window ~ A study In Sacred Geometry"
 variant: breath-display
 ground: dark
-date: "2025-07-16"
+date: "16.07.2025"
 slug: "the-illuminated-window-a-study-in-sacred-geometry"
 category: "Defiant Body and Aging Riffs Against Beauty Standards"
 cluster: "Senses, Tone & the Body"

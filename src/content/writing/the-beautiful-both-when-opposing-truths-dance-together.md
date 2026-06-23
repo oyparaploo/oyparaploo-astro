@@ -2,7 +2,7 @@
 title: "The Beautiful Both ~ When Opposing Truths Dance Together"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "the-beautiful-both-when-opposing-truths-dance-together"
 category: "Holding Contradictory Truths at Once"
 cluster: "Spirit, Mortality & the Ordinary Divine"

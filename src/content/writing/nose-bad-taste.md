@@ -2,7 +2,7 @@
 title: "Nose Bad Taste"
 variant: breath-display
 ground: dark
-date: "February 12, 2026"
+date: "27.07.2025"
 slug: "nose-bad-taste"
 category: "Political Hearings, Cover-Ups, and the Word \"Children\""
 cluster: "Justice, Witness & the State"

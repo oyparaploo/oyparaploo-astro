@@ -2,7 +2,7 @@
 title: "Friday is a Perfect Day"
 variant: breath-display
 ground: dark
-date: "2025-12-15"
+date: "14.12.2025"
 slug: "friday-is-a-perfect-day"
 category: "Indigenous Foodways and Food Sovereignty"
 cluster: "Ecology, Climate & Animals"

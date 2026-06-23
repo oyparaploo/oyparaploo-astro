@@ -2,7 +2,7 @@
 title: "The Security Threat Is Already Inside"
 variant: breath-display
 ground: dark
-date: "January 13, 2026"
+date: "26.09.2025"
 slug: "the-security-threat-is-already-inside"
 category: "Mutual Aid, Grassroots Care, and Starting Without Permission"
 cluster: "Migration, Lineage & Belonging"

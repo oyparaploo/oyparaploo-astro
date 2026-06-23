@@ -2,7 +2,7 @@
 title: "Curb or calm down bit"
 variant: breath-display
 ground: dark
-date: "2025-08-09"
+date: "08.08.2025"
 slug: "curb-or-calm-down-bit"
 category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
 cluster: "Ars Poetica & the Oyparaploo Method"

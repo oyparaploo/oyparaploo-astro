@@ -2,7 +2,7 @@
 title: "What We Did With the Garbage After Everything Died"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "29.10.2025"
 slug: "what-we-did-with-the-garbage-after-everything-died"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

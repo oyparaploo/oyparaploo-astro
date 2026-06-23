@@ -2,7 +2,7 @@
 title: "The River Knows Its Own Way ~ On Sacred Texts and the Women Who Read Them"
 variant: reading
 ground: light
-date: "2025-09-16"
+date: "16.09.2025"
 slug: "the-river-knows-its-own-way-on-sacred-texts-and-the-women-who-read-them"
 category: "Religion, Gender, and the Suppressed Voices of Women"
 cluster: "Mind, Faith, Satire & Other Threads"

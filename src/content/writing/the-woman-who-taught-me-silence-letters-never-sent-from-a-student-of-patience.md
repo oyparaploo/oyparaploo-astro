@@ -2,7 +2,7 @@
 title: "The Woman Who Taught Me Silence"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "08.08.2025"
 slug: "the-woman-who-taught-me-silence-letters-never-sent-from-a-student-of-patience"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

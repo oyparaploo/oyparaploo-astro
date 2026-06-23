@@ -2,7 +2,7 @@
 title: "The Circle Gets Smaller Every Tuesday"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "30.10.2025"
 slug: "the-circle-gets-smaller-every-tuesday"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "Suspended Crossing"
 variant: breath-display
 ground: dark
-date: "2025-10-15"
+date: "14.10.2025"
 slug: "suspended-crossing"
 category: "Migration, Exile, and the Lost Mother Tongue"
 cluster: "Migration, Lineage & Belonging"

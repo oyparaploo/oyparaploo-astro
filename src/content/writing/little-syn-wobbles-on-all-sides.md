@@ -2,7 +2,7 @@
 title: "Little Syn Wobbles On All Sides"
 variant: breath-display
 ground: dark
-date: "2026-05-16"
+date: "12.10.2025"
 slug: "little-syn-wobbles-on-all-sides"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

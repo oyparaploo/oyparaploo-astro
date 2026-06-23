@@ -2,7 +2,7 @@
 title: "Brown Paint"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "07.10.2025"
 slug: "brown-paint"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

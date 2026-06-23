@@ -2,7 +2,7 @@
 title: "The Underground ~ A Study in Failing Franchises and Living Soil"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "08.08.2025"
 slug: "the-underground-a-study-in-failing-franchises-and-living-soil"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

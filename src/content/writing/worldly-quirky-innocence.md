@@ -2,7 +2,7 @@
 title: "WORLDLY QUIRKY INNOCENCE"
 variant: breath-display
 ground: dark
-date: "2025-07-20"
+date: "20.07.2025"
 slug: "worldly-quirky-innocence"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

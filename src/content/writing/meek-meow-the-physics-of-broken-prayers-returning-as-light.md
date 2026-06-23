@@ -2,7 +2,7 @@
 title: "Meek Meow: The Physics of Broken Prayers Returning as Light"
 variant: reading
 ground: light
-date: "2025-08-02"
+date: "02.08.2025"
 slug: "meek-meow-the-physics-of-broken-prayers-returning-as-light"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

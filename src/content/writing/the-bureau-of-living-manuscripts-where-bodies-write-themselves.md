@@ -2,7 +2,7 @@
 title: "The Bureau of Living Manuscripts ~ Where Bodies Write Themselves"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-bureau-of-living-manuscripts-where-bodies-write-themselves"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

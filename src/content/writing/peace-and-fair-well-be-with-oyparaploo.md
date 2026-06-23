@@ -2,7 +2,7 @@
 title: "Peace and Fair Well Be with Oyparaploo"
 variant: breath-display
 ground: dark
-date: "2026-05-15"
+date: "11.10.2025"
 slug: "peace-and-fair-well-be-with-oyparaploo"
 category: "Self-Referential Poetics of Broken Language and the Pause"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "The Music of Touch ~ When Skin Becomes Sound"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "23.08.2025"
 slug: "the-music-of-touch-when-skin-becomes-sound"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

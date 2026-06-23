@@ -2,7 +2,7 @@
 title: "O Phooey Nonsense"
 variant: breath-display
 ground: dark
-date: "2026-05-16"
+date: "26.07.2025"
 slug: "o-phooey-nonsense"
 category: "Pure Sound-Poems and Invented Glossolalia"
 cluster: "Ars Poetica & the Oyparaploo Method"

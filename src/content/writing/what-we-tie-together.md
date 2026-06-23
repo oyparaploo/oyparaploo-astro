@@ -2,7 +2,7 @@
 title: "What We Tie Together"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "28.10.2025"
 slug: "what-we-tie-together"
 category: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 cluster: "Labor, Value & the Made Object"

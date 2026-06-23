@@ -2,7 +2,7 @@
 title: "Crib Show Stream"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "crib-show-stream"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
 cluster: "Ars Poetica & the Oyparaploo Method"

@@ -2,7 +2,7 @@
 title: "Household Names and Other Wonderful Items"
 variant: breath-display
 ground: dark
-date: "2026-05-25"
+date: "03.11.2025"
 slug: "household-names-and-other-wonderful-items"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

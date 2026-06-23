@@ -2,7 +2,7 @@
 title: "Everything But Novel Existence"
 variant: breath-display
 ground: dark
-date: "2025-07-17"
+date: "17.07.2025"
 slug: "everything-but-novel-existence"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

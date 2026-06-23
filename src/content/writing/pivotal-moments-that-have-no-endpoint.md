@@ -2,7 +2,7 @@
 title: "Pivotal Moments That Have No Endpoint"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "25.10.2025"
 slug: "pivotal-moments-that-have-no-endpoint"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

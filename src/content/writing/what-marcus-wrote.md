@@ -2,7 +2,7 @@
 title: "What Marcus Wrote"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "13.10.2025"
 slug: "what-marcus-wrote"
 category: "Intergenerational and Inherited Trauma Carried in the Body"
 cluster: "Migration, Lineage & Belonging"

@@ -2,7 +2,7 @@
 title: "Worm Consciousness"
 variant: breath-display
 ground: dark
-date: "2025-12-03"
+date: "03.12.2025"
 slug: "worm-consciousness"
 category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 cluster: "Justice, Witness & the State"

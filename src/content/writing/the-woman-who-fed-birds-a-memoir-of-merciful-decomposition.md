@@ -2,7 +2,7 @@
 title: "The Woman Who Fed Birds"
 variant: reading
 ground: light
-date: "2025-08-08"
+date: "04.08.2025"
 slug: "the-woman-who-fed-birds-a-memoir-of-merciful-decomposition"
 category: "Forced Transformation Reframed as Divine Mercy and Cruelty"
 cluster: "Metamorphosis & Transformation"

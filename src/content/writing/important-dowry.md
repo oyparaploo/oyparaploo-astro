@@ -2,7 +2,7 @@
 title: "Important Dowry"
 variant: breath-display
 ground: dark
-date: "2025-10-14"
+date: "14.10.2025"
 slug: "important-dowry"
 category: "Dying Brooks, Watersheds, and Inherited Water Records"
 cluster: "Ecology, Climate & Animals"

@@ -2,7 +2,7 @@
 title: "Pattern Matching"
 variant: breath-display
 ground: dark
-date: "2025-10-13"
+date: "13.10.2025"
 slug: "pattern-matching"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

@@ -2,7 +2,7 @@
 title: "The Rhythm of Poison ~ Where Air and Addiction Converge"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "10.08.2025"
 slug: "the-rhythm-of-poison-where-air-and-addiction-converge"
 category: "Atmosphere, Breath, and Air That Rewrites the Body"
 cluster: "Ecology, Climate & Animals"

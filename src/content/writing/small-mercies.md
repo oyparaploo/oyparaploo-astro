@@ -2,7 +2,7 @@
 title: "Small Mercies"
 variant: breath-display
 ground: dark
-date: "2025-10-12"
+date: "12.10.2025"
 slug: "small-mercies"
 category: "The Sacred in Ordinary Gestures and Small Mercies"
 cluster: "Spirit, Mortality & the Ordinary Divine"

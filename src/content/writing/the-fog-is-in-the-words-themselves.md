@@ -2,7 +2,7 @@
 title: "The Fog Is in the Words Themselves"
 variant: breath-display
 ground: dark
-date: "January 15, 2026"
+date: "02.11.2025"
 slug: "the-fog-is-in-the-words-themselves"
 category: "Justice, Legal Fog, and Whether Accountability Is Possible"
 cluster: "Justice, Witness & the State"

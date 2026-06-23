@@ -2,7 +2,7 @@
 title: "Maybe, Probably, Yes"
 variant: breath-display
 ground: dark
-date: "2025-09-02"
+date: "02.09.2025"
 slug: "maybe-probably-yes"
 category: "The Sacred in Ordinary Gestures and Small Mercies"
 cluster: "Spirit, Mortality & the Ordinary Divine"

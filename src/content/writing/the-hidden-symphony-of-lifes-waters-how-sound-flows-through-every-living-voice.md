@@ -2,7 +2,7 @@
 title: "The Hidden Symphony of Life's Waters ~ How Sound Flows Through Every Living Voice"
 variant: breath-display
 ground: dark
-date: "2025-08-24"
+date: "24.08.2025"
 slug: "the-hidden-symphony-of-lifes-waters-how-sound-flows-through-every-living-voice"
 category: "Sound, Light, Color, and the Unity of the Senses"
 cluster: "Senses, Tone & the Body"

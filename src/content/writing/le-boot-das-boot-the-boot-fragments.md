@@ -2,7 +2,7 @@
 title: "Le Boot Das Boot The Boot"
 variant: breath-display
 ground: dark
-date: "2025-09-16"
+date: "16.09.2025"
 slug: "le-boot-das-boot-the-boot-fragments"
 category: "Impermanence, Mortality, and Holding Things with Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"

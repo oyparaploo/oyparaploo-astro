@@ -2,7 +2,7 @@
 title: "The Ghost in the Machine ~ A Brooklyn Labyrinth"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "09.08.2025"
 slug: "the-ghost-in-the-machine-a-brooklyn-labyrinth"
 category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 cluster: "Labor, Value & the Made Object"

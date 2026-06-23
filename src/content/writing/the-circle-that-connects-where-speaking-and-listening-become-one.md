@@ -2,7 +2,7 @@
 title: "The Circle That Connects ~ Where Speaking and Listening Become One"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "21.09.2025"
 slug: "the-circle-that-connects-where-speaking-and-listening-become-one"
 category: "Speaking as Generosity, Love, and Connection"
 cluster: "Voice, Listening & Speaking Craft"

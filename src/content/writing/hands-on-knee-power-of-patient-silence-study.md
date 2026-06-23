@@ -2,7 +2,7 @@
 title: "Hands On Knee ~ Power of Patient Silence Study"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "22.09.2025"
 slug: "hands-on-knee-power-of-patient-silence-study"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

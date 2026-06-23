@@ -2,7 +2,7 @@
 title: "The Girl Who Sings Fire Into Four Languages"
 variant: breath-display
 ground: dark
-date: "2025-10-31"
+date: "30.10.2025"
 slug: "the-girl-who-sings-fire-into-four-languages"
 category: "Faith Confronting Climate Catastrophe"
 cluster: "Ecology, Climate & Animals"

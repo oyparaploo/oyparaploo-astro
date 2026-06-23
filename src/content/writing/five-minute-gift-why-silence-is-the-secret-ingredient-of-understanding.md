@@ -2,7 +2,7 @@
 title: "Five Minute Gift ~ Why Silence Is the Secret Ingredient of Understanding"
 variant: reading
 ground: light
-date: "2025-09-23"
+date: "23.09.2025"
 slug: "five-minute-gift-why-silence-is-the-secret-ingredient-of-understanding"
 category: "Silence, the Pause, and the Power of Saying Less"
 cluster: "Voice, Listening & Speaking Craft"

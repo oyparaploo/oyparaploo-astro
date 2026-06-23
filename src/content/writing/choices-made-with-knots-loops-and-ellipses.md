@@ -2,7 +2,7 @@
 title: "Choices Made with Knots, Loops and Ellipses"
 variant: breath-display
 ground: dark
-date: "2025-10-29"
+date: "26.10.2025"
 slug: "choices-made-with-knots-loops-and-ellipses"
 category: "Bankruptcy and Eviction Waiting-Room Gatherings That Refuse to End"
 cluster: "Grief, Loss & Compulsive Making"

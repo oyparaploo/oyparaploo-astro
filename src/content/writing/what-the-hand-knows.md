@@ -2,7 +2,7 @@
 title: "What the Hand Knows"
 variant: reading
 ground: light
-date: "2025-10-14"
+date: "02.10.2025"
 slug: "what-the-hand-knows"
 category: "Compulsive Repetitive Making as Inarticulate Grief"
 cluster: "Grief, Loss & Compulsive Making"

@@ -2,7 +2,7 @@
 title: "The Neurodivergent Prophet ~ Finding Christ in Central Park"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "07.08.2025"
 slug: "the-neurodivergent-prophet-finding-christ-in-central-park"
 category: "Joy, Wonder, and Chosen Innocence as Resistance"
 cluster: "Joy, Innocence & Wonder"

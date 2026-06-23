@@ -2,7 +2,7 @@
 title: "the saw and the song"
 variant: breath-display
 ground: dark
-date: "February 4, 2026"
+date: "01.11.2025"
 slug: "the-saw-and-the-song"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

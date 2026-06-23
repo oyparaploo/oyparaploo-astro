@@ -2,7 +2,7 @@
 title: "Next Indivisible Labyrinth"
 variant: breath-display
 ground: dark
-date: "2026-06-06"
+date: "15.08.2025"
 slug: "oyparaploo-the-indivisible-soul"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
 cluster: "Ars Poetica & the Oyparaploo Method"

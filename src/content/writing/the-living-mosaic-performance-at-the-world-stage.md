@@ -2,7 +2,7 @@
 title: "The Living Mosaic ~ Final Performance at the World Stage"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "06.08.2025"
 slug: "the-living-mosaic-performance-at-the-world-stage"
 category: "Rhizome Story-Cycle Finales Where All Stories Converge"
 cluster: "Story-Cycles, Thrillers & Performance"

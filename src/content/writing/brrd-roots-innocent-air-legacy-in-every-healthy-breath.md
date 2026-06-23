@@ -2,7 +2,7 @@
 title: "Brrd Roots ~ Innocent Air ~ Legacy in Every Healthy Breath"
 variant: breath-display
 ground: dark
-date: "2025-08-10"
+date: "08.08.2025"
 slug: "brrd-roots-innocent-air-legacy-in-every-healthy-breath"
 category: "Atmosphere, Breath, and Air That Rewrites the Body"
 cluster: "Ecology, Climate & Animals"

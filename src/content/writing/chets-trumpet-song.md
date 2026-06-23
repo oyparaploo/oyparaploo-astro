@@ -2,7 +2,7 @@
 title: "Chet's trumpet song"
 variant: breath-display
 ground: dark
-date: "2025-08-06"
+date: "06.08.2025"
 slug: "chets-trumpet-song"
 category: "Music as Survival, Failure, and Honest Imperfection"
 cluster: "Story-Cycles, Thrillers & Performance"

@@ -2,7 +2,7 @@
 title: "Most Amazing Dream Ever"
 variant: breath-display
 ground: dark
-date: "2025-07-14"
+date: "14.07.2025"
 slug: "most-amazing-dream-ever"
 category: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 cluster: "Ecology, Climate & Animals"

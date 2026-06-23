@@ -2,7 +2,7 @@
 title: "When Empires Fall and Orchards Rise ~ A Chronicle of Power and Presence"
 variant: reading
 ground: light
-date: "2025-08-12"
+date: "11.08.2025"
 slug: "when-empires-fall-and-orchards-rise-a-chronicle-of-power-and-presence"
 category: "Tyranny Exhausting into Presence and Mercy-Orchards"
 cluster: "Mind, Faith, Satire & Other Threads"

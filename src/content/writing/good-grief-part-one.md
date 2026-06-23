@@ -2,7 +2,7 @@
 title: "Good Grief Part One"
 variant: breath-display
 ground: dark
-date: "2025-11-06"
+date: "05.11.2025"
 slug: "good-grief-part-one"
 category: "Grief as Sacred Listening and Communal Witnessing"
 cluster: "Grief, Loss & Compulsive Making"
