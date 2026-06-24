@@ -7,7 +7,7 @@
 // EXACT cluster name. Dates: recovered authorship date if known, else the raw
 // frontmatter date — identical sourcing to writing/[slug].astro.
 import { getCollection } from 'astro:content';
-import recoveredDates from '../../../data/recovered-dates.json';
+import recoveredDates from '../../../../data/recovered-dates.json';
 
 // Everything the route needs is built inside getStaticPaths — Astro extracts it
 // into an isolated prerender chunk, so module-scope consts would be out of scope.
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   }
 
   // frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
-  const raws = import.meta.glob('../../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
+  const raws = import.meta.glob('../../../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
   const dateMap = {};
   for (const k in raws) {
     const slug = k.split('/').pop().replace(/\.md$/, '');
