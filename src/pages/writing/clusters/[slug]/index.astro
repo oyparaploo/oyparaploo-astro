@@ -8,6 +8,7 @@
 // frontmatter date — identical sourcing to writing/[slug].astro.
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../../../data/recovered-dates.json';
+import { slugify } from '../../../../lib/slug.js';
 
 // Everything the route needs is built inside getStaticPaths — Astro extracts it
 // into an isolated prerender chunk, so module-scope consts would be out of scope.
@@ -79,19 +80,18 @@ export async function getStaticPaths() {
       const cat = p.data.category || '(uncategorized)';
       (byCat[cat] ||= []).push({ id: p.id, title: p.data.title, date: recoveredDates[p.id] || dateMap[p.id] || '' });
     }
-    const categories = Object.entries(byCat).map(([cat, list]) => ({
-      name: cat,
-      // newest first; unparseable dates sort last, ties broken by title
-      pieces: list.slice().sort((a, b) => {
-        const ka = dateKey(a.date), kb = dateKey(b.date);
-        return (kb == null ? -Infinity : kb) - (ka == null ? -Infinity : ka) || a.title.localeCompare(b.title);
-      }),
-    })).sort((a, b) => b.pieces.length - a.pieces.length || a.name.localeCompare(b.name));
-    return { params: { slug: clusterSlug(name) }, props: { name, intro, count: items.length, categories } };
+    // one doorway card per category: name, piece count, newest-piece year, slug.
+    // Order: largest category first — corpus-feel-map-v2.json carries no per-category
+    // warmth signal (only per-cluster), so we fall back rather than invent an order.
+    const categories = Object.entries(byCat).map(([cat, list]) => {
+      const years = list.map((p) => { const k = dateKey(p.date); return k == null ? null : Math.floor(k / 10000); }).filter((y) => y != null);
+      return { name: cat, count: list.length, year: years.length ? Math.max(...years) : null, slug: slugify(cat) };
+    }).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    return { params: { slug: clusterSlug(name) }, props: { name, intro, count: items.length, clusterSlug: clusterSlug(name), categories } };
   });
 }
 
-const { name, intro, count, categories } = Astro.props;
+const { name, intro, count, clusterSlug, categories } = Astro.props;
 
 const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
 <nav class="site-nav" aria-label="Site navigation">
@@ -740,7 +740,8 @@ body.dark-mode .cl-piece-date { color: #a09888; }
 /* Mobile side-gutter: 40px → 14px at the 480px breakpoint (spec floor updated to 14px). Only L/R changes; top/bottom and desktop 40px unchanged. */
 @media (max-width: 480px) {
   .page-header { padding-left: 14px; padding-right: 14px; }
-  .cl-cat-section { padding-left: 14px; padding-right: 14px; }
+  .cl-section { padding-left: 14px; padding-right: 14px; }
+  .cl-card { padding-left: 14px; padding-right: 14px; }
 }
 </style>
 </head>
@@ -754,21 +755,16 @@ body.dark-mode .cl-piece-date { color: #a09888; }
     <p class="page-intro">{intro}</p>
   </header>
 
-  {categories.map((cat) => (
-    <section class="cl-cat-section reveal">
-      <h2 class="cl-cat-title">{cat.name}</h2>
-      <ul class="cl-piece-list">
-        {cat.pieces.map((p) => (
-          <li class="cl-piece">
-            <a class="cl-piece-link" href={`/writing/${p.id}/`}>
-              <span class="cl-piece-title">{p.title}</span>
-              {p.date && <span class="cl-piece-date">{p.date}</span>}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  ))}
+  <section class="cl-section">
+    <div class="cl-grid">
+      {categories.map((cat, i) => (
+        <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/clusters/${clusterSlug}/${cat.slug}/`}>
+          <div class="cl-count">{cat.count === 1 ? '1 piece' : `${cat.count} pieces`}{cat.year ? ` · ${cat.year}` : ''}</div>
+          <div class="cl-name">{cat.name}</div>
+        </a>
+      ))}
+    </div>
+  </section>
 </main>
 
 <div class="bottom-safe"></div>
