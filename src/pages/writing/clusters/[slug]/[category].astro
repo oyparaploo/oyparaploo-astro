@@ -701,8 +701,8 @@ body.dark-mode .cl-intro { color: #b5ada5; }
    Palette and type lifted from the doorway/header rules above; namespaced
    .cl-* so they never collide with the skeleton's leftover content rules.
    ─────────────────────────────────────────────────────────────────── */
-.cl-back { display: inline-block; margin-bottom: 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #5a4f47; letter-spacing: 0.02em; transition: color 0.2s; }
-.cl-back:hover { color: #5c3a1e; }
+.cl-back { display: inline-block; margin-bottom: 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #5a4f47; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.cl-back:hover { color: #5c3a1e; text-decoration: underline; }
 .cl-cat-section { max-width: 1200px; margin: 0 auto; padding: 48px 40px 0; }
 .cl-cat-section:last-of-type { padding-bottom: 8px; }
 .cl-cat-title { font-family: 'Lora', serif; font-size: clamp(1.2353rem, 2.2vw, 1.5294rem); font-weight: 600; color: #2a2320; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(42,35,32,0.28); }
@@ -713,7 +713,7 @@ body.dark-mode .cl-intro { color: #b5ada5; }
 .cl-piece-title { font-family: 'Lora', serif; font-size: 1.0588rem; font-weight: 500; color: #2a2320; line-height: 1.45; transition: color 0.2s; }
 .cl-piece-date { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #5a4f47; letter-spacing: 0.02em; white-space: nowrap; }
 body.dark-mode .cl-back { color: #a09888; }
-body.dark-mode .cl-back:hover { color: #d0c8bf; }
+body.dark-mode .cl-back:hover { color: #d0c8bf; text-decoration: underline; }
 body.dark-mode .cl-cat-title { color: #ccc5bc; border-bottom-color: rgba(232,224,214,0.28); }
 body.dark-mode .cl-piece { border-bottom-color: rgba(232,224,214,0.12); }
 body.dark-mode .cl-piece-title { color: #c8c0b7; }
@@ -732,11 +732,11 @@ body.dark-mode .cl-piece-date { color: #a09888; }
 
 <main>
   <header class="page-header reveal">
-    <h1 class="page-title"><a href={`/writing/clusters/${clusterSlug}/`}>&larr; {clusterName}</a></h1>
+    <a class="cl-back" href={`/writing/clusters/${clusterSlug}/`}>&larr; {clusterName}</a>
+    <h1 class="cl-cat-title">{categoryName}</h1>
   </header>
 
   <section class="cl-cat-section reveal">
-    <h2 class="cl-cat-title">{categoryName}</h2>
     <ul class="cl-piece-list">
       {pieces.map((p) => (
         <li class="cl-piece">
