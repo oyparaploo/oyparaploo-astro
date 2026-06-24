@@ -63,7 +63,6 @@ function dateKey(s) {
 }
 
 const pieces = (await getCollection('writing')).filter((e) => e.id !== 'a-word-is-a-room');
-const total = pieces.length;
 
 // group each cluster's piece date keys (same date sourcing as the interior pages)
 const byCluster = {};
@@ -719,7 +718,6 @@ body.dark-mode .cl-intro { color: #b5ada5; }
   <header class="page-header reveal">
     <h1 class="page-title">Writing</h1>
     <p class="page-intro">The writing, gathered into fourteen clusters by what each piece is and does. Each doorway opens onto its own cluster — the pieces live one level in.</p>
-    <div class="page-stat">{total} pieces &middot; {clusters.length} clusters</div>
   </header>
 
   <section class="cl-section">
