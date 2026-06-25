@@ -8,6 +8,7 @@
 // writing-cluster-intros.md text, matched to each cluster by EXACT name.
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../data/recovered-dates.json';
+import { FEEL_DOORS } from '../../lib/feel-doors.js';
 
 const CLUSTER_INTROS = {
   "Ars Poetica & the Oyparaploo Method": "Manifestos, studio monologues, and ars-poetica fragments that name and enact the Oyparaploo method itself \u2014 discarded fragments composted into enterable meaning, split words and invented phonemes reporting on their own making, plural \"human bird\" credos, and confessional self-coaching past curator dismissals. Alongside them sit statements framing the maker as a non-extractive visitor who gives finished work away, who-we-are biographies, assemblage-as-evidence declarations, and pieces built from pure invented sound. Self-defining, neologistic, and declarative \u2014 the largest grouping, and the one most about its own making.",
@@ -81,6 +82,23 @@ const clusters = Object.entries(byCluster).map(([name, keys]) => {
   const mostRecent = dated.length ? Math.max(...dated) : -Infinity;
   return { name, count: keys.length, intro, slug: clusterSlug(name), span, mostRecent };
 }).sort((a, b) => b.mostRecent - a.mostRecent || b.count - a.count || a.name.localeCompare(b.name));
+
+// Feel-door entry cards: door NAME + one curated line, in the FEEL_DOORS order
+// (warmest -> coldest). Lines are verbatim from the harvest (approved per door).
+const DOOR_LINES = {
+  'open-door': "The thing nobody mentions about devotion: it doesn't care about scale.",
+  'bench': "We are students of our own accumulation.",
+  'held-hand': "the wings we give each other when the ground gives way.",
+  'deadpan': "Like tinnitus of the soul, it may always whisper in the background.",
+  'witness': "We're not protesting. We're existing. Publicly. Undeniably.",
+  'trap-door': "When did everything become the cheap version?",
+  'wander': "People who don't exist but should. Or do exist but shouldn't. Same thing really.",
+};
+const feelDoors = FEEL_DOORS.map((d) => {
+  const line = DOOR_LINES[d.slug];
+  if (!line) throw new Error(`writing/index.astro: no door-copy line for feel-door "${d.slug}" — stopping rather than rendering a blank card.`);
+  return { name: d.name, slug: d.slug, line };
+});
 
 const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
 <nav class="site-nav" aria-label="Site navigation">
@@ -645,7 +663,7 @@ body.dark-mode .landing-title { color: rgba(232,224,214,0.88); }
 body.dark-mode .landing-description { color: rgba(232,224,214,0.65); }
 body.dark-mode .landing-hero { border-bottom-color: rgba(232,224,214,0.28); }
 body.dark-mode .landing-section { border-bottom-color: rgba(232,224,214,0.28); }
-body.dark-mode .section-title { color: rgba(232,224,214,0.80); }
+body.dark-mode .section-title { color: #d0c8bf; }
 body.dark-mode .section-desc { color: rgba(232,224,214,0.62); }
 body.dark-mode .landing-card { border-color: rgba(232,224,214,0.32); }
 body.dark-mode .landing-card:hover { border-color: rgba(232,224,214,0.55); background: rgba(232,224,214,0.03); }
@@ -717,10 +735,23 @@ body.dark-mode .cl-intro { color: #b5ada5; }
 <main>
   <header class="page-header reveal">
     <h1 class="page-title">Writing</h1>
-    <p class="page-intro">The writing, gathered into fourteen clusters by what each piece is and does. Each doorway opens onto its own cluster — the pieces live one level in.</p>
+    <p class="page-intro">The writing, gathered into fourteen Collections by what each piece is and does. Each doorway opens onto its own Collection — the pieces live one level in.</p>
   </header>
 
   <section class="cl-section">
+    <div class="section-header"><h2 class="section-title">By feel</h2></div>
+    <div class="cl-grid">
+      {feelDoors.map((d, i) => (
+        <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/feel/${d.slug}/`}>
+          <div class="cl-name">{d.name}</div>
+          <div class="cl-intro">{d.line}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="cl-section">
+    <div class="section-header"><h2 class="section-title">By subject</h2></div>
     <div class="cl-grid">
       {clusters.map((c, i) => (
         <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/clusters/${c.slug}/`}>
