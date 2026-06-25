@@ -18,10 +18,11 @@ export async function getStaticPaths() {
     params: { door: door.slug },
     props: {
       name: door.name,
-      pieces: door.pieces.map((slug) => {
+      pieces: door.pieces.map(({ slug, line }) => {
         const title = titles[slug];
         if (!title) throw new Error(`writing/feel/[door].astro: no piece for slug "${slug}" in door "${door.name}" — feel-doors.js references a piece that is not in the collection. Stopping rather than guessing.`);
-        return { slug, title };
+        if (!line || !line.trim()) throw new Error(`writing/feel/[door].astro: missing door-copy line for "${slug}" in door "${door.name}" — every card must show its line. Stopping rather than rendering a blank card.`);
+        return { slug, title, line };
       }),
     },
   }));
@@ -695,6 +696,7 @@ body.dark-mode .cl-piece-date { color: #a09888; }
       {pieces.map((p, i) => (
         <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/${p.slug}/`}>
           <div class="cl-name">{p.title}</div>
+          <div class="cl-intro">{p.line}</div>
         </a>
       ))}
     </div>
