@@ -63,7 +63,7 @@ export const FEEL_DOORS = [
     ],
   },
   {
-    name: "Trap Door",
+    name: "Trap",
     slug: "trap-door",
     pieces: [
       { slug: "the-morning-after-everything-went-to-shit", line: "When it pops, you're still here. That's not profound. That's just Tuesday." },
