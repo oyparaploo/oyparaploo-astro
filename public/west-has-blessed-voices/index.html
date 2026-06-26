@@ -32,6 +32,8 @@ body {
 .piece {
   max-width: 580px;
   width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .title {
@@ -51,6 +53,8 @@ body {
   color: #b5ada5;
   line-height: 1.75;
   letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+  word-break: break-word;
   margin-bottom: 20px;
   opacity: 0;
   animation: breathIn 1.8s ease forwards;
@@ -146,7 +150,7 @@ body {
 
 /* ═══ canonical header support ═══ */
 :root { --oy-sand: #D4C4A8; --oy-tan: #D4A574; --oy-radius: 4px; }
-html { font-size: var(--root-size, 18px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { overflow-x: clip; font-size: var(--root-size, 18px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -407,7 +411,7 @@ body.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
 body.light-mode .nav-accent-rule { opacity: 1; }
 
 /* ═══ BREATH CONTENT — LIGHT MODE ═══ */
-body.light-mode { background: linear-gradient(to bottom, #ffffff 0%, #fdfcfb 60%, #f5f3ef 100%); }
+body.light-mode { background: linear-gradient(to bottom, #ffffff 0%, #fdfcfb 60%, #f5f3ef 100%); background-attachment: scroll; }
 body.light-mode .title { color: #3d352e; }
 body.light-mode .breath { color: #2a2320; }
 body.light-mode .breath.return { color: #3d352e; }
