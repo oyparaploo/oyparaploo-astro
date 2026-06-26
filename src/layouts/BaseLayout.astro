@@ -178,7 +178,7 @@ html.size-3 { --root-size: 21px; }
 
 /* Dark-ground native: AAA indicators are warm white */
 .font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
-.font-size-btn .sz {
+body.ground-dark .font-size-btn .sz {
   color: rgba(232,224,214,0.68) !important;
   opacity: 1;
   transition: opacity 0.25s, color 0.2s;
@@ -203,32 +203,32 @@ body.ground-dark .site-nav {
   padding: 0 40px; height: 64px;
   display: flex; align-items: center;
 }
-.wordmark {
+body.ground-dark .wordmark {
   font-family: 'Inter', sans-serif;
   font-weight: 500; font-size: 22px;
   color: rgba(232,224,214,0.68); letter-spacing: 0.02em;
   flex-shrink: 0; transition: color 0.2s;
 }
-.wordmark:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark .wordmark:hover { color: rgba(232,224,214,0.88); }
 
 .nav-links {
   display: flex; align-items: center; gap: 32px;
   list-style: none; padding-left: 0; margin-left: 48px;
   flex-shrink: 0;
 }
-.nav-links a {
+body.ground-dark .nav-links a {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 400; letter-spacing: 0.02em;
   color: rgba(232,224,214,0.68);
   transition: color 0.2s; white-space: nowrap;
 }
-.nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark .nav-links a:hover { color: rgba(232,224,214,0.88); }
 
 .nav-utils {
   display: flex; align-items: center; gap: 12px; margin-left: auto;
 }
-.nav-utils button, .nav-utils a {
+body.ground-dark .nav-utils button, body.ground-dark .nav-utils a {
   font-family: 'Inter', sans-serif;
   color: rgba(232,224,214,0.68);
   background: none; border: none; cursor: pointer;
@@ -236,8 +236,8 @@ body.ground-dark .site-nav {
   display: flex; align-items: center; justify-content: center;
   transition: color 0.2s;
 }
-.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
-.font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
+body.ground-dark .nav-utils button:hover, body.ground-dark .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark .font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
 .nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
 .nav-icon { width: 22px; height: 22px; display: block; }
 
@@ -246,7 +246,8 @@ body.ground-dark .site-nav {
   justify-content: center; align-items: center;
   gap: 5px; min-height: 44px; padding: 0 8px;
 }
-.nav-hamburger line {
+body.ground-dark .nav-hamburger line {
+  stroke: rgba(232,224,214,0.68);
   stroke-width: 2.5;
   transition: transform 0.25s, opacity 0.2s;
   transform-box: fill-box;
@@ -413,18 +414,18 @@ body.ground-dark.light-mode .site-nav {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
-body.light-mode .wordmark { color: #333; }
-body.light-mode .wordmark:hover { color: #5c3a1e; }
-body.light-mode .nav-links a { color: #333; }
-body.light-mode .nav-links a:hover { color: #5c3a1e; }
-body.light-mode .nav-utils button,
-body.light-mode .nav-utils a { color: #000; }
-body.light-mode .nav-utils button:hover,
-body.light-mode .nav-utils a:hover { color: #5c3a1e; }
-body.light-mode .nav-hamburger line { stroke: #333; }
+body.ground-dark.light-mode .wordmark { color: #333; }
+body.ground-dark.light-mode .wordmark:hover { color: #5c3a1e; }
+body.ground-dark.light-mode .nav-links a { color: #333; }
+body.ground-dark.light-mode .nav-links a:hover { color: #5c3a1e; }
+body.ground-dark.light-mode .nav-utils button,
+body.ground-dark.light-mode .nav-utils a { color: #000; }
+body.ground-dark.light-mode .nav-utils button:hover,
+body.ground-dark.light-mode .nav-utils a:hover { color: #5c3a1e; }
+body.ground-dark.light-mode .nav-hamburger line { stroke: #333; }
 body.light-mode #contrastBtn svg { transform: scaleX(-1); }
-body.light-mode .font-size-btn .sz { color: #000 !important; }
-body.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
+body.ground-dark.light-mode .font-size-btn .sz { color: #000 !important; }
+body.ground-dark.light-mode .font-size-btn:hover .sz { color: #5c3a1e !important; }
 body.light-mode .nav-accent-rule { opacity: 1; }
 
 /* ═══ BREATH CONTENT — LIGHT MODE ═══ */
