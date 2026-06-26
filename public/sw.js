@@ -1,9 +1,9 @@
 // Minimal, conservative service worker for installability + offline fallback.
 // Pages are NETWORK-FIRST (never cached) so writing is always fresh; only the static
 // shell (manifest, icons, offline page) is precached. Bump CACHE to invalidate.
-const CACHE = 'oyparaploo-shell-v1';
+const CACHE = 'oyparaploo-shell-v2';
 const SHELL = [
-  '/offline.html',
+  '/offline',
   '/manifest.webmanifest',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
@@ -12,7 +12,10 @@ const SHELL = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting())
+    caches.open(CACHE).then((c) =>
+      // Cache entries individually so one bad/redirecting URL can never reject the whole install.
+      Promise.allSettled(SHELL.map((url) => c.add(url)))
+    ).then(() => self.skipWaiting())
   );
 });
 
@@ -29,7 +32,7 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
   // Navigations: network-first, fall back to the offline page (no page caching -> never stale).
   if (req.mode === 'navigate') {
-    event.respondWith(fetch(req).catch(() => caches.match('/offline.html')));
+    event.respondWith(fetch(req).catch(() => caches.match('/offline')));
     return;
   }
   // Static shell assets: serve from cache if precached, else just fetch (no extra caching).
