@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/lora/400.css';
@@ -130,12 +131,6 @@ body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
 .pull-quote { max-width: var(--max-w); margin: 0 auto; padding: 64px 48px; border-top: 2px solid var(--honey); border-bottom: 1px solid #e0d8cc; }
 .pull-quote-text { font-family: 'Lora', serif; font-size: clamp(22px, 2.5vw, 30px); font-weight: 600; color: #2a2320; line-height: 1.45; max-width: 700px; }
 .pull-quote-attr { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #7d7168; margin-top: 16px; }
-.site-footer { background: #1a1816; padding: 64px 48px 40px; margin-top: 64px; }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
-.footer-col-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: #d4c4b0; margin-bottom: 16px; }
-.footer-col a, .footer-col p { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #999; display: block; padding: 4px 0; transition: color 0.2s; line-height: 1.5; }
-.footer-col a:hover { color: #d4c4b0; }
-.footer-bottom { max-width: var(--max-w); margin: 40px auto 0; padding-top: 24px; border-top: 1px solid #333; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 400; color: #666; }
 body.dark-mode { background: linear-gradient(to bottom, #000 0%, #111521 100%); background-attachment: fixed; color: #d0c8bf; }
 body.dark-mode .site-nav { background: rgba(0,0,0,0.92); border-bottom-color: transparent; }
 body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
@@ -291,32 +286,7 @@ body.dark-mode .pull-quote-attr { color: #8a8078; }
 <div class="pull-quote-attr">From The Method — How Fragments Join</div>
 </div>
 
-<footer class="site-footer">
-<div class="footer-inner">
-<div class="footer-col">
-<div class="footer-col-title">Grounds</div>
-<a href="#">Writing</a>
-<a href="/portraits">Portraits</a>
-<a href="#">Methodology</a>
-<a href="#">Good Grounds</a>
-</div>
-<div class="footer-col">
-<div class="footer-col-title">Practice</div>
-<a href="/our-practice">Our Practice</a>
-<a href="#">Making</a>
-<a href="#">Sound</a>
-<a href="#">The Broadcast</a>
-</div>
-<div class="footer-col">
-<div class="footer-col-title">Connect</div>
-<a href="#">Archive</a>
-<a href="#">Calendar</a>
-<a href="#">Contact</a>
-<p>Minneapolis ~ Saint Paul</p>
-</div>
-</div>
-<div class="footer-bottom">Oyparaploo · Wonderful Garbage · Noir Song</div>
-</footer>
+<Footer />
 
 <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 <div class="menu-strips" id="menuStrips"><div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div><div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div><div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div><div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div></div>

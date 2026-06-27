@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 // BaseLayout — shared chrome + CSS lifted VERBATIM from west-has-blessed-voices
 // (canonical breath-display, dark-native). One template -> many generated pages.
 const { title = 'Untitled' } = Astro.props;
@@ -151,19 +152,6 @@ body.ground-dark {
   .colophon { animation-delay: 2.4s; animation-duration: 1s; }
 }
 
-/* ===== CANONICAL SITE FOOTER (locked 2026-06-13) — dark-native ===== */
-.site-footer{background:rgba(0,0,0,0.25);}
-.footer-accent-rule{display:block;height:2px;border:none;background:linear-gradient(90deg,transparent 0%,rgba(122,90,74,0.35) 8%,rgba(122,90,74,0.55) 15%,rgba(122,90,74,0.28) 24%,rgba(92,58,30,0.45) 34%,rgba(92,58,30,0.65) 44%,rgba(92,58,30,0.28) 54%,rgba(122,90,74,0.50) 63%,rgba(160,128,100,0.40) 74%,rgba(160,128,100,0.28) 83%,rgba(122,90,74,0.30) 90%,transparent 100%);opacity:.6;}
-.footer-inner{max-width:1400px;margin:0 auto;padding:56px 40px 44px;font-family:'Inter',sans-serif;}
-.footer-cols{display:flex;flex-wrap:wrap;gap:40px 72px;}
-.footer-col{min-width:160px;}
-.footer-col-title{font-size:17px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;color:rgba(232,224,214,.5);}
-.footer-col a,.footer-col .footer-soon{display:block;font-size:17px;line-height:2;letter-spacing:.01em;text-decoration:none;color:rgba(232,224,214,.72);}
-.footer-col a{transition:color .2s;}
-.footer-col a:hover{color:rgba(232,224,214,.95);}
-.footer-col .footer-soon{cursor:default;}
-.footer-rule{height:1px;border:none;margin:36px 0 18px;background:rgba(232,224,214,.12);}
-.footer-copyright{font-size:17px;letter-spacing:.02em;color:rgba(232,224,214,.42);}
 
 /* ═══ canonical header support ═══ */
 :root { --oy-sand: #D4C4A8; --oy-tan: #D4A574; --oy-radius: 4px; }
@@ -439,12 +427,6 @@ body.light-mode .ellipsis { color: #b0a89e; }
 body.light-mode .colophon { background: #cfc7bd; }
 body.light-mode .colophon-date { color: #5a4f47; }
 
-body.light-mode .site-footer { background: rgba(0,0,0,0.03); }
-body.light-mode .footer-col-title { color: #8a8078; }
-body.light-mode .footer-col a, body.light-mode .footer-col .footer-soon { color: #5a4f47; }
-body.light-mode .footer-col a:hover { color: #2a2320; }
-body.light-mode .footer-copyright { color: #9a9088; }
-body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
 
 /* not-yet-live nav/menu links: inert, non-clickable, visually uniform */
 .nav-links a:not([href]), .menu-panel a:not([href]) { pointer-events: none; cursor: default; }
@@ -588,18 +570,7 @@ body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-exce
 <slot />
 
 
-<footer class="site-footer" role="contentinfo">
-  <hr class="footer-accent-rule" aria-hidden="true">
-  <div class="footer-inner">
-    <div class="footer-cols">
-      <div class="footer-col"><div class="footer-col-title">Grounds</div><a href="/writing/">Writing</a><a href="/portraits/">Portraits</a><a href="/methodology/">Methodology</a><a href="/good-grounds/">Good Grounds</a><a href="/prayers/">The Prayers</a></div>
-      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><a href="/making/">Making</a><a href="/listening-room/">Sound</a><a href="/broadcast/">The Broadcast</a><a href="/wavelength/">Wavelength</a></div>
-      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="/archive/">Archive</a><span class="footer-soon">Calendar</span><a href="mailto:info@oyparaploo.com">Contact</a></div>
-    </div>
-    <hr class="footer-rule" aria-hidden="true">
-    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
-  </div>
-</footer>
+<Footer />
 
 <script is:inline>
 var sizeStep = 1;
