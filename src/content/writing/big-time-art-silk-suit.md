@@ -3,7 +3,7 @@ title: "Big Time Art"
 variant: breath-display
 ground: dark
 date: "19.03.2026"
-slug: "big-time-art-2"
+slug: "big-time-art-silk-suit"
 ---
 
 ( all senses examination of this aromous soil )
