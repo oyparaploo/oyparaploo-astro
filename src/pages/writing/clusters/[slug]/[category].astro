@@ -44,7 +44,7 @@ export async function getStaticPaths() {
     return null;
   }
 
-  const pieces = (await getCollection('writing')).filter((e) => e.id !== 'a-word-is-a-room' && e.id !== 'where-to-place-the-chairs');
+  const pieces = (await getCollection('writing')).filter((e) => !['a-word-is-a-room','where-to-place-the-chairs','are-we-working-too-much-inside-english','all-senses-human-and-other-natures','blended-zebra-mussel-memory','board-of-meeting-seriously','catch-our-hug-hold-ride','compost-aroma-almost-poem','could-of-should-of-sentence','ever-so-present-ruining-of-our-nation','hand-me-the-matches','how-bad-we-love-this-type-of-life','night-tell-us-why-lomah','not-close-to-a-river-this-time','red-tongues-first','sensing-if-there-might-be-another-major-collapse','we-tried-our-best-to-resolve-the-situations','water-can-be-a-worldly-to-local-collective-practice','what-is-the-rationale-for-no-hands','why-another-foot-is-important','all-this-stuff-gratefully-will-carry-us-to-our-deathbed','fluid-mosaic','big-time-art-2'].includes(e.id));
   const byCluster = {};
   for (const p of pieces) {
     const c = p.data.cluster || '(uncategorized)';
