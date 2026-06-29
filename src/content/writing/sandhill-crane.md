@@ -6,7 +6,7 @@ date: "12.08.2025"
 slug: "sandhill-crane"
 ---
 
-## Part I: The Arrival
+## The Arrival
 
 The sandhill crane lands in my father's hospital parking lot at 6:47 AM, December 3rd—two thousand miles from where it should be, three months past migration. I know because I'm watching from the oncology wing's seventh floor, where Lou has been dying for eleven days, transforming the word *wisdom* into something I no longer recognize.
 
@@ -14,7 +14,7 @@ My credentials for telling this: I've spent twenty-three years translating my fa
 
 The crane stands motionless between two ambulances, its red crown catching first light. Rare, very rare this time of year. The phrase runs through my mind in Lou's voice, though he hasn't spoken in three days.
 
-## Part II: The Investigation Thread
+## The Investigation Thread
 
 *University of Minnesota Raptor Center, two weeks earlier. Dr. Sarah Chen pulls up migration maps.*
 
@@ -35,7 +35,7 @@ Dr. Chen shows me data from the International Crane Foundation. Climate change h
 
 I think of Lou scattering rice in our backyard for thirty years, calling birds in Hmong, teaching them words they couldn't possibly understand.
 
-## Part III: Lou's Gallery
+## Lou's Gallery
 
 *Memory: Our garage, 1994. Lou surrounded by paint cans and mortar shells he's transformed into art.*
 
@@ -49,7 +49,7 @@ I'm eleven, more interested in MTV than war stories. But something in his voice 
 
 He doesn't mention this is why he named his firstborn daughter Noog. Why he spent decades painting birds on recycled weapons. Why he believes certain creatures exist outside time's normal constraints.
 
-## Part IV: Jo Han's Lesson
+## Jo Han's Lesson
 
 Jo Han Thao, Lou's best friend, sits beside the hospital bed reading stock prices aloud—the only thing that still makes Lou's eyes track movement. They've been friends since the refugee camp in Thailand, 1976, bonding over their shared delusion that America would make sense eventually.
 
@@ -63,7 +63,7 @@ For a moment, Lou's mouth curves—not quite a smile, but acknowledgment that ab
 
 "Your father," Jo Han tells me later in the cafeteria, "thinks that crane came for him. Traditional Hmong belief—birds arrive to carry souls across. But also," he pauses, stirs sugar into coffee that doesn't need it, "he fed birds behind this hospital every Tuesday during my chemo three years ago. Maybe crane just remembers the rice."
 
-## Part V: The Color Gathering
+## The Color Gathering
 
 *December 4, 4 AM. The hospital room fills with something I can't name.*
 
@@ -81,7 +81,7 @@ We both see it—not quite purple, not quite gold, shifting like aurora borealis
 
 Maria checks his charts, finds nothing unusual. But she mentions, casual as weather, "Had a patient once, near the end, kept saying colors were gathering to help him transition. Described exactly what we just saw."
 
-## Part VI: The Misheard Translation
+## The Misheard Translation
 
 Lou speaks for the first time in four days: "Brother Kay."
 
@@ -101,7 +101,7 @@ Dr. Williams suggests the morphine causes confusion. But I'm documenting each li
 
 Lou is creating a new vocabulary for dying, words that carry more truth than our clinical terms.
 
-## Part VII: The Scene Returns
+## The Scene Returns
 
 *December 5, sunrise. The crane hasn't moved from the parking lot.*
 
@@ -119,7 +119,7 @@ Lou manages two spoons before exhaustion wins. But for those moments, he's prese
 
 Jo Han records it on his phone. "For the grandchildren," he says, but really for us, for the aftermath, for the time when stories are all we have.
 
-## Part VIII: What the Ornithologist Knows
+## What the Ornithologist Knows
 
 I've studied migration for two decades. Published papers on magnetoreception, stellar navigation, inherited flight paths. But nothing explains the crane in the parking lot.
 
@@ -135,7 +135,7 @@ The scientific method fails here. But yesterday, I watched the crane turn its he
 Correlation without causation, my training insists.
 Connection beyond measurement, my father would say.
 
-## Part IX: The Transformation
+## The Transformation
 
 *December 6, 2 PM. Lou asks for paint.*
 
@@ -151,7 +151,7 @@ Maria pretends not to notice we're destroying hospital property. Dr. Williams wa
 
 The crane in the parking lot calls—a rolling, rattling sound that penetrates the seventh floor windows. Lou calls back, a sound I've never heard him make, something between laugh and song.
 
-## Part X: The Particle Porter
+## The Particle Porter
 
 *December 6, 11 PM. Lou tells his final story.*
 
@@ -165,7 +165,7 @@ He describes colors gathering—violet in his collarbones, gold dust in the air,
 
 "The crane," he says, "came to remind me. Migration isn't about distance. It's about recognition. Knowing when you've arrived, even in unexpected places."
 
-## Part XI: The Release
+## The Release
 
 *December 7, 6:47 AM. Exactly four days after the crane arrived.*
 
@@ -181,7 +181,7 @@ Lou's hand stays raised for another heartbeat, then settles.
 
 Jo Han squeezes my shoulder. Maria turns off the alarms. Dr. Williams marks the time. And I sit with my father who has become what he always insisted: a story about transformation, told in languages we're still learning to hear.
 
-## Part XII: What Remains
+## What Remains
 
 *Two months later. The parking lot, empty.*
 
@@ -201,7 +201,7 @@ Jo Han and I exchange glances. This is the paradox Lou left us—causation versu
 
 We stand there, three generations removed from Laos, scattering rice for birds that may or may not come, carrying forward a practice that makes no logical sense except that it makes perfect sense—this insistence on feeding what might appear, on believing in arrivals we can't predict, on painting beauty onto instruments of destruction.
 
-## Epilogue: The Exhibition
+## The Exhibition
 
 *Minneapolis Institute of Art, December 3rd, one year later.*
 
