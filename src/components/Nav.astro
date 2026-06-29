@@ -1,0 +1,307 @@
+---
+// Shared site nav — one source of truth for the Städel top bar + slide-out menu.
+// Markup is the canonical LEAN menu lifted verbatim from src/pages/writing/index.astro
+// (real hrefs; not-yet-live sections use aria-disabled, not href="#"). CSS is lifted
+// verbatim from the same light-native source (ReadingLayout / writing) for the light
+// default, with the dark rules extended Footer.astro-style so one component themes BOTH
+// grounds: dark-native (body.ground-dark, no light-mode) AND any .dark-mode toggle, with
+// the light state covering ground-light, no-class light, and ground-dark.light-mode.
+// No new styling invented. The menu's open/close + font-size + contrast behavior comes
+// from each page's existing inline <script>, which targets the IDs rendered here.
+// Depends on --oy-radius and --oy-tan from the page :root (present on the chrome pages).
+---
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/portraits/">Portraits</a></li>
+      <li><a href="/our-practice/">Practice</a></li>
+      <li><a href="/dispatches/">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <a href="#" id="searchBtn" aria-label="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="/writing/">Writing</a>
+      <a href="/making/">Making</a>
+      <a href="/good-grounds/">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="/our-practice/">Our Practice</a>
+      <a aria-disabled="true">Music Artists</a>
+      <a aria-disabled="true">Collaborators</a>
+      <a href="/methodology/">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="/support/">Support</a>
+      <a href="/archive/">Archive</a>
+      <a aria-disabled="true">Calendar</a>
+      <a href="mailto:info@oyparaploo.com">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+/* Link reset — matches writing/index.astro so component links aren't underlined */
+a { color: inherit; text-decoration: none; }
+
+/* ═══ FONT SIZE INDICATORS (light default; dark override below) ═══ */
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz { color: #000 !important; opacity: 1; transition: opacity 0.25s; line-height: 1; }
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+
+/* ═══ STÄDEL NAV — LIGHT GROUND (default) ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: #333; letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 500; letter-spacing: 0.02em;
+  color: #333; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+.nav-links a.active { /* no underline */ }
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: #000; background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+body.dark-mode #contrastBtn svg,
+body.ground-dark:not(.light-mode) #contrastBtn svg { transform: scaleX(-1); }
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: #333;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+}
+
+/* ═══ MENU SYSTEM (panel is light on all grounds) ═══ */
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px; /* freeze — menu is immune to AAA toggle */
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan {
+  height: 2px; border: none;
+  background: var(--oy-tan);
+  margin: 20px 0;
+}
+.menu-rule-sage {
+  height: 2px; border: none;
+  background: #8BA89A;
+  margin: 20px 0;
+}
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+.menu-nav-tertiary {
+  display: block;
+  margin-bottom: 4px;
+}
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid rgba(42,35,32,0.40);
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: #2a2320; color: #faf8f5; border-color: #2a2320;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-panel { width: 100%; max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
+  .nav-inner { padding: 0 24px; }
+}
+
+/* ═══ DARK — dark-native (ground-dark, no light-mode) AND any .dark-mode toggle ═══ */
+body.ground-dark:not(.light-mode) .site-nav,
+body.dark-mode .site-nav {
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body.ground-dark:not(.light-mode) .wordmark,
+body.dark-mode .wordmark { color: rgba(232,224,214,0.68); }
+body.ground-dark:not(.light-mode) .wordmark:hover,
+body.dark-mode .wordmark:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark:not(.light-mode) .nav-links a,
+body.dark-mode .nav-links a { color: rgba(232,224,214,0.68); }
+body.ground-dark:not(.light-mode) .nav-links a:hover,
+body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark:not(.light-mode) .nav-links a.active,
+body.dark-mode .nav-links a.active { text-decoration-color: rgba(232,224,214,0.68); }
+body.ground-dark:not(.light-mode) .nav-utils button,
+body.ground-dark:not(.light-mode) .nav-utils a,
+body.dark-mode .nav-utils button,
+body.dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+body.ground-dark:not(.light-mode) .nav-utils button:hover,
+body.ground-dark:not(.light-mode) .nav-utils a:hover,
+body.dark-mode .nav-utils button:hover,
+body.dark-mode .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+body.ground-dark:not(.light-mode) .nav-hamburger span,
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.ground-dark:not(.light-mode) .font-size-btn .sz,
+body.dark-mode .font-size-btn .sz { color: rgba(232,224,214,0.68) !important; }
+body.ground-dark:not(.light-mode) .nav-accent-rule,
+body.dark-mode .nav-accent-rule { opacity: 0.6; }
+</style>

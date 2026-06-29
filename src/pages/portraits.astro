@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/lora/400.css';
@@ -219,52 +220,7 @@ body.light-mode .close-label { color: #8a8078; }
 </head>
 <body class="ground-dark">
 
-<nav class="site-nav" aria-label="Site navigation">
-  <div class="nav-inner">
-    <a href="/" class="wordmark">oyparaploo</a>
-    <ul class="nav-links">
-      <li><a href="#">Writing</a></li>
-      <li><a href="/portraits" class="active">Portraits</a></li>
-      <li><a href="#">Our Practice</a></li>
-      <li><a href="#">Dispatches</a></li>
-    </ul>
-    <div class="nav-utils">
-      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size"><span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span></button>
-      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">&#9681;</button>
-      <a href="#" id="searchBtn" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="nav-accent-rule" aria-hidden="true"></div>
-</nav>
-
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-
-<div class="menu-strips" id="menuStrips">
-  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div></div></div></div>
-  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div></div></div></div>
-  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div></div></div></div>
-  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div></div></div></div>
-</div>
-
-<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
-  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
-  <div class="menu-content">
-    <div class="mobile-strips">
-      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
-      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
-      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
-      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
-    </div>
-    <nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
-    <hr class="menu-rule-tan" aria-hidden="true">
-    <nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
-    <hr class="menu-rule-sage" aria-hidden="true">
-    <nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
-    <div class="menu-address">Minneapolis ~ Saint Paul</div>
-    <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
-  </div>
-</div>
+<Nav />
 
 <main>
 
@@ -420,7 +376,7 @@ body.light-mode .close-label { color: #8a8078; }
 <script>
 var sizeStep=1;var fontBtn=document.getElementById('fontSizeBtn');var sizeSpans=fontBtn.querySelectorAll('.sz');
 fontBtn.addEventListener('click',function(){sizeStep=sizeStep>=3?1:sizeStep+1;document.documentElement.classList.remove('size-1','size-2','size-3');document.documentElement.classList.add('size-'+sizeStep);sizeSpans.forEach(function(s){s.classList.toggle('active',parseInt(s.dataset.size)===sizeStep);});});
-document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');this.textContent=document.body.classList.contains('light-mode')?'\u25D0':'\u25D1';});
+document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('light-mode');});
 var navHamburger=document.getElementById('navHamburger');var menuCloseBtn=document.getElementById('menuCloseBtn');var menuOverlay=document.getElementById('menuOverlay');var menuStrips=document.getElementById('menuStrips');var menuPanel=document.getElementById('menuPanel');
 function openMenu(){menuOverlay.classList.add('open');if(menuStrips)menuStrips.classList.add('open');menuPanel.classList.add('open');navHamburger.classList.add('open');navHamburger.setAttribute('aria-expanded','true');menuPanel.setAttribute('aria-hidden','false');menuOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
 function closeMenu(){menuOverlay.classList.remove('open');if(menuStrips)menuStrips.classList.remove('open');menuPanel.classList.remove('open');navHamburger.classList.remove('open');navHamburger.setAttribute('aria-expanded','false');menuPanel.setAttribute('aria-hidden','true');menuOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
