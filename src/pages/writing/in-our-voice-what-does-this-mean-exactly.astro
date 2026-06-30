@@ -1,0 +1,100 @@
+---
+// Combined dual-style page (whole-page DARK) — merges two retired pieces:
+//   LONG (glossary)  — reading-style prose, rendered on the dark ground
+//   SHORT (seed)     — breath-display stacked centered lines, native dark look
+// Approved deviation: hand-authored standalone page + grafted breath markup/CSS,
+// rather than the content-collection pattern. Bodies are carried verbatim from
+// src/data/in-our-voice/ (captured before the old content files were deleted).
+// Renderers below are copied VERBATIM from src/pages/writing/[slug].astro so the
+// prose and breath sections render identically to how each piece rendered before.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import glossaryBody from '../../data/in-our-voice/glossary.txt?raw';
+import seedBody from '../../data/in-our-voice/seed.txt?raw';
+
+const title = 'In the Oyparaploo voice and language, what does this mean?';
+
+// ── verbatim from [slug].astro ──
+function esc(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function inline(s) {
+  return esc(s)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/\.\.\./g, '<span class="ellipsis">...</span>');
+}
+function isDivider(l) {
+  const s = l.trim();
+  return s === '.' || s === '*' || s === '::' || /^-{3,}$/.test(s) || /^\*{3,}$/.test(s) || /^(\*\s*){3,}$/.test(s);
+}
+function toBreaths(body) {
+  return (body || '').trim().split(/\n\s*\n+/).filter((b) => b.trim().length).map((blk) => {
+    let t = blk.trim();
+    let cls = 'breath';
+    const m = t.match(/^\((return|question)\)\s*/);
+    if (m) { cls = 'breath ' + m[1]; t = t.slice(m[0].length); }
+    return `  <p class="${cls}">${esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>')}</p>`;
+  }).join('\n\n');
+}
+function toReading(body) {
+  const lines = (body || '').replace(/\r/g, '').split('\n');
+  const out = []; let para = []; let list = null;
+  const flushPara = () => { if (para.length) { out.push('<p>' + inline(para.join(' ')) + '</p>'); para = []; } };
+  const flushList = () => { if (list) { out.push('<' + list.t + '>' + list.items.map((i) => '<li>' + inline(i) + '</li>').join('') + '</' + list.t + '>'); list = null; } };
+  const flush = () => { flushPara(); flushList(); };
+  for (const raw of lines) {
+    const t = raw.trim();
+    if (!t) { flush(); continue; }
+    if (isDivider(raw)) { flush(); continue; }
+    let m;
+    if ((m = t.match(/^(#{2,6})\s+(.*)$/))) { flush(); const tag = m[1].length === 2 ? 'h2' : 'h3'; out.push(`<${tag}>${inline(m[2])}</${tag}>`); continue; }
+    if (t.startsWith('# ')) { flush(); out.push('<h2>' + inline(t.slice(2)) + '</h2>'); continue; }
+    if ((m = t.match(/^>\s?(.*)$/))) { flushPara(); flushList(); out.push('<blockquote>' + inline(m[1]) + '</blockquote>'); continue; }
+    if ((m = t.match(/^[-*]\s+(.*)$/))) { flushPara(); if (!list || list.t !== 'ul') { flushList(); list = { t: 'ul', items: [] }; } list.items.push(m[1]); continue; }
+    if ((m = t.match(/^\d+[.)]\s+(.*)$/))) { flushPara(); if (!list || list.t !== 'ol') { flushList(); list = { t: 'ol', items: [] }; } list.items.push(m[1]); continue; }
+    flushList(); para.push(t);
+  }
+  flush();
+  return out.join('\n');
+}
+
+const longHtml = toReading(glossaryBody);
+const breathHtml = toBreaths(seedBody);
+---
+<BaseLayout title={title}>
+  <main>
+    <article class="reading-wrap reading-article">
+      <h1 class="reading-title">{title}</h1>
+      <div class="reading-body" set:html={longHtml} />
+      <hr class="combo-seam" aria-hidden="true" />
+      <div class="breath-graft" set:html={breathHtml} />
+    </article>
+  </main>
+</BaseLayout>
+
+<style is:global>
+/* ── reading prose on the DARK ground: structure from ReadingLayout, colors are
+      ReadingLayout's dark-mode values (lines 266–275) applied as the base here ── */
+.reading-wrap { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+.reading-article { padding: 76px 0 8px; }
+.reading-title { font-family: 'Lora', serif; font-size: clamp(1.9412rem, 4vw, 2.8235rem); font-weight: 600; color: #d0c8bf; line-height: 1.14; letter-spacing: -0.02em; max-width: 24ch; margin-bottom: 40px; }
+.reading-body p { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 400; color: #d0c8bf; line-height: 1.75; letter-spacing: -0.01em; margin-bottom: 1.05em; }
+.reading-body h2 { font-family: 'Lora', serif; font-size: clamp(1.5294rem, 2.6vw, 1.9412rem); font-weight: 600; color: #d0c8bf; line-height: 1.22; letter-spacing: -0.01em; margin: 1.9em 0 0.55em; }
+.reading-body h3 { font-family: 'Lora', serif; font-size: clamp(1.2941rem, 2vw, 1.5294rem); font-weight: 600; color: #ccc5bc; line-height: 1.28; margin: 1.55em 0 0.5em; }
+.reading-body strong { font-weight: 600; color: #e8e0d8; }
+.reading-body ul, .reading-body ol { font-family: 'Inter', sans-serif; font-size: 1.0588rem; color: #d0c8bf; line-height: 1.7; margin: 0 0 1.05em 1.4em; }
+.reading-body ul { list-style: disc; } .reading-body ol { list-style: decimal; }
+.reading-body li { margin-bottom: 0.4em; } .reading-body li::marker { color: #8a8078; }
+.reading-body blockquote { font-family: 'Lora', serif; font-size: clamp(1.4118rem, 2.4vw, 1.7647rem); font-weight: 600; color: #d0c8bf; line-height: 1.3; letter-spacing: -0.01em; margin: 1.4em 0; padding-left: 0.85em; border-left: 2px solid #D4A574; }
+.reading-body .ellipsis { color: #a09888; letter-spacing: 0.15em; }
+
+/* ── seam divider between the two halves ── */
+.combo-seam { height: 1px; border: none; background: #5a5048; margin: 64px 0 8px; }
+
+/* ── breath graft: same column width as the seed's .piece so the breath section
+      renders exactly as the breath-display page does (BaseLayout's .breath CSS
+      + :nth-of-type stagger apply; the <p class="breath"> here start at position 1) ── */
+.breath-graft { max-width: 580px; margin: 36px auto 0; overflow-wrap: break-word; word-break: break-word; }
+
+@media (max-width: 768px) { .reading-wrap { padding: 0 24px; } .reading-article { padding: 60px 0 8px; } }
+</style>
