@@ -12,6 +12,8 @@ import glossaryBody from '../../data/in-our-voice/glossary.txt?raw';
 import seedBody from '../../data/in-our-voice/seed.txt?raw';
 
 const title = 'In the Oyparaploo voice and language, what does this mean?';
+// the glossary's original frontmatter date (from the retired in-the-oyparaploo-… piece)
+const date = '02.03.2026';
 
 // ── verbatim from [slug].astro ──
 function esc(s) {
@@ -68,6 +70,8 @@ const breathHtml = toBreaths(seedBody);
       <div class="reading-body" set:html={longHtml} />
       <hr class="combo-seam" aria-hidden="true" />
       <div class="breath-graft" set:html={breathHtml} />
+      <hr class="reading-colophon" aria-hidden="true" />
+      {date && <p class="reading-colophon-date">{date}</p>}
     </article>
   </main>
 </BaseLayout>
@@ -95,6 +99,11 @@ const breathHtml = toBreaths(seedBody);
       renders exactly as the breath-display page does (BaseLayout's .breath CSS
       + :nth-of-type stagger apply; the <p class="breath"> here start at position 1) ── */
 .breath-graft { max-width: 580px; margin: 36px auto 0; overflow-wrap: break-word; word-break: break-word; }
+
+/* ── date colophon: same markup/position as standard reading pages, dark-ground colors
+      (ReadingLayout's body.dark-mode .reading-colophon / .reading-colophon-date values) ── */
+.reading-colophon { height: 1px; border: none; background: rgba(232,224,214,0.12); margin: 72px 0 0; }
+.reading-colophon-date { margin: 18px 0 32px; font-family: 'Inter', sans-serif; font-size: 17px; letter-spacing: 0.04em; color: #a09888; }
 
 @media (max-width: 768px) { .reading-wrap { padding: 0 24px; } .reading-article { padding: 60px 0 8px; } }
 </style>
