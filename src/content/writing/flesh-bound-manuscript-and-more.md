@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "04.08.2025"
 slug: "flesh-bound-manuscript-and-more"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Movement, Manuscripts, and Wonder at the Edge of Ruin"
 cluster: "Joy, Innocence & Wonder"
 ---
 

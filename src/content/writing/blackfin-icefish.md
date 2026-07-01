@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "01.08.2025"
 slug: "blackfin-icefish"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "The Body's Broadcast and the Physics of Joy"
 cluster: "Joy, Innocence & Wonder"
 ---
 

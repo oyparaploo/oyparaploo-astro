@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "12.08.2025"
 slug: "brrd-roots-moving-through-montreal-as-an-angelic-ghost"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "War, Siege, and the Child in the Rubble"
 cluster: "Migration, Lineage & Belonging"
 ---
 

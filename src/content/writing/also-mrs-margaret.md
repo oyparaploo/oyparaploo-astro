@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "13.10.2025"
 slug: "also-mrs-margaret"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "War, Siege, and the Child in the Rubble"
 cluster: "Migration, Lineage & Belonging"
 secondaryCategory: "Intergenerational and Inherited Trauma Carried in the Body"
 ---

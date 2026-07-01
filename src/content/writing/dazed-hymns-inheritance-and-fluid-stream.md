@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "01.08.2025"
 slug: "dazed-hymns-inheritance-and-fluid-stream"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "The Lost Mother Tongue and Words That Fail"
 cluster: "Migration, Lineage & Belonging"
 ---
 

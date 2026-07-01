@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.08.2025"
 slug: "the-frequency-of-feeling-how-human-emotions-resonate-through-sound"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone as Self, Emotion, and Rhythm"
 cluster: "Senses, Tone & the Body"
 ---
 

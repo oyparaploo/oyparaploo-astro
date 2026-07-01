@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "27.09.2025"
 slug: "important-string-of-fast-improvisational-thoughts"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "01.10.2025"
 slug: "leading-to-light-cast-like-a-skeleton-and-wonderous-driven-like-a-nail"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
 cluster: "Ars Poetica & the Oyparaploo Method"
 secondaryCategory: "Migration, Exile, and the Lost Mother Tongue"
 ---

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "06.10.2025"
 slug: "for-the-love-of-re-sensing-west-germanic-language"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "11.08.2025"
 slug: "the-keeper-of-uncontained-things"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 ---
 

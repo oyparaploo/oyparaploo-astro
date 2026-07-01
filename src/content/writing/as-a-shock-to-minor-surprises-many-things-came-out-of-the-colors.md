@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "23.07.2025"
 slug: "as-a-shock-to-minor-surprises-many-things-came-out-of-the-colors"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Fire Sky, Ash, and the Wildfire Rant"
 cluster: "Ecology, Climate & Animals"
 ---
 

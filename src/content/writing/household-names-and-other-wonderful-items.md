@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "03.11.2025"
 slug: "household-names-and-other-wonderful-items"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "Learning to Disappear: Camouflage and the Trace That Stays"
 cluster: "Labor, Value & the Made Object"
 ---
 

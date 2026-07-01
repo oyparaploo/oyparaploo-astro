@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "09.09.2025"
 slug: "none-of-them-home"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

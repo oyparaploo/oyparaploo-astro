@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "10.08.2025"
 slug: "the-conservator-of-erased-histories"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "The Uncredited Ghost in the Machine"
 cluster: "Labor, Value & the Made Object"
 ---
 

@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "16.08.2025"
 slug: "your-luminous-tone-where-colors-dance-with-music"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

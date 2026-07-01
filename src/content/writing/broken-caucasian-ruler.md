@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "04.08.2025"
 slug: "broken-caucasian-ruler"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 secondaryCategory: "Defiant Body and Aging Riffs Against Beauty Standards"
 ---

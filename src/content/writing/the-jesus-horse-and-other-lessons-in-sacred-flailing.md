@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "08.08.2025"
 slug: "the-jesus-horse-and-other-lessons-in-sacred-flailing"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Holy Fools: Sacred Flailing and Chosen Innocence"
 cluster: "Joy, Innocence & Wonder"
 ---
 

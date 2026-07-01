@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "23.10.2025"
 slug: "what-the-mind-cannot-name-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Grief That Won't Be Fixed"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

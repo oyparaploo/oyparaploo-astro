@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "11.07.2025"
 slug: "all-this-stuff-gratefully-will-carry-us-to-our-deathbed-days"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Deathbed Resolves and the Faith to Keep Making"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

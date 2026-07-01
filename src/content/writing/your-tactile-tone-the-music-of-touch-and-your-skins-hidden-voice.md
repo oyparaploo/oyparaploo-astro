@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "14.08.2025"
 slug: "your-tactile-tone-the-music-of-touch-and-your-skins-hidden-voice"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

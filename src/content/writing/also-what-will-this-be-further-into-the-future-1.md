@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "19.07.2025"
 slug: "also-what-will-this-be-further-into-the-future-1"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

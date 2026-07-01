@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.10.2025"
 slug: "one-oyparaploo-keystone"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "The Spiral, the Archaeologist, and the Keystone Method"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

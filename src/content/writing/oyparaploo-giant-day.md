@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "25.12.2025"
 slug: "oyparaploo-giant-day"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

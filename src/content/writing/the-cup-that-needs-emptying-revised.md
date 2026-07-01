@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "31.10.2025"
 slug: "the-cup-that-needs-emptying-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Grief That Won't Be Fixed"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

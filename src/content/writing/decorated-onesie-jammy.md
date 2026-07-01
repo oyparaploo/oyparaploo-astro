@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "10.08.2025"
 slug: "decorated-onesie-jammy"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

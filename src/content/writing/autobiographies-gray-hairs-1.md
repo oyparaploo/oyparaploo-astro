@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "25.07.2025"
 slug: "autobiographies-gray-hairs-1"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Deathbed Resolves and the Faith to Keep Making"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

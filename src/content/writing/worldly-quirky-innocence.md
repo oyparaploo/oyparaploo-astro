@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "20.07.2025"
 slug: "worldly-quirky-innocence"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Holy Fools: Sacred Flailing and Chosen Innocence"
 cluster: "Joy, Innocence & Wonder"
 ---
 

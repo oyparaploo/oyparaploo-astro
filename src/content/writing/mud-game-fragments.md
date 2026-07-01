@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "26.09.2025"
 slug: "mud-game-fragments"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

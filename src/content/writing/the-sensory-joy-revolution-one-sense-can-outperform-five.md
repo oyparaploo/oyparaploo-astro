@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "11.08.2025"
 slug: "the-sensory-joy-revolution-one-sense-can-outperform-five"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "The Body's Broadcast and the Physics of Joy"
 cluster: "Joy, Innocence & Wonder"
 ---
 

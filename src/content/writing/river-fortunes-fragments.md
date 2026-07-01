@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "08.09.2025"
 slug: "river-fortunes-fragments"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "The Lost Mother Tongue and Words That Fail"
 cluster: "Migration, Lineage & Belonging"
 ---
 

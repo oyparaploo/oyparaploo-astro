@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "10.08.2025"
 slug: "the-shimmer-collectors-a-narrative-of-light-and-ruin"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "28.10.2025"
 slug: "the-medicine-we-each-carry-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Grief That Won't Be Fixed"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

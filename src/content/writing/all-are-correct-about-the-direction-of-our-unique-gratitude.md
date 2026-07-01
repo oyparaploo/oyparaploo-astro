@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "30.11.2025"
 slug: "all-are-correct-about-the-direction-of-our-unique-gratitude"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

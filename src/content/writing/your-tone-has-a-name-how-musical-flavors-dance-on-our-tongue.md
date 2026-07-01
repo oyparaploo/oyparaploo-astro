@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.08.2025"
 slug: "your-tone-has-a-name-how-musical-flavors-dance-on-our-tongue"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

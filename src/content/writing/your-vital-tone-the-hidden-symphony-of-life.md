@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "11.08.2025"
 slug: "your-vital-tone-the-hidden-symphony-of-life"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

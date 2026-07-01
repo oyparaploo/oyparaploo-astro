@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "12.10.2025"
 slug: "forty-seven-toy-guns"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "War, Siege, and the Child in the Rubble"
 cluster: "Migration, Lineage & Belonging"
 ---
 

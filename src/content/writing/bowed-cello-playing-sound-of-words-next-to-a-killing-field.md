@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "03.08.2025"
 slug: "bowed-cello-playing-sound-of-words-next-to-a-killing-field"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Deathbed Resolves and the Faith to Keep Making"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

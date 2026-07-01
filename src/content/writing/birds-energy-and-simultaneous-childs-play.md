@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "30.07.2025"
 slug: "birds-energy-and-simultaneous-childs-play"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "The Human-Bird Persona and Its Chirp"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

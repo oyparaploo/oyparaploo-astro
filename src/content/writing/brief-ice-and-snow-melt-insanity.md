@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "03.08.2025"
 slug: "brief-ice-and-snow-melt-insanity"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Vanishing Ice, Rising Seas, and Recycled Ruin"
 cluster: "Ecology, Climate & Animals"
 ---
 

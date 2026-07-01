@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.08.2025"
 slug: "rewritten-three-times"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "26.07.2025"
 slug: "be-your-different-selves"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "The Human-Bird Persona and Its Chirp"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "07.08.2025"
 slug: "brrd-roots-allegorical-and-spiritual-art-of-storytelling-ii"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 ---
 

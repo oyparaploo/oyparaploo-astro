@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "07.08.2025"
 slug: "the-neurodivergent-prophet-finding-christ-in-central-park"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Holy Fools: Sacred Flailing and Chosen Innocence"
 cluster: "Joy, Innocence & Wonder"
 ---
 

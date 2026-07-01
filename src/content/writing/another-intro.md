@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.08.2025"
 slug: "another-intro"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "How to Support the Work: Intros and Anti-Art Success"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

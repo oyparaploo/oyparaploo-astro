@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "11.08.2025"
 slug: "fascinating-productive-gifts"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Just for the Sake of the Work Itself: Process Over Fame"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

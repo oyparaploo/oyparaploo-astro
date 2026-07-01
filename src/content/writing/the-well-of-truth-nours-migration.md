@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "09.08.2025"
 slug: "the-well-of-truth-nours-migration"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "War, Siege, and the Child in the Rubble"
 cluster: "Migration, Lineage & Belonging"
 ---
 

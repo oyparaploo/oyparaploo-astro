@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "18.10.2025"
 slug: "oyparaploo-warm-to-cool-needled-feet"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

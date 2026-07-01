@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "16.10.2025"
 slug: "home-passage"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "The Lost Mother Tongue and Words That Fail"
 cluster: "Migration, Lineage & Belonging"
 ---
 

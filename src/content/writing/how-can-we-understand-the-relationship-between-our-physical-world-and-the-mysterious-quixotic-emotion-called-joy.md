@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.08.2025"
 slug: "how-can-we-understand-the-relationship-between-our-physical-world-and-the-mysterious-quixotic-emotion-called-joy"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "The Body's Broadcast and the Physics of Joy"
 cluster: "Joy, Innocence & Wonder"
 ---
 

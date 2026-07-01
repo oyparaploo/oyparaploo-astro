@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "04.10.2025"
 slug: "number-413"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Loops and Grids as the Mind Comes Apart"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

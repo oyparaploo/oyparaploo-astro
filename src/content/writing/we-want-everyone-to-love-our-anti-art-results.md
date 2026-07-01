@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "15.08.2025"
 slug: "we-want-everyone-to-love-our-anti-art-results"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "How to Support the Work: Intros and Anti-Art Success"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

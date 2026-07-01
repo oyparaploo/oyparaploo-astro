@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "15.10.2025"
 slug: "deh-jureh-doo-calls"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

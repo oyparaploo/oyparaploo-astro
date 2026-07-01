@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "12.08.2025"
 slug: "the-body-broadcast-our-30-trillion-cells-are-throwing-a-party-and-youre-all-invited"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "The Body's Broadcast and the Physics of Joy"
 cluster: "Joy, Innocence & Wonder"
 ---
 

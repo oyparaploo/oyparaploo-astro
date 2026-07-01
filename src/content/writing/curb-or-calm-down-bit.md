@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "08.08.2025"
 slug: "curb-or-calm-down-bit"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "The Human-Bird Persona and Its Chirp"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.10.2025"
 slug: "every-species-has-its-season"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "The Body's Broadcast and the Physics of Joy"
 cluster: "Joy, Innocence & Wonder"
 ---
 

@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "05.08.2025"
 slug: "the-radiant-fool-on-remaining-unbroken-in-a-world-that-doubts-everything"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Holy Fools: Sacred Flailing and Chosen Innocence"
 cluster: "Joy, Innocence & Wonder"
 ---
 

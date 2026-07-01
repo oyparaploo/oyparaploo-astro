@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "21.07.2025"
 slug: "apartment-house-shelter-flow-with-compassion-1"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

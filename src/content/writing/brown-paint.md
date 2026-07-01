@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "07.10.2025"
 slug: "brown-paint"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Painting the Dead in a Single Color"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

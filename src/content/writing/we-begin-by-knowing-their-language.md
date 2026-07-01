@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "17.10.2025"
 slug: "we-begin-by-knowing-their-language"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "The Lost Mother Tongue and Words That Fail"
 cluster: "Migration, Lineage & Belonging"
 ---
 

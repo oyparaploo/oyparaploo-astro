@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "02.11.2025"
 slug: "groundless-this-that-airtight"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "Learning to Disappear: Camouflage and the Trace That Stays"
 cluster: "Labor, Value & the Made Object"
 ---
 

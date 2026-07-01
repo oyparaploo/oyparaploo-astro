@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "22.08.2025"
 slug: "the-rhythm-of-being-how-human-behavior-creates-its-own-music"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone as Self, Emotion, and Rhythm"
 cluster: "Senses, Tone & the Body"
 ---
 

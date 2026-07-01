@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "08.10.2025"
 slug: "wrapping"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Wrapping, Carving, Marking, and Collecting the Grief-Object"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

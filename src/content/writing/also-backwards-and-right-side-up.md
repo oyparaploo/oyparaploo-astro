@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "17.07.2025"
 slug: "also-backwards-and-right-side-up"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "The Human-Bird Persona and Its Chirp"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

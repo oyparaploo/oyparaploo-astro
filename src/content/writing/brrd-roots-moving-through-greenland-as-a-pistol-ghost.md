@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "07.08.2025"
 slug: "brrd-roots-moving-through-greenland-as-a-pistol-ghost"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "The Uncredited Ghost in the Machine"
 cluster: "Labor, Value & the Made Object"
 ---
 

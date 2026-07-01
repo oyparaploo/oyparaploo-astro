@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "29.10.2025"
 slug: "the-woman-who-sees-sound-and-the-forms-that-wont-take-hoofprints"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "Fourteen Dollars an Hour: Museum Cleaners and Warehouse Manuals"
 cluster: "Labor, Value & the Made Object"
 ---
 

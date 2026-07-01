@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "28.07.2025"
 slug: "benefits-of-art-art-for-when-im-on-my-deathbed"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Deathbed Resolves and the Faith to Keep Making"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

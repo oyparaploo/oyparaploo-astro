@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "28.10.2025"
 slug: "connection-on-and-beneath-surfaces"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "Fourteen Dollars an Hour: Museum Cleaners and Warehouse Manuals"
 cluster: "Labor, Value & the Made Object"
 ---
 

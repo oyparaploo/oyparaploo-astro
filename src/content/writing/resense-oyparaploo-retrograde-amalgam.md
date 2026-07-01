@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "20.12.2025"
 slug: "resense-oyparaploo-retrograde-amalgam"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "The Spiral, the Archaeologist, and the Keystone Method"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

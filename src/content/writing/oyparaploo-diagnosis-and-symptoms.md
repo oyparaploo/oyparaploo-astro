@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "19.11.2025"
 slug: "oyparaploo-diagnosis-and-symptoms"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
 cluster: "Ars Poetica & the Oyparaploo Method"
 secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---

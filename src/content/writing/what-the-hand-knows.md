@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "02.10.2025"
 slug: "what-the-hand-knows"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Loops and Grids as the Mind Comes Apart"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

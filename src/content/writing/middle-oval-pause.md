@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "02.10.2025"
 slug: "middle-oval-pause"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

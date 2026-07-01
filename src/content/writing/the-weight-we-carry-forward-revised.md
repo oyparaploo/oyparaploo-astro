@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "26.10.2025"
 slug: "the-weight-we-carry-forward-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Forgotten Songs and Inherited Ache"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

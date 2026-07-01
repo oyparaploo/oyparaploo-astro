@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "12.10.2025"
 slug: "little-syn-wobbles-on-all-sides"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

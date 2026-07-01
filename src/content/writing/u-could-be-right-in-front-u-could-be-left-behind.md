@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "29.09.2025"
 slug: "u-could-be-right-in-front-u-could-be-left-behind"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

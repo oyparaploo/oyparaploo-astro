@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "03.11.2025"
 slug: "searching-for-the-forgotten-song-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Forgotten Songs and Inherited Ache"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

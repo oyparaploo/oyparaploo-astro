@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "09.08.2025"
 slug: "the-golden-thread-a-tech-executives-search-for-divine-presence"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Holy Fools: Sacred Flailing and Chosen Innocence"
 cluster: "Joy, Innocence & Wonder"
 ---
 

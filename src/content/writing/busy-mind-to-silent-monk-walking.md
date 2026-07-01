@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "05.08.2025"
 slug: "busy-mind-to-silent-monk-walking"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Deathbed Resolves and the Faith to Keep Making"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

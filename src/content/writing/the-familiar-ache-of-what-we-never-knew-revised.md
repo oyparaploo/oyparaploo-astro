@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "29.10.2025"
 slug: "the-familiar-ache-of-what-we-never-knew-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Forgotten Songs and Inherited Ache"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

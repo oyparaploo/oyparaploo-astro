@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "14.10.2025"
 slug: "color-field"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Painting the Dead in a Single Color"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

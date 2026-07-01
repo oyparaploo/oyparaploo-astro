@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "05.10.2025"
 slug: "ninety-francs"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Painting the Dead in a Single Color"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "21.12.2025"
 slug: "pervasive-loneliness-wobbles-are-the-signatures-of-our-practice"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

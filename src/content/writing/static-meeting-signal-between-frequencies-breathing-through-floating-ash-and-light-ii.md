@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "29.07.2025"
 slug: "static-meeting-signal-between-frequencies-breathing-through-floating-ash-and-light-ii"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Fire Sky, Ash, and the Wildfire Rant"
 cluster: "Ecology, Climate & Animals"
 ---
 

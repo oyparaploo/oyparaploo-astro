@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.10.2025"
 slug: "we-are-small-trustees-of-the-speaking-world-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Forgotten Songs and Inherited Ache"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

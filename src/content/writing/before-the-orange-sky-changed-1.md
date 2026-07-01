@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "27.07.2025"
 slug: "before-the-orange-sky-changed-1"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Fire Sky, Ash, and the Wildfire Rant"
 cluster: "Ecology, Climate & Animals"
 ---
 

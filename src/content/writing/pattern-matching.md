@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.10.2025"
 slug: "pattern-matching"
-category: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
+category: "Learning to Disappear: Camouflage and the Trace That Stays"
 cluster: "Labor, Value & the Made Object"
 secondaryCategory: "Intergenerational and Inherited Trauma Carried in the Body"
 ---

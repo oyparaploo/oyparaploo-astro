@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "25.10.2025"
 slug: "visitors-clarity-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Sorrow Gathered and Spoken Aloud"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

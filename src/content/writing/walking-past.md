@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "15.10.2025"
 slug: "walking-past"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Painting and Curtaining a World That Is Leaving"
 cluster: "Ecology, Climate & Animals"
 secondaryCategory: "Birds, Bison, and Animals as Unheeded Warnings"
 ---

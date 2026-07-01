@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "18.12.2025"
 slug: "a-show-that-happens-on-the-side-near"
-category: "Beautiful-Garbage Ars Poetica and the Spiral Method"
+category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "11.08.2025"
 slug: "brrd-roots-fractured-echoes-of-life-and-the-unseen"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Painting and Curtaining a World That Is Leaving"
 cluster: "Ecology, Climate & Animals"
 ---
 

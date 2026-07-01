@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "30.10.2025"
 slug: "the-earth-remembers-every-tenderness-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Forgotten Songs and Inherited Ache"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

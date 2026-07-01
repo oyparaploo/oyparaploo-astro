@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.10.2025"
 slug: "the-green-curtain"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Painting and Curtaining a World That Is Leaving"
 cluster: "Ecology, Climate & Animals"
 ---
 

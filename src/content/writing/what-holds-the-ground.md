@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "30.09.2025"
 slug: "what-holds-the-ground"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

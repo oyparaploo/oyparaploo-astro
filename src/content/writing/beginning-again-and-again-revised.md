@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "06.11.2025"
 slug: "beginning-again-and-again-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Grief That Won't Be Fixed"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

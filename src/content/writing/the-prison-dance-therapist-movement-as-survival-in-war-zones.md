@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "06.08.2025"
 slug: "the-prison-dance-therapist-movement-as-survival-in-war-zones"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Movement, Manuscripts, and Wonder at the Edge of Ruin"
 cluster: "Joy, Innocence & Wonder"
 ---
 

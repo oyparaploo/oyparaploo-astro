@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "27.10.2025"
 slug: "the-quiet-courage-of-naming-sorrow"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Sorrow Gathered and Spoken Aloud"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

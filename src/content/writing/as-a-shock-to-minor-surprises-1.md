@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.07.2025"
 slug: "as-a-shock-to-minor-surprises-1"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Fire Sky, Ash, and the Wildfire Rant"
 cluster: "Ecology, Climate & Animals"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "14.10.2025"
 slug: "suspended-crossing"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 secondaryCategory: "Compulsive Repetitive Making as Inarticulate Grief"
 ---

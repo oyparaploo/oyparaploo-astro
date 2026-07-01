@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "16.07.2025"
 slug: "also-this-is-all-just-for-the-sake-of-the-work-itself"
-category: "Studio Self-Talk, Process Resolves, and Late-Life Awakening"
+category: "Just for the Sake of the Work Itself: Process Over Fame"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "04.11.2025"
 slug: "perhaps-we-learn-by-leaning-together-revised"
-category: "\"Good Grief\" Cosmic-Visitor Meditations"
+category: "The Visitor on Sorrow Gathered and Spoken Aloud"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

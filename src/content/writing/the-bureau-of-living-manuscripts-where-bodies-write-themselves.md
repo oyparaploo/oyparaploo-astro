@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "10.08.2025"
 slug: "the-bureau-of-living-manuscripts-where-bodies-write-themselves"
-category: "Joy, Wonder, and Chosen Innocence as Resistance"
+category: "Movement, Manuscripts, and Wonder at the Edge of Ruin"
 cluster: "Joy, Innocence & Wonder"
 ---
 

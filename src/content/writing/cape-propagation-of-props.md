@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "05.08.2025"
 slug: "cape-propagation-of-props"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

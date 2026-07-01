@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "05.10.2025"
 slug: "fresh-off-the-dry-and-airy-ripple"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

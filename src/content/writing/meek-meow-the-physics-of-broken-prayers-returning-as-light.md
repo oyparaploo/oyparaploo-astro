@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "02.08.2025"
 slug: "meek-meow-the-physics-of-broken-prayers-returning-as-light"
-category: "Self-Referential Poetics of Broken Language and the Pause"
+category: "Broken Language as Grief, Static, and the Self-Eating Critic"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

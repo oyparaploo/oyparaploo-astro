@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "20.08.2025"
 slug: "the-tone-you-cannot-escape-how-space-reveals-your-hidden-voice"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

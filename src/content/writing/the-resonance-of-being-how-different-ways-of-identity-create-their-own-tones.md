@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "23.08.2025"
 slug: "the-resonance-of-being-how-different-ways-of-identity-create-their-own-tones"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone as Self, Emotion, and Rhythm"
 cluster: "Senses, Tone & the Body"
 ---
 

@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "27.07.2025"
 slug: "be-your-different-selves-and-nobody-gets-hurt"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "The Human-Bird Persona and Its Chirp"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

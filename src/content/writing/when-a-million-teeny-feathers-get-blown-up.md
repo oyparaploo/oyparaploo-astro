@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "16.10.2025"
 slug: "when-a-million-teeny-feathers-get-blown-up"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Vanishing Ice, Rising Seas, and Recycled Ruin"
 cluster: "Ecology, Climate & Animals"
 ---
 

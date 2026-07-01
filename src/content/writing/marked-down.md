@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "06.10.2025"
 slug: "marked-down"
-category: "Compulsive Repetitive Making as Inarticulate Grief"
+category: "Wrapping, Carving, Marking, and Collecting the Grief-Object"
 cluster: "Grief, Loss & Compulsive Making"
 ---
 

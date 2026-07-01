@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "15.08.2025"
 slug: "your-scented-tone-the-hidden-music-of-fragrance-and-sound"
-category: "The \"Tone\" Series: Identity, Senses, and Body as Frequency"
+category: "Your Tone Through the Single Senses and the Room"
 cluster: "Senses, Tone & the Body"
 ---
 

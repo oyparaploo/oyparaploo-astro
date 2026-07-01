@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "08.08.2025"
 slug: "when-the-river-knows-your-name"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "Boats, Shimmer, and Rivers: Exile's Compulsive Archives"
 cluster: "Migration, Lineage & Belonging"
 ---
 

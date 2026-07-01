@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "25.08.2025"
 slug: "kukura"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "The Lost Mother Tongue and Words That Fail"
 cluster: "Migration, Lineage & Belonging"
 ---
 

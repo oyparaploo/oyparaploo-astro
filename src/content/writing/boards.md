@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "15.10.2025"
 slug: "boards"
-category: "Migration, Exile, and the Lost Mother Tongue"
+category: "War, Siege, and the Child in the Rubble"
 cluster: "Migration, Lineage & Belonging"
 secondaryCategory: "Invisible Labor, Stolen Credit, and the Fight to Be Seen"
 ---

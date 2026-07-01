@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "01.08.2025"
 slug: "blue-ball-mess-and-mix-1"
-category: "Plural-Voice Artist Credos and Bird-Persona Manifestos"
+category: "How to Support the Work: Intros and Anti-Art Success"
 cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 

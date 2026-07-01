@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.08.2025"
 slug: "floating-wildfire-flake"
-category: "Climate Grief, Wildfire, and the Vanishing of Ice and Species"
+category: "Fire Sky, Ash, and the Wildfire Rant"
 cluster: "Ecology, Climate & Animals"
 ---
 
