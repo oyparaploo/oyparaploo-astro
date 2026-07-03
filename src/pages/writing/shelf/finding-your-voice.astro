@@ -70,13 +70,24 @@ function plain(s) {
 }
 
 const missing = [];
+// CARD-PREVIEW EXCERPT OVERRIDES (this shelf page only). The auto-excerpt is plain(body).slice(0,150),
+// which for a few pieces surfaces the opening line. Where that opening is unsuitable for a preview card,
+// we substitute a clean excerpt drawn from the SAME piece's own later text — never invented prose, never
+// a change to the piece source, and never a change to the shared plain()/excerpt logic. Keyed by slug.
+const EXCERPT_OVERRIDES = {
+  // "What Marcus Wrote" — the auto-excerpt begins at the story's first line, which surfaces an explicit
+  // word. Below is the piece's own closing passage (its real words), which also fits this shelf's theme
+  // of voice and being heard. The piece source is untouched; the word remains in the actual piece.
+  'what-marcus-wrote': "Marcus sat with his boards while strangers read his gray-on-gray truth. Some touched their hearts. Some took pictures. Marcus didn't talk. But everyone heard him.",
+};
 const withKeys = ROSTER.map((slug) => {
   const e = bySlug[slug];
   if (!e) { missing.push(slug); return { slug, title: slug, excerpt: '', hasPage: false, _k: -1 }; }
   const raw = recoveredDates[e.id] || dateMap[e.id] || '';
   const k = dateKey(raw);
   const body = plain(e.body || '');
-  const excerpt = body.length > 150 ? body.slice(0, 150).trimEnd() + '…' : body;
+  const auto = body.length > 150 ? body.slice(0, 150).trimEnd() + '…' : body;
+  const excerpt = EXCERPT_OVERRIDES[slug] || auto;
   return { slug, title: e.data.title, excerpt, hasPage: true, _k: k == null ? -1 : k };
 }).sort((a, b) => b._k - a._k || a.title.localeCompare(b.title));
 const pieces = withKeys.map(({ _k, ...r }) => r);
@@ -85,7 +96,7 @@ const pieces = withKeys.map(({ _k, ...r }) => r);
 // 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the 24 gate).
 const CAP = 24;
 const shelfName = 'Finding Your Voice';
-const shelfIntro = 'How to speak and be believed. The rough honest voice, the shape of a talk, words handed across the room like a gift.';
+const shelfIntro = 'How to speak and be believed. The rough honest voice, the shape of a talk. Words handed across the room like a gift.';
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
