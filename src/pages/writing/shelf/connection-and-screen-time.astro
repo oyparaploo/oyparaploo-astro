@@ -1,42 +1,35 @@
 ---
 // SUBJECT SHELF PAGE — the first REAL shelf at the locked route base /writing/shelf/.
 // Built to "SUBJECT SHELF PAGE — LOCKED (dark-native)" in the-spec.md. Route:
-// /writing/shelf/good-grief-consolation/. NOT wired to the front door, nav, or search yet.
+// /writing/shelf/connection-and-screen-time/. NOT wired to the front door, nav, or search yet.
 // Chrome + card CSS + single-grid branch + pager JS are MIRRORED VERBATIM from the locked
 // cluster interior (src/pages/writing/clusters/[slug]/index.astro) — no new card CSS.
-// Roster = the "Good Grief Consolation" shelf (25 pieces; "Good Grief: Grief Consoled" in the
-// shelf map) from FULL-SHELF-MAP-ALL-595.md. 25 > 24, so the gated 12/page pager fires (3 pages).
+// Roster = the "Connection and Screen Time" shelf (19 pieces) from FULL-SHELF-MAP-ALL-595.md.
 // Each piece links to its live reading page /writing/<slug>/ when the slug resolves in the
 // collection; any that don't resolve render unlinked and are reported (none invented).
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../../data/recovered-dates.json';
 
 const ROSTER = [
-  'a-day-beginning',
-  'a-way-towards-healing-suffering',
-  'arriving-once-again-at-a-most-wonderful-continuum',
-  'beginning-again-and-again-revised',
-  'binary-blend-beings-connected-to-you',
-  'field-notes-from-the-territory-of-mending-revised',
-  'maybe-probably-yes',
-  'perhaps-we-learn-by-leaning-together-revised',
-  'small-circles-of-sorrow-revised',
-  'small-vessels-for-what-remains-revised',
-  'the-algorithms-lullaby-a-digital-resistance-memoir',
-  'the-cup-that-needs-emptying-revised',
-  'the-earth-remembers-every-tenderness-revised',
-  'the-familiar-ache-of-what-we-never-knew-revised',
-  'the-journey-of-connection-understanding-relationships-solitude-and-self-discovery',
-  'the-medicine-we-each-carry-revised',
-  'the-mycologists-last-paper',
-  'the-quiet-courage-of-naming-sorrow',
-  'the-universal-human-need-understanding-our-search-for-value-and-belonging',
-  'the-weight-we-carry-forward-revised',
-  'unauthorized-curriculum',
-  'visitors-clarity-revised',
-  'water-through-open-hands',
-  'what-the-mind-cannot-name-revised',
-  'when-buildings-remember-an-essay-on-breath-memory-and-survival',
+  'appearance-perception-and-the-stories-we-tell',
+  'cherry-slush',
+  'choosing-your-path-means-choosing-your-future-family',
+  'eight-hours',
+  'everything-buried-in-silence-still-glows-a-braided-essay-on-breath-memory-and-belonging',
+  'searching-for-the-forgotten-song-revised',
+  'the-architecture-of-chosen-family-how-partner-selection-becomes-your-most-powerful-act-of-creation',
+  'the-commitment-paradox-why-keeping-your-options-open-keeps-you-stuck',
+  'the-digital-paradox-why-dating-apps-intensify-loneliness-while-real-world-connection-heals-it',
+  'the-illusion-of-motion-how-digital-busyness-became-our-most-deceptive-comfort',
+  'the-impossible-purity-notes-on-the-death-we-choose',
+  'the-paradox-of-infinite-choice-why-perpetual-possibility-becomes-its-own-prison',
+  'the-possibility-and-complexity-of-joyful-family-for-all',
+  'the-prison-dance-therapist-movement-as-survival-in-war-zones',
+  'the-reality-of-relationships-multiple-attempts-self-knowledge-and-finding-connection',
+  'the-synchronization-paradox-how-being-bound-to-another-creates-our-greatest-freedom',
+  'the-universal-quest-for-belonging-creating-connection-in-an-unequal-world',
+  'where-light-remembers-how-to-flow-a-meditation-on-heaven-water-and-what-waits-to-bloom',
+  'what-she-has',
 ];
 
 const bySlug = {};
@@ -85,9 +78,9 @@ const pieces = withKeys.map(({ _k, ...r }) => r);
 // Shelf pager: ≤24 pieces → one continuous scroll, no pager; >24 → gated single-grid pager,
 // 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the 24 gate).
 const CAP = 24;
-const shelfName = 'Good Grief Consolation';
+const shelfName = 'Connection and Screen Time';
 // One quiet line — placeholder nav copy in the cluster intro tier; Reach names the final wording.
-const shelfIntro = 'The consoling “Visitor” voice on grief that will not be fixed — sorrow gathered, held, and spoken aloud rather than solved.';
+const shelfIntro = 'How people pair, belong, and drift apart — chosen family and partner-choice set against dating apps, VR, and endless scrolling.';
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
