@@ -94,7 +94,11 @@ function dateKey(s) {
   return null;
 }
 function plain(s) {
-  return (s || '').replace(/\r/g, '').replace(/^#{1,6}\s+/gm, '').replace(/^>\s?/gm, '')
+  return (s || '').replace(/\r/g, '')
+    // strip standalone horizontal-rule / divider lines (___ , --- , *** on their own line)
+    // BEFORE the whitespace-collapse + 150-char slice, so they never render as a rule in the excerpt
+    .replace(/^[ \t]*[-_*][ \t]*(?:[-_*][ \t]*){2,}$/gm, '')
+    .replace(/^#{1,6}\s+/gm, '').replace(/^>\s?/gm, '')
     .replace(/^\s*[-*]\s+/gm, '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*([^*\n]+)\*/g, '$1')
     .replace(/\s+/g, ' ').trim();
 }
