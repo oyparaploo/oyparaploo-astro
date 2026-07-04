@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Trustees of the Speaking World"
 variant: breath-display
 ground: dark
 date: "24.10.2025"
