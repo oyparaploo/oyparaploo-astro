@@ -9,5 +9,7 @@ export default defineConfig({
   redirects: {
     '/writing/in-the-oyparaploo-voice-and-language-what-does-this-mean/': '/writing/in-our-voice-what-does-this-mean-exactly/',
     '/writing/in-the-voice-what-does-this-mean/': '/writing/in-our-voice-what-does-this-mean-exactly/',
+    // Retired split-original shelf, fully replaced by solitary-fallen-drops + happenings-on-the-ground.
+    '/writing/shelf/up-and-in-debt-eviction/': '/writing/',
   },
 });
