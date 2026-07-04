@@ -4,8 +4,7 @@
 // /writing/shelf/ordinary-objects-and-the-sacred-now/. NOT wired to the front door, nav, or search yet.
 // Chrome + card CSS + single-grid branch + pager JS are MIRRORED VERBATIM from the locked
 // cluster interior (src/pages/writing/clusters/[slug]/index.astro) — no new card CSS.
-// Roster = the "Ordinary Objects and the Sacred Now" shelf (17 pieces) — final.json shelf "Mortality & the Ordinary Divine", renamed per SHELF-NAMES-FINAL.md. Count reconciled from final.json (17); SHELF-NAMES-FINAL lists 19, a 2-piece unreconciled-fold gap flagged for Reach.
-// This is an ADDITIONAL listing page — nothing moved, unlinked, or modified.
+// Roster = the Ordinary Objects and the Sacred Now shelf (19) — REBUILD to the reconciled roster: final.json 'Mortality & the Ordinary Divine' (17) + the-jesus-horse-and-other-lessons-in-sacred-flailing and the-radiant-fool... added from the loose pool (map count 19). ADDITIONAL listing page — nothing moved or unlinked.
 // Each piece links to its live reading page /writing/<slug>/.
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../../data/recovered-dates.json';
@@ -28,6 +27,8 @@ const ROSTER = [
   'worm-consciousness',
   'close-the-door-and-open-it-again',
   'the-milk-works-hard',
+  'the-jesus-horse-and-other-lessons-in-sacred-flailing',
+  'the-radiant-fool-on-remaining-unbroken-in-a-world-that-doubts-everything',
 ];
 
 const bySlug = {};
@@ -358,7 +359,7 @@ body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-exce
     </div>
     {/* Shelf pager: ≤24 pieces → one continuous scroll, no pager; >24 → gated single-grid
         pager, 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the
-        24 gate). This 17-piece shelf is ≤24, so no pager. */}
+        24 gate). This 19-piece shelf is ≤24, so no pager. */}
     {pieces.length > CAP && (
       <div class="cli-controls">
         <div class="cli-pager" hidden>
