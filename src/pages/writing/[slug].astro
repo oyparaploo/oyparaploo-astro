@@ -84,9 +84,7 @@ const bodyHtml = isReading ? toReading(piece.body) : toBreaths(piece.body);
   <BaseLayout title={title}>
     <main class="piece-stage">
     <div class="piece">
-      {hero
-        ? <figure class="window-out"><img src={hero.src} alt={hero.alt} /></figure>
-        : <figure class="window-out" aria-hidden="true"><div class="window-fill"></div></figure>}
+      {hero && <figure class="window-out"><img src={hero.src} alt={hero.alt} /></figure>}
       <h1 class="title">{title}</h1>
       <Fragment set:html={bodyHtml} />
       <hr class="colophon" aria-hidden="true" />
