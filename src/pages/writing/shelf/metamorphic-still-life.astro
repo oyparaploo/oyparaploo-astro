@@ -4,8 +4,7 @@
 // /writing/shelf/metamorphic-still-life/. NOT wired to the front door, nav, or search yet.
 // Chrome + card CSS + single-grid branch + pager JS are MIRRORED VERBATIM from the locked
 // cluster interior (src/pages/writing/clusters/[slug]/index.astro) — no new card CSS.
-// Roster = the "Metamorphic Still Life" shelf (19 pieces) — final.json shelf "Metamorphosis & Shape-Shifters", renamed per SHELF-NAMES-FINAL.md. Count reconciled from final.json (19); SHELF-NAMES-FINAL lists 20, a 1-piece unreconciled-fold gap flagged for Reach.
-// This is an ADDITIONAL listing page — nothing moved, unlinked, or modified.
+// Roster = the Metamorphic Still Life shelf (20) — REBUILD to the reconciled roster: final.json 'Metamorphosis & Shape-Shifters' (19) + flesh-bound-manuscript-and-more added from the loose pool (map / SHELF-NAMES-FINAL count 20). ADDITIONAL listing page — nothing moved or unlinked.
 // Each piece links to its live reading page /writing/<slug>/.
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../../data/recovered-dates.json';
@@ -30,6 +29,7 @@ const ROSTER = [
   'the-woman-of-many-forms-an-expanded-tapestry',
   'the-last-change-a-play-in-three-acts',
   'the-mercy-ward-a-play-in-three-acts',
+  'flesh-bound-manuscript-and-more',
 ];
 
 const bySlug = {};
@@ -360,7 +360,7 @@ body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-exce
     </div>
     {/* Shelf pager: ≤24 pieces → one continuous scroll, no pager; >24 → gated single-grid
         pager, 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the
-        24 gate). This 19-piece shelf is ≤24, so no pager. */}
+        24 gate). This 20-piece shelf is ≤24, so no pager. */}
     {pieces.length > CAP && (
       <div class="cli-controls">
         <div class="cli-pager" hidden>
