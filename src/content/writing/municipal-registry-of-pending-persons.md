@@ -1,5 +1,5 @@
 ---
-title: "MUNICIPAL REGISTRY OF PENDING PERSONS"
+title: "Municipal Registry of Pending Persons"
 variant: reading
 ground: light
 date: "29.10.2025"

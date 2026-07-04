@@ -1,5 +1,5 @@
 ---
-title: "Leading_to_Light_Cast_Like_A_Skeleton_and_Wonderous_Driven_Like_A_Nail_LOCKED"
+title: "Leading to Light Cast Like A Skeleton and Wonderous Driven Like A Nail"
 variant: breath-display
 ground: dark
 date: "01.10.2025"

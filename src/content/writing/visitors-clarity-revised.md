@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "You Just Call It Breaking"
 variant: breath-display
 ground: dark
 date: "25.10.2025"

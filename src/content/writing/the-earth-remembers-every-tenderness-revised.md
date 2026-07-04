@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Every Tenderness Enters the Permanent Record"
 variant: breath-display
 ground: dark
 date: "30.10.2025"

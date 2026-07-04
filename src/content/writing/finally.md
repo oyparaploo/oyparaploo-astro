@@ -1,5 +1,5 @@
 ---
-title: "Finally_LOCKED"
+title: "Finally"
 variant: breath-display
 ground: dark
 date: "24.07.2025"

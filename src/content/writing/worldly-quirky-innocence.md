@@ -1,5 +1,5 @@
 ---
-title: "WORLDLY QUIRKY INNOCENCE"
+title: "Worldly Quirky Innocence"
 variant: breath-display
 ground: dark
 date: "20.07.2025"

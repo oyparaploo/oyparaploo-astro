@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: 'Forty-Seven Strangers Replied "Same"'
 variant: breath-display
 ground: dark
 date: "04.11.2025"

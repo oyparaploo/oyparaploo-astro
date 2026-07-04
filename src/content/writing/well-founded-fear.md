@@ -1,5 +1,5 @@
 ---
-title: "Well_Founded_Fear"
+title: "Well Founded Fear"
 variant: breath-display
 ground: dark
 date: "20.06.2025"

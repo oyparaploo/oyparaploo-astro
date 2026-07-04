@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Love That Doesn't Know Where to Go"
 variant: breath-display
 ground: dark
 date: "01.11.2025"

@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Can't Mourn What You Don't Know You Lost"
 variant: breath-display
 ground: dark
 date: "29.10.2025"

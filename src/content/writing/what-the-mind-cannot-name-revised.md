@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Everything Named, Nothing Known"
 variant: breath-display
 ground: dark
 date: "23.10.2025"

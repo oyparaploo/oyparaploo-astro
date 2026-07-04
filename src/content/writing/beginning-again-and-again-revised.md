@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Beginning Again, and Again"
 variant: breath-display
 ground: dark
 date: "06.11.2025"

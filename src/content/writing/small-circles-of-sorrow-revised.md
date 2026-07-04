@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Bring Nothing but Your Sadness"
 variant: breath-display
 ground: dark
 date: "02.11.2025"

@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Faith Still Accepting Applications"
 variant: breath-display
 ground: dark
 date: "28.10.2025"

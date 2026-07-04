@@ -1,5 +1,5 @@
 ---
-title: "Home_Passage"
+title: "Home Passage"
 variant: breath-display
 ground: dark
 date: "16.10.2025"

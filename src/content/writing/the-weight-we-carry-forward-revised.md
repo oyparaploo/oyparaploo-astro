@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "History Walks Around in Our Bodies"
 variant: breath-display
 ground: dark
 date: "26.10.2025"

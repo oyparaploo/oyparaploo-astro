@@ -1,5 +1,5 @@
 ---
-title: "THE LLAMA SHACK RECURSION"
+title: "The Llama Shack Recursion"
 variant: reading
 ground: light
 date: "04.09.2025"

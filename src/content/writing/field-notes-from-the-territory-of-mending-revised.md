@@ -1,5 +1,5 @@
 ---
-title: "Good Grief"
+title: "Learning to Love the Shards"
 variant: breath-display
 ground: dark
 date: "05.11.2025"
