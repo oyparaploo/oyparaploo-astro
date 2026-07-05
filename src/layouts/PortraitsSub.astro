@@ -7,19 +7,7 @@ import '@fontsource/lora/400.css';
 import '@fontsource/lora/500.css';
 import '@fontsource/lora/600.css';
 import '@fontsource/lora/700.css';
-
-// Good Grounds portrait images — drop .webp files into src/images/portraits/good-grounds/
-// named by artist-slug (see navigation-rebuild/good-grounds-image-filenames.md). Build-time
-// glob: a card with a matching file shows the photo; otherwise it keeps its placeholder
-// (missing files fall back cleanly, no 404/broken-image). Touches Good Grounds cards only.
-const ggImages = import.meta.glob('../images/portraits/good-grounds/*.webp', { eager: true, query: '?url', import: 'default' });
-const ggMap = {};
-for (const k in ggImages) { ggMap[k.split('/').pop().replace(/\.webp$/, '')] = ggImages[k]; }
-function ggSlug(name) {
-  return name.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
-const GG = {"territory-minnesota": [{"t": "Conduction", "a": "Lena Petrović"}, {"t": "The Guitar in the Broken Case", "a": "Mare's Tail"}, {"t": "What the Machine Held", "a": "Aino Mäkelä"}, {"t": "The Voice He Hated", "a": "Anders Lindqvist"}, {"t": "What Aire Held", "a": "Alma Lindgren"}, {"t": "What the Bluffs Returned", "a": "Lenore Strand"}, {"t": "What the Building Held", "a": "Nils Torvik"}, {"t": "What the Coin Held", "a": "Elise Sørensen"}, {"t": "What the Curfew Held", "a": "Kai Eriksen"}, {"t": "What the Hermitage Held", "a": "Hale Bergson"}, {"t": "What the House Heard", "a": "Mariel / Mars / Red Moon"}, {"t": "What the Inlet Held", "a": "Petra Voss"}, {"t": "What the Lake Held", "a": "Sofie Dahl"}, {"t": "What the Ledger Held", "a": "Rowan Ash"}, {"t": "What the Light Held", "a": "Ingrid Moen"}, {"t": "What the Marsh Held", "a": "Dag Holst"}, {"t": "What the Mill Held", "a": "Frida Holm"}, {"t": "What the Mirror Held", "a": "Birte Lund"}, {"t": "What the Night Held", "a": "Oskar Vang"}, {"t": "What the Porch Held", "a": "Turid Bakke"}, {"t": "What the Prairie Held", "a": "Sven Thorsen"}, {"t": "What the Rain Held", "a": "Astrid Kvam"}, {"t": "What the River Held", "a": "Leif Strand"}, {"t": "What the Road Held", "a": "Hanna Berg"}, {"t": "What the Snow Held", "a": "Mikkel Dahl"}, {"t": "What the Stone Held", "a": "Ragna Foss"}, {"t": "What the Train Held", "a": "Lars Kolstad"}, {"t": "What the Tree Held", "a": "Sigrid Aas"}, {"t": "What the Water Held", "a": "Tor Lie"}, {"t": "What the Wind Held", "a": "Knut Haug"}, {"t": "What the Winter Held", "a": "Bente Vik"}], "territory-northeast": [{"t": "What the Archive Held", "a": "Maren Cole"}, {"t": "What the Bridge Held", "a": "Jonas Webb"}, {"t": "What the Harbor Held", "a": "Cecile Roux"}, {"t": "What the Shore Held", "a": "Ida Marsh"}, {"t": "What the Kitchen Held", "a": "June Lam"}, {"t": "What the First Take Held", "a": "Manon Roustan"}], "territory-southwest": [{"t": "What the Canyon Held", "a": "Sol Reyes"}, {"t": "What the Desert Held", "a": "Calla Wren"}, {"t": "What the Dust Held", "a": "Milo Cross"}, {"t": "What the Mesa Held", "a": "Ren Yates"}, {"t": "What the Door Held", "a": "Margot Lund"}, {"t": "What the Autoharp Held", "a": "Thea Visser"}, {"t": "Ghost", "a": "Jonah Lind"}], "territory-northwest-lakes": [{"t": "What the Current Held", "a": "River North"}, {"t": "What the Forest Held", "a": "Birch Lane"}, {"t": "What the Frost Held", "a": "Wren Holt"}, {"t": "What the Ice Held", "a": "Finn Lake"}, {"t": "What the Shore Held", "a": "Elin Grove"}], "territory-international": [{"t": "What the Name Held", "a": "Ellery Ames"}, {"t": "What the Address Held", "a": "Rémi Brassard"}, {"t": "What the Tuning Held Open", "a": "Simone Thibault"}, {"t": "The Pour She Was Always Carrying", "a": "Nóra Varga"}, {"t": "What the Letters Held", "a": "Delia Soria"}, {"t": "What the Wind Held", "a": "Amira Osman"}]};
-
+const { title = 'The Portraits — Oyparaploo' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -31,7 +19,7 @@ const GG = {"territory-minnesota": [{"t": "Conduction", "a": "Lena Petrović"}, 
 <meta name="theme-color" content="#000000">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 <script src="/sw-register.js" defer></script>
-<title>The Portraits — Oyparaploo</title>
+<title>{title}</title>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
@@ -223,102 +211,7 @@ body.light-mode .close-label { color: #8a8078; }
 <Nav />
 
 <main>
-
-  <section class="zone-hero">
-    <div class="hero-inner reveal-slow">
-      <div class="hero-room">The Portraits</div>
-      <h1 class="hero-h1">One hundred and eight subjects, held still long enough to speak</h1>
-      <div class="hero-sub">Fifty-three literary portraits from the writing practice. Fifty-five fictional musicians from the novel Good Grounds.</div>
-    </div>
-  </section>
-
-  <nav class="section-nav reveal" aria-label="Browse by collection">
-    <a class="sn-link" href="#the-writing">The Writing <span class="sn-count">53</span></a>
-    <a class="sn-link" href="#good-grounds">Good Grounds <span class="sn-count">55</span></a>
-  </nav>
-
-  <section class="writing-section" id="the-writing">
-    <div class="ws-header reveal">
-      <span class="ws-name">The Writing</span>
-      <span class="ws-count">53 portraits</span>
-    </div>
-    <div class="wp-grid reveal">
-      <a class="wp" href="/portraits/writing/a-board/"><div class="wp-title">A – Board</div><div class="wp-excerpt">11 portraits</div></a>
-      <a class="wp" href="/portraits/writing/border-compost/"><div class="wp-title">Border – Compost</div><div class="wp-excerpt">11 portraits</div></a>
-      <a class="wp" href="/portraits/writing/conduction-lake/"><div class="wp-title">Conduction – Lake</div><div class="wp-excerpt">11 portraits</div></a>
-      <a class="wp" href="/portraits/writing/last-sensing/"><div class="wp-title">Last – Sensing</div><div class="wp-excerpt">10 portraits</div></a>
-      <a class="wp" href="/portraits/writing/grenade-why/"><div class="wp-title">The Grenade – Why</div><div class="wp-excerpt">10 portraits</div></a>
-    </div>
-  </section>
-
-  <section class="breathe reveal-slow">
-    <div class="breathe-text">Each portrait begins with a territory.<br>The place that shaped the sound before the sound had a name.</div>
-  </section>
-
-  <section class="gg-intro reveal" id="good-grounds">
-    <div class="gg-label">Good Grounds</div>
-    <div class="gg-headline">Fifty-five musicians who do not exist</div>
-    <div class="gg-sub">Each one given a territory, an instrument, and a door.</div>
-  </section>
-
-  <nav class="zone-strip reveal" aria-label="Browse by territory">
-    <a class="ts-link" href="#territory-minnesota">Minnesota <span class="ts-count">31</span></a>
-    <a class="ts-link" href="#territory-northeast">Northeast <span class="ts-count">6</span></a>
-    <a class="ts-link" href="#territory-southwest">Southwest <span class="ts-count">7</span></a>
-    <a class="ts-link" href="#territory-northwest-lakes">Northwest &amp; Lakes <span class="ts-count">5</span></a>
-    <a class="ts-link" href="#territory-international">International <span class="ts-count">6</span></a>
-  </nav>
-
-  <section class="territory-zone" id="territory-minnesota">
-    <div class="tz-header reveal"><span class="tz-name">Minnesota</span><span class="tz-count">31 portraits</span></div>
-    <div class="pc-grid reveal">
-      {GG["territory-minnesota"].map((c) => (
-        <a class="pc" href="#"><div class="pc-img">{ggMap[ggSlug(c.a)] ? <img src={ggMap[ggSlug(c.a)]} alt={c.a} loading="lazy" /> : <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg>}</div><div class="pc-title">{c.t}</div><div class="pc-artist">{c.a}</div></a>
-      ))}
-    </div>
-  </section>
-
-  <section class="territory-zone" id="territory-northeast">
-    <div class="tz-header reveal"><span class="tz-name">Northeast</span><span class="tz-count">6 portraits</span></div>
-    <div class="pc-grid reveal">
-      {GG["territory-northeast"].map((c) => (
-        <a class="pc" href="#"><div class="pc-img">{ggMap[ggSlug(c.a)] ? <img src={ggMap[ggSlug(c.a)]} alt={c.a} loading="lazy" /> : <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg>}</div><div class="pc-title">{c.t}</div><div class="pc-artist">{c.a}</div></a>
-      ))}
-    </div>
-  </section>
-
-  <section class="territory-zone" id="territory-southwest">
-    <div class="tz-header reveal"><span class="tz-name">Southwest</span><span class="tz-count">7 portraits</span></div>
-    <div class="pc-grid reveal">
-      {GG["territory-southwest"].map((c) => (
-        <a class="pc" href="#"><div class="pc-img">{ggMap[ggSlug(c.a)] ? <img src={ggMap[ggSlug(c.a)]} alt={c.a} loading="lazy" /> : <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg>}</div><div class="pc-title">{c.t}</div><div class="pc-artist">{c.a}</div></a>
-      ))}
-    </div>
-  </section>
-
-  <section class="territory-zone" id="territory-northwest-lakes">
-    <div class="tz-header reveal"><span class="tz-name">Northwest &amp; Lakes</span><span class="tz-count">5 portraits</span></div>
-    <div class="pc-grid reveal">
-      {GG["territory-northwest-lakes"].map((c) => (
-        <a class="pc" href="#"><div class="pc-img">{ggMap[ggSlug(c.a)] ? <img src={ggMap[ggSlug(c.a)]} alt={c.a} loading="lazy" /> : <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg>}</div><div class="pc-title">{c.t}</div><div class="pc-artist">{c.a}</div></a>
-      ))}
-    </div>
-  </section>
-
-  <section class="territory-zone" id="territory-international">
-    <div class="tz-header reveal"><span class="tz-name">International</span><span class="tz-count">6 portraits</span></div>
-    <div class="pc-grid reveal">
-      {GG["territory-international"].map((c) => (
-        <a class="pc" href="#"><div class="pc-img">{ggMap[ggSlug(c.a)] ? <img src={ggMap[ggSlug(c.a)]} alt={c.a} loading="lazy" /> : <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="500" fill="#0d111b"/><circle cx="200" cy="200" r="55" fill="#141820" opacity="0.6"/></svg>}</div><div class="pc-title">{c.t}</div><div class="pc-artist">{c.a}</div></a>
-      ))}
-    </div>
-  </section>
-
-  <section class="zone-close reveal-slow">
-    <div class="close-num">108</div>
-    <div class="close-label">portraits</div>
-  </section>
-
+<slot />
 </main>
 
 <script>

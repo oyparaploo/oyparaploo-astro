@@ -1,0 +1,34 @@
+---
+import PortraitsSub from '../../../layouts/PortraitsSub.astro';
+import { WRITING_GROUPS } from '../../../data/portraitsWriting.js';
+
+export function getStaticPaths() {
+  return WRITING_GROUPS.map((g) => ({ params: { group: g.slug }, props: { group: g } }));
+}
+
+const { group } = Astro.props;
+const title = `The Writing · ${group.label} — Oyparaploo`;
+---
+<PortraitsSub title={title}>
+  <section class="writing-section" id="the-writing" style="padding-top: 56px;">
+    <nav class="section-nav" aria-label="Back to Portraits">
+      <a class="sn-link" href="/portraits/#the-writing">‹ The Portraits</a>
+    </nav>
+    <div class="ws-header reveal">
+      <span class="ws-name">The Writing · {group.label}</span>
+      <span class="ws-count">{group.cards.length} portraits</span>
+    </div>
+    <div class="wp-grid reveal">
+      {group.cards.map((c) => (
+        <a class="wp" href={c.href} set:html={c.inner}></a>
+      ))}
+    </div>
+    <nav class="section-nav" aria-label="Writing groups" style="margin-top: 48px;">
+      {WRITING_GROUPS.map((g) => (
+        g.slug === group.slug
+          ? <span class="sn-link" aria-current="page" style="font-weight:600;">{g.label} <span class="sn-count">{g.cards.length}</span></span>
+          : <a class="sn-link" href={`/portraits/writing/${g.slug}/`}>{g.label} <span class="sn-count">{g.cards.length}</span></a>
+      ))}
+    </nav>
+  </section>
+</PortraitsSub>
