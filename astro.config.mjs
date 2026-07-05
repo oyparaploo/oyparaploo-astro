@@ -1,4 +1,5 @@
 // @ts-check
+// cache-bust touch 2026-07-05: force CF Pages to re-emit the redirect pages (7 retired parents).
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
@@ -43,5 +44,13 @@ export default defineConfig({
     '/writing/all-this-stuff-gratefully-will-carry-us-1/': '/writing/all-this-stuff-gratefully-will-carry-us-to-our-deathbed/',
     '/writing/all-this-stuff-gratefully-will-carry-us-to-our-deathbed-days/': '/writing/all-this-stuff-gratefully-will-carry-us-to-our-deathbed/',
     '/writing/all-this-stuff-gratefully-will-carry-us-to-our-deathbed-days-1/': '/writing/all-this-stuff-gratefully-will-carry-us-to-our-deathbed/',
+    // Retired split-original oversized parent shelves (replaced by their sub-shelves).
+    '/writing/shelf/invented-tongue-sound-poems/': '/writing/',
+    '/writing/shelf/body-instrument-tone/': '/writing/',
+    '/writing/shelf/justice-witness-dot-state/': '/writing/',
+    '/writing/shelf/listening-and-speaking-warming/': '/writing/',
+    '/writing/shelf/climate-and-ecology-verge/': '/writing/',
+    '/writing/shelf/our-method-o-logies/': '/writing/',
+    '/writing/shelf/grief-held-by-creating/': '/writing/',
   },
 });
