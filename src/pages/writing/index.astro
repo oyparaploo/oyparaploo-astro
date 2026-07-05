@@ -8,7 +8,6 @@
 // writing-cluster-intros.md text, matched to each cluster by EXACT name.
 import { getCollection } from 'astro:content';
 import recoveredDates from '../../data/recovered-dates.json';
-import { FEEL_DOORS } from '../../lib/feel-doors.js';
 
 const CLUSTER_INTROS = {
   "Ars Poetica & the Oyparaploo Method": "Manifestos, studio monologues, and ars-poetica fragments that name and enact the Oyparaploo method itself \u2014 discarded fragments composted into enterable meaning, split words and invented phonemes reporting on their own making, plural \"human bird\" credos, and confessional self-coaching past curator dismissals. Alongside them sit statements framing the maker as a non-extractive visitor who gives finished work away, who-we-are biographies, assemblage-as-evidence declarations, and pieces built from pure invented sound. Self-defining, neologistic, and declarative \u2014 the largest grouping, and the one most about its own making.",
@@ -25,6 +24,28 @@ const CLUSTER_INTROS = {
   "Connection, Relationships & the Digital": "Advice essays and flat fictions on how people pair, belong, and isolate \u2014 failed relationships reframed as ordinary growth, partner choice as architecting a future family, chosen family weighed against desirability hierarchies and economics, and the trap of keeping every option open. Against these run lives hollowed by dating apps, VR headsets, and doom-scrolling, where motion is mistaken for connection. Reassuring, diagnostic, and cautionary.",
   "Mind, Faith, Satire & Other Threads": "The mixed grouping \u2014 essays and fables that do not sit with the others: the inner critic reframed as a squatter to outlast rather than evict, feminist religious history recovering suppressed women, a tyrant's empire exhausting into a present mercy-orchard, neural-link cinema transmitting inherited grief, and comic sketches puncturing pretension and American spectacle. The loose common thread is the mind and its institutions, handled by turns therapeutic, polemical, and deadpan. Range is more the point here than a single subject.",
   "Joy, Innocence & Wonder": "A single category standing on its own \u2014 exuberant essays and braided personal narratives arguing that single-sense attention, bodily aliveness, and wonder kept after seeing the world clearly are chosen acts of rebellion against cynicism and numbness. Holy foolishness and \"the body's broadcast\" reawaken a joy treated as forgotten rather than naive. Buoyant, playful, and defiant."
+};
+
+// DRAFT card descriptions \u2014 one short line per subject cluster, shown on the front-door
+// card in place of the old piece-count/date register. Written here by reading each
+// cluster's intro + pieces; this is original connective copy (a cluster is many pieces,
+// not one, so there's no harvested line to quote). Placeholders for Reach to approve or
+// rewrite; keyed by cluster slug. These do NOT replace the cluster-page intros above.
+const CLUSTER_DESCRIPTIONS = {
+  "ars-poetica-and-the-oyparaploo-method": "Manifestos and studio monologues where the method names itself: composted fragments, invented sound, work given freely away.",
+  "grief-loss-and-compulsive-making": "Losses held by doing rather than naming \u2014 daily rituals, obsessive crafts, monuments built from what's left behind.",
+  "ecology-climate-and-animals": "Laments for a damaged living world: melting ice, vanishing animals, defended brooks, and joy kept anyway.",
+  "spirit-mortality-and-the-ordinary-divine": "The sacred found in kitchen drawers and held hands, and death met as a gentle continuum.",
+  "justice-witness-and-the-state": "Witness-poems and court-reporter fictions on power and harm \u2014 and the small shelters built against it.",
+  "senses-tone-and-the-body": "The body and its senses as instruments, each person broadcasting a personal tone worth trusting.",
+  "migration-lineage-and-belonging": "Displacement and inheritance \u2014 seeds carried across borders, mother tongues half-remembered, memory smuggled inside quilts.",
+  "story-cycles-thrillers-and-performance": "The longer, plotted works: mythic capstones, a noir thriller, hospital operas, and breath-scored performance.",
+  "voice-listening-and-speaking-craft": "Craft essays on speaking and listening \u2014 the strategic pause, and truth received as generosity.",
+  "labor-value-and-the-made-object": "Unseen work and disposable people: janitors, ghost workers, and invisible strikes against an automated economy.",
+  "metamorphosis-and-transformation": "Fables of bodies that change form, weighing whether transformation is mercy, imprisonment, or affirmation.",
+  "connection-relationships-and-the-digital": "How people pair, belong, and isolate \u2014 chosen family against dating apps, headsets, and endless scrolling.",
+  "mind-faith-satire-and-other-threads": "The mixed room: the inner critic, recovered women, a mercy-orchard, and deadpan sketches of spectacle.",
+  "joy-innocence-and-wonder": "Wonder as rebellion \u2014 single-sense attention and bodily aliveness kept after seeing the world clearly."
 };
 
 function clusterSlug(name) {
@@ -75,30 +96,22 @@ for (const p of pieces) {
 const clusters = Object.entries(byCluster).map(([name, keys]) => {
   const intro = CLUSTER_INTROS[name];
   if (!intro) throw new Error(`writing/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
+  const slug = clusterSlug(name);
+  const desc = CLUSTER_DESCRIPTIONS[slug];
+  if (!desc) throw new Error(`writing/index.astro: no card description for cluster "${name}" (slug "${slug}") — CLUSTER_DESCRIPTIONS is missing an entry. Stopping rather than rendering a card with no line.`);
   const dated = keys.filter((k) => k != null);
   const years = dated.map((k) => Math.floor(k / 10000));
   const maxY = years.length ? Math.max(...years) : null;
   const span = maxY == null ? '' : String(maxY);  // always the newest-piece year (never a range)
   const mostRecent = dated.length ? Math.max(...dated) : -Infinity;
-  return { name, count: keys.length, intro, slug: clusterSlug(name), span, mostRecent };
+  return { name, count: keys.length, intro, desc, slug, span, mostRecent };
 }).sort((a, b) => b.mostRecent - a.mostRecent || b.count - a.count || a.name.localeCompare(b.name));
 
-// Feel-door entry cards: door NAME + one curated line, in the FEEL_DOORS order
-// (warmest -> coldest). Lines are verbatim from the harvest (approved per door).
-const DOOR_LINES = {
-  'open-door': "The thing nobody mentions about devotion: it doesn't care about scale.",
-  'bench': "We are students of our own accumulation.",
-  'held-hand': "the wings we give each other when the ground gives way.",
-  'deadpan': "Like tinnitus of the soul, it may always whisper in the background.",
-  'witness': "We're not protesting. We're existing. Publicly. Undeniably.",
-  'trap-door': "When did everything become the cheap version?",
-  'wander': "People who don't exist but should. Or do exist but shouldn't. Same thing really.",
-};
-const feelDoors = FEEL_DOORS.map((d) => {
-  const line = DOOR_LINES[d.slug];
-  if (!line) throw new Error(`writing/index.astro: no door-copy line for feel-door "${d.slug}" — stopping rather than rendering a blank card.`);
-  return { name: d.name, slug: d.slug, line };
-});
+// Feel-door entry cards were REMOVED from the front door (2026-07-01 decision: one way in,
+// not two rival lanes). The 35 curated picks + door-copy lines are retained in
+// src/lib/feel-doors.js and the feel-door interior routes — held for possible later use,
+// not deleted. The only feel-related element here is ONE quiet secondary link to
+// /writing/feel/ beneath the doorways; search + subject doorways remain the primary way in.
 
 const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
 <nav class="site-nav" aria-label="Site navigation">
@@ -166,6 +179,81 @@ const navmenu = `<!-- ═══ STÄDEL NAV ═══ -->
     </div>
   </div>
 </div>`;
+
+// FRONT DOOR REBUILT (2026-07-04; cache-bust touch 2026-07-05): points at every current SUBJECT SHELF (45), grouped by family.
+// The 7 split-original oversized parents are retired (redirect to /writing/); their sub-shelves
+// are listed here instead. Group labels are WORKING labels — Reach renames. Counts are the current
+// shelf roster sizes (static; refreshed when a shelf is rebuilt). The cluster-doorway data above is
+// left intact but unused by this body (kept for the cluster interiors, which still read it).
+const SHELF_SECTIONS = [
+  { label: 'The Method & the Made', shelves: [
+    ['what-the-writing-is-for', 'What the Writing Is For', 9],
+    ['who-is-oyparaploo', 'Who Is Oyparaploo', 12],
+    ['how-the-writing-gets-made', 'How the Writing Gets Made', 15],
+    ['sound-of-words', 'Sound of Words', 7],
+    ['beautiful-garbage-and-repair-shop', 'Beautiful Garbage and Repair Shop', 15],
+    ['elder-late-night-discipline', 'Elder Late-Night Discipline', 10],
+  ]},
+  { label: 'Invented Tongue & Sound', shelves: [
+    ['method-naming-itself', 'Method Naming Itself', 15],
+    ['sound-and-split-syllable-play', 'Sound and Split-Syllable Play', 14],
+    ['rhizome-finales-and-garden-rebirth', 'Rhizome Finales and Garden Rebirth', 7],
+    ['grief-exile-witness-hymns', 'Grief Exile Witness Hymns', 13],
+  ]},
+  { label: 'The Body & Its Senses', shelves: [
+    ['your-own-tone', 'Your Own Tone', 12],
+    ['the-world-as-one-instrument', 'The World as One Instrument', 9],
+    ['characters-who-perceive-sound', 'Characters Who Perceive Sound', 6],
+    ['the-sensing-voice', 'The Sensing Voice', 4],
+    ['beauty-norms-for-defiant-bodies', 'Beauty Norms for Defiant Bodies', 3],
+  ]},
+  { label: 'Power, Harm & Witness', shelves: [
+    ['witness-to-state-violence', 'Witness to State Violence', 10],
+    ['the-courtroom-and-the-record', 'The Courtroom and the Record', 9],
+    ['care-against-collapse', 'Care Against Collapse', 10],
+    ['disappearance-and-the-vanishing', 'Disappearance and the Vanishing', 9],
+  ]},
+  { label: 'Listening & Speaking', shelves: [
+    ['the-art-of-listening', 'The Art of Listening', 13],
+    ['finding-your-voice', 'Finding Your Voice', 17],
+    ['silence-and-the-pause', 'Silence and the Pause', 11],
+  ]},
+  { label: 'A Damaged Living World', shelves: [
+    ['orange-particulate-sunset', 'Orange Particulate Sunset', 13],
+    ['extinctions-in-progress', 'Extinctions in Progress', 14],
+    ['earth-growing-back', 'Earth Growing Back', 12],
+    ['reckoning-with-loss', 'Reckoning with Loss', 9],
+  ]},
+  { label: 'Grief & What Is Kept', shelves: [
+    ['good-grief-consolation', 'Good Grief Consolation', 25],
+    ['special-collected-items', 'Special Collected Items', 16],
+    ['sacred-daily-repetition', 'Sacred Daily Repetition', 15],
+    ['gathered-belongings', 'Gathered Belonging(s)', 8],
+  ]},
+  { label: 'Falling & Getting By', shelves: [
+    ['solitary-fallen-drops', 'Solitary Fallen Drops', 13],
+    ['happenings-on-the-ground', 'Happenings on the Ground', 12],
+    ['uncredited-and-unsung-workers', 'Uncredited and Unsung Workers', 22],
+  ]},
+  { label: 'Belonging & the Digital', shelves: [
+    ['connection-and-screen-time', 'Connection and Screen Time', 19],
+    ['exile-migration-inheritance', 'Exile: Migration Inheritance', 19],
+    ['belongings-and-room-without-walls', 'Belonging(s) and Room Without Walls', 9],
+  ]},
+  { label: 'Change, Ruin & the Sacred', shelves: [
+    ['metamorphic-still-life', 'Metamorphic Still Life', 20],
+    ['mycelial-life-and-sentient-ruins', 'Mycelial Life and Sentient Ruins', 15],
+    ['ordinary-objects-and-the-sacred-now', 'Ordinary Objects and the Sacred Now', 19],
+  ]},
+  { label: 'Story, Stage & Satire', shelves: [
+    ['noir-detective-chapters', 'Noir Detective Chapters', 17],
+    ['humanity-bird-personas', 'Humanity Bird Personas', 12],
+    ['theater-plays-song-cycles', 'Theater Plays · Song Cycles', 6],
+    ['the-inner-critic-ejected', 'The Inner Critic, Ejected', 7],
+    ['deadpan-comedy-sketches', 'Deadpan Comedy Sketches', 4],
+    ['indigenous-food-sovereignty', 'Indigenous Food Sovereignty', 3],
+  ]},
+];
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
@@ -700,6 +788,14 @@ body.dark-mode .card-excerpt { color: rgba(232,224,214,0.65); }
 .page-header { max-width: 1200px; margin: 0 auto; padding: 72px 40px 0; }
 .page-title { font-family: 'Lora', serif; font-size: clamp(1.8824rem, 3vw, 2.3529rem); font-weight: 600; color: #3a3028; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 28px; }
 body.dark-mode .page-title { color: #d0c8bf; }
+/* Shelf-index front door (2026-07-04): title carries a subtitle deck, so tighten its bottom gap here. */
+.page-header .page-title { margin-bottom: 10px; }
+/* Subtitle deck — muted body tier (proven-values body/intro ladder). */
+.page-subtitle { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 400; color: #4a4038; line-height: 1.6; letter-spacing: -0.01em; text-wrap: pretty; }
+body.dark-mode .page-subtitle { color: #b5ada5; }
+/* Group label above each shelf grid — muted uppercase eyebrow (the .cl-count meta tier, heading weight). */
+.cl-group-label { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #5a4f47; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.3; margin-bottom: 20px; }
+body.dark-mode .cl-group-label { color: #a09888; }
 
 .cl-section { max-width: 1200px; margin: 0 auto; padding: 48px 40px 0; }
 
@@ -709,14 +805,6 @@ body.dark-mode .page-title { color: #d0c8bf; }
 
 .cl-card { display: block; border: 1px solid #b8a088; padding: 28px 28px 24px; transition: border-color 0.3s ease, background 0.3s ease; cursor: pointer; }
 .cl-card:hover { border-color: #8a6e50; background: #faf7f3; }
-/* Per-card pastel hover backgrounds — light mode only (dark hover unchanged); scoped to the Feel For It cards via their /writing/feel/ href */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(1):hover { background: #fef8f9; } /* Open Door */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(2):hover { background: #fafbfb; } /* Bench */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(3):hover { background: #fefcf3; } /* Held Hand */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(4):hover { background: #f8fcf7; } /* Deadpan */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(5):hover { background: #f7fbfd; } /* Witness */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(6):hover { background: #fbf9fc; } /* Trap */
-body:not(.dark-mode) .cl-card[href^="/writing/feel/"]:nth-child(7):hover { background: #fdf8fb; } /* Wander */
 .cl-count { display: block; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #5a4f47; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
 .cl-name { font-family: 'Lora', serif; font-size: 1.2353rem; font-weight: 600; color: #2a2320; line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.01em; }
 .cl-intro { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #4a4038; line-height: 1.65; text-wrap: pretty; }
@@ -725,6 +813,21 @@ body.dark-mode .cl-card:hover { border-color: #5a5048; background: #141210; }
 body.dark-mode .cl-count { color: #a09888; }
 body.dark-mode .cl-name { color: #ccc5bc; }
 body.dark-mode .cl-intro { color: #b5ada5; }
+
+/* Search-lane field — card-outline pattern (proven Card Anatomy borders). A styled
+   trigger that opens the already-locked site search overlay; no new search UI, no infra
+   change. All content solid hex; smallest text 17px; min-height 52px = touch target. */
+.cl-search { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 680px; min-height: 52px; padding: 15px 20px; background: none; border: 1px solid #b8a088; cursor: pointer; text-align: left; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #4a4038; letter-spacing: -0.01em; transition: border-color 0.3s ease, background 0.3s ease; }
+.cl-search:hover { border-color: #8a6e50; background: #faf7f3; }
+.cl-search svg { flex-shrink: 0; }
+body.dark-mode .cl-search { border-color: #3a3430; color: #b5ada5; }
+body.dark-mode .cl-search:hover { border-color: #5a5048; background: #141210; }
+
+/* Quiet by-feel link — muted caption tier; adapts to the dark toggle. No card weight. */
+.cl-feel { display: inline-block; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #5a4f47; letter-spacing: 0.02em; transition: color 0.2s; }
+.cl-feel:hover { color: #5c3a1e; }
+body.dark-mode .cl-feel { color: #a09888; }
+body.dark-mode .cl-feel:hover { color: #d0c8bf; }
 
 /* Mobile side-gutter: 40px → 14px at the 480px breakpoint (spec floor updated to 14px). Only L/R changes; top/bottom unchanged. */
 @media (max-width: 480px) {
@@ -738,34 +841,35 @@ body.dark-mode .cl-intro { color: #b5ada5; }
 <Fragment set:html={navmenu} />
 
 <main>
-  <header class="page-header reveal">
-    <h1 class="page-title">Writing ˈär kīv</h1>
+  <header class="page-header reveal visible">
+    <h1 class="page-title">The Writing(s)</h1>
+    <p class="page-subtitle">The collected writings of Oyparaploo</p>
   </header>
 
+  {/* SEARCH — a visible field that opens the already-locked site search overlay
+      (live MiniSearch). The express way in. */}
   <section class="cl-section">
-    <div class="section-header"><h2 class="section-title">Feel For It</h2></div>
-    <div class="cl-grid">
-      {feelDoors.map((d, i) => (
-        <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/feel/${d.slug}/`}>
-          <div class="cl-name">{d.name}</div>
-          <div class="cl-intro">{d.line}</div>
-        </a>
-      ))}
-    </div>
+    <button type="button" class="cl-search reveal visible" id="frontSearchField" aria-label="Find a piece">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg>
+      <span>find a piece…</span>
+    </button>
   </section>
 
-  <section class="cl-section">
-    <div class="section-header"><h2 class="section-title">By subject</h2></div>
-    <div class="cl-grid">
-      {clusters.map((c, i) => (
-        <a class={`cl-card reveal${i === 0 ? ' visible' : ''}`} href={`/writing/clusters/${c.slug}/`}>
-          <div class="cl-count">{c.count} pieces{c.span && ` · ${c.span}`}</div>
-          <div class="cl-name">{c.name}</div>
-          <div class="cl-intro">{c.intro}</div>
-        </a>
-      ))}
-    </div>
-  </section>
+  {/* SHELVES — every current subject shelf, grouped by family. Each card → /writing/shelf/<slug>/.
+      The 7 retired split-original parents are NOT listed (they redirect to /writing/). */}
+  {SHELF_SECTIONS.map((sec) => (
+    <section class="cl-section">
+      <h2 class="cl-group-label reveal visible">{sec.label}</h2>
+      <div class="cl-grid">
+        {sec.shelves.map(([slug, name, count]) => (
+          <a class="cl-card reveal visible" href={`/writing/shelf/${slug}/`}>
+            <div class="cl-count">{count} pieces</div>
+            <div class="cl-name">{name}</div>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
 </main>
 
 <div class="bottom-safe"></div>
@@ -788,6 +892,14 @@ fontBtn.addEventListener('click', function() {
 document.getElementById('contrastBtn').addEventListener('click', function() {
   document.body.classList.toggle('dark-mode');
 });
+
+// ── Search-lane field opens the locked site search overlay (reuses the nav search
+//    trigger + oy-search.js MiniSearch — no new search UI, no infra change).
+(function() {
+  var f = document.getElementById('frontSearchField');
+  var sb = document.getElementById('searchBtn');
+  if (f && sb) f.addEventListener('click', function() { sb.click(); });
+})();
 
 // ── Menu open/close
 var navHamburger = document.getElementById('navHamburger');
