@@ -2,10 +2,6 @@
 title: "A Word Is A Room"
 variant: breath-display
 ground: dark
-hero:
-  src: /images/a-word-is-a-room/shadow.webp
-  alt: "A folded texture — shadow and light across a worn surface."
-  caption: ""
 readNext: [west-has-blessed-voices, brown-paint]
 ---
 
