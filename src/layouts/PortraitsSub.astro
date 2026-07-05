@@ -20,7 +20,10 @@ const { title = 'The Portraits — Oyparaploo' } = Astro.props;
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 <script src="/sw-register.js" defer></script>
 <title>{title}</title>
-<style>
+<!-- Group pages inject card HTML via set:html (no Astro scope id) and render slotted content
+     with no cid, so scoped selectors never match. Chrome CSS is is:global; only the 5 group
+     pages load this layout, so nothing leaks site-wide. -->
+<style is:global>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
 em, i, cite, address, dfn, var { font-style: normal; }
