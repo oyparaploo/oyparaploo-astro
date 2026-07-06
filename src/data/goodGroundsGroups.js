@@ -1,10 +1,10 @@
-// AUTO-GENERATED from portraits.astro Good Grounds data (55 musician cards, territory order).
-// Split into 3 front-door group pages. Cards are UNWIRED (href="#") — same as the landing grid.
+// AUTO-GENERATED from portraits.astro Good Grounds data (55 musicians, territory order).
+// Five front-door group pages, 11 each, territory order unbroken. Cards UNWIRED (href="#").
 export const GG_TOTAL = 55;
 export const GG_GROUPS = [
   {
-    "slug": "minnesota-home-ground",
-    "label": "Minnesota: The Home Ground",
+    "slug": "home-ground",
+    "label": "Home Ground",
     "cards": [
       {
         "t": "Conduction",
@@ -49,7 +49,13 @@ export const GG_GROUPS = [
       {
         "t": "What the House Heard",
         "a": "Mariel / Mars / Red Moon"
-      },
+      }
+    ]
+  },
+  {
+    "slug": "the-deep-north",
+    "label": "The Deep North",
+    "cards": [
       {
         "t": "What the Inlet Held",
         "a": "Petra Voss"
@@ -77,13 +83,7 @@ export const GG_GROUPS = [
       {
         "t": "What the Mirror Held",
         "a": "Birte Lund"
-      }
-    ]
-  },
-  {
-    "slug": "minnesota-northeast-roads",
-    "label": "Minnesota & the Northeast Roads",
-    "cards": [
+      },
       {
         "t": "What the Night Held",
         "a": "Oskar Vang"
@@ -99,7 +99,13 @@ export const GG_GROUPS = [
       {
         "t": "What the Rain Held",
         "a": "Astrid Kvam"
-      },
+      }
+    ]
+  },
+  {
+    "slug": "minnesota-northeast-seam",
+    "label": "Minnesota Northeast Seam",
+    "cards": [
       {
         "t": "What the River Held",
         "a": "Leif Strand"
@@ -143,7 +149,13 @@ export const GG_GROUPS = [
       {
         "t": "What the Bridge Held",
         "a": "Jonas Webb"
-      },
+      }
+    ]
+  },
+  {
+    "slug": "northeast-southwest-corners",
+    "label": "Northeast Southwest Corners",
+    "cards": [
       {
         "t": "What the Harbor Held",
         "a": "Cecile Roux"
@@ -159,13 +171,7 @@ export const GG_GROUPS = [
       {
         "t": "What the First Take Held",
         "a": "Manon Roustan"
-      }
-    ]
-  },
-  {
-    "slug": "southwest-north-waters-abroad",
-    "label": "Southwest, North Waters & Abroad",
-    "cards": [
+      },
       {
         "t": "What the Canyon Held",
         "a": "Sol Reyes"
@@ -193,7 +199,13 @@ export const GG_GROUPS = [
       {
         "t": "Ghost",
         "a": "Jonah Lind"
-      },
+      }
+    ]
+  },
+  {
+    "slug": "northwest-lakes-international",
+    "label": "Northwest, Lakes & International",
+    "cards": [
       {
         "t": "What the Current Held",
         "a": "River North"

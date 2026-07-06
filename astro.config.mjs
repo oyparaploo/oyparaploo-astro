@@ -52,5 +52,9 @@ export default defineConfig({
     '/writing/shelf/climate-and-ecology-verge/': '/writing/',
     '/writing/shelf/our-method-o-logies/': '/writing/',
     '/writing/shelf/grief-held-by-creating/': '/writing/',
+    // Retired Good Grounds 3-door split, replaced by the 5-door regroup (11 each).
+    '/portraits/good-grounds/minnesota-home-ground/': '/portraits/#good-grounds',
+    '/portraits/good-grounds/minnesota-northeast-roads/': '/portraits/#good-grounds',
+    '/portraits/good-grounds/southwest-north-waters-abroad/': '/portraits/#good-grounds',
   },
 });
