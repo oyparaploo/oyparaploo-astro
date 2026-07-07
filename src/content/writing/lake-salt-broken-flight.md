@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "25.11.2025"
 slug: "lake-salt-broken-flight"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 secondaryCategory: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
 ---

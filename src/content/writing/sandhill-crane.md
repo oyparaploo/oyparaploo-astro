@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "12.08.2025"
 slug: "sandhill-crane"
+category: "Wildlife as Unheeded Warnings"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ## The Arrival

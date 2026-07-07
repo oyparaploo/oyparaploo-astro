@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "11.08.2025"
 slug: "the-compost-years"
-category: "Impermanence, Mortality, and Holding Things with Open Hands"
+category: "Impermanence, Loss, and Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 

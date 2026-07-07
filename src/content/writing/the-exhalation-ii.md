@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "15.10.2025"
 slug: "the-exhalation-ii"
-category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+category: "Sacred Ground, Colonialism, and Stolen Land"
 cluster: "Justice, Witness & the State"
 ---
 

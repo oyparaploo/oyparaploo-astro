@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "23.11.2025"
 slug: "the-inventory-taking-continues-a-complete-accounting-of-whats-missing"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 ---
 

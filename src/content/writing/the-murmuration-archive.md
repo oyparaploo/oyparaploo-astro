@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "12.08.2025"
 slug: "the-murmuration-archive"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 secondaryCategory: "Underpaid Museum and Cleaning Workers Turning Discards into Art"
 ---

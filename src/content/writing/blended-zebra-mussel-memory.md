@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "blended-zebra-mussel-memory"
+category: "Brooks, Watersheds, Inherited Records"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Arriving in the ballast water of a vessel carrying something unknown. No one retrieved the invitation until they had colonized every encoding ... the intake storage ... activity of synapses ... the underside of regions where child reasoning dangles coordinated warm to cool reconstructions ... lake neuron B first, then every river of fine rooted networks between wings of decency and basal ganglia ...

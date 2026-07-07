@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "01.11.2025"
 slug: "whether-or-not-justice-can-even-address-what-happened"
-category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+category: "Legal Daze and Accountability"
 cluster: "Justice, Witness & the State"
 ---
 

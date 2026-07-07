@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "14.10.2025"
 slug: "important-dowry"
-category: "Dying Brooks, Watersheds, and Inherited Water Records"
+category: "Brooks, Watersheds, Inherited Records"
 cluster: "Ecology, Climate & Animals"
 secondaryCategory: "Coded Folk Craft Smuggling Female Power and Memory"
 ---

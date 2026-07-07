@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "19.03.2026"
 slug: "ever-so-present-ruining-of-our-nation"
+category: "Sacred Ground, Colonialism, and Stolen Land"
+cluster: "Justice, Witness & the State"
 ---
 
 ( as English words )

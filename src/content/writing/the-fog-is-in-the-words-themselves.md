@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "02.11.2025"
 slug: "the-fog-is-in-the-words-themselves"
-category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+category: "Legal Daze and Accountability"
 cluster: "Justice, Witness & the State"
 ---
 

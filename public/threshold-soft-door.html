@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+  STANDALONE REVIEW PREVIEW — "a soft front door" (warm threshold).
+  Four named voice doors; names + invite lines copied VERBATIM from
+  navigation-rebuild/door-naming-log.md. Built to the-spec.md + proven-values.md:
+  light/warm ground, Lora display names, Inter invites, hierarchy from type & space,
+  no bordered boxes, solid-hex warm palette, contrast-first, opacity-only reveal,
+  no italics, all text >= 17px. Not linked anywhere. Not committed.
+  Delete public/threshold-soft-door.html after review.
+-->
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oyparaploo — A Soft Front Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  /* Locked: serif is always roman — kill all italic */
+  * { font-style: normal; }
+  em, i, cite, address, dfn, var { font-style: normal; }
+
+  html {
+    font-size: var(--root-size, 17px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  html.size-1 { --root-size: 17px; }
+
+  /* Light, warm ground — white settling into cream */
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    color: #4a4038;
+    background-color: #f9f7f4;
+    background-image: linear-gradient(180deg, #ffffff 0%, #fdfcfb 34%, #f9f7f4 100%);
+    background-attachment: scroll;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  a, button, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+  p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+
+  /* Threshold — generous arrival space; doors breathe, no boxes */
+  .threshold {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(5.5rem, 13vh, 9rem) 40px clamp(6rem, 14vh, 9rem);
+  }
+
+  .doors { display: flex; flex-direction: column; }
+
+  /* Separation is space, not a box or a rule */
+  .door { padding: clamp(3.25rem, 7.5vh, 5rem) 0; }
+  .door:first-child { padding-top: 0; }
+  .door:last-child { padding-bottom: 0; }
+
+  /* Quiet index numeral — a label (Inter), spec-legal 17px, never lighter than the floor */
+  .door-meta {
+    display: block;
+    margin: 0 0 1.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;            /* 17px — meets the floor */
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #5a4f47;
+  }
+
+  /* Door name — the display heading. Lora 600, max-contrast soil, gallery scale */
+  .door-name {
+    margin: 0;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    color: #2a2320;
+    font-size: clamp(2.15rem, 6.4vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+  }
+
+  /* Invite line — verbatim opener. Inter (inherited), warm, above the #5a4f47 floor */
+  .door-invite {
+    margin: 1.15rem 0 0;
+    max-width: 34em;
+    font-weight: 400;
+    color: #4a4038;
+    font-size: clamp(1.0588rem, 2.4vw, 1.1765rem);
+    line-height: 1.66;
+  }
+
+  /* Locked scroll reveal — PURE OPACITY FADE, no transform. Gentle per-door stagger. */
+  .reveal { opacity: 0; transition: opacity 1.2s ease; }
+  .reveal.visible { opacity: 1; }
+  .door.reveal:nth-of-type(1) { transition-delay: 0s; }
+  .door.reveal:nth-of-type(2) { transition-delay: 0.16s; }
+  .door.reveal:nth-of-type(3) { transition-delay: 0.32s; }
+  .door.reveal:nth-of-type(4) { transition-delay: 0.48s; }
+
+  @media (max-width: 768px) {
+    .reveal { transition: opacity 0.6s ease; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; }
+  }
+  @media (max-width: 480px) {
+    .threshold { padding-left: 24px; padding-right: 24px; }
+    .door-invite { margin-top: 1rem; }
+  }
+</style>
+</head>
+<body>
+  <main class="threshold">
+    <div class="doors">
+
+      <section class="door reveal" aria-labelledby="door-1">
+        <span class="door-meta">I</span>
+        <h2 class="door-name" id="door-1">Light Gives Us Words</h2>
+        <p class="door-invite">When you think of speaking as gift-giving instead of performing, everything shifts.</p>
+      </section>
+
+      <section class="door reveal" aria-labelledby="door-2">
+        <span class="door-meta">II</span>
+        <h2 class="door-name" id="door-2">Things Announce Themselves Softly</h2>
+        <p class="door-invite">Dawn forest teaches what human conversation forgot—important things announce themselves softly first.</p>
+      </section>
+
+      <section class="door reveal" aria-labelledby="door-3">
+        <span class="door-meta">III</span>
+        <h2 class="door-name" id="door-3">Our Throat Is the Passage</h2>
+        <p class="door-invite">The throat is just the doorway. The chest is the concert hall.</p>
+      </section>
+
+      <section class="door reveal" aria-labelledby="door-4">
+        <span class="door-meta">IV</span>
+        <h2 class="door-name" id="door-4">The Resonant Song and Everything</h2>
+        <p class="door-invite">Have you ever wondered why a sunrise feels musical, or why we describe sounds as "bright" or "dark"?</p>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Locked reveal — pure opacity, IntersectionObserver (threshold 0.05, -30px bottom)
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

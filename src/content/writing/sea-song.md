@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.11.2025"
 slug: "sea-song"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 ---
 

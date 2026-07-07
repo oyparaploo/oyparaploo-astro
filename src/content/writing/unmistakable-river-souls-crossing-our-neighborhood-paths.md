@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "22.07.2025"
 slug: "unmistakable-river-souls-crossing-our-neighborhood-paths"
-category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+category: "Sacred Ground, Colonialism, and Stolen Land"
 cluster: "Justice, Witness & the State"
 secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---

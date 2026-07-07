@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "08.10.2025"
 slug: "close-the-door-and-open-it-again"
-category: "Impermanence, Mortality, and Holding Things with Open Hands"
+category: "Impermanence, Loss, and Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 

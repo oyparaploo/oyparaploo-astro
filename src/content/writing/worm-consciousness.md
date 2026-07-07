@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "03.12.2025"
 slug: "worm-consciousness"
-category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+category: "Sacred Ground, Colonialism, and Stolen Land"
 cluster: "Justice, Witness & the State"
 secondaryCategory: "Mycelial Networks as Consciousness, Memory, and Afterlife"
 ---

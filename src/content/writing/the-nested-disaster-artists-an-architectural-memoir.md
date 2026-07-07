@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "10.08.2025"
 slug: "the-nested-disaster-artists-an-architectural-memoir"
-category: "Impermanence, Mortality, and Holding Things with Open Hands"
+category: "Impermanence, Loss, and Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 

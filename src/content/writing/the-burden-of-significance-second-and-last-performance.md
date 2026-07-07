@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "24.08.2025"
 slug: "the-burden-of-significance-second-and-last-performance"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 secondaryCategory: "Grief as Sacred Listening and Communal Witnessing"
 ---

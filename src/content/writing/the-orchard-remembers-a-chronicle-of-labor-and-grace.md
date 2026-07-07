@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "11.08.2025"
 slug: "the-orchard-remembers-a-chronicle-of-labor-and-grace"
-category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+category: "Sacred Ground, Colonialism, and Stolen Land"
 cluster: "Justice, Witness & the State"
 ---
 

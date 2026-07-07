@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "07.10.2025"
 slug: "the-milk-works-hard"
-category: "Impermanence, Mortality, and Holding Things with Open Hands"
+category: "Impermanence, Loss, and Open Hands"
 cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 

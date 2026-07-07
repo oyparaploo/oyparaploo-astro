@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "13.10.2025"
 slug: "the-moth-keeper"
-category: "Birds, Bison, and Animals as Unheeded Warnings"
+category: "Wildlife as Unheeded Warnings"
 cluster: "Ecology, Climate & Animals"
 ---
 

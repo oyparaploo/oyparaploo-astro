@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "31.10.2025"
 slug: "the-court-reporter-who-saw-too-much"
-category: "Justice, Legal Fog, and Whether Accountability Is Possible"
+category: "Legal Daze and Accountability"
 cluster: "Justice, Witness & the State"
 ---
 

@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "01.03.2026"
 slug: "clasp-of-the-political-class"
+category: "Legal Daze and Accountability"
+cluster: "Justice, Witness & the State"
 ---
 
 ( a mended social contract ... yes ... yes ... yes )

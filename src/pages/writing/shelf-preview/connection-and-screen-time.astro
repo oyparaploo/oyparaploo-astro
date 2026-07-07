@@ -1,144 +1,92 @@
 ---
-// Cluster interior — the terminal browse screen. Reached from a subject doorway on
-// the /writing/ front door. DARK-NATIVE (Writing is a dark room per the-grounds record;
-// chrome lifted from skeleton-landing-dark.html, content in the proven dark solid-hex
-// ladder). Enforces the hard rule: the DEFAULT screen shows NO MORE THAN 12 pieces —
-// the 12 newest (or a curated "start here" dozen if one is defined for the cluster).
-// The full grid lives behind "show all N", paginated 12/page. Categories are in-page
-// .filter-btn chips (filter in place, no new page). Pieces + categories come live from
-// getCollection('writing'); intros are the inlined writing-cluster-intros.md text.
+// PREVIEW ONLY — throwaway route so Reach can browser-check one subject shelf before the
+// site structure is settled. NOT the final address; not wired to the front door, nav, or
+// search. Chrome + card CSS + single-grid branch + pager JS are MIRRORED VERBATIM from the
+// locked cluster interior (src/pages/writing/clusters/[slug]/index.astro) — no new card CSS.
+// Roster = the "Connection and Screen Time" shelf (19 pieces) from FULL-SHELF-MAP-ALL-595.md.
+// Each piece links to its live reading page /writing/<slug>/ when the slug resolves in the
+// collection; any that don't resolve render unlinked and are reported (none invented).
 import { getCollection } from 'astro:content';
-import recoveredDates from '../../../../data/recovered-dates.json';
-import { slugify } from '../../../../lib/slug.js';
+import recoveredDates from '../../../data/recovered-dates.json';
 
-export async function getStaticPaths() {
-  const CLUSTER_INTROS = {
-    "Ars Poetica & the Oyparaploo Method": "Manifestos, studio monologues, and ars-poetica fragments that name and enact the Oyparaploo method itself — discarded fragments composted into enterable meaning, split words and invented phonemes reporting on their own making, plural \"human bird\" credos, and confessional self-coaching past curator dismissals. Alongside them sit statements framing the maker as a non-extractive visitor who gives finished work away, who-we-are biographies, assemblage-as-evidence declarations, and pieces built from pure invented sound. Self-defining, neologistic, and declarative — the largest grouping, and the one most about its own making.",
-    "Grief, Loss & Compulsive Making": "Short fictions and meditations in which a loss is held by doing rather than naming — a fixed daily ritual, an obsessive craft, a dead parent's objects threaded into an assemblage, a monument built from trash. Several widen grief outward: dispossessed people gathering into open-ended occupations, a cosmic visitor glossing breakdown as composting, sorrow kept warm by communal listening rather than fixed. Spare, deadpan, and grief-saturated.",
-    "Ecology, Climate & Animals": "Laments, quiet fictions, and researched meditations on a damaged living world — melting ice and megafires, vanishing bison and birds read as warnings no one heeds, dying Minnesota brooks defended with an elder's decades of water records, toxic air adapted to without forgetting joy. Underground fungal networks archive the dead, formal gardens survive only by rewilding, and faith reckons with flood and fire. Elegiac, prophetic, and grounded.",
-    "Spirit, Mortality & the Ordinary Divine": "Devotional meditations and song-cycles that locate the sacred in flow and in the ordinary — honesty cracking walls into windows, death as a continuum where nothing fully stops, mortality loosening the grip on outcomes, the divine relocated from cathedrals to kitchen drawers and held hands. Some hold still on purpose: practitioners refusing to name what moves through them, an agenda-less morning trusting that something good will arrive. Hymn-like, serene, and consoling.",
-    "Justice, Witness & the State": "Witness-poems, court-reporter fictions, and ritual-theater on power and harm — children abandoned by institutions, asylum's burden of proving fear, a Minneapolis killing that phone video will outlast, hearings whose euphemisms load the weapon before it fires, sieges and prisons and stolen Dakota land that waits for return. A few turn from indictment toward shelter, as when hostile architecture is answered with a wedding dress made into a one-night sanctuary. Cold, forensic, and grief-stricken.",
-    "Senses, Tone & the Body": "Pseudo-scientific essays and poems treating the body and its senses as instruments — personality, scent, skin, and emotion each broadcasting a personal \"tone,\" the quest to hear light and taste music, and how the sound of a room governs how people speak and connect. Others reframe attractiveness and forced cheerfulness as communication rather than verdicts on worth, reassure the overly sensitive, and turn wrinkles and unruly bodies into open defiance of beauty norms. Affirming, lucid, and expansive.",
-    "Migration, Lineage & Belonging": "Fictions and fragments of displacement and inheritance — seeds carried across borders, a heritage language returning only in fragments or in hundreds of words for \"peace,\" residential-school and ancestral trauma transmitted through an inherited pan or a gallery of photographs, women smuggling memory and power into quilts dismissed as decorative. Set beside them, hortatory calls for unfunded neighborhood mutual aid that closes the gap between giver and receiver. Aching, elegiac, and solidaristic.",
-    "Story-Cycles, Thrillers & Performance": "The corpus's longer, more plotted works — mythopoeic capstones where every prior character, river, and worker converges into one simultaneous performance, a serialized noir thriller exposing engineered acoustics, hospital operas and gesture-based breath-scores, and documentary chases after tree-pinned Oyparaploo tales. Music-as-survival fictions and pandemic-surveillance elegies sit alongside. Atmospheric, theatrical, and serial.",
-    "Voice, Listening & Speaking Craft": "Craft and communication essays on speaking and listening — intentional listening framed as a dying, near-revolutionary discipline, the strategic pause and the power of saying less, a rough honest voice trusted over slick delivery, and the architecture of a talk's opening and close. Speaking is recast as generosity rather than performance, and registers are shifted so that truth can be received. Instructive, persuasive, and earnest.",
-    "Labor, Value & the Made Object": "Fables and braided memoirs about unseen work and the people made disposable — night-shift janitors filling dead malls with art from institutional waste, uncredited corporate architects and ghost tech workers staging \"invisible strikes,\" and an automated economy that discards humans as inefficiency. Two run stranger: mock municipal registries of half-existent people, and collectors compulsively naming characters who do not exist yet. Defiant, clinical, and quietly radical.",
-    "Metamorphosis & Transformation": "Speculative myths and fables of bodies that change form — humans merging into conscious architecture after collapse, a woman cycling endlessly through suffering creature-shapes that a chorus calls God's love, another passing through swan, tiger, and owl as a democracy of selves. They weigh how much one can change and stay human, and whether transformation is mercy, imprisonment, or affirmation. Mythic, grotesque, and by turns luminous.",
-    "Connection, Relationships & the Digital": "Advice essays and flat fictions on how people pair, belong, and isolate — failed relationships reframed as ordinary growth, partner choice as architecting a future family, chosen family weighed against desirability hierarchies and economics, and the trap of keeping every option open. Against these run lives hollowed by dating apps, VR headsets, and doom-scrolling, where motion is mistaken for connection. Reassuring, diagnostic, and cautionary.",
-    "Mind, Faith, Satire & Other Threads": "The mixed grouping — essays and fables that do not sit with the others: the inner critic reframed as a squatter to outlast rather than evict, feminist religious history recovering suppressed women, a tyrant's empire exhausting into a present mercy-orchard, neural-link cinema transmitting inherited grief, and comic sketches puncturing pretension and American spectacle. The loose common thread is the mind and its institutions, handled by turns therapeutic, polemical, and deadpan. Range is more the point here than a single subject.",
-    "Joy, Innocence & Wonder": "A single category standing on its own — exuberant essays and braided personal narratives arguing that single-sense attention, bodily aliveness, and wonder kept after seeing the world clearly are chosen acts of rebellion against cynicism and numbness. Holy foolishness and \"the body's broadcast\" reawaken a joy treated as forgotten rather than naive. Buoyant, playful, and defiant."
-  };
+const ROSTER = [
+  'appearance-perception-and-the-stories-we-tell',
+  'cherry-slush',
+  'choosing-your-path-means-choosing-your-future-family',
+  'eight-hours',
+  'everything-buried-in-silence-still-glows-a-braided-essay-on-breath-memory-and-belonging',
+  'searching-for-the-forgotten-song-revised',
+  'the-architecture-of-chosen-family-how-partner-selection-becomes-your-most-powerful-act-of-creation',
+  'the-commitment-paradox-why-keeping-your-options-open-keeps-you-stuck',
+  'the-digital-paradox-why-dating-apps-intensify-loneliness-while-real-world-connection-heals-it',
+  'the-illusion-of-motion-how-digital-busyness-became-our-most-deceptive-comfort',
+  'the-impossible-purity-notes-on-the-death-we-choose',
+  'the-paradox-of-infinite-choice-why-perpetual-possibility-becomes-its-own-prison',
+  'the-possibility-and-complexity-of-joyful-family-for-all',
+  'the-prison-dance-therapist-movement-as-survival-in-war-zones',
+  'the-reality-of-relationships-multiple-attempts-self-knowledge-and-finding-connection',
+  'the-synchronization-paradox-how-being-bound-to-another-creates-our-greatest-freedom',
+  'the-universal-quest-for-belonging-creating-connection-in-an-unequal-world',
+  'where-light-remembers-how-to-flow-a-meditation-on-heaven-water-and-what-waits-to-bloom',
+  'what-she-has',
+];
 
-  // Optional per-cluster curated "start here" dozen: clusterSlug -> [piece slug, ...].
-  // If defined, those pieces lead the grid (in the given order) so the default screen
-  // shows them instead of the 12 newest. EMPTY for now — the ≤12 cap holds either way
-  // (it is enforced structurally below, not by whether curation exists).
-  const CURATED_START = {};
+const bySlug = {};
+for (const e of await getCollection('writing')) bySlug[e.id] = e;
 
-  function clusterSlug(name) {
-    return name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  }
-
-  // frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
-  const raws = import.meta.glob('../../../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
-  const dateMap = {};
-  for (const k in raws) {
-    const slug = k.split('/').pop().replace(/\.md$/, '');
-    const m = raws[k].match(/^date:\s*"?(.*?)"?\s*$/m);
-    if (m) dateMap[slug] = m[1];
-  }
-
-  const MONTHS = { january:1, february:2, march:3, april:4, may:5, june:6, july:7, august:8, september:9, october:10, november:11, december:12 };
-  function dateKey(s) {
-    if (!s) return null;
-    const t = String(s).trim();
-    let m;
-    if ((m = t.match(/^(\d{2})\.(\d{2})\.(\d{4})$/))) return +m[3] * 10000 + +m[2] * 100 + +m[1];
-    if ((m = t.match(/^(\d{4})-(\d{2})-(\d{2})$/))) return +m[1] * 10000 + +m[2] * 100 + +m[3];
-    if ((m = t.match(/^(\d{4})-(\d{2})$/)))          return +m[1] * 10000 + +m[2] * 100 + 1;
-    if ((m = t.match(/^(\d{4})$/)))                  return +m[1] * 10000 + 101;
-    if ((m = t.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/))) { const mo = MONTHS[m[1].toLowerCase()]; if (mo) return +m[3]*10000 + mo*100 + +m[2]; }
-    if ((m = t.match(/^([A-Za-z]+)\s+(\d{4})$/)))              { const mo = MONTHS[m[1].toLowerCase()]; if (mo) return +m[2]*10000 + mo*100 + 1; }
-    return null;
-  }
-
-  // markdown body -> clean single-line plain text (same shape as search-index.json.ts)
-  function plain(s) {
-    return (s || '').replace(/\r/g, '').replace(/^#{1,6}\s+/gm, '').replace(/^>\s?/gm, '')
-      .replace(/^\s*[-*]\s+/gm, '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*([^*\n]+)\*/g, '$1')
-      .replace(/\s+/g, ' ').trim();
-  }
-
-  const pieces = (await getCollection('writing')).filter((e) => !['a-word-is-a-room','where-to-place-the-chairs','are-we-working-too-much-inside-english','all-senses-human-and-other-natures','board-of-meeting-seriously','catch-our-hug-hold-ride','compost-aroma-almost-poem','could-of-should-of-sentence','hand-me-the-matches','how-bad-we-love-this-type-of-life','night-tell-us-why-lomah','not-close-to-a-river-this-time','red-tongues-first','sensing-if-there-might-be-another-major-collapse','we-tried-our-best-to-resolve-the-situations','water-can-be-a-worldly-to-local-collective-practice','what-is-the-rationale-for-no-hands','why-another-foot-is-important','fluid-mosaic','big-time-art-silk-suit','leon-oder-agneau','last-fall','buried-disclosure','seventeen-chairs','she-had-a-hammer','hardcast-wilderness-bar','souls-we-dream-about-by-the-creek'].includes(e.id));
-  const byCluster = {};
-  for (const p of pieces) {
-    const c = p.data.cluster || '(uncategorized)';
-    (byCluster[c] ||= []).push(p);
-  }
-
-  return Object.entries(byCluster).map(([name, items]) => {
-    const intro = CLUSTER_INTROS[name];
-    if (!intro) throw new Error(`writing/clusters/[slug]/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
-    const cslug = clusterSlug(name);
-
-    // category chips — largest category first
-    const byCat = {};
-    for (const p of items) { const cat = p.data.category || '(uncategorized)'; (byCat[cat] ||= []).push(p); }
-    const categories = Object.entries(byCat)
-      .map(([cat, list]) => ({ name: cat, slug: slugify(cat), count: list.length }))
-      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-
-    // all pieces, newest-first (unparseable dates sort last, then title A→Z)
-    const withKeys = items.map((p) => {
-      const raw = recoveredDates[p.id] || dateMap[p.id] || '';
-      const k = dateKey(raw);
-      const body = plain(p.body || '');
-      const excerpt = body.length > 150 ? body.slice(0, 150).trimEnd() + '…' : body;
-      return { slug: p.id, title: p.data.title, cat: p.data.category || '(uncategorized)', catSlug: slugify(p.data.category || '(uncategorized)'), year: k == null ? null : Math.floor(k / 10000), excerpt, _k: k == null ? -1 : k };
-    }).sort((a, b) => b._k - a._k || a.title.localeCompare(b.title));
-
-    // if a curated "start here" list exists for this cluster, lead with it (its order)
-    const curated = CURATED_START[cslug];
-    let ordered = withKeys;
-    if (Array.isArray(curated) && curated.length) {
-      const set = new Set(curated);
-      const head = curated.map((s) => withKeys.find((w) => w.slug === s)).filter(Boolean);
-      const tail = withKeys.filter((w) => !set.has(w.slug));
-      ordered = head.concat(tail);
-    }
-    const piecesOut = ordered.map(({ _k, ...r }) => r);
-
-    // Year range for the single quiet meta line by the cluster title (e.g. "2025–26").
-    const yrs = piecesOut.map((p) => p.year).filter((y) => y != null);
-    const minY = yrs.length ? Math.min(...yrs) : null;
-    const maxY = yrs.length ? Math.max(...yrs) : null;
-    const yearLabel = minY == null ? null : (minY === maxY ? String(minY) : `${minY}–${String(maxY).slice(2)}`);
-
-    // Shelves = the interaction model (mirrors the feel page). Multi-category clusters
-    // present an accordion: an "All" shelf (whole cluster, newest first) then one shelf
-    // per category. Single-category clusters skip the list and render their one grid.
-    const isMulti = categories.length >= 2;
-    let shelves = null;
-    if (isMulti) {
-      const byCatPieces = {};
-      for (const p of piecesOut) { (byCatPieces[p.catSlug] ||= []).push(p); }
-      shelves = [{ name: 'All — everything, newest first', slug: 'all', pieces: piecesOut }]
-        .concat(categories.map((c) => ({ name: c.name, slug: c.slug, pieces: byCatPieces[c.slug] || [] })));
-    }
-
-    return { params: { slug: cslug }, props: { name, intro, yearLabel, isMulti, shelves, pieces: piecesOut } };
-  });
+// frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
+const raws = import.meta.glob('../../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
+const dateMap = {};
+for (const k in raws) {
+  const slug = k.split('/').pop().replace(/\.md$/, '');
+  const m = raws[k].match(/^date:\s*"?(.*?)"?\s*$/m);
+  if (m) dateMap[slug] = m[1];
 }
 
-const { name, intro, yearLabel, isMulti, shelves, pieces } = Astro.props;
-const CAP = 12;
+const MONTHS = { january:1, february:2, march:3, april:4, may:5, june:6, july:7, august:8, september:9, october:10, november:11, december:12 };
+function dateKey(s) {
+  if (!s) return null;
+  const t = String(s).trim();
+  let m;
+  if ((m = t.match(/^(\d{2})\.(\d{2})\.(\d{4})$/))) return +m[3] * 10000 + +m[2] * 100 + +m[1];
+  if ((m = t.match(/^(\d{4})-(\d{2})-(\d{2})$/))) return +m[1] * 10000 + +m[2] * 100 + +m[3];
+  if ((m = t.match(/^(\d{4})-(\d{2})$/)))          return +m[1] * 10000 + +m[2] * 100 + 1;
+  if ((m = t.match(/^(\d{4})$/)))                  return +m[1] * 10000 + 101;
+  if ((m = t.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/))) { const mo = MONTHS[m[1].toLowerCase()]; if (mo) return +m[3]*10000 + mo*100 + +m[2]; }
+  if ((m = t.match(/^([A-Za-z]+)\s+(\d{4})$/)))              { const mo = MONTHS[m[1].toLowerCase()]; if (mo) return +m[2]*10000 + mo*100 + 1; }
+  return null;
+}
+function plain(s) {
+  return (s || '').replace(/\r/g, '').replace(/^#{1,6}\s+/gm, '').replace(/^>\s?/gm, '')
+    .replace(/^\s*[-*]\s+/gm, '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*([^*\n]+)\*/g, '$1')
+    .replace(/\s+/g, ' ').trim();
+}
+
+const missing = [];
+const withKeys = ROSTER.map((slug) => {
+  const e = bySlug[slug];
+  if (!e) { missing.push(slug); return { slug, title: slug, excerpt: '', hasPage: false, _k: -1 }; }
+  const raw = recoveredDates[e.id] || dateMap[e.id] || '';
+  const k = dateKey(raw);
+  const body = plain(e.body || '');
+  const excerpt = body.length > 150 ? body.slice(0, 150).trimEnd() + '…' : body;
+  return { slug, title: e.data.title, excerpt, hasPage: true, _k: k == null ? -1 : k };
+}).sort((a, b) => b._k - a._k || a.title.localeCompare(b.title));
+const pieces = withKeys.map(({ _k, ...r }) => r);
+
+// Shelf pager: ≤24 pieces → one continuous scroll, no pager; >24 → gated single-grid pager,
+// 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the 24 gate).
+const CAP = 24;
+const shelfName = 'Connection and Screen Time';
+// One quiet line — placeholder nav copy in the cluster intro tier; Reach names the final wording.
+const shelfIntro = 'How people pair, belong, and drift apart — chosen family and partner-choice set against dating apps, VR, and endless scrolling.';
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{name} — Writing — Oyparaploo</title>
+<title>{shelfName} — Writing — Oyparaploo</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
 <style is:global>
 /* ═══ RESET & BASE (skeleton-landing-dark, verbatim chrome) ═══ */
@@ -232,7 +180,7 @@ body.light-mode .nav-accent-rule { opacity: 1; }
 
 /* ═══════════════════════════════════════════════════════════
    CLUSTER INTERIOR — content (proven dark solid-hex ladder;
-   .filter-btn + Card Anatomy from proven-values). All content
+   Card Anatomy from proven-values). Mirrored verbatim; all content
    solid hex; rgba only in inherited chrome / atmosphere.
    ═══════════════════════════════════════════════════════════ */
 .cli-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -244,11 +192,6 @@ body.light-mode .nav-accent-rule { opacity: 1; }
 .cli-title { font-family: 'Lora', serif; font-size: clamp(1.8824rem, 3.4vw, 2.5882rem); font-weight: 600; color: #d0c8bf; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 20px; }
 .cli-intro { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 400; color: #b5ada5; line-height: 1.78; max-width: 680px; margin-bottom: 20px; text-wrap: pretty; }
 .cli-count { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #a09888; letter-spacing: 0.04em; }
-
-.cli-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 36px; }
-.filter-btn { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #a09888; background: none; border: 1px solid #3a3430; padding: 9px 18px; letter-spacing: 0.02em; white-space: nowrap; min-height: 44px; transition: color 0.25s, border-color 0.25s, background 0.25s; }
-.filter-btn:hover { color: #c0b8af; border-color: #5a5048; }
-.filter-btn.active { color: #d8d0c8; border-color: #8a6e50; background: #1a1815; }
 
 .cli-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .pc-card { display: block; border: 1px solid #3a3430; padding: 28px 28px 24px; transition: border-color 0.3s ease, background 0.3s ease; }
@@ -264,29 +207,11 @@ body.light-mode .nav-accent-rule { opacity: 1; }
 .cli-pager { display: flex; align-items: center; gap: 16px; }
 .cli-pageinfo { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #a09888; letter-spacing: 0.04em; }
 
-/* Shelf accordion — the interaction lifted from the feel page (fd-door-*), namespaced
-   .cli-shelf-* and using this page's existing dark solid-hex ladder. No new colors. */
-.cli-shelves { margin-top: 8px; }
-.cli-shelf { border-top: 1px solid #3a3430; }
-.cli-shelf:last-of-type { border-bottom: 1px solid #3a3430; }
-.cli-shelf-heading { margin: 0; font-weight: inherit; }
-.cli-shelf-toggle { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; min-height: 44px; padding: 20px 4px; background: none; border: none; cursor: pointer; text-align: left; }
-.cli-shelf-name { font-family: 'Lora', serif; font-size: clamp(1.1765rem, 2.2vw, 1.4706rem); font-weight: 500; color: #d0c8bf; letter-spacing: -0.01em; line-height: 1.3; transition: color 0.2s ease; }
-.cli-shelf-toggle:hover .cli-shelf-name { color: #e8e0d8; }
-.cli-shelf-chev { flex-shrink: 0; width: 9px; height: 9px; border-right: 2px solid #a09888; border-bottom: 2px solid #a09888; transform: rotate(45deg); transition: transform 0.25s ease, border-color 0.2s ease; }
-.cli-shelf-toggle:hover .cli-shelf-chev { border-color: #d0c8bf; }
-.cli-shelf-toggle[aria-expanded="true"] .cli-shelf-chev { transform: rotate(225deg); }
-.cli-shelf-panel { padding: 4px 0 8px; }
-.cli-shelf-panel[hidden] { display: none; }
-
 /* light-mode content overrides (solid hex light tiers) */
 body.light-mode .cli-breadcrumb { color: #5a4f47; } body.light-mode .cli-breadcrumb:hover { color: #2a2320; }
 body.light-mode .cli-title { color: #2a2320; }
 body.light-mode .cli-intro { color: #4a4038; }
 body.light-mode .cli-count { color: #5a4f47; }
-body.light-mode .filter-btn { color: #5a4f47; border-color: #c0b8b0; }
-body.light-mode .filter-btn:hover { color: #2a2320; border-color: #8a8078; }
-body.light-mode .filter-btn.active { color: #2a2320; border-color: #7a5028; background: #f9f5f0; }
 body.light-mode .pc-card { border-color: #b8a088; }
 body.light-mode .pc-card:hover { border-color: #8a6e50; background: #faf7f3; }
 body.light-mode .pc-title { color: #2a2320; }
@@ -296,12 +221,6 @@ body.light-mode .cli-btn { color: #3a3028; border-color: #8a6e50; }
 body.light-mode .cli-btn:hover { color: #2a2320; border-color: #7a5028; }
 body.light-mode .cli-btn:disabled { color: #8a8078; border-color: #c0b8b0; }
 body.light-mode .cli-pageinfo { color: #5a4f47; }
-body.light-mode .cli-shelf { border-top-color: #c0b8b0; }
-body.light-mode .cli-shelf:last-of-type { border-bottom-color: #c0b8b0; }
-body.light-mode .cli-shelf-name { color: #2a2320; }
-body.light-mode .cli-shelf-toggle:hover .cli-shelf-name { color: #000000; }
-body.light-mode .cli-shelf-chev { border-right-color: #5a4f47; border-bottom-color: #5a4f47; }
-body.light-mode .cli-shelf-toggle:hover .cli-shelf-chev { border-right-color: #2a2320; border-bottom-color: #2a2320; }
 
 @media (max-width: 1024px) { .cli-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .cli-container { padding: 0 24px; } .cli-grid { grid-template-columns: 1fr; } .cli-hero { padding: 48px 0 28px; } }
@@ -413,66 +332,41 @@ body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-exce
   <section class="cli-hero reveal visible">
     <a class="cli-breadcrumb" href="/writing/">
       <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-      <span>Collected Writings</span>
+      <span>Writing</span>
     </a>
-    <h1 class="cli-title">{name}</h1>
-    <p class="cli-intro">{intro}</p>
-    {yearLabel && <div class="cli-count">{yearLabel}</div>}
+    <h1 class="cli-title">{shelfName}</h1>
+    <p class="cli-intro">{shelfIntro}</p>
   </section>
 
-  {isMulti ? (
-    <div class="cli-shelves">
-      {shelves.map((sh, si) => (
-        <section class="cli-shelf">
-          <h2 class="cli-shelf-heading">
-            <button type="button" class="cli-shelf-toggle" id={`shelf-btn-${si}`} aria-expanded="false" aria-controls={`shelf-panel-${si}`}>
-              <span class="cli-shelf-name">{sh.name}</span>
-              <span class="cli-shelf-chev" aria-hidden="true"></span>
-            </button>
-          </h2>
-          <div class="cli-shelf-panel" id={`shelf-panel-${si}`} hidden>
-            <div class="cli-grid">
-              {sh.pieces.map((p, i) => (
-                <a class="pc-card" href={`/writing/${p.slug}/`} data-cat={p.catSlug} hidden={i >= CAP}>
-                  <div class="pc-title">{p.title}</div>
-                  <div class="pc-excerpt">{p.excerpt}</div>
-                </a>
-              ))}
-            </div>
-            {sh.pieces.length > CAP && (
-              <div class="cli-controls">
-                <div class="cli-pager" hidden>
-                  <button type="button" class="cli-btn" data-role="prev" aria-label="Previous page">‹ previous</button>
-                  <span class="cli-pageinfo" aria-live="polite"></span>
-                  <button type="button" class="cli-btn" data-role="next" aria-label="Next page">next ›</button>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      ))}
-    </div>
-  ) : (
-    <div class="cli-single">
-      <div class="cli-grid">
-        {pieces.map((p, i) => (
-          <a class="pc-card" href={`/writing/${p.slug}/`} data-cat={p.catSlug} hidden={i >= CAP}>
+  <div class="cli-single">
+    <div class="cli-grid">
+      {pieces.map((p, i) => (
+        p.hasPage ? (
+          <a class="pc-card" href={`/writing/${p.slug}/`} hidden={i >= CAP}>
             <div class="pc-title">{p.title}</div>
             <div class="pc-excerpt">{p.excerpt}</div>
           </a>
-        ))}
-      </div>
-      {pieces.length > CAP && (
-        <div class="cli-controls">
-          <div class="cli-pager" hidden>
-            <button type="button" class="cli-btn" data-role="prev" aria-label="Previous page">‹ previous</button>
-            <span class="cli-pageinfo" aria-live="polite"></span>
-            <button type="button" class="cli-btn" data-role="next" aria-label="Next page">next ›</button>
+        ) : (
+          <div class="pc-card" hidden={i >= CAP}>
+            <div class="pc-title">{p.title}</div>
+            <div class="pc-excerpt">{p.excerpt}</div>
           </div>
-        </div>
-      )}
+        )
+      ))}
     </div>
-  )}
+    {/* Shelf pager: ≤24 pieces → one continuous scroll, no pager; >24 → gated single-grid
+        pager, 12 per page (cluster-interior mechanism, verbatim; page-size decoupled from the
+        24 gate). This 19-piece shelf is ≤24, so no pager. */}
+    {pieces.length > CAP && (
+      <div class="cli-controls">
+        <div class="cli-pager" hidden>
+          <button type="button" class="cli-btn" data-role="prev" aria-label="Previous page">‹ previous</button>
+          <span class="cli-pageinfo" aria-live="polite"></span>
+          <button type="button" class="cli-btn" data-role="next" aria-label="Next page">next ›</button>
+        </div>
+      </div>
+    )}
+  </div>
 
 </div>
 </main>
@@ -528,14 +422,12 @@ menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click'
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-// ── Cluster shelves — accordion of category shelves (+ an "All" shelf), mirroring the
-//    feel page. Single-open: opening a shelf closes the rest. Each shelf owns its own
-//    12/page pager. Single-category clusters render one grid directly (no shelf list).
-//    The ≤12 cap holds in every state — the server renders cards past index 12 with the
-//    native `hidden` attribute, and the pager only ever reveals a 12-slice, never more.
+// ── Single-grid pager. makePager is mirrored VERBATIM from the cluster interior's single-
+//    branch (identical body, PAGE = 12 as in the cluster). Page-size is decoupled from the 24
+//    gate: it engages ONLY when the gated .cli-pager control is present — i.e. only above 24 —
+//    so a shelf at/below 24 stays one full scroll, and a shelf above 24 paginates 12 per page.
 (function() {
   var PAGE = 12;
-
   function makePager(root) {
     if (!root) return null;
     var grid = root.querySelector('.cli-grid');
@@ -563,36 +455,10 @@ menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click'
     if (next) next.addEventListener('click', function() { page++; render(); });
     return { render: render, reset: function() { page = 0; render(); } };
   }
-
-  var shelves = Array.prototype.slice.call(document.querySelectorAll('.cli-shelf'));
-  if (shelves.length) {
-    var items = shelves.map(function(shelf) {
-      var panel = shelf.querySelector('.cli-shelf-panel');
-      return { btn: shelf.querySelector('.cli-shelf-toggle'), panel: panel, pager: makePager(panel) };
-    });
-    function setOpen(it, open) {
-      it.btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      it.panel.hidden = !open;
-      if (open && it.pager) it.pager.reset();
-    }
-    items.forEach(function(it) {
-      it.btn.addEventListener('click', function() {
-        var was = it.btn.getAttribute('aria-expanded') === 'true';
-        items.forEach(function(o) { setOpen(o, false); });
-        if (!was) {
-          setOpen(it, true);
-          // Opening collapses any previously-open shelf, so page height shifts. Anchor the
-          // newly-opened shelf to the top — its title just below the sticky nav — so every
-          // shelf opens to the beginning of its own cards. On open only, never on close.
-          var nav = document.querySelector('.site-nav');
-          var navH = nav ? nav.offsetHeight : 0;
-          var y = it.btn.getBoundingClientRect().top + window.pageYOffset - navH - 8;
-          window.scrollTo({ top: y < 0 ? 0 : y, behavior: 'smooth' });
-        }
-      });
-    });
-  } else {
-    var single = document.querySelector('.cli-single');
+  var single = document.querySelector('.cli-single');
+  // Engage only above the gate: the .cli-pager control renders only when pieces.length > 24,
+  // so at/below 24 the pager stays dormant and all cards remain visible as one scroll.
+  if (single && single.querySelector('.cli-pager')) {
     var p = makePager(single);
     if (p) p.render();
   }

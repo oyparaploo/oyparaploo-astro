@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "19.03.2026"
 slug: "all-this-stuff-gratefully-will-carry-us-to-our-deathbed"
+category: "Impermanence, Loss, and Open Hands"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ( another balloon that does not rhyme )

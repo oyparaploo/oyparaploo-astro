@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "15.07.2025"
 slug: "all-senses-examination-of-this-aromous-soil-1"
-category: "Colonial Violence, Stolen Land, and Sacred Ground That Waits"
+category: "Sacred Ground, Colonialism, and Stolen Land"
 cluster: "Justice, Witness & the State"
 ---
 

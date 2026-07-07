@@ -4,7 +4,7 @@ variant: reading
 ground: light
 date: "12.08.2025"
 slug: "the-brook-that-remembered-everything"
-category: "Dying Brooks, Watersheds, and Inherited Water Records"
+category: "Brooks, Watersheds, Inherited Records"
 cluster: "Ecology, Climate & Animals"
 ---
 
