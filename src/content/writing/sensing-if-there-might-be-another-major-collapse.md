@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "sensing-if-there-might-be-another-major-collapse"
+category: "Surrendering Control: Gardens, Entropy, and Letting the Wild Choose"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ( near interesting compost aromas )

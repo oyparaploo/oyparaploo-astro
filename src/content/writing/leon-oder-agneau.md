@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "19.03.2026"
 slug: "leon-oder-agneau"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ( woo ... almost ran out of breath )

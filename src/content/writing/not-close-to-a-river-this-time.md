@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "not-close-to-a-river-this-time"
+category: "Brooks, Watersheds, Inherited Records"
+cluster: "Ecology, Climate & Animals"
 ---
 
 It has rhythm but is more like a tributary system ... fast to slow multiple feeding. Arriving at the same place. Refrain! Pulse! Working like tide marks rising. Refrain! Pulls back. Start from a shore not flowing. Pulse! Surging fluid ... as a darkwater body. Swimming wild thesis albatross. Every indigenous elder inside of surprising sensations. Stay right there, we'll be right back. That translucence moves like a squirming trompe l'oeil.
