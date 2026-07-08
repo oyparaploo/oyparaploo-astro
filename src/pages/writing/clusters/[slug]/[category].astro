@@ -44,7 +44,7 @@ export async function getStaticPaths() {
     return null;
   }
 
-  const pieces = (await getCollection('writing')).filter((e) => !['a-word-is-a-room','where-to-place-the-chairs','are-we-working-too-much-inside-english','all-senses-human-and-other-natures','board-of-meeting-seriously','catch-our-hug-hold-ride','compost-aroma-almost-poem','could-of-should-of-sentence','hand-me-the-matches','how-bad-we-love-this-type-of-life','night-tell-us-why-lomah','red-tongues-first','we-tried-our-best-to-resolve-the-situations','water-can-be-a-worldly-to-local-collective-practice','what-is-the-rationale-for-no-hands','why-another-foot-is-important','fluid-mosaic','big-time-art-silk-suit','last-fall','seventeen-chairs','she-had-a-hammer','hardcast-wilderness-bar'].includes(e.id));
+  const pieces = (await getCollection('writing')).filter((e) => !['a-word-is-a-room','are-we-working-too-much-inside-english','all-senses-human-and-other-natures','board-of-meeting-seriously','catch-our-hug-hold-ride','compost-aroma-almost-poem','could-of-should-of-sentence','how-bad-we-love-this-type-of-life','night-tell-us-why-lomah','we-tried-our-best-to-resolve-the-situations','water-can-be-a-worldly-to-local-collective-practice','what-is-the-rationale-for-no-hands','why-another-foot-is-important','fluid-mosaic','big-time-art-silk-suit','last-fall','seventeen-chairs','she-had-a-hammer','hardcast-wilderness-bar'].includes(e.id));
   const byCluster = {};
   for (const p of pieces) {
     const c = p.data.cluster || '(uncategorized)';

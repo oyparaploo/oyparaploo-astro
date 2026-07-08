@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "red-tongues-first"
+category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 ( walking into a space and knowing who you are )

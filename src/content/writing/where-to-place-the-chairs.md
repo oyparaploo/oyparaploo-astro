@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "where-to-place-the-chairs"
+category: "Political Hearings, Cover-Ups, and the Word \"Children\""
+cluster: "Justice, Witness & the State"
 ---
 
 She had her back to them.

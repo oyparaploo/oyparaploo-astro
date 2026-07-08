@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "21.01.2026"
 slug: "buried-disclosure"
+category: "Buried Disclosure"
+cluster: "Justice, Witness & the State"
 ---
 
 Oyparaploo: We're in an archeological dig right now, but we're not supposed to tell you the location.

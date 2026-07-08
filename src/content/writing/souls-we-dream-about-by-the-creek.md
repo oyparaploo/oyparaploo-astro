@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "15.03.2026"
 slug: "souls-we-dream-about-by-the-creek"
+category: "Souls We Dream About By The Creek"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ---

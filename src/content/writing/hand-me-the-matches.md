@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "hand-me-the-matches"
+category: "The Sacred in Ordinary Gestures and Small Mercies"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ( that's all we have to say )
