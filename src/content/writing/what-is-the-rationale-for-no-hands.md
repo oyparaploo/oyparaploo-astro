@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "what-is-the-rationale-for-no-hands"
+category: "What is the Rationale for No Hands"
+cluster: "Justice, Witness & the State"
 ---
 
 ( paper records at neither hand )

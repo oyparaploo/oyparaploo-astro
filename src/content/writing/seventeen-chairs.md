@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "16.10.2025"
 slug: "seventeen-chairs"
+category: "Wrapping, Carving, Marking, and Collecting the Grief-Object"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 Mae threads her keys through the same ring three times before realizing she's already home. Apartment 4B, 1642 South Muskogee Avenue. Tuesday, 4:47 PM. The lock that needs jiggling since January when Derek tried to fix it with WD-40 and made it worse.

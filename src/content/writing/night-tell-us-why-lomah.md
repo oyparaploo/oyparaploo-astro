@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "night-tell-us-why-lomah"
+category: "Night Tell Us Why Lomah"
+cluster: "Justice, Witness & the State"
 ---
 
 ( Lomah shattered the ruminating Dingo why way )
