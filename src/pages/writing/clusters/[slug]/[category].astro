@@ -44,7 +44,7 @@ export async function getStaticPaths() {
     return null;
   }
 
-  const pieces = (await getCollection('writing')).filter((e) => !['a-word-is-a-room','fluid-mosaic'].includes(e.id));
+  const pieces = (await getCollection('writing')).filter((e) => !['fluid-mosaic'].includes(e.id));
   const byCluster = {};
   for (const p of pieces) {
     const c = p.data.cluster || '(uncategorized)';
