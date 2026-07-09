@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "all-senses-human-and-other-natures"
+category: "All Senses Human and Other Natures"
+cluster: "Senses, Tone & the Body"
 ---
 
 ( ambient pioneer )

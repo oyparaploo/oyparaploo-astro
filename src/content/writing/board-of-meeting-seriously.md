@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "board-of-meeting-seriously"
+category: "Board Of Meeting Seriously"
+cluster: "Justice, Witness & the State"
 ---
 
 ( was it gray or grey, we don't know )

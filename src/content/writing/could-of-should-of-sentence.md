@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "could-of-should-of-sentence"
+category: "Breaking Good: Language Sensed Through Fractures"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 What Ambition Didn't Kill

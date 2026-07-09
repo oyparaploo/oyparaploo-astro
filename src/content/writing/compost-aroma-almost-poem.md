@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "compost-aroma-almost-poem"
+category: "Compost Aroma Almost Poem"
+cluster: "Ecology, Climate & Animals"
 ---
 
 "Stinky" was a joke.
