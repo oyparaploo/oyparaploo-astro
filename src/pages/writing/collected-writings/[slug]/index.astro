@@ -79,7 +79,7 @@ export async function getStaticPaths() {
 
   return Object.entries(byCluster).map(([name, items]) => {
     const intro = CLUSTER_INTROS[name];
-    if (!intro) throw new Error(`writing/clusters/[slug]/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
+    if (!intro) throw new Error(`writing/collected-writings/[slug]/index.astro: no intro for cluster "${name}" — the data and writing-cluster-intros.md disagree. Stopping rather than guessing.`);
     const cslug = clusterSlug(name);
 
     // category chips — largest category first
