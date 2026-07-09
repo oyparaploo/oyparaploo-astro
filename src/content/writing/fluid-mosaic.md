@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "19.03.2026"
 slug: "fluid-mosaic"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 ( bed in a room with oranges )

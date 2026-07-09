@@ -28,7 +28,7 @@ function plain(s: string): string {
 
 export const GET: APIRoute = async () => {
   // same exclusion as the front door / cluster interiors so the index matches the listings
-  const pieces = (await getCollection('writing')).filter((e) => e.id !== 'a-word-is-a-room');
+  const pieces = (await getCollection('writing')).filter((e) => e.id !== 'and-fluid-mosaic');
   const index = pieces.map((p) => {
     const body = plain(p.body ?? '');
     return {

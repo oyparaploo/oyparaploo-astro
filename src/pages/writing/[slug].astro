@@ -5,7 +5,7 @@ import ReadingLayout from '../../layouts/ReadingLayout.astro';
 import recoveredDates from '../../data/recovered-dates.json';
 
 export async function getStaticPaths() {
-  const pieces = await getCollection('writing');
+  const pieces = (await getCollection('writing')).filter((p) => p.id !== 'and-fluid-mosaic');
   return pieces.map((piece) => ({ params: { slug: piece.id }, props: { piece } }));
 }
 

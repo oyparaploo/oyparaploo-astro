@@ -13,6 +13,7 @@ export default defineConfig({
     // Retired split-original shelf, fully replaced by solitary-fallen-drops + happenings-on-the-ground.
     '/writing/shelf/up-and-in-debt-eviction/': '/writing/',
     // Near-duplicate retirement pass (2026-07-04): each retired piece redirects to its kept (newest) sibling.
+    '/writing/and-fluid-mosaic/': '/writing/fluid-mosaic/',
     '/writing/chets-trumpet-song/': '/writing/chets-trumpet-song-1/',
     '/writing/cracked-open-stacked/': '/writing/azalea-solemn-heaven-zeal/',
     '/writing/the-chairs-nobody-sits-in-ii/': '/writing/the-chairs-nobody-sits-in-i/',
