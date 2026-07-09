@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "12.08.2025"
 slug: "last-fall"
+category: "Last Fall ~ A Narrative of Intellectual Betrayal"
+cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
 ## Part One: The Think Tank as Weather System

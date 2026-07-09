@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "19.03.2026"
 slug: "catch-our-hug-hold-ride"
+category: "Breaking Good: Language Sensed Through Fractures"
+cluster: "Ars Poetica & the Oyparaploo Method"
 ---
 
 ( und Oy absence of arrogance )

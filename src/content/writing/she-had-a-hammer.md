@@ -4,6 +4,8 @@ variant: reading
 ground: dark
 date: "13.10.2025"
 slug: "she-had-a-hammer"
+category: "She Had a Hammer"
+cluster: "Grief, Loss & Compulsive Making"
 ---
 
 The estate agent wouldn't go into the barn. "You'll want contractors for that," she said, standing at the threshold of Dorothy Kang's workshop in Petaluma. "Probably hazardous materials in there. She was ninety-three when she passed."

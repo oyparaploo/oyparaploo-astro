@@ -4,6 +4,8 @@ variant: breath-display
 ground: dark
 date: "15.03.2026"
 slug: "water-can-be-a-worldly-to-local-collective-practice"
+category: "Water Can Be a Worldly to Local Collective Practice"
+cluster: "Ecology, Climate & Animals"
 ---
 
 ( using your index fingertip as a guide )
