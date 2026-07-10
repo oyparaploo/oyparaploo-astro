@@ -2,7 +2,7 @@
 import Footer from '../components/Footer.astro';
 // ReadingLayout — light-native shell lifted VERBATIM from interview-template
 // (canonical a-word-is-a-room Städel nav; ◐ toggles dark). For 'reading' variant essays.
-const { title = 'Untitled', date = '' } = Astro.props;
+const { title = 'Untitled', date = '', ground = 'light' } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class="size-1">
@@ -314,7 +314,7 @@ body.ground-dark .oy-search-meta, body.ground-light.dark-mode .oy-search-meta { 
 body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-excerpt { color: #b5ada5; }
 </style>
 </head>
-<body class="ground-light">
+<body class={ground === 'dark' ? 'ground-light dark-mode' : 'ground-light'}>
 
 
 <!-- ═══ STÄDEL NAV (grafted verbatim from a-word-is-a-room) ═══ -->

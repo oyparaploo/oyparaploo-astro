@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 }
 
 const { piece } = Astro.props;
-const { title, hero, variant } = piece.data;
+const { title, hero, variant, ground } = piece.data;
 
 // frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
 const raws = import.meta.glob('../../content/writing/*.md', { query: '?raw', import: 'default', eager: true });
@@ -78,7 +78,7 @@ const isReading = variant === 'reading';
 const bodyHtml = isReading ? toReading(piece.body) : toBreaths(piece.body);
 ---
 {isReading ? (
-  <ReadingLayout title={title} date={date}>
+  <ReadingLayout title={title} date={date} ground={ground}>
     <Fragment set:html={bodyHtml} />
   </ReadingLayout>
 ) : (
