@@ -31,7 +31,8 @@ function inline(s) {
   return esc(s)
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*\n]+)\*/g, '$1')
-    .replace(/\.\.\./g, '<span class="ellipsis">...</span>');
+    .replace(/\.\.\./g, '<span class="ellipsis">...</span>')
+    .replace(/—/g, '<span class="dash-thin">—</span>');
 }
 function isDivider(l) {
   const s = l.trim();
@@ -45,7 +46,7 @@ function toBreaths(body) {
     let cls = 'breath';
     const m = t.match(/^\((return|question)\)\s*/);
     if (m) { cls = 'breath ' + m[1]; t = t.slice(m[0].length); }
-    return `  <p class="${cls}">${esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>')}</p>`;
+    return `  <p class="${cls}">${esc(t).replace(/\.\.\./g, '<span class="ellipsis">...</span>').replace(/—/g, '<span class="dash-thin">—</span>')}</p>`;
   }).join('\n\n');
 }
 
