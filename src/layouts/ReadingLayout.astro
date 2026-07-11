@@ -248,7 +248,7 @@ body.dark-mode .iv-card:hover .iv-card-title { color: #e8e0d8; }
 /* ═══ XI. READING ARTICLE (authored — Lora headings, Inter body, solid hex, no italic) ═══ */
 .reading-wrap { max-width: 760px; margin: 0 auto; padding: 0 40px; }
 .reading-article { padding: 76px 0 8px; }
-.reading-title { font-family: 'Lora', serif; font-size: clamp(1.9412rem, 4vw, 2.8235rem); font-weight: 600; color: #2a2320; line-height: 1.14; letter-spacing: -0.02em; max-width: 24ch; margin-bottom: 40px; }
+.reading-title { font-family: 'Lora', serif; font-size: clamp(1.6667rem, calc(2.2222rem - max(0rem, calc((var(--title-chars, 22) - 22) * 0.0306rem))), 2.2222rem); font-weight: 600; color: #2a2320; line-height: 1.14; letter-spacing: -0.02em; max-width: 24ch; margin-bottom: 40px; }
 .reading-body p { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 400; color: #2a2320; line-height: 1.75; letter-spacing: -0.01em; margin-bottom: 1.05em; }
 .reading-body h2 { font-family: 'Lora', serif; font-size: clamp(1.5294rem, 2.6vw, 1.9412rem); font-weight: 600; color: #2a2320; line-height: 1.22; letter-spacing: -0.01em; margin: 1.9em 0 0.55em; }
 .reading-body h3 { font-family: 'Lora', serif; font-size: clamp(1.2941rem, 2vw, 1.5294rem); font-weight: 600; color: #3a3028; line-height: 1.28; margin: 1.55em 0 0.5em; }
@@ -387,7 +387,7 @@ body.ground-dark .oy-search-excerpt, body.ground-light.dark-mode .oy-search-exce
 
 <main>
   <article class="reading-wrap reading-article">
-    <h1 class="reading-title">{title}</h1>
+    <h1 class="reading-title" style={`--title-chars:${(title || '').length}`}>{title}</h1>
     <div class="reading-body"><slot /></div>
     <hr class="reading-colophon" aria-hidden="true">
     {date && <p class="reading-colophon-date">{date}</p>}
