@@ -2,7 +2,7 @@
 title: "Super Flu Vessel"
 variant: breath-display
 ground: dark
-date: "2025"
+date: "17.09.2025"
 slug: "super-flu-vessel"
 category: "Super Flu Vessel"
 cluster: "Spirit, Mortality & the Ordinary Divine"

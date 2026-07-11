@@ -2,6 +2,7 @@
 title: "A Word Is A Room"
 variant: breath-display
 ground: dark
+date: "20.09.2025"
 readNext: [west-has-blessed-voices, brown-paint]
 category: "A Word Is A Room"
 cluster: "Ars Poetica & the Oyparaploo Method"
