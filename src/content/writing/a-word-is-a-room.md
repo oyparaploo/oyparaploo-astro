@@ -5,7 +5,7 @@ ground: dark
 date: "20.09.2025"
 readNext: [west-has-blessed-voices, brown-paint]
 category: "A Word Is A Room"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 A word is a room we walk through without a tour guide ...

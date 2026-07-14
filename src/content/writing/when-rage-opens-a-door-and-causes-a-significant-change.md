@@ -5,7 +5,7 @@ ground: dark
 date: "24.10.2025"
 slug: "when-rage-opens-a-door-and-causes-a-significant-change"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 *Notes on the Fury*

@@ -5,7 +5,7 @@ ground: dark
 date: "17.07.2025"
 slug: "also-backwards-and-right-side-up"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Take kindness back begins with us. Again. Again.

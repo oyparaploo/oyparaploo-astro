@@ -5,7 +5,7 @@ ground: dark
 date: "23.10.2025"
 slug: "the-archaeologist-of-the-spiral"
 category: "The Spiral, the Archaeologist, and the Keystone Method"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 *Following the Debris Trail*

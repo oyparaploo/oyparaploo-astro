@@ -5,7 +5,7 @@ ground: dark
 date: "21.10.2025"
 slug: "the-beautiful-garbage-we-become"
 category: "The Spiral, the Archaeologist, and the Keystone Method"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 *Letter to a Stranger Finding Pieces*

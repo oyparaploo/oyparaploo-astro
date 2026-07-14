@@ -5,7 +5,7 @@ ground: dark
 date: "14.09.2025"
 slug: "who-we-are"
 category: "Biographical About-Statements and Who-We-Are Pieces"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 (south west east north)

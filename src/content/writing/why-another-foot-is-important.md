@@ -5,7 +5,7 @@ ground: dark
 date: "15.03.2026"
 slug: "why-another-foot-is-important"
 category: "Breaking Good: Language Sensed Through Fractures"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( how our explanation became anti-classic artfulness )

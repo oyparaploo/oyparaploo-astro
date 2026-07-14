@@ -5,7 +5,7 @@ ground: dark
 date: "12.08.2025"
 slug: "during-mostly-without-light"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Because often insanities need works to resolve. Help to soothe perceptive minds.

@@ -5,7 +5,7 @@ ground: dark
 date: "15.07.2025"
 slug: "a-plus-contemporary-art-1"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 A+ contemporary art is learning new ways to see.

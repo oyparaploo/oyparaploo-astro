@@ -5,7 +5,7 @@ ground: dark
 date: "21.12.2025"
 slug: "pervasive-loneliness-wobbles-are-the-signatures-of-our-practice"
 category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 So do you love an old local wood chair that has one leg that is shorter than the other three? ... It wobbles and yes it still holds without a doubt ... The wobble is how you know it's handmade ... The wobble is the signature ... Machines don't wobble ... Machines produce four equal legs and call it furniture and it holds you the way a door is held open by someone who has already forgotten you ... This chair holds you the way a person holds you ... unevenly and with full knowledge of your weight ... It fits everybody who has ever sat down on a piece of furniture and knew sitting down was going to be for a temporary length of time ...

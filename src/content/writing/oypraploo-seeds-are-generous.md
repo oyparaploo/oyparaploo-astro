@@ -5,7 +5,7 @@ ground: dark
 date: "23.12.2025"
 slug: "oypraploo-seeds-are-generous"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Oypraploo seeds are a generous offer ... peaceful piece meal tells the receiver at the start that we can deliver something ... A big youthful claim to honor as ... Plural Conductor ... regression against time's arrow ...

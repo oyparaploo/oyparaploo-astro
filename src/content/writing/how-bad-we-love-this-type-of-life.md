@@ -5,7 +5,7 @@ ground: dark
 date: "15.03.2026"
 slug: "how-bad-we-love-this-type-of-life"
 category: "How Bad We Love This Type Of Life"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( a boot becomes a phosphoric sentence )

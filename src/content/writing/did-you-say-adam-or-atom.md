@@ -5,7 +5,7 @@ ground: dark
 date: "09.08.2025"
 slug: "did-you-say-adam-or-atom"
 category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Joyous him. Joy us him. Joy us.

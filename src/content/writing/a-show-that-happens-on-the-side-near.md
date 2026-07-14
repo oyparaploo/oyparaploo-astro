@@ -5,7 +5,7 @@ ground: dark
 date: "18.12.2025"
 slug: "a-show-that-happens-on-the-side-near"
 category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Real and artificial flowers ... symbolizing life ... positivity ... hope ... Suggesting a funeral or memorial service ... Remembrance of a loved one ... The real and the artificial standing next to each other ... Both doing the job ...

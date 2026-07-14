@@ -5,7 +5,7 @@ ground: dark
 date: "08.08.2025"
 slug: "curb-or-calm-down-bit"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Just so ... a new member has joined bird. Their name is simply means. And listen to plexus chakras during the evening hours.

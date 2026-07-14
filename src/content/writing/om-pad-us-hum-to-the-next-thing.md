@@ -5,7 +5,7 @@ ground: dark
 date: "04.10.2025"
 slug: "om-pad-us-hum-to-the-next-thing"
 category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Admitting the scale ... He Was The ... First One to Go ... Holding a tropic without claiming to cover it ... She Was The ... Second One To Lead ... Reader whisper ... Frank O'Hara qualified almost everything ... Image Sensation ... if you're going to make a sound ... Self Diminishing Circular Time Is Humility Work ... Shadows Are Passing By ... Bye ... Something that opens with "little" under-promises what this should deliver here ... Got A New Lease ... Give or offer the landlord's attitude something that under-sells ... and let it be whatever size it wants to be ... remember ... Fire Is Not Always The Best Way To Save A Situation ... Set up a form right here ... set up a label over there ... Watch Ticking ... strain your fingers to the ink ... What do you want to signal? ... Clock It ... Clock the Lucidness ... Which sentence above is your mind most comfortable with? ... We'll be back to this again after lunch ... One more string of fragmented instances saved as a modest interpretation ...

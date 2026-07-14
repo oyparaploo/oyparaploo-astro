@@ -5,7 +5,7 @@ ground: dark
 date: "07.08.2025"
 slug: "contemporary-subdued-deep-red-blend"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 It is just too painful to show red blood. So the white stains and marks represent red human and animal blood.

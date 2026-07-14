@@ -5,7 +5,7 @@ ground: dark
 date: "20.07.2025"
 slug: "and-now-moving-on-to-this-piece"
 category: "Just for the Sake of the Work Itself: Process Over Fame"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 So why is this so important. Because they got your first curator ... not good enough.

@@ -5,7 +5,7 @@ ground: dark
 date: "11.08.2025"
 slug: "fascinating-productive-gifts"
 category: "Just for the Sake of the Work Itself: Process Over Fame"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We pay attention to many contemporary artists and or visual artists that apply numerous mortal human multi sensory experienced methods.

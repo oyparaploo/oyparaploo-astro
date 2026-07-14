@@ -5,7 +5,7 @@ ground: dark
 date: "22.12.2025"
 slug: "our-not-only-poster-child-piece-with-new-stanzas"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 No! ... probably not ... ATTITUDE ... with no sparkles or stars over pupils ... with melancholy chanson music artist pouting plump lips ... We Doubt It ... Don't get us wrong the piece is magnificent ... and the question deserves a response from Conan O'Brien ...

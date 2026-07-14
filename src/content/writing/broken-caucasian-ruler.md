@@ -5,7 +5,7 @@ ground: dark
 date: "04.08.2025"
 slug: "broken-caucasian-ruler"
 category: "Broken Language as Grief, Static, and the Self-Eating Critic"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 secondaryCategory: "Defiant Body and Aging Riffs Against Beauty Standards"
 ---
 

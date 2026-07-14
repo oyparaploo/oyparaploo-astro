@@ -5,7 +5,7 @@ ground: dark
 date: "15.03.2026"
 slug: "hardcast-wilderness-bar"
 category: "Hardcast Wilderness Bar"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( Build it? ... Yes ... but handle it with care ... we don't want anything expensive to get broken ... Haha )

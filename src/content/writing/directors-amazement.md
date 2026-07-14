@@ -5,7 +5,7 @@ ground: dark
 date: "11.08.2025"
 slug: "directors-amazement"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Art or whatever. Human bird healing.

@@ -5,7 +5,7 @@ ground: dark
 date: "01.08.2025"
 slug: "black-soil"
 category: "Biographical About-Statements and Who-We-Are Pieces"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Black soil ... a grandmother's bedroom wall ... a name that keeps changing ...

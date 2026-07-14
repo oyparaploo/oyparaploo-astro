@@ -5,7 +5,7 @@ ground: dark
 date: "19.07.2025"
 slug: "also-what-will-this-be-further-into-the-future-1"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We tried to save that man but he did not want to be saved ... he wanted us to leave him alone ...

@@ -5,7 +5,7 @@ ground: dark
 date: "19.03.2026"
 slug: "big-time-art-silk-suit"
 category: "Big Time Art"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( all senses examination of this aromous soil )

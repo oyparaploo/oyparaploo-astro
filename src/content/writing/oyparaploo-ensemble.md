@@ -5,7 +5,7 @@ ground: dark
 date: "21.11.2025"
 slug: "oyparaploo-ensemble"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Oyparaploo is not a solo voice but a collective practice. Multiple perspectives bleeding into each other. Characters walking into wrong stories. All of it together creating our genuine voice. The broken is beautiful, in its honesty. That accumulative absence where each subtraction reveals more truth.

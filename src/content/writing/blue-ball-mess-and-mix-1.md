@@ -5,7 +5,7 @@ ground: dark
 date: "01.08.2025"
 slug: "blue-ball-mess-and-mix-1"
 category: "How to Support the Work: Intros and Anti-Art Success"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 this is who we are ... and we have no problem whatsoever with trends ... no axe to grind about anything ... no drama to put humans on their heels ...

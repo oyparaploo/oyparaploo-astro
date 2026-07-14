@@ -5,7 +5,7 @@ ground: dark
 date: "30.07.2025"
 slug: "birds-energy-and-simultaneous-childs-play"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Now we feel our immediate handwritings at best should be like paths many actual birds took ... went on for ... float on for ... created a new.

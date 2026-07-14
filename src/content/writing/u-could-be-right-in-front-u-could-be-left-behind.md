@@ -5,7 +5,7 @@ ground: dark
 date: "29.09.2025"
 slug: "u-could-be-right-in-front-u-could-be-left-behind"
 category: "Broken Language as Grief, Static, and the Self-Eating Critic"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 A snail nail does not know it's holding a cell shell ... They could be broke but [ Wow ] will stay strong ...

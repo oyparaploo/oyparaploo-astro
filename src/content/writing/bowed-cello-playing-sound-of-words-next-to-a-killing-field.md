@@ -5,7 +5,7 @@ ground: dark
 date: "03.08.2025"
 slug: "bowed-cello-playing-sound-of-words-next-to-a-killing-field"
 category: "Deathbed Resolves and the Faith to Keep Making"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 we sometimes have a lot of fear ... our nation has a lot of fear also ... a lot of fears also today and in numerous cases rightly so ... fear has rarely accomplished positive actions for any society ...

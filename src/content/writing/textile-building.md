@@ -5,7 +5,7 @@ ground: dark
 date: "25.10.2025"
 slug: "textile-building"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We move into the popular Textile Building and occasionally see a human body pass in the hall ... Frequent safety lock sounds ... Most close their doors to others or the peddlers ...

@@ -5,7 +5,7 @@ ground: dark
 date: "30.09.2025"
 slug: "what-holds-the-ground"
 category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Dig ... hands go into ground ... simplest passage making act there is ... No engineering ... Just pressure downward into granular material that gives way ... Archaeological excavation ... ground opened because something is buried ... A dig is a remark that cuts through someone's surface ...

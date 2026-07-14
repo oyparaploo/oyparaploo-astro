@@ -5,7 +5,7 @@ ground: dark
 date: "02.08.2025"
 slug: "border-wall-size-mirror-of-nonbiodegradable-stuff"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 molding how we do not delete parts of reality just because they are very slow ...

@@ -5,7 +5,7 @@ ground: dark
 date: "30.07.2025"
 slug: "big-problems-take-longer-to-fix"
 category: "Just for the Sake of the Work Itself: Process Over Fame"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 So like when you accidentally put your t-shirt on backwards ... then as a result lost it.

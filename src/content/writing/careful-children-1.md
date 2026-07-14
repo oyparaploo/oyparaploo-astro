@@ -5,7 +5,7 @@ ground: dark
 date: "06.08.2025"
 slug: "careful-children-1"
 category: "Anti-Art Assemblage Statements: Coverings, Cribs, and Evidence"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 SAfeTy First.

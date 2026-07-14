@@ -5,7 +5,7 @@ ground: dark
 date: "26.10.2025"
 slug: "let-the-wild-thing-with-a-pulse-move"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( it's our life )

@@ -5,7 +5,7 @@ ground: dark
 date: "19.11.2025"
 slug: "oyparaploo-diagnosis-and-symptoms"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 secondaryCategory: "Surreal Theater, Operas, and Performance Scores"
 ---
 

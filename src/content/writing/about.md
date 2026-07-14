@@ -5,7 +5,7 @@ ground: dark
 date: "13.09.2025"
 slug: "about"
 category: "Biographical About-Statements and Who-We-Are Pieces"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Brian Otto (aka Desoulos Works, Brrd Roots)

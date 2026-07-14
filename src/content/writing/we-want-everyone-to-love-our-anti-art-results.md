@@ -5,7 +5,7 @@ ground: dark
 date: "15.08.2025"
 slug: "we-want-everyone-to-love-our-anti-art-results"
 category: "How to Support the Work: Intros and Anti-Art Success"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We do not want to enjoy someone else's success ... We want our own success ... We have been enjoying other people's success for decades and it tastes like someone else's sandwich ... It is technically a sandwich ... It has bread ... It has contents ... But it is not our sandwich ...

@@ -5,7 +5,7 @@ ground: dark
 date: "02.08.2025"
 slug: "brrd-message-to-all-senses-active-receivers"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 we want to move more towards helping individuals mend hurts ... mend hurts ... mend mend hurts and shattered past experiences ...

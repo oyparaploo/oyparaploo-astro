@@ -5,7 +5,7 @@ ground: dark
 date: "28.10.2025"
 slug: "pounds-of-crush"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We hear you ... repeat repeat repeat ... the thing ... material ... Cool slots missing all those who have been witnessed in this piece of light ... Caged Clerk ... Worldly Room Parents from generations of strict inventions ... Yes ... editing can sharpen dumbed down language ... but it can't turn a RIP Saw into a hollow self-improvement goal ... We all want this to vary ... until there is nothing true underneath all of it ...

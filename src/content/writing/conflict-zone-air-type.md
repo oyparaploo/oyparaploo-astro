@@ -5,7 +5,7 @@ ground: dark
 date: "07.08.2025"
 slug: "conflict-zone-air-type"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 As an adult mortal human bird Earth laying ... if I had to make a choice ... to be down to earth and prejudice or not at all prejudice and up in the air ... I would every time choose to be up in the air.

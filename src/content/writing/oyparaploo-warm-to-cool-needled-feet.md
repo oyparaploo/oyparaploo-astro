@@ -5,7 +5,7 @@ ground: dark
 date: "18.10.2025"
 slug: "oyparaploo-warm-to-cool-needled-feet"
 category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 This IS unmistakably Our voice ... The sound of the writing ... the o mouth flattened into Tesseh Tooreh ... and wonders purged or pulled from the heart and soul ... That's something pure identifying ... directing itself ...

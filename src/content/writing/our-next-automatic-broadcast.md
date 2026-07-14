@@ -5,7 +5,7 @@ ground: light
 date: "25.08.2025"
 slug: "our-next-automatic-broadcast"
 category: "Broken Language as Grief, Static, and the Self-Eating Critic"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ### *The Study Ends Where Vera Begins*

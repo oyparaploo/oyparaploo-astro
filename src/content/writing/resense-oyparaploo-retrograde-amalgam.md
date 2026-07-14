@@ -5,7 +5,7 @@ ground: dark
 date: "20.12.2025"
 slug: "resense-oyparaploo-retrograde-amalgam"
 category: "The Spiral, the Archaeologist, and the Keystone Method"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Go back through the journey and sense it again ... What we find when we do that isn't a catalog or timeline ... it's an amalgam ... Decades melted into one substance that can't be separated back into its individual parts ... Amalgam is what retrograde direction produces ... Where do we stand now?

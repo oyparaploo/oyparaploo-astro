@@ -5,7 +5,7 @@ ground: dark
 date: "13.08.2025"
 slug: "innocent-visitors"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 (the other kind of excavation)

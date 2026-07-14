@@ -5,7 +5,7 @@ ground: dark
 date: "08.10.2025"
 slug: "oo-open"
 category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 &nbsp;

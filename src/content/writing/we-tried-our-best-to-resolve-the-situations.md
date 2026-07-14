@@ -5,7 +5,7 @@ ground: dark
 date: "15.03.2026"
 slug: "we-tried-our-best-to-resolve-the-situations"
 category: "We Tried Our Best To Resolve The Situations"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ( producers of physical evidence )

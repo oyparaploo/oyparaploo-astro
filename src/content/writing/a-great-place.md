@@ -5,7 +5,7 @@ ground: dark
 date: "15.09.2025"
 slug: "a-great-place"
 category: "Biographical About-Statements and Who-We-Are Pieces"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 (where stories get raised)

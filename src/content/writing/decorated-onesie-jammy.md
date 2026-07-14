@@ -5,7 +5,7 @@ ground: dark
 date: "10.08.2025"
 slug: "decorated-onesie-jammy"
 category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Independent ... so wonderfully free to regulate all their own affairs.

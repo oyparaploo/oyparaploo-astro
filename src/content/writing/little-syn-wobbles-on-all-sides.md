@@ -5,7 +5,7 @@ ground: dark
 date: "12.10.2025"
 slug: "little-syn-wobbles-on-all-sides"
 category: "Invented-Tongue Sound-Poems, Onomatopoeia, and the Split Syllable"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We are more alive ... together joined ... O ... ee anz ah saye ... Transgressive bare sound ... of small slips ... bothe vo kea ... Compression preserved ... Every Action doing measurable work ... with a kind elder voice at a sacred threshold ... Never collapsing a passage ... mayeh koan daye ... Pause for a few seconds on Syn ... de adjourn is signaling another middle ground move ...

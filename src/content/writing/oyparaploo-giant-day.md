@@ -5,7 +5,7 @@ ground: dark
 date: "25.12.2025"
 slug: "oyparaploo-giant-day"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Today has to be a giant day ... involving all the useful parts we care most about ... Brilliance that lands lucid ... and doesn't superficially flatter needs ... One reassuring honest move and placement after another ... A read only turns into an answer once the body of personal work is in front of or available to others ... Accessible for a person or audience to thoroughly examine and enjoy for what it is ... Not every receiver will like what we're serving ... The work may even spur arguments ... but we will still follow through with this steady practice ...

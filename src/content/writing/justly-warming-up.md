@@ -5,7 +5,7 @@ ground: dark
 date: "07.10.2025"
 slug: "justly-warming-up"
 category: "Naming the Method: The O-Sound, the Pause, and the Passage as Threshold"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 The oyparaploo methodology has been absorbed ... the texture is in our ears ... Now ... breath and percussion ... broken language earning its break dance ... Sounds operating below a usual dialect ... No semi organs ... The oyparaploo ... WE ... tongue and throat doing a substantial portion of the heavy lifting ... character compression ... Oh so tender questionably sturdy construction ... Registers held out in the open air at the appropriate time and climate indication ... Our elder's not strong gentle psychology creating spoken lines wilder than a cultivated Venus Flytrap ... relative of Waterwheel and City Sundew.

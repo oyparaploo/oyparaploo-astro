@@ -5,7 +5,7 @@ ground: dark
 date: "10.08.2025"
 slug: "devoted-segment"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 This is someone's devotional symbol of faith with rusty screws and short bucket lists glued to the backside of a telephone pole. They still have telephone poles. I thought telephone wires are underground.

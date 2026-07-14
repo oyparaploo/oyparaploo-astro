@@ -5,7 +5,7 @@ ground: dark
 date: "22.10.2025"
 slug: "the-ascending-spiral-can-remember-what-the-circle-forgets"
 category: "The Spiral, the Archaeologist, and the Keystone Method"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 *Notes on Returning Without Repeating*

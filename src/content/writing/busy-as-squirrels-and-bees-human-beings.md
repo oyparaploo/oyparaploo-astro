@@ -5,7 +5,7 @@ ground: dark
 date: "04.08.2025"
 slug: "busy-as-squirrels-and-bees-human-beings"
 category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 our vomit writings ... sight smell stuff ... before I cried ... then I died ... became fully alive again ...

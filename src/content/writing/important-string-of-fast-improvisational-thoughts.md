@@ -5,7 +5,7 @@ ground: dark
 date: "27.09.2025"
 slug: "important-string-of-fast-improvisational-thoughts"
 category: "Broken Language as Grief, Static, and the Self-Eating Critic"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 A catalog of the mind at full speed ... Everything it touched in the time it takes to forget where you put the keys ...

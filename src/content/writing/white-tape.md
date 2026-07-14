@@ -5,7 +5,7 @@ ground: dark
 date: "19.12.2025"
 slug: "white-tape"
 category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Rock, Paper, Scissors ... Ink, Fabric, Wire, Clay ... the grown ups were playing a muse according to no rules ...

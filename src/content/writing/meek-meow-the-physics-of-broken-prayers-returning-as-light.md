@@ -5,7 +5,7 @@ ground: light
 date: "02.08.2025"
 slug: "meek-meow-the-physics-of-broken-prayers-returning-as-light"
 category: "Broken Language as Grief, Static, and the Self-Eating Critic"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ## When fragments of grief, kindness, and quantum thought collide in the space between logic and divine static

@@ -5,7 +5,7 @@ ground: dark
 date: "16.12.2025"
 slug: "the-wider-loop"
 category: "The Spiral, the Archaeologist, and the Keystone Method"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Something shifted today...

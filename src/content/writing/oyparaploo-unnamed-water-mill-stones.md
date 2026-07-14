@@ -5,7 +5,7 @@ ground: dark
 date: "24.12.2025"
 slug: "oyparaploo-unnamed-water-mill-stones"
 category: "Beautiful Garbage: Cracks, Wobbles, and the Dignity of Found Repair"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Landing cold from out of the blue ... with no absolute knowledge of where it came from ...

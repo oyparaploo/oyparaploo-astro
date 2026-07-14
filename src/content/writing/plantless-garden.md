@@ -5,7 +5,7 @@ ground: dark
 date: "17.12.2025"
 slug: "plantless-garden"
 category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 We can't tell you how it all works.

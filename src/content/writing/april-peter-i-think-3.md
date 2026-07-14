@@ -5,7 +5,7 @@ ground: dark
 date: "22.07.2025"
 slug: "april-peter-i-think-3"
 category: "Pure Sound-Poems and Invented Glossolalia"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 On the smart dumb donkey ...

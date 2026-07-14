@@ -5,7 +5,7 @@ ground: dark
 date: "11.08.2025"
 slug: "different-animal"
 category: "Easy Content, Grounded Difference, and Multi-Sensory Props"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Pandemic times. Despite what many news articles say ... now is not the time to visualize and produce artworks that are safe.

@@ -5,7 +5,7 @@ ground: dark
 date: "12.08.2025"
 slug: "feathered-teacher"
 category: "The Human-Bird Persona and Its Chirp"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Birds that art and thinking birds. Non denominational or open or acceptable to people of any beliefs.

@@ -5,7 +5,7 @@ ground: dark
 date: "17.07.2025"
 slug: "also-this-is-all-just-for-the-sake-of-the-work-itself-1"
 category: "Just for the Sake of the Work Itself: Process Over Fame"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 It was when we became the biggest fans of ourselves that everything took off ... and then crashed ... and took off and crashed again ...

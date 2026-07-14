@@ -5,7 +5,7 @@ ground: light
 date: "05.08.2025"
 slug: "meaningful-passages-the-oceans-taught-us-about-songs-and-giving"
 category: "Artist Statements of Witnessing and Soul-Nourishing Gift"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 ## Verse One: Hearing Aromas (hushed beginning)

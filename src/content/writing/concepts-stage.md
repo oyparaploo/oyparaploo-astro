@@ -5,7 +5,7 @@ ground: dark
 date: "08.08.2025"
 slug: "concepts-stage"
 category: "The Late-Life Studio at 2 A.M.: Discipline, Rage, and What the Work Will Become"
-cluster: "Ars Poetica & the Oyparaploo Method"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Are you having a midlife crisis at soon to be 60 years old. I am way past that. No response. Oh okay.
