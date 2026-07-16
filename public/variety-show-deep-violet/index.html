@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>America's Weirdest Annual Variety Show — Paraploo, The Elder</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+em, i, cite, address, dfn, var { font-style: normal; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+
+html { font-size: var(--root-size, 18px); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+html.size-1 { --root-size: 18px; } html.size-2 { --root-size: 19px; } html.size-3 { --root-size: 21px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #2a2320;
+  background: #f9f7f4;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+
+/* ═══ SITE NAV — Städel system (light-native) ═══ */
+.site-nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.nav-accent-rule { height: 2px; width: 100%; background: linear-gradient(90deg, #7a5028, #D4A574); }
+.nav-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; letter-spacing: 0.02em; color: #333; flex-shrink: 0; }
+.nav-wordmark:hover { color: #5c3a1e; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; color: #333; }
+.nav-links a:hover { color: #5c3a1e; }
+.nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+.nav-utils { display: flex; align-items: center; gap: 14px; }
+.nav-aaa { display: flex; align-items: center; gap: 2px; min-height: 44px; }
+.nav-aaa button { font-family: 'Inter', sans-serif; font-weight: 600; color: #333; min-width: 26px; min-height: 44px; padding: 0 2px; display: flex; align-items: center; justify-content: center; }
+.nav-aaa button:nth-child(1) { font-size: 15px; }
+.nav-aaa button:nth-child(2) { font-size: 18px; }
+.nav-aaa button:nth-child(3) { font-size: 22px; }
+.nav-aaa button.active { color: #000 !important; }
+#contrastBtn, #searchBtn { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; color: #333; }
+#contrastBtn svg, #searchBtn svg { width: 18px; height: 18px; }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; min-width: 44px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #333; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+
+/* ═══ MENU ═══ */
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201; display: flex; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none; }
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 14px; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round 4px); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid #b8a088; padding: 8px 16px; border-radius: 4px; background: transparent; cursor: pointer; min-height: 44px; transition: border-color 0.2s, color 0.2s; }
+.menu-bottom-btns .menu-btn:hover { background: transparent; border-color: #7a5028; color: #7a5028; }
+
+/* ═══ SEARCH OVERLAY (visual scaffold — see audit note) ═══ */
+.search-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity 0.3s; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; }
+.search-overlay.open { opacity: 1; pointer-events: auto; }
+.search-overlay-inner { width: 100%; max-width: 560px; display: flex; align-items: center; gap: 12px; }
+.search-overlay input { flex: 1; font-family: 'Inter', sans-serif; font-size: 1.2941rem; font-weight: 400; color: #2a2320; border: none; border-bottom: 1px solid #b8a088; background: transparent; padding: 12px 4px; }
+.search-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320; flex-shrink: 0; }
+.search-close:hover { color: #7a5028; }
+
+/* ═══════════════════════════════════════════
+   MOOD B — DEEP VIOLET (page content)
+   Same bones as Mood A. Deep purple into
+   warm paper. Gold accent. One gradient.
+═══════════════════════════════════════════ */
+
+.threshold {
+  background: linear-gradient(to bottom,
+    #0d0716 0%, #0d0716 30%, #1a0f2e 42%, #290344 52%,
+    #3E1C53 60%, #5a3a6a 67%, #7d6478 73%, #9e8a8e 78%,
+    #bba89f 83%, #d2c4b8 88%, #e5dad0 93%, #f9f7f4 100%
+  );
+  padding: 80px 32px 200px;
+  display: flex;
+  align-items: center;
+}
+.threshold-inner { max-width: 700px; margin: 0 auto; width: 100%; }
+
+.category { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #D4AC6E; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+.threshold h1 { font-family: 'Lora', serif; font-size: clamp(32px, 3.5vw, 40px); font-weight: 600; color: #f2ede6; line-height: 1.12; margin-bottom: 16px; }
+
+.subtitle { font-family: 'Lora', serif; font-size: 1.1765rem; font-weight: 500; color: #ccc5bc; line-height: 1.55; margin-bottom: 28px; }
+
+.threshold-meta { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #ccc5bc; }
+.threshold-meta .dot { color: #D4AC6E; }
+
+/* ─── READING ─── */
+.reading { max-width: 700px; margin: 0 auto; padding: 0 32px 140px; }
+.reading p { margin-bottom: 1.5em; }
+.breath { height: 72px; }
+
+@media (max-width: 768px) {
+  .site-nav { padding: 0 24px; }
+  .threshold { padding: 60px 24px 140px; }
+  .reading { padding: 0 24px 100px; }
+  .breath { height: 56px; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .menu-panel { width: 100%; max-width: 100%; }
+}
+@media (max-width: 480px) { .site-nav { padding: 0 24px; } }
+
+/* ═══ DARK MODE (contrast toggle target) ═══ */
+body.dark-mode { background: #000; background-image: linear-gradient(to bottom, #000 0%, #0e0e0e 45%, #111521 100%); background-attachment: fixed; color: #d0c8bf; }
+body.dark-mode .site-nav { background: rgba(0,0,0,0.92); }
+body.dark-mode .nav-wordmark, body.dark-mode .nav-links a, body.dark-mode .nav-aaa button, body.dark-mode #contrastBtn, body.dark-mode #searchBtn, body.dark-mode .nav-hamburger span { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .nav-wordmark:hover, body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-aaa button.active { color: rgba(232,224,214,1) !important; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
+body.dark-mode .reading p { color: #d0c8bf; }
+body.dark-mode .search-overlay { background: rgba(0,0,0,0.92); }
+body.dark-mode .search-overlay input { color: #d0c8bf; border-bottom-color: #3a3430; }
+body.dark-mode .search-close { color: #d0c8bf; }
+body.dark-mode .search-close:hover { color: #ccc5bc; }
+
+@media print {
+  .threshold { background: #fff; padding: 40px 0; }
+  .threshold h1 { color: #1a1a1a; }
+  .category { color: #1a1a1a; }
+  .subtitle, .threshold-meta { color: #333; }
+  body { background: #fff; }
+  .site-nav, .menu-overlay, .menu-strips, .menu-panel, .search-overlay { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+<a href="index.html" class="nav-wordmark">paraploo, the elder</a>
+<ul class="nav-links">
+<li><a href="writing.html">Writing</a></li>
+<li><a href="making.html">Making</a></li>
+<li><a href="good-grounds.html">Good Grounds</a></li>
+</ul>
+<div class="nav-right">
+<div class="nav-utils">
+<div class="nav-aaa" role="group" aria-label="Text size">
+<button type="button" data-size="1" class="active" aria-label="Small text size">A</button>
+<button type="button" data-size="2" aria-label="Medium text size">A</button>
+<button type="button" data-size="3" aria-label="Large text size">A</button>
+</div>
+<button id="contrastBtn" aria-label="Toggle dark mode" type="button"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5V1.5Z" fill="currentColor"/></svg></button>
+<a href="#" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+</div>
+<button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</nav>
+<div class="nav-accent-rule"></div>
+
+<header class="threshold">
+  <div class="threshold-inner">
+    <div class="category">Witness</div>
+    <h1>America's Weirdest Annual Variety Show</h1>
+    <div class="subtitle">Our day-old memory of a very different Bud Bowl</div>
+    <div class="threshold-meta">
+      <span>February 9, 2025</span>
+      <span class="dot"> · </span>
+      <span>12 min read</span>
+    </div>
+  </div>
+</header>
+
+<main class="reading">
+  <p>Green Day opened with big, powerful pumps of visible steam and played three songs with titles that read like a schedule for the week: Holiday, Boulevard of Broken Dreams, and American Idiot.</p>
+
+  <p>Two days earlier, Friday night in San Francisco, Billie Joe Armstrong dedicated a song to every ICE agent in the building. Wherever you are, he said, quit your shitty-ass job. His words, not ours. Then on Sunday he played the opening ceremony at a stadium where those same agents said they would be working the crowd.</p>
+
+  <p>Armstrong has been yelling at administrations since Bush. He said maybe he over-exaggerated with Bush, but Trump is the worst problem Americans are facing and he just cannot wait. Our politics are more divided and polarized than ever before, he said. We had an insurrection. Everything coming onto your algorithm feed so fast it stresses everyone out. The anxiety of being an American right now, and how overwhelming it can be.</p>
+
+  <p>The steam was the local touch.</p>
+
+  <p>Here is what the program did not mention. The field sits on Ohlone land. Tamyen-speaking people were there before the Spanish were there before the English were there before Levi Strauss sold work pants to gold miners and put his name on a stadium that charges forty dollars to park. Layers of whose land and whose labor baked into the concrete, and nobody mentioning it on the ticket.</p>
+
+  <div class="breath"></div>
+
+  <p>Coco Jones sang Lift Every Voice and Sing, and then Brandi Carlile walked out with an acoustic guitar and did something that should not have worked as well as it did.</p>
+
+  <p>America the Beautiful is the gentler twin. The one that does not dare you to crack, the one most people half-remember from grade school and assume is easy. Carlile said she put it in a key right at her ceiling. She chose the register where her voice could either open or shatter with no middle ground.</p>
+
+  <p>She played the guitar herself. No click track, no pyrotechnics. Beside her stood SistaStrings, Monique and Chauntee Ross, a sister duo on violin and cello who have played with her for years and who turned the interlude into something that belonged in a cathedral while the cameras cut to cityscapes of Seattle and New England, two cities about to watch their teams collide.</p>
+
+  <p>The arrangement was melodically centered, her word, not rhythmically centered. The song floated instead of marched. She let the vibrato arrive where it wanted to, and when her voice climbed into the upper register it did not push. It pulled. The way a tide comes in, not crashing, just arriving, covering more ground than you expected.</p>
+
+  <p>She said she went into it with her own moral code in mind. As a wife and mother. As a queer woman standing on the largest stage in America to acknowledge what she called the fragile hope for where this country could be. She said if we are going to save this country as a people, we have to be reminded that deep down we love it. And the way she sang it we could all hear exactly what she meant. Not the love that waves a flag and dares us to disagree. The love that holds something broken and says we are not putting this down.</p>
+
+  <p>An eleven-time Grammy winner from Washington state, Seahawks territory, standing on a field in California singing a song written in 1893 by a woman who never married a man. Katherine Lee Bates lived for twenty-five years with another woman and called it a Boston marriage, a fact that almost never comes up at football games. And here was Carlile singing it with that history alive in her throat whether the crowd realized it or not.</p>
+
+  <div class="breath"></div>
+
+  <p>Then Charlie Puth walked onto a white platform on the field in a brown leather bomber jacket over a shirt and tie, sat down at an electric piano, and began the anthem so quietly everyone had to lean in.</p>
+
+  <p>The Star-Spangled Banner spans from a low D to a high A. Most songs ask for one octave. This one asks for an octave and a half and dares them to crack in front of a hundred and twenty million people. When they announced him, somebody posted that we had fallen from Nippy to Illegal. Puth quoted the post and said he would never claim to be as good as Whitney Houston ever was, but he assured them he was putting a special arrangement together, in D major, and it would be one of his best vocal performances.</p>
+
+  <p>And it was. He played the piano himself, no backing track, just his hands and a choir dressed in white behind him. He started soft and let the melody do what it wanted, and then on the rockets' red glare his voice climbed into the place where most voices break and his did not. It opened up. Not shouting, not over-singing. Just a man letting a song be as big as it is. The choir swelled behind him and the fireworks went off on the stadium screen ... and the camera found an American flag with the Golden Gate Bridge behind it.</p>
+
+  <p>He chose control over spectacle, clarity over flourish, which is its own kind of courage on a stage that rewards the opposite. When it was done he lifted his arms and stood taking it in. A thirty-four-year-old kid from New Jersey about to become a father for the first time, having just sung the hardest song in the American catalog without flinching.</p>
+
+  <div class="breath"></div>
+
+  <p>Then a man from Puerto Rico who had refused to tour the mainland walked onto the field.</p>
+
+  <p>He would not bring his audience into a country raiding its own neighborhoods. One exception. One night. Bad Bunny, the first Latino solo artist to headline the halftime show, performing almost entirely in Spanish. Trump called him a terrible choice. Conservatives spent months demanding he sing in English. Homeland Security Secretary Kristi Noem announced ICE agents would be working the stadium. The week before, at the Grammys, Bad Bunny had said two words into the microphone: ICE out. And then he came anyway.</p>
+
+  <p>Think about that for a second. A man who stayed home to protect his people decided the one place worth the risk was the loudest room in the country. Not a concert hall, not a protest. A championship football game. Because that is where Americans actually sit still long enough to hear something that they otherwise wouldn't give much attention to.</p>
+
+  <p>He walked out of sugar cane. Stalks tall enough to hide a professional basketball player's body, the original colonial crop, the thing that built the plantations and broke the people who worked them. Out of those stalks came dancers in pava hats, jíbaros, the agricultural workers who are the backbone of the island that is still called a territory by the very own nation that took it.</p>
+
+  <p>Whose land. Whose labor. The question answered itself before Bad Bunny sang a note.</p>
+
+  <p>Spanish was spoken on that soil three hundred years before English arrived. California was a Spanish word before it was a state. So who exactly was the guest language on that field.</p>
+
+  <div class="breath"></div>
+
+  <p>Then telephone poles moved into the frame.</p>
+
+  <p>Dancers dressed as utility workers climbed vintage poles that sparked and exploded around them. The song was El Apagón, The Blackout, about Puerto Rico's power grid that has been failing since Hurricane Maria tore it apart in 2017. A private company took over the grid and the lights still go out. Christmas Eve 2025, thousands of families in the dark again. And here, on the brightest lit stadium in America, the poles were sparking and the workers were dancing on them, because what else do you do when the infrastructure keeps collapsing and nobody comes to fix it.</p>
+
+  <p>Bad Bunny climbed to the top of one of those poles himself and pointed straight into the camera. A man standing on the thing that keeps failing his people, using the largest spotlight on earth to show what it looks like when the lights go out.</p>
+
+  <p>The poles looked very vintage, like something from the 1940s or 50s, which is about how old the grid actually is. Even the set design was telling the truth.</p>
+
+  <div class="breath"></div>
+
+  <p>Lady Gaga walked out as a surprise and sang a salsa version of her own song. Think about that. They demanded he sing in English. Instead he got one of the biggest white pop stars on the planet to sing in his style. She adapted to him.</p>
+
+  <p>Ricky Martin sang Lo Que Le Pasó a Hawaii, what happened to Hawaii, a song about another American sugar colony, another island taken, the pattern repeating itself in a different ocean.</p>
+
+  <p>Piragua stands on the field, old men playing dominoes, a nail salon, a street corner market. He rebuilt an entire neighborhood on a football field and filled it with people living in it. Pedro Pascal, Cardi B and Jessica Alba danced in the background like neighbors at a block party. A real wedding happened during the performance, and Bad Bunny signed their certificate between songs.</p>
+
+  <p>He walked over to a little boy sitting in front of a television set and handed him a Grammy. Viewers at home noticed the child looked like the five-year-old who had been arrested with his father outside their home in Minneapolis and sent to a detention center in Texas. The boy's last name is Conejo, which means Bunny.</p>
+
+  <p>We watched that from Saint Paul. Twenty degrees outside, the Mississippi under ice, eleven miles from where that child lived.</p>
+
+  <div class="breath"></div>
+
+  <p>Then the game came back, and it was like walking from a kitchen full of music into a room where the ceiling fan clicks and nobody is talking.</p>
+
+  <p>The Patriots did not score a single point in the first three quarters. Not one. Nine-nothing at the half, twelve-nothing after three quarters. The number one defense in the league swallowed everything quarterback Drake Maye tried. Six sacks, three turnovers, eight punts. The whole offense stiff and airless like a suit that does not fit.</p>
+
+  <p>Between those punts and sacks and incompletions the cameras kept finding Robert Kraft in his glass luxury box, the billionaire owner of a team not fully showing up this time. His face said nothing for most of the night. Then late in the fourth quarter, down twenty-two to seven, the camera captured him yawning.</p>
+
+  <p>A yawn. On the biggest stage in American sports. A man in a glass room above a field where twelve minutes earlier jíbaros had danced on sparking telephone poles and a Puerto Rican singer had pointed into the lens and demanded the country look at what it had done to his island.</p>
+
+  <p>One floor held all the fire that exists in the world. The other held a yawn.</p>
+
+  <p>This is the Super Bowl. The entertainment and the game do not belong in the same building. They are not the same species of event. One is a neighborhood rebuilt on a football field with domino tables and weddings and a man handing a child the thing that says you matter. The other is a billionaire watching his investment stall in a glass box that costs more per square foot than most people's apartments.</p>
+
+  <p>They share a roof and nothing else, and that is our whole nation in one stadium.</p>
+
+  <div class="breath"></div>
+
+  <p>A screen doing what screens do. Making distance feel like closeness, and vice versa. Our own city has its own version of every one of these problems. Different accents, same raids, same algorithms feeding anxiety at the same speed.</p>
+
+  <p>From here the fireworks were silent, just a buzzing lightshow on a screen, no sulfur, no chest warming with vibration. And still something got through.</p>
+
+  <div class="breath"></div>
+
+  <p>During the commercials, a clump of shaved body hair opened its eyes in a shower drain, blinked, and sang a love ballad to the man who shaved it off.</p>
+
+  <p>A scruffy loyal friend.</p>
+
+  <p>Anthropomorphic hair swirling toward the pipe, crooning a melancholy song about the men they once called home. Grotesque and tender. And we sat with that incident longer than we expected to.</p>
+
+  <p>Because that is grief. Actual grief dressed in a costume so strange that it got past every defense. A clump of hair mourning its body the way a neighborhood mourns a family that got loaded into a van at four in the morning. The way a language mourns the mouth that stopped speaking because of another censorship. The way anything cut from where it grew looks back up the drain and sings.</p>
+
+  <p>Nobody planned for the hair to be the most honest moment of the Super Bowl show. Ten million dollars for thirty seconds and the thing that stayed was the blinking eyes of something raw and discarded.</p>
+
+  <div class="breath"></div>
+
+  <p>Then four Claude ads. Betrayal, Deception, Treachery, Violation. Each one showed a person asking a real question about their life, and the answer started helpful before pivoting into a product pitch. A thin guy at a pull-up bar getting sold height-boosting insoles for short kings. A son asking how to talk to his mother and the chatbot sending him to a cougar dating site called Golden Encounters.</p>
+
+  <p>Sam Altman called the ads funny but clearly dishonest. TechCrunch is what you say when an ad landed.</p>
+
+  <p>Using advertising's biggest stage to argue that these themes selling us something do not belong everywhere. A good contradiction is one that does not resolve cleanly, and our whole practice lives in that.</p>
+
+  <p>We make things out of what gets thrown away and trust contradictions that refuse to resolve.</p>
+
+  <div class="breath"></div>
+
+  <p>So here is the whole experience laid out.</p>
+
+  <p>A punk band played an anti-war song and the establishment applauded. A queer woman from Washington sang a song written by another woman who praised women and made it sound like holding something broken. And not putting it down. A kid from New Jersey sat at a piano and sang the hardest song in the American catalog without flinching. A man who would not come here came here, and the agents who hunt his people watched from the concourse. Field workers danced on sparking telephone poles to show us what a blackout looks like under the brightest lights in our country. A pop star learned salsa instead of the other way around. A child received a Grammy from a man whose name is the same animal spirit as the child's last name. Hairballs grieved their lost bodies. An AI company spent a fortune telling us it would not sell us anything. And in that same Bad Bunny show a real couple got married between songs, and cut a big slice of cake for the camera.</p>
+
+  <p>Meanwhile a football team went scoreless for three quarters and its billionaire owner yawned in a glass box.</p>
+
+  <p>The Super Bowl. America's weirdest annual variety show, where everything happening at once is the only close to accurate description of what happened, where the contradictions stack so high they become a different kind of coliseum architecture. The fog of steam pumps then rises.</p>
+
+  <p>And in a luxury fish bowl box the man who owns the team that did not play their best is covering his mouth, mid-yawn, while below him a whole island is on fire with joy.</p>
+
+  <p>We are still watching from the cold, eleven miles from where a five-year-old used to live, sacred land under us, waiting for someone to ask ... whose land was this originally?</p>
+
+</main>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><a href="#" class="strip-btn">Read &#8594;</a></div></div>
+  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><a href="#" class="strip-btn">Explore &#8594;</a></div></div>
+  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><a href="#" class="strip-btn">See &#8594;</a></div></div>
+  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><a href="#" class="strip-btn">Listen &#8594;</a></div></div>
+</div>
+<div class="menu-panel" id="menuPanel" role="dialog" aria-hidden="true" aria-label="Site menu">
+<div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">paraploo, the elder</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+<div class="menu-content">
+<div class="mobile-strips">
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+</div>
+<nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+<hr class="menu-rule-tan" aria-hidden="true">
+<nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+<hr class="menu-rule-sage" aria-hidden="true">
+<nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+<div class="menu-address">Minneapolis ~ Saint Paul</div>
+<div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+</div>
+</div>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="search-overlay-inner"><input type="search" placeholder="find a piece…" aria-label="Search"><button class="search-close" id="searchCloseBtn" aria-label="Close search">&#10005;</button></div></div>
+
+<script>
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn = document.getElementById('menuCloseBtn');
+var menuOverlay = document.getElementById('menuOverlay');
+var menuStrips = document.getElementById('menuStrips');
+var menuPanel = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open'); menuStrips.classList.add('open'); menuPanel.classList.add('open');
+  navHamburger.classList.add('open'); navHamburger.setAttribute('aria-expanded', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'false'); menuPanel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open'); menuStrips.classList.remove('open'); menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open'); navHamburger.setAttribute('aria-expanded', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'true'); menuPanel.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+menuPanel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+var contrastBtn = document.getElementById('contrastBtn');
+contrastBtn.addEventListener('click', function() { document.body.classList.toggle('dark-mode'); });
+
+var searchBtn = document.getElementById('searchBtn');
+var searchOverlay = document.getElementById('searchOverlay');
+var searchCloseBtn = document.getElementById('searchCloseBtn');
+function closeSearch() { searchOverlay.classList.remove('open'); searchOverlay.setAttribute('aria-hidden', 'true'); }
+searchBtn.addEventListener('click', function(e) {
+  e.preventDefault(); searchOverlay.classList.add('open'); searchOverlay.setAttribute('aria-hidden', 'false');
+  searchOverlay.querySelector('input').focus();
+});
+searchOverlay.addEventListener('click', function(e) {
+  if (e.target === searchOverlay) { closeSearch(); }
+});
+searchCloseBtn.addEventListener('click', closeSearch);
+
+var aaaBtns = document.querySelectorAll('.nav-aaa button');
+aaaBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    aaaBtns.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.documentElement.className = 'size-' + btn.dataset.size;
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); closeSearch(); }
+});
+</script>
+</body>
+</html>

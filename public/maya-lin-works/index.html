@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Works — Paraploo, The Elder</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { font-style: normal; }
+em, i, cite, address, dfn, var { font-style: normal; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+:root {
+  --black: #2a2320;
+  --gray: #5a4f47;
+  --gray-light: #7d7168;
+  --accent: #b0392c;
+}
+html { scroll-behavior: smooth; font-size: var(--root-size, 17px); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+html.size-1 { --root-size: 17px; } html.size-2 { --root-size: 18px; } html.size-3 { --root-size: 20px; }
+body { font-family: 'Inter', sans-serif; background: #fff; color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; overflow-wrap: break-word; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+
+/* ═══ SITE NAV — Städel system (light-native) ═══ */
+.site-nav { position: sticky; top: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.nav-accent-rule { height: 2px; width: 100%; background: linear-gradient(90deg, #7a5028, #D4A574); }
+.nav-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; letter-spacing: 0.02em; color: #333; flex-shrink: 0; }
+.nav-wordmark:hover { color: #5c3a1e; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; color: #333; }
+.nav-links a:hover { color: #5c3a1e; }
+.nav-links a.active { text-decoration: underline; text-underline-offset: 9px; text-decoration-thickness: 1px; text-decoration-color: #333; }
+.nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+.nav-utils { display: flex; align-items: center; gap: 14px; }
+.nav-aaa { display: flex; align-items: center; gap: 2px; min-height: 44px; }
+.nav-aaa button { font-family: 'Inter', sans-serif; font-weight: 600; color: #333; min-width: 26px; min-height: 44px; padding: 0 2px; display: flex; align-items: center; justify-content: center; }
+.nav-aaa button:nth-child(1) { font-size: 15px; }
+.nav-aaa button:nth-child(2) { font-size: 18px; }
+.nav-aaa button:nth-child(3) { font-size: 22px; }
+.nav-aaa button.active { color: #000 !important; }
+#contrastBtn, #searchBtn { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; color: #333; }
+#contrastBtn svg, #searchBtn svg { width: 18px; height: 18px; }
+body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; min-width: 44px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #333; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+@media (max-width: 1100px) { .nav-links { display: none; } }
+
+/* ═══ MENU ═══ */
+.menu-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s; }
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201; display: flex; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none; }
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 14px; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); }
+.menu-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 201; width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320; font-size: 17px; clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round 4px); transition: clip-path 0.6s cubic-bezier(0.4,0,0.1,1), opacity 0.2s ease; overflow-y: auto; padding: 24px 32px 40px; pointer-events: none; opacity: 0; }
+.menu-panel.open { clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1; }
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
+.menu-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320 !important; cursor: pointer; }
+.menu-nav-primary a { font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; display: block; padding: 10px 0; }
+.menu-nav-primary a:hover { opacity: 0.55; }
+.menu-rule-tan { height: 2px; border: none; background: #D4A574; margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-secondary a, .menu-nav-tertiary a { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; display: block; padding: 4px 0; }
+.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; }
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #2a2320; border: 1px solid #b8a088; padding: 8px 16px; border-radius: 4px; background: transparent; cursor: pointer; min-height: 44px; transition: border-color 0.2s, color 0.2s; }
+.menu-bottom-btns .menu-btn:hover { background: transparent; border-color: #7a5028; color: #7a5028; }
+
+/* ═══ SEARCH OVERLAY (visual scaffold — see audit note) ═══ */
+.search-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity 0.3s; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; }
+.search-overlay.open { opacity: 1; pointer-events: auto; }
+.search-overlay-inner { width: 100%; max-width: 560px; display: flex; align-items: center; gap: 12px; }
+.search-overlay input { flex: 1; font-family: 'Inter', sans-serif; font-size: 1.2941rem; font-weight: 400; color: #2a2320; border: none; border-bottom: 1px solid #b8a088; background: transparent; padding: 12px 4px; }
+.search-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320; flex-shrink: 0; }
+.search-close:hover { color: #7a5028; }
+
+/* ═══ HERO — abstract tiles (text-only site, no photography) ═══ */
+.hero { position: relative; width: 100%; height: 70vh; overflow: hidden; background: #111; }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease; }
+.hero-slide.active { opacity: 1; animation: slowDrift 12s ease-out forwards; }
+@keyframes slowDrift { 0% { transform: scale(1.0); } 100% { transform: scale(1.06); } }
+.hero-slide:nth-child(1) { background: linear-gradient(160deg, #3a2a4a 0%, #6a4a7a 100%); }
+.hero-slide:nth-child(2) { background: linear-gradient(160deg, #4a2a2a 0%, #7a4a44 100%); }
+.hero-slide:nth-child(3) { background: linear-gradient(160deg, #2a3a4a 0%, #4a6a7a 100%); }
+.hero-slide:nth-child(4) { background: linear-gradient(160deg, #3a4a2a 0%, #5a7a4a 100%); }
+.hero-slide:nth-child(5) { background: linear-gradient(160deg, #4a3a2a 0%, #7a6040 100%); }
+.hero-slide:nth-child(6) { background: linear-gradient(160deg, #2a2a3a 0%, #4a4a6a 100%); }
+.hero-slide:nth-child(7) { background: linear-gradient(160deg, #4a2a3a 0%, #7a4a5a 100%); }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; background: linear-gradient(transparent, rgba(0,0,0,0.3)); pointer-events: none; z-index: 2; }
+.hero-counter { position: absolute; bottom: 32px; right: 40px; z-index: 3; font-size: 1rem; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
+
+/* ═══ SECTION TITLE ═══ */
+.section-title { padding: 64px 40px 40px; max-width: 1000px; margin: 0 auto; }
+.section-title h1 { font-family: 'Lora', serif; font-size: clamp(1.8824rem, 3vw, 2.3529rem); font-weight: 600; color: var(--black); letter-spacing: -0.01em; margin-bottom: 20px; }
+.section-title p { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 400; line-height: 1.65; color: var(--gray); max-width: 640px; }
+
+/* ═══ WORKS LIST ═══ */
+.works-list { max-width: 1000px; margin: 0 auto; padding: 0 40px 80px; }
+.work-item { display: block; padding: 22px 0; border-bottom: 1px solid #e0d8d0; cursor: pointer; transition: padding-left 0.3s, border-color 0.3s; }
+.work-item:first-child { border-top: 1px solid #e0d8d0; }
+.work-item:hover { padding-left: 12px; }
+.work-hash { display: inline; font-size: 1rem; font-weight: 400; color: var(--gray-light); margin-right: 12px; transition: color 0.3s; }
+.work-item:hover .work-hash { color: var(--accent); }
+.work-name { font-family: 'Inter', sans-serif; font-size: 1.0588rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--black); transition: color 0.3s; }
+.work-item:hover .work-name { color: var(--accent); }
+.work-venue { font-size: 1rem; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; color: var(--gray); margin-left: 4px; }
+.work-venue::before { content: '| '; margin-right: 4px; }
+.works-category { padding: 48px 0 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+
+/* ═══ QUOTE BAND ═══ */
+.quote-band { background: #f5f2ef; padding: 72px 40px; text-align: center; }
+.quote-text { max-width: 680px; margin: 0 auto 16px; font-family: 'Lora', serif; font-size: clamp(1.3529rem, 2.8vw, 1.7647rem); font-weight: 400; line-height: 1.65; color: var(--black); }
+.quote-attr { font-size: 1rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray); }
+
+/* ═══ CANONICAL SITE FOOTER (light-native) ═══ */
+.site-footer { background: rgba(0,0,0,0.03); }
+.footer-accent-rule { display: block; height: 2px; border: none; background: linear-gradient(90deg, transparent 0%, rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%, rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%, rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%, rgba(122,90,74,0.30) 90%, transparent 100%); opacity: .6; }
+.footer-inner { max-width: 1400px; margin: 0 auto; padding: 56px 40px 44px; font-family: 'Inter', sans-serif; }
+.footer-cols { display: flex; flex-wrap: wrap; gap: 40px 72px; }
+.footer-col { min-width: 160px; }
+.footer-col-title { font-size: 17px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; color: #8a8078; }
+.footer-col a, .footer-col .footer-soon { display: block; font-size: 17px; line-height: 2; letter-spacing: .01em; text-decoration: none; color: #5a4f47; }
+.footer-col a { transition: color .2s; }
+.footer-col a:hover { color: #2a2320; }
+.footer-col .footer-soon { cursor: default; }
+.footer-rule { height: 1px; border: none; margin: 36px 0 18px; background: rgba(0,0,0,.1); }
+.footer-copyright { font-size: 17px; letter-spacing: .02em; color: #9a9088; }
+
+/* ═══ DARK MODE ═══ */
+body.dark-mode { background: #000; background-image: linear-gradient(to bottom, #000 0%, #0e0e0e 45%, #111521 100%); background-attachment: fixed; color: #d0c8bf; }
+body.dark-mode .site-nav { background: rgba(0,0,0,0.92); }
+body.dark-mode .nav-wordmark, body.dark-mode .nav-links a, body.dark-mode .nav-aaa button, body.dark-mode #contrastBtn, body.dark-mode #searchBtn, body.dark-mode .nav-hamburger span { color: rgba(232,224,214,0.68); }
+body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+body.dark-mode .nav-wordmark:hover, body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
+body.dark-mode .nav-aaa button.active { color: rgba(232,224,214,1) !important; }
+body.dark-mode .section-title h1 { color: #d0c8bf; }
+body.dark-mode .section-title p { color: #a09888; }
+body.dark-mode .work-item { border-color: #3a3430; }
+body.dark-mode .work-item:first-child { border-top-color: #3a3430; }
+body.dark-mode .work-name { color: #ccc5bc; }
+body.dark-mode .work-venue { color: #a09888; }
+body.dark-mode .quote-band { background: #141210; }
+body.dark-mode .quote-text { color: #d0c8bf; }
+body.dark-mode .quote-attr { color: #a09888; }
+body.dark-mode .site-footer { background: rgba(0,0,0,.25); }
+body.dark-mode .footer-col-title { color: rgba(232,224,214,.5); }
+body.dark-mode .footer-col a, body.dark-mode .footer-col .footer-soon { color: rgba(232,224,214,.72); }
+body.dark-mode .footer-col a:hover { color: rgba(232,224,214,.95); }
+body.dark-mode .footer-copyright { color: rgba(232,224,214,.42); }
+body.dark-mode .footer-rule { background: rgba(232,224,214,.12); }
+body.dark-mode .search-overlay { background: rgba(0,0,0,0.92); }
+body.dark-mode .search-overlay input { color: #d0c8bf; border-bottom-color: #3a3430; }
+body.dark-mode .search-close { color: #d0c8bf; }
+body.dark-mode .search-close:hover { color: #ccc5bc; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .site-nav { padding: 0 24px; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .hero { height: 56vh; }
+  .hero-counter { right: 24px; bottom: 24px; }
+  .section-title { padding: 48px 24px 32px; }
+  .works-list { padding: 0 24px 48px; }
+  .work-venue { display: block; margin-left: 0; margin-top: 4px; }
+  .work-venue::before { content: ''; margin: 0; }
+  .quote-band { padding: 48px 24px; }
+  .footer-inner { padding: 40px 24px 32px; }
+}
+@media (max-width: 480px) { .site-nav { padding: 0 24px; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+<a href="index.html" class="nav-wordmark">paraploo, the elder</a>
+<ul class="nav-links">
+<li><a href="writing.html">Writing</a></li>
+<li><a href="making.html" class="active">Making</a></li>
+<li><a href="good-grounds.html">Good Grounds</a></li>
+</ul>
+<div class="nav-right">
+<div class="nav-utils">
+<div class="nav-aaa" role="group" aria-label="Text size">
+<button type="button" data-size="1" class="active" aria-label="Small text size">A</button>
+<button type="button" data-size="2" aria-label="Medium text size">A</button>
+<button type="button" data-size="3" aria-label="Large text size">A</button>
+</div>
+<button id="contrastBtn" aria-label="Toggle dark mode" type="button"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5V1.5Z" fill="currentColor"/></svg></button>
+<a href="#" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+</div>
+<button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</nav>
+<div class="nav-accent-rule"></div>
+
+<!-- HERO — abstract tiles, slow crossfade preserved -->
+<div class="hero" id="hero">
+  <div class="hero-slide active"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-counter"><span id="slideNum">1</span> / 7</div>
+</div>
+
+<!-- SECTION TITLE -->
+<div class="section-title">
+  <h1>Memory Works</h1>
+  <p>Works that remember. Projects spanning thirty years of practice — writing, installation, sound, performance — each one a vessel holding something the world tried to discard.</p>
+</div>
+
+<!-- WORKS LIST -->
+<div class="works-list">
+
+  <div class="works-category">Writing</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Good Grounds</span>
+    <span class="work-venue">Novel in Progress</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Staying Alive</span>
+    <span class="work-venue">Series</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Paraploo Noir</span>
+    <span class="work-venue">Style &amp; Practice</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">The Receiver Turn</span>
+    <span class="work-venue">Methodology</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Climate Fictions</span>
+    <span class="work-venue">Indigenous Foodways</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Hahnu Youn Speaks</span>
+    <span class="work-venue">Character Work</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Oypara Soil Deep Blue</span>
+    <span class="work-venue">Invented Language</span>
+  </a>
+
+  <div class="works-category">Performance &amp; Theater</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">LAST FALL</span>
+    <span class="work-venue">The Rangmanch Collective, Mumbai</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Four Witnesses</span>
+    <span class="work-venue">Living Document Structure</span>
+  </a>
+
+  <div class="works-category">Visual Art &amp; Installation</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Beautiful Garbage Archive</span>
+    <span class="work-venue">140,000 Files</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Wonderful Garbage</span>
+    <span class="work-venue">Assemblage Practice</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Booklets &amp; Leaves</span>
+    <span class="work-venue">Print Objects</span>
+  </a>
+
+  <div class="works-category">Sound</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Lovely Quietness</span>
+    <span class="work-venue">Creation Spirit / Layer 1</span>
+  </a>
+
+  <div class="works-category">Methodology</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Master 28 Domains</span>
+    <span class="work-venue">Framework</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Three-Layer System</span>
+    <span class="work-venue">Lovely Quietness / AI-Detection / Master</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Six Voices</span>
+    <span class="work-venue">B W Otto, Clod Hopper, Reach Chimes, Keren Simone, Lamb, Goat</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">What Is Missing?</span>
+    <span class="work-venue">Ongoing</span>
+  </a>
+
+</div>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <div class="quote-text">Art as a conscious alternative to violence. Not a slogan. A daily decision.</div>
+  <div class="quote-attr">Reach Chimes, 1995–Present</div>
+</div>
+
+<!-- CANONICAL FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <hr class="footer-accent-rule" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div class="footer-col"><div class="footer-col-title">Grounds</div><a href="/writing/">Writing</a><a href="/portraits/">Portraits</a><a href="/methodology/">Methodology</a><a href="/good-grounds/">Good Grounds</a><a href="/prayers/">The Prayers</a></div>
+      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><a href="/making/">Making</a><a href="/listening-room/">Sound</a><a href="/broadcast/">The Broadcast</a><a href="/wavelength/">Wavelength</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="/archive/">Archive</a><span class="footer-soon">Calendar</span><a href="mailto:info@paraploo.com">Contact</a></div>
+    </div>
+    <hr class="footer-rule" aria-hidden="true">
+    <div class="footer-copyright">&copy; 2026 Paraploo &middot; Twin Cities, Minnesota</div>
+  </div>
+</footer>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><a href="#" class="strip-btn">Read &#8594;</a></div></div>
+  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><a href="#" class="strip-btn">Explore &#8594;</a></div></div>
+  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><a href="#" class="strip-btn">See &#8594;</a></div></div>
+  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><a href="#" class="strip-btn">Listen &#8594;</a></div></div>
+</div>
+<div class="menu-panel" id="menuPanel" role="dialog" aria-hidden="true" aria-label="Site menu">
+<div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">paraploo, the elder</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button></div>
+<div class="menu-content">
+<div class="mobile-strips">
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+  <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+</div>
+<nav class="menu-nav-primary" aria-label="Primary menu"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></nav>
+<hr class="menu-rule-tan" aria-hidden="true">
+<nav class="menu-nav-secondary" aria-label="Secondary menu"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></nav>
+<hr class="menu-rule-sage" aria-hidden="true">
+<nav class="menu-nav-tertiary" aria-label="Tertiary menu"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></nav>
+<div class="menu-address">Minneapolis ~ Saint Paul</div>
+<div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+</div>
+</div>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="search-overlay-inner"><input type="search" placeholder="find a piece…" aria-label="Search"><button class="search-close" id="searchCloseBtn" aria-label="Close search">&#10005;</button></div></div>
+
+<script>
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn = document.getElementById('menuCloseBtn');
+var menuOverlay = document.getElementById('menuOverlay');
+var menuStrips = document.getElementById('menuStrips');
+var menuPanel = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open'); menuStrips.classList.add('open'); menuPanel.classList.add('open');
+  navHamburger.classList.add('open'); navHamburger.setAttribute('aria-expanded', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'false'); menuPanel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open'); menuStrips.classList.remove('open'); menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open'); navHamburger.setAttribute('aria-expanded', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'true'); menuPanel.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+menuPanel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+var contrastBtn = document.getElementById('contrastBtn');
+contrastBtn.addEventListener('click', function() { document.body.classList.toggle('dark-mode'); });
+
+var searchBtn = document.getElementById('searchBtn');
+var searchOverlay = document.getElementById('searchOverlay');
+var searchCloseBtn = document.getElementById('searchCloseBtn');
+function closeSearch() { searchOverlay.classList.remove('open'); searchOverlay.setAttribute('aria-hidden', 'true'); }
+searchBtn.addEventListener('click', function(e) {
+  e.preventDefault(); searchOverlay.classList.add('open'); searchOverlay.setAttribute('aria-hidden', 'false');
+  searchOverlay.querySelector('input').focus();
+});
+searchOverlay.addEventListener('click', function(e) {
+  if (e.target === searchOverlay) { closeSearch(); }
+});
+searchCloseBtn.addEventListener('click', closeSearch);
+
+var aaaBtns = document.querySelectorAll('.nav-aaa button');
+aaaBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    aaaBtns.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.documentElement.className = 'size-' + btn.dataset.size;
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); closeSearch(); }
+});
+
+// Hero slideshow — slow, meditative crossfade (preserved from source)
+var slides = document.querySelectorAll('.hero-slide');
+var slideNum = document.getElementById('slideNum');
+var current = 0;
+setInterval(function() {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+  slideNum.textContent = current + 1;
+}, 6000);
+
+// Touch swipe on hero (preserved from source)
+var hero = document.getElementById('hero');
+var touchStartX = 0;
+hero.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+hero.addEventListener('touchend', function(e) {
+  var diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    slides[current].classList.remove('active');
+    if (diff > 0) { current = (current + 1) % slides.length; }
+    else { current = (current - 1 + slides.length) % slides.length; }
+    slides[current].classList.add('active');
+    slideNum.textContent = current + 1;
+  }
+});
+</script>
+</body>
+</html>
