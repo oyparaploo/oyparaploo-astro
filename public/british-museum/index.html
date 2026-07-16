@@ -6,69 +6,341 @@
 <title>Collection — Paraploo, The Elder</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══ RESET & BASE ═══ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   OYPARAPLOO — THE JOURNEY
+   Landing Page · Dark Ground Native · Night-Blue Gradient
+   Room 5: Inside the Making · 26 Parts
+   Toggle: light-mode (◑ → ◐)
+   Strips: yes (desktop accordion + mobile cards)
+   Accent: shifting cool→amber→warm (26-step gradient)
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ═══ I. RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
 em, i, cite, address, dfn, var { font-style: normal; }
 * { font-style: normal; }
-p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-html.size-1 { font-size: 17px; }
-html.size-2 { font-size: 19px; }
-html.size-3 { font-size: 21px; }
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 17px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  color: #2a2320;
-  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  -webkit-tap-highlight-color: transparent;
+  word-break: break-word;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+a, button, [role="button"], select {
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* ═══ II. DESIGN TOKENS ═══ */
+:root {
+  --oy-sand: #D4C4A8;
+  --oy-tan:  #D4A574;
+  --oy-radius: 4px;
+}
+
+
+/* ═══ III. FONT SIZE SYSTEM ═══ */
+html.size-1 { --root-size: 17px; }
+html.size-2 { --root-size: 18px; }
+html.size-3 { --root-size: 20px; }
+
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  color: rgba(232,224,214,0.68) !important;
+  opacity: 1; transition: opacity 0.25s, color 0.2s; line-height: 1;
+}
+.font-size-btn .sz.active { opacity: 1; }
+.font-size-btn .sz[data-size="1"] { font-size: 19px; }
+.font-size-btn .sz[data-size="2"] { font-size: 16px; }
+.font-size-btn .sz[data-size="3"] { font-size: 13px; }
+
+
+/* ═══ IV. STÄDEL NAV — DARK GROUND NATIVE ═══ */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 22px;
+  color: rgba(232,224,214,0.68); letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: rgba(232,224,214,0.88); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none; padding-left: 0; margin-left: 48px;
+  flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px; font-weight: 500; letter-spacing: 0.02em;
+  color: rgba(232,224,214,0.68);
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: rgba(232,224,214,0.88); }
+
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif;
+  color: rgba(232,224,214,0.68);
+  background: none; border: none; cursor: pointer;
+  min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: rgba(232,224,214,0.88); }
+.font-size-btn:hover .sz { color: rgba(232,224,214,0.88) !important; }
+.nav-utils svg { stroke: currentColor; fill: none; stroke-width: 2; }
+.nav-icon { width: 22px; height: 22px; display: block; }
+
+.nav-hamburger {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  gap: 5px; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger line {
+  stroke-width: 2.5;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.nav-hamburger.open line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open line:nth-child(2) { opacity: 0; }
+.nav-hamburger.open line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%, rgba(122,90,74,0.28) 24%,
+    rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%, rgba(92,58,30,0.28) 54%,
+    rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%, rgba(160,128,100,0.28) 83%,
+    rgba(122,90,74,0.30) 90%, transparent 100%);
+  opacity: 0.6;
+}
+
+
+/* ═══ V. MENU SYSTEM ═══ */
+
+/* Overlay */
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* Accordion strips — desktop */
+.menu-strips {
+  position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201;
+  display: flex; flex-direction: row; overflow: hidden;
+  opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none;
+}
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+
+.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); min-width: 0; }
+.strip:hover { flex: 4; }
+.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.3s; }
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; color: #fff; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; margin-bottom: 14px; }
+.strip-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); border-radius: 0; background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); letter-spacing: 0.01em; text-decoration: none; transition: all 0.3s; }
+.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
+
+/* Strip placeholder tints */
+.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
+.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
+.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
+.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
+
+/* Mobile strip cards */
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card { flex: 0 0 140px; height: 100px; border-radius: var(--oy-radius); position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28); }
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: var(--oy-radius); }
+.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: var(--oy-radius); }
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); line-height: 1.2; }
+
+/* Panel — 400px */
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw;
+  background: #faf6f0; color: #2a2320;
+  font-size: 17px;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 200px) round var(--oy-radius));
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 32px 40px;
+  pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0);
+  pointer-events: auto; opacity: 1;
+}
+
+.menu-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 32px;
+}
+.menu-ghost-wordmark {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; font-weight: 500;
+  color: #2a2320; opacity: 0.38; letter-spacing: 0.02em;
+  user-select: none; pointer-events: none;
+}
+.menu-close {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #2a2320 !important; cursor: pointer;
+  transition: opacity 0.2s; flex-shrink: 0;
+}
+.menu-close:hover { opacity: 0.62; }
+
+.menu-nav-primary { margin-bottom: 4px; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif;
+  font-size: 24px; font-weight: 600;
+  color: #2a2320; display: block; padding: 10px 0;
+  line-height: 1.2; transition: opacity 0.2s;
+}
+.menu-nav-primary a:hover { opacity: 0.55; }
+
+.menu-rule-tan { height: 2px; border: none; background: var(--oy-tan); margin: 20px 0; }
+.menu-rule-sage { height: 2px; border: none; background: #8BA89A; margin: 20px 0; }
+.menu-nav-label { display: none; }
+
+.menu-nav-secondary { margin-bottom: 4px; }
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-secondary a:hover { opacity: 0.55; }
+
+.menu-nav-tertiary { display: block; margin-bottom: 4px; }
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #2a2320; display: block; padding: 4px 0;
+  transition: opacity 0.2s;
+}
+.menu-nav-tertiary a:hover { opacity: 0.55; }
+
+.menu-address {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 500;
+  color: #5a4f47; margin-top: 20px; line-height: 1.6;
+}
+
+.menu-bottom-btns { display: flex; gap: 8px; margin-top: 20px; }
+.menu-bottom-btns .menu-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid rgba(42,35,32,0.40);
+  padding: 8px 16px; border-radius: var(--oy-radius);
+  background: transparent; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+}
+.menu-bottom-btns .menu-btn:hover {
+  background: transparent; color: #7a5028; border-color: #7a5028;
+}
+
+
+/* ═══ V-B. SEARCH OVERLAY (visual scaffold — see audit note) ═══ */
+.search-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity 0.3s; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; }
+.search-overlay.open { opacity: 1; pointer-events: auto; }
+.search-overlay-inner { width: 100%; max-width: 560px; display: flex; align-items: center; gap: 12px; }
+.search-overlay input { flex: 1; font-family: 'Inter', sans-serif; font-size: 1.2941rem; font-weight: 400; color: #d0c8bf; border: none; border-bottom: 1px solid #3a3430; background: transparent; padding: 12px 4px; }
+.search-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #d0c8bf; flex-shrink: 0; }
+.search-close:hover { color: #ccc5bc; }
+body.light-mode .search-overlay { background: rgba(255,255,255,0.97); }
+body.light-mode .search-overlay input { color: #2a2320; border-bottom-color: #b8a088; }
+body.light-mode .search-close { color: #2a2320; }
+body.light-mode .search-close:hover { color: #7a5028; }
+
+
+/* ═══ VI. SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal-slow { opacity: 0; transition: opacity 2s ease; }
+.reveal.visible, .reveal-slow.visible { opacity: 1; }
+
+
+/* ═══ VII. SHARED RESPONSIVE ═══ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .menu-panel { width: 100%; max-width: 100%; }
+  .reveal { transition: opacity 0.6s ease; }
+  .reveal-slow { transition: opacity 1s ease; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+  .nav-utils { margin-left: auto; gap: 10px; }
+  .nav-utils button, .nav-utils a, .nav-hamburger { padding: 0; }
+}
+
+
+/* ═══ VIII. SAFE AREA ═══ */
+.bottom-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE-SPECIFIC CSS — COLLECTION (light-native)
+   ═══════════════════════════════════════════════════════════ */
+
+body {
+  background: #ffffff;
+  color: #2a2320;
   line-height: 1.6;
   letter-spacing: -0.01em;
 }
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; border: none; background: none; cursor: pointer; }
-
-/* ═══ STÄDEL NAV ═══ */
-.site-nav { position: sticky; top: 0; z-index: 1000; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
-.accent-rule { height: 2px; width: 100%; background: linear-gradient(90deg, #D4A574, #c4956a, #D4A574); position: sticky; top: 64px; z-index: 999; }
-.nav-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; letter-spacing: 0.02em; color: #333; flex-shrink: 0; }
-.nav-wordmark:hover { color: #5c3a1e; }
-.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; padding-left: 0; margin-left: 48px; flex-shrink: 0; }
-.nav-links a { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 500; color: #333; }
-.nav-links a:hover { color: #5c3a1e; }
-.nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
-.nav-utils { display: flex; align-items: center; gap: 14px; }
-.nav-aaa { display: flex; align-items: center; gap: 2px; min-height: 44px; }
-.nav-aaa button { font-family: 'Inter', sans-serif; font-weight: 600; color: #333; min-width: 26px; min-height: 44px; padding: 0 2px; display: flex; align-items: center; justify-content: center; }
-.nav-aaa button:nth-child(1) { font-size: 15px; }
-.nav-aaa button:nth-child(2) { font-size: 18px; }
-.nav-aaa button:nth-child(3) { font-size: 22px; }
-.nav-aaa button.active { color: #000 !important; }
-#contrastBtn, #searchBtn { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; color: #333; }
-#contrastBtn svg, #searchBtn svg { width: 18px; height: 18px; }
-.nav-hamburger { display: flex; flex-direction: column; gap: 5px; min-width: 44px; min-height: 44px; padding: 0 8px; align-items: center; justify-content: center; }
-.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: #333; transition: transform 0.25s, opacity 0.2s; transform-origin: center; }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-@media (max-width: 1100px) { .nav-links { display: none; } }
-
-/* ═══ SEARCH OVERLAY (nav global search — distinct from the page's own collection search bar) ═══ */
-.search-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(255,255,255,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity 0.3s; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; }
-.search-overlay.open { opacity: 1; pointer-events: auto; }
-.search-overlay-inner { width: 100%; max-width: 560px; display: flex; align-items: center; gap: 12px; }
-.search-overlay input { flex: 1; font-family: 'Inter', sans-serif; font-size: 1.2941rem; font-weight: 400; color: #2a2320; border: none; border-bottom: 1px solid #b8a088; background: transparent; padding: 12px 4px; }
-.search-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #2a2320; flex-shrink: 0; }
-.search-close:hover { color: #7a5028; }
-body.dark-mode .search-overlay { background: rgba(0,0,0,0.92); }
-body.dark-mode .search-overlay input { color: #d0c8bf; border-bottom-color: #3a3430; }
-body.dark-mode .search-close { color: #d0c8bf; }
-body.dark-mode .search-close:hover { color: #ccc5bc; }
+body.light-mode { background: #ffffff; color: #2a2320; }
 
 /* ═══ DARK SEARCH HERO ═══ */
 .search-hero {
@@ -658,73 +930,6 @@ body.dark-mode .search-close:hover { color: #ccc5bc; }
   color: #5a4f47;
 }
 
-/* ═══ DARK MODE ═══ */
-body.dark-mode .site-nav { background: rgba(10,10,20,0.92); }
-body.dark-mode .nav-wordmark, body.dark-mode .nav-links a, body.dark-mode .nav-aaa button, body.dark-mode #contrastBtn, body.dark-mode #searchBtn, body.dark-mode .nav-hamburger span { color: rgba(232,224,214,0.68); }
-body.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
-body.dark-mode .nav-wordmark:hover, body.dark-mode .nav-links a:hover { color: rgba(232,224,214,0.88); }
-body.dark-mode .nav-aaa button.active { color: rgba(232,224,214,1) !important; }
-body.dark-mode .accent-rule { background: linear-gradient(90deg, #8a6e50, #D4A574, #8a6e50); }
-body.dark-mode .breadcrumb-bar { border-bottom-color: #3a3430; }
-body.dark-mode .breadcrumb { color: #a09888; }
-body.dark-mode .breadcrumb a { color: #d0c8bf; }
-body.dark-mode .share-icon { background: #d0c8bf; }
-body.dark-mode .share-icon svg { fill: #1a1715; }
-body.dark-mode .on-this-page .otp-box { background: #141210; }
-body.dark-mode .otp-title { color: #d0c8bf; }
-body.dark-mode .otp-links a { color: #d0c8bf; }
-body.dark-mode .prose-text h2 { color: #d0c8bf; }
-body.dark-mode .prose-text p { color: #b5ada5; }
-body.dark-mode .sidebar-link { color: #d0c8bf; border-bottom-color: #3a3430; }
-body.dark-mode .sidebar-link:first-child { border-top-color: #3a3430; }
-body.dark-mode .sidebar-arrow { background: #d0c8bf; }
-body.dark-mode .sidebar-arrow svg { stroke: #1a1715; }
-body.dark-mode .newsletter-cta { background: #0e0e0e; }
-body.dark-mode .cta-title { color: #d0c8bf; }
-body.dark-mode .cta-desc { color: #b5ada5; }
-body.dark-mode .cta-btn { color: #d0c8bf; border-color: #d0c8bf; }
-body.dark-mode .cta-btn:hover { border-color: #ccc5bc; color: #ccc5bc; }
-body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
-
-/* ═══ MENU ═══ */
-.menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
-.menu-overlay.active { opacity: 1; visibility: visible; }
-.menu-strips { position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 2000; display: flex; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
-.menu-strips.active { opacity: 1; visibility: visible; }
-.strip { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 1.2s cubic-bezier(0.25,0.1,0.25,1); min-width: 0; }
-.strip:hover { flex: 4; }
-.strip-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-.strip-1 .strip-bg { background: linear-gradient(160deg, #c9bcac 0%, #8a7a6a 100%); }
-.strip-2 .strip-bg { background: linear-gradient(160deg, #8BA89A 0%, #5a7a6a 100%); }
-.strip-3 .strip-bg { background: linear-gradient(160deg, #D4A574 0%, #a07050 100%); }
-.strip-4 .strip-bg { background: linear-gradient(160deg, #7a8aaa 0%, #4a5a7a 100%); }
-.strip::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none; }
-.strip-bottom { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding: 40px 36px 44px; opacity: 0; transition: opacity 0.8s ease 0.3s; }
-.strip:hover .strip-bottom { opacity: 1; }
-.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 14px; }
-.strip-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; color: #fff; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.75); background: rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
-.strip-btn:hover { background: rgba(255,255,255,0.40); border-color: #fff; }
-.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
-.mobile-strips::-webkit-scrollbar { display: none; }
-.mobile-strip-card { flex: 0 0 140px; height: 100px; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28); }
-.mobile-strip-card .strip-bg { position: absolute; inset: 0; }
-.mobile-strip-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); }
-.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; color: #fff; }
-.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 2px; }
-.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.75); }
-.menu-panel { position: fixed; top: 0; right: 0; width: 400px; height: 100%; background: #faf6f0; color: #2a2320; font-size: 17px; z-index: 2001; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); overflow-y: auto; padding: 32px 36px; }
-.menu-panel.active { transform: translateX(0); }
-.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
-.menu-ghost { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; }
-.menu-close { width: 44px; height: 44px; background: none; border: none; cursor: pointer; font-size: 24px; color: #2a2320 !important; display: flex; align-items: center; justify-content: center; }
-.menu-nav-primary a { display: block; font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320; padding: 10px 0; }
-.menu-rule-tan { height: 2px; background: #D4A574; margin: 20px 0; }
-.menu-rule-sage { height: 2px; background: #8BA89A; margin: 20px 0; }
-.menu-nav-secondary a, .menu-nav-tertiary a { display: block; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320; padding: 8px 0; }
-.menu-address { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 28px; }
-
-/* ═══ RESPONSIVE ═══ */
 @media (max-width: 1024px) {
   .hero-content { grid-template-columns: 1fr; }
   .prose-section { grid-template-columns: 1fr; }
@@ -735,7 +940,6 @@ body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
   .cf-links { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .site-nav { padding: 0 20px; }
   .search-hero { padding: 48px 20px 40px; }
   .search-bar { flex-direction: column; }
   .search-field-select { border-right: 1px solid #3a3430; border-bottom: none; }
@@ -745,37 +949,128 @@ body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
   .themes-grid { grid-template-columns: 1fr; }
   .also-grid { grid-template-columns: 1fr; }
   .cf-links { grid-template-columns: 1fr; }
-  .menu-panel { width: 100%; }
-  .menu-strips { display: none; }
-  .mobile-strips { display: flex; }
 }
 @media (max-width: 480px) {
   .search-hero { padding: 36px 16px 30px; }
 }
 </style>
 </head>
-<body>
+<body class="light-mode">
 
-<!-- NAV -->
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-wordmark">paraploo, the elder</a>
-  <ul class="nav-links"><li><a href="/writing">Writing</a></li><li><a href="/making">Making</a></li><li><a href="/good-grounds">Good Grounds</a></li></ul>
-  <div class="nav-right">
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">paraploo, the elder</a>
+    <ul class="nav-links">
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
     <div class="nav-utils">
-      <div class="nav-aaa" role="group" aria-label="Text size">
-        <button type="button" data-size="1" class="active" aria-label="Small text size">A</button>
-        <button type="button" data-size="2" aria-label="Medium text size">A</button>
-        <button type="button" data-size="3" aria-label="Large text size">A</button>
-      </div>
-      <button id="contrastBtn" aria-label="Toggle dark mode" type="button"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5V1.5Z" fill="currentColor"/></svg></button>
-      <a href="#" id="searchBtn" aria-label="Open search"><svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+      <a href="#" id="searchBtn" aria-label="Open search">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
+        </svg>
+      </button>
     </div>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
 </nav>
-<div class="accent-rule" aria-hidden="true"></div>
 
-<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="search-overlay-inner"><input type="search" placeholder="find a piece…" aria-label="Search"><button class="search-close" id="searchCloseBtn" aria-label="Close search">&#10005;</button></div></div>
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<div class="menu-strips" id="menuStrips">
+  <div class="strip strip-1">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Good Grounds</div>
+      <div class="strip-subtitle">A novel in progress</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Read &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-2">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Writing</div>
+      <div class="strip-subtitle">34 pieces, ongoing</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Explore &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-3">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Making</div>
+      <div class="strip-subtitle">Visual &amp; object practice</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">See &#8594;</a></div>
+    </div></div>
+  </div>
+  <div class="strip strip-4">
+    <div class="strip-bg"></div>
+    <div class="strip-bottom"><div class="strip-content">
+      <div class="strip-title">Sound</div>
+      <div class="strip-subtitle">Noir Song Frequencies</div>
+      <div class="strip-buttons"><a href="#" class="strip-btn">Listen &#8594;</a></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="menu-top">
+    <span class="menu-ghost-wordmark" aria-hidden="true">paraploo, the elder</span>
+    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
+  </div>
+  <div class="menu-content">
+    <div class="mobile-strips">
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
+      <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
+    </div>
+    <nav class="menu-nav-primary" aria-label="Primary menu">
+      <a href="#">Writing</a>
+      <a href="#">Making</a>
+      <a href="#">Good Grounds</a>
+    </nav>
+    <hr class="menu-rule-tan" aria-hidden="true">
+    <nav class="menu-nav-secondary" aria-label="Secondary menu">
+      <a href="#">Our Practice</a>
+      <a href="#">Music Artists</a>
+      <a href="#">Collaborators</a>
+      <a href="#">Methodology</a>
+    </nav>
+    <hr class="menu-rule-sage" aria-hidden="true">
+    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
+      <a href="#">Support</a>
+      <a href="#">Archive</a>
+      <a href="#">Calendar</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="menu-address">Minneapolis ~ Saint Paul</div>
+    <div class="menu-bottom-btns">
+      <button class="menu-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ▼▼▼ PAGE CONTENT — Collection ▼▼▼
+     ═══════════════════════════════════════════════════════════ -->
 
 <!-- DARK SEARCH HERO -->
 <section class="search-hero">
@@ -914,35 +1209,99 @@ body.dark-mode #contrastBtn svg { transform: scaleX(-1); }
       <div class="cf-col"><p class="cf-col-title">About</p><a href="#">Our Practice</a><a href="#">Methodology</a><a href="#">Collaborators</a><a href="#">Music Artists</a></div>
       <div class="cf-col"><p class="cf-col-title">Connect</p><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></div>
     </div>
-    <div class="cf-bottom">© 2026 Paraploo · Wonderful Garbage · Minneapolis ~ Saint Paul</div>
+    <div class="cf-bottom">© 2026 Paraploo, The Elder · Wonderful Garbage · Minneapolis ~ Saint Paul</div>
   </div>
 </footer>
 
-<!-- MENU -->
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-<div class="menu-strips" id="menuStrips">
-  <div class="strip strip-1"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">A novel in progress</div><a href="#" class="strip-btn">Read &#8594;</a></div></div>
-  <div class="strip strip-2"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Writing</div><div class="strip-subtitle">34 pieces, ongoing</div><a href="#" class="strip-btn">Explore &#8594;</a></div></div>
-  <div class="strip strip-3"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Making</div><div class="strip-subtitle">Visual &amp; object practice</div><a href="#" class="strip-btn">See &#8594;</a></div></div>
-  <div class="strip strip-4"><div class="strip-bg"></div><div class="strip-bottom"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div><a href="#" class="strip-btn">Listen &#8594;</a></div></div>
-</div>
-<div class="menu-panel" id="menuPanel" role="dialog" aria-label="Navigation menu" aria-hidden="true">
-  <div class="menu-top"><span class="menu-ghost">paraploo, the elder</span><button class="menu-close" aria-label="Close menu">✕</button></div>
-  <div class="mobile-strips">
-    <a class="mobile-strip-card" href="#"><div class="strip-bg strip-1"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Novel</div></div></a>
-    <a class="mobile-strip-card" href="#"><div class="strip-bg strip-2"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">34 pieces</div></div></a>
-    <a class="mobile-strip-card" href="#"><div class="strip-bg strip-3"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Visual</div></div></a>
-    <a class="mobile-strip-card" href="#"><div class="strip-bg strip-4"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Frequencies</div></div></a>
-  </div>
-  <nav class="menu-nav-primary"><a href="/writing">Writing</a><a href="/making">Making</a><a href="/good-grounds">Good Grounds</a></nav>
-  <div class="menu-rule-tan"></div>
-  <nav class="menu-nav-secondary"><a href="/our-practice">Our Practice</a><a href="/music-artists">Music Artists</a><a href="/collaborators">Collaborators</a><a href="/methodology">Methodology</a></nav>
-  <div class="menu-rule-sage"></div>
-  <nav class="menu-nav-tertiary"><a href="/support">Support</a><a href="/archive">Archive</a><a href="/calendar">Calendar</a><a href="/contact">Contact</a></nav>
-  <p class="menu-address">Minneapolis ~ Saint Paul</p>
-</div>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="search-overlay-inner"><input type="search" placeholder="find a piece…" aria-label="Search"><button class="search-close" id="searchCloseBtn" aria-label="Close search">&#10005;</button></div></div>
 
+<div class="bottom-safe"></div>
+
+<!-- ═══ JS ═══ -->
 <script>
+// ── Font size (3 steps)
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) {
+    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
+  });
+});
+
+// ── Contrast toggle — dark ground: toggles to light-mode
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('light-mode');
+});
+
+// ── Search overlay
+var searchBtn = document.getElementById('searchBtn');
+var searchOverlay = document.getElementById('searchOverlay');
+var searchCloseBtn = document.getElementById('searchCloseBtn');
+function closeSearch() { searchOverlay.classList.remove('open'); searchOverlay.setAttribute('aria-hidden', 'true'); }
+searchBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  searchOverlay.classList.add('open');
+  searchOverlay.setAttribute('aria-hidden', 'false');
+  searchOverlay.querySelector('input').focus();
+});
+searchOverlay.addEventListener('click', function(e) {
+  if (e.target === searchOverlay) { closeSearch(); }
+});
+searchCloseBtn.addEventListener('click', closeSearch);
+
+// ── Menu open/close
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn  = document.getElementById('menuCloseBtn');
+var menuOverlay   = document.getElementById('menuOverlay');
+var menuStrips    = document.getElementById('menuStrips');
+var menuPanel     = document.getElementById('menuPanel');
+
+function openMenu() {
+  menuOverlay.classList.add('open');
+  if (menuStrips) menuStrips.classList.add('open');
+  menuPanel.classList.add('open');
+  navHamburger.classList.add('open');
+  navHamburger.setAttribute('aria-expanded', 'true');
+  menuPanel.setAttribute('aria-hidden', 'false');
+  menuOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open');
+  if (menuStrips) menuStrips.classList.remove('open');
+  menuPanel.classList.remove('open');
+  navHamburger.classList.remove('open');
+  navHamburger.setAttribute('aria-expanded', 'false');
+  menuPanel.setAttribute('aria-hidden', 'true');
+  menuOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeMenu(); closeSearch(); } });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+// ── Scroll reveal
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-slow');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
 /* genSVG */
 function genSVG(seed, w, h, hueRange) {
   const s = Math.abs(seed);
@@ -1011,23 +1370,6 @@ alsoItems.forEach(a=>{
   el.innerHTML=`<div class="also-img">${genSVG(a.seed,400,250)}</div><h3 class="also-name">${a.name}</h3><p class="also-desc">${a.desc}</p>`;
   ag.appendChild(el);
 });
-
-/* Nav / toggles */
-const aaaBtns=document.querySelectorAll('.nav-aaa button');
-aaaBtns.forEach(function(btn){btn.addEventListener('click',function(){aaaBtns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.documentElement.className='size-'+btn.dataset.size;});});
-document.getElementById('contrastBtn').addEventListener('click',function(){document.body.classList.toggle('dark-mode');});
-
-const searchBtn=document.getElementById('searchBtn'),searchOverlay=document.getElementById('searchOverlay'),searchCloseBtn=document.getElementById('searchCloseBtn');
-function closeSearch(){searchOverlay.classList.remove('open');searchOverlay.setAttribute('aria-hidden','true');}
-searchBtn.addEventListener('click',function(e){e.preventDefault();searchOverlay.classList.add('open');searchOverlay.setAttribute('aria-hidden','false');searchOverlay.querySelector('input').focus();});
-searchOverlay.addEventListener('click',function(e){if(e.target===searchOverlay){closeSearch();}});
-searchCloseBtn.addEventListener('click',closeSearch);
-
-const hamburger=document.getElementById('navHamburger'),overlay=document.getElementById('menuOverlay'),panel=document.getElementById('menuPanel'),closeBtn=document.querySelector('.menu-close'),strips=document.getElementById('menuStrips');
-function openMenu(){overlay.classList.add('active');panel.classList.add('active');if(strips)strips.classList.add('active');overlay.setAttribute('aria-hidden','false');panel.setAttribute('aria-hidden','false');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-function closeMenu(){overlay.classList.remove('active');panel.classList.remove('active');if(strips)strips.classList.remove('active');overlay.setAttribute('aria-hidden','true');panel.setAttribute('aria-hidden','true');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-hamburger.addEventListener('click',openMenu);overlay.addEventListener('click',closeMenu);closeBtn.addEventListener('click',closeMenu);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();closeSearch();}});
 </script>
 </body>
 </html>
