@@ -4,6 +4,7 @@ variant: breath-display
 ground: dark
 slug: "latest-segments"
 category: "Latest Segments"
+cluster: "Migration, Lineage & Belonging"
 ---
 
 wall talk ... with a crack of bright light streaming ... and quote good grief loss ... About moving abroad ... One step ahead of misery ... Advice from a flyover state ... Minnesotan ... It's too soon to forget you ... Half a lifetime ... Seems like we'll have to take that one ... Running away from them ... Our president is a nightmare ... Remember when we had a dream ... There you are ... privilege of choice ... Leading limbs on memory lane ... Dusty immigration ... How she laid there next to election results ... And the roots of adventure of your quiet life ... Give me a high five ... It's going to be particularly difficult Lord ... It's going to be difficult when the city sends us home ... Welcome to November's root of old mercy ... Welcome God low five us

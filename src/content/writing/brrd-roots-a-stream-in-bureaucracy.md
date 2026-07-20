@@ -4,6 +4,7 @@ variant: breath-display
 ground: dark
 slug: "brrd-roots-a-stream-in-bureaucracy"
 category: "Brrd Roots ~ A Stream in Bureaucracy ~ Inquiry"
+cluster: "Ecology, Climate & Animals"
 ---
 
 Haha … Taha … You seek … Chaos … We will inquire … More intricate absurdity … Garages hold air, but does **logic** hold? … Faltering abyss into … **Plunge!** … Bureaucracy stitched tightly … existing within frayed fabrics … Passive-aggressive breath pressing … **Deserve** it or not … Ahh, the muse, invisible and stroking chins … Done now, but **what have you?** … Once, oxygen was a given … Now it taps against ghosts … Arms remain **metaphorically crossed** …

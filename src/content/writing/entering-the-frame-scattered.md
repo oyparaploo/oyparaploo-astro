@@ -4,6 +4,7 @@ variant: breath-display
 ground: dark
 slug: "entering-the-frame-scattered"
 category: "Entering The Frame Scattered During Different Minutes and Seconds"
+cluster: "Ars Poetica & the Paraploo Method"
 ---
 
 Back in our closet ... It was fascinating working through ... Clothes closed ... the evolution ... silly eyes of this ... No one knows luck ... We can't help it ... The changes made ... Cool bed is through ...

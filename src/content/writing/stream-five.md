@@ -3,7 +3,8 @@ title: "Stream Five"
 variant: breath-display
 ground: dark
 slug: "stream-five"
-category: "Stream Five"
+category: "Continuum Elegies: Death as Flow Rather Than Ending"
+cluster: "Spirit, Mortality & the Ordinary Divine"
 ---
 
 /// It's The Most Wonderful Time Of The Year ... With all the kids Rebelling ... She is the Salt of the Sweet and Bright planet on which we live ... He is the Substance of the Field Surface ... Do you mean Loaming Topsoil mixed with Manure? ... Haha ... They are the New Youth Hope ... Rooted Abode Human Beings Unlike Any Others Known Before ... Glory Be To All ///
