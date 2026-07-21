@@ -12,7 +12,7 @@ We can't tell you how it all works.
 
 . . .
 
-No problem. Most storytelling gives. Oyparaploo doesn't. Not yet.
+No problem. Most storytelling gives. Paraploo doesn't. Not yet.
 
 . . .
 

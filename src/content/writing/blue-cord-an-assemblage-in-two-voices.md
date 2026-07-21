@@ -10,7 +10,7 @@ cluster: "Grief, Loss & Compulsive Making"
 
 *A Literary Meditation on Connection, Memory, and the Space Between Objects*
 
-*By Oyparaploo*
+*By Paraploo*
 
 This piece offers a literary interpretation of a sculptural assemblage bound by electric blue cord. The work examines how disparate objects—soil, domestic belongings, construction debris, and garden fragments—are transformed when held together in deliberate tension. The blue cord that pierces and connects these elements becomes both subject and metaphor, evoking underwater light, the violence of coherence, and the way objects carry memory through their surfaces. What emerges is an exploration of how assemblage functions not merely as artistic practice but as a fundamental condition of existence, where connection and separation, wholeness and puncture, freedom and captivity coexist in perpetual negotiation. The piece invites readers to consider the spaces between things as carefully as the things themselves, and to recognize that all joining is also a kind of breaking, all unity a sustained act of holding together what naturally wants to come apart.
 

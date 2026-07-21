@@ -21,4 +21,4 @@ Remember we moved to where there was mostly beautiful concrete and asphalt. And 
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

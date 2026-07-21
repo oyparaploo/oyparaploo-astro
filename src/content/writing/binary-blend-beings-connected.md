@@ -19,4 +19,4 @@ Know that we will always love you and accept fully any common ... much lesser co
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

@@ -47,4 +47,4 @@ Let's just go.
 February 19, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

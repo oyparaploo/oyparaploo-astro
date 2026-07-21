@@ -12,13 +12,13 @@ cluster: "Grief, Loss & Compulsive Making"
 
 Sasha's landlord kept asking about "all the people" in her garage, which was worse than explaining they were made from raincoats nobody wanted anymore.
 
-"What... what are you doing?" Mei asked, watching her mother stuff newspapers into a knockoff Oyparaploo coat (the brand where they'd spelled it wrong on purpose to avoid lawsuits).
+"What... what are you doing?" Mei asked, watching her mother stuff newspapers into a knockoff Paraploo coat (the brand where they'd spelled it wrong on purpose to avoid lawsuits).
 
 "Tuesday," Sasha said, which wasn't an answer.
 
 It was November and Vancouver was doing that thing where the rain felt personal, like it had read your diary and was disappointed. Everyone walked around in their protective shells—those identical black Arc'teryx jackets that cost a mortgage payment, or the Mountain Equipment Co-op ones from before the bankruptcy, when we all still believed in cooperatives.
 
-She'd found the Oyparaploo at the 14th Avenue bus stop, sitting on the bench like someone had just evaporated. Arms spread wide, shoulders slumped. She stuffed it with her ex-husband Derek's tax returns from 2018 (the year he'd said "I need space" and then moved two blocks away) plus newspapers from the week her dad died that she'd been meaning to recycle for eleven months.
+She'd found the Paraploo at the 14th Avenue bus stop, sitting on the bench like someone had just evaporated. Arms spread wide, shoulders slumped. She stuffed it with her ex-husband Derek's tax returns from 2018 (the year he'd said "I need space" and then moved two blocks away) plus newspapers from the week her dad died that she'd been meaning to recycle for eleven months.
 
 Wednesday: umbrella bones, no skin. All the metal spokes perfect but naked. She grabbed it from beside a trash can that already had two broken umbrellas in it—this one was somehow more broken by being structurally intact. In her notebook she wrote "full seriously wounded skeleton" then looked at it. What? But she left it.
 

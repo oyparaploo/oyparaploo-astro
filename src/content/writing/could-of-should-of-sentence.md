@@ -42,4 +42,4 @@ Wonderfully is the nectar taste we keep coming back to ... and has no business b
 
 Where could have becomes could of ... dissolves. And what's left is a person shouting what they wish they'd done differently. The sound that happens when a cell gets too small for its sentence.
 
-Oyparaploo. All of us combined together ... the or gives options. As texture that has threads going over and under. The yarn must trust itself as voice at work. Like a seed that knows very well what kind of mature tree it will become. And what her roots will do for the health of the land.
+Paraploo. All of us combined together ... the or gives options. As texture that has threads going over and under. The yarn must trust itself as voice at work. Like a seed that knows very well what kind of mature tree it will become. And what her roots will do for the health of the land.

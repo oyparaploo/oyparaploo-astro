@@ -27,4 +27,4 @@ Also extra caring for fragile house ... empathy ... fragile shelter. House apart
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

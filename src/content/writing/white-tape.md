@@ -37,5 +37,5 @@ By evening the white tape is earth toned ... our down to ground work clothes car
 Invisible paths are the hinge between day and evening ... opening as hypnotic light and closing as mysterious shadows ... a maker's unscrupulous situations ... fusion of child hands and adult hands montage ... Blended ... a single note after a chord resolves.
 
 *White Tape · Locked · April 7, 2026*
-*Oyparaploo · Wonderful Garbage · Noir Chanson*
+*Paraploo · Wonderful Garbage · Noir Chanson*
 *For the love of The English*

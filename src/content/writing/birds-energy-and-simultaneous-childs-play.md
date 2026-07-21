@@ -23,4 +23,4 @@ On a sunny morning ... yeah ... let us put here ... Sunday morning ... at least 
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

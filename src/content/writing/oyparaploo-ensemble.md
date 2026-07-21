@@ -1,5 +1,5 @@
 ---
-title: "Oyparaploo Ensemble"
+title: "Paraploo Ensemble"
 variant: breath-display
 ground: dark
 date: "21.11.2025"
@@ -8,9 +8,9 @@ category: "What the Work Is For: Poster Child, Ensemble, and the Generous Seed"
 cluster: "Ars Poetica & the Paraploo Method"
 ---
 
-Oyparaploo is not a solo voice but a collective practice. Multiple perspectives bleeding into each other. Characters walking into wrong stories. All of it together creating our genuine voice. The broken is beautiful, in its honesty. That accumulative absence where each subtraction reveals more truth.
+Paraploo is not a solo voice but a collective practice. Multiple perspectives bleeding into each other. Characters walking into wrong stories. All of it together creating our genuine voice. The broken is beautiful, in its honesty. That accumulative absence where each subtraction reveals more truth.
 
-Making inventory together, documenting the same dissolution, the same character multiplied across living spaces. Building the Oyparaploo voice through dialogue, revisions and other iterations. Our practice encourages ~ Accidents where the authentic emerges. Failure as method. Tender breaking that holds people gently even as it refuses to complete their sentences or resolve their searches.
+Making inventory together, documenting the same dissolution, the same character multiplied across living spaces. Building the Paraploo voice through dialogue, revisions and other iterations. Our practice encourages ~ Accidents where the authentic emerges. Failure as method. Tender breaking that holds people gently even as it refuses to complete their sentences or resolve their searches.
 
 Curiously, everyone is approximately seven minutes late, counting continues after the counter stops, and certain days of the week keeps happening. Fragments accumulate into something larger than any usual completed story could hold. Our voice finding profound mercy in the Broken Ordinary. 
 

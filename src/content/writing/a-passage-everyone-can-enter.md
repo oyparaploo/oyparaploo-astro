@@ -29,7 +29,7 @@ Not archive.
 Not memory.
 Alive. This cold morning. Still unfolding.
 
-Oyparaploo garbage has always been about transformation—
+Paraploo garbage has always been about transformation—
 debris evolving into useful for all information.
 
 What gets thrown away can be picked up.

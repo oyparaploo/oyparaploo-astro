@@ -21,4 +21,4 @@ I guess you can not change the world immediately. It is going to take a lot long
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

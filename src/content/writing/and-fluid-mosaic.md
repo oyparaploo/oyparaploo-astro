@@ -25,4 +25,4 @@ Choros spirit streaming ... arranged and changing slightly in real time ... inci
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

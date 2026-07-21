@@ -21,4 +21,4 @@ That is when these kindred artists are needed more. To help us be in a good way 
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

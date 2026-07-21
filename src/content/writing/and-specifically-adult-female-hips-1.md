@@ -21,4 +21,4 @@ When we pass on to the next life ... I hope that is there. I hope those hips are
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

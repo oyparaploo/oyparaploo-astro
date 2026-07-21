@@ -75,7 +75,7 @@ Witnessed marble crime. Hummed entire testimony. 40 minutes. Jury cried. Verdict
 
 Branch Holloway grows through walls. Not around. Through. Building inspector quit. Might be responsible for tree-posting this document.
 
-Oyparaploo keeps signing things. Who? Everyone? No one? The name appears on forms.
+Paraploo keeps signing things. Who? Everyone? No one? The name appears on forms.
 
 "Names getting loud"—Officer Martinez wrote this. Won't explain. Took sick leave.
 

@@ -23,4 +23,4 @@ True. That is true. It is kind of ... I am not sure.
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

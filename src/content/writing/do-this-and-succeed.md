@@ -21,4 +21,4 @@ Ali talked a lot. All the time. During interviews ... in the boxing ring ... wal
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

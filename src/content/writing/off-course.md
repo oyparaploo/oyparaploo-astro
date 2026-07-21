@@ -4,7 +4,7 @@ variant: breath-display
 ground: dark
 date: "30.10.2025"
 slug: "off-course"
-category: "Documentary Stories Following Pinned Oyparaploo Tales Off-Course"
+category: "Documentary Stories Following Pinned Paraploo Tales Off-Course"
 cluster: "Story-Cycles, Thrillers & Performance"
 ---
 
@@ -18,7 +18,7 @@ Chanson's father had said something similar in 2008, right before he stopped eat
 
 City Archives, Fourth Floor, Municipal Building. Her desk faced a brick wall. Eleven years, $42,000 annually. Her apartment cost $1,400 monthly for 400 square feet above a check-cashing place. The math of her life: always subtraction.
 
-By Thursday, she'd collected seven more stories. Different trees. Same signature: "Oyparaploo." Made no sense. She googled it. Nothing. Added them to her filing system: "Vandalism—Public Property." But kept copies in her bag.
+By Thursday, she'd collected seven more stories. Different trees. Same signature: "Paraploo." Made no sense. She googled it. Nothing. Added them to her filing system: "Vandalism—Public Property." But kept copies in her bag.
 
 "Getting weirder," Mr. Fitzgerald said, her supervisor. "Mayor wants them gone but documented first."
 
@@ -95,7 +95,7 @@ A girl, maybe thirteen, teaching someone to paint with motor oil.
 
 None of it made sense. All of it made sense.
 
-"What is Oyparaploo?" Chanson asked.
+"What is Paraploo?" Chanson asked.
 
 Everyone looked at each other.
 
@@ -131,7 +131,7 @@ She'd expected it. Eleven years. No severance. At-will employment. At-will termi
 
 That night, she pinned her own story to the courthouse oak. About the archivist who went off course. Who found the real city. Who chose the living over the documented.
 
-Someone would find it. Would follow it. Would end up at the mall or the court or the museum. Would become part of whatever Oyparaploo was.
+Someone would find it. Would follow it. Would end up at the mall or the court or the museum. Would become part of whatever Paraploo was.
 
 She started going to the mall daily. Not teaching—she didn't know anything worth teaching. Just helping. Holding things while people tied knots. Adding to the garbage arrangements. Writing questions on cardboard.
 
@@ -168,7 +168,7 @@ Someone would find it. Would follow it. Would discover what she'd discovered: th
 Still there.
 Still moving.
 Still refusing to be filed under any category.
-Still Oyparaploo, whatever that meant.
+Still Paraploo, whatever that meant.
 Still.
 
 *The real archive isn't in filing cabinets but in abandoned malls and bankruptcy courts and stories pinned to trees, collected by people who've gone off course from their designated paths, discovering that some things can't be preserved because they're still happening, still transforming, still pulling people off their safe routes into the dangerous, necessary territory of the undocumented real.*

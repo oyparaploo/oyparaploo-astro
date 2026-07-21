@@ -70,7 +70,7 @@ Why do I do this?
 
 They demand to exist. Even though they don't. Yet.
 
-Oyparaploo keeps signing things. That might be me. Can't remember.
+Paraploo keeps signing things. That might be me. Can't remember.
 
 You're reading this. You found it. Tree? Book? Windshield? 
 
@@ -84,7 +84,7 @@ The pause between words is where C. Beaumont lives and maybe where we all live, 
 
 Write them down. Your impossible people. Before they become possible. Or after. 
 
-*—Found everywhere, signed by no one, everyone, Oyparaploo, you*
+*—Found everywhere, signed by no one, everyone, Paraploo, you*
 
 *Coda:*
 We all carry lists of impossible people. Check your pockets for dirt. That's how you know they're starting to exist.

@@ -21,4 +21,4 @@ Recycle the pan. The end.
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

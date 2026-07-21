@@ -19,4 +19,4 @@ There is school. And there is a shoal of a half thousand or so silver fish splas
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

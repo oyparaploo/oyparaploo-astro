@@ -54,4 +54,4 @@ Silence is not the opposite of loud music ... it's the space a song needs in ord
 
 Unchosen loneliness leads to more suffering. A monk chooses the cells of a feather. A writer chooses the best time of day to cook up something special. An Indigenous wise elder female gardener fully appreciates every slow circular changing season.
 
-We at oyparaploo also invite you to consume the upside down much about nothing character of repulsive pleasure ... undesirable disgust ... and unpleasing aversions ... as part of life.
+We at paraploo also invite you to consume the upside down much about nothing character of repulsive pleasure ... undesirable disgust ... and unpleasing aversions ... as part of life.

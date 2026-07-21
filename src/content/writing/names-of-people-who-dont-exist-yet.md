@@ -40,6 +40,6 @@ These names carry insights about worlds. About ours. I write them down because t
 
 If you've read this far, you probably have names like this too. People who don't exist but should. Or do exist but shouldn't. Same thing really.
 
-*—Found pinned to this tree, October morning, signed only "Oyparaploo"*
+*—Found pinned to this tree, October morning, signed only "Paraploo"*
 
 **P.S.** Names can carry entire worlds. Handle with care.

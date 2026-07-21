@@ -27,4 +27,4 @@ Our specimens that come from and out of a vast whole lot of ... from this propag
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

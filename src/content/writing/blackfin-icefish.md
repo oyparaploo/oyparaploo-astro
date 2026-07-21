@@ -21,4 +21,4 @@ Blackfin icefish.
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

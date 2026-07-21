@@ -1,5 +1,5 @@
 ---
-title: "Resense Oyparaploo Retrograde Amalgam"
+title: "Resense Paraploo Retrograde Amalgam"
 variant: breath-display
 ground: dark
 date: "20.12.2025"
@@ -16,7 +16,7 @@ A community space that existed ... somewhere ... a basement ... or hall with fol
 
 Details of filled floors are so irreversible ... Every object both sacred and ordinary ... Doctrine at the level of set design ... watching itself be born while breathing comfortably ... In the middle of continuing as a heating up fast audience ... This was a tiny memory we had ... What do you think it means? ... It means that you fed someone's words into a furnace ... comments about this swallowed whole body ... genuinely demonstrating substance use ... from Stanzas that seems to want to go deeper ...
 
-Why do Oyparaploo's literary mammals eat up everything that comes near it ... commentary ... memories ... analysis ... conversation ... There's no safe distance from which to experience This Thing ... that doesn't always know where it wants to go next ...
+Why do Paraploo's literary mammals eat up everything that comes near it ... commentary ... memories ... analysis ... conversation ... There's no safe distance from which to experience This Thing ... that doesn't always know where it wants to go next ...
 
 Try to guess the name of this ... we'll give you some hints ... It's not a form ... It moves by instinct ... It's built to come up with perfect strategies ... It's not a hunter ... It's a lost cause and demonstrates total absorption of power ... The Answer ... Priestesses Furnace Pamphlet Found in the Wall of a Laundromat ...
 

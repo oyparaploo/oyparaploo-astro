@@ -21,4 +21,4 @@ Who are they. Presently at just the born in concept stage.
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

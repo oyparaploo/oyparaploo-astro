@@ -30,7 +30,7 @@ She showed him the notebook. Hundreds of receipts taped in. Drawings of cord pat
 
 "This is crazy."
 
-"No. This is Oyparaploo."
+"No. This is Paraploo."
 
 The word just came out. Made no sense. Made perfect sense. The sound the cords made when she held them all at once.
 
@@ -62,7 +62,7 @@ She found one at the demolished plaza—thick as her wrist, the kind they use fo
 
 Started hearing news through the cords somehow. The mayor indicted. The hospital closing. Her son getting into college (how? when?). All of it humming through blue plastic, making sense in ways that sense never had.
 
-"We at Oyparaploo are just collecting things right now," she told the reporter who came. Someone had called about the crazy woman with the cords. Human interest story.
+"We at Paraploo are just collecting things right now," she told the reporter who came. Someone had called about the crazy woman with the cords. Human interest story.
 
 "We?"
 
@@ -87,7 +87,7 @@ Not a pattern.
 A chord.
 Electric blue.
 Singing what couldn't be said.
-Oyparaploo.
+Paraploo.
 
 The demolition crew found her like that. Said she was humming. Same frequency as the cords. Said the whole room sounded like something breaking and being born at the same time.
 
@@ -97,7 +97,7 @@ Michael called it mom.
 
 She's in a facility now. Still collecting receipts. Still humming in E flat—Pearl's last breath, the note everything makes when it stops.
 
-Still saying "Oyparaploo" when asked what she's doing.
+Still saying "Paraploo" when asked what she's doing.
 Still not wrong.
 
 *What we collect while ignoring everything else becomes the everything we ignored, humming with the specific frequency of our loss, making songs from the cords that connected nothing to nothing until suddenly they connected everything to everything, too late to matter, too late to stop, exactly on time.*

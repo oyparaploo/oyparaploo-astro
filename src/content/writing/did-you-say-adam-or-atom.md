@@ -21,4 +21,4 @@ We feed off each other so to speak ... to become our best fully alive cells. Pre
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

@@ -21,4 +21,4 @@ This is someone's devotional symbol of faith or the rusty screws in a bucket lis
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

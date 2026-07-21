@@ -19,4 +19,4 @@ We imagine also ... most of our light ... most of our fabrics ... light to heavi
 February 8, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

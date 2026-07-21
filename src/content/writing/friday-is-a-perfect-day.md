@@ -82,4 +82,4 @@ That unexpected One again appearing ... wheeling a shopping cart of bright squas
 
 Seeded prophecies are waiting ... with a softness that holds laughter and tears ... longer than our uncle has been saving ketchup packets ... and he has been saving them since before we were born ... Something is always waiting for us ...
 
-- Oyparaploo
+- Paraploo

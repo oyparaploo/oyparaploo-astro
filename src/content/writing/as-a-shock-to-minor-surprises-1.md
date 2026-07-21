@@ -27,4 +27,4 @@ On me ... meteor stone burned a hole through our dining room table and burned th
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

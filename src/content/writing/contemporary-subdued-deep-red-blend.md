@@ -19,4 +19,4 @@ I could be that harmless moth that came to me ... the controller operator of war
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Witness
 
-[ Oyparaploo ]
+[ Paraploo ]

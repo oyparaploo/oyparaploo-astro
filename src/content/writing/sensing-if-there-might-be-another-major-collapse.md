@@ -16,7 +16,7 @@ Begin by alchemizing your gardens, so to speak. If joy is not there, you can die
 
 We just have to keep turning without having a nervous breakdown. Help everyone around you regenerate and fertilize futures.
 
-It's really interesting what's happening to this sort of intentionally messed up Oyparaploo English language. Before we go any further, we would like to thank Mister Workgrade Consensus. We project our spectrum of emotions onto the world. We are all struggling to find answers, figuring out field language. We're careful not to romanticize, because when we do, it arrives as a burden.
+It's really interesting what's happening to this sort of intentionally messed up Paraploo English language. Before we go any further, we would like to thank Mister Workgrade Consensus. We project our spectrum of emotions onto the world. We are all struggling to find answers, figuring out field language. We're careful not to romanticize, because when we do, it arrives as a burden.
 
 There were grandmothers at the back of the room who could stand through most anything. These elders read the field by listening to the small birds visiting trees. All the tiny birds have looks that convey verbal and nonverbal natural hallucinations. Something about our common bodies and the beaks of genius birds.
 

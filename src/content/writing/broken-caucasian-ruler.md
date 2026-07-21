@@ -30,4 +30,4 @@ Personalized intimate fully alive cells. We are always becoming.
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

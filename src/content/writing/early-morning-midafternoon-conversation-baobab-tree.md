@@ -10,7 +10,7 @@ cluster: "Grief, Loss & Compulsive Making"
 
 (Including Her Roots)
 
-Oyparaploo in collaboration with Purrnet
+Paraploo in collaboration with Purrnet
 
 *early morning — the light barely arrived*
 

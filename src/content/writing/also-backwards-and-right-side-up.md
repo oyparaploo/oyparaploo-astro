@@ -25,4 +25,4 @@ One Mississippi two orphan Blackbird auto forward backwards upside down right si
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]

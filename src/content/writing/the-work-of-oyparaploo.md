@@ -1,5 +1,5 @@
 ---
-title: "The Work of Oyparaploo"
+title: "The Work of Paraploo"
 variant: breath-display
 ground: dark
 date: "12.12.2025"

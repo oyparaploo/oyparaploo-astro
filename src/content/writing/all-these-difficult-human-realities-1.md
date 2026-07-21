@@ -25,4 +25,4 @@ Mental therapy and pain remedy of just a dancing to a positively uplifting song 
 February 4, 2021 (voice) / February 4, 2026 (edit)
 Declaration
 
-[ Oyparaploo ]
+[ Paraploo ]
