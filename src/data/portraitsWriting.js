@@ -187,7 +187,7 @@ export const WRITING_GROUPS = [
       },
       {
         "href": "/writing/red-tongues-first/",
-        "inner": "<div class=\"wp-title\">Red Tongues First</div><div class=\"wp-excerpt\">Oyparaploo speaking on the surface of Indigenous red tongues first.</div>"
+        "inner": "<div class=\"wp-title\">Red Tongues First</div><div class=\"wp-excerpt\">Paraploo speaking on the surface of Indigenous red tongues first.</div>"
       },
       {
         "href": "#",
