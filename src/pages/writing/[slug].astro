@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReadingLayout from '../../layouts/ReadingLayout.astro';
 import recoveredDates from '../../data/recovered-dates.json';
+import { REVEALED } from '../../data/revealed.js';
 
 export async function getStaticPaths() {
-  const pieces = (await getCollection('writing')).filter((p) => p.id !== 'and-fluid-mosaic');
+  const pieces = (await getCollection('writing')).filter((p) => REVEALED.includes(p.id));
   return pieces.map((piece) => ({ params: { slug: piece.id }, props: { piece } }));
 }
 

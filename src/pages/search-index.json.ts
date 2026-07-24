@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import recoveredDates from '../data/recovered-dates.json';
+import { REVEALED } from '../data/revealed.js';
 
 // frontmatter `date:` is stripped by the Zod schema — read it back from the raw file
 // (same pattern the writing pages use), then prefer the recovered date if present.
@@ -27,8 +28,7 @@ function plain(s: string): string {
 }
 
 export const GET: APIRoute = async () => {
-  // same exclusion as the front door / cluster interiors so the index matches the listings
-  const pieces = (await getCollection('writing')).filter((e) => e.id !== 'and-fluid-mosaic');
+  const pieces = (await getCollection('writing')).filter((e) => REVEALED.includes(e.id));
   const index = pieces.map((p) => {
     const body = plain(p.body ?? '');
     return {
