@@ -15,7 +15,6 @@ body {
   background: linear-gradient(to bottom,
     #000000 0%, #020203 20%, #060810 40%,
     #0a0d16 60%, #0d111b 80%, #111521 100%);
-  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -363,7 +362,7 @@ html.size-3 { --root-size: 21px; }
 
 
 /* ═══ VI. SCROLL REVEAL ═══ */
-.reveal { opacity: 0; transition: opacity 1.2s ease; }
+.reveal { opacity: 0; transition: opacity 1.8s ease; }
 .reveal-slow { opacity: 0; transition: opacity 2s ease; }
 .reveal.visible, .reveal-slow.visible { opacity: 1; }
 
@@ -378,7 +377,7 @@ html.size-3 { --root-size: 21px; }
 @media (max-width: 768px) {
   .nav-inner { padding: 0 24px; }
   .menu-panel { width: 100%; max-width: 100%; }
-  .reveal { transition: opacity 0.6s ease; }
+  .reveal { transition: opacity 0.9s ease; }
   .reveal-slow { transition: opacity 1s ease; }
 }
 @media (max-width: 480px) {
@@ -454,6 +453,20 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
   box-shadow: inset 0 0 24px 4px rgba(0,0,0,0.18);
 }
 @keyframes windowBreathIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ═══ RELATED WORK FRAGMENT (styled per portrait-conduction .work-fragment spec) ═══ */
+.work-fragment {
+  font-family: 'Lora', serif; font-size: clamp(1.1111rem, 2vw, 1.2778rem); font-weight: 400;
+  color: #e8e0d6; line-height: 1.85;
+  margin-top: 1.5em; margin-bottom: 2em;
+  padding-left: 0.8em; border-left: 1px solid #e8e0d6;
+}
+.work-link {
+  color: rgba(168, 200, 224, 0.75); text-decoration: underline;
+  text-decoration-color: rgba(168, 200, 224, 0.6); text-underline-offset: 9px;
+  text-decoration-thickness: 1px; transition: color 0.4s ease, text-decoration-color 0.4s ease;
+}
+.work-link:hover { color: rgba(168, 200, 224, 0.95); text-decoration-color: rgba(168, 200, 224, 0.7); }
 </style>
 </head>
 <body>
@@ -560,6 +573,8 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
   <p class="breath question">Is this a loose biography segment, extended prayer, or portrait in English to carry forward? <span class="ellipsis">...</span> shoulder shrug <span class="ellipsis">...</span> Who knows, Mode <span class="ellipsis">...</span></p>
 
   <p class="breath return">West has blessed voices <span class="ellipsis">...</span></p>
+
+  <div class="work-fragment">"...the janitor who speaks in palindromes since his wife died, except once when he said 'you remind me of my son' &mdash; perfectly forward, perfectly clear..." <a href="/where-we-learned-to-disappear/" class="work-link">Read: Where We Learned to Disappear</a></div>
 
   <hr class="colophon" aria-hidden="true">
 </div>
