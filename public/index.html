@@ -7,21 +7,17 @@
   <style>
     html, body { margin:0; padding:0; height:100%; background:#0e0d0b; }
     body { min-height:100%; }
-    :root { --ground-scroll: 300vh; }
     #ground {
       position:fixed; inset:0; z-index:0;
-      min-height:var(--ground-scroll);
-      background-image:url('https://imagedelivery.net/LIGkZeI360k55Er7BvK1Gw/acebc421-d80e-4ad7-851e-1d6045bff300/public');
-      background-repeat:no-repeat;
-      background-position:center top;
-      background-size:cover;
-      background-attachment:scroll;
     }
-    #scroll { position:relative; z-index:1; height:var(--ground-scroll); }
+    .ground-img { display: block; width: 100%; height: auto; }
+    #scroll { position:relative; z-index:1; }
   </style>
 </head>
 <body>
-  <div id="ground"></div>
+  <div id="ground"><img class="ground-img"
+       src="https://imagedelivery.net/LIGkZeI360k55Er7BvK1Gw/acebc421-d80e-4ad7-851e-1d6045bff300/public"
+       alt=""></div>
   <div id="scroll"></div>
 </body>
 </html>
