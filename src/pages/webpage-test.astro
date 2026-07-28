@@ -61,11 +61,14 @@
 
   /* ---------- the field ---------- */
   .field {
-    width: 100%; margin: 0; padding: 0 0 90px;
+    width: 100%; margin: 0; padding: 0;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--speck));
     gap: 0;
     justify-content: center;
+    align-content: start;
+    background: #0d0907;
   }
   .speck {
     width: var(--speck); height: var(--speck);
@@ -257,8 +260,14 @@
     field.innerHTML = "";
     specks = [];
     var speckPx = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--speck"), 10) || 82;
-    var cols = Math.max(1, Math.floor(window.innerWidth / speckPx));
-    var rows = Math.ceil(window.innerHeight / speckPx) + 2; // +2 so it always overfills a touch
+    var h = Math.max(
+      window.innerHeight || 0,
+      document.documentElement.clientHeight || 0,
+      (window.screen && window.screen.height) || 0
+    );
+    var w = window.innerWidth || document.documentElement.clientWidth || 360;
+    var cols = Math.max(1, Math.floor(w / speckPx));
+    var rows = Math.ceil(h / speckPx) + 8;  // generous overfill for phones that underreport height
     var target = cols * rows;
     var needed = Math.max(ids.length, target);
     for (var k = 0; k < needed; k++) {
