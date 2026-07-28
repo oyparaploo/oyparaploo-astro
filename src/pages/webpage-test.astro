@@ -249,14 +249,35 @@
   function url(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/public"; }
   function urlFull(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/full"; }
 
-  ids.forEach(function (id, i) {
-    var b = document.createElement("button");
-    b.className = "speck";
-    b.style.backgroundImage = "url(" + url(id) + ")";
-    b.setAttribute("aria-label", GATHERING + " " + nums[i]);
-    b.addEventListener("click", function () { open(i); });
-    specks.push(b);
-    field.appendChild(b);
+  // Build enough tiles to fill the screen. With a small gathering (57) the set
+  // repeats so the field is always a full mosaic, never a short block with black
+  // below. Each tile maps back to its true image index i, so clicks and the
+  // slideshow numbering stay correct regardless of repetition.
+  function buildField() {
+    field.innerHTML = "";
+    specks = [];
+    var speckPx = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--speck"), 10) || 82;
+    var cols = Math.max(1, Math.floor(window.innerWidth / speckPx));
+    var rows = Math.ceil(window.innerHeight / speckPx) + 2; // +2 so it always overfills a touch
+    var target = cols * rows;
+    var needed = Math.max(ids.length, target);
+    for (var k = 0; k < needed; k++) {
+      var i = k % ids.length;                 // wrap through the set
+      var b = document.createElement("button");
+      b.className = "speck";
+      b.style.backgroundImage = "url(" + url(ids[i]) + ")";
+      b.setAttribute("aria-label", GATHERING + " " + nums[i]);
+      (function (idx, el) { el.addEventListener("click", function () { open(idx, el); }); })(i, b);
+      specks.push(b);
+      field.appendChild(b);
+    }
+  }
+  // (buildField is called at the very end, after all handlers are defined)
+  // rebuild on rotate/resize so it stays full
+  var rebuildTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(rebuildTimer);
+    rebuildTimer = setTimeout(buildField, 200);
   });
 
   var current = 0;      // index showing now
@@ -286,8 +307,11 @@
     if (playing) timer = setTimeout(function () { advance(); schedule(); }, HOLD);
   }
 
-  function open(i) {
+  var clickedSpeck = null;
+
+  function open(i, speckEl) {
     specks.forEach(function (s) { s.classList.remove("marked"); });
+    clickedSpeck = speckEl || null;
     box.classList.add("open");
     slides[0].classList.remove("show");
     slides[1].classList.remove("show");
@@ -305,9 +329,9 @@
     clearTimeout(timer);
     box.classList.remove("open");
     specks.forEach(function (s) { s.classList.remove("marked"); });
-    if (specks[current]) {
-      specks[current].classList.add("marked");
-      specks[current].scrollIntoView({ block: "center", behavior: "smooth" });
+    if (clickedSpeck) {
+      clickedSpeck.classList.add("marked");
+      clickedSpeck.scrollIntoView({ block: "center", behavior: "smooth" });
     }
   }
 
@@ -340,6 +364,9 @@
     else if (e.key === "ArrowLeft") { paint((current - 1 + ids.length) % ids.length); schedule(); }
     else if (e.key === " ") { e.preventDefault(); setPlaying(!playing); }
   });
+
+  // build the mosaic now that everything it needs exists
+  buildField();
 </script>
 
 </body>
