@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet">
 <style>
-  :root { --root-size: 17px; --speck: 82px; }
+  :root { --root-size: 17px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   * { font-style: normal; }
   html { font-size: var(--root-size); -webkit-text-size-adjust: 100%; }
@@ -17,7 +17,22 @@
     background: #0d0907;
     color: rgba(232,224,214,0.85);
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(232,224,214,0.12);
   }
+
+  /* ---------- light mode (contrast toggle) ---------- */
+  body.light-mode { background: #fffdf9; color: #2a2320; }
+  body.light-mode nav { background: rgba(255,255,255,0.97); }
+  body.light-mode .wordmark { color: #333333; }
+  body.light-mode .wordmark:hover { color: #5c3a1e; }
+  body.light-mode .nav-links a { color: #333333; }
+  body.light-mode .nav-links a:hover { color: #5c3a1e; }
+  body.light-mode .icon-btn { color: #333333; }
+  body.light-mode .burger span { background: #333333; }
+  body.light-mode .hd .g { color: #5a4f47; }
+  body.light-mode .field { background: #fffdf9; }
   p, h1, h2 { text-wrap: pretty; }
 
   /* ---------- nav ---------- */
@@ -44,6 +59,23 @@
   .nav-links a:hover { color: rgba(232,224,214,0.96); }
   @media (max-width: 1100px) { .nav-links { display: none; } }
   .nav-utils { display: flex; align-items: center; gap: 18px; margin-left: 24px; }
+  .sz-group { display: flex; align-items: flex-end; gap: 0; }
+  .sz {
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    color: rgba(232,224,214,0.66); background: none; border: none; cursor: pointer;
+    line-height: 1; min-height: 44px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 0 2px 12px;
+    transition: color 0.18s ease;
+  }
+  .sz:hover { color: rgba(232,224,214,0.78); }
+  .sz.active { color: rgba(232,224,214,0.78); }
+  body.light-mode .sz { color: #5a4f47; }
+  body.light-mode .sz:hover { color: #333333; }
+  body.light-mode .sz.active { color: #333333; }
+  .sz[data-size="1"] { font-size: 14px; }
+  .sz[data-size="2"] { font-size: 17px; }
+  .sz[data-size="3"] { font-size: 20px; }
   .icon-btn {
     background: none; border: none; color: rgba(232,224,214,0.85); cursor: pointer;
     min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center;
@@ -56,37 +88,43 @@
   header.hd { max-width: 1400px; margin: 0 auto; padding: 54px 40px 30px; }
   .hd .g {
     font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(232,224,214,0.6);
+    text-transform: uppercase; color: rgba(232,224,214,0.62);
   }
 
   /* ---------- the field ---------- */
+  /* Specks are a fraction of screen width via a fixed column count, so they're
+     always a readable size on any device — no pixel guessing. The field simply
+     flows down and scrolls; it never needs to "fill exactly one screen". */
   .field {
     width: 100%; margin: 0; padding: 0;
-    min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(auto-fill, var(--speck));
+    grid-template-columns: repeat(12, 1fr);   /* desktop: 12 across */
     gap: 0;
-    justify-content: center;
-    align-content: start;
     background: #0d0907;
   }
+  @media (max-width: 1024px) { .field { grid-template-columns: repeat(8, 1fr); } }
+  @media (max-width: 1000px) { .field { grid-template-columns: repeat(8, 1fr); } }
+  @media (max-width: 640px)  { .field { grid-template-columns: repeat(4, 1fr); } }  /* phone: 4 across, readable */
   .speck {
-    width: var(--speck); height: var(--speck);
+    width: 100%; aspect-ratio: 1;
     display: block;
     border: none; padding: 0; margin: 0; cursor: pointer;
     background-size: cover; background-position: center;
     border-radius: 0;
     filter: saturate(0.82) brightness(0.84);
-    transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+    transition: transform 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                filter 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                border-radius 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                box-shadow 0.7s cubic-bezier(0.45, 0, 0.55, 1);
     position: relative;
   }
   .speck:hover, .speck:focus-visible {
-    transform: scale(4);
+    transform: scale(2.4);
     filter: saturate(1) brightness(1);
     z-index: 5;
     box-shadow: 0 6px 22px rgba(0,0,0,0.6);
     outline: none;
-    border-radius: 2px;
+    border-radius: 6px;
   }
   .speck.marked {
     box-shadow: inset 0 0 0 2px #ff6a1a, 0 0 10px 1px rgba(255,106,26,0.65);
@@ -106,14 +144,14 @@
     flex: 0 0 auto; height: 56px;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 26px; z-index: 4;
-    border-bottom: 1px solid rgba(232,224,214,0.1);
+    border-bottom: 1px solid rgba(232,224,214,0.35);
   }
   .bar .controls { display: flex; align-items: center; gap: 26px; }
   .ctl {
     background: none; border: none; cursor: pointer;
     font-family: 'Inter', sans-serif; font-size: 0.94rem; font-weight: 500;
     letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(232,224,214,0.72); padding: 8px 0;
+    color: rgba(232,224,214,0.62); padding: 8px 0;
     min-height: 44px; display: flex; align-items: center;
     transition: color 0.18s ease;
   }
@@ -124,16 +162,18 @@
     position: absolute; bottom: 20px; left: 26px; z-index: 4;
     font-family: 'Lora', serif; font-style: italic; font-weight: 400;
     font-size: 1.06rem; letter-spacing: 0.02em;
-    color: rgba(232,224,214,0.5); pointer-events: none;
+    color: rgba(232,224,214,0.62); pointer-events: none;
     opacity: 0; transition: opacity 0.4s ease;
   }
   .tap-hint.visible { opacity: 1; }
   .bar .count {
     font-family: 'Inter', sans-serif; font-size: 0.94rem; font-weight: 500;
-    letter-spacing: 0.14em; color: rgba(232,224,214,0.72);
+    letter-spacing: 0.14em; color: rgba(232,224,214,0.62);
   }
   .stage {
     flex: 1 1 auto; position: relative;
+    margin-top: -14px;
+    z-index: 5;
   }
   .slide {
     position: absolute; inset: 0;
@@ -151,18 +191,15 @@
   }
 
   @media (max-width: 768px) {
-    :root { --speck: 52px; }
     .nav-inner, header.hd { padding-left: 24px; padding-right: 24px; }
-    .speck:hover, .speck:focus-visible { transform: scale(8); }
+    .speck:hover, .speck:focus-visible { transform: scale(2); }
     .bar { padding: 0 18px; }
     .bar .controls { gap: 18px; }
   }
 
-  /* touch devices: no hover step — a tap opens the slideshow directly.
-     Specks stay small so the field reads as dense grain, not a few fat rows. */
+  /* touch devices: no hover step — a tap opens the slideshow directly. */
   @media (hover: none), (pointer: coarse) {
-    :root { --speck: 34px; }
-    .speck { filter: saturate(0.92) brightness(0.9); }
+    .speck { filter: saturate(0.95) brightness(0.95); }
     .speck:hover, .speck:focus-visible,
     .speck:active {
       transform: none;
@@ -178,6 +215,87 @@
     .slide { padding: 0 1vw 44px; }
     .slide img { max-width: 99vw; max-height: 100%; }
   }
+
+  .icon-btn { transition: color 0.18s ease; }
+  #contrastBtn svg { transition: transform 0.25s ease; }
+  body.light-mode #contrastBtn svg { transform: scaleX(-1); }
+
+  /* ---------- menu (Städel slide-in) — px only, per spec ---------- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(0,0,0,0.45);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .menu-overlay.open { opacity: 1; visibility: visible; }
+  .menu-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 95;
+    width: 400px; max-width: 88vw;
+    background: #faf6f0;
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 34px 40px calc(34px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+  }
+  .menu-panel.open { transform: translateX(0); }
+  .menu-close {
+    align-self: flex-end; background: none; border: none; cursor: pointer;
+    width: 44px; height: 44px; color: #3d352e;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .menu-links { list-style: none; margin-top: 22px; }
+  .menu-links li { border-bottom: 1px solid rgba(61,53,46,0.32); }
+  .menu-links a {
+    display: flex; align-items: center; min-height: 44px; padding: 12px 0;
+    font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+    color: #2a2320; text-decoration: none; letter-spacing: 0.01em;
+  }
+  .menu-links a:hover { color: #5c3a1e; }
+
+  /* ---------- search (slim drop bar) ---------- */
+  .search-overlay {
+    position: fixed; top: 65px; left: 0; right: 0; z-index: 96;
+    background: rgba(10,7,5,0.94);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    transform: translateY(-100%);
+    opacity: 0; visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.22s ease, visibility 0.22s ease;
+  }
+  .search-overlay.open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .search-box {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    height: 62px; display: flex; align-items: center; gap: 16px;
+  }
+  .search-box input {
+    flex: 0 1 460px; background: none; border: none;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 400;
+    color: rgba(232,224,214,0.88); padding: 6px 0; outline: none;
+  }
+  .search-box input:focus { border-bottom-color: rgba(232,224,214,0.62); }
+  .search-box input::placeholder { color: rgba(232,224,214,0.62); }
+  .search-close {
+    width: 44px; height: 44px; background: none; border: none; cursor: pointer;
+    color: rgba(232,224,214,0.62); flex-shrink: 0; margin-left: auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .search-close:hover { color: rgba(232,224,214,1); }
+  body.light-mode .search-overlay { background: rgba(255,255,255,0.97); border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input { color: #2a2320; border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input:focus { border-bottom-color: rgba(61,53,46,0.55); }
+  body.light-mode .search-box input::placeholder { color: #5a4f47; }
+  body.light-mode .search-close { color: #333333; }
+
+  @media (max-width: 768px) {
+    .search-box { padding: 0 24px; gap: 10px; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-panel { width: 100%; max-width: 100%; padding: 28px 24px; }
+    .nav-inner { padding: 0 24px; }
+  }
 </style>
 </head>
 <body>
@@ -192,14 +310,45 @@
       <li><a href="#">Dispatches</a></li>
     </ul>
     <div class="nav-utils">
-      <button class="icon-btn" aria-label="search">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
+      <div class="sz-group" aria-label="text size">
+        <button class="sz active" data-size="1" aria-label="small text">A</button>
+        <button class="sz" data-size="2" aria-label="medium text">A</button>
+        <button class="sz" data-size="3" aria-label="large text">A</button>
+      </div>
+      <button class="icon-btn" id="contrastBtn" aria-label="contrast">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5Z" fill="currentColor"/></svg>
       </button>
-      <button class="icon-btn burger" aria-label="menu"><span></span><span></span><span></span></button>
+      <button class="icon-btn" id="searchBtn" aria-label="search">
+        <svg width="21" height="21" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
+      </button>
+      <button class="icon-btn burger" id="menuBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 <div class="accent-rule"></div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<aside class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="close menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <ul class="menu-links">
+    <li><a href="#">Writing</a></li>
+    <li><a href="#">Portraits</a></li>
+    <li><a href="#">Practice</a></li>
+    <li><a href="#">Dispatches</a></li>
+    <li><a href="#">Good Grounds</a></li>
+  </ul>
+</aside>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
+  <div class="search-box">
+    <input type="search" id="searchInput" placeholder="Search" aria-label="Search paraploo">
+    <button class="search-close" id="searchClose" aria-label="close search">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </div>
+</div>
 
 <header class="hd">
   <div class="g">Hand~Writing Gray Areas · Cool</div>
@@ -252,42 +401,22 @@
   function url(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/public"; }
   function urlFull(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/full"; }
 
-  // Build enough tiles to fill the screen. With a small gathering (57) the set
-  // repeats so the field is always a full mosaic, never a short block with black
-  // below. Each tile maps back to its true image index i, so clicks and the
-  // slideshow numbering stay correct regardless of repetition.
+  // Lay down every image once, at a readable size. The field flows down and
+  // scrolls — no screen-height guessing, so it can't come up short on any phone.
   function buildField() {
     field.innerHTML = "";
     specks = [];
-    var speckPx = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--speck"), 10) || 82;
-    var h = Math.max(
-      window.innerHeight || 0,
-      document.documentElement.clientHeight || 0,
-      (window.screen && window.screen.height) || 0
-    );
-    var w = window.innerWidth || document.documentElement.clientWidth || 360;
-    var cols = Math.max(1, Math.floor(w / speckPx));
-    var rows = Math.ceil(h / speckPx) + 8;  // generous overfill for phones that underreport height
-    var target = cols * rows;
-    var needed = Math.max(ids.length, target);
-    for (var k = 0; k < needed; k++) {
-      var i = k % ids.length;                 // wrap through the set
+    ids.forEach(function (id, i) {
       var b = document.createElement("button");
       b.className = "speck";
-      b.style.backgroundImage = "url(" + url(ids[i]) + ")";
+      b.style.backgroundImage = "url(" + url(id) + ")";
       b.setAttribute("aria-label", GATHERING + " " + nums[i]);
       (function (idx, el) { el.addEventListener("click", function () { open(idx, el); }); })(i, b);
       specks.push(b);
       field.appendChild(b);
-    }
+    });
   }
   // (buildField is called at the very end, after all handlers are defined)
-  // rebuild on rotate/resize so it stays full
-  var rebuildTimer;
-  window.addEventListener("resize", function () {
-    clearTimeout(rebuildTimer);
-    rebuildTimer = setTimeout(buildField, 200);
-  });
 
   var current = 0;      // index showing now
   var active = 0;       // which slide layer is on top
@@ -372,6 +501,69 @@
     else if (e.key === "ArrowRight") { advance(); schedule(); }
     else if (e.key === "ArrowLeft") { paint((current - 1 + ids.length) % ids.length); schedule(); }
     else if (e.key === " ") { e.preventDefault(); setPlaying(!playing); }
+  });
+
+  // AAA font-size toggle (Städel nav requirement)
+  document.querySelectorAll(".sz").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".sz").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var sizes = { "1": "17px", "2": "18px", "3": "20px" };
+      document.documentElement.style.setProperty("--root-size", sizes[btn.dataset.size]);
+      document.documentElement.className = "size-" + btn.dataset.size;
+    });
+  });
+
+  // ---------- menu ----------
+  var menuBtn = document.getElementById("menuBtn");
+  var menuPanel = document.getElementById("menuPanel");
+  var menuOverlay = document.getElementById("menuOverlay");
+  var menuClose = document.getElementById("menuClose");
+
+  function setMenu(on) {
+    menuPanel.classList.toggle("open", on);
+    menuOverlay.classList.toggle("open", on);
+    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
+    menuPanel.setAttribute("aria-hidden", on ? "false" : "true");
+    menuOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    document.body.style.overflow = on ? "hidden" : "";
+  }
+  menuBtn.addEventListener("click", function () {
+    setMenu(!menuPanel.classList.contains("open"));
+  });
+  menuClose.addEventListener("click", function () { setMenu(false); });
+  menuOverlay.addEventListener("click", function () { setMenu(false); });
+  menuPanel.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+
+  // ---------- search ----------
+  var searchBtn = document.getElementById("searchBtn");
+  var searchOverlay = document.getElementById("searchOverlay");
+  var searchClose = document.getElementById("searchClose");
+  var searchInput = document.getElementById("searchInput");
+
+  function setSearch(on) {
+    searchOverlay.classList.toggle("open", on);
+    searchOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    if (on) { setTimeout(function () { searchInput.focus(); }, 60); }
+    else { searchInput.blur(); }
+  }
+  searchBtn.addEventListener("click", function () {
+    setSearch(!searchOverlay.classList.contains("open"));
+  });
+  searchClose.addEventListener("click", function () { setSearch(false); });
+
+  // ---------- contrast ----------
+  document.getElementById("contrastBtn").addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+  });
+
+  // Escape closes menu and search
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (menuPanel.classList.contains("open")) setMenu(false);
+    if (searchOverlay.classList.contains("open")) setSearch(false);
   });
 
   // build the mosaic now that everything it needs exists
