@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season — paraploo, the elder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400..700&family=Inter:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root { --root-size: 17px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { font-style: normal; }
+  html { font-size: var(--root-size); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0907;
+    color: rgba(232,224,214,0.85);
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(232,224,214,0.12);
+  }
+  p, h1, h2, h3 { text-wrap: pretty; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- light mode ---------- */
+  body.light-mode { background: #fffdf9; color: #2a2320; }
+  body.light-mode nav.site { background: rgba(255,255,255,0.97); }
+  body.light-mode .wordmark { color: #333333; }
+  body.light-mode .wordmark:hover { color: #5c3a1e; }
+  body.light-mode .nav-links a { color: #333333; }
+  body.light-mode .nav-links a:hover { color: #5c3a1e; }
+  body.light-mode .icon-btn { color: #333333; }
+  body.light-mode .burger span { background: #333333; }
+
+  /* ---------- progress ---------- */
+  .progress {
+    position: fixed; top: 0; left: 0; z-index: 150;
+    height: 2px; width: 0; background: rgba(232,224,214,0.62);
+    transition: width 0.1s linear;
+  }
+  body.light-mode .progress { background: #5c3a1e; }
+
+  /* ---------- nav ---------- */
+  nav.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(0,0,0,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    height: 64px; display: flex; align-items: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .wordmark {
+    font-family: 'Lora', serif; font-weight: 600; font-size: 20px;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.62); flex-shrink: 0; white-space: nowrap;
+  }
+  .wordmark:hover { color: rgba(232,224,214,0.96); }
+  @keyframes wordmark-breathe {
+    0%, 100% { opacity: 0; }
+    50%      { opacity: 0.58; }
+  }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-left: 48px; flex-shrink: 0; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.68);
+  }
+  .nav-links a:hover { color: rgba(232,224,214,0.96); }
+  @media (max-width: 1100px) { .nav-links { display: none; } }
+  .nav-utils { display: flex; align-items: center; gap: 18px; margin-left: 24px; }
+
+  .sz-group { display: flex; align-items: flex-end; gap: 0; }
+  .sz {
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    color: rgba(232,224,214,0.62); background: none; border: none; cursor: pointer;
+    line-height: 1; min-height: 44px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 0 2px 12px; transition: color 0.18s ease;
+  }
+  .sz:hover { color: rgba(232,224,214,0.88); }
+  .sz.active { color: rgba(232,224,214,1) !important; }
+  body.light-mode .sz { color: #5a4f47; }
+  body.light-mode .sz:hover { color: #333333; }
+  body.light-mode .sz.active { color: #000000 !important; }
+  .sz[data-size="1"] { font-size: 14px; }
+  .sz[data-size="2"] { font-size: 17px; }
+  .sz[data-size="3"] { font-size: 20px; }
+
+  .icon-btn {
+    background: none; border: none; color: rgba(232,224,214,0.85); cursor: pointer;
+    min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center;
+    transition: color 0.18s ease;
+  }
+  .burger { display: flex; flex-direction: column; gap: 5px; }
+  .burger span { width: 22px; height: 1.5px; background: rgba(232,224,214,0.85); display: block; }
+  #contrastBtn svg { transition: transform 0.25s ease; }
+  body.light-mode #contrastBtn svg { transform: scaleX(-1); }
+  .accent-rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(85,85,85,0.55), transparent); }
+
+  /* ---------- filter bar ---------- */
+  .filter-bar {
+    max-width: 1400px; margin: 0 auto; padding: 18px 40px 0;
+    display: flex; gap: 26px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-tab {
+    background: none; border: none; cursor: pointer; white-space: nowrap;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(232,224,214,0.62); min-height: 44px;
+    display: flex; align-items: center; transition: color 0.18s ease;
+  }
+  .filter-tab:hover { color: rgba(232,224,214,0.88); }
+  .filter-tab.active { color: rgba(232,224,214,1); }
+  body.light-mode .filter-tab { color: #5a4f47; }
+  body.light-mode .filter-tab:hover { color: #333333; }
+  body.light-mode .filter-tab.active { color: #000000; }
+
+  /* ---------- header ---------- */
+  header.hd { max-width: 1400px; margin: 0 auto; padding: 30px 40px 34px; }
+  .hd .g {
+    font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(232,224,214,0.62);
+  }
+  body.light-mode .hd .g { color: #5a4f47; }
+
+  /* ---------- shared text tiers ---------- */
+  .label {
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(232,224,214,0.62);
+  }
+  .ttl {
+    font-family: 'Lora', serif; font-weight: 500; line-height: 1.3;
+    letter-spacing: -0.01em; color: rgba(232,224,214,0.88);
+  }
+  .desc { font-size: 1rem; line-height: 1.7; color: rgba(232,224,214,0.85); }
+  .byline { font-size: 1rem; color: rgba(232,224,214,0.62); }
+  body.light-mode .label { color: #5a4f47; }
+  body.light-mode .ttl { color: #2a2320; }
+  body.light-mode .desc { color: #2a2320; }
+  body.light-mode .byline { color: #5a4f47; }
+
+  .blk { display: block; }
+  a.blk:hover .ttl { color: rgba(232,224,214,1); }
+  body.light-mode a.blk:hover .ttl { color: #000000; }
+
+  /* ---------- image wells ---------- */
+  .img {
+    display: block; border-radius: 3px; overflow: hidden;
+    filter: saturate(0.82) brightness(0.84);
+    transition: filter 0.7s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  a.blk:hover .img, .img:hover { filter: saturate(1) brightness(1); }
+  a.blk:focus-visible { outline: none; }
+  a.blk:focus-visible .img { box-shadow: inset 0 0 0 2px rgba(232,224,214,0.88); }
+
+  /* ---------- method tags ---------- */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag {
+    display: inline-flex; align-items: center; min-height: 44px;
+    padding: 11px 14px; background: #1c1815; border-radius: 3px;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.08em; color: rgba(232,224,214,0.68);
+    transition: color 0.18s ease, background 0.18s ease;
+  }
+  .tag:hover { color: rgba(232,224,214,1); background: #262019; }
+  body.light-mode .tag { background: #f0ebe4; color: #4a4038; }
+  body.light-mode .tag:hover { background: #e6ded4; color: #000000; }
+
+  /* ---------- editorial hero ---------- */
+  .hero {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px 96px;
+    display: grid; grid-template-columns: 1.65fr 1fr 0.95fr; gap: 44px;
+    align-items: start;
+  }
+  .hero-main .img { width: 100%; height: 400px; background: linear-gradient(135deg, #1a1614 0%, #2a2320 100%); }
+  .hero-main .ttl { font-size: clamp(1.6471rem, 3vw, 2.1176rem); margin-top: 18px; }
+  .hero-main .label { margin-top: 22px; }
+  .hero-main .desc { margin-top: 14px; max-width: 620px; }
+  .hero-main .byline { margin-top: 14px; }
+
+  .hero-sec .img { width: 100%; height: 170px; background: linear-gradient(135deg, #1a1e2a 0%, #252935 100%); }
+  .hero-sec .ttl { font-size: 1.2941rem; margin-top: 14px; }
+  .hero-sec .byline { margin-top: 10px; }
+  .hero-sec + .hero-sec { margin-top: 34px; }
+
+  .side-head {
+    font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(232,224,214,0.62);
+    padding-bottom: 14px; border-bottom: 1px solid rgba(232,224,214,0.35);
+  }
+  body.light-mode .side-head { color: #5a4f47; border-bottom-color: rgba(61,53,46,0.32); }
+  .side-item {
+    display: flex; gap: 16px; align-items: flex-start; justify-content: space-between;
+    padding: 18px 0; border-bottom: 1px solid rgba(232,224,214,0.35);
+  }
+  body.light-mode .side-item { border-bottom-color: rgba(61,53,46,0.32); }
+  .side-item .ttl { font-size: 1.0588rem; }
+  .side-item .byline { margin-top: 8px; }
+  .side-item .img { width: 74px; height: 60px; flex-shrink: 0; background: #1c1815; }
+
+  /* ---------- content + sticky sidebar ---------- */
+  .body-grid {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start;
+  }
+  .sticky { position: sticky; top: 92px; }
+  .sticky-sec + .sticky-sec { margin-top: 44px; }
+  .sticky-item { padding: 16px 0; border-bottom: 1px solid rgba(232,224,214,0.35); }
+  body.light-mode .sticky-item { border-bottom-color: rgba(61,53,46,0.32); }
+  .sticky-item .ttl { font-size: 1.0588rem; }
+  .sticky-item .byline { margin-top: 8px; }
+
+  /* ---------- promo band ---------- */
+  .promo { display: grid; grid-template-columns: 1fr 320px; gap: 34px; align-items: center; margin-bottom: 88px; }
+  .promo .ttl { font-size: clamp(1.4118rem, 2.6vw, 1.7647rem); margin-top: 14px; }
+  .promo .desc { margin-top: 14px; }
+  .promo .img { width: 100%; height: 220px; background: linear-gradient(135deg, #1a1614 0%, #2a2320 100%); }
+  .cta-link {
+    display: inline-flex; align-items: center; min-height: 44px; margin-top: 18px;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(232,224,214,0.62); transition: color 0.18s ease;
+  }
+  .cta-link:hover { color: rgba(232,224,214,1); }
+  body.light-mode .cta-link { color: #5a4f47; }
+  body.light-mode .cta-link:hover { color: #000000; }
+
+  /* ---------- section head ---------- */
+  .sec-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 10px 26px; padding-bottom: 16px; margin-bottom: 30px;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+  }
+  body.light-mode .sec-head { border-bottom-color: rgba(61,53,46,0.32); }
+
+  /* ---------- story rows ---------- */
+  .story { display: grid; grid-template-columns: 300px 1fr; gap: 30px; align-items: start; padding-bottom: 40px; }
+  .story .img { width: 100%; height: 200px; background: #1c1815; }
+  .story .ttl { font-size: 1.4118rem; margin-top: 12px; }
+  .story .desc { margin-top: 12px; max-width: 620px; }
+
+  /* ---------- full cta ---------- */
+  .fullcta {
+    position: relative; border-radius: 3px; overflow: hidden;
+    margin: 56px 0 88px; min-height: 340px;
+    display: flex; align-items: center;
+  }
+  .fullcta-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1614 0%, #1a1e2a 50%, #1a1a1a 100%);
+    filter: saturate(0.82) brightness(0.84);
+    transition: filter 0.7s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  .fullcta:hover .fullcta-bg { filter: saturate(1) brightness(1); }
+  .fullcta-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,9,7,0.92) 0%, rgba(13,9,7,0.30) 65%); }
+  body.light-mode .fullcta-veil { background: linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.35) 65%); }
+  .fullcta-inner { position: relative; z-index: 2; padding: 44px 40px; max-width: 640px; }
+  .fullcta .ttl { font-size: clamp(1.6471rem, 3vw, 2.1176rem); }
+  .fullcta .desc { margin-top: 14px; }
+
+  /* ---------- domain cards ---------- */
+  .domains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .domain .img { width: 100%; height: 160px; background: #1c1815; }
+  .domain:nth-child(2) .img { background: #201c17; }
+  .domain:nth-child(3) .img { background: #221c16; }
+  .domain .ttl { font-size: 1.2941rem; margin-top: 14px; }
+  .domain .desc { margin-top: 10px; }
+
+  .tail { height: 96px; }
+
+  /* ---------- menu ---------- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,0.45);
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .menu-overlay.open { opacity: 1; visibility: visible; }
+  .menu-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 95;
+    width: 400px; max-width: 88vw; background: #faf6f0;
+    border-radius: 3px 0 0 3px;
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 34px 40px calc(34px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; display: flex; flex-direction: column;
+  }
+  .menu-panel.open { transform: translateX(0); }
+  .menu-close {
+    align-self: flex-end; background: none; border: none; cursor: pointer;
+    width: 44px; height: 44px; color: #3d352e;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .menu-links { list-style: none; margin-top: 22px; }
+  .menu-links li { border-bottom: 1px solid rgba(61,53,46,0.32); }
+  .menu-links a {
+    display: flex; align-items: center; min-height: 44px; padding: 12px 0;
+    font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+    color: #2a2320; letter-spacing: 0.01em;
+  }
+  .menu-links a:hover { color: #5c3a1e; }
+
+  /* ---------- search ---------- */
+  .search-overlay {
+    position: fixed; top: 65px; left: 0; right: 0; z-index: 96;
+    background: rgba(10,7,5,0.94);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    transform: translateY(-100%); opacity: 0; visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.22s ease, visibility 0.22s ease;
+  }
+  .search-overlay.open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .search-box {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    height: 62px; display: flex; align-items: center; gap: 16px;
+  }
+  .search-box input {
+    flex: 0 1 460px; background: none; border: none;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 400;
+    color: rgba(232,224,214,0.88); padding: 6px 0; outline: none;
+  }
+  .search-box input:focus { border-bottom-color: rgba(232,224,214,0.62); }
+  .search-box input::placeholder { color: rgba(232,224,214,0.62); }
+  .search-close {
+    width: 44px; height: 44px; background: none; border: none; cursor: pointer;
+    color: rgba(232,224,214,0.62); flex-shrink: 0; margin-left: auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .search-close:hover { color: rgba(232,224,214,1); }
+  .search-hints {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px 18px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .hint {
+    cursor: pointer; display: inline-flex; align-items: center; min-height: 44px;
+    padding: 11px 14px; background: #1c1815; border: none; border-radius: 3px;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.08em; color: rgba(232,224,214,0.68);
+    transition: color 0.18s ease, background 0.18s ease;
+  }
+  .hint:hover { color: rgba(232,224,214,1); background: #262019; }
+  body.light-mode .search-overlay { background: rgba(255,255,255,0.97); border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input { color: #2a2320; border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input::placeholder { color: #5a4f47; }
+  body.light-mode .search-close { color: #333333; }
+  body.light-mode .hint { background: #f0ebe4; color: #4a4038; }
+  body.light-mode .hint:hover { background: #e6ded4; color: #000000; }
+
+  /* ---------- touch ---------- */
+  @media (hover: none), (pointer: coarse) {
+    .img, .fullcta-bg { filter: saturate(0.95) brightness(0.95); }
+    a.blk:hover .img, .img:hover, .fullcta:hover .fullcta-bg { filter: saturate(1) brightness(1); }
+  }
+
+  /* ---------- breakpoints ---------- */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; }
+    .hero-sec-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .hero-sec + .hero-sec { margin-top: 0; }
+    .body-grid { grid-template-columns: 1fr; gap: 56px; }
+    .sticky { position: static; }
+    .domains { grid-template-columns: repeat(2, 1fr); }
+    .hero-main .img { height: 320px; }
+  }
+  @media (max-width: 768px) {
+    .nav-inner, .filter-bar, header.hd, .hero, .body-grid, .search-box, .search-hints { padding-left: 24px; padding-right: 24px; }
+    .hero-sec-wrap { grid-template-columns: 1fr; gap: 34px; }
+    .promo { grid-template-columns: 1fr; gap: 22px; }
+    .story { grid-template-columns: 1fr; gap: 16px; }
+    .domains { grid-template-columns: 1fr; gap: 34px; }
+    .hero-main .img { height: 240px; }
+    .fullcta-inner { padding: 34px 24px; }
+    .fullcta { min-height: 300px; }
+  }
+
+  /* ---------- A20: two-row nav on narrow screens ---------- */
+  @media (max-width: 560px) {
+    nav.site, nav:not(.sub-nav) { height: auto; }
+    .nav-inner { flex-wrap: wrap; }
+    .nav-utils {
+      order: 1; width: 100%; margin-left: 0; height: 52px;
+      justify-content: flex-end;
+      border-bottom: 1px solid rgba(232,224,214,0.35);
+    }
+    body.light-mode .nav-utils { border-bottom-color: rgba(61,53,46,0.32); }
+    .wordmark {
+      order: 2; width: 100%; height: 52px; display: flex; align-items: center;
+      font-size: 21px; color: rgba(232,224,214,1);
+      animation: wordmark-breathe 16s ease-in-out infinite;
+    }
+    .wordmark:hover, .wordmark:focus-visible {
+      animation-play-state: paused; opacity: 0.88;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wordmark { animation: none; opacity: 0.78; }
+    }
+    header.hd { padding-top: 26px; }
+    .search-overlay { top: 105px; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-panel { width: 100%; max-width: 100%; padding: 28px 24px; }
+    .filter-bar { gap: 20px; }
+    .hero { padding-bottom: 72px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="site" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">paraploo, the elder</a>
+    <ul class="nav-links">
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <div class="sz-group" aria-label="text size">
+        <button class="sz active" data-size="1" aria-label="small text">A</button>
+        <button class="sz" data-size="2" aria-label="medium text">A</button>
+        <button class="sz" data-size="3" aria-label="large text">A</button>
+      </div>
+      <button class="icon-btn" id="contrastBtn" aria-label="contrast">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5Z" fill="currentColor"/></svg>
+      </button>
+      <button class="icon-btn" id="searchBtn" aria-label="search">
+        <svg width="21" height="21" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
+      </button>
+      <button class="icon-btn burger" id="menuBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="accent-rule"></div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<aside class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="close menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <ul class="menu-links">
+    <li><a href="#">Writing</a></li>
+    <li><a href="#">Making</a></li>
+    <li><a href="#">Good Grounds</a></li>
+    <li><a href="#">Our Practice</a></li>
+    <li><a href="#">Music Artists</a></li>
+    <li><a href="#">Collaborators</a></li>
+    <li><a href="#">Methodology</a></li>
+    <li><a href="#">Support</a></li>
+    <li><a href="#">Archive</a></li>
+    <li><a href="#">Calendar</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</aside>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
+  <div class="search-box">
+    <input type="search" id="searchInput" placeholder="Search" aria-label="Search paraploo">
+    <button class="search-close" id="searchClose" aria-label="close search">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </div>
+  <div class="search-hints">
+    <button class="hint" data-term="Wonderful Garbage">Wonderful Garbage</button>
+    <button class="hint" data-term="Pressure Ghosts">Pressure Ghosts</button>
+    <button class="hint" data-term="Middle Eye">Middle Eye</button>
+    <button class="hint" data-term="Musicological Witness">Witness Series</button>
+    <button class="hint" data-term="Receiver Turn">Receiver Turn</button>
+    <button class="hint" data-term="Noir Song">Noir Song</button>
+    <button class="hint" data-term="performance">Performance</button>
+    <button class="hint" data-term="Mumbai">Mumbai</button>
+  </div>
+</div>
+
+<div class="filter-bar" id="filterBar">
+  <button class="filter-tab active" data-filter="all">All</button>
+  <button class="filter-tab" data-filter="writing">Writing</button>
+  <button class="filter-tab" data-filter="visual">Visual Art</button>
+  <button class="filter-tab" data-filter="sound">Sound</button>
+  <button class="filter-tab" data-filter="performance">Performance</button>
+  <button class="filter-tab" data-filter="methodology">Methodology</button>
+  <button class="filter-tab" data-filter="archive">Archive</button>
+</div>
+
+<header class="hd">
+  <div class="g">Season</div>
+</header>
+
+<main>
+
+<section class="hero" aria-label="Featured">
+  <a href="#" class="blk hero-main">
+    <div class="img"></div>
+    <div class="label">Now Open</div>
+    <div class="ttl">Good Grounds: A Reading and Performance Series</div>
+    <div class="desc">The maker&rsquo;s survival matters. The receiver&rsquo;s survival gives the work its second life. A new collaborative series exploring the Receiver Turn.</div>
+    <div class="byline">Paraploo &middot; February 2026</div>
+    <div class="tags"><span class="tag">Receiver Turn</span><span class="tag">Wonderful Garbage</span></div>
+  </a>
+
+  <div class="hero-sec-wrap">
+    <a href="#" class="blk hero-sec">
+      <div class="img"></div>
+      <div class="ttl">Musicological Witness Series: 59 Portraits Complete</div>
+      <div class="byline">Writing &middot; January 2026</div>
+    </a>
+    <a href="#" class="blk hero-sec">
+      <div class="img"></div>
+      <div class="ttl">Colony Is the Crime: An Oyparaploo Noir Song Cycle</div>
+      <div class="byline">Noir Song &middot; January 2026</div>
+    </a>
+  </div>
+
+  <div>
+    <div class="side-head">Featured</div>
+    <a href="#" class="blk side-item"><div><div class="ttl">The Receiver Turn: From Testimony to Invitation</div><div class="byline">Methodology</div></div><div class="img"></div></a>
+    <a href="#" class="blk side-item"><div><div class="ttl">Josephine Foster: The Ornamental Hermit</div><div class="byline">Witness Portrait</div></div><div class="img"></div></a>
+    <a href="#" class="blk side-item"><div><div class="ttl">Thirty Years of Creative Practice</div><div class="byline">Archive</div></div><div class="img"></div></a>
+    <a href="#" class="blk side-item"><div><div class="ttl">Rangmanch Collective: Mumbai</div><div class="byline">Performance</div></div><div class="img"></div></a>
+    <a href="#" class="blk side-item"><div><div class="ttl">Beautiful Garbage as Alternative to Violence</div><div class="byline">Core Trinity</div></div><div class="img"></div></a>
+  </div>
+</section>
+
+<div class="body-grid">
+  <div>
+
+    <section class="promo">
+      <div>
+        <div class="label">Featured Collection</div>
+        <div class="ttl">The Receiver Turn: From Testimony to Invitation</div>
+        <div class="desc">Asking if work can shift from &ldquo;I&rdquo; to &ldquo;we&rdquo; transforms each piece from personal witness into communal threshold.</div>
+        <a href="#" class="cta-link">Explore the methodology &#8594;</a>
+      </div>
+      <div class="img"></div>
+    </section>
+
+    <section aria-label="Recent Writings">
+      <div class="sec-head">
+        <div class="label">Recent Writings</div>
+        <a href="#" class="cta-link">View all &#8594;</a>
+      </div>
+
+      <a href="#" class="blk story">
+        <div class="img"></div>
+        <div>
+          <div class="byline">Noir Song &middot; February 2026</div>
+          <div class="ttl">Something Else Wearing Noir&rsquo;s Coat: Whose Land? Whose Labor?</div>
+          <div class="desc">Not the doomed. What stands through. Colony as the crime scene that never closes.</div>
+          <div class="tags"><span class="tag">Oyparaploo Noir</span><span class="tag">Pressure Ghosts</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="blk story">
+        <div class="img"></div>
+        <div>
+          <div class="byline">Witness Portrait &middot; January 2026</div>
+          <div class="ttl">Josephine Foster: The Ornamental Hermit of American Song</div>
+          <div class="desc">A portrait from the Musicological Witness Series. Voice as habitation, song as place.</div>
+          <div class="tags"><span class="tag">Witness Series</span><span class="tag">Lovely Quietness</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="blk story">
+        <div class="img"></div>
+        <div>
+          <div class="byline">Climate Fiction &middot; January 2026</div>
+          <div class="ttl">Two Plates of Food and a River We Used to Know</div>
+          <div class="desc">What happens when the land that fed you can&rsquo;t feed itself anymore.</div>
+          <div class="tags"><span class="tag">Middle Eye</span><span class="tag">Receiver Turn</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="blk story">
+        <div class="img"></div>
+        <div>
+          <div class="byline">Installation &middot; December 2025</div>
+          <div class="ttl">Everything the Hand Forgot: Pressure Studies in Clay and Thread</div>
+          <div class="desc">Materials holding the memory of what pressed against them. A tactile archive.</div>
+          <div class="tags"><span class="tag">Wonderful Garbage</span><span class="tag">Pressure Ghosts</span></div>
+        </div>
+      </a>
+    </section>
+
+    <div class="accent-rule"></div>
+
+    <a href="#" class="fullcta">
+      <div class="fullcta-bg"></div>
+      <div class="fullcta-veil"></div>
+      <div class="fullcta-inner">
+        <div class="ttl">The Practice Behind the Work</div>
+        <div class="desc">A three-layer methodology for collaborative writing. Lovely Quietness. Verification. Master revision.</div>
+        <span class="cta-link">Enter the methodology &#8594;</span>
+      </div>
+    </a>
+
+    <section aria-label="Explore the Domains">
+      <div class="sec-head">
+        <div class="label">Explore the Domains</div>
+        <a href="#" class="cta-link">View all 28 domains &#8594;</a>
+      </div>
+      <div class="domains">
+        <a href="#" class="blk domain">
+          <div class="img"></div>
+          <div class="ttl">Wonderful Garbage</div>
+          <div class="desc">The philosophy of transformation. Discarded materials become art as an alternative to violence.</div>
+        </a>
+        <a href="#" class="blk domain">
+          <div class="img"></div>
+          <div class="ttl">Pressure Ghosts</div>
+          <div class="desc">What happens when force is applied to something that cannot move. The imprint that remains.</div>
+        </a>
+        <a href="#" class="blk domain">
+          <div class="img"></div>
+          <div class="ttl">Middle Eye</div>
+          <div class="desc">The consciousness between witness and participant.</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <aside>
+    <div class="sticky">
+      <div class="sticky-sec">
+        <div class="side-head">From the Archive</div>
+        <a href="#" class="blk sticky-item"><div class="ttl">The Beach Experience (2024)</div><div class="byline">Performance</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">Inside the Making: Complete Book</div><div class="byline">Writing &middot; 2025</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">Rangmanch Collective Residency</div><div class="byline">Performance &middot; Mumbai</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">Beautiful Garbage: Origin Text</div><div class="byline">Core Trinity</div></a>
+      </div>
+      <div class="sticky-sec">
+        <div class="side-head">Methodology</div>
+        <a href="#" class="blk sticky-item"><div class="ttl">Three-Layer System</div><div class="byline">Lovely Quietness &rarr; Verification &rarr; Master</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">The Receiver Turn</div><div class="byline">From &ldquo;I&rdquo; to &ldquo;we&rdquo;</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">AI-Undetectable Standard</div><div class="byline">100% verification protocol</div></a>
+      </div>
+      <div class="sticky-sec">
+        <div class="side-head">Upcoming</div>
+        <a href="#" class="blk sticky-item"><div class="ttl">Good Grounds Reading #3</div><div class="byline">March 2026 &middot; Saint Paul</div></a>
+        <a href="#" class="blk sticky-item"><div class="ttl">Hugo Site Launch</div><div class="byline">Spring 2026</div></a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+</main>
+
+<div class="tail"></div>
+
+<script>
+  // ---------- progress ----------
+  window.addEventListener("scroll", function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById("progress").style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+  }, { passive: true });
+
+  // ---------- filter tabs ----------
+  document.querySelectorAll(".filter-tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      document.querySelectorAll(".filter-tab").forEach(function (t) { t.classList.remove("active"); });
+      tab.classList.add("active");
+    });
+  });
+
+  // ---------- AAA ----------
+  document.querySelectorAll(".sz").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".sz").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var sizes = { "1": "17px", "2": "18px", "3": "20px" };
+      document.documentElement.style.setProperty("--root-size", sizes[btn.dataset.size]);
+      document.documentElement.className = "size-" + btn.dataset.size;
+    });
+  });
+
+  // ---------- menu ----------
+  var menuBtn = document.getElementById("menuBtn");
+  var menuPanel = document.getElementById("menuPanel");
+  var menuOverlay = document.getElementById("menuOverlay");
+  function setMenu(on) {
+    menuPanel.classList.toggle("open", on);
+    menuOverlay.classList.toggle("open", on);
+    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
+    menuPanel.setAttribute("aria-hidden", on ? "false" : "true");
+    menuOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    document.body.style.overflow = on ? "hidden" : "";
+  }
+  menuBtn.addEventListener("click", function () { setMenu(!menuPanel.classList.contains("open")); });
+  document.getElementById("menuClose").addEventListener("click", function () { setMenu(false); });
+  menuOverlay.addEventListener("click", function () { setMenu(false); });
+  menuPanel.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+
+  // ---------- search ----------
+  var searchOverlay = document.getElementById("searchOverlay");
+  var searchInput = document.getElementById("searchInput");
+  function setSearch(on) {
+    searchOverlay.classList.toggle("open", on);
+    searchOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    if (on) { setTimeout(function () { searchInput.focus(); }, 60); } else { searchInput.blur(); }
+  }
+  document.getElementById("searchBtn").addEventListener("click", function () { setSearch(!searchOverlay.classList.contains("open")); });
+  document.getElementById("searchClose").addEventListener("click", function () { setSearch(false); });
+  document.querySelectorAll(".hint").forEach(function (h) {
+    h.addEventListener("click", function () { searchInput.value = h.dataset.term; searchInput.focus(); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); setSearch(true); }
+  });
+
+  // ---------- contrast ----------
+  document.getElementById("contrastBtn").addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (menuPanel.classList.contains("open")) setMenu(false);
+    if (searchOverlay.classList.contains("open")) setSearch(false);
+  });
+</script>
+
+</body>
+</html>

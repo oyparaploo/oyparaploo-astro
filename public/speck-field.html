@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speck Field — paraploo, the elder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root { --root-size: 17px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { font-style: normal; }
+  html { font-size: var(--root-size); -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0907;
+    color: rgba(232,224,214,0.85);
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(232,224,214,0.12);
+  }
+
+  /* ---------- light mode (contrast toggle) ---------- */
+  body.light-mode { background: #fffdf9; color: #2a2320; }
+  body.light-mode nav { background: rgba(255,255,255,0.97); }
+  body.light-mode .wordmark { color: #333333; }
+  body.light-mode .wordmark:hover { color: #5c3a1e; }
+  body.light-mode .nav-links a { color: #333333; }
+  body.light-mode .nav-links a:hover { color: #5c3a1e; }
+  body.light-mode .icon-btn { color: #333333; }
+  body.light-mode .burger span { background: #333333; }
+  body.light-mode .hd .g { color: #5a4f47; }
+  body.light-mode .field { background: #fffdf9; }
+  p, h1, h2 { text-wrap: pretty; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(0,0,0,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    height: 64px; display: flex; align-items: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .wordmark {
+    font-family: 'Lora', serif; font-weight: 600; font-size: 20px;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.62); text-decoration: none;
+    flex-shrink: 0; white-space: nowrap;
+  }
+  @keyframes wordmark-breathe {
+    0%, 100% { opacity: 0; }
+    50%      { opacity: 0.58; }
+  }
+  .wordmark:hover { color: rgba(232,224,214,0.96); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-left: 48px; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.68); text-decoration: none;
+  }
+  .nav-links a:hover { color: rgba(232,224,214,0.96); }
+  @media (max-width: 1100px) { .nav-links { display: none; } }
+  .nav-utils { display: flex; align-items: center; gap: 18px; margin-left: 24px; }
+  .sz-group { display: flex; align-items: flex-end; gap: 0; }
+  .sz {
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    color: rgba(232,224,214,0.66); background: none; border: none; cursor: pointer;
+    line-height: 1; min-height: 44px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 0 2px 12px;
+    transition: color 0.18s ease;
+  }
+  .sz:hover { color: rgba(232,224,214,0.78); }
+  .sz.active { color: rgba(232,224,214,0.78); }
+  body.light-mode .sz { color: #5a4f47; }
+  body.light-mode .sz:hover { color: #333333; }
+  body.light-mode .sz.active { color: #333333; }
+  .sz[data-size="1"] { font-size: 14px; }
+  .sz[data-size="2"] { font-size: 17px; }
+  .sz[data-size="3"] { font-size: 20px; }
+  .icon-btn {
+    background: none; border: none; color: rgba(232,224,214,0.85); cursor: pointer;
+    min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center;
+  }
+  .burger { display: flex; flex-direction: column; gap: 5px; }
+  .burger span { width: 22px; height: 1.5px; background: rgba(232,224,214,0.85); display: block; }
+  .accent-rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(85,85,85,0.55), transparent); }
+
+  /* ---------- header ---------- */
+  header.hd { max-width: 1400px; margin: 0 auto; padding: 54px 40px 30px; }
+  .hd .g {
+    font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(232,224,214,0.62);
+  }
+
+  /* ---------- the field ---------- */
+  /* Specks are a fraction of screen width via a fixed column count, so they're
+     always a readable size on any device — no pixel guessing. The field simply
+     flows down and scrolls; it never needs to "fill exactly one screen". */
+  .field {
+    width: 100%; margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);   /* desktop: 12 across */
+    gap: 0;
+    background: #0d0907;
+  }
+  @media (max-width: 1024px) { .field { grid-template-columns: repeat(8, 1fr); } }
+  @media (max-width: 1000px) { .field { grid-template-columns: repeat(8, 1fr); } }
+  @media (max-width: 640px)  { .field { grid-template-columns: repeat(4, 1fr); } }  /* phone: 4 across, readable */
+  .speck {
+    width: 100%; aspect-ratio: 1;
+    display: block;
+    border: none; padding: 0; margin: 0; cursor: pointer;
+    background-size: cover; background-position: center;
+    border-radius: 0;
+    filter: saturate(0.82) brightness(0.84);
+    transition: transform 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                filter 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                border-radius 0.7s cubic-bezier(0.45, 0, 0.55, 1),
+                box-shadow 0.7s cubic-bezier(0.45, 0, 0.55, 1);
+    position: relative;
+  }
+  .speck:hover, .speck:focus-visible {
+    transform: scale(2.4);
+    filter: saturate(1) brightness(1);
+    z-index: 5;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.6);
+    outline: none;
+    border-radius: 6px;
+  }
+  .speck.marked {
+    box-shadow: inset 0 0 0 2px #ff6a1a, 0 0 10px 1px rgba(255,106,26,0.65);
+    z-index: 3;
+  }
+
+  /* ---------- slideshow ---------- */
+  .box {
+    position: fixed; inset: 0; z-index: 100;
+    height: 100vh; height: 100dvh;
+    background: #060403;
+    display: none; flex-direction: column;
+    overflow: hidden;
+  }
+  .box.open { display: flex; }
+  .bar {
+    flex: 0 0 auto; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 26px; z-index: 4;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+  }
+  .bar .controls { display: flex; align-items: center; gap: 26px; }
+  .ctl {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.94rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(232,224,214,0.62); padding: 8px 0;
+    min-height: 44px; display: flex; align-items: center;
+    transition: color 0.18s ease;
+  }
+  .ctl:hover { color: rgba(232,224,214,1); }
+  #leaveBtn:hover { color: rgba(232,224,214,1); }
+  .bar .count-group { display: flex; align-items: center; gap: 18px; }
+  .tap-hint {
+    position: absolute; bottom: 20px; left: 26px; z-index: 4;
+    font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+    font-size: 1.06rem; letter-spacing: 0.02em;
+    color: rgba(232,224,214,0.62); pointer-events: none;
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .tap-hint.visible { opacity: 1; }
+  .bar .count {
+    font-family: 'Inter', sans-serif; font-size: 0.94rem; font-weight: 500;
+    letter-spacing: 0.14em; color: rgba(232,224,214,0.62);
+  }
+  .stage {
+    flex: 1 1 auto; position: relative;
+    margin-top: -14px;
+    z-index: 5;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 1.1s ease;
+    padding: 0 2vw 46px;
+    cursor: pointer;
+  }
+  .slide.show { opacity: 1; }
+  .slide img {
+    max-width: 97vw; max-height: 100%; object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner, header.hd { padding-left: 24px; padding-right: 24px; }
+    .speck:hover, .speck:focus-visible { transform: scale(2); }
+    .bar { padding: 0 18px; }
+    .bar .controls { gap: 18px; }
+  }
+
+  /* touch devices: no hover step — a tap opens the slideshow directly. */
+  @media (hover: none), (pointer: coarse) {
+    .speck { filter: saturate(0.95) brightness(0.95); }
+    .speck:hover, .speck:focus-visible,
+    .speck:active {
+      transform: none;
+      filter: saturate(1) brightness(1);
+      box-shadow: none;
+      z-index: auto;
+    }
+    .speck.marked {
+      box-shadow: inset 0 0 0 2px #ff6a1a, 0 0 10px 1px rgba(255,106,26,0.65);
+      z-index: 3;
+    }
+    .ctl { font-size: 1rem; }
+    .slide { padding: 0 1vw 44px; }
+    .slide img { max-width: 99vw; max-height: 100%; }
+  }
+
+  .icon-btn { transition: color 0.18s ease; }
+  #contrastBtn svg { transition: transform 0.25s ease; }
+  body.light-mode #contrastBtn svg { transform: scaleX(-1); }
+
+  /* ---------- menu (Städel slide-in) — px only, per spec ---------- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(0,0,0,0.45);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .menu-overlay.open { opacity: 1; visibility: visible; }
+  .menu-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 95;
+    width: 400px; max-width: 88vw;
+    background: #faf6f0;
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 34px 40px calc(34px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+  }
+  .menu-panel.open { transform: translateX(0); }
+  .menu-close {
+    align-self: flex-end; background: none; border: none; cursor: pointer;
+    width: 44px; height: 44px; color: #3d352e;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .menu-links { list-style: none; margin-top: 22px; }
+  .menu-links li { border-bottom: 1px solid rgba(61,53,46,0.32); }
+  .menu-links a {
+    display: flex; align-items: center; min-height: 44px; padding: 12px 0;
+    font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+    color: #2a2320; text-decoration: none; letter-spacing: 0.01em;
+  }
+  .menu-links a:hover { color: #5c3a1e; }
+
+  /* ---------- search (slim drop bar) ---------- */
+  .search-overlay {
+    position: fixed; top: 65px; left: 0; right: 0; z-index: 96;
+    background: rgba(10,7,5,0.94);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    transform: translateY(-100%);
+    opacity: 0; visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.22s ease, visibility 0.22s ease;
+  }
+  .search-overlay.open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .search-box {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    height: 62px; display: flex; align-items: center; gap: 16px;
+  }
+  .search-box input {
+    flex: 0 1 460px; background: none; border: none;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 400;
+    color: rgba(232,224,214,0.88); padding: 6px 0; outline: none;
+  }
+  .search-box input:focus { border-bottom-color: rgba(232,224,214,0.62); }
+  .search-box input::placeholder { color: rgba(232,224,214,0.62); }
+  .search-close {
+    width: 44px; height: 44px; background: none; border: none; cursor: pointer;
+    color: rgba(232,224,214,0.62); flex-shrink: 0; margin-left: auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .search-close:hover { color: rgba(232,224,214,1); }
+  body.light-mode .search-overlay { background: rgba(255,255,255,0.97); border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input { color: #2a2320; border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input:focus { border-bottom-color: rgba(61,53,46,0.55); }
+  body.light-mode .search-box input::placeholder { color: #5a4f47; }
+  body.light-mode .search-close { color: #333333; }
+
+  @media (max-width: 768px) {
+    .search-box { padding: 0 24px; gap: 10px; }
+  }
+
+  @media (max-width: 560px) {
+    nav { height: auto; }
+    .nav-inner { flex-wrap: wrap; }
+    .nav-utils {
+      order: 1; width: 100%; margin-left: 0; height: 52px;
+      justify-content: flex-end;
+      border-bottom: 1px solid rgba(232,224,214,0.35);
+    }
+    body.light-mode .nav-utils { border-bottom-color: rgba(61,53,46,0.32); }
+    .wordmark {
+      order: 2; width: 100%; height: 52px; display: flex; align-items: center;
+      font-size: 21px; color: rgba(232,224,214,1);
+      animation: wordmark-breathe 16s ease-in-out infinite;
+    }
+    .wordmark:hover, .wordmark:focus-visible {
+      animation-play-state: paused; opacity: 0.88;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wordmark { animation: none; opacity: 0.78; }
+    }
+    header.hd { padding-top: 26px; }
+    .search-overlay { top: 105px; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-panel { width: 100%; max-width: 100%; padding: 28px 24px; }
+    .nav-inner { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="wordmark">paraploo, the elder</a>
+    <ul class="nav-links">
+      <li><a href="#">Writing</a></li>
+      <li><a href="#">Portraits</a></li>
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <div class="sz-group" aria-label="text size">
+        <button class="sz active" data-size="1" aria-label="small text">A</button>
+        <button class="sz" data-size="2" aria-label="medium text">A</button>
+        <button class="sz" data-size="3" aria-label="large text">A</button>
+      </div>
+      <button class="icon-btn" id="contrastBtn" aria-label="contrast">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5Z" fill="currentColor"/></svg>
+      </button>
+      <button class="icon-btn" id="searchBtn" aria-label="search">
+        <svg width="21" height="21" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
+      </button>
+      <button class="icon-btn burger" id="menuBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="accent-rule"></div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<aside class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="close menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <ul class="menu-links">
+    <li><a href="#">Writing</a></li>
+    <li><a href="#">Portraits</a></li>
+    <li><a href="#">Practice</a></li>
+    <li><a href="#">Dispatches</a></li>
+    <li><a href="#">Good Grounds</a></li>
+  </ul>
+</aside>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
+  <div class="search-box">
+    <input type="search" id="searchInput" placeholder="Search" aria-label="Search paraploo">
+    <button class="search-close" id="searchClose" aria-label="close search">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="g">Hand~Writing Gray Areas · Cool</div>
+</header>
+
+<div class="field" id="field"></div>
+
+<div class="box" id="box">
+  <div class="bar">
+    <div class="controls">
+      <button class="ctl" id="stopBtn">Stop</button>
+      <button class="ctl" id="goBtn">Go</button>
+      <button class="ctl" id="leaveBtn">Leave</button>
+    </div>
+    <div class="count-group">
+      <span class="count" id="boxCap"></span>
+    </div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="slide" id="slideA"><img alt=""></div>
+    <div class="slide" id="slideB"><img alt=""></div>
+  </div>
+  <span class="tap-hint">When stopped, tap image to advance to the next frame</span>
+</div>
+
+<script>
+  var HASH = "LIGkZeI360k55Er7BvK1Gw";
+  // Hand~Writing Gray Areas · Cool — the full 57, in shooting order.
+  // [id, title number] — the number shown is the piece's real number, not its slot,
+  // so gatherings with gaps still read true.
+  var GATHERING = "Cool";
+  var items = [
+    ["f514090b-5752-489a-f5a0-8f2712443b00",1],["0cd694d9-e793-448b-5a54-47d9c9205c00",2],["9cfb8a60-e6cd-40c9-6f27-0c69f621a800",3],["42616be4-2a2b-42dc-a7ab-a66e8cf85600",4],["d66a0044-8733-4970-c618-b39bcae9bf00",5],["95458805-a427-481e-d747-93ac8be00500",6],["e57d595a-387a-4a22-0336-6796af07d100",7],["be379b13-9192-418b-aa91-eac97bc3d400",8],["3c911843-7b18-45a4-99a0-f446f2f32800",9],["5369439e-8f4b-4cff-6602-972ac68d3b00",10],
+    ["a243d1af-2110-418a-3672-832060ae4f00",11],["2f9672c9-e2d3-4f81-ad59-68ddb7472700",12],["e46f7bfc-9be4-4ede-7a46-d787fb295c00",13],["2290e75e-c0a8-42b8-15cf-3f0eed321300",14],["8e3e54fb-859b-4165-d906-d42a578c9b00",15],["d063dcfa-a1f3-4317-9f50-0cc2fa470c00",16],["1c2b6ca7-3010-4b8f-1462-ef30e19f3300",17],["00c630bd-975c-4cbe-ff00-3f14975fbb00",18],["d1dd81ba-8ba6-4299-bf9c-e502cdad8900",19],["8924bec0-47be-449b-4d1a-c7fdcc693d00",20],
+    ["78ac5b24-4fcd-462c-0afe-3d2efb468c00",21],["bd28833c-f7e5-42bf-4f80-1cdd88c1b100",22],["f2d8e667-fc56-4bff-6aa2-1f4a1984c800",23],["a6ab233e-97a0-4fcd-3bd7-2e4b92b27300",24],["7c6f21d9-069c-41ab-e0ff-694c5af2e500",25],["89e6e5f2-dfa0-4e0d-ce2c-607bf9d2a500",26],["ba359da2-53ac-4451-b992-e967f6116b00",27],["64ebc8fb-a895-4859-7d9e-96c522f3f100",28],["cb88970a-00c1-47e7-0b0d-133b0eb23700",29],["894595be-bb92-4392-759f-ff9891c23500",30],
+    ["3718b02e-1ece-4843-0148-96169da74d00",31],["26e86199-aded-4547-7b74-3d6d8715dc00",32],["fc55b254-d925-4381-82da-f63e606cd500",33],["35ac615c-21ae-4b47-6a87-59c9f8e4b900",34],["6a712dd0-d148-40bc-ec7b-e68fbb3a2900",35],["64db2d17-97d6-44b8-d94b-160af3830400",36],["7c8d7a5c-7fe9-4aa3-976a-fea866fd8a00",37],["90e8b2b8-d9a2-4dce-499b-767786cf0000",38],["8d40ee52-19de-45f4-a919-44a59141c300",39],["ce6d2646-35dc-4184-6b60-f1d689049900",40],
+    ["461b17dc-5621-4303-71d1-662a4864f600",41],["54d61a3c-747a-4f35-e6c1-040ba4bb9e00",42],["56d1da21-78ce-4237-2c2e-8d6d68147100",43],["8b9c3d22-25bb-43c1-477e-d650df96d800",44],["dc71f6b1-5743-4f6d-40bb-04701552d300",45],["7efbaac0-737d-47a8-434f-2e2bfd827300",46],["e6aec751-64a6-4f40-5c94-67da0ad22800",47],["dbb2cc01-ab92-4e2f-88b3-59d594d1d800",48],["5e718bf0-c938-4afe-024d-46ea666d7900",49],["7259de08-731d-41c8-d2c9-07143eb28f00",50],
+    ["33f97981-a0e5-4f25-6b71-db179aa27000",51],["51535210-4d19-4f2d-98e8-c3d620c4cb00",52],["c795a9cd-78ac-48a9-956b-8324002d5100",53],["72e61dfd-8e9e-4c7f-23bc-3502fdf5a300",54],["e83e5692-6d78-4e44-7fe7-75ffe7fe5d00",55],["cc140a7f-4337-4428-2360-8efc90ad2400",56],["bab48e6a-3cb3-4341-b09e-c5a870dc1800",57]
+  ];
+  var ids = items.map(function (it) { return it[0]; });
+  var nums = items.map(function (it) { return it[1]; });
+
+  var field = document.getElementById("field");
+  var box = document.getElementById("box");
+  var boxCap = document.getElementById("boxCap");
+  var slides = [document.getElementById("slideA"), document.getElementById("slideB")];
+  var imgs = [slides[0].querySelector("img"), slides[1].querySelector("img")];
+  var specks = [];
+
+  function url(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/public"; }
+  function urlFull(id) { return "https://imagedelivery.net/" + HASH + "/" + id + "/full"; }
+
+  // Lay down every image once, at a readable size. The field flows down and
+  // scrolls — no screen-height guessing, so it can't come up short on any phone.
+  function buildField() {
+    field.innerHTML = "";
+    specks = [];
+    ids.forEach(function (id, i) {
+      var b = document.createElement("button");
+      b.className = "speck";
+      b.style.backgroundImage = "url(" + url(id) + ")";
+      b.setAttribute("aria-label", GATHERING + " " + nums[i]);
+      (function (idx, el) { el.addEventListener("click", function () { open(idx, el); }); })(i, b);
+      specks.push(b);
+      field.appendChild(b);
+    });
+  }
+  // (buildField is called at the very end, after all handlers are defined)
+
+  var current = 0;      // index showing now
+  var active = 0;       // which slide layer is on top
+  var timer = null;
+  var HOLD = 3200;      // ms each image rests before dissolving
+  var playing = false;
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+  function paint(i) {
+    var next = 1 - active;
+    imgs[next].src = urlFull(ids[i]);
+    slides[next].classList.add("show");
+    slides[active].classList.remove("show");
+    active = next;
+    current = i;
+    boxCap.textContent = pad(nums[i]) + " / " + pad(nums[nums.length - 1]);
+  }
+
+  function advance() {
+    paint((current + 1) % ids.length);   // loops
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    if (playing) timer = setTimeout(function () { advance(); schedule(); }, HOLD);
+  }
+
+  var clickedSpeck = null;
+
+  function open(i, speckEl) {
+    specks.forEach(function (s) { s.classList.remove("marked"); });
+    clickedSpeck = speckEl || null;
+    box.classList.add("open");
+    slides[0].classList.remove("show");
+    slides[1].classList.remove("show");
+    active = 1;                 // so first paint lands on layer 0
+    paint(i);
+    setPlaying(true);           // opens playing; Go active
+    // reveal the tap hint briefly on open so the visitor learns it, then let state govern
+    var hint = document.querySelector(".tap-hint");
+    hint.classList.add("visible");
+    setTimeout(function () { if (playing) hint.classList.remove("visible"); }, 8000);
+  }
+
+  function close() {
+    playing = false;
+    clearTimeout(timer);
+    box.classList.remove("open");
+    specks.forEach(function (s) { s.classList.remove("marked"); });
+    if (clickedSpeck) {
+      clickedSpeck.classList.add("marked");
+      clickedSpeck.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
+
+  var stopBtn = document.getElementById("stopBtn");
+  var goBtn = document.getElementById("goBtn");
+  var stage = document.getElementById("stage");
+
+  function setPlaying(on) {
+    playing = on;
+    document.querySelector(".tap-hint").classList.toggle("visible", !on);
+    schedule();
+  }
+
+  goBtn.addEventListener("click", function (e) { e.stopPropagation(); setPlaying(true); });
+  stopBtn.addEventListener("click", function (e) { e.stopPropagation(); setPlaying(false); });
+  document.getElementById("leaveBtn").addEventListener("click", function (e) {
+    e.stopPropagation();
+    close();
+  });
+
+  // clicking the image advances by hand, but only when stopped — matches the hint
+  stage.addEventListener("click", function () {
+    if (!playing) { advance(); }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!box.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowRight") { advance(); schedule(); }
+    else if (e.key === "ArrowLeft") { paint((current - 1 + ids.length) % ids.length); schedule(); }
+    else if (e.key === " ") { e.preventDefault(); setPlaying(!playing); }
+  });
+
+  // AAA font-size toggle (Städel nav requirement)
+  document.querySelectorAll(".sz").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".sz").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var sizes = { "1": "17px", "2": "18px", "3": "20px" };
+      document.documentElement.style.setProperty("--root-size", sizes[btn.dataset.size]);
+      document.documentElement.className = "size-" + btn.dataset.size;
+    });
+  });
+
+  // ---------- menu ----------
+  var menuBtn = document.getElementById("menuBtn");
+  var menuPanel = document.getElementById("menuPanel");
+  var menuOverlay = document.getElementById("menuOverlay");
+  var menuClose = document.getElementById("menuClose");
+
+  function setMenu(on) {
+    menuPanel.classList.toggle("open", on);
+    menuOverlay.classList.toggle("open", on);
+    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
+    menuPanel.setAttribute("aria-hidden", on ? "false" : "true");
+    menuOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    document.body.style.overflow = on ? "hidden" : "";
+  }
+  menuBtn.addEventListener("click", function () {
+    setMenu(!menuPanel.classList.contains("open"));
+  });
+  menuClose.addEventListener("click", function () { setMenu(false); });
+  menuOverlay.addEventListener("click", function () { setMenu(false); });
+  menuPanel.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+
+  // ---------- search ----------
+  var searchBtn = document.getElementById("searchBtn");
+  var searchOverlay = document.getElementById("searchOverlay");
+  var searchClose = document.getElementById("searchClose");
+  var searchInput = document.getElementById("searchInput");
+
+  function setSearch(on) {
+    searchOverlay.classList.toggle("open", on);
+    searchOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    if (on) { setTimeout(function () { searchInput.focus(); }, 60); }
+    else { searchInput.blur(); }
+  }
+  searchBtn.addEventListener("click", function () {
+    setSearch(!searchOverlay.classList.contains("open"));
+  });
+  searchClose.addEventListener("click", function () { setSearch(false); });
+
+  // ---------- contrast ----------
+  document.getElementById("contrastBtn").addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+  });
+
+  // Escape closes menu and search
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (menuPanel.classList.contains("open")) setMenu(false);
+    if (searchOverlay.classList.contains("open")) setSearch(false);
+  });
+
+  // build the mosaic now that everything it needs exists
+  buildField();
+</script>
+
+</body>
+</html>

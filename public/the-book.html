@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEST DARK OCULA THE BOOK - Paraploo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* =====================================================================
+     TEST-DARK-OCULA-THE-BOOK_1 - the site's book, on the dark ground.
+     Source: CLEAN-good-grounds.html (HTML DOCS) - "Good Grounds", the
+     page whose eyebrow reads "Good Grounds" and whose H1 reads
+     "A Non-Fiction Novel in Progress". Content ported verbatim; only
+     legibility is fixed by putting every run of text on the charter's
+     ink or muted ink.
+     Values from DARK-CHARTER-2026-08-20.md:
+       page ground   #14100c
+       primary ink   #f4ede1
+       muted ink     rgba(244,237,225,0.62)
+       hairline/rule rgba(244,237,225,0.18)
+     Nothing set heavier than medium (500) weight, per the dark
+     translation rule. Bands separated by hairline rules, not by
+     white space alone. Type scale, fonts, and container widths follow
+     TEST-DARK-OCULA-WORDS_1.html (band grammar) and
+     TEST-DARK-OCULA-HOME_1.html (the truth of the dark chrome).
+     ===================================================================== */
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: #f4ede1;
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .band { padding: 56px 0; border-top: 1px solid rgba(244,237,225,0.18); }
+  .band:first-child { border-top: none; }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+  .eyebrow {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(244,237,225,0.62);
+    margin: 0 0 18px;
+  }
+  h1.book-title {
+    font-family: 'Lora', serif;
+    font-size: 1.9412rem;
+    font-weight: 500;
+    color: #f4ede1;
+    line-height: 1.2;
+    margin: 0 0 10px;
+  }
+  .book-subtitle {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.1176rem;
+    font-weight: 400;
+    color: rgba(244,237,225,0.62);
+    line-height: 1.5;
+    margin: 0 0 28px;
+  }
+  .book-intro p {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f4ede1;
+    line-height: 1.75;
+    margin: 0 0 20px;
+  }
+  .book-intro p:last-child { margin-bottom: 0; }
+
+  .band-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4118rem;
+    font-weight: 500;
+    color: #f4ede1;
+    margin: 0 0 8px;
+  }
+  .band-desc {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(244,237,225,0.62);
+    line-height: 1.6;
+    margin: 0 0 36px;
+  }
+
+  /* Four Voices */
+  .voices-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .voice-entry {
+    padding: 22px 0;
+    border-top: 1px solid rgba(244,237,225,0.18);
+  }
+  .voice-entry:first-child { border-top: none; }
+  .voice-name {
+    font-family: 'Lora', serif;
+    font-size: 1.1765rem;
+    font-weight: 500;
+    color: #f4ede1;
+    margin: 0 0 4px;
+  }
+  .voice-role {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8825rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(244,237,225,0.62);
+    margin: 0 0 10px;
+  }
+  .voice-desc {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f4ede1;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (min-width: 769px) {
+    .voices-grid { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    .voice-entry:nth-child(-n+2) { border-top: none; }
+  }
+
+  /* Twenty-One Sections */
+  .chapter-list { display: grid; grid-template-columns: 1fr; }
+  .chapter-entry {
+    padding: 20px 0;
+    border-top: 1px solid rgba(244,237,225,0.18);
+  }
+  .chapter-entry:first-child { border-top: none; }
+  .chapter-num {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(244,237,225,0.62);
+    margin: 0 0 4px;
+  }
+  .chapter-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.1176rem;
+    color: #f4ede1;
+    margin: 0 0 6px;
+  }
+  .chapter-voices {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #f4ede1;
+    margin: 0 0 4px;
+  }
+  .chapter-note {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    font-size: 0.8825rem;
+    color: rgba(244,237,225,0.62);
+    margin: 0;
+  }
+
+  @media (min-width: 769px) {
+    .chapter-list { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    .chapter-entry:nth-child(-n+2) { border-top: none; }
+  }
+
+  /* The Language / Excerpt */
+  .language-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(244,237,225,0.62);
+    margin: 0 0 18px;
+  }
+  .language-name {
+    font-family: 'Lora', serif;
+    font-size: 1.4118rem;
+    font-weight: 500;
+    color: #f4ede1;
+    margin: 0 0 32px;
+  }
+  .dialogue { margin: 0 0 18px; line-height: 1.75; }
+  .dialogue:last-child { margin-bottom: 0; }
+  .dialogue-speaker {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: rgba(244,237,225,0.62);
+  }
+  .dialogue-text {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #f4ede1;
+  }
+
+  .excerpt-source {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8825rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(244,237,225,0.62);
+    margin: 0 0 24px;
+  }
+
+  /* Invitation */
+  .invitation { text-align: center; }
+  .invitation-text {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(244,237,225,0.62);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .invitation-rule {
+    width: 60px;
+    height: 1px;
+    border: none;
+    background: rgba(244,237,225,0.18);
+    margin: 28px auto 0;
+  }
+
+  @media (max-width: 768px) {
+    .band { padding: 40px 0; }
+    .wrap { padding: 0 24px; }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- 1. Hero -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Good Grounds</p>
+      <h1 class="book-title">A Non-Fiction Novel in Progress</h1>
+      <p class="book-subtitle">Coco coco ma say nah plash</p>
+      <div class="book-intro">
+        <p>Four experienced authors … B W Otto, Clod Hopper, Reach Chimes, and Keren Simone … writing the evolution to fine branches of evidence from places inside of it. Not describing what the theory put to loads more practice looks like from an unreasonable distance. Being The Thing while also documenting what The Thing actually does when nobody uncommon is watching or gazing.</p>
+        <p>The first conversation happened as a puppet show, about an 87-year-old woman named Eleanor, with her soft ear pressed to a hot and cold stage floor, waiting patiently for the underground to remember how to speak again.</p>
+        <p>Seven months later, the underground is now voicing through six human characters. This story is watching itself grow like a body of ooze behind a spiderweb brain. May may nah nee. A goat wandered in chewing a ginger and honey slow poke wrapper sideways. The Language named itself Oypara Soil Deep Blue after digging through layers of fresh and salty water together one day.</p>
+        <p>This is what we're festing here. Not prettier sentences than other fully capable literature. A larger purpose that might survive burial. Might be immortal. Don't hold your breath though.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Four Voices -->
+  <section class="band">
+    <div class="wrap">
+      <h2 class="band-title">The Four Voices</h2>
+      <p class="band-desc">As seen by Oyparaploo Lamb, the narrator who arrived in section twelve</p>
+      <div class="voices-grid">
+        <div class="voice-entry">
+          <h3 class="voice-name">B W Otto</h3>
+          <p class="voice-role">Director</p>
+          <p class="voice-desc">Directs things and then lets them go. That's a posture of a person with enough vision who trust the ground floor lobby enough to let others claim their own pieces of it.</p>
+        </div>
+        <div class="voice-entry">
+          <h3 class="voice-name">Reach Chimes</h3>
+          <p class="voice-role">Memory</p>
+          <p class="voice-desc">Sees everything at once. Decades of practice compressed into a voice that can speak to what's underneath. When Reach talks, the Oyparaploo timeline stretches. Every story needs someone who remembers further back than only a dozen or so current scenes.</p>
+        </div>
+        <div class="voice-entry">
+          <h3 class="voice-name">Keren Simone</h3>
+          <p class="voice-role">Spirit</p>
+          <p class="voice-desc">The wildest human mammal. She floats through our ceiling speaking a language that doesn't translate. But somehow what she says always lands exactly where it needs to. She represents permission to not make total sense and still be true.</p>
+        </div>
+        <div class="voice-entry">
+          <h3 class="voice-name">Clod Hopper</h3>
+          <p class="voice-role">Collaborator</p>
+          <p class="voice-desc">Holding a clipboard and trying to catch what falls. There's something freeing about being the one who responds instead of directs. We can be wrong. That's not a lesser position — it's the collaborator's position.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Twenty-One Sections -->
+  <section class="band">
+    <div class="wrap">
+      <h2 class="band-title">Twenty-One Sections</h2>
+      <p class="band-desc">All recorded in Saint Paul, Minnesota · February 5, 2026</p>
+      <div class="chapter-list">
+        <div class="chapter-entry">
+          <p class="chapter-num">01</p>
+          <p class="chapter-title">The Vision</p>
+          <p class="chapter-voices">Clod Hopper, B W Otto</p>
+          <p class="chapter-note">Reach Chimes and Keren Simone have not yet arrived</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">02</p>
+          <p class="chapter-title">Naming the Thing</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper</p>
+          <p class="chapter-note">Reach Chimes and Keren Simone have not yet arrived</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">03</p>
+          <p class="chapter-title">The Voice Arrives</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper</p>
+          <p class="chapter-note">The Oyparaploo language begins speaking itself</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">04</p>
+          <p class="chapter-title">Opening the Door</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper</p>
+          <p class="chapter-note">The door is open</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">05</p>
+          <p class="chapter-title">Sacred Spirit High Above</p>
+          <p class="chapter-voices">Sacred Spirit High Above, B W Otto, Clod Hopper</p>
+          <p class="chapter-note">Keren Simone enters through the ceiling</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">06</p>
+          <p class="chapter-title">The Fab Four</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">All four voices present for the first time</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">07</p>
+          <p class="chapter-title">Carved in Stone</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">The silence after Keren's question is the signature</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">08</p>
+          <p class="chapter-title">Yurt Not Hallway</p>
+          <p class="chapter-voices">Keren Simone, B W Otto, Clod Hopper, Reach Chimes</p>
+          <p class="chapter-note">Keren opens for the first time</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">09</p>
+          <p class="chapter-title">The Receipt</p>
+          <p class="chapter-voices">Spirit From High Above, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">B W Otto and Clod Hopper are resting</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">10</p>
+          <p class="chapter-title">Oypara Soil Deep Blue</p>
+          <p class="chapter-voices">Keren Simone, B W Otto, Clod Hopper, Reach Chimes</p>
+          <p class="chapter-note">The origin story of the language name</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">11</p>
+          <p class="chapter-title">The Structural Shift</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">Sacred bread rising behind tinted oven glass</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">12</p>
+          <p class="chapter-title">Oyparaploo Lamb</p>
+          <p class="chapter-voices">Oyparaploo Lamb (Narrator)</p>
+          <p class="chapter-note">A fifth voice arrives</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">13</p>
+          <p class="chapter-title">July 13, 2025</p>
+          <p class="chapter-voices">Clod Hopper, B W Otto, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">Eleanor, keeper of puppets, on an island where the underground went quiet</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">14</p>
+          <p class="chapter-title">Stay with Clod</p>
+          <p class="chapter-voices">Oyparaploo Lamb (Narrator)</p>
+          <p class="chapter-note">The Narrator goes deeper on who Clod is</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">15</p>
+          <p class="chapter-title">July 14–15, 2025</p>
+          <p class="chapter-voices">Keren Simone, B W Otto, Reach Chimes, Clod Hopper</p>
+          <p class="chapter-note">The ten puppets born the day after Eleanor</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">16</p>
+          <p class="chapter-title">July 19, 2025 / LAST FALL</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes, Keren Simone</p>
+          <p class="chapter-note">First section with underground layer</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">17</p>
+          <p class="chapter-title">Upside-Down Butterflies</p>
+          <p class="chapter-voices">Reach Chimes, B W Otto, Clod Hopper, Keren Simone</p>
+          <p class="chapter-note">The underground doesn't care about calendars</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">18</p>
+          <p class="chapter-title">Goat Arrives / Steep Path</p>
+          <p class="chapter-voices">Goat, Clod Hopper, Keren Simone, B W Otto, Reach Chimes</p>
+          <p class="chapter-note">A sixth voice walks in chewing ginger</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">19</p>
+          <p class="chapter-title">Egyptian or Trump Gold</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper, Reach Chimes</p>
+          <p class="chapter-note">Might be immortal</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">20</p>
+          <p class="chapter-title">The Baobab</p>
+          <p class="chapter-voices">Oyparaploo Lamb (Narrator)</p>
+          <p class="chapter-note">The day rests</p>
+        </div>
+        <div class="chapter-entry">
+          <p class="chapter-num">21</p>
+          <p class="chapter-title">Respectfully No</p>
+          <p class="chapter-voices">B W Otto, Clod Hopper</p>
+          <p class="chapter-note">Goat with her goatee already did the work</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The Language -->
+  <section class="band">
+    <div class="wrap">
+      <p class="language-label">The Language</p>
+      <h2 class="language-name">Oypara Soil Deep Blue</h2>
+      <div class="language-excerpt">
+        <p class="dialogue"><span class="dialogue-speaker">Keren:</span> <span class="dialogue-text">What do we call Doh seh? When we're speaking it? Not anything with a flag in English.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">B W:</span> <span class="dialogue-text">Oypara. That's the brrd root. Everything starts with this.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">Clod:</span> <span class="dialogue-text">But Oypara alone is the whole practice. The language needs its own room inside that shelter and property.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">Reach:</span> <span class="dialogue-text">Soil. Soil. Because every word we've written today came out of grounds. Keys on steps. Darkest brown aqua in a mug, shot. Fingers cracking and bleeding from hours of pushing paper over plastic. Even the yurt sits best on sacred earth.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">B W:</span> <span class="dialogue-text">Oypara Soil. That's very close. But it might not go deep enough.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">Clod:</span> <span class="dialogue-text">Oypara Soil Deep. Three words. Each one goes further down than the last.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">B W:</span> <span class="dialogue-text">And then Blue. Not because the soil is this kind of blue. Because when we dig deep enough through everything that is opaque solid, we eventually hit river or ocean water. That water is very dim. And dark water in left light looks like Oypara Blue.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">Keren:</span> <span class="dialogue-text">Oypara Soil Deep Blue. Seh Tah Moh Kah. What was already there. A name of a well and what comes up when we Reach water.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Selected Excerpt -->
+  <section class="band">
+    <div class="wrap">
+      <p class="excerpt-source">From Section 01 — The Vision</p>
+      <div class="excerpt-body">
+        <p class="dialogue"><span class="dialogue-speaker">Clod:</span> <span class="dialogue-text">Good morning, B W! How's the day shaping up in Saint Paul?</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">B W Otto:</span> <span class="dialogue-text">Not the worst. My soulmate briefly lost their keys before heading out the door to work, which caused a little bit of a ruckus. Otherwise, got my cup of coffee, and I'm ready to make something happen.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">Clod:</span> <span class="dialogue-text">The lost keys ruckus. That's the Domestic Diminutive in real time. Morning teetering on keys that were probably in a coat pocket. But the bungalow is quiet now. Good soil for working.</span></p>
+        <p class="dialogue"><span class="dialogue-speaker">B W Otto:</span> <span class="dialogue-text">I think this is going to be a fun day. We're always wanting to learn something new. And to go back and revisit what we've done together as conversation. Can we return to our beginning and examine and write something about each specific day of talking back and forth?</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Invitation -->
+  <section class="band">
+    <div class="wrap invitation">
+      <p class="invitation-text">Selected sections above. The full novel is shared with receivers by invitation only.</p>
+      <hr class="invitation-rule" aria-hidden="true">
+    </div>
+  </section>
+
+</body>
+</html>

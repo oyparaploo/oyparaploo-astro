@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrance — paraploo, the elder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- viewing-room dialect, ported verbatim where it applies ---------- */
+  :root { --root-size: 17px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { font-style: normal; }
+  html { font-size: var(--root-size); -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0907;
+    color: rgba(232,224,214,0.85);
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(232,224,214,0.12);
+  }
+  a { color: inherit; text-decoration: none; }
+  p, h1, h2 { text-wrap: pretty; }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+  /* ---------- light mode (contrast toggle), ported ---------- */
+  body.light-mode { background: #fffdf9; color: #2a2320; }
+  body.light-mode nav { background: rgba(255,255,255,0.97); }
+  body.light-mode .wordmark { color: #333333; }
+  body.light-mode .wordmark:hover { color: #5c3a1e; }
+  body.light-mode .nav-links a { color: #333333; }
+  body.light-mode .nav-links a:hover { color: #5c3a1e; }
+  body.light-mode .icon-btn { color: #333333; }
+  body.light-mode .burger span { background: #333333; }
+  body.light-mode .hd .g { color: #5a4f47; }
+  body.light-mode .band-head h2 { color: #2a2320; }
+  body.light-mode .rule { border-top-color: rgba(61,53,46,0.32); }
+  body.light-mode .card, body.light-mode .card-tile, body.light-mode .lead-panel,
+  body.light-mode .hw-tile, body.light-mode .pill { border-color: rgba(61,53,46,0.32); }
+
+  /* ---------- nav, ported verbatim ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(0,0,0,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    height: 64px; display: flex; align-items: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .wordmark {
+    font-family: 'Lora', serif; font-weight: 600; font-size: 20px;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.62); text-decoration: none;
+    flex-shrink: 0; white-space: nowrap;
+  }
+  @keyframes wordmark-breathe {
+    0%, 100% { opacity: 0; }
+    50%      { opacity: 0.58; }
+  }
+  .wordmark:hover { color: rgba(232,224,214,0.96); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-left: 48px; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500;
+    letter-spacing: 0.02em; color: rgba(232,224,214,0.68); text-decoration: none;
+  }
+  .nav-links a:hover { color: rgba(232,224,214,0.96); }
+  @media (max-width: 1100px) { .nav-links { display: none; } }
+  .nav-utils { display: flex; align-items: center; gap: 18px; margin-left: 24px; }
+  .sz-group { display: flex; align-items: flex-end; gap: 0; }
+  .sz {
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    color: rgba(232,224,214,0.66); background: none; border: none; cursor: pointer;
+    line-height: 1; min-height: 44px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 0 2px 12px;
+    transition: color 0.18s ease;
+  }
+  .sz:hover { color: rgba(232,224,214,0.78); }
+  .sz.active { color: rgba(232,224,214,0.78); }
+  body.light-mode .sz { color: #5a4f47; }
+  body.light-mode .sz:hover { color: #333333; }
+  body.light-mode .sz.active { color: #333333; }
+  .sz[data-size="1"] { font-size: 14px; }
+  .sz[data-size="2"] { font-size: 17px; }
+  .sz[data-size="3"] { font-size: 20px; }
+  .icon-btn {
+    background: none; border: none; color: rgba(232,224,214,0.85); cursor: pointer;
+    min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center;
+    transition: color 0.18s ease;
+  }
+  .burger { display: flex; flex-direction: column; gap: 5px; }
+  .burger span { width: 22px; height: 1.5px; background: rgba(232,224,214,0.85); display: block; }
+  .accent-rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(85,85,85,0.55), transparent); }
+
+  /* ---------- header label, ported ---------- */
+  header.hd { max-width: 1400px; margin: 0 auto; padding: 54px 40px 30px; }
+  .hd .g {
+    font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(232,224,214,0.62);
+  }
+  .hd .g .right { float: right; display: flex; gap: 24px; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: none; }
+  .hd .g .right a { color: rgba(232,224,214,0.62); }
+  .hd .g .right a:hover { color: rgba(232,224,214,0.96); }
+
+  /* ---------- rule treatment, extrapolated from the accent-rule gradient
+     into a plain hairline for content dividers (viewing-room has no content-
+     rule spec of its own — see report) ---------- */
+  .rule { border-top: 1px solid rgba(232,224,214,0.18); }
+
+  /* ---------- lead item ---------- */
+  .lead { padding: 48px 0; }
+  .lead-panel { border: 1px solid rgba(232,224,214,0.18); padding: 40px; }
+  .lead-title { font-family: 'Lora', serif; font-weight: 600; font-size: 30px; margin: 0 0 14px; color: rgba(232,224,214,0.96); }
+  .lead-line { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.6; color: rgba(232,224,214,0.85); max-width: 760px; margin: 0; }
+  .lead-panel:hover .lead-title { color: rgba(232,224,214,1); }
+
+  /* ---------- band heading ---------- */
+  .band { padding: 48px 0; }
+  .band-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; }
+  .band-head h2 {
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; margin: 0; color: rgba(232,224,214,0.62);
+  }
+  .band-head .count { color: rgba(232,224,214,0.62); font-weight: 400; margin-left: 8px; text-transform: none; letter-spacing: 0; }
+  .band-head .all-link { font-family: 'Inter', sans-serif; font-size: 0.94rem; color: rgba(232,224,214,0.62); }
+  .band-head .all-link:hover { color: rgba(232,224,214,0.96); }
+
+  /* ---------- current cards ---------- */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { border: 1px solid rgba(232,224,214,0.18); padding: 22px; transition: border-color 0.18s ease; }
+  .card:hover { border-color: rgba(232,224,214,0.35); }
+  .card-tile { aspect-ratio: 4/3; border: 1px solid rgba(232,224,214,0.18); margin-bottom: 16px; }
+  .card-title { font-family: 'Lora', serif; font-weight: 600; font-size: 17px; margin: 0 0 6px; color: rgba(232,224,214,0.96); }
+  .card-date { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; margin: 0 0 10px; color: rgba(232,224,214,0.85); }
+  .card-excerpt {
+    font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(232,224,214,0.62); line-height: 1.5; margin: 0;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  /* ---------- chronology ---------- */
+  .chrono-year { margin-bottom: 26px; }
+  .chrono-year .year { font-family: 'Lora', serif; font-weight: 600; font-size: 22px; color: rgba(232,224,214,0.96); margin-bottom: 12px; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    border: 1px solid rgba(232,224,214,0.18);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-family: 'Inter', sans-serif; font-size: 12px;
+    color: rgba(232,224,214,0.62);
+    font-weight: 400;
+  }
+
+  /* ---------- words ---------- */
+  .words-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 32px; }
+  .word-item .title { font-family: 'Lora', serif; font-weight: 600; font-size: 15px; color: rgba(232,224,214,0.96); margin: 0 0 4px; }
+  .word-item .count { font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(232,224,214,0.62); }
+
+  /* ---------- handwriting ---------- */
+  .hw-row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; }
+  .hw-tile { border: 1px solid rgba(232,224,214,0.18); aspect-ratio: 1/1; overflow: hidden; filter: saturate(0.82) brightness(0.84); transition: filter 0.3s ease; }
+  .hw-tile:hover { filter: saturate(1) brightness(1); }
+  .hw-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ---------- footer ---------- */
+  .footer { padding: 48px 0 64px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .footer-col h3 {
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(232,224,214,0.62); margin: 0 0 14px;
+  }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; color: rgba(232,224,214,0.85); }
+  .footer-col a:hover { color: rgba(232,224,214,1); }
+
+  /* ---------- menu (Städel slide-in), ported verbatim ---------- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(0,0,0,0.45);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .menu-overlay.open { opacity: 1; visibility: visible; }
+  .menu-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 95;
+    width: 400px; max-width: 88vw;
+    background: #faf6f0;
+    transform: translateX(100%);
+    transition: transform 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 34px 40px calc(34px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+  }
+  .menu-panel.open { transform: translateX(0); }
+  .menu-close {
+    align-self: flex-end; background: none; border: none; cursor: pointer;
+    width: 44px; height: 44px; color: #3d352e;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .menu-links { list-style: none; margin-top: 22px; }
+  .menu-links li { border-bottom: 1px solid rgba(61,53,46,0.32); }
+  .menu-links a {
+    display: flex; align-items: center; min-height: 44px; padding: 12px 0;
+    font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+    color: #2a2320; text-decoration: none; letter-spacing: 0.01em;
+  }
+  .menu-links a:hover { color: #5c3a1e; }
+
+  /* ---------- search (slim drop bar), ported verbatim ---------- */
+  .search-overlay {
+    position: fixed; top: 65px; left: 0; right: 0; z-index: 96;
+    background: rgba(10,7,5,0.94);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    transform: translateY(-100%);
+    opacity: 0; visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.22s ease, visibility 0.22s ease;
+  }
+  .search-overlay.open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .search-box {
+    max-width: 1400px; margin: 0 auto; padding: 0 40px;
+    height: 62px; display: flex; align-items: center; gap: 16px;
+  }
+  .search-box input {
+    flex: 0 1 460px; background: none; border: none;
+    border-bottom: 1px solid rgba(232,224,214,0.35);
+    font-family: 'Lora', serif; font-size: 18px; font-weight: 400;
+    color: rgba(232,224,214,0.88); padding: 6px 0; outline: none;
+  }
+  .search-box input:focus { border-bottom-color: rgba(232,224,214,0.62); }
+  .search-box input::placeholder { color: rgba(232,224,214,0.62); }
+  .search-close {
+    width: 44px; height: 44px; background: none; border: none; cursor: pointer;
+    color: rgba(232,224,214,0.62); flex-shrink: 0; margin-left: auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .search-close:hover { color: rgba(232,224,214,1); }
+  body.light-mode .search-overlay { background: rgba(255,255,255,0.97); border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input { color: #2a2320; border-bottom-color: rgba(61,53,46,0.32); }
+  body.light-mode .search-box input:focus { border-bottom-color: rgba(61,53,46,0.55); }
+  body.light-mode .search-box input::placeholder { color: #5a4f47; }
+  body.light-mode .search-close { color: #333333; }
+
+  @media (max-width: 768px) {
+    .nav-inner, header.hd, .wrap { padding-left: 24px; padding-right: 24px; }
+    .search-box { padding: 0 24px; gap: 10px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .words-grid { grid-template-columns: 1fr; }
+    .hw-row { grid-template-columns: repeat(4, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- two-row phone nav, ported verbatim ---------- */
+  @media (max-width: 560px) {
+    nav { height: auto; }
+    .nav-inner { flex-wrap: wrap; }
+    .nav-utils {
+      order: 1; width: 100%; margin-left: 0; height: 52px;
+      justify-content: flex-end;
+      border-bottom: 1px solid rgba(232,224,214,0.35);
+    }
+    body.light-mode .nav-utils { border-bottom-color: rgba(61,53,46,0.32); }
+    .wordmark {
+      order: 2; width: 100%; height: 52px; display: flex; align-items: center;
+      font-size: 21px; color: rgba(232,224,214,1);
+      animation: wordmark-breathe 16s ease-in-out infinite;
+    }
+    .wordmark:hover, .wordmark:focus-visible {
+      animation-play-state: paused; opacity: 0.88;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wordmark { animation: none; opacity: 0.78; }
+    }
+    header.hd { padding-top: 26px; }
+    .search-overlay { top: 105px; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-panel { width: 100%; max-width: 100%; padding: 28px 24px; }
+    .nav-inner { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="wordmark">paraploo, the elder</a>
+    <ul class="nav-links">
+      <li><a href="#">Words</a></li>
+      <li><a href="#">Marks</a></li>
+      <li><a href="#">Objects</a></li>
+      <li><a href="#">Effects</a></li>
+      <li><a href="#">The Book</a></li>
+    </ul>
+    <div class="nav-utils">
+      <div class="sz-group" aria-label="text size">
+        <button class="sz active" data-size="1" aria-label="small text">A</button>
+        <button class="sz" data-size="2" aria-label="medium text">A</button>
+        <button class="sz" data-size="3" aria-label="large text">A</button>
+      </div>
+      <button class="icon-btn" id="contrastBtn" aria-label="contrast">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5Z" fill="currentColor"/></svg>
+      </button>
+      <button class="icon-btn" id="searchBtn" aria-label="search">
+        <svg width="21" height="21" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
+      </button>
+      <button class="icon-btn burger" id="menuBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="accent-rule"></div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<aside class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="close menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <ul class="menu-links">
+    <li><a href="#">Words</a></li>
+    <li><a href="#">Marks</a></li>
+    <li><a href="#">Objects</a></li>
+    <li><a href="#">Effects</a></li>
+    <li><a href="#">The Book</a></li>
+  </ul>
+</aside>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
+  <div class="search-box">
+    <input type="search" id="searchInput" placeholder="Search" aria-label="Search paraploo">
+    <button class="search-close" id="searchClose" aria-label="close search">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="g">Saint Paul<span class="right"><a href="#">Newsletter</a><a href="#">Search</a></span></div>
+</header>
+
+<!-- 3. Lead item -->
+<div class="wrap lead">
+  <a href="witnesses.html" style="text-decoration:none;">
+    <div class="lead-panel">
+      <p class="lead-title">The Witnesses</p>
+      <p class="lead-line">Five figures who arrived when the writing could not find its entry point. Not characters in stories. Entry points — ways in when the door seemed locked.</p>
+    </div>
+  </a>
+</div>
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 4. Current -->
+<div class="wrap band">
+  <div class="band-head">
+    <h2>Current</h2>
+    <a class="all-link" href="#">All work</a>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="CLEAN-the-lobby.html" style="text-decoration:none;">
+      <div class="card-tile"></div>
+      <p class="card-title">Paraploo, The Elder</p>
+      <p class="card-date">The Lobby</p>
+      <p class="card-excerpt">Five ways into the work. Each one earned.</p>
+    </a>
+    <a class="card" href="CLEAN-what-persists.html" style="text-decoration:none;">
+      <div class="card-tile"></div>
+      <p class="card-title">What Persists</p>
+      <p class="card-date">Exhibitions &amp; Programs</p>
+      <p class="card-excerpt">Visit the current exhibitions and discover related activities — guided readings, educational programs, film cycles, performances, conversations, and lectures.</p>
+    </a>
+    <a class="card" href="CLEAN-wavelength.html" style="text-decoration:none;">
+      <div class="card-tile"></div>
+      <p class="card-title">Wavelength — The Receiver Turn</p>
+      <p class="card-date">Issue 12</p>
+      <p class="card-excerpt">The shift from testimony to invitation changes who gets to enter the work.</p>
+    </a>
+  </div>
+</div>
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 5. Chronology -->
+<div class="wrap band">
+  <div class="band-head">
+    <h2>Chronology</h2>
+  </div>
+  <div class="chrono-year">
+    <div class="year">2025</div>
+    <div class="pill-row">
+      <span class="pill">The collaboration begins</span>
+      <span class="pill">First writings emerge</span>
+      <span class="pill">A voice is discovered</span>
+      <span class="pill">Good Grounds opens</span>
+    </div>
+  </div>
+  <div class="chrono-year">
+    <div class="year">2026</div>
+    <div class="pill-row">
+      <span class="pill">The Witness Series — 54 portraits</span>
+      <span class="pill">Wonderful Garbage becomes a method</span>
+      <span class="pill">The turn to fiction</span>
+      <span class="pill">Methodology made visible</span>
+      <span class="pill">47 templates built</span>
+      <span class="pill">This site</span>
+    </div>
+  </div>
+  <div class="chrono-year">
+    <div class="year">1995 — 2024</div>
+    <div class="pill-row">
+      <span class="pill">Thirty years of practice</span>
+      <span class="pill">Visual work &amp; installations</span>
+      <span class="pill">Sound</span>
+      <span class="pill">Performance</span>
+      <span class="pill">140,000+ files</span>
+    </div>
+  </div>
+</div>
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 6. Words -->
+<div class="wrap band">
+  <div class="band-head">
+    <h2>Words<span class="count">45</span></h2>
+  </div>
+  <div class="words-grid">
+    <div class="word-item"><p class="title">Pen on Pulp</p><p class="count">667 words</p></div>
+    <div class="word-item"><p class="title">Underground Electric Charge Network</p><p class="count">348 words</p></div>
+    <div class="word-item"><p class="title">Unlabeled Disciplined Meaningful Organism</p><p class="count">428 words</p></div>
+    <div class="word-item"><p class="title">No Single Safe Direction</p><p class="count">231 words</p></div>
+    <div class="word-item"><p class="title">With Honesty</p><p class="count">253 words</p></div>
+    <div class="word-item"><p class="title">Good Day Ever Which Way</p><p class="count">226 words</p></div>
+    <div class="word-item"><p class="title">Keep the Bones the Same Spirit</p><p class="count">710 words</p></div>
+    <div class="word-item"><p class="title">A Little Bend Worth Enjoying</p><p class="count">93 words</p></div>
+    <div class="word-item"><p class="title">Dairyaire</p><p class="count">40 words</p></div>
+  </div>
+</div>
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 7. Handwriting -->
+<div class="wrap band">
+  <div class="band-head">
+    <h2>Handwriting<span class="count">1,157</span></h2>
+    <a class="all-link" href="#">See all</a>
+  </div>
+  <div class="hw-row">
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/001 brrdboHWcoloring2_thumb_1200x927_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/005 brrdboHWcoloring_thumb_1200x927_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 001 Thick 2_thumb_1200x872_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 002_thumb_1200x872_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 003_thumb_1200x872_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 042_thumb_1200x872_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 045_thumb_1200x872_480.webp" alt=""></div>
+    <div class="hw-tile"><img src="HANDWRITING-THUMBS/AAOB 055_thumb_1200x872_480.webp" alt=""></div>
+  </div>
+</div>
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 8. Footer -->
+<div class="wrap footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Practice</h3>
+      <ul>
+        <li><a href="#">Biography</a></li>
+        <li><a href="#">Story</a></li>
+        <li><a href="#">Methodology</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Work</h3>
+      <ul>
+        <li><a href="#">Words</a></li>
+        <li><a href="#">Marks</a></li>
+        <li><a href="#">Objects</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Read</h3>
+      <ul>
+        <li><a href="#">The Book</a></li>
+        <li><a href="#">Middle Eye</a></li>
+        <li><a href="#">Colophon</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Elsewhere</h3>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Search</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  // AAA font-size toggle (Städel nav requirement), ported
+  document.querySelectorAll(".sz").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".sz").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var sizes = { "1": "17px", "2": "18px", "3": "20px" };
+      document.documentElement.style.setProperty("--root-size", sizes[btn.dataset.size]);
+      document.documentElement.className = "size-" + btn.dataset.size;
+    });
+  });
+
+  // ---------- menu ----------
+  var menuBtn = document.getElementById("menuBtn");
+  var menuPanel = document.getElementById("menuPanel");
+  var menuOverlay = document.getElementById("menuOverlay");
+  var menuClose = document.getElementById("menuClose");
+
+  function setMenu(on) {
+    menuPanel.classList.toggle("open", on);
+    menuOverlay.classList.toggle("open", on);
+    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
+    menuPanel.setAttribute("aria-hidden", on ? "false" : "true");
+    menuOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    document.body.style.overflow = on ? "hidden" : "";
+  }
+  menuBtn.addEventListener("click", function () {
+    setMenu(!menuPanel.classList.contains("open"));
+  });
+  menuClose.addEventListener("click", function () { setMenu(false); });
+  menuOverlay.addEventListener("click", function () { setMenu(false); });
+  menuPanel.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { setMenu(false); });
+  });
+
+  // ---------- search ----------
+  var searchBtn = document.getElementById("searchBtn");
+  var searchOverlay = document.getElementById("searchOverlay");
+  var searchClose = document.getElementById("searchClose");
+  var searchInput = document.getElementById("searchInput");
+
+  function setSearch(on) {
+    searchOverlay.classList.toggle("open", on);
+    searchOverlay.setAttribute("aria-hidden", on ? "false" : "true");
+    if (on) { setTimeout(function () { searchInput.focus(); }, 60); }
+    else { searchInput.blur(); }
+  }
+  searchBtn.addEventListener("click", function () {
+    setSearch(!searchOverlay.classList.contains("open"));
+  });
+  searchClose.addEventListener("click", function () { setSearch(false); });
+
+  // ---------- contrast ----------
+  document.getElementById("contrastBtn").addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+  });
+
+  // Escape closes menu and search
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (menuPanel.classList.contains("open")) setMenu(false);
+    if (searchOverlay.classList.contains("open")) setSearch(false);
+  });
+</script>
+
+</body>
+</html>

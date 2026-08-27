@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Oyparaploo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;425;450;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { font-style: normal; }
+em, i, cite, address, dfn, var { font-style: normal; }
+p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  font-size: var(--root-size, 17px);
+}
+html.size-1 { --root-size: 17px; }
+html.size-2 { --root-size: 18px; }
+html.size-3 { --root-size: 20px; }
+:root { --oy-radius: 4px; --oy-tan: #D4A574; --oy-sage: #8BA89A; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+  color: #2a2320;
+  background-color: #fffdf9;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+a, button, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* ═══════════════════════════════════════════
+   STÄDEL NAV SYSTEM (compact)
+═══════════════════════════════════════════ */
+
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  height: 64px; display: flex; align-items: center;
+}
+.wordmark {
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px;
+  color: #333; text-decoration: none; letter-spacing: 0.02em;
+  flex-shrink: 0; transition: color 0.2s;
+}
+.wordmark:hover { color: #5c3a1e; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px; list-style: none;
+  padding-left: 0; margin-left: 48px; flex-shrink: 0;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500;
+  letter-spacing: 0.02em; color: #333; text-decoration: none;
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #5c3a1e; }
+.nav-links a.active { color: #5c3a1e; }
+.nav-utils {
+  display: flex; align-items: center; gap: 12px; margin-left: auto;
+}
+.nav-utils button, .nav-utils a {
+  font-family: 'Inter', sans-serif; color: #333; background: none; border: none;
+  cursor: pointer; min-height: 44px; padding: 0 8px;
+  display: flex; align-items: center; justify-content: center; transition: color 0.2s;
+}
+.nav-utils button:hover, .nav-utils a:hover { color: #5c3a1e; }
+.nav-utils svg { stroke: currentColor; fill: none; }
+.font-size-btn { display: flex; gap: 2px; font-weight: 600; align-items: baseline; }
+.font-size-btn .sz {
+  opacity: 1; color: #000 !important; transition: opacity 0.25s;
+  line-height: 1; background: none; border: none; cursor: pointer;
+}
+.font-size-btn .sz.active { opacity: 1; color: #000 !important; }
+.font-size-btn .sz[data-size="1"] { font-size: 22px; }
+.font-size-btn .sz[data-size="2"] { font-size: 18px; }
+.font-size-btn .sz[data-size="3"] { font-size: 15px; }
+.nav-hamburger {
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; gap: 5px; background: none; border: none;
+  cursor: pointer; min-height: 44px; padding: 0 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px; background: #333;
+  transition: transform 0.25s, opacity 0.2s; transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-accent-rule {
+  display: block; height: 2px; border: none;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(122,90,74,0.35) 8%, rgba(122,90,74,0.55) 15%,
+    rgba(122,90,74,0.28) 24%, rgba(92,58,30,0.45) 34%, rgba(92,58,30,0.65) 44%,
+    rgba(92,58,30,0.28) 54%, rgba(122,90,74,0.50) 63%, rgba(160,128,100,0.40) 74%,
+    rgba(160,128,100,0.28) 83%, rgba(122,90,74,0.30) 90%, transparent 100%);
+}
+
+/* ── MENU (minimal for prototype) ── */
+.menu-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.6s;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+.menu-strips {
+  position: fixed; top: 0; bottom: 0; left: 0; right: 400px; z-index: 201;
+  display: flex; flex-direction: row; overflow: hidden;
+  opacity: 0; transition: opacity 0.5s ease 0.15s; pointer-events: none;
+}
+.menu-strips.open { opacity: 1; pointer-events: auto; }
+.strip {
+  flex: 1; position: relative; overflow: hidden; cursor: pointer;
+  transition: flex 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); min-width: 0;
+}
+.strip:hover { flex: 4; }
+.strip-bg {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  transition: transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.strip:hover .strip-bg { transform: scale(1.04); }
+.strip::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 1;
+  background: linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%); pointer-events: none;
+}
+.strip-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.4); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  padding: 40px 36px 44px; z-index: 2; opacity: 0; transition: opacity 0.8s ease 0.1s;
+}
+.strip:hover .strip-bottom { opacity: 1; }
+.strip-content { color: #fff; }
+.strip-title { font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.12; margin-bottom: 8px; color: #fff; }
+.strip-subtitle { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.25; }
+
+.menu-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+  width: 400px; max-width: 90vw; background: #faf6f0; color: #2a2320;
+  clip-path: inset(16px 20px calc(100% - 68px) calc(100% - 220px) round 4px);
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.2s ease;
+  overflow-y: auto; padding: 24px 36px 48px; pointer-events: none; opacity: 0;
+}
+.menu-panel.open {
+  clip-path: inset(0 0 0 0 round 0); pointer-events: auto; opacity: 1;
+  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.1s ease;
+}
+.menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; padding-top: 4px; }
+.menu-ghost-wordmark { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 500; color: #2a2320; opacity: 0.38; letter-spacing: 0.02em; user-select: none; pointer-events: none; }
+.menu-close {
+  font-size: 22px; color: #2a2320 !important;
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity 0.25s; background: none; border: none; padding: 0;
+}
+.menu-close svg { width: 20px; height: 20px; stroke: #2a2320; stroke-width: 1.5; }
+.menu-close:hover { opacity: 0.65; }
+.menu-rule { height: 1px; border: none; margin: 28px 0; background: #d0c8c0; }
+.menu-nav-primary a {
+  font-family: 'Lora', serif; font-size: 24px; font-weight: 600; color: #2a2320;
+  display: block; padding: 10px 0; transition: color 0.25s; text-decoration: none;
+  letter-spacing: -0.01em; line-height: 1.2;
+}
+.menu-nav-primary a:hover { color: #5c3a1e; }
+.menu-nav-label {
+  display: none;
+  font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+  color: #7d7168; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px;
+}
+.menu-nav-secondary a {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320;
+  display: block; padding: 4px 0; transition: color 0.25s; text-decoration: none;
+}
+.menu-nav-secondary a:hover { color: #5c3a1e; }
+.menu-nav-tertiary { display: block; }
+.menu-nav-tertiary a {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: #2a2320;
+  display: block; padding: 4px 0; transition: color 0.25s; text-decoration: none;
+}
+.menu-nav-tertiary a:hover { color: #2a2320; }
+.menu-location { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 500; color: #5a4f47; margin-top: 20px; line-height: 1.6; }
+.menu-bottom-btns { display: flex; gap: 10px; margin-top: 24px; }
+.menu-btn {
+  display: inline-flex; align-items: center; font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #2a2320; border: 1px solid rgba(42,35,32,0.40); padding: 8px 16px;
+  border-radius: 4px; min-height: 44px; background: none;
+  text-decoration: none; transition: border-color 0.25s, background 0.25s, color 0.25s; cursor: pointer;
+}
+.menu-btn:hover { background: #2a2320; color: #faf8f5; border-color: #2a2320; }
+.mobile-strips { display: none; gap: 10px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; }
+.mobile-strips::-webkit-scrollbar { display: none; }
+.mobile-strip-card {
+  flex: 0 0 140px; height: 100px; border-radius: 4px; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; border: 1px solid rgba(0,0,0,0.28);
+}
+.mobile-strip-card .strip-bg { position: absolute; inset: 0; border-radius: 4px; }
+.mobile-strip-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%); border-radius: 4px;
+}
+.mobile-strip-card-text { position: absolute; bottom: 10px; left: 12px; right: 8px; z-index: 2; color: #fff; }
+.mobile-strip-card-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; line-height: 1.2; margin-bottom: 2px; }
+.mobile-strip-card-sub { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; color: #c0c0c0; }
+
+/* ═══════════════════════════════════════════
+   PAGE HEADER
+═══════════════════════════════════════════ */
+
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 40px 0;
+}
+
+.page-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.3529rem, 2.8vw, 1.7059rem);
+  font-weight: 600;
+  color: #3a3028;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+
+.page-intro {
+  max-width: 680px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.0588rem;
+  font-weight: 400;
+  color: #3a3028;
+  line-height: 1.78;
+  letter-spacing: 0em;
+  text-wrap: pretty;
+}
+
+.page-intro strong {
+  font-weight: 500;
+  color: #2a2320;
+}
+
+.page-stat {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a4f47;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════════════════
+   TOOLBAR — filters + view toggle
+═══════════════════════════════════════════ */
+
+.toolbar {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.filters::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3a3028;
+  background: none;
+  border: 1px solid #c0b8b0;
+  padding: 8px 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+  letter-spacing: 0.02em;
+}
+.filter-btn:hover {
+  color: #2a2320;
+  border-color: #8a8078;
+}
+.filter-btn.active {
+  color: #2a2320;
+  border-color: #7a5028;
+  background: #f9f5f0;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid #c0b8b0;
+  flex-shrink: 0;
+}
+.view-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a4038;
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.25s, background 0.25s;
+}
+.view-btn:hover { color: #2a2320; }
+.view-btn.active {
+  color: #2a2320;
+  background: #f5f2ef;
+}
+.view-btn + .view-btn {
+  border-left: 1px solid #c0b8b0;
+}
+
+/* ═══════════════════════════════════════════
+   SHAPED SCROLL — the archive body
+═══════════════════════════════════════════ */
+
+.archive-body {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 40px;
+}
+
+/* ── Standard grid ── */
+.piece-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+/* ── Grid card ── */
+.card {
+  border: 1px solid #b8a088;
+  padding: 28px 28px 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1.2s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.card.scroll-visible {
+  opacity: 1;
+}
+.card:hover {
+  border-color: #8a6e50;
+  background: #faf7f3;
+}
+
+.card-register {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a4f47;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 1.2353rem;
+  font-weight: 600;
+  color: #2a2320;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.card-excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4a4038;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-wrap: pretty;
+  flex-grow: 1;
+}
+
+/* ═══════════════════════════════════════════
+   FEATURED BREAKOUT
+   The grid pauses. One piece at full width.
+   A moment of curatorial emphasis.
+═══════════════════════════════════════════ */
+
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 72px;
+  border: 1px solid #b8a088;
+  min-height: 340px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  cursor: pointer;
+}
+.featured.scroll-visible {
+  opacity: 1;
+}
+.featured:hover {
+  border-color: #8a6e50;
+}
+
+.featured-gradient {
+  position: relative;
+  overflow: hidden;
+}
+.featured-gradient-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.featured:hover .featured-gradient-bg {
+  transform: scale(1.03);
+}
+
+.featured-text {
+  padding: 48px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-register {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a4f47;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.featured-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: #2a2320;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.featured-excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.0588rem;
+  font-weight: 400;
+  color: #4a4038;
+  line-height: 1.78;
+  text-wrap: pretty;
+  max-width: 480px;
+}
+
+.featured-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5c3a1e;
+  margin-top: 24px;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.featured-cta:hover { color: #2a2320; }
+.featured-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+/* ═══════════════════════════════════════════
+   PULL QUOTE — curatorial breath
+═══════════════════════════════════════════ */
+
+.pull-moment {
+  max-width: 640px;
+  margin: 0 auto 72px;
+  text-align: center;
+  padding: 24px 40px;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+.pull-moment.scroll-visible {
+  opacity: 1;
+}
+.pull-moment-text {
+  font-family: 'Lora', serif;
+  font-size: 1.4118rem;
+  font-weight: 400;
+  color: #4a4038;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+.pull-moment-attr {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 450;
+  color: #5a4f47;
+  margin-top: 16px;
+  letter-spacing: 0.03em;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION LABEL — between grid sections
+═══════════════════════════════════════════ */
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a4f47;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-top: 8px;
+  border-top: 1px solid #c8b8a0;
+}
+
+/* ═══════════════════════════════════════════
+   LIST VIEW
+═══════════════════════════════════════════ */
+
+.archive-body.list-view .piece-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.archive-body.list-view .card {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border: none;
+  border-bottom: 1px solid #d0c0a8;
+}
+.archive-body.list-view .card:hover {
+  background: none;
+  border-color: #a08868;
+}
+.archive-body.list-view .card:first-child {
+  border-top: 1px solid #d0c0a8;
+}
+
+.archive-body.list-view .card-register {
+  flex: 0 0 120px;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.archive-body.list-view .card-title {
+  flex: 0 0 240px;
+  font-size: 1.0588rem;
+  margin-bottom: 0;
+}
+
+.archive-body.list-view .card-excerpt {
+  flex: 1;
+  -webkit-line-clamp: 1;
+  font-size: 1rem;
+}
+
+/* List view: featured becomes simpler */
+.archive-body.list-view .featured {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 24px;
+  padding: 24px 0;
+  border: none;
+  border-bottom: 2px solid #b8a088;
+  border-top: 2px solid #b8a088;
+  min-height: auto;
+  margin-bottom: 40px;
+}
+.archive-body.list-view .featured:hover { border-color: #8a6e50; }
+.archive-body.list-view .featured-gradient { display: none; }
+.archive-body.list-view .featured-text {
+  padding: 0;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.archive-body.list-view .featured-register { flex: 0 0 120px; margin-bottom: 0; }
+.archive-body.list-view .featured-title { flex: 0 0 240px; font-size: 1.0588rem; margin-bottom: 0; }
+.archive-body.list-view .featured-excerpt { flex: 1; -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; max-width: none; }
+.archive-body.list-view .featured-cta { display: none; }
+
+/* List view: pull moment stays as-is */
+
+/* List view: section labels get less margin */
+.archive-body.list-view .section-label { margin-bottom: 0; }
+
+/* ═══════════════════════════════════════════
+   COUNT BAR — bottom of archive
+═══════════════════════════════════════════ */
+
+.count-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 40px 100px;
+  text-align: center;
+}
+.count-bar-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #5a4f47;
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════ */
+
+body.dark-mode {
+  background-color: #000;
+  color: #ccc5bc;
+}
+.dark-mode .site-nav { background: rgba(0,0,0,0.92); }
+.dark-mode .nav-accent-rule { opacity: 0.6; }
+.dark-mode .wordmark, .dark-mode .nav-links a, .dark-mode .nav-utils button, .dark-mode .nav-utils a { color: rgba(232,224,214,0.68); }
+.dark-mode .nav-links a.active { color: rgba(232,224,214,0.88); }
+.dark-mode .font-size-btn .sz, .dark-mode .font-size-btn .sz.active { color: rgba(232,224,214,0.68) !important; }
+.dark-mode .nav-hamburger span { background: rgba(232,224,214,0.68); }
+
+.dark-mode .page-title { color: #d0c8bf; }
+.dark-mode .page-intro { color: #b5ada5; }
+.dark-mode .page-intro strong { color: #ccc5bc; }
+.dark-mode .page-stat { color: #a09888; }
+
+.dark-mode .filter-btn { color: #a09888; border-color: #3a3430; }
+.dark-mode .filter-btn:hover { color: #c0b8af; border-color: #5a5048; }
+.dark-mode .filter-btn.active { color: #d8d0c8; border-color: #8a6e50; background: #1a1815; }
+.dark-mode .view-toggle { border-color: #3a3430; }
+.dark-mode .view-btn { color: #a09888; }
+.dark-mode .view-btn:hover { color: #b5ada5; }
+.dark-mode .view-btn.active { color: #ccc5bc; background: #1a1815; }
+.dark-mode .view-btn + .view-btn { border-left-color: #3a3430; }
+
+.dark-mode .card { border-color: #3a3430; }
+.dark-mode .card:hover { border-color: #5a5048; background: #141210; }
+.dark-mode .card-register { color: #a09888; }
+.dark-mode .card-title { color: #ccc5bc; }
+.dark-mode .card-excerpt { color: #b5ada5; }
+
+.dark-mode .featured { border-color: #3a3430; }
+.dark-mode .featured:hover { border-color: #5a5048; }
+.dark-mode .featured-register { color: #a09888; }
+.dark-mode .featured-title { color: #d8d0c8; }
+.dark-mode .featured-excerpt { color: #b5ada5; }
+.dark-mode .featured-cta { color: #c4956a; }
+.dark-mode .featured-cta:hover { color: #d8d0c8; }
+
+.dark-mode .pull-moment-text { color: #b5ada5; }
+.dark-mode .pull-moment-attr { color: #8a8078; }
+
+.dark-mode .section-label { color: #8a8078; border-top-color: #2a2520; }
+
+.dark-mode .archive-body.list-view .card { border-bottom-color: #2a2520; }
+.dark-mode .archive-body.list-view .card:first-child { border-top-color: #2a2520; }
+.dark-mode .archive-body.list-view .card:hover { border-color: #4a4038; }
+.dark-mode .archive-body.list-view .featured { border-color: #4a4038; }
+
+.dark-mode .count-bar-text { color: #8a8078; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .nav-utils { margin-left: auto; }
+}
+
+@media (max-width: 1024px) {
+  .piece-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 24px; }
+  .menu-strips { display: none; }
+  .mobile-strips { display: flex; }
+  .menu-panel { width: 100%; max-width: 100%; }
+
+  .page-header { padding: 48px 28px 0; }
+  .toolbar { padding: 0 28px; }
+  .archive-body { padding: 0 28px; }
+  .count-bar { padding: 40px 28px 80px; }
+
+  .piece-grid { grid-template-columns: 1fr; }
+
+  .featured { grid-template-columns: 1fr; }
+  .featured-gradient { min-height: 200px; }
+  .featured-text { padding: 32px 28px 28px; }
+
+  /* list view mobile: stack */
+  .archive-body.list-view .card { flex-direction: column; gap: 4px; }
+  .archive-body.list-view .card-register { flex: none; }
+  .archive-body.list-view .card-title { flex: none; }
+  .archive-body.list-view .card-excerpt { flex: none; }
+  .archive-body.list-view .featured { flex-direction: column; gap: 8px; }
+  .archive-body.list-view .featured-text { flex-direction: column; gap: 4px; }
+  .archive-body.list-view .featured-register { flex: none; }
+  .archive-body.list-view .featured-title { flex: none; }
+}
+
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 24px; }
+  .page-header { padding: 40px 24px 0; }
+  .toolbar { padding: 0 24px; }
+  .archive-body { padding: 0 24px; }
+  .count-bar { padding: 32px 24px 64px; }
+  .featured-text { padding: 28px 24px 24px; }
+}
+@media (max-width: 360px) {
+  .page-header { padding: 32px 20px 0; }
+  .toolbar { padding: 0 20px; }
+  .archive-body { padding: 0 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .featured, .pull-moment {
+    opacity: 1; transform: none; transition: border-color 0.3s ease, background 0.3s ease;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ STÄDEL NAV ═══ -->
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">oyparaploo</a>
+    <ul class="nav-links">
+      <li><a href="writing.html" class="active">Writing</a></li>
+      <li><a href="portraits.html">Portraits</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="dispatches.html">Dispatches</a></li>
+    </ul>
+    <div class="nav-utils">
+      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
+        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
+      </button>
+      <button id="contrastBtn" aria-label="Toggle contrast" style="font-size:22px;">◐</button>
+      <a href="#" aria-label="Search"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/></svg></a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-accent-rule" aria-hidden="true"></div>
+</nav>
+
+<!-- ═══ MENU ═══ -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+<div class="menu-strips" id="menuStrips">
+  <div class="strip"><div class="strip-bg" style="background: linear-gradient(135deg, #2c2c2c 0%, #4a3a2e 40%, #6b5344 100%);"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Good Grounds</div><div class="strip-subtitle">The collaborative novel</div></div></div></div>
+  <div class="strip"><div class="strip-bg" style="background: linear-gradient(135deg, #1a2a3a 0%, #2e4a5e 40%, #3d6070 100%);"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Writing</div><div class="strip-subtitle">Five categories. One practice.</div></div></div></div>
+  <div class="strip"><div class="strip-bg" style="background: linear-gradient(135deg, #3a2a2a 0%, #5e3e2e 40%, #7a5244 100%);"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Making</div><div class="strip-subtitle">Process &amp; Assemblage</div></div></div></div>
+  <div class="strip"><div class="strip-bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #2e3a5e 40%, #4a5a7a 100%);"></div><div class="strip-bottom"><div class="strip-content"><div class="strip-title">Sound</div><div class="strip-subtitle">Noir Song Frequencies</div></div></div></div>
+</div>
+<div class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
+  <div class="menu-top"><span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span><button class="menu-close" id="menuCloseBtn" aria-label="Close menu"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg></button></div>
+  <div class="mobile-strips">
+    <a class="mobile-strip-card" href="#"><div class="strip-bg" style="background: linear-gradient(135deg, #2c2c2c 0%, #4a3a2e 40%, #6b5344 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Good Grounds</div><div class="mobile-strip-card-sub">Collaborative Novel</div></div></a>
+    <a class="mobile-strip-card" href="#"><div class="strip-bg" style="background: linear-gradient(135deg, #1a2a3a 0%, #2e4a5e 40%, #3d6070 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Writing</div><div class="mobile-strip-card-sub">The Practice</div></div></a>
+    <a class="mobile-strip-card" href="#"><div class="strip-bg" style="background: linear-gradient(135deg, #3a2a2a 0%, #5e3e2e 40%, #7a5244 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Making</div><div class="mobile-strip-card-sub">Assemblage</div></div></a>
+    <a class="mobile-strip-card" href="#"><div class="strip-bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #2e3a5e 40%, #4a5a7a 100%);"></div><div class="mobile-strip-card-text"><div class="mobile-strip-card-title">Sound</div><div class="mobile-strip-card-sub">Noir Song</div></div></a>
+  </div>
+  <div class="menu-nav-primary"><a href="#">Writing</a><a href="#">Making</a><a href="#">Good Grounds</a></div>
+  <div class="menu-rule"></div>
+  <div class="menu-nav-secondary"><a href="#">Our Practice</a><a href="#">Music Artists</a><a href="#">Collaborators</a><a href="#">Methodology</a></div>
+  <div class="menu-rule"></div>
+  <div class="menu-nav-tertiary"><a href="#">Support</a><a href="#">Archive</a><a href="#">Calendar</a><a href="#">Contact</a></div>
+  <div class="menu-rule"></div>
+  <div class="menu-location">Minneapolis ~ Saint Paul</div>
+  <div class="menu-bottom-btns"><button class="menu-btn">Subscribe</button></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE HEADER
+═══════════════════════════════════════════ -->
+
+<header class="page-header">
+  <h1 class="page-title">Writing</h1>
+  <p class="page-intro">The writing practice treats found text — product warning labels, transcribed voice recordings, and other discarded language — as raw material for finished literary work. Each piece receives its own atmospheric design, derived from the register of the specific writing. <strong>34 pieces locked and ready</strong>, 19 needing one shaping pass, across five categories and several hundred pages of source material.</p>
+  <span class="page-stat">34 locked pieces · 5 registers · Wonderful Garbage methodology</span>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     TOOLBAR
+═══════════════════════════════════════════ -->
+
+<div class="toolbar">
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All Writing</button>
+    <button class="filter-btn" data-filter="domestic">Domestic Warmth</button>
+    <button class="filter-btn" data-filter="noir">Noir Chanson</button>
+    <button class="filter-btn" data-filter="sound">Sound Writing</button>
+    <button class="filter-btn" data-filter="process">Process Record</button>
+    <button class="filter-btn" data-filter="raw">Raw Material</button>
+  </div>
+  <div class="view-toggle">
+    <button class="view-btn active" data-view="grid">Grid</button>
+    <button class="view-btn" data-view="list">List</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SHAPED SCROLL — the archive body
+═══════════════════════════════════════════ -->
+
+<div class="archive-body" id="archiveBody">
+
+  <!-- ── SECTION 1: Three cards ── -->
+  <div class="piece-grid">
+    <a class="card" href="#" data-register="domestic">
+      <div class="card-register">Domestic Warmth</div>
+      <div class="card-title">Careful, Children</div>
+      <div class="card-excerpt">The label said careful and we took it personally. Every surface in the house a warning we chose to ignore with grace and bare feet on the kitchen tile.</div>
+    </a>
+    <a class="card" href="#" data-register="noir">
+      <div class="card-register">Noir Chanson</div>
+      <div class="card-title">What's on Blend</div>
+      <div class="card-excerpt">Tuned in late. The frequency was already carrying something we recognized from a kitchen we used to know. Reception came and went like weather.</div>
+    </a>
+    <a class="card" href="#" data-register="sound">
+      <div class="card-register">Sound Writing</div>
+      <div class="card-title">Tier Heart Wetness</div>
+      <div class="card-excerpt">A musicological listening piece. Human and other natures attending to what the water does when nobody is performing for it.</div>
+    </a>
+  </div>
+
+  <!-- ── FEATURED BREAKOUT 1 ── -->
+  <a class="featured" href="LOCKED-hand-me-the-matches.html" data-register="domestic">
+    <div class="featured-gradient">
+      <div class="featured-gradient-bg" style="background: linear-gradient(145deg, #fffdf9 0%, #f5e6d0 30%, #e8cba8 60%, #d4a574 100%);"></div>
+    </div>
+    <div class="featured-text">
+      <div class="featured-register">Domestic Warmth</div>
+      <div class="featured-title">Hand Me the Matches</div>
+      <div class="featured-excerpt">Sleep comes dropping slow now in these our later years. The season is over and we together make the best of what we been given. Somewhere between purgatory of pure goodness and heavenly so grateful for this luck.</div>
+      <span class="featured-cta">Read this piece <svg viewBox="0 0 14 14"><polyline points="5 2 10 7 5 12"/></svg></span>
+    </div>
+  </a>
+
+  <!-- ── SECTION 2: Three cards ── -->
+  <div class="section-label">Noir Chanson &amp; Sound Writing</div>
+  <div class="piece-grid">
+    <a class="card" href="#" data-register="noir">
+      <div class="card-register">Noir Chanson</div>
+      <div class="card-title">The Flour &amp; the Fuse</div>
+      <div class="card-excerpt">All purpose. Bleached or unbleached. The choice was never about baking and we both knew it from the start. Something detonates quietly in flour dust.</div>
+    </a>
+    <a class="card" href="#" data-register="sound">
+      <div class="card-register">Sound Writing</div>
+      <div class="card-title">Sleep Architecture</div>
+      <div class="card-excerpt">The hours between two and four belong to a country neither of us has a passport to. We go there anyway, nightly, without luggage.</div>
+    </a>
+    <a class="card" href="#" data-register="noir">
+      <div class="card-register">Noir Chanson</div>
+      <div class="card-title">Balcony Season</div>
+      <div class="card-excerpt">From up here the street sounds rearrange themselves into something we could almost sing to. Almost. The railing is warm from a day of sun we missed.</div>
+    </a>
+  </div>
+
+  <!-- ── PULL MOMENT ── -->
+  <div class="pull-moment">
+    <p class="pull-moment-text">The writing practice does not begin with an idea. It begins with a label, a recording, a scrap of language someone else discarded. The practice begins where attention ends.</p>
+    <p class="pull-moment-attr">— from the methodology</p>
+  </div>
+
+  <!-- ── SECTION 3: Three cards ── -->
+  <div class="piece-grid">
+    <a class="card" href="#" data-register="domestic">
+      <div class="card-register">Domestic Warmth</div>
+      <div class="card-title">Porch Doctrine</div>
+      <div class="card-excerpt">The screen door theology of letting things in and keeping things out at the same time. An American paradox built into every hinge.</div>
+    </a>
+    <a class="card" href="#" data-register="process">
+      <div class="card-register">Process Record</div>
+      <div class="card-title">Voice Note: Summit Ave</div>
+      <div class="card-excerpt">Walking east. The rhythm came from the sidewalk cracks, not the thought. Transcription reveals cadence that the mouth already knew.</div>
+    </a>
+    <a class="card" href="#" data-register="domestic">
+      <div class="card-register">Domestic Warmth</div>
+      <div class="card-title">Carlos at the Gate</div>
+      <div class="card-excerpt">He sits at the gate with the patience of someone who has never been betrayed. The latch is easy. He could leave at any moment. He stays.</div>
+    </a>
+  </div>
+
+  <!-- ── FEATURED BREAKOUT 2 ── -->
+  <a class="featured" href="#" data-register="sound">
+    <div class="featured-gradient">
+      <div class="featured-gradient-bg" style="background: linear-gradient(145deg, #f0f4f8 0%, #c8d8e4 30%, #8ba8c0 60%, #4a6a80 100%);"></div>
+    </div>
+    <div class="featured-text">
+      <div class="featured-register">Sound Writing</div>
+      <div class="featured-title">Tier Heart Wetness</div>
+      <div class="featured-excerpt">Human and other natures. A musicological listening piece attending to what the water does when nobody is performing for it. The wetness is the witness.</div>
+      <span class="featured-cta">Read this piece <svg viewBox="0 0 14 14"><polyline points="5 2 10 7 5 12"/></svg></span>
+    </div>
+  </a>
+
+  <!-- ── SECTION 4: Three cards ── -->
+  <div class="section-label">Process &amp; Raw Material</div>
+  <div class="piece-grid">
+    <a class="card" href="#" data-register="raw">
+      <div class="card-register">Raw Material</div>
+      <div class="card-title">Label Archive: Cleaning Products</div>
+      <div class="card-excerpt">Forty-seven warning labels collected from under the kitchen sink. Each one a small sermon about consequences. None of them about cleanliness.</div>
+    </a>
+    <a class="card" href="#" data-register="process">
+      <div class="card-register">Process Record</div>
+      <div class="card-title">Shaping Notes: Matches</div>
+      <div class="card-excerpt">The drawer that stays closed is doing the most work in the piece. Three drafts before the closing line found the opening. Notes on structure.</div>
+    </a>
+    <a class="card" href="#" data-register="raw">
+      <div class="card-register">Raw Material</div>
+      <div class="card-title">Transcription Batch: February Walks</div>
+      <div class="card-excerpt">Fourteen voice recordings from the same route. The mouth finds its rhythm before the mind catches up. Raw transcriptions, uncorrected.</div>
+    </a>
+  </div>
+
+  <!-- ── SECTION 5: Three more cards ── -->
+  <div class="piece-grid">
+    <a class="card" href="#" data-register="noir">
+      <div class="card-register">Noir Chanson</div>
+      <div class="card-title">Cigarette Weather</div>
+      <div class="card-excerpt">The kind of day that makes former smokers remember their hands had something to do. A frequency in the air. An old habit of listening.</div>
+    </a>
+    <a class="card" href="#" data-register="domestic">
+      <div class="card-register">Domestic Warmth</div>
+      <div class="card-title">Basement Frequency</div>
+      <div class="card-excerpt">The luxurious bunker. Down here the furnace hums a note we've tuned our marriage to. Two chairs, one remote, a kingdom.</div>
+    </a>
+    <a class="card" href="#" data-register="sound">
+      <div class="card-register">Sound Writing</div>
+      <div class="card-title">Waterfall Residue</div>
+      <div class="card-excerpt">What the mist leaves on your face is not water. It is the memory of falling from a height and surviving the landing. Minnehaha, after rain.</div>
+    </a>
+  </div>
+
+</div><!-- /archive-body -->
+
+<div class="count-bar">
+  <p class="count-bar-text">Showing 18 of 34 locked pieces · Scroll continues or filter by register</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+// ── Font size
+var sizeStep = 1;
+var fontBtn = document.getElementById('fontSizeBtn');
+var sizeSpans = fontBtn.querySelectorAll('.sz');
+fontBtn.addEventListener('click', function() {
+  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
+  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
+  document.documentElement.classList.add('size-' + sizeStep);
+  sizeSpans.forEach(function(s) { s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep); });
+});
+
+// ── Contrast
+document.getElementById('contrastBtn').addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? '◑' : '◐';
+});
+
+// ── Menu
+var navHamburger = document.getElementById('navHamburger');
+var menuCloseBtn = document.getElementById('menuCloseBtn');
+var menuOverlay = document.getElementById('menuOverlay');
+var menuPanel = document.getElementById('menuPanel');
+var menuStrips = document.getElementById('menuStrips');
+function openMenu() {
+  menuOverlay.classList.add('open'); menuPanel.classList.add('open');
+  if (menuStrips) menuStrips.classList.add('open');
+  navHamburger.classList.add('open'); navHamburger.setAttribute('aria-expanded','true');
+  menuPanel.setAttribute('aria-hidden','false'); menuOverlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open'); menuPanel.classList.remove('open');
+  if (menuStrips) menuStrips.classList.remove('open');
+  navHamburger.classList.remove('open'); navHamburger.setAttribute('aria-expanded','false');
+  menuPanel.setAttribute('aria-hidden','true'); menuOverlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+navHamburger.addEventListener('click', openMenu);
+menuCloseBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+
+// ── View toggle (grid / list)
+var viewBtns = document.querySelectorAll('.view-btn');
+var archiveBody = document.getElementById('archiveBody');
+viewBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    viewBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    if (btn.dataset.view === 'list') {
+      archiveBody.classList.add('list-view');
+    } else {
+      archiveBody.classList.remove('list-view');
+    }
+  });
+});
+
+// ── Filter by register
+var filterBtns = document.querySelectorAll('.filter-btn');
+var allCards = document.querySelectorAll('.card, .featured');
+var sectionLabels = document.querySelectorAll('.section-label');
+var pullMoments = document.querySelectorAll('.pull-moment');
+
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.dataset.filter;
+
+    allCards.forEach(function(card) {
+      if (filter === 'all' || card.dataset.register === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide section labels and pull moments based on filter
+    sectionLabels.forEach(function(label) {
+      label.style.display = filter === 'all' ? '' : 'none';
+    });
+    pullMoments.forEach(function(p) {
+      p.style.display = filter === 'all' ? '' : 'none';
+    });
+  });
+});
+
+// ── Scroll reveals
+var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  var revealTargets = document.querySelectorAll('.card, .featured, .pull-moment');
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scroll-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  revealTargets.forEach(function(el) { revealObserver.observe(el); });
+} else {
+  document.querySelectorAll('.card, .featured, .pull-moment').forEach(function(el) {
+    el.classList.add('scroll-visible');
+  });
+}
+</script>
+</body>
+</html>

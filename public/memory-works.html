@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Works — Oyparaploo</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --font: 'Space Grotesk', sans-serif;
+  --black: #1a1a1a;
+  --white: #ffffff;
+  --gray: #888888;
+  --gray-light: #cccccc;
+  --accent: #E63326;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 40px;
+  background: transparent;
+  transition: background 0.4s, box-shadow 0.4s;
+  mix-blend-mode: difference;
+}
+.header.scrolled {
+  mix-blend-mode: normal;
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+.header-name {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.4s;
+}
+.header.scrolled .header-name { color: var(--black); }
+
+.header-nav { display: flex; gap: 32px; align-items: center; }
+.header-nav a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+.header-nav a:hover { color: var(--white); }
+.header-nav a.active { color: var(--white); font-weight: 600; }
+.header.scrolled .header-nav a { color: var(--gray); }
+.header.scrolled .header-nav a:hover { color: var(--black); }
+.header.scrolled .header-nav a.active { color: var(--black); font-weight: 600; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 300;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+.header.scrolled .hamburger span { background: var(--black); }
+.hamburger.open span { background: var(--black) !important; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--white);
+  z-index: 200;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.mobile-nav.open { opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* ===== HERO SLIDESHOW ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #111;
+}
+.hero-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  background-size: cover;
+  background-position: center;
+}
+.hero-slide.active { opacity: 1; }
+
+/* Slow Ken Burns drift */
+@keyframes slowDrift {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.06); }
+}
+.hero-slide.active { animation: slowDrift 12s ease-out forwards; }
+
+/* Gradient overlays */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.3));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Slide counter */
+.hero-counter {
+  position: absolute;
+  bottom: 32px;
+  right: 40px;
+  z-index: 3;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  padding: 80px 40px 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.section-title h1 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+.section-title p {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--black);
+  max-width: 640px;
+}
+
+/* ===== WORKS LIST ===== */
+.works-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.work-item {
+  display: block;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: padding-left 0.3s, border-color 0.3s;
+}
+.work-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+.work-item:hover { padding-left: 12px; }
+
+.work-hash {
+  display: inline;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray-light);
+  margin-right: 12px;
+  transition: color 0.3s;
+}
+.work-item:hover .work-hash { color: var(--accent); }
+
+.work-name {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.work-item:hover .work-name { color: var(--black); }
+
+.work-venue {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-left: 4px;
+}
+.work-venue::before { content: '| '; margin-right: 4px; }
+
+/* Category dividers */
+.works-category {
+  padding: 48px 0 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ===== QUOTE BAND ===== */
+.quote-band {
+  background: #f5f4f1;
+  padding: 72px 40px;
+  text-align: center;
+}
+.quote-text {
+  max-width: 680px;
+  margin: 0 auto 16px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--black);
+  font-style: italic;
+}
+.quote-attr {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 48px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.footer-left {}
+.footer-brand {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.footer-sub {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gray);
+}
+.footer-right { display: flex; gap: 32px; }
+.footer-link {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--black); }
+
+.footer-copy {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--gray-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header { padding: 20px 20px; }
+  .header-nav { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+
+  .hero { height: 70vh; }
+  .hero-counter { right: 20px; bottom: 20px; }
+
+  .section-title { padding: 48px 20px 32px; }
+  .section-title p { font-size: 19px; }
+
+  .works-list { padding: 0 20px 48px; }
+  .work-name { font-size: 14px; letter-spacing: 0.06em; }
+  .work-venue { display: block; margin-left: 0; margin-top: 4px; }
+  .work-venue::before { content: ''; margin: 0; }
+
+  .quote-band { padding: 48px 20px; }
+  .quote-text { font-size: 20px; }
+
+  .footer { flex-direction: column; gap: 24px; padding: 36px 20px; }
+  .footer-copy { padding: 0 20px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="#" class="header-name">Oyparaploo</a>
+  <nav class="header-nav">
+    <a href="#">Writing</a>
+    <a href="#">Visual Art</a>
+    <a href="#" class="active">Memory Works</a>
+    <a href="#">About</a>
+  </nav>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <a href="#">Writing</a>
+  <a href="#">Visual Art</a>
+  <a href="#">Memory Works</a>
+  <a href="#">Methodology</a>
+  <a href="#">Archive</a>
+  <a href="#">About</a>
+</div>
+
+<!-- HERO SLIDESHOW -->
+<div class="hero">
+  <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a1e0e3527554?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1600&q=80')"></div>
+  <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80')"></div>
+  <div class="hero-counter"><span id="slideNum">1</span> / 7</div>
+</div>
+
+<!-- SECTION TITLE -->
+<div class="section-title">
+  <h1>Memory Works</h1>
+  <p>Works that remember. Projects spanning thirty years of practice — writing, installation, sound, performance — each one a vessel holding something the world tried to discard.</p>
+</div>
+
+<!-- WORKS LIST -->
+<div class="works-list">
+
+  <div class="works-category">Writing</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Good Grounds</span>
+    <span class="work-venue">Novel in Progress</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Staying Alive</span>
+    <span class="work-venue">Series</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Oyparaploo Noir</span>
+    <span class="work-venue">Style & Practice</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">The Receiver Turn</span>
+    <span class="work-venue">Methodology</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Climate Fictions</span>
+    <span class="work-venue">Indigenous Foodways</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Hahnu Youn Speaks</span>
+    <span class="work-venue">Character Work</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Oypara Soil Deep Blue</span>
+    <span class="work-venue">Invented Language</span>
+  </a>
+
+  <div class="works-category">Performance & Theater</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">LAST FALL</span>
+    <span class="work-venue">The Rangmanch Collective, Mumbai</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Four Witnesses</span>
+    <span class="work-venue">Living Document Structure</span>
+  </a>
+
+  <div class="works-category">Visual Art & Installation</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Beautiful Garbage Archive</span>
+    <span class="work-venue">140,000 Files</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Wonderful Garbage</span>
+    <span class="work-venue">Assemblage Practice</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Booklets & Leaves</span>
+    <span class="work-venue">Print Objects</span>
+  </a>
+
+  <div class="works-category">Sound</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Lovely Quietness</span>
+    <span class="work-venue">Creation Spirit / Layer 1</span>
+  </a>
+
+  <div class="works-category">Methodology</div>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Master 28 Domains</span>
+    <span class="work-venue">Framework</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Three-Layer System</span>
+    <span class="work-venue">Lovely Quietness / AI-Detection / Master</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">Six Voices</span>
+    <span class="work-venue">B W Otto, Clod Hopper, Reach Chimes, Keren Simone, Lamb, Goat</span>
+  </a>
+
+  <a href="#" class="work-item">
+    <span class="work-hash">#</span>
+    <span class="work-name">What Is Missing?</span>
+    <span class="work-venue">Ongoing</span>
+  </a>
+
+</div>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <div class="quote-text">Art as a conscious alternative to violence. Not a slogan. A daily decision.</div>
+  <div class="quote-attr">Reach Chimes, 1995–Present</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    <div class="footer-brand">Oyparaploo</div>
+    <div class="footer-sub">Minneapolis — Since 1995</div>
+  </div>
+  <div class="footer-right">
+    <a href="#" class="footer-link">About</a>
+    <a href="#" class="footer-link">Works</a>
+    <a href="#" class="footer-link">Contact</a>
+  </div>
+</div>
+<div class="footer-copy">© 2000–2026 Oyparaploo</div>
+
+<script>
+// Header scroll behavior
+const header = document.getElementById('header');
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > hero.offsetHeight - 80) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Hamburger
+const hamburger = document.querySelector('.hamburger');
+const mobileNav = document.querySelector('.mobile-nav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  // Force header to scrolled state when menu open
+  if (mobileNav.classList.contains('open')) header.classList.add('scrolled');
+});
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Hero slideshow - slow, meditative crossfade
+const slides = document.querySelectorAll('.hero-slide');
+const slideNum = document.getElementById('slideNum');
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+  slideNum.textContent = current + 1;
+}, 6000);
+
+// Touch swipe on hero
+let touchStartX = 0;
+hero.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+hero.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    slides[current].classList.remove('active');
+    if (diff > 0) {
+      current = (current + 1) % slides.length;
+    } else {
+      current = (current - 1 + slides.length) % slides.length;
+    }
+    slides[current].classList.add('active');
+    slideNum.textContent = current + 1;
+  }
+});
+</script>
+</body>
+</html>

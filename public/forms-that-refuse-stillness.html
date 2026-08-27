@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" class="size-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forms That Refuse Stillness — Paraploo, The Elder</title>
+<!--
+  PROTO-writing-page_1.html
+  Dispatch: PROTO-1-WRITING (writing page prototype). Model: Sonnet.
+  Built 2026-08-14.
+
+  READ FIRST, for anything unclear below:
+    - ocula-teardown-2026-08-14.md, Part 14 (Magazine article/spotlight
+      story page) - the page anatomy this file follows.
+    - behaviors-measurement-2026-08-14.md, Part 2C (Magazine article
+      sticky title/Save bar) - the 50ms-resolution scroll-swap numbers
+      wired into the sticky bar's JS below.
+    - rebuild-charter-2026-08-14.md - governing law for the rebuild.
+
+  SCOPE: this is a PROTOTYPE, not a production page or an Astro
+  component. It is a dressed, single-file mirror of one real writing
+  page in Ocula's article anatomy, built for a side-by-side comparison
+  against a live ocula.com magazine article. It reuses TopBar.astro's
+  and Footer.astro's markup/CSS 1:1 (same pattern FRAME-preview_3.html
+  uses), and adds page-specific markup for the article hero, sticky
+  title bar, and essay body that Part 14 measures and no other page
+  type on this site carries.
+
+  THE ESSAY: "Forms That Refuse Stillness," the complete continuous-
+  essay version, reproduced verbatim from the site's own existing
+  build (Html Documents/forms-that-refuse-stillness.html), itself
+  character-identical to Part 2 of Html Documents/
+  Forms_That_Refuse_Stillness_COMPLETE.html (the production-package
+  source). Confirmed by script: 27 of 27 paragraphs identical, 0
+  character-level diffs, 11,881 characters of essay text matching
+  exactly between both existing site documents before this file was
+  built. See the accompanying build report for the full diff method
+  and result. Nothing in the essay body below has been touched -
+  the prose is stone. Byline, dates, and credit lines around it are
+  new dressing for this prototype, not part of the essay text itself.
+
+  ONE LOGGED HOUSE DEPARTURE FROM TEARDOWN PART 14:
+  Ocula's own magazine article carries a "☆ Save to My Ocula" control
+  at hero level and again on the scrolled sticky bar, paired with its
+  own account system (Sign In / Join Ocula). The house being rebuilt
+  here has no accounts anywhere else on the site (TopBar.astro's own
+  Sign In panel is UI shell only - no account system sits behind it
+  yet, and none is scoped for this build). Building a Save/bookmark
+  control that saves nothing would be a working control with no
+  destination, which is worse than not building it. So: the sticky
+  title bar carries the article title only, full width, no second
+  control on the right where Ocula places Save - and the hero's own
+  overlay caption drops the same control for the same reason, so the
+  two instances of the omission stay consistent with each other. This
+  is the one named departure for this page; everything else in Part
+  14's anatomy (left-aligned hero, no-crossfade sticky-bar swap timed
+  to behaviors Part 2C, photo/credit-caption unit, narrow prose
+  column, full-bleed in-body photos) is built as measured.
+
+  PHOTO/CREDIT-CAPTION UNIT: Part 14 measures this unit as a repeating
+  element used once per in-body photograph, threaded through the
+  article's prose. This essay, in its existing verbatim form, carries
+  no in-body photographs of its own - only the hero image, added here
+  as prototype dressing per the dispatch's own instruction ("a
+  WALL-THUMBS image as the hero with a plausible credit caption").
+  Rather than invent photographs that were never part of the source
+  essay (which would compromise the "prose is stone" instruction by
+  implying the piece was illustrated when it wasn't), the one
+  photo/credit-caption unit this page needs is built directly beneath
+  the hero image, in the exact caption anatomy Part 14 records for
+  Ocula's in-body photo credits (artist name, italic work title,
+  parenthetical year, "Courtesy X" line) - logged as a scope decision
+  in the build report, not a second departure from the anatomy itself.
+
+  STICKY TITLE BAR TIMING (behaviors-measurement Part 2C, wired below):
+    - Bar height: 43px (measured "roughly 43px tall... about 3% of
+      frame height," restated in the dispatch as "about a third of
+      full nav height" against this house's own 64px TopBar).
+    - No cross-fade. The measured handoff is two independent on/off
+      events, not an animated transition - implemented here as a hard
+      display:none/block toggle, zero CSS transition on the bar itself.
+    - Gap: at least 100ms and at most 150ms in which neither the full
+      TopBar nor the sticky bar is on screen. Implemented as a 125ms
+      setTimeout after the hero clears the viewport, before the sticky
+      bar is shown - see the script at the foot of this file.
+    - TopBar.astro is NEVER STICKY (locked house ruling, unchanged) -
+      it simply scrolls out of flow, which is what creates the bare
+      top-of-viewport state the gap timer sits inside, matching the
+      teardown's own reading that this is two separate thresholds,
+      not one continuous animation.
+
+  Mobile leads every decision here - self-checked at 390 / 820 / 1440,
+  mobile first. See the build report for the verification note.
+
+  No counts of anything, anywhere.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;450;500&display=swap" rel="stylesheet">
+<style>
+  /* ==================================================================
+     BASE PAGE
+     ================================================================== */
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #2a2320;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  p, h1, h2, h3, h4, li, blockquote { text-wrap: pretty; }
+  em, i, cite, address, dfn, var { font-style: normal; }
+  * { font-style: normal; }
+  img { max-width: 100%; }
+
+  .preview-note {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 40px 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #8a8078;
+  }
+  @media (max-width: 768px) { .preview-note { padding: 14px 24px 0; } }
+
+  /* ==================================================================
+     TOPBAR.ASTRO - mirrored 1:1 from Astro and JSON Files/TopBar.astro.
+     NEVER STICKY - position: static, locked house ruling. Left as-is;
+     this page adds its OWN separate sticky bar below, it does not make
+     TopBar itself sticky.
+     ================================================================== */
+  .tb { position: relative; width: 100%; background: #ffffff; }
+  .tb-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .tb-wordmark {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 21px;
+    letter-spacing: 0.02em;
+    color: #333;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  .tb-wordmark:hover { color: #5c3a1e; }
+  .tb-nav { flex: 0 1 auto; }
+  .tb-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .tb-nav-item { flex-shrink: 0; }
+  .tb-nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1765rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #333;
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    cursor: pointer;
+    touch-action: manipulation;
+    white-space: nowrap;
+  }
+  .tb-nav-link:hover, .tb-nav-link:focus-visible { color: #5c3a1e; }
+  .tb-mega {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.14), #ffffff 55%);
+    border-top: 1px solid #555;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  }
+  .tb-nav-item:hover > .tb-mega,
+  .tb-nav-item:focus-within > .tb-mega,
+  .tb-nav-item.is-open > .tb-mega {
+    display: block;
+  }
+  .tb-mega-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 48px; padding: 40px; flex-wrap: wrap; }
+  .tb-mega-links { flex: 0 0 36%; min-width: 220px; }
+  .tb-mega-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #5a4f47;
+    margin: 0 0 16px;
+  }
+  .tb-mega-links ul { list-style: none; padding-left: 0; margin: 0; }
+  .tb-mega-links li + li { margin-top: 14px; }
+  .tb-mega-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1765rem;
+    font-weight: 400;
+    color: #333;
+    text-decoration: none;
+  }
+  .tb-mega-links a:hover { color: #5c3a1e; }
+  .tb-mega-featured {
+    flex: 1;
+    min-width: 280px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .tb-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 12, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease;
+    z-index: 15;
+  }
+  .tb:has(.tb-nav-item:hover) .tb-scrim,
+  .tb:has(.tb-nav-item:focus-within) .tb-scrim,
+  .tb:has(.tb-nav-item.is-open) .tb-scrim {
+    opacity: 1;
+  }
+  .tb-signin-wrap { position: relative; margin-left: auto; flex-shrink: 0; }
+  .tb-signin-trigger {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0588rem;
+    font-weight: 450;
+    color: #333;
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    cursor: pointer;
+    touch-action: manipulation;
+    white-space: nowrap;
+  }
+  .tb-signin-trigger:hover, .tb-signin-trigger:focus-visible { color: #5c3a1e; }
+  .tb-signin-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 20;
+    width: min(33vw, 400px);
+    min-width: 300px;
+    margin-top: 1px;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.14), #ffffff 55%);
+    border-top: 1px solid #555;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  }
+  .tb-signin-panel.is-open { display: block; }
+  .tb-signin-tabs { display: flex; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid #c0b8b0; }
+  .tb-signin-tab { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: #8a8078; padding-bottom: 10px; }
+  .tb-signin-tab.is-active { color: #2a2320; border-bottom: 2px solid #5c3a1e; margin-bottom: -1px; }
+  .tb-signin-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tb-signin-input {
+    display: block; width: 100%; min-height: 44px; background: transparent;
+    border: none; border-bottom: 1px solid #c0b8b0;
+    font-family: 'Inter', sans-serif; font-size: 1rem; color: #2a2320;
+    padding: 0 0 8px; margin-bottom: 20px;
+  }
+  .tb-signin-input::placeholder { color: #8a8078; }
+  .tb-signin-input:focus { outline: none; border-bottom-color: #5c3a1e; }
+  .tb-signin-continue {
+    display: block; width: 100%; min-height: 44px; background: transparent;
+    border: 1px solid #2a2320; color: #2a2320;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500;
+    cursor: pointer; touch-action: manipulation; margin-bottom: 20px;
+  }
+  .tb-signin-continue:hover { border-color: #5c3a1e; color: #5c3a1e; }
+  .tb-signin-divider { position: relative; text-align: center; margin-bottom: 20px; }
+  .tb-signin-divider::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #e0d8d0; }
+  .tb-signin-divider span { position: relative; background: #fffefc; padding: 0 12px; font-family: 'Work Sans', sans-serif; font-size: 0.85rem; color: #8a8078; }
+  .tb-signin-social { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .tb-signin-social-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid #555; background: transparent; color: #333;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+    text-transform: uppercase; cursor: pointer; touch-action: manipulation;
+  }
+  .tb-signin-social-icon:hover { border-color: #5c3a1e; color: #5c3a1e; }
+  .tb-signin-fineprint { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #8a8078; line-height: 1.5; margin: 0; text-align: center; }
+  .tb-hamburger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    touch-action: manipulation;
+  }
+  .tb-hamburger span { display: block; width: 22px; height: 1.5px; background: #333; }
+  .tb-accent-rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(85, 85, 85, 0.55), transparent);
+  }
+  @media (max-width: 1100px) {
+    .tb-nav { display: none; }
+    .tb-signin-wrap { display: none; }
+    .tb-hamburger { display: flex; }
+  }
+  @media (max-width: 768px) { .tb-inner { padding: 0 24px; } }
+  @media (max-width: 480px) { .tb-inner { padding: 0 24px; } }
+
+  /* ==================================================================
+     ARTICLE HERO - teardown Part 14, point 1 and point 6. Full-bleed,
+     single column, LEFT-ALIGNED overlay caption - the only left-
+     aligned hero anywhere on this site (every other measured hero on
+     this build is centered; this is the one place that breaks the
+     convention, per Part 14's own finding that Ocula's own article
+     hero is the sole exception to its own centered-caption rule).
+     No dek line (this house's existing "no excerpt" ruling, already
+     locked for Card.astro's hero variant - see that file - applied
+     here for the same reason: hierarchy stays in the headline, not a
+     second block of text). No Save control - the one logged house
+     departure, see the file's head comment.
+     ================================================================== */
+  .article-hero {
+    position: relative;
+    width: 100%;
+  }
+  .article-hero-image-wrap {
+    width: 100%;
+    height: clamp(420px, 78vh, 860px);
+    overflow: hidden;
+    background: #f0ece5;
+  }
+  .article-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .article-hero-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 32px 40px 40px;
+    text-align: left;
+    background: linear-gradient(to top, rgba(20, 16, 12, 0.68), rgba(20, 16, 12, 0) 62%);
+  }
+  .article-hero-eyebrow {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f4efe8;
+    margin: 0 0 14px;
+  }
+  .article-hero-title {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: clamp(2rem, 1.3rem + 2.8vw, 3.5rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+    margin: 0;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    .article-hero-image-wrap { height: clamp(360px, 62vh, 620px); }
+    .article-hero-caption { padding: 24px 24px 28px; }
+  }
+
+  /* Photo/credit-caption unit - teardown Part 14, point 3. Small
+     plain-text credit line immediately beneath the photo: artist name,
+     italic work title, parenthetical year, "Courtesy X" line - the
+     same anatomy the teardown reads on the exhibition-detail page's
+     Installation Views credits (Part 13), confirmed there as a shared
+     component, not specific to one page type. */
+  .article-photo-credit {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #5a4f47;
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) { .article-photo-credit { padding: 10px 24px 0; } }
+
+  /* ==================================================================
+     STICKY TITLE BAR - behaviors-measurement Part 2C. 43px tall, flat
+     light bar, title only (no Save - the one logged departure), full
+     width. Hard on/off, no CSS transition on this element - the swap
+     itself is timed in JS (see the script block), not animated here.
+     ================================================================== */
+  .sticky-title-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    height: 43px;
+    background: #fdfcfb;
+    border-bottom: 1px solid #e0d8d0;
+  }
+  .sticky-title-bar.is-visible { display: block; }
+  .sticky-title-bar-inner {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+  }
+  .sticky-title-bar-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2a2320;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+  @media (max-width: 768px) { .sticky-title-bar-inner { padding: 0 24px; } }
+
+  /* ==================================================================
+     ARTICLE BODY - teardown Part 14, point 1: a single text column
+     narrower than full content width, closer to the Advisory page's
+     centered-left prose proportion than to any grid page. Lora serif,
+     comfortable reading size - matching the Advisory page's prose
+     scale rather than any card-caption size on this site.
+     ================================================================== */
+  .article-body-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 40px 96px;
+  }
+  .article-byline {
+    max-width: 680px;
+    margin: 0 0 40px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 450;
+    letter-spacing: 0.02em;
+    color: #5a4f47;
+  }
+  .article-prose {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .article-prose p {
+    font-family: 'Lora', serif;
+    font-size: 1.1765rem; /* ~20px */
+    font-weight: 400;
+    line-height: 1.75;
+    color: #2a2320;
+    margin: 0 0 28px;
+  }
+  .article-prose p:last-of-type { margin-bottom: 0; }
+  @media (max-width: 768px) {
+    .article-body-wrap { padding: 40px 24px 64px; }
+    .article-byline { margin-bottom: 32px; }
+    .article-prose p { font-size: 1.0588rem; line-height: 1.7; margin-bottom: 24px; }
+  }
+  @media (max-width: 480px) {
+    .article-prose p { font-size: 1.0294rem; }
+  }
+
+  /* ==================================================================
+     FOOTER.ASTRO - mirrored 1:1 from Astro and JSON Files/Footer.astro
+     ================================================================== */
+  .ft { width: 100%; background: #ffffff; border-top: 1px solid #e0d8d0; padding-bottom: env(safe-area-inset-bottom); }
+  .ft-inner { max-width: 1200px; margin: 0 auto; padding: 96px 40px 48px; }
+  .ft-columns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px; }
+  .ft-col-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #5a4f47;
+    border-bottom: 1.5px solid #c0b8b0;
+    padding-bottom: 12px;
+    margin: 0 0 16px;
+  }
+  .ft-col ul { list-style: none; padding-left: 0; margin: 0; }
+  .ft-col li + li { margin-top: 12px; }
+  .ft-col a { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; letter-spacing: 0.01em; color: #333; text-decoration: none; }
+  .ft-col a:hover { color: #5c3a1e; }
+  .ft-signup-line { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #5a4f47; line-height: 1.6; margin: 0 0 16px; }
+  .ft-signup-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .ft-signup-row { display: flex; align-items: center; border-bottom: 1px solid #c0b8b0; padding-bottom: 8px; }
+  .ft-signup-input { flex: 1; background: transparent; border: none; font-family: 'Inter', sans-serif; font-size: 1rem; color: #2a2320; min-height: 44px; }
+  .ft-signup-input::placeholder { color: #8a8078; }
+  .ft-signup-input:focus { outline: none; }
+  .ft-signup-submit {
+    flex-shrink: 0; width: 44px; height: 44px; background: transparent;
+    border: 1px solid #c0b8b0; color: #5a4f47;
+    font-size: 1.1rem; cursor: pointer; touch-action: manipulation;
+  }
+  .ft-signup-submit:hover { border-color: #5c3a1e; color: #5c3a1e; }
+  .ft-rule { height: 1px; background: #e0d8d0; margin: 56px 0 24px; }
+  .ft-bottom { display: flex; align-items: center; justify-content: space-between; }
+  .ft-copyright { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: #666; margin: 0; }
+  .ft-social { display: flex; align-items: center; gap: 12px; list-style: none; padding-left: 0; margin: 0; }
+  .ft-social-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1.5px solid #555; color: #333;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; text-transform: uppercase; touch-action: manipulation;
+  }
+  .ft-social-icon:hover { border-color: #5c3a1e; color: #5c3a1e; }
+  @media (max-width: 1024px) {
+    .ft-columns { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
+    .ft-inner { padding: 72px 40px 40px; }
+  }
+  @media (max-width: 768px) {
+    .ft-columns { grid-template-columns: 1fr; gap: 40px; }
+    .ft-inner { padding: 56px 24px 32px; }
+    .ft-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+  @media (max-width: 480px) { .ft-inner { padding: 48px 24px 40px; } }
+</style>
+</head>
+<body>
+
+  <!-- ================= STICKY TITLE BAR (hidden until scroll, see script) ================= -->
+  <div class="sticky-title-bar" id="stickyTitleBar" aria-hidden="true">
+    <div class="sticky-title-bar-inner">
+      <p class="sticky-title-bar-text">Forms That Refuse Stillness</p>
+    </div>
+  </div>
+
+  <!-- ================= TOPBAR (mirrored from TopBar.astro; NEVER STICKY) ================= -->
+  <header class="tb" id="topBar">
+    <div class="tb-inner">
+      <a class="tb-wordmark" href="#">Paraploo, The Elder</a>
+
+      <nav class="tb-nav" aria-label="Primary">
+        <ul class="tb-nav-list">
+
+          <li class="tb-nav-item">
+            <button class="tb-nav-link" type="button" aria-haspopup="true" aria-expanded="false">MARKS</button>
+            <div class="tb-mega" aria-hidden="true">
+              <div class="tb-mega-inner">
+                <div class="tb-mega-links">
+                  <p class="tb-mega-label">Featured</p>
+                  <ul><li><a href="#" tabindex="-1">Overview</a></li><li><a href="#" tabindex="-1">Recent</a></li><li><a href="#" tabindex="-1">Browse All</a></li></ul>
+                </div>
+                <div class="tb-mega-featured">
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Family%20Affair%20Four.webp" alt="Family Affair, four"></div>
+                    <div class="card-body"><p class="card-eyebrow">mark</p><h3 class="card-title">Family Affair, Four</h3><p class="card-date">06 July 2026</p></div>
+                  </a>
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Family%20Affair%20Five.webp" alt="Family Affair, five"></div>
+                    <div class="card-body"><p class="card-eyebrow">mark</p><h3 class="card-title">Family Affair, Five</h3><p class="card-date">01 July 2026</p></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tb-nav-item">
+            <button class="tb-nav-link" type="button" aria-haspopup="true" aria-expanded="false">WRITINGS</button>
+            <div class="tb-mega" aria-hidden="true">
+              <div class="tb-mega-inner">
+                <div class="tb-mega-links">
+                  <p class="tb-mega-label">Featured</p>
+                  <ul><li><a href="#" tabindex="-1">Overview</a></li><li><a href="#" tabindex="-1">Recent</a></li><li><a href="#" tabindex="-1">Browse All</a></li></ul>
+                </div>
+                <div class="tb-mega-featured">
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Grounds%2011.webp" alt="Grounds"></div>
+                    <div class="card-body"><p class="card-eyebrow">writing</p><h3 class="card-title">Grounds</h3><p class="card-date">26 June 2026</p></div>
+                  </a>
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Seagulls%20In%20Flight/Twelve%20Seagulls%20In%20Flight%20Composition.webp" alt="Twelve seagulls in flight"></div>
+                    <div class="card-body"><p class="card-eyebrow">writing</p><h3 class="card-title">Forms That Refuse Stillness</h3><p class="card-date">14 August 2026</p></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tb-nav-item">
+            <button class="tb-nav-link" type="button" aria-haspopup="true" aria-expanded="false">IMAGES</button>
+            <div class="tb-mega" aria-hidden="true">
+              <div class="tb-mega-inner">
+                <div class="tb-mega-links">
+                  <p class="tb-mega-label">Featured</p>
+                  <ul><li><a href="#" tabindex="-1">Overview</a></li><li><a href="#" tabindex="-1">Recent</a></li><li><a href="#" tabindex="-1">Browse All</a></li></ul>
+                </div>
+                <div class="tb-mega-featured">
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/northwoods%205.webp" alt="Northwoods"></div>
+                    <div class="card-body"><p class="card-eyebrow">image</p><h3 class="card-title">Northwoods</h3><p class="card-date">14 June 2026</p></div>
+                  </a>
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Plains%20Dust%204.webp" alt="Plains dust"></div>
+                    <div class="card-body"><p class="card-eyebrow">image</p><h3 class="card-title">Plains Dust</h3><p class="card-date">08 June 2026</p></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tb-nav-item">
+            <button class="tb-nav-link" type="button" aria-haspopup="true" aria-expanded="false">THE BOOK</button>
+            <div class="tb-mega" aria-hidden="true">
+              <div class="tb-mega-inner">
+                <div class="tb-mega-links">
+                  <p class="tb-mega-label">Featured</p>
+                  <ul><li><a href="#" tabindex="-1">Overview</a></li><li><a href="#" tabindex="-1">Recent</a></li><li><a href="#" tabindex="-1">Browse All</a></li></ul>
+                </div>
+                <div class="tb-mega-featured">
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Plains%20Dust%205.webp" alt="Plains dust"></div>
+                    <div class="card-body"><p class="card-eyebrow">the book</p><h3 class="card-title">Plains Dust</h3><p class="card-date">02 June 2026</p></div>
+                  </a>
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Amarah%20Silver%20Hair%20Unregistered%20Double%20Image.webp" alt="Amarah, silver hair"></div>
+                    <div class="card-body"><p class="card-eyebrow">the book</p><h3 class="card-title">Amarah, Silver Hair</h3><p class="card-date">27 May 2026</p></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tb-nav-item">
+            <button class="tb-nav-link" type="button" aria-haspopup="true" aria-expanded="false">ABOUT</button>
+            <div class="tb-mega" aria-hidden="true">
+              <div class="tb-mega-inner">
+                <div class="tb-mega-links">
+                  <p class="tb-mega-label">Featured</p>
+                  <ul><li><a href="#" tabindex="-1">Overview</a></li><li><a href="#" tabindex="-1">Recent</a></li><li><a href="#" tabindex="-1">Browse All</a></li></ul>
+                </div>
+                <div class="tb-mega-featured">
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Family%20Affair/Family%20Affair%20Six.webp" alt="Family Affair, six"></div>
+                    <div class="card-body"><p class="card-eyebrow">about</p><h3 class="card-title">Family Affair, Six</h3><p class="card-date">21 May 2026</p></div>
+                  </a>
+                  <a class="card card--compact" href="#">
+                    <div class="card-image-wrap"><img class="card-image" src="WALL-THUMBS/Seagulls%20In%20Flight/Substack%20Cover%20Image.webp" alt="Cover image"></div>
+                    <div class="card-body"><p class="card-eyebrow">about</p><h3 class="card-title">Cover Image</h3><p class="card-date">15 May 2026</p></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="tb-signin-wrap">
+        <button class="tb-signin-trigger" type="button" aria-haspopup="true" aria-expanded="false">Sign In</button>
+        <div class="tb-signin-panel" aria-hidden="true">
+          <div class="tb-signin-tabs">
+            <span class="tb-signin-tab is-active">Sign In</span>
+            <span class="tb-signin-tab">Sign Up</span>
+          </div>
+          <label class="tb-signin-label" for="tb-signin-email">Email address</label>
+          <input class="tb-signin-input" id="tb-signin-email" type="email" placeholder="Email address">
+          <button class="tb-signin-continue" type="button">Continue</button>
+          <div class="tb-signin-divider"><span>or continue with</span></div>
+          <div class="tb-signin-social">
+            <button type="button" class="tb-signin-social-icon" aria-label="Continue with Google">G</button>
+            <button type="button" class="tb-signin-social-icon" aria-label="Continue with Facebook">f</button>
+            <button type="button" class="tb-signin-social-icon" aria-label="Continue with Apple">a</button>
+          </div>
+          <p class="tb-signin-fineprint">By continuing you agree to the Terms &amp; Privacy Policy.</p>
+        </div>
+      </div>
+
+      <button class="tb-hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="tb-accent-rule" aria-hidden="true"></div>
+    <div class="tb-scrim" aria-hidden="true"></div>
+  </header>
+
+  <p class="preview-note">Prototype only - PROTO-1-WRITING. Compare side by side against a live ocula.com magazine article. See the accompanying build report for the character-diff result and self-check notes.</p>
+
+  <!-- ================= ARTICLE HERO (teardown Part 14, point 1: full-bleed, LEFT-ALIGNED - the site's only left-aligned hero) ================= -->
+  <div class="article-hero" id="articleHero">
+    <div class="article-hero-image-wrap">
+      <img class="article-hero-image" src="WALL-THUMBS/Seagulls%20In%20Flight/Twelve%20Seagulls%20In%20Flight%20Composition.webp" alt="Twelve seagulls in flight, composed against an open sky">
+    </div>
+    <div class="article-hero-caption">
+      <p class="article-hero-eyebrow">Writing</p>
+      <h1 class="article-hero-title">Forms That Refuse Stillness</h1>
+    </div>
+  </div>
+  <p class="article-photo-credit">B.W. Otto, <em>Twelve Seagulls, In Flight</em> (2026). Courtesy Paraploo, The Elder.</p>
+
+  <!-- ================= ARTICLE BODY ================= -->
+  <div class="article-body-wrap">
+    <p class="article-byline">Paraploo, The Elder — 14 August 2026, Saint Paul, Minnesota</p>
+    <div class="article-prose">
+<p class="no-indent">What if form refused to hold still?</p>
+  
+  <p>Begin with shelter. It is the first thing humans build, the most fundamental form—and the most constrained by assumption. Walls stand vertical. Roofs sit above. A building stays where it was built. But imagine gravity bending to possibility: homes clinging to sheer cliffs like organisms evolved for that purpose, skyborne dwellings drifting without effort through air, entire cities suspended upside-down beneath transit systems that do not yet exist. This is not fantasy. This is architecture taking its own question seriously.</p>
+  
+  <p>When structure stops pretending it must be rigid, nature enters. Towers wrap around ancient trees rather than replacing them. Walls breathe with vegetation that purifies the air as it grows. Shelters made of vapor shift like clouds, and the boundary between what is built and what is grown dissolves—between the made and the organic, between intention and emergence. Schools unfold from origami, deploying in an instant, following the displaced rather than demanding they travel. Bunkers draw energy from volcanoes. Pressure domes form cities beneath the ocean, in places where no human was meant to survive but now, somehow, can.</p>
+  
+  <p>And then the structures come alive. Bio-homes grow like tissue. Neural residences morph with the occupant's mood. Holographic shelters pulse with light, shifting in fluid transformation. The building is no longer built. It breathes. It responds. It refuses to be finished.</p>
+  
+  <p>This refusal spreads. It moves from architecture into cinema, where storytelling gives way to something more demanding. A film, at its most profound, does not present characters at a distance—it dissolves the distance entirely. A stranger's pain becomes personal. Their joy infects. Their journey becomes indistinguishable from the viewer's own. The sacrifice of a character leaves imprints that do not fade when the credits roll. Kindness witnessed on screen shapes behavior long after the theater empties.</p>
+  
+  <p>The cinematic space itself begins to shift. Gravity flexes—viewers feel weightlessness when a refugee takes their first steps toward safety, the suffocating pressure of oppression when injustice crushes someone on screen. Air thickens with sorrow. Corridors reshape to mimic narrow alleys of forgotten towns. Temperatures drop to reflect the bitter cold of displacement. Every sensory detail mirrors lived experience, and indifference becomes impossible. When a character gasps for breath, the viewer's lungs constrict. When fear grips them, hearts race together. When kindness is offered—a meal to the hungry, shelter to the homeless—warmth floods not just the screen but the neurological pathways of those watching.</p>
+  
+  <p>No two screenings remain identical. A film about compassion shifts in relevance depending on the crises of the time, revealing new layers as the world changes around it. Cinema breathes in the needs of society and exhales movements. Certain films fracture across possibilities, existing in multiple realities at once—one viewer sees a world without injustice, another witnesses the rippling effects of every humanitarian act. Walking into a theater becomes walking into another person's reality. Films reshape behavior, transforming passive sympathy into active generosity.</p>
+  
+  <p>What cinema does to story, art does to presence. A painting burns itself upon understanding—gone before it can be owned. A sculpture disassembles the moment meaning is assigned, refusing to exist for the elite, offering instead fleeting encounters that belong to no one but the moment itself. These works strip away the assumption that value requires permanence. They insist that presence matters more than possession.</p>
+  
+  <p>Other works become living organisms. A building inhales when entered, exhales when abandoned, mirroring the instability of shelter for those who have none. Paintings composed of engineered bacteria metabolize their own pigments, shifting hues as environmental conditions change—exposing audiences to the relentless adaptation required for survival on the margins. Spaces transform into landscapes that recreate the physical conditions of displacement: walls closing in, temperatures dropping, rooms shifting unpredictably, forcing visitors into a small simulation of what uncertainty actually feels like in the body.</p>
+  
+  <p>Time fractures inside these installations. Some respond to turmoil—paintings erode when poverty increases, sculptures collapse when access to basic resources declines. Others respond to generosity, growing and evolving when kindness is exchanged, when shelter is given. Dream-infused works bypass logic entirely, entering the subconscious where buried fears and forgotten acts of kindness surface without warning. Art becomes a mirror for struggle, a catalyst for empathy that does not merely inspire but insists upon transformation.</p>
+  
+  <p>This insistence moves into what we wear. Fashion, stretched beyond its familiar limits, becomes a living extension of connection—no longer merely worn but given, shared, sacrificed, restored. Garments refuse permanence, existing only in fleeting moments before dissolving, echoing human fragility and the truth that life, like fabric, is temporary. A dress woven from shifting vapor appears only when admired, vanishing upon touch. Other garments evolve with their wearers, embedding experience into their fibers—absorbing love, sorrow, hope, weaving emotion into their patterns so that no two garments remain identical over time.</p>
+  
+  <p>Fabric becomes a second skin that reacts, heals, comforts. Some garments mend themselves like living tissue. Others entwine with the nervous system, amplifying sensation, reminding wearers what it means to feel deeply, to stay connected, to resist numbness. Time fractures within fashion's grasp—coats carry remnants of past wearers, dresses hold the fingerprints of hands that stitched their seams. Clothing erodes in response to indifference; if neglected, it disappears, reinforcing the truth that empathy must be nurtured or it vanishes.</p>
+  
+  <p>Some garments refuse selfishness entirely. They cannot be owned, only gifted. Fabrics refuse to clothe unless shared. The boundary between object and relationship dissolves: fashion moves through the wearer, imprints itself upon them, carries them forward. It becomes the gentle weight of remembrance, the soft echo of kindness, the warmth of an embrace given freely.</p>
+  
+  <p>This dissolution spreads into graphic design, where communication becomes cognition made manifest. Typography mutates in real time—letters unravel, dissolve, reform, refusing clarity, breaking into fluid abstraction. Words shift meaning as they are read, language molding itself to the viewer rather than existing in fixed form. Logos disperse into fragments, existing in perpetual reconstruction, rejecting stable identity altogether.</p>
+  
+  <p>Structure fractures. Graphics operate beyond physical dimensions—holographic layers pulse in and out of reality, appearing differently to every observer. Perspective collapses. Walls stretch into infinity. Depth reverses. Surfaces disintegrate into optical distortion. Time folds inward: posters decay with each passing moment, demanding engagement before they vanish. Typography rewrites itself in response to global shifts, reshaping meaning before consciousness catches up. Some designs predict futures yet to unfold, manifesting possibilities before they exist.</p>
+  
+  <p>Reality dissolves. Graphics emerge only in subconscious states, appearing in lucid dreams, shaping themselves to forgotten memories. Some visuals exist exclusively in sleep, influencing thought without external presence. Others deny materiality entirely—images appearing as hallucinations, forming from nothingness. Design rebels against inertia, shifting unpredictably, resisting stillness, existing only through offering—forming only when something is given, whether a memory, time, or presence itself.</p>
+  
+  <p>What happens to design happens also to the word. Journaling and journalism, stretched beyond their familiar purposes, cease to be documentation. They become living forces of perception and moral engagement. Some journals refuse possession—existing only when engaged with sincerity, disappearing if neglected, dissolving the moment they are taken for granted. Pages rewrite themselves based on the writer's evolving emotional state. These journals embody the generosity of thought, allowing writers to engage in dialogue with their past selves, offering forgiveness where regret once lived.</p>
+  
+  <p>Journalism fractures time. Some reports refuse finality, reshaping themselves moment by moment, rejecting rigid objectivity in favor of compassionate storytelling. Others exist only in echoes—news appearing after it is forgotten, re-emerging as fragments of recollection rather than structured accounts. Mercy within journalism frames truth in ways that heal rather than harm, exposing injustice not to glorify suffering but to guide humanity toward resolution.</p>
+  
+  <p>Words lose structure, rearranging themselves mid-thought, refusing stability even when written in ink. Some articles pulse within consciousness, adjusting intensity based on the reader's emotional state—if truth is too unbearable, sentences soften; if clarity is sought, paragraphs sharpen. Certain texts dissolve unless fully understood, erasing themselves in response to shallow reading. Writing demands interaction. It insists upon moral clarity. It vanishes before possession, refusing to be observed without consequence.</p>
+  
+  <p>And finally, photography—which no longer simply records but connects, reveals, transforms. Some images refuse possession, existing only when shared, dissolving if withheld. Others reshape themselves in response to sincerity, softening in moments of grief, sharpening when clarity is needed, evolving with the observer's intention rather than remaining fixed.</p>
+  
+  <p>Cameras document not what exists but what is felt, capturing the invisible weight of moments rather than their visible form. Some refuse to operate unless intention aligns with empathy, ensuring that photography becomes an act of understanding rather than extraction. Lenses bend perception for restoration—reshaping wounds into visions of healing, preserving kindness before it fades. Images vanish unless given. Some form only through acts of mercy, appearing when kindness has been exchanged. Others absorb presence, carrying traces of every viewer, shifting with each engagement—never static, always alive.</p>
+  
+  <p>Portraits reveal their full depth only when the observer is genuinely open. Some photographs capture not moments but echoes of kindness—gestures rather than faces, empathy rather than objects. Images reshape possibility, refusing to let suffering exist solely as observation. Some shift in real time, evolving to reflect new acts of care. Others demand engagement, requiring viewers to acknowledge responsibility before they become visible.</p>
+  
+  <p>At its furthest reach, photography ceases to be an artform. It becomes movement, conversation, a force that refuses insignificance—an imprint of human empathy, existing only when fueled by kindness, dissolving before possession, demanding interaction rather than detachment.</p>
+  
+  <p>Seven disciplines. One question: what if form refused to hold still?</p>
+  
+  <p>The answer arrives not as theory but as practice. Shelter breathes. Cinema rewires empathy. Art burns itself upon understanding. Garments dissolve if neglected. Typography mutates mid-thought. Journalism refuses finality. Photographs exist only when shared.</p>
+  
+  <p>This is not utopia. This is the radical insistence that form serves connection, that creation demands responsibility, that nothing worth making can remain inert. The boundary between object and experience dissolves. The boundary between observer and participant dissolves. The boundary between self and other dissolves.</p>
+  
+  <p>What remains is the force that refuses containment—alive, impermanent, undeniable.</p>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (mirrored from Footer.astro) ================= -->
+  <footer class="ft">
+    <div class="ft-inner">
+      <div class="ft-columns">
+
+        <div class="ft-col">
+          <h3 class="ft-col-title">Paraploo, The Elder</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Colophon</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="ft-col">
+          <h3 class="ft-col-title">The Work</h3>
+          <ul>
+            <li><a href="#">Marks</a></li>
+            <li><a href="#">Writings</a></li>
+            <li><a href="#">Images</a></li>
+            <li><a href="#">The Book</a></li>
+          </ul>
+        </div>
+
+        <div class="ft-col">
+          <h3 class="ft-col-title">Legal</h3>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="ft-col">
+          <h3 class="ft-col-title">Support</h3>
+          <ul>
+            <li><a href="#">Support Paraploo</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="ft-col ft-col--signup">
+          <h3 class="ft-col-title">Stay With It</h3>
+          <p class="ft-signup-line">Occasional word when there is something to send.</p>
+          <form class="ft-signup-form">
+            <label class="ft-signup-label" for="ft-email">Email address</label>
+            <div class="ft-signup-row">
+              <input class="ft-signup-input" id="ft-email" type="email" placeholder="Email address">
+              <button class="ft-signup-submit" type="submit" aria-label="Submit">&rarr;</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="ft-rule"></div>
+
+      <div class="ft-bottom">
+        <p class="ft-copyright">&copy; Paraploo, The Elder 2026</p>
+        <ul class="ft-social">
+          <li><a class="ft-social-icon" href="#" aria-label="Social link placeholder">a</a></li>
+          <li><a class="ft-social-icon" href="#" aria-label="Social link placeholder">b</a></li>
+          <li><a class="ft-social-icon" href="#" aria-label="Social link placeholder">c</a></li>
+          <li><a class="ft-social-icon" href="#" aria-label="Social link placeholder">d</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ---- Mega-menus: hover/focus (CSS-driven) + click/tap fallback ----
+      var nav = document.querySelector('.tb-nav');
+      if (nav) {
+        var items = Array.prototype.slice.call(nav.querySelectorAll('.tb-nav-item'));
+
+        var closeAllMegas = function () {
+          items.forEach(function (li) {
+            li.classList.remove('is-open');
+            var btn = li.querySelector('.tb-nav-link');
+            var mega = li.querySelector('.tb-mega');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+            if (mega) mega.setAttribute('aria-hidden', 'true');
+          });
+        };
+
+        var openMega = function (li) {
+          closeAllMegas();
+          li.classList.add('is-open');
+          var btn = li.querySelector('.tb-nav-link');
+          var mega = li.querySelector('.tb-mega');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+          if (mega) mega.setAttribute('aria-hidden', 'false');
+        };
+
+        items.forEach(function (li) {
+          var btn = li.querySelector('.tb-nav-link');
+          if (!btn) return;
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (li.classList.contains('is-open')) {
+              closeAllMegas();
+            } else {
+              openMega(li);
+            }
+          });
+        });
+
+        var signInBtn = document.querySelector('.tb-signin-trigger');
+        var signInPanel = document.querySelector('.tb-signin-panel');
+        var closeSignIn = function () {
+          if (!signInBtn || !signInPanel) return;
+          signInPanel.classList.remove('is-open');
+          signInPanel.setAttribute('aria-hidden', 'true');
+          signInBtn.setAttribute('aria-expanded', 'false');
+        };
+        if (signInBtn && signInPanel) {
+          signInBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeAllMegas();
+            var willOpen = !signInPanel.classList.contains('is-open');
+            if (willOpen) {
+              signInPanel.classList.add('is-open');
+              signInPanel.setAttribute('aria-hidden', 'false');
+              signInBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              closeSignIn();
+            }
+          });
+        }
+
+        document.addEventListener('click', function (e) {
+          if (!nav.contains(e.target)) closeAllMegas();
+          if (signInPanel && signInBtn && !signInPanel.contains(e.target) && e.target !== signInBtn) {
+            closeSignIn();
+          }
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            closeAllMegas();
+            closeSignIn();
+            if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+          }
+        });
+      }
+
+      // ---- Sticky title bar - behaviors-measurement Part 2C -------------
+      // Trigger: the article hero (which carries TopBar above it in normal
+      // flow, TopBar itself is never sticky) scrolling out of view. Two
+      // independent on/off events, not a cross-fade:
+      //   1. TopBar + hero scroll out of flow (native scroll - nothing to
+      //      wire, this already happens because TopBar is position:static).
+      //   2. After a 125ms gap (inside the measured 100-150ms bare-viewport
+      //      window), the sticky bar is switched on with a hard display
+      //      toggle - no transition, no animation.
+      // Reverting: scrolling back up past the same threshold clears the
+      // pending timer and hides the sticky bar immediately, matching the
+      // measured reversion (full bar restored within ~100ms of the sticky
+      // bar disappearing - here read as: no lingering sticky bar once the
+      // hero is back in view).
+      var hero = document.getElementById('articleHero');
+      var stickyBar = document.getElementById('stickyTitleBar');
+      if (hero && stickyBar) {
+        var showTimer = null;
+        var isShown = false;
+        var STICKY_GAP_MS = 125; // inside the measured 100-150ms window
+
+        var showSticky = function () {
+          stickyBar.classList.add('is-visible');
+          stickyBar.setAttribute('aria-hidden', 'false');
+          isShown = true;
+        };
+        var hideSticky = function () {
+          if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+          stickyBar.classList.remove('is-visible');
+          stickyBar.setAttribute('aria-hidden', 'true');
+          isShown = false;
+        };
+
+        var checkThreshold = function () {
+          var heroBottom = hero.getBoundingClientRect().bottom;
+          var pastThreshold = heroBottom <= 0;
+          if (pastThreshold) {
+            if (!isShown && !showTimer) {
+              showTimer = setTimeout(function () {
+                showTimer = null;
+                showSticky();
+              }, STICKY_GAP_MS);
+            }
+          } else {
+            hideSticky();
+          }
+        };
+
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              checkThreshold();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+
+        checkThreshold();
+      }
+    })();
+  </script>
+
+</body>
+</html>
