@@ -49,7 +49,7 @@
   }
   .wordmark:hover{text-decoration:none;opacity:1;}
   .wordmark img{
-    display:block;height:26px;width:auto;
+    display:block;height:26px;max-height:26px;width:auto;
   }
   .section-words{
     display:flex;align-items:center;gap:33px;
@@ -296,7 +296,19 @@
   }
   .footer-wordmark:hover{text-decoration:none;opacity:1;}
   .footer-wordmark img{
-    display:block;height:20px;width:auto;
+    display:block;height:20px;max-height:20px;width:auto;
+  }
+
+  /* Safety cap: logotype images can never render larger than their
+     intended size, even if a future wrapper no longer carries the
+     .wordmark / .footer-wordmark class. Keyed by filename, not wrapper. */
+  img[src$="paraploo-logotype-dark.png"]{
+    max-height:26px;
+    width:auto;
+  }
+  img[src$="paraploo-logotype-white.png"]{
+    max-height:20px;
+    width:auto;
   }
   .footer-section-words{
     display:flex;align-items:center;gap:24px;
