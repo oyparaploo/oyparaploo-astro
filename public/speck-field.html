@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Inter:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css">
 <style>
   :root { --root-size: 17px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -331,56 +332,7 @@
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="wordmark">paraploo, the elder</a>
-    <ul class="nav-links">
-      <li><a href="#">Writing</a></li>
-      <li><a href="#">Portraits</a></li>
-      <li><a href="#">Practice</a></li>
-      <li><a href="#">Dispatches</a></li>
-    </ul>
-    <div class="nav-utils">
-      <div class="sz-group" aria-label="text size">
-        <button class="sz active" data-size="1" aria-label="small text">A</button>
-        <button class="sz" data-size="2" aria-label="medium text">A</button>
-        <button class="sz" data-size="3" aria-label="large text">A</button>
-      </div>
-      <button class="icon-btn" id="contrastBtn" aria-label="contrast">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor"/><path d="M9 1.5A7.5 7.5 0 0 1 9 16.5Z" fill="currentColor"/></svg>
-      </button>
-      <button class="icon-btn" id="searchBtn" aria-label="search">
-        <svg width="21" height="21" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor"/><line x1="12.3" y1="12.3" x2="16.5" y2="16.5" stroke="currentColor"/></svg>
-      </button>
-      <button class="icon-btn burger" id="menuBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-<div class="accent-rule"></div>
-
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-<aside class="menu-panel" id="menuPanel" role="dialog" aria-label="Site menu" aria-hidden="true">
-  <button class="menu-close" id="menuClose" aria-label="close menu">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
-  </button>
-  <ul class="menu-links">
-    <li><a href="#">Writing</a></li>
-    <li><a href="#">Portraits</a></li>
-    <li><a href="#">Practice</a></li>
-    <li><a href="#">Dispatches</a></li>
-    <li><a href="#">Good Grounds</a></li>
-  </ul>
-</aside>
-
-<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-hidden="true">
-  <div class="search-box">
-    <input type="search" id="searchInput" placeholder="Search" aria-label="Search paraploo">
-    <button class="search-close" id="searchClose" aria-label="close search">
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><line x1="5" y1="5" x2="17" y2="17" stroke="currentColor" stroke-width="1.6"/><line x1="17" y1="5" x2="5" y2="17" stroke="currentColor" stroke-width="1.6"/></svg>
-    </button>
-  </div>
-</div>
+<header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
 
 <header class="hd">
   <div class="g">Hand~Writing Gray Areas · Cool</div>
@@ -535,72 +487,22 @@
     else if (e.key === " ") { e.preventDefault(); setPlaying(!playing); }
   });
 
-  // AAA font-size toggle (Städel nav requirement)
-  document.querySelectorAll(".sz").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      document.querySelectorAll(".sz").forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      var sizes = { "1": "17px", "2": "18px", "3": "20px" };
-      document.documentElement.style.setProperty("--root-size", sizes[btn.dataset.size]);
-      document.documentElement.className = "size-" + btn.dataset.size;
-    });
-  });
-
-  // ---------- menu ----------
-  var menuBtn = document.getElementById("menuBtn");
-  var menuPanel = document.getElementById("menuPanel");
-  var menuOverlay = document.getElementById("menuOverlay");
-  var menuClose = document.getElementById("menuClose");
-
-  function setMenu(on) {
-    menuPanel.classList.toggle("open", on);
-    menuOverlay.classList.toggle("open", on);
-    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
-    menuPanel.setAttribute("aria-hidden", on ? "false" : "true");
-    menuOverlay.setAttribute("aria-hidden", on ? "false" : "true");
-    document.body.style.overflow = on ? "hidden" : "";
-  }
-  menuBtn.addEventListener("click", function () {
-    setMenu(!menuPanel.classList.contains("open"));
-  });
-  menuClose.addEventListener("click", function () { setMenu(false); });
-  menuOverlay.addEventListener("click", function () { setMenu(false); });
-  menuPanel.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () { setMenu(false); });
-  });
-
-  // ---------- search ----------
-  var searchBtn = document.getElementById("searchBtn");
-  var searchOverlay = document.getElementById("searchOverlay");
-  var searchClose = document.getElementById("searchClose");
-  var searchInput = document.getElementById("searchInput");
-
-  function setSearch(on) {
-    searchOverlay.classList.toggle("open", on);
-    searchOverlay.setAttribute("aria-hidden", on ? "false" : "true");
-    if (on) { setTimeout(function () { searchInput.focus(); }, 60); }
-    else { searchInput.blur(); }
-  }
-  searchBtn.addEventListener("click", function () {
-    setSearch(!searchOverlay.classList.contains("open"));
-  });
-  searchClose.addEventListener("click", function () { setSearch(false); });
-
-  // ---------- contrast ----------
-  document.getElementById("contrastBtn").addEventListener("click", function () {
-    document.body.classList.toggle("light-mode");
-  });
-
-  // Escape closes menu and search
-  document.addEventListener("keydown", function (e) {
-    if (e.key !== "Escape") return;
-    if (menuPanel.classList.contains("open")) setMenu(false);
-    if (searchOverlay.classList.contains("open")) setSearch(false);
-  });
-
   // build the mosaic now that everything it needs exists
   buildField();
 </script>
+
+<footer class="site-footer">
+  <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/the-book.html">The Book</a>
+    <a href="/history.html">History</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p>Saint Paul, Minnesota</p>
+  <p><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>Formed and Shaped Truths</p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
 
 </body>
 </html>

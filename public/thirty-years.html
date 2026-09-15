@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;450;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css">
 <style>
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -495,75 +496,7 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
 </style>
 </head>
 <body>
-
-<!-- ═══ STÄDEL NAV ═══ -->
-<nav class="site-nav" aria-label="Site navigation">
-  <div class="nav-inner">
-    <a href="/" class="wordmark">oyparaploo</a>
-    <ul class="nav-links">
-      <li><a href="/writing/" class="active">Writing</a></li>
-      <li><a href="/portraits/">Portraits</a></li>
-      <li><a href="/our-practice/">Practice</a></li>
-      <li><a href="/dispatches/">Dispatches</a></li>
-    </ul>
-    <div class="nav-utils">
-      <button id="fontSizeBtn" class="font-size-btn" aria-label="Adjust font size">
-        <span class="sz active" data-size="1">A</span><span class="sz" data-size="2">A</span><span class="sz" data-size="3">A</span>
-      </button>
-      <button id="contrastBtn" aria-label="Toggle contrast">
-        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="8"/><path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor" stroke="none"/>
-        </svg>
-      </button>
-      <a href="#" aria-label="Search">
-        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="10" cy="10" r="7"/><path d="M15 15l5 5"/>
-        </svg>
-      </a>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="navHamburger">
-        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="19" x2="21" y2="19"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-  <div class="nav-accent-rule" aria-hidden="true"></div>
-</nav>
-
-<!-- ═══ MENU ═══ -->
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-
-<div class="menu-panel" id="menuPanel" aria-hidden="true" role="dialog" aria-label="Site menu">
-  <div class="menu-top">
-    <span class="menu-ghost-wordmark" aria-hidden="true">oyparaploo</span>
-    <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&#10005;</button>
-  </div>
-  <div class="menu-content">
-    <nav class="menu-nav-primary" aria-label="Primary menu">
-      <a href="/writing/">Writing</a>
-      <a href="/making/">Making</a>
-      <a href="/good-grounds/">Good Grounds</a>
-    </nav>
-    <hr class="menu-rule-tan" aria-hidden="true">
-    <nav class="menu-nav-secondary" aria-label="Secondary menu">
-      <a href="/our-practice/">Our Practice</a>
-      <a aria-disabled="true">Music Artists</a>
-      <a aria-disabled="true">Collaborators</a>
-      <a href="/methodology/">Methodology</a>
-    </nav>
-    <hr class="menu-rule-sage" aria-hidden="true">
-    <nav class="menu-nav-tertiary" aria-label="Tertiary menu">
-      <a href="/support/">Support</a>
-      <a href="/archive/">Archive</a>
-      <a aria-disabled="true">Calendar</a>
-      <a href="mailto:info@oyparaploo.com">Contact</a>
-    </nav>
-    <div class="menu-address">Minneapolis ~ Saint Paul</div>
-    <div class="menu-bottom-btns">
-      <button class="menu-btn">Subscribe</button>
-    </div>
-  </div>
-</div>
+<header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
 
 <section class="opening">
   <div class="count-up">30</div>
@@ -652,67 +585,20 @@ body.light-mode .footer-rule { background: rgba(0,0,0,.1); }
   <div class="closing-text">The materials changed.<br>The practice held.<br>Thirty years is long enough to know<br>the difference between decoration<br>and structure.</div>
 </section>
 
-<footer class="site-footer" role="contentinfo">
-  <hr class="footer-accent-rule" aria-hidden="true">
-  <div class="footer-inner">
-    <div class="footer-cols">
-      <div class="footer-col"><div class="footer-col-title">Grounds</div><a href="/writing/">Writing</a><a href="/portraits/">Portraits</a><a href="/methodology/">Methodology</a><a href="/good-grounds/">Good Grounds</a><a href="/prayers/">The Prayers</a></div>
-      <div class="footer-col"><div class="footer-col-title">Practice</div><a href="/our-practice/">Our Practice</a><a href="/making/">Making</a><a href="/listening-room/">Sound</a><a href="/broadcast/">The Broadcast</a><a href="/wavelength/">Wavelength</a></div>
-      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="/archive/">Archive</a><span class="footer-soon">Calendar</span><a href="mailto:info@oyparaploo.com">Contact</a></div>
-    </div>
-    <hr class="footer-rule" aria-hidden="true">
-    <div class="footer-copyright">&copy; 2026 Oyparaploo &middot; Twin Cities, Minnesota</div>
-  </div>
+<footer class="site-footer">
+  <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/the-book.html">The Book</a>
+    <a href="/history.html">History</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p>Saint Paul, Minnesota</p>
+  <p><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>Formed and Shaped Truths</p>
+  <p>&copy; 2026 Paraploo</p>
 </footer>
 
 <script>
-var sizeStep = 1;
-var fontBtn = document.getElementById('fontSizeBtn');
-var sizeSpans = fontBtn.querySelectorAll('.sz');
-fontBtn.addEventListener('click', function() {
-  sizeStep = sizeStep >= 3 ? 1 : sizeStep + 1;
-  document.documentElement.classList.remove('size-1', 'size-2', 'size-3');
-  document.documentElement.classList.add('size-' + sizeStep);
-  sizeSpans.forEach(function(s) {
-    s.classList.toggle('active', parseInt(s.dataset.size) === sizeStep);
-  });
-});
-
-// Contrast toggle — dark ground native: toggles to light-mode
-document.getElementById('contrastBtn').addEventListener('click', function() {
-  document.body.classList.toggle('light-mode');
-});
-
-var navHamburger = document.getElementById('navHamburger');
-var menuCloseBtn  = document.getElementById('menuCloseBtn');
-var menuOverlay   = document.getElementById('menuOverlay');
-var menuPanel     = document.getElementById('menuPanel');
-
-function openMenu() {
-  menuOverlay.classList.add('open');
-  menuPanel.classList.add('open');
-  navHamburger.classList.add('open');
-  navHamburger.setAttribute('aria-expanded', 'true');
-  menuPanel.setAttribute('aria-hidden', 'false');
-  menuOverlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  menuOverlay.classList.remove('open');
-  menuPanel.classList.remove('open');
-  navHamburger.classList.remove('open');
-  navHamburger.setAttribute('aria-expanded', 'false');
-  menuPanel.setAttribute('aria-hidden', 'true');
-  menuOverlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-navHamburger.addEventListener('click', openMenu);
-menuCloseBtn.addEventListener('click', closeMenu);
-menuOverlay.addEventListener('click', closeMenu);
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
-menuPanel.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
-
 (function() {
   var els = document.querySelectorAll('.reveal, .reveal-slow');
   if (!els.length) return;

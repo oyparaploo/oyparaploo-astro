@@ -22,7 +22,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css">
 <style>
 
   :root {
@@ -329,40 +330,7 @@
 </head>
 <body>
 
-  <!-- ================= TOPBAR ================= -->
-  <header class="tb">
-    <div class="tb-utility">
-      <span class="tb-utility-location">Saint Paul, Minnesota</span>
-      <div class="tb-utility-right">
-        <a class="tb-lang tb-lang--active" href="#">English</a>
-        <a class="tb-lang tb-lang--muted" href="#">Français</a>
-        <div class="tb-search-wrap">
-          <div class="tb-search-field" id="tb-search-field">
-            <span class="tb-search-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.25" stroke="currentColor" stroke-width="1.4"/><line x1="10.9" y1="11" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </span>
-            <label class="tb-visually-hidden" for="tb-search-input">Search Paraploo</label>
-            <input class="tb-search-input" id="tb-search-input" type="text" autocomplete="off" placeholder="Search">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tb-inner">
-      <div class="tb-words">
-        <a class="tb-nav-link" href="#">Words</a>
-        <a class="tb-nav-link" href="#">Marks</a>
-        <a class="tb-wordmark" href="#">paraploo</a>
-        <nav class="tb-nav" aria-label="Primary">
-          <a class="tb-nav-link" href="#">Objects</a>
-          <a class="tb-nav-link" href="#">Effects</a>
-        </nav>
-      </div>
-
-      <button class="tb-hamburger" id="tb-hamburger" type="button" aria-label="Menu" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 226" fill="currentColor"><path d="M25.00 56.39 L30.33 56.51 L35.67 56.66 L41.00 56.84 L46.33 56.91 L51.67 56.96 L57.00 57.04 L62.33 57.15 L67.67 57.29 L73.00 57.47 L78.33 57.64 L83.67 57.79 L89.00 57.87 L94.33 57.87 L99.67 57.78 L105.00 57.61 L110.33 57.41 L115.67 57.22 L121.00 57.08 L126.33 57.03 L131.67 57.09 L137.00 57.23 L142.33 57.43 L147.67 57.63 L153.00 57.78 L158.33 57.87 L163.67 57.86 L169.00 57.77 L174.33 57.62 L179.67 57.44 L185.00 57.20 L190.33 57.06 L195.67 57.00 L201.00 57.00 L201.00 57.00 L203.74 57.48 L206.14 58.87 L207.93 61.00 L208.88 63.61 L208.88 66.39 L207.93 69.00 L206.14 71.13 L203.74 72.52 L201.00 73.00 L201.00 73.00 L195.67 72.94 L190.33 73.02 L185.00 73.24 L179.67 73.58 L174.33 73.77 L169.00 73.86 L163.67 73.86 L158.33 73.77 L153.00 73.65 L147.67 73.52 L142.33 73.41 L137.00 73.36 L131.67 73.35 L126.33 73.38 L121.00 73.43 L115.67 73.48 L110.33 73.51 L105.00 73.53 L99.67 73.54 L94.33 73.56 L89.00 73.60 L83.67 73.65 L78.33 73.72 L73.00 73.76 L67.67 73.76 L62.33 73.70 L57.00 73.55 L51.67 73.34 L46.33 73.09 L41.00 72.93 L35.67 73.05 L30.33 73.30 L25.00 73.61 L25.00 73.61 L22.06 73.09 L19.47 71.59 L17.55 69.30 L16.52 66.49 L16.52 63.51 L17.55 60.70 L19.47 58.41 L22.06 56.91 L25.00 56.39 Z"/><path d="M25.00 104.54 L30.33 104.71 L35.67 104.94 L41.00 105.23 L46.33 105.46 L51.67 105.51 L57.00 105.49 L62.33 105.40 L67.67 105.26 L73.00 105.10 L78.33 104.97 L83.67 104.90 L89.00 104.92 L94.33 105.04 L99.67 105.24 L105.00 105.48 L110.33 105.71 L115.67 105.88 L121.00 105.96 L126.33 105.94 L131.67 105.82 L137.00 105.65 L142.33 105.45 L147.67 105.27 L153.00 105.14 L158.33 105.06 L163.67 105.04 L169.00 105.05 L174.33 105.08 L179.67 105.09 L185.00 105.08 L190.33 105.07 L195.67 105.06 L201.00 105.06 L201.00 105.06 L203.71 105.54 L206.10 106.92 L207.87 109.03 L208.81 111.62 L208.81 114.38 L207.87 116.97 L206.10 119.08 L203.71 120.46 L201.00 120.94 L201.00 120.94 L195.67 121.03 L190.33 121.05 L185.00 120.99 L179.67 120.88 L174.33 120.81 L169.00 120.82 L163.67 120.89 L158.33 120.99 L153.00 121.10 L147.67 121.21 L142.33 121.29 L137.00 121.36 L131.67 121.41 L126.33 121.47 L121.00 121.54 L115.67 121.61 L110.33 121.68 L105.00 121.72 L99.67 121.70 L94.33 121.63 L89.00 121.49 L83.67 121.31 L78.33 121.11 L73.00 120.95 L67.67 120.86 L62.33 120.86 L57.00 120.95 L51.67 121.12 L46.33 121.31 L41.00 121.42 L35.67 121.49 L30.33 121.48 L25.00 121.46 L25.00 121.46 L22.11 120.95 L19.56 119.48 L17.67 117.23 L16.66 114.47 L16.66 111.53 L17.67 108.77 L19.56 106.52 L22.11 105.05 L25.00 104.54 Z"/><path d="M25.00 152.77 L30.33 152.87 L35.67 153.02 L41.00 153.21 L46.33 153.36 L51.67 153.42 L57.00 153.48 L62.33 153.54 L67.67 153.58 L73.00 153.60 L78.33 153.58 L83.67 153.51 L89.00 153.40 L94.33 153.28 L99.67 153.18 L105.00 153.13 L110.33 153.16 L115.67 153.28 L121.00 153.46 L126.33 153.67 L131.67 153.87 L137.00 154.00 L142.33 154.04 L147.67 153.96 L153.00 153.79 L158.33 153.55 L163.67 153.29 L169.00 153.06 L174.33 152.90 L179.67 152.82 L185.00 152.85 L190.33 152.89 L195.67 152.92 L201.00 152.90 L201.00 152.90 L203.77 153.39 L206.20 154.80 L208.01 156.95 L208.97 159.59 L208.97 162.41 L208.01 165.05 L206.20 167.20 L203.77 168.61 L201.00 169.10 L201.00 169.10 L195.67 169.10 L190.33 169.16 L185.00 169.25 L179.67 169.37 L174.33 169.41 L169.00 169.45 L163.67 169.49 L158.33 169.52 L153.00 169.54 L147.67 169.53 L142.33 169.48 L137.00 169.38 L131.67 169.25 L126.33 169.12 L121.00 169.03 L115.67 169.00 L110.33 169.05 L105.00 169.18 L99.67 169.37 L94.33 169.58 L89.00 169.75 L83.67 169.85 L78.33 169.84 L73.00 169.73 L67.67 169.53 L62.33 169.28 L57.00 169.04 L51.67 168.83 L46.33 168.71 L41.00 168.77 L35.67 168.94 L30.33 169.10 L25.00 169.23 L25.00 169.23 L22.19 168.73 L19.71 167.30 L17.87 165.11 L16.90 162.43 L16.90 159.57 L17.87 156.89 L19.71 154.70 L22.19 153.27 L25.00 152.77 Z"/></svg></button>
-    </div>
-    <div class="tb-accent-rule" aria-hidden="true"></div>
-  </header>
+<header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
 
   <!-- ================= BREADCRUMB ================= -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -427,47 +395,18 @@
     </div>
   </section>
 
-  <script>
-    (function () {
-      var searchField = document.getElementById('tb-search-field');
-      var searchInput = document.getElementById('tb-search-input');
-      if (searchInput && searchField) {
-        searchInput.addEventListener('focus', function () { searchField.classList.add('is-open'); });
-        searchInput.addEventListener('blur', function () { searchField.classList.remove('is-open'); });
-      }
-
-      var tbHeader = document.querySelector('.tb');
-      if (tbHeader) {
-        var tbLastY = window.scrollY || window.pageYOffset || 0;
-        var tbTicking = false;
-        var tbOnScroll = function () {
-          var y = window.scrollY || window.pageYOffset || 0;
-          if (y > tbLastY && y > tbHeader.offsetHeight) {
-            tbHeader.classList.add('tb--hidden');
-          } else if (y < tbLastY) {
-            tbHeader.classList.remove('tb--hidden');
-          }
-          tbLastY = y;
-          tbTicking = false;
-        };
-        window.addEventListener('scroll', function () {
-          if (!tbTicking) { window.requestAnimationFrame(tbOnScroll); tbTicking = true; }
-        }, { passive: true });
-      }
-
-      var hamburgerBtn = document.getElementById('tb-hamburger');
-      if (hamburgerBtn) {
-        var CLOSED_ICON = hamburgerBtn.innerHTML;
-        var OPEN_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226 226" fill="currentColor"><path d="M41.94 58.05 L45.67 61.96 L49.39 65.88 L53.08 69.82 L56.85 73.69 L60.63 77.55 L64.40 81.42 L68.14 85.31 L71.85 89.24 L75.55 93.18 L79.24 97.12 L82.95 101.04 L86.71 104.92 L90.54 108.74 L94.42 112.49 L98.36 116.19 L102.32 119.86 L106.27 123.55 L110.19 127.27 L114.04 131.06 L117.82 134.91 L121.53 138.83 L125.21 142.79 L128.89 146.75 L132.60 150.68 L136.36 154.55 L140.18 158.37 L144.07 162.12 L147.99 165.83 L151.93 169.53 L155.92 173.18 L159.84 176.90 L163.70 180.67 L167.52 184.49 L167.52 184.49 L169.12 186.76 L169.83 189.45 L169.59 192.22 L168.42 194.74 L166.45 196.70 L163.93 197.88 L161.16 198.12 L158.48 197.40 L156.20 195.81 L156.20 195.81 L152.43 191.94 L148.56 188.18 L144.58 184.52 L140.52 180.94 L136.57 177.25 L132.69 173.50 L128.87 169.68 L125.11 165.80 L121.38 161.89 L117.66 157.98 L113.91 154.09 L110.13 150.23 L106.32 146.41 L102.48 142.61 L98.62 138.83 L94.77 135.05 L90.93 131.25 L87.10 127.45 L83.27 123.64 L79.44 119.83 L75.59 116.04 L71.74 112.26 L67.88 108.49 L64.03 104.70 L60.21 100.88 L56.43 97.02 L52.72 93.10 L49.05 89.13 L45.41 85.13 L41.70 81.20 L37.80 77.47 L33.81 73.82 L29.77 70.22 L29.77 70.22 L28.05 67.78 L27.28 64.89 L27.54 61.91 L28.80 59.20 L30.92 57.09 L33.63 55.83 L36.60 55.57 L39.49 56.34 L41.94 58.05 Z"/><path d="M70.12 29.87 L73.82 33.81 L77.48 37.79 L81.09 41.82 L84.74 45.80 L88.52 49.65 L92.36 53.46 L96.24 57.21 L100.16 60.93 L104.09 64.64 L108.00 68.36 L111.87 72.13 L115.67 75.96 L119.41 79.86 L123.08 83.82 L126.73 87.81 L130.39 91.79 L134.09 95.73 L137.85 99.61 L141.68 103.41 L145.58 107.15 L149.52 110.84 L153.48 114.52 L157.43 118.21 L161.34 121.94 L165.21 125.70 L169.04 129.50 L172.86 133.33 L176.66 137.17 L180.46 141.00 L184.29 144.80 L188.12 148.62 L191.94 152.43 L195.76 156.25 L195.76 156.25 L197.34 158.51 L198.05 161.17 L197.81 163.91 L196.65 166.41 L194.70 168.36 L192.20 169.53 L189.45 169.77 L186.79 169.05 L184.53 167.47 L184.53 167.47 L180.65 163.72 L176.82 159.92 L173.04 156.06 L169.30 152.16 L165.53 148.29 L161.71 144.48 L157.84 140.71 L153.95 136.96 L150.05 133.22 L146.16 129.48 L142.28 125.72 L138.42 121.95 L134.56 118.17 L130.70 114.39 L126.83 110.62 L122.96 106.86 L119.10 103.08 L115.25 99.29 L111.44 95.47 L107.68 91.59 L103.96 87.68 L100.27 83.73 L96.59 79.78 L92.88 75.84 L89.13 71.96 L85.31 68.14 L81.43 64.39 L77.49 60.69 L73.53 57.01 L69.64 53.26 L65.77 49.49 L61.96 45.67 L58.15 41.84 L58.15 41.84 L56.47 39.43 L55.71 36.59 L55.96 33.66 L57.21 31.00 L59.28 28.92 L61.95 27.68 L64.88 27.42 L67.72 28.18 L70.12 29.87 Z"/><path d="M37.18 177.19 L41.49 173.01 L45.84 168.88 L50.21 164.77 L54.57 160.63 L58.85 156.43 L63.13 152.23 L67.42 148.03 L71.69 143.82 L75.95 139.59 L80.18 135.33 L84.37 131.04 L88.53 126.72 L92.69 122.39 L96.86 118.08 L101.07 113.80 L105.34 109.58 L109.66 105.42 L114.03 101.31 L118.43 97.21 L122.81 93.11 L127.14 88.96 L131.41 84.74 L135.60 80.44 L139.72 76.08 L143.79 71.67 L147.85 67.24 L151.94 62.84 L156.06 58.48 L160.25 54.18 L164.51 49.96 L168.79 45.75 L173.04 41.52 L177.28 37.27 L177.28 37.27 L179.58 35.66 L182.30 34.93 L185.10 35.17 L187.65 36.36 L189.64 38.35 L190.83 40.90 L191.07 43.70 L190.34 46.42 L188.73 48.72 L188.73 48.72 L184.49 52.96 L180.29 57.25 L176.11 61.56 L171.95 65.89 L167.74 70.16 L163.52 74.42 L159.30 78.69 L155.09 82.96 L150.86 87.22 L146.61 91.46 L142.33 95.66 L138.02 99.83 L133.68 103.99 L129.35 108.14 L125.04 112.31 L120.78 116.53 L116.57 120.81 L112.42 125.15 L108.31 129.53 L104.22 133.91 L100.10 138.28 L95.92 142.59 L91.68 146.83 L87.35 150.99 L82.97 155.09 L78.55 159.16 L74.13 163.23 L69.75 167.33 L65.42 171.48 L61.22 175.77 L57.09 180.13 L52.97 184.49 L48.81 188.82 L48.81 188.82 L46.47 190.46 L43.71 191.20 L40.87 190.95 L38.28 189.74 L36.26 187.72 L35.05 185.13 L34.80 182.29 L35.54 179.53 L37.18 177.19 Z"/></svg>';
-
-        hamburgerBtn.addEventListener('click', function () {
-          var isOpen = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-          hamburgerBtn.innerHTML = isOpen ? CLOSED_ICON : OPEN_ICON;
-          hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-        });
-      }
-    })();
-  </script>
+<footer class="site-footer">
+  <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/the-book.html">The Book</a>
+    <a href="/history.html">History</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p>Saint Paul, Minnesota</p>
+  <p><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>Formed and Shaped Truths</p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
 
 </body>
 </html>

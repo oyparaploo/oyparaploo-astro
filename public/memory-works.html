@@ -7,7 +7,10 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -333,30 +336,7 @@ a { color: inherit; text-decoration: none; }
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header class="header" id="header">
-  <a href="#" class="header-name">Oyparaploo</a>
-  <nav class="header-nav">
-    <a href="#">Writing</a>
-    <a href="#">Visual Art</a>
-    <a href="#" class="active">Memory Works</a>
-    <a href="#">About</a>
-  </nav>
-  <button class="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav">
-  <a href="#">Writing</a>
-  <a href="#">Visual Art</a>
-  <a href="#">Memory Works</a>
-  <a href="#">Methodology</a>
-  <a href="#">Archive</a>
-  <a href="#">About</a>
-</div>
+<header class="site-header"><a href="/"><img src="/paraploo-logo-dark.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
 
 <!-- HERO SLIDESHOW -->
 <div class="hero">
@@ -499,51 +479,9 @@ a { color: inherit; text-decoration: none; }
   <div class="quote-attr">Reach Chimes, 1995–Present</div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  <div class="footer-left">
-    <div class="footer-brand">Oyparaploo</div>
-    <div class="footer-sub">Minneapolis — Since 1995</div>
-  </div>
-  <div class="footer-right">
-    <a href="#" class="footer-link">About</a>
-    <a href="#" class="footer-link">Works</a>
-    <a href="#" class="footer-link">Contact</a>
-  </div>
-</div>
-<div class="footer-copy">© 2000–2026 Oyparaploo</div>
-
 <script>
-// Header scroll behavior
-const header = document.getElementById('header');
-const hero = document.querySelector('.hero');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > hero.offsetHeight - 80) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// Hamburger
-const hamburger = document.querySelector('.hamburger');
-const mobileNav = document.querySelector('.mobile-nav');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileNav.classList.toggle('open');
-  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  // Force header to scrolled state when menu open
-  if (mobileNav.classList.contains('open')) header.classList.add('scrolled');
-});
-mobileNav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
 // Hero slideshow - slow, meditative crossfade
+const hero = document.querySelector('.hero');
 const slides = document.querySelectorAll('.hero-slide');
 const slideNum = document.getElementById('slideNum');
 let current = 0;
@@ -571,5 +509,17 @@ hero.addEventListener('touchend', e => {
   }
 });
 </script>
+<footer class="site-footer">
+  <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/the-book.html">The Book</a>
+    <a href="/history.html">History</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p>Saint Paul, Minnesota</p>
+  <p><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>Formed and Shaped Truths</p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
 </body>
 </html>
