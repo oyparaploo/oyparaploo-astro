@@ -13,62 +13,169 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css">
 <style>
+  * { box-sizing: border-box; }
   body {
+    margin: 0;
     background: #14100c;
-    color: #f2ede6;
+    color: #f4ede1;
+    font-family: 'Archivo', sans-serif;
+  }
+  .band { padding: 56px 0; }
+  .band-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid rgba(244,237,225,0.18);
+    padding-top: 40px;
+  }
+  .band:first-of-type .band-header { border-top: none; padding-top: 0; }
+  .band-title {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.4118rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: #f4ede1;
     margin: 0;
   }
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 220px);
-    gap: 56px;
+  .band-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2%;
+    row-gap: 48px;
   }
-  main img {
-    width: 60vw;
-    max-width: 520px;
-    height: auto;
+  .oc-card { display: block; text-decoration: none; cursor: pointer; }
+  .oc-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: #1c1712;
+    border: 1px solid rgba(244,237,225,0.18);
+    margin-bottom: 16px;
+    overflow: hidden;
   }
-  main nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
+  .oc-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  main nav a {
+  .oc-title {
     font-family: 'Lora', serif;
     font-weight: 500;
-    font-size: 2rem;
-    letter-spacing: 0.06em;
-    color: inherit;
-    text-decoration: none;
+    font-size: 1.1765rem;
+    color: #f4ede1;
+    margin: 0;
   }
-  main nav a:hover,
-  main nav a:focus {
-    color: #d4a574;
+  .oc-wide { grid-column: 1 / -1; }
+  .oc-wide .oc-placeholder { aspect-ratio: 21 / 9; }
+  .oc-wide .oc-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.4vw, 2.2rem);
   }
-  @media (max-width: 600px) {
-    main img {
-      width: 72vw;
-    }
-    main nav a {
-      font-size: 1.5rem;
-    }
+  @media (max-width: 1024px) {
+    .band-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .band-grid { grid-template-columns: 1fr; padding: 0 24px; }
+    .band-header { padding: 0 24px 20px; }
+    .band { padding: 40px 0; }
   }
 </style>
 </head>
 <body>
 <header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
-<main>
-  <img src="/paraploo-logo-white.png" alt="Paraploo">
-  <nav>
-    <a href="/the-book.html">The Book</a>
-    <a href="/history.html">History</a>
-    <a href="/about.html">About</a>
-  </nav>
-</main>
+
+<section class="band">
+  <div class="band-header"><h2 class="band-title">The Book</h2></div>
+  <div class="band-grid">
+    <a class="oc-card oc-wide" href="the-book.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">The Book</h3>
+    </a>
+    <a class="oc-card" href="book-door-1.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">A Machine That Can Hear</h3>
+    </a>
+    <a class="oc-card" href="book-door-2.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Too Great a Listener for its own Good</h3>
+    </a>
+    <a class="oc-card" href="book-door-3.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Strange 7:46 Objects</h3>
+    </a>
+    <a class="oc-card" href="book-door-4.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Morning Over Troubled Floors</h3>
+    </a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-header"><h2 class="band-title">The Rooms</h2></div>
+  <div class="band-grid">
+    <a class="oc-card" href="room-one.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Booklet 1</h3>
+    </a>
+    <a class="oc-card" href="room-two.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Come Through</h3>
+    </a>
+    <a class="oc-card" href="room-three.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Come Sit</h3>
+    </a>
+    <a class="oc-card" href="room-four.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Come Look</h3>
+    </a>
+    <a class="oc-card" href="room-five.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Come Stand</h3>
+    </a>
+    <a class="oc-card" href="room-six.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Come Down</h3>
+    </a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-header"><h2 class="band-title">This Life Assembled</h2></div>
+  <div class="band-grid">
+    <a class="oc-card oc-wide" href="history.html">
+      <div class="oc-placeholder" aria-hidden="true"><img src="/HISTORY-ASSEMBLED/2000-Q85/01.webp" alt="This Life Assembled in Progress, 1970"></div>
+      <h3 class="oc-title">This Life Assembled in Progress, 1970</h3>
+    </a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-header"><h2 class="band-title">The Life</h2></div>
+  <div class="band-grid">
+    <a class="oc-card" href="early-years.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Early Years</h3>
+    </a>
+    <a class="oc-card" href="spine.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">Spine</h3>
+    </a>
+    <a class="oc-card" href="about.html">
+      <div class="oc-placeholder" aria-hidden="true"></div>
+      <h3 class="oc-title">About</h3>
+    </a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
   <nav>
