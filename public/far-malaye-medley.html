@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Far Malaye Medley | Paraploo</title>
+<meta name="description" content="Far Malaye Medley — a gallery of images from Paraploo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0d0907; color: rgba(232, 224, 214, 0.9); font-family: 'Inter', sans-serif; }
+  .gallery-title-block { max-width: 1400px; margin: 0 auto; padding: 56px 32px 24px; }
+  .gallery-title-block h1 { font-family: 'Lora', serif; font-weight: 500; font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem); letter-spacing: -0.01em; margin: 0; color: rgba(232, 224, 214, 0.95); }
+  .gallery-grid { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+  .gallery-item { display: block; }
+  .gallery-item img { width: 100%; height: auto; display: block; background: #1a1512; }
+  .gallery-caption { margin: 8px 2px 0; font-size: 0.85rem; letter-spacing: 0.01em; color: rgba(232, 224, 214, 0.6); }
+  a.gallery-item { text-decoration: none; }
+
+  .gallery-item { cursor: zoom-in; }
+  .gallery-item img { object-fit: contain; background: #0d0907; }
+  .lightbox-overlay { position: fixed; inset: 0; background: rgba(13, 9, 7, 0.96); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-overlay img { width: auto; height: auto; object-fit: contain; box-shadow: 0 0 60px rgba(0,0,0,0.6); }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
+<div class="gallery-title-block"><p class="gallery-eyebrow"><a href="/lines.html">Lines</a></p><h1>Far Malaye Medley</h1></div>
+
+<div class="gallery-grid">
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder.webp">
+  <img src="/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder.webp" alt="Amarah Disfigured Face Experiment And Soder" loading="lazy">
+  <p class="gallery-caption">Amarah Disfigured Face Experiment And Soder</p>
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/far-malaye-medley/hinge%20and%20horse%20heads.webp">
+  <img src="/images/lines/far-malaye-medley/hinge%20and%20horse%20heads.webp" alt="hinge and horse heads" loading="lazy">
+  <p class="gallery-caption">hinge and horse heads</p>
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/far-malaye-medley/May%20Day.webp">
+  <img src="/images/lines/far-malaye-medley/May%20Day.webp" alt="May Day" loading="lazy">
+  <p class="gallery-caption">May Day</p>
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/far-malaye-medley/passion%20violence%20love.webp">
+  <img src="/images/lines/far-malaye-medley/passion%20violence%20love.webp" alt="passion violence love" loading="lazy">
+  <p class="gallery-caption">passion violence love</p>
+</div>
+</div>
+<footer class="site-footer">
+  <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/the-book.html">The Book</a>
+    <a href="/history.html">History</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p>Saint Paul, Minnesota</p>
+  <p><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>Formed and Shaped Truths</p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<div class="lightbox-overlay" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+(function() {
+  var overlay = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  function sizeToNatural() {
+    var maxW = window.innerWidth * 0.95;
+    var maxH = window.innerHeight * 0.95;
+    var w = Math.min(img.naturalWidth, maxW);
+    var h = Math.min(img.naturalHeight, maxH);
+    var scale = Math.min(w / img.naturalWidth, h / img.naturalHeight, 1);
+    img.style.width = (img.naturalWidth * scale) + 'px';
+    img.style.height = (img.naturalHeight * scale) + 'px';
+  }
+  function openItem(item) {
+    img.src = item.getAttribute('data-full');
+    img.alt = item.querySelector('img').alt;
+    overlay.classList.add('open');
+    img.onload = sizeToNatural;
+  }
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function() { openItem(item); });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openItem(item);
+      }
+    });
+  });
+  overlay.addEventListener('click', function() {
+    overlay.classList.remove('open');
+    img.src = '';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      overlay.classList.remove('open');
+      img.src = '';
+    }
+  });
+})();
+</script>
+</body>
+</html>
