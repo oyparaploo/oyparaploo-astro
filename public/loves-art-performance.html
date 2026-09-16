@@ -19,64 +19,70 @@
   .gallery-item img { width: 100%; height: auto; aspect-ratio: attr(width) / attr(height); display: block; background: #1a1512; }
   .gallery-caption { margin: 8px 2px 0; font-size: 0.85rem; letter-spacing: 0.01em; color: rgba(232, 224, 214, 0.6); }
   a.gallery-item { text-decoration: none; }
+  .gallery-item { cursor: zoom-in; }
+  .gallery-item img { object-fit: contain; background: #0d0907; }
+  .lightbox-overlay { position: fixed; inset: 0; background: rgba(13, 9, 7, 0.96); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-overlay img { width: auto; height: auto; object-fit: contain; box-shadow: 0 0 60px rgba(0,0,0,0.6); cursor: default; }
+  .lightbox-close { position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; background: transparent; color: #fff; font-size: 28px; line-height: 44px; text-align: center; cursor: pointer; z-index: 1001; font-family: 'Inter', sans-serif; }
 </style>
 </head>
 <body>
 <header class="site-header dark"><a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/the-book.html">The Book</a><a href="/history.html">History</a><a href="/about.html">About</a></nav></header>
 <div class="gallery-title-block"><p class="gallery-eyebrow"><a href="/lines.html">Lines</a> / <a href="/loves.html">Loves</a></p><h1>Art Performance</h1></div>
 <div class="gallery-grid">
-<a class="gallery-item" href="/images/lines/loves-art-performance/Alexandra%20Pirici-8.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Alexandra%20Pirici-8.webp" alt="Alexandra Pirici-8" loading="lazy">
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Alexandra%20Pirici-8.webp">
+  <img src="/images/lines/loves-art-performance/Alexandra%20Pirici-8-600.webp" alt="Alexandra Pirici-8" loading="lazy" decoding="async" width="600" height="262">
   <p class="gallery-caption">Alexandra Pirici-8</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Ana%20Mendieta%201.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Ana%20Mendieta%201.webp" alt="Ana Mendieta 1" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Ana%20Mendieta%201.webp">
+  <img src="/images/lines/loves-art-performance/Ana%20Mendieta%201-600.webp" alt="Ana Mendieta 1" loading="lazy" decoding="async" width="600" height="903">
   <p class="gallery-caption">Ana Mendieta 1</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Anita-Goes.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Anita-Goes.webp" alt="Anita-Goes" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Anita-Goes.webp">
+  <img src="/images/lines/loves-art-performance/Anita-Goes-600.webp" alt="Anita-Goes" loading="lazy" decoding="async" width="600" height="600">
   <p class="gallery-caption">Anita-Goes</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Anna-Fusco-8.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Anna-Fusco-8.webp" alt="Anna-Fusco-8" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Anna-Fusco-8.webp">
+  <img src="/images/lines/loves-art-performance/Anna-Fusco-8-600.webp" alt="Anna-Fusco-8" loading="lazy" decoding="async" width="600" height="400">
   <p class="gallery-caption">Anna-Fusco-8</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Carolyn%20Drake%205.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Carolyn%20Drake%205.webp" alt="Carolyn Drake 5" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Carolyn%20Drake%205.webp">
+  <img src="/images/lines/loves-art-performance/Carolyn%20Drake%205-600.webp" alt="Carolyn Drake 5" loading="lazy" decoding="async" width="600" height="750">
   <p class="gallery-caption">Carolyn Drake 5</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/lina-lapelyte-8.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/lina-lapelyte-8.webp" alt="lina-lapelyte-8" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/lina-lapelyte-8.webp">
+  <img src="/images/lines/loves-art-performance/lina-lapelyte-8-600.webp" alt="lina-lapelyte-8" loading="lazy" decoding="async" width="600" height="400">
   <p class="gallery-caption">lina-lapelyte-8</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Pia-Riverola-8.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Pia-Riverola-8.webp" alt="Pia-Riverola-8" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Pia-Riverola-8.webp">
+  <img src="/images/lines/loves-art-performance/Pia-Riverola-8-600.webp" alt="Pia-Riverola-8" loading="lazy" decoding="async" width="600" height="877">
   <p class="gallery-caption">Pia-Riverola-8</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Robin%20Rhode.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Robin%20Rhode.webp" alt="Robin Rhode" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Robin%20Rhode.webp">
+  <img src="/images/lines/loves-art-performance/Robin%20Rhode-600.webp" alt="Robin Rhode" loading="lazy" decoding="async" width="600" height="438">
   <p class="gallery-caption">Robin Rhode</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Sethembile-Msezane-3.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Sethembile-Msezane-3.webp" alt="Sethembile-Msezane-3" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Sethembile-Msezane-3.webp">
+  <img src="/images/lines/loves-art-performance/Sethembile-Msezane-3-600.webp" alt="Sethembile-Msezane-3" loading="lazy" decoding="async" width="600" height="386">
   <p class="gallery-caption">Sethembile-Msezane-3</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Sethembile-Msezane-6.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Sethembile-Msezane-6.webp" alt="Sethembile-Msezane-6" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Sethembile-Msezane-6.webp">
+  <img src="/images/lines/loves-art-performance/Sethembile-Msezane-6-600.webp" alt="Sethembile-Msezane-6" loading="lazy" decoding="async" width="600" height="399">
   <p class="gallery-caption">Sethembile-Msezane-6</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Sethembile-Msezane-7.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Sethembile-Msezane-7.webp" alt="Sethembile-Msezane-7" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Sethembile-Msezane-7.webp">
+  <img src="/images/lines/loves-art-performance/Sethembile-Msezane-7-600.webp" alt="Sethembile-Msezane-7" loading="lazy" decoding="async" width="600" height="900">
   <p class="gallery-caption">Sethembile-Msezane-7</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Sethembile-Msezane-8.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Sethembile-Msezane-8.webp" alt="Sethembile-Msezane-8" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Sethembile-Msezane-8.webp">
+  <img src="/images/lines/loves-art-performance/Sethembile-Msezane-8-600.webp" alt="Sethembile-Msezane-8" loading="lazy" decoding="async" width="600" height="477">
   <p class="gallery-caption">Sethembile-Msezane-8</p>
-</a>
-<a class="gallery-item" href="/images/lines/loves-art-performance/Sethembile-Msezane-9.webp" target="_blank" rel="noopener">
-  <img src="/images/lines/loves-art-performance/thumbs/Sethembile-Msezane-9.webp" alt="Sethembile-Msezane-9" loading="lazy">
+</div>
+<div class="gallery-item" role="button" tabindex="0" data-full="/images/lines/loves-art-performance/Sethembile-Msezane-9.webp">
+  <img src="/images/lines/loves-art-performance/Sethembile-Msezane-9-600.webp" alt="Sethembile-Msezane-9" loading="lazy" decoding="async" width="600" height="478">
   <p class="gallery-caption">Sethembile-Msezane-9</p>
-</a>
+</div>
 </div>
 <footer class="site-footer">
   <a href="/"><img src="/paraploo-logo-white.png" alt="Paraploo"></a>
@@ -90,5 +96,53 @@
   <p>Formed and Shaped Truths</p>
   <p>&copy; 2026 Paraploo</p>
 </footer>
+<div class="lightbox-overlay" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+(function() {
+  var overlay = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  var closeBtn = document.getElementById('lightbox-close');
+  function sizeToNatural() {
+    var maxW = window.innerWidth * 0.95;
+    var maxH = window.innerHeight * 0.95;
+    var w = Math.min(img.naturalWidth, maxW);
+    var h = Math.min(img.naturalHeight, maxH);
+    var scale = Math.min(w / img.naturalWidth, h / img.naturalHeight, 1);
+    img.style.width = (img.naturalWidth * scale) + 'px';
+    img.style.height = (img.naturalHeight * scale) + 'px';
+  }
+  function openItem(item) {
+    img.src = item.getAttribute('data-full');
+    img.alt = item.querySelector('img').alt;
+    overlay.classList.add('open');
+    img.onload = sizeToNatural;
+  }
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    img.src = '';
+  }
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function() { openItem(item); });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openItem(item);
+      }
+    });
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeLightbox();
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+})();
+</script>
 </body>
 </html>
