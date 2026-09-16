@@ -24,7 +24,8 @@
   .gallery-item img { object-fit: contain; background: #0d0907; }
   .lightbox-overlay { position: fixed; inset: 0; background: rgba(13, 9, 7, 0.96); display: none; align-items: center; justify-content: center; z-index: 1000; cursor: zoom-out; }
   .lightbox-overlay.open { display: flex; }
-  .lightbox-overlay img { width: auto; height: auto; object-fit: contain; box-shadow: 0 0 60px rgba(0,0,0,0.6); }
+  .lightbox-overlay img { width: auto; height: auto; object-fit: contain; box-shadow: 0 0 60px rgba(0,0,0,0.6); cursor: default; }
+  .lightbox-close { position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; background: transparent; color: #fff; font-size: 28px; line-height: 44px; text-align: center; cursor: pointer; z-index: 1001; font-family: 'Inter', sans-serif; }
 </style>
 </head>
 <body>
@@ -702,12 +703,14 @@
   <p>&copy; 2026 Paraploo</p>
 </footer>
 <div class="lightbox-overlay" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 <script>
 (function() {
   var overlay = document.getElementById('lightbox');
   var img = document.getElementById('lightbox-img');
+  var closeBtn = document.getElementById('lightbox-close');
   function sizeToNatural() {
     var maxW = window.innerWidth * 0.95;
     var maxH = window.innerHeight * 0.95;
@@ -723,6 +726,10 @@
     overlay.classList.add('open');
     img.onload = sizeToNatural;
   }
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    img.src = '';
+  }
   document.querySelectorAll('.gallery-item').forEach(function(item) {
     item.addEventListener('click', function() { openItem(item); });
     item.addEventListener('keydown', function(e) {
@@ -732,14 +739,13 @@
       }
     });
   });
-  overlay.addEventListener('click', function() {
-    overlay.classList.remove('open');
-    img.src = '';
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeLightbox();
   });
+  closeBtn.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.classList.contains('open')) {
-      overlay.classList.remove('open');
-      img.src = '';
+      closeLightbox();
     }
   });
 })();
