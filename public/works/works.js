@@ -55,6 +55,7 @@
       dragging = true;
       startX = e.clientX;
       startScrollLeft = track.scrollLeft;
+      wrap.classList.add('wrh-dragging');
       e.preventDefault();
     });
 
@@ -69,6 +70,7 @@
 
     document.addEventListener('mouseup', function () {
       dragging = false;
+      wrap.classList.remove('wrh-dragging');
     });
 
     railTrack.addEventListener('click', function (e) {
