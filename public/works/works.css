@@ -41,6 +41,12 @@
   cursor: default;
 }
 
+.work-credit {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 10px 0 0;
+}
+
 .work-side {
   flex: 0 0 280px;
   width: 280px;
@@ -130,46 +136,53 @@
 
 .work-row-track {
   display: flex;
+  gap: 32px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-color: #8a8a8a #ececec;
+  scrollbar-color: #111111 #e5e5e5;
   scrollbar-width: thin;
 }
 
 .work-row-track::-webkit-scrollbar {
-  height: 8px;
+  height: 2px;
 }
 
 .work-row-track::-webkit-scrollbar-track {
-  background: #ececec;
+  background: #e5e5e5;
   border-radius: 0;
 }
 
 .work-row-track::-webkit-scrollbar-thumb {
-  background: #8a8a8a;
+  background: #111111;
   border-radius: 0;
+}
+
+.work-row-track::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .work-tile {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  border-right: 1px solid #dddddd;
+  padding: 0;
   text-decoration: none;
   color: inherit;
 }
 
-.work-tile:last-child {
-  border-right: none;
-}
-
 .work-tile img {
   display: block;
-  height: 220px;
+  height: 280px;
   width: auto;
   max-width: none;
   max-height: none;
+  transition: opacity 0.2s ease;
+}
+
+.work-tile:hover img {
+  opacity: 0.85;
 }
 
 .work-tile-caption {
@@ -177,7 +190,6 @@
   font-size: 15px;
   color: #111;
   margin-top: 10px;
-  transition: color 0.15s ease;
 }
 
 .work-tile-catnum {
@@ -187,17 +199,23 @@
   margin-top: 2px;
 }
 
-.work-tile:hover .work-tile-caption {
-  color: #888;
+@media (max-width: 700px) {
+  .work-row-track {
+    scrollbar-width: none;
+  }
+
+  .work-row-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-tile img {
+    height: 180px;
+  }
 }
 
 @media (max-width: 800px) {
   .work-wrap {
     padding: 24px 16px;
-  }
-
-  .work-tile img {
-    height: 150px;
   }
 
   .work-layout {
