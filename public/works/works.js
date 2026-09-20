@@ -1,5 +1,5 @@
 /* Hand-built hairline scrollbar for .work-row-track rows (public/works/*.html).
-   No outside libraries. Draws a full-width 2px track under each row with a
+   No outside libraries. Draws a full-width 4px track under each row with a
    draggable/clickable segment that tracks scroll position, on screens wider
    than 700px, only when the row actually overflows and has more than 4
    items. */
