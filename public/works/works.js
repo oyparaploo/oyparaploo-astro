@@ -160,6 +160,23 @@
           }
         });
       });
+
+      try {
+        var mainPic = document.getElementById('work-main-pic');
+        var nextArrow = document.getElementById('work-next');
+        if (mainPic && nextArrow) {
+          mainPic.addEventListener('click', function (e) {
+            if (e.button !== 0) return;
+            try {
+              nextArrow.dispatchEvent(new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                button: 0
+              }));
+            } catch (e) {}
+          });
+        }
+      } catch (e) {}
     } catch (e) {}
   });
 })();
