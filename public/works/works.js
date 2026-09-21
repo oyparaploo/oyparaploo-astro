@@ -200,6 +200,14 @@
         var reducedMotion = window.matchMedia &&
           window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        var HOLD_MS = 5000;
+        var AUTO_DISSOLVE_MS = 1500;
+        var MANUAL_DISSOLVE_MS = 400;
+        var CONTROLS_IDLE_MS = 3000;
+
+        var firstHref = openBtn.getAttribute('data-first-href');
+        var lastHref = openBtn.getAttribute('data-last-href');
+
         var overlay = document.createElement('div');
         overlay.id = 'work-fullscreen-overlay';
         overlay.className = 'work-fs-overlay';
@@ -214,17 +222,26 @@
         var imgWrap = document.createElement('div');
         imgWrap.className = 'work-fs-imgwrap';
 
-        var fsImg = document.createElement('img');
-        fsImg.className = 'work-fs-img';
+        var layers = [document.createElement('img'), document.createElement('img')];
+        layers[0].className = 'work-fs-img work-fs-front';
+        layers[1].className = 'work-fs-img work-fs-back';
+        imgWrap.appendChild(layers[0]);
+        imgWrap.appendChild(layers[1]);
 
-        imgWrap.appendChild(fsImg);
         overlay.appendChild(closeBtn);
         overlay.appendChild(imgWrap);
         document.body.appendChild(overlay);
 
+        var frontIndex = 0;
+        function frontImg() { return layers[frontIndex]; }
+        function backImg() { return layers[1 - frontIndex]; }
+
         var pageCache = {};
         var openedHref = window.location.pathname;
         var currentHref = openedHref;
+        var isPlaying = false;
+        var advanceTimer = null;
+        var nextPromise = null;
 
         function pageDataFromDocument(doc, href) {
           var img = doc.getElementById('work-main-pic') || doc.querySelector('.work-picture-col img');
@@ -253,43 +270,178 @@
             });
         }
 
+        function preloadImage(src) {
+          return new Promise(function (resolve) {
+            if (!src) { resolve(); return; }
+            var im = new Image();
+            var done = false;
+            var finish = function () {
+              if (done) return;
+              done = true;
+              resolve(im);
+            };
+            im.addEventListener('load', finish);
+            im.addEventListener('error', finish);
+            im.src = src;
+            if (im.complete) finish();
+          });
+        }
+
+        function targetHrefForward(href) {
+          var data = pageCache[href];
+          if (data && data.nextHref) return data.nextHref;
+          return firstHref;
+        }
+
+        function targetHrefBackward(href) {
+          var data = pageCache[href];
+          if (data && data.prevHref) return data.prevHref;
+          return lastHref;
+        }
+
+        function prepareNext() {
+          var targetHref = targetHrefForward(currentHref);
+          if (!targetHref) return Promise.resolve(null);
+          return fetchPageData(targetHref).then(function (data) {
+            return preloadImage(data.src).then(function () { return data; });
+          });
+        }
+
+        function clearAdvanceTimer() {
+          if (advanceTimer) {
+            clearTimeout(advanceTimer);
+            advanceTimer = null;
+          }
+        }
+
+        function scheduleAdvance() {
+          clearAdvanceTimer();
+          if (!isPlaying) return;
+          advanceTimer = setTimeout(doAutoAdvance, HOLD_MS);
+        }
+
+        function doAutoAdvance() {
+          if (!isPlaying) return;
+          var promise = nextPromise || prepareNext();
+          promise.then(function (data) {
+            if (!isPlaying || !data) return;
+            dissolveTo(data, AUTO_DISSOLVE_MS, true);
+          });
+        }
+
+        function pauseSlideshow() {
+          isPlaying = false;
+          clearAdvanceTimer();
+        }
+
+        function resumeSlideshow() {
+          if (isPlaying) return;
+          isPlaying = true;
+          if (!nextPromise) nextPromise = prepareNext();
+          scheduleAdvance();
+        }
+
+        function settleAfterDissolve(restartClock) {
+          resetZoomState();
+          nextPromise = prepareNext();
+          if (isPlaying && restartClock) scheduleAdvance();
+        }
+
+        function dissolveTo(data, ms, restartClock) {
+          clearAdvanceTimer();
+          var effectiveMs = reducedMotion ? 0 : ms;
+          var back = backImg();
+          var front = frontImg();
+          back.src = data.src;
+          back.alt = data.alt;
+          back.style.transitionDuration = effectiveMs + 'ms';
+          currentHref = data.href;
+
+          function flip() {
+            back.classList.remove('work-fs-back');
+            back.classList.add('work-fs-front');
+            front.classList.remove('work-fs-front');
+            front.classList.add('work-fs-back');
+            frontIndex = 1 - frontIndex;
+          }
+
+          if (effectiveMs === 0) {
+            flip();
+            settleAfterDissolve(restartClock);
+          } else {
+            requestAnimationFrame(function () {
+              requestAnimationFrame(flip);
+            });
+            setTimeout(function () {
+              settleAfterDissolve(restartClock);
+            }, effectiveMs);
+          }
+        }
+
+        function manualStep(direction) {
+          var targetHref = direction < 0 ? targetHrefBackward(currentHref) : targetHrefForward(currentHref);
+          if (!targetHref) return;
+          fetchPageData(targetHref).then(function (data) {
+            return preloadImage(data.src).then(function () { return data; });
+          }).then(function (data) {
+            dissolveTo(data, MANUAL_DISSOLVE_MS, true);
+          });
+        }
+
         // Desktop zoom state (transform-origin based glide-on-hover).
         var zoomed = false;
 
-        function resetZoom() {
+        function resetZoomState() {
           zoomed = false;
-          fsImg.classList.remove('work-fs-zoomed');
-          fsImg.style.transformOrigin = '50% 50%';
-          fsImg.style.transform = 'none';
+          layers.forEach(function (im) {
+            im.classList.remove('work-fs-zoomed');
+            im.style.transformOrigin = '50% 50%';
+            im.style.transform = 'none';
+          });
           touchScale = 1;
           touchTx = 0;
           touchTy = 0;
         }
 
-        fsImg.addEventListener('click', function (e) {
-          if (touchActive) return;
-          var rect = fsImg.getBoundingClientRect();
-          if (!zoomed) {
-            var originX = ((e.clientX - rect.left) / rect.width) * 100;
-            var originY = ((e.clientY - rect.top) / rect.height) * 100;
-            fsImg.style.transformOrigin = originX + '% ' + originY + '%';
-            fsImg.style.transform = 'scale(2.5)';
-            fsImg.classList.add('work-fs-zoomed');
-            zoomed = true;
-          } else {
-            resetZoom();
-          }
+        // Controls (close button + pointer) auto-hide after idle.
+        var controlsTimer = null;
+        function showControls() {
+          overlay.classList.remove('work-fs-controls-hidden');
+          clearTimeout(controlsTimer);
+          controlsTimer = setTimeout(function () {
+            overlay.classList.add('work-fs-controls-hidden');
+          }, CONTROLS_IDLE_MS);
+        }
+        overlay.addEventListener('mousemove', showControls);
+
+        layers.forEach(function (im) {
+          im.addEventListener('click', function (e) {
+            if (touchActive) return;
+            var rect = im.getBoundingClientRect();
+            if (!zoomed) {
+              var originX = ((e.clientX - rect.left) / rect.width) * 100;
+              var originY = ((e.clientY - rect.top) / rect.height) * 100;
+              im.style.transformOrigin = originX + '% ' + originY + '%';
+              im.style.transform = 'scale(2.5)';
+              im.classList.add('work-fs-zoomed');
+              zoomed = true;
+              pauseSlideshow();
+            } else {
+              resetZoomState();
+              resumeSlideshow();
+            }
+          });
+
+          im.addEventListener('mousemove', function (e) {
+            if (!zoomed) return;
+            var rect = im.getBoundingClientRect();
+            var originX = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+            var originY = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+            im.style.transformOrigin = originX + '% ' + originY + '%';
+          });
         });
 
-        fsImg.addEventListener('mousemove', function (e) {
-          if (!zoomed) return;
-          var rect = fsImg.getBoundingClientRect();
-          var originX = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-          var originY = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-          fsImg.style.transformOrigin = originX + '% ' + originY + '%';
-        });
-
-        // Touch state (pinch-zoom 1x-4x plus drag pan / swipe).
+        // Touch state (pinch-zoom 1x-4x plus drag pan / swipe / tap).
         var touchActive = false;
         var touchScale = 1;
         var touchTx = 0;
@@ -304,9 +456,9 @@
         var swipeStartY = 0;
         var swiping = false;
 
-        function applyTouchTransform() {
-          fsImg.style.transformOrigin = '50% 50%';
-          fsImg.style.transform = 'scale(' + touchScale + ') translate(' + touchTx + 'px, ' + touchTy + 'px)';
+        function applyTouchTransform(im) {
+          im.style.transformOrigin = '50% 50%';
+          im.style.transform = 'scale(' + touchScale + ') translate(' + touchTx + 'px, ' + touchTy + 'px)';
         }
 
         function touchDist(touches) {
@@ -315,107 +467,94 @@
           return Math.sqrt(dx * dx + dy * dy);
         }
 
-        fsImg.addEventListener('touchstart', function (e) {
-          touchActive = true;
-          if (e.touches.length === 2) {
-            pinchStartDist = touchDist(e.touches);
-            pinchStartScale = touchScale;
+        layers.forEach(function (im) {
+          im.addEventListener('touchstart', function (e) {
+            touchActive = true;
+            showControls();
+            if (e.touches.length === 2) {
+              pinchStartDist = touchDist(e.touches);
+              pinchStartScale = touchScale;
+              swiping = false;
+            } else if (e.touches.length === 1) {
+              if (touchScale > 1.01) {
+                panStartX = e.touches[0].clientX;
+                panStartY = e.touches[0].clientY;
+                panStartTx = touchTx;
+                panStartTy = touchTy;
+              } else {
+                swipeStartX = e.touches[0].clientX;
+                swipeStartY = e.touches[0].clientY;
+                swiping = true;
+              }
+            }
+          }, { passive: true });
+
+          im.addEventListener('touchmove', function (e) {
+            if (e.touches.length === 2) {
+              var dist = touchDist(e.touches);
+              touchScale = Math.max(1, Math.min(4, pinchStartScale * (dist / pinchStartDist)));
+              if (touchScale > 1.01) pauseSlideshow();
+              applyTouchTransform(im);
+            } else if (e.touches.length === 1) {
+              if (touchScale > 1.01) {
+                var dx = (e.touches[0].clientX - panStartX) / touchScale;
+                var dy = (e.touches[0].clientY - panStartY) / touchScale;
+                touchTx = panStartTx + dx;
+                touchTy = panStartTy + dy;
+                applyTouchTransform(im);
+              }
+            }
+          }, { passive: true });
+
+          im.addEventListener('touchend', function (e) {
+            var wasZoomed = touchScale > 1.01;
+            if (swiping && !wasZoomed && e.changedTouches && e.changedTouches.length) {
+              var endX = e.changedTouches[0].clientX;
+              var endY = e.changedTouches[0].clientY;
+              var dx = endX - swipeStartX;
+              var dy = endY - swipeStartY;
+              if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 2) {
+                manualStep(dx < 0 ? 1 : -1);
+              } else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+                if (isPlaying) { pauseSlideshow(); } else { resumeSlideshow(); }
+              }
+            }
             swiping = false;
-          } else if (e.touches.length === 1) {
-            if (touchScale > 1.01) {
-              panStartX = e.touches[0].clientX;
-              panStartY = e.touches[0].clientY;
-              panStartTx = touchTx;
-              panStartTy = touchTy;
-            } else {
-              swipeStartX = e.touches[0].clientX;
-              swipeStartY = e.touches[0].clientY;
-              swiping = true;
+            if (touchScale <= 1.01) {
+              touchScale = 1;
+              touchTx = 0;
+              touchTy = 0;
+              im.style.transform = 'none';
+              if (wasZoomed) resumeSlideshow();
             }
-          }
-        }, { passive: true });
-
-        fsImg.addEventListener('touchmove', function (e) {
-          if (e.touches.length === 2) {
-            var dist = touchDist(e.touches);
-            touchScale = Math.max(1, Math.min(4, pinchStartScale * (dist / pinchStartDist)));
-            applyTouchTransform();
-          } else if (e.touches.length === 1) {
-            if (touchScale > 1.01) {
-              var dx = (e.touches[0].clientX - panStartX) / touchScale;
-              var dy = (e.touches[0].clientY - panStartY) / touchScale;
-              touchTx = panStartTx + dx;
-              touchTy = panStartTy + dy;
-              applyTouchTransform();
-            }
-          }
-        }, { passive: true });
-
-        fsImg.addEventListener('touchend', function (e) {
-          if (swiping && touchScale <= 1.01 && e.changedTouches && e.changedTouches.length) {
-            var endX = e.changedTouches[0].clientX;
-            var endY = e.changedTouches[0].clientY;
-            var dx = endX - swipeStartX;
-            var dy = endY - swipeStartY;
-            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 2) {
-              changeWork(dx < 0 ? 1 : -1);
-            }
-          }
-          swiping = false;
-          if (touchScale <= 1.01) {
-            touchScale = 1;
-            touchTx = 0;
-            touchTy = 0;
-            fsImg.style.transform = 'none';
-          }
-          setTimeout(function () { touchActive = false; }, 50);
-        }, { passive: true });
-
-        function changeWork(direction) {
-          var data = pageCache[currentHref];
-          if (!data) return;
-          var targetHref = direction < 0 ? data.prevHref : data.nextHref;
-          if (!targetHref) return;
-
-          fetchPageData(targetHref).then(function (newData) {
-            var swap = function () {
-              fsImg.src = newData.src;
-              fsImg.alt = newData.alt;
-              currentHref = targetHref;
-              resetZoom();
-            };
-
-            if (reducedMotion) {
-              swap();
-              return;
-            }
-
-            fsImg.classList.add('work-fs-fading');
-            setTimeout(function () {
-              swap();
-              void fsImg.offsetWidth;
-              fsImg.classList.remove('work-fs-fading');
-            }, 400);
-          });
-        }
+            setTimeout(function () { touchActive = false; }, 50);
+          }, { passive: true });
+        });
 
         function onKeydown(e) {
           if (overlay.hidden) return;
           if (e.key === 'Escape') {
             closeOverlay();
           } else if (e.key === 'ArrowLeft') {
-            changeWork(-1);
+            manualStep(-1);
           } else if (e.key === 'ArrowRight') {
-            changeWork(1);
+            manualStep(1);
+          } else if (e.key === ' ' || e.code === 'Space') {
+            e.preventDefault();
+            if (isPlaying) { pauseSlideshow(); } else { resumeSlideshow(); }
           }
         }
 
         function openOverlay() {
           var data = pageCache[openedHref];
           currentHref = openedHref;
-          fsImg.src = data.src;
-          fsImg.alt = data.alt;
-          resetZoom();
+          frontIndex = 0;
+          layers[0].className = 'work-fs-img work-fs-front';
+          layers[1].className = 'work-fs-img work-fs-back';
+          layers[0].src = data.src;
+          layers[0].alt = data.alt;
+          layers[1].removeAttribute('src');
+          resetZoomState();
           overlay.hidden = false;
           document.documentElement.style.overflow = 'hidden';
 
@@ -428,6 +567,11 @@
           } catch (e) {}
 
           document.addEventListener('keydown', onKeydown);
+          showControls();
+
+          nextPromise = prepareNext();
+          isPlaying = true;
+          scheduleAdvance();
         }
 
         function closeOverlay() {
@@ -438,7 +582,12 @@
             }
           } catch (e) {}
 
+          pauseSlideshow();
+          clearTimeout(controlsTimer);
+          nextPromise = null;
+
           overlay.hidden = true;
+          overlay.classList.remove('work-fs-controls-hidden');
           document.documentElement.style.overflow = '';
           document.removeEventListener('keydown', onKeydown);
 
