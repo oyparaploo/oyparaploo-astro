@@ -89,5 +89,35 @@
     for (var i = 0; i < tracks.length; i++) {
       initRow(tracks[i]);
     }
+
+    try {
+      var arrows = [
+        document.getElementById('work-prev'),
+        document.getElementById('work-next')
+      ];
+      arrows.forEach(function (arrow) {
+        if (!arrow || !arrow.href) return;
+        var href = arrow.href;
+
+        try {
+          var link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = href;
+          document.head.appendChild(link);
+        } catch (e) {}
+
+        fetch(href)
+          .then(function (res) { return res.text(); })
+          .then(function (html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            var img = doc.querySelector('.work-picture-col img');
+            if (img && img.src) {
+              var preload = new Image();
+              preload.src = img.src;
+            }
+          })
+          .catch(function () {});
+      });
+    } catch (e) {}
   });
 })();
