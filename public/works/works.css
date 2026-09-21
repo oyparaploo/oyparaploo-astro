@@ -583,3 +583,48 @@
     flex-basis: auto;
   }
 }
+
+/* Gallery-grid tile captions: catalogue number always shown, real title
+   revealed on hover (desktop / hover-capable pointers only). */
+
+.gallery-tile-imgwrap {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.gallery-tile-veil {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  text-align: center;
+}
+
+@media (hover: hover) {
+  .gallery-item:hover .gallery-tile-veil {
+    opacity: 1;
+  }
+}
+
+.gallery-tile-veil-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.gallery-tile-catnum {
+  display: block;
+  margin: 8px 2px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: rgba(232, 224, 214, 0.6);
+}

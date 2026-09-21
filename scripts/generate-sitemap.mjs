@@ -10,7 +10,7 @@ const writingContentDir = join(root, 'src', 'content', 'writing');
 const pagesDir = join(root, 'src', 'pages');
 const siteOrigin = 'https://paraploo.com';
 
-const EXCLUDED_HTML = new Set(['404.html']);
+const EXCLUDED_HTML = new Set(['404.html', 'lines.html', 'placemaking.html']);
 
 function walk(dir) {
   const out = [];
