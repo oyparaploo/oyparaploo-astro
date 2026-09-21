@@ -44,6 +44,22 @@
 
     track.addEventListener('scroll', update);
     window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+
+    var images = track.querySelectorAll('img');
+    for (var i = 0; i < images.length; i++) {
+      var img = images[i];
+      if (img.complete) {
+        update();
+      } else {
+        img.addEventListener('load', update);
+      }
+    }
+
+    if (typeof ResizeObserver === 'function') {
+      var ro = new ResizeObserver(update);
+      ro.observe(track);
+    }
 
     var dragging = false;
     var startX = 0;
