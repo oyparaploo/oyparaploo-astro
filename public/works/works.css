@@ -119,7 +119,7 @@
 .work-credit {
   font-size: 0.9rem;
   color: #555;
-  margin: 10px 0 0;
+  margin: 20px 0 0;
 }
 
 .work-side {
@@ -223,7 +223,7 @@
 }
 
 .work-tile {
-  flex: 0 0 calc((100% - 96px) / 4);
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -247,10 +247,11 @@
 
 .work-tile img {
   display: block;
-  max-height: 280px;
-  max-width: 100%;
+  height: 280px;
   width: auto;
-  height: auto;
+  max-width: 560px;
+  object-fit: contain;
+  object-position: bottom;
   transition: opacity 0.2s ease;
 }
 
@@ -287,7 +288,13 @@
 }
 
 .work-tile-caption {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 0;
+  min-width: 100%;
   font-size: 15px;
   color: #111;
   margin-top: 10px;
@@ -295,6 +302,8 @@
 
 .work-tile-catnum {
   display: block;
+  width: 0;
+  min-width: 100%;
   font-size: 1rem;
   color: #555;
   margin-top: 10px;
@@ -336,10 +345,6 @@
 }
 
 @media (max-width: 700px) {
-  .work-tile {
-    flex: 0 0 calc((100% - 16px) / 2);
-  }
-
   .work-row-track {
     gap: 16px;
   }
@@ -349,7 +354,8 @@
   }
 
   .work-tile img {
-    max-height: 180px;
+    height: 180px;
+    max-width: 320px;
   }
 }
 

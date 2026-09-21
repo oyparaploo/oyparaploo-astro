@@ -1,8 +1,8 @@
 /* Hand-built hairline scrollbar for .work-row-track rows (public/works/*.html).
    No outside libraries. Draws a full-width 4px track under each row with a
    draggable/clickable segment that tracks scroll position, on screens wider
-   than 700px, only when the row actually overflows and has more than 4
-   items. */
+   than 700px, only when the row actually overflows (tiles are natural-width,
+   so overflow is measured directly rather than by a fixed item count). */
 (function () {
   function initRow(track) {
     var wrap = document.createElement('div');
@@ -23,12 +23,10 @@
     }
 
     function update() {
-      var itemCount = track.children.length;
       var scrollable = track.scrollWidth > track.clientWidth + 1;
       var narrow = window.innerWidth <= 700;
-      var tooFew = itemCount <= 4;
 
-      if (narrow || !scrollable || tooFew) {
+      if (narrow || !scrollable) {
         wrap.classList.add('wrh-hidden');
         return;
       }
