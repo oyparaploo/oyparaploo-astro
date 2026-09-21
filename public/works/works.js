@@ -91,6 +91,8 @@
     }
 
     try {
+      var neighborImages = {};
+
       var arrows = [
         document.getElementById('work-prev'),
         document.getElementById('work-next')
@@ -110,13 +112,53 @@
           .then(function (res) { return res.text(); })
           .then(function (html) {
             var doc = new DOMParser().parseFromString(html, 'text/html');
-            var img = doc.querySelector('.work-picture-col img');
+            var img = doc.getElementById('work-main-pic') || doc.querySelector('.work-picture-col img');
             if (img && img.src) {
               var preload = new Image();
               preload.src = img.src;
+              neighborImages[href] = preload;
             }
           })
           .catch(function () {});
+
+        arrow.addEventListener('click', function (e) {
+          if (e.defaultPrevented || e.button !== 0) return;
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
+          e.preventDefault();
+
+          var go = function () {
+            window.location.href = href;
+          };
+
+          var preload = neighborImages[href];
+          if (!preload) {
+            go();
+            return;
+          }
+
+          var settled = false;
+          var settle = function () {
+            if (settled) return;
+            settled = true;
+            go();
+          };
+
+          var timeoutId = setTimeout(settle, 1500);
+
+          if (typeof preload.decode === 'function') {
+            preload.decode().then(function () {
+              clearTimeout(timeoutId);
+              settle();
+            }).catch(function () {
+              clearTimeout(timeoutId);
+              settle();
+            });
+          } else if (preload.complete) {
+            clearTimeout(timeoutId);
+            settle();
+          }
+        });
       });
     } catch (e) {}
   });
