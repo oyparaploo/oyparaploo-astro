@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Writings | Paraploo</title>
-<meta name="description" content="About b.otto — writer and multidisciplinary artist working under the name Paraploo.">
+<meta name="description" content="Seven groups of writings by Brian Otto, oldest first, plus The Book and Survival of Humanity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital@1&family=Inter:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,87 +15,124 @@
     background:var(--white);
     color:var(--text);
   }
-  .about-content{
-    position:static;
-    left:auto;
-    right:auto;
-    width:100%;
+  .writings-content{
     box-sizing:border-box;
-    padding:64px 72px 96px;
-    max-width:640px;
-    margin-left:auto;
-    margin-right:auto;
+    width:100%;
+    max-width:768px;
+    margin:0 auto;
+    padding:64px 24px 96px;
   }
-  .about-subheading{
-    margin:0 0 40px;
+  .writings-heading{
+    margin:0 0 8px;
     font-family:'DM Sans',Arial,sans-serif;
-    font-style:normal;
     font-weight:500;
     color:var(--text);
-    font-size:24px;
-    line-height:1.4;
-    letter-spacing:normal;
-    position:absolute;
-    width:1px;
-    height:1px;
-    padding:0;
-    overflow:hidden;
-    clip:rect(0, 0, 0, 0);
-    white-space:nowrap;
-    border:0;
+    font-size:44px;
+    line-height:1.2;
   }
-  .about-content p{
-    margin:0 0 32px;
-    font-family:'DM Sans',Arial,sans-serif;
-    font-size:18px;
-    line-height:1.5;
-    color:var(--text);
-  }
-  .about-line{
-    margin:0 0 32px;
-    font-family:'DM Sans',Arial,sans-serif;
-    font-size:18px;
-    line-height:1.5;
-    color:var(--text);
-  }
-  .about-contact a{text-decoration:underline;}
-  .about-bio{text-wrap:pretty;}
-  .writings-group-heading{
-    margin:48px 0 16px;
-    font-family:'DM Sans',Arial,sans-serif;
-    font-weight:400;
-    font-size:22px;
-    line-height:1.4;
-    color:var(--text);
-  }
-  .writings-list{
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  .writings-list li{
-    margin:0 0 20px;
-  }
-  .writings-list li:last-child{
-    margin-bottom:0;
-  }
-  .writings-list a{
-    font-family:'DM Sans',Arial,sans-serif;
-    font-size:18px;
-    line-height:1.5;
-  }
-  .writings-sentence{
-    margin:6px 0 0;
+  .writings-intro{
+    margin:0 0 40px;
     font-family:'DM Sans',Arial,sans-serif;
     font-weight:400;
     font-size:16px;
     line-height:1.5;
-    color:color-mix(in srgb, var(--text) 70%, transparent);
+    color:color-mix(in srgb, var(--text) 65%, transparent);
   }
-  @media (max-width:900px){
-    .about-content{padding:64px 20px 64px;}
-    .about-subheading{font-size:20px;}
-    .writings-list a{word-wrap:break-word;overflow-wrap:break-word;}
+  .writings-rows{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .writings-rows li{
+    border-top:1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  }
+  .writings-rows li:last-child{
+    border-bottom:1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  }
+  .writings-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    padding:20px 0;
+    text-decoration:none;
+    color:var(--text);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .writings-row-left{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    min-width:0;
+  }
+  .writings-row-years{
+    flex:0 0 auto;
+    font-family:'DM Sans',Arial,sans-serif;
+    font-weight:400;
+    font-size:14px;
+    color:color-mix(in srgb, var(--text) 65%, transparent);
+  }
+  .writings-row-name{
+    font-family:'DM Sans',Arial,sans-serif;
+    font-weight:400;
+    font-size:20px;
+    color:var(--text);
+  }
+  .writings-row-count{
+    flex:0 0 auto;
+    font-family:'DM Sans',Arial,sans-serif;
+    font-weight:400;
+    font-size:14px;
+    color:color-mix(in srgb, var(--text) 65%, transparent);
+  }
+  @media (hover:hover){
+    .writings-row:hover .writings-row-name{
+      text-decoration:underline;
+    }
+  }
+  .writings-more-label{
+    margin:48px 0 0;
+    font-family:'DM Sans',Arial,sans-serif;
+    font-weight:400;
+    font-size:14px;
+    line-height:1.5;
+    color:color-mix(in srgb, var(--text) 65%, transparent);
+  }
+  .writings-doors{
+    list-style:none;
+    margin:16px 0 0;
+    padding:0;
+  }
+  .writings-doors li{
+    border-top:1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  }
+  .writings-doors li:last-child{
+    border-bottom:1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  }
+  .writings-doors .writings-row{
+    justify-content:flex-start;
+  }
+  .writings-doors .writings-row-name{
+    font-size:20px;
+  }
+  @media (max-width:700px){
+    .writings-content{padding:48px 16px 64px;}
+    .writings-heading{font-size:32px;}
+    .writings-row{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+    }
+    .writings-row-left{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:4px;
+    }
+  }
+  @media (hover:none){
+    .writings-row:active{
+      background:color-mix(in srgb, var(--text) 6%, transparent);
+    }
   }
 </style>
 </head>
@@ -103,21 +140,88 @@
 <header class="site-header"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-dark.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
 
 <!-- ============ PAGE CONTENT ============ -->
-<div class="about-content">
-  <h1 class="about-subheading">Words Writings</h1>
+<div class="writings-content">
+  <h1 class="writings-heading">Writings</h1>
+  <p class="writings-intro">Seven groups of writings, oldest first.</p>
 
-  <p class="about-line">Seven groups of writings, oldest first.</p>
+  <ul class="writings-rows">
+    <li>
+      <a class="writings-row" href="/words/2021-25-immediate-family/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2021&ndash;25</span>
+          <span class="writings-row-name">Immediate Family</span>
+        </span>
+        <span class="writings-row-count">2 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2022-23-variety/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2022&ndash;23</span>
+          <span class="writings-row-name">Variety</span>
+        </span>
+        <span class="writings-row-count">2 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2023-25-phone-texts/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2023&ndash;25</span>
+          <span class="writings-row-name">Phone Texts</span>
+        </span>
+        <span class="writings-row-count">1 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2024-variety/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2024</span>
+          <span class="writings-row-name">Variety</span>
+        </span>
+        <span class="writings-row-count">117 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2025-variety/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2025</span>
+          <span class="writings-row-name">Variety</span>
+        </span>
+        <span class="writings-row-count">1122 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2026-methodology/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2026</span>
+          <span class="writings-row-name">Methodology</span>
+        </span>
+        <span class="writings-row-count">19 writings</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/words/2026-variety/">
+        <span class="writings-row-left">
+          <span class="writings-row-years">2026</span>
+          <span class="writings-row-name">Variety</span>
+        </span>
+        <span class="writings-row-count">318 writings</span>
+      </a>
+    </li>
+  </ul>
 
-  <ul class="writings-list">
-    <li><a href="/words/2021-25-immediate-family/">2021-25 Immediate Family</a></li>
-    <li><a href="/words/2022-23-variety/">2022-23 Variety</a></li>
-    <li><a href="/words/2023-25-phone-texts/">2023-25 Phone Texts</a></li>
-    <li><a href="/words/2024-variety/">2024 Variety</a></li>
-    <li><a href="/words/2025-variety/">2025 Variety</a></li>
-    <li><a href="/words/2026-methodology/">2026 Methodology</a></li>
-    <li><a href="/words/2026-variety/">2026 Variety</a></li>
-    <li><a href="/the-book.html">The Book</a></li>
-    <li><a href="/survival/">Survival of Humanity</a></li>
+  <p class="writings-more-label">Two more doors.</p>
+  <ul class="writings-doors">
+    <li>
+      <a class="writings-row" href="/the-book.html">
+        <span class="writings-row-name">The Book</span>
+      </a>
+    </li>
+    <li>
+      <a class="writings-row" href="/survival/">
+        <span class="writings-row-name">Survival of Humanity</span>
+      </a>
+    </li>
   </ul>
 
 </div>
