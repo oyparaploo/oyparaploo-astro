@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>This Meeting is About a Lot of Things</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">This Meeting is About a Lot of Things</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>Par Insights for Next Pet Project Cat&#x27;E-gories</p>
+  <p>*</p>
+  <p>1) Full exploration of the Indigenous historic meaning of the English word [ Reeds ] ... Wind Instruments and the infamous Healing after Loss Plant ... 2) Happy Sun Day ... palm stuffy ... 3) Rooting for Mystery ... rise and shine ... 4) Gray Areas ... as gifts articulated in the present moment ...</p>
+  <p>Without Tree Fell Logging ... Seeds received and shared ... Under a sacred mound or river bank ... Spoken ... Told ... Named ...</p>
+  <p>Quarry Notices ... Today&#x27;s unpressed daily rhyme ... Intentional air sent through a passage ... Music cousins meeting under a one hundred year old "shedding cherry liquid tears willow tree ... appearing on a special non denominational Sabbath ... heavenly double palm soft daisy stream law ... Law? ... Yes ...</p>
+  <p>Carrying all directions at once ... into precious time goes so fast resting soil ... Cheering for another bare foot ... with Bosquet de pêchers ( Peach Grove ) ... Better&#x27;Place-Offspring ... there a half a foot in the earth ... Accountable deposits water ... Sloping body ground ... Bridge picked spot ... Child raised mass ... Also ... something referring to a Spirited heap of material ... Dark&#x27;Snow-clouds ... looping at or near a soothing amber orange horizon ...</p>
+  <p>Same word applying for both finance and geography positions ... Physical/Versatile ... human-environment interaction ... spatial impact compliance ... cartographer(s) mapping out community policies ... urban data for refusing to develop colonial land insanity ... landform germ morphologists ... shaping decisions pertaining to climatology patterns and effects ... + Hydro Illogicality ... focusing on resources distribution and management ... Remote&#x27;Village-sensing-specialists ... who utilize satellites and drones to monitor latest environmental changes ... Optimistic&#x27;Migrating-disaster-risk-specialists ... assessesing natural hazards ... in context ... Human&#x27;Activity-economists ... investigating secondary and higher education structural bases</p>
+  <p>Gray IZ the row that was the first to learn about "Paraploo Ellipses Gift of the Sustainable and Comfortable Breath ... An upside-down weathered mission chair fast moving through mammal uncertainty ... received as "forest cat hiding*no problem ...</p>
+  <p>Giving away and spreading Mu&#x27;lah-empathy ... "sweet lamb hand over fist sympathy for a pummeled duke" ... Pin this seed list on the cork bulletin board of your favorite coffee shop ... if there&#x27;s some room available ...</p>
+  <p>( light sound of two hands clapping )</p>
+  <p>A Paraploo past present future piece sometimes keeps secrets ... that months after realizes or becomes aware of the pay off ... riddled ... It&#x27;s trust at full weakness ... No explanation experiences its own passage and envisioned hinge ... Lovely ...</p>
+  <p>Directed through "wonderful garbage" until an insight becomes another creature ... Invention breaking stride ... asking for more space ... asking for a humble landing that&#x27;s not too crowded ... A meeting politely ending basking in overexposed subdued faintness ... stellar divine time of day ...</p>
+  <p>( two cents addition )</p>
+  <p>Para fragments are often items adjacent ... without too much of a charge ... carrying Saint Tropical Employment ... Interesting middle name ... What surrounds at is short ... Like the smoothest stone mortared in a physical transparent wall ... Interesting ... Counsel first ... then sitting with an internal hard question ... that has been there for a long time ... Stretch of the cerebral read ... Extend we sometimes call "the riddle&#x27;s answer in disguise" ... senses of the same unspoken word ... laid one after another ... within lines and marks ... Over and over as our "wonderful ask for nothing practice ...</p>
+  <p>Nothing gets done without some level or degree of charge ... embodied and passed-relayed to someone else ... Touching with tips a carve and load ... For a survived record ... Step aside and witness is often more rewarding than push forward ...</p>
+  <p>Cool warmth ... creating in real time ... Multiplying a system of quiet platform kneading ... and borrowed misses ... describing a melting shelf ... floating sheet ... Every day we try to teach ourselves about some blue thing that can be used for a greener tomorrow ... What&#x27;s new? ... What&#x27;s new, are you kidding us! ...</p>
+  <p>For us ... a work of art that makes itself constructs its own support for sleeping better ... before we&#x27;re on our way out ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0154"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Who%20Ate%20The%20Last%208%202-600.webp" alt="02382" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0155"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Who%20Ate%20The%20Last%208%20For%20Print-600.webp" alt="02383" width="600" height="434" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0156"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Wild%20Rough%20Mother%20Nature%20Pattern%20And%20Mystic%20Symbolisms%202-600.webp" alt="02384" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0157"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Wild%20Rough%20Mother%20Nature%20Pattern%20And%20Mystic%20Symbolisms-600.webp" alt="02385" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0158"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Yet%20To%20Be%20Corralled%202-600.webp" alt="02386" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0159"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/You%20Wanted%20To%20Give%20Us%20Courage%20But%20Instead%20You%20Caused%20Unimaginable%20Carnage%202-600.webp" alt="02387" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0160"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/ZZZ%20Comes%20After%20Why%20Marks%20Set%20In%20A%20Fixed%20Order%202-600.webp" alt="02388" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0161"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Zy%20Zy%20Zy%20OuAawa%202-600.webp" alt="02389" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-a/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20A%20%2862%29/Baby%20Divine049-600.webp" alt="Pages for Baby Divine A" width="457" height="600" loading="lazy"></a>
+      <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-b/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20B%20%2842%29/Baby%20Divine124-600.webp" alt="Pages for Baby Divine B" width="457" height="600" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/another-booklet/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/All%20Directions%20Vibration%20and%20Scribe%20T2-600.webp" alt="Another Booklet" width="600" height="457" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/biology-class/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/BIOLOGY%20CLASS%20%2814%29/02012024%20Composition%202-600.webp" alt="Biology Class" width="600" height="462" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/haring-bone/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp" alt="Haring Bone" width="600" height="464" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/intense-color/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp" alt="Intense Color" width="600" height="464" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/lightly-tinted/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp" alt="Lightly Tinted" width="600" height="462" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/minimal-impact/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp" alt="Minimal Impact" width="600" height="464" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/one-follicle-at-a-time/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp" alt="One Follicle at a Time" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/other-worldly/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form-600.webp" alt="Other Worldly" width="600" height="431" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/stained-fog/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Alie%20Fazia%20Fala%20V-600.webp" alt="Stained Fog" width="600" height="452" loading="lazy"></a>
+      <a href="/marks/smooth-beh-laye/student-phase/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp" alt="Student Phase" width="600" height="436" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/this-river-place-does-not-belong-to-an-owner-1/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

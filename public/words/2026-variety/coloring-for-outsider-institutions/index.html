@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coloring for Outsider Institutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Coloring for Outsider Institutions</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>There&#x27;s inert ... red-passion ... blue-calm ... green-growth ... But there are also off-note colors out there where human interest lives ... Yellow-Deceit ... exists strange next to happiness and playfulness ... Purple-Anti-Aging ... crashing with magic ... Beige-Piety ... oddest pairing ... Blue-Boredom-Melancholia ... the one that turns on itself ... Brown-Waste ... blunt and honest ... Gray-Row ... modern ... moody ... indifferent ... is the only one that breathes in triple dot ellipses ... Mechanical-White ends with who knows what ...</p>
+  <p>( still pondering )</p>
+  <p>Red gets power ... black gets elegance ... purple gets luxury ... beige gets bland ... Now upside down and last first ... Beige the color no one wants to crown is the only one holding a bald piety ... facing the right direction ...</p>
+  <p>Blessed are the traitor words ... Deceit, boredom, waste, monotonous ... The words the colors are ashamed of are the honest ones ... The cornerstone chart builders rejected ... Confession is worth more than a résumé ...</p>
+  <p>Yellow&#x27;s hunger is a crisis in the courtroom ... including a starving witness ... blessed are the hungry ... Yellow is the only color that wants a door for a room ... Satisfied blue with its green money ... The chart&#x27;s only row call that gets filled ...</p>
+  <p>Colors that never testified never lied ... Associations that stand trial now ... every word pinned ... cross-examined ... judged ... lest your own be quiet or loud ...</p>
+  <p>Power that travels between red and black ... conservatism between gray and dark gray ... crossing borders ... fictitious tunnels that can&#x27;t find truth ... were never property ... be kind to your neighbor ...</p>
+  <p>Blank Letter washes the feet of Ink Well that won&#x27;t stop chattering ...</p>
+  <p>Sacred ground hosting every word ... missing from its outdoor inventory oversight ... The greatest among the colors is the one that serves and is perfectly content being unlisted ...</p>
+  <p>And Gray ... who speaks right side up house grammar ... was first color to learn the true meaning of the ellipses ... Gray isn&#x27;t a teacher ... it&#x27;s a bar that refused to talking in complete sentences ... Broken grammar was the open window ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0002"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp" alt="02230" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0003"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp" alt="02231" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0004"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp" alt="02232" width="600" height="457" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0005"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp" alt="02233" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0006"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp" alt="02234" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0007"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language-600.webp" alt="02235" width="600" height="457" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0008"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Any%20Story%20Spirits%20Tears%20Petals%20Nails%20Mess%202-600.webp" alt="02236" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0009"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit%202-600.webp" alt="02237" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0010"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit-600.webp" alt="02238" width="600" height="452" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0011"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Arachi%20Ko%20Drops%20Energy%20Patience%202-600.webp" alt="02239" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0012"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity%202-600.webp" alt="02240" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0013"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity-600.webp" alt="02241" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0014"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bahb%20Sontey%20Poli%202-600.webp" alt="02242" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0015"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs%202-600.webp" alt="02243" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0016"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs-600.webp" alt="02244" width="600" height="455" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0017"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blinking%20Rose%20Petal%20Fragrance%202-600.webp" alt="02245" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0018"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bouquet%20Daisy%20Dakota%20Underground%20Aromas%202-600.webp" alt="02246" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0019"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form%202-600.webp" alt="02247" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0020"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brins%20et%20trous%20harmonieux%20deux-600.webp" alt="02248" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0021"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Is%20Also%20Loosely%20Visually%20Sort%20Of%20Humorously%20This%20Kind%20Of%20Symbolic%20Identity%202-600.webp" alt="02249" width="600" height="458" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/coming-upon-laisse-to-doelo-short/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

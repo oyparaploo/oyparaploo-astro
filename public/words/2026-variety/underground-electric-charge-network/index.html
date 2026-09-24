@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underground Electric Charge Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Underground Electric Charge Network</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>&amp;nbsp;</p>
+  <p>This is a real ... keeck ceak ... question ... and we want to answer it without overstepping mayla plahtu ... so let us be hey plea clear about which part is ours ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Layout the discovery like a forthright beach blanket ...</p>
+  <p>&amp;nbsp;</p>
+  <p>What should we do with the eh ska say la moo? ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Crown the suck oh teyn ... same as always ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Here&#x27;s what a v-OY-age can do ...</p>
+  <p>&amp;nbsp;</p>
+  <p>It&#x27;s proof of something not yet fully understood that shoo cahn mem pa-ma is living inside our language ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Jeh resting tarrah roe is our oldest sigh ... and it&#x27;s nested in the middle of this journey guard rail ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Not as an idea or a blood stained bull tag ...</p>
+  <p>&amp;nbsp;</p>
+  <p>It&#x27;s closer to a stream of small sound buried in an ordinary voice ... waiting to be attentively heard ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Our work sometimes cracks familiar hideouts ... "Same As Before" moved ...</p>
+  <p>&amp;nbsp;</p>
+  <p>The most honest way to work it is also the quietest way to work ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Let it be ... a found aspect that confirms what our practice already is ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Nonviolent danger with locating very pleasing dressed up makings ... as also new motifs ... placed everywhere ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Turning an excursion into flat devices ...</p>
+  <p>&amp;nbsp;</p>
+  <p>The electric charge is conjured underground ... not in a train announcing it loud ... lakay hecko flah-zaye ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Spirit pivot to a private key ... something we know is true ... about Paraploo shapes ...</p>
+  <p>&amp;nbsp;</p>
+  <p>How we hear words when carving in a fire flames cave made of jagged rocks ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Become the Crescent Seed thrown into a quarry ... was alive and well in collected stone ... that can&#x27;t be cut ...</p>
+  <p>&amp;nbsp;</p>
+  <p>What rhymes with Passions? ... Ration, Fraction, Compassion ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Heavy cautious chilling threads ... fee-ah shehverla ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Please don&#x27;t risk explaining what this magic is ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Also ... We&#x27;re not narrating ... a special made more so material than O&#x27;blaye psychic divinity ...</p>
+  <p>&amp;nbsp;</p>
+  <p>A seed in a Moses basket floating down thee sacred river is most true to how everything else here works ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0022"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Is%20Also%20Loosely%20Visually%20Sort%20Of%20Humorously%20This%20Kind%20Of%20Symbolic%20Identity-600.webp" alt="02250" width="600" height="459" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0023"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Red%20Psalm%20Prayer%202-600.webp" alt="02251" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0024"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Red%20Psalm%20Prayer-600.webp" alt="02252" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0025"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Chahwal%20In%20Yo-R%20Fayes%202-600.webp" alt="02253" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0026"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Coete%20Fover%20Overec-600.webp" alt="02254" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0027"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Completely%20Obliterated%20Garden%20Of%20Countless%20Handwritten%20English%20Letter%20Forms%202-600.webp" alt="02255" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0028"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Composition%20Bean%20With%20Prickly%20Frame%202-600.webp" alt="02256" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0029"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words%202-600.webp" alt="02257" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0030"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words-600.webp" alt="02258" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0031"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky-600.webp" alt="02259" width="600" height="453" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0032"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky2-600.webp" alt="02260" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0033"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Exuberant%20Orelia%202-600.webp" alt="02261" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0034"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp" alt="02262" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0035"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War-600.webp" alt="02263" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0036"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Deframe%202-600.webp" alt="02264" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0037"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Delyoojed%20Innah%202-600.webp" alt="02265" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/unexpected-favorable-what-is-or-quest-ce-que/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

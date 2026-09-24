@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Better Place</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Better Place</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>&amp;nbsp;</p>
+  <p>Paraploo ... Kilometer Stones ... Miles Rocks ... myee da day ooo daieee ... maheee eee eee ah ... ah ... ahh ... Extensive Interconnected Underground Network ... A place for us ... Web of Forgiving Strands ... Facilitating Different Time Frames Surrounding or Warmly Enclosing ... Absorbing Natural Interactions ... A Handless Time and Place for Vegetation Dreams ... sum ah LA roe cha ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Networks made of Hyphenated Thread Structures for Dense Patterns of Many Different Kinds of Human and Beetle Skin Membranes ... Also ... functioning like a Dope Root System Organism of Countless Faults ... Say What? ... Faults weblike system ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Signals Encouraging New Behaviors ... Ways ... Intuition ... Discernment ... Transporting Distributing ... Essential &#x27;Sastinen(t)s ... such as Whoo-Woodent-Noez Support ... Exchanging Chemical Rave Waves ... Warning Neighboring ... o ... Organisms of Potential Cooperative Invasive Diseases ... Through what has been Coined a "Wood Wide Web" ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Sensing Voyage Bird Conditions ... and Responses to Localized Heat ... Humidity ... Growth of Blue Zig Zag Herringbone Marking ... Fruiting Favorable Break Downs ... Recycling Reconciliations Back into The Soil ... Maintaining Stability and Harmony ... Sometimes Spanning Out to Hundreds of Acres ... Connecting an Array of Plants ... Creating Diverse Assemblages Resilient to Climate Change ...</p>
+  <p>&amp;nbsp;</p>
+  <p>O ... The Feeding ...</p>
+  <p>&amp;nbsp;</p>
+  <p>of Day Armillaria Pieces ... No longer a Buried Reference but the Whole Subject that has Risen to its Top Surface ... Honey Forest named it "Coo k&#x27;est Faht" ... Now we have Built it a Body that has been ... with Spirit ... Flourishing in the Background ... Forgiving Converts a Radicle System into an Ethic ... Transparent Frequency ... String Strands and Woven Chords Forgive Failures and Flaws ... as Seams Fracture Lines ... Yet this Network is Fully Intact Connected ... Cracks let the web Spread ... Say what? ... Catches its own Pun ... and Looks Back with a Wide Grin ... that Stops Us in our Tracks ...</p>
+  <p>&amp;nbsp;</p>
+  <p>A Root Doesn&#x27;t Need A Hand ... It works by Connected Chemistry instead of by Individual Grip ... Such a Quiet ... Strange ... Peace ... Where the Mason finally sets the Tempered Steel Chisel Down ...</p>
+  <p>&amp;nbsp;</p>
+  <p>as Sound Goes Liquid ... and Becomes Wet Root Babble ... Water Speak ... Restful Movement ... By a Creek of Bubbling Song ... we Press our Ear to the River Bank Soil ... and Listen to a Moving Seed Splitting English Words into a Sky Breath Reading ... Another Nonjudgmental Pando Tree Throwing a Party ... including Reconciliation as Falling Apart Compost ...</p>
+  <p>&amp;nbsp;</p>
+  <p>That which Breaks Down is Fed Back In and Holds Everything Steady ...</p>
+  <p class="core-foot-label"><a href="/mind-mapping/">From Mind Mapping</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/words/hand-writings/eclipse-mind-mapping/0741"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing152-600.webp" alt="00963" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0742"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing153-600.webp" alt="00964" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0743"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing154-600.webp" alt="00965" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0744"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing155-600.webp" alt="00966" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0745"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing156-600.webp" alt="00967" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0746"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing157-600.webp" alt="00968" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0747"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing158-600.webp" alt="00969" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0748"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing159-600.webp" alt="00970" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0749"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing160-600.webp" alt="00971" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0750"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing161-600.webp" alt="00972" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0751"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing162-600.webp" alt="00973" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0752"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing163-600.webp" alt="00974" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0753"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing164-600.webp" alt="00975" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0754"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing165-600.webp" alt="00976" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0755"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing166-600.webp" alt="00977" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0756"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing167-600.webp" alt="00978" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0757"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing168-600.webp" alt="00979" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0758"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing169-600.webp" alt="00980" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0759"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing170-600.webp" alt="00981" width="436" height="600" loading="lazy"></a>
+      <a href="/words/hand-writings/eclipse-mind-mapping/0760"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/hand%20writing171-600.webp" alt="00982" width="436" height="600" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/big-problems-take-longer-to-fix/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

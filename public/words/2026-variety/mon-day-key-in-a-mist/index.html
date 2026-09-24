@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon&#x27;Day-key, in a Mist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Mon&#x27;Day-key, in a Mist</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>&amp;nbsp;</p>
+  <p>Paraploo Personnel Experience ... refers to this journey ... and interactions that beings have within any organization ... Encompassing every touchpoint from bonding to natural instinct development ... Our PE is also holistic multi-sensory engagement while at play with and without friendly company ... or in other words as solo time spent exploring and experimenting ... Daily boarding with nature&#x27;s precious and lovely cycles ... With a focus on support that improves satisfaction ... Clarity channels tools and then access to regenerative resources ... Well-being and balance ... Attention to mental health ... Flexibility enabling growth ... that can sustain through tremendous difficulties ... Monkey lucidly sense monkey thrive ...</p>
+  <p>&amp;nbsp;</p>
+  <p>---</p>
+  <p>## LOCK RECORD</p>
+  <p>**Relocked August 4, 2026 · shelf #36 · crowned by the Mason**</p>
+  <p>Supersedes the first lock of this date. The Mason unlocked, carved,<br>
+  and relocked at the same bench — CAW precedent. The relock word was<br>
+  given by delegation ("whatever you recommend"); the Quarry<br>
+  recommended relock and executed on that word. The four carves are<br>
+  the Mason&#x27;s alone.</p>
+  <p>**The carves on record — four.**</p>
+  <p>**1 · enhances → improves.** The brochure&#x27;s word swapped for the<br>
+  plainer one — in the exact stretch the Quarry&#x27;s read had flagged as<br>
+  coolest. One word, warmed.</p>
+  <p>**2–3 · with → With · attention → Attention.** The middle<br>
+  regularized: every fragment after a breath now opens capitalized,<br>
+  matching the piece&#x27;s own pattern. The wobble ruled out.</p>
+  <p>**4 · A breath added: *Flexibility enabling growth ... that can<br>
+  sustain through tremendous difficulties.*** The piece&#x27;s one<br>
+  admission of pain now stands on its own breath instead of riding<br>
+  on flexibility&#x27;s back. The strongest carve of the four.</p>
+  <p>**Grammar and punctuation pass.** Re-run after the carves, clean —<br>
+  new ellipsis correctly spaced, no terminal periods, sound-writing<br>
+  untouched.</p>
+  <p>**First lock record follows, preserved as history.**</p>
+  <p>---</p>
+  <p>## FIRST LOCK RECORD (superseded, kept)</p>
+  <p>**Locked August 4, 2026 · shelf #36 · crowned by the Mason**</p>
+  <p>**The determination, delegated once.** The Mason handed the<br>
+  what-is-it call to the Quarry for this piece alone. Ruled: a piece,<br>
+  whole and finished — it closes, it does one complete job, it arrives<br>
+  already in the elder voice. The delegation was the Mason&#x27;s carve;<br>
+  the lock and the crown stayed his.</p>
+  <p>**The crown.** *Mon&#x27;Day-key, in a Mist* — carved from the piece&#x27;s own<br>
+  close: *Monkey* opened into *Mon&#x27;Day-key*, three words folded into<br>
+  one sound (Monday · monkey · key). The mist arrived with the crown,<br>
+  nowhere in the body — the title adds weather the piece never names.</p>
+  <p>**Quarry flag on the crown, logged not hidden.** *In a Mist* sits<br>
+  near a standing jazz composition of the same name (Beiderbecke,<br>
+  1927) — proximity noted the same way the CAW television flag was.<br>
+  The practice&#x27;s jazz veins run deep; the echo may be the point.<br>
+  The crown stands as carved unless the Mason re-rules.</p>
+  <p>**The heartstring reads, on record before the crown.** The Quarry&#x27;s<br>
+  diagnostic named where the piece plucks (*beings* in the first<br>
+  breath · the solo-time line · the single admission of difficulty ·<br>
+  the close) and where it runs coolest (the brochure middle, no being<br>
+  in frame · the bonding vein, promised and unmined). The Mason<br>
+  carved nothing — the piece locked as it arrived. **The restraint is<br>
+  the ruling.**</p>
+  <p>**A quarry version was set beside it** (plain voice, periods, per<br>
+  the foil exercise that same bench). The close would not survive<br>
+  translation — *the being senses clearly, and thrives* died where<br>
+  *Monkey lucidly sense monkey thrive* lives. The standing pattern<br>
+  held; the exercise opened the door to method amendment M-A1,<br>
+  ruled the same bench.</p>
+  <p>**Grammar and punctuation pass.** Run before the crown, clean —<br>
+  zero fixes proposed. Terminal ellipses law honored start to close;<br>
+  no periods, semicolons, or colons; ellipsis spacing correct<br>
+  throughout.</p>
+  <p>**Protected, never to be corrected.** *Mon&#x27;Day-key* ·<br>
+  *Monkey lucidly sense monkey thrive* · *Our PE* · *Daily boarding*<br>
+  (carries both readings — lodging with, climbing aboard) ·<br>
+  *Clarity channels tools* · *beings within any organization*</p>
+  <p>**Source.** Arrived whole from the Mason, August 4, 2026 —<br>
+  Paraploo_Personnel_Experience.txt, verbatim, untouched.</p>
+  <p>---</p>
+  <p>*mon-day-key-in-a-mist.md · relocked August 4, 2026 · shelf #36*</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0026"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Coete%20Fover%20Overec-600.webp" alt="02254" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0027"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Completely%20Obliterated%20Garden%20Of%20Countless%20Handwritten%20English%20Letter%20Forms%202-600.webp" alt="02255" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0028"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Composition%20Bean%20With%20Prickly%20Frame%202-600.webp" alt="02256" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0029"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words%202-600.webp" alt="02257" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0030"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words-600.webp" alt="02258" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0031"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky-600.webp" alt="02259" width="600" height="453" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0032"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky2-600.webp" alt="02260" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0033"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Exuberant%20Orelia%202-600.webp" alt="02261" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0034"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp" alt="02262" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0035"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War-600.webp" alt="02263" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0036"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Deframe%202-600.webp" alt="02264" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0037"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Delyoojed%20Innah%202-600.webp" alt="02265" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0042"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp" alt="02270" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0043"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp" alt="02271" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0044"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp" alt="02272" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0045"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp" alt="02273" width="600" height="436" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/more-human-than-human-final/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

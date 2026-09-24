@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paraploo&#x27;s Floating Quarry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Paraploo&#x27;s Floating Quarry</h1>
+  <p class="core-locked"><a href="/words/2026-methodology/">Words / 2026 Methodology</a></p>
+  <p>Paraploo Quarry ... candidates lifted from both inside and outside surfaces ... the way vein and vine can make a crown for a house or shelterless nest ...<br>
+  *<br>
+  Affaire Cultivée, Pas Composée ( Case Grown Not Composed ) ... Our own body&#x27;s claim Pertaining to fields that make their MARK(S) ... <br>
+  *<br>
+  "Spanning Non Literal to Literal Passing Hauls" ... Twenty or more Wonderfully Odd Practice Ruled Characters representing ... societies&#x27; Miettes et grains de sable sacrés ( Crumbs and sacred Grains of Sands) ...<br>
+  *<br>
+  Yo&#x27;Seph-rib-cough ... Where? ... We caught them twice trusting the records of their own eyes ... time and time again that deep look paid dividends ... as a ritual Kindred spirit ritual Prescription Movement of sorts ...<br>
+  *<br>
+  "special kid-us-not stones" ... ah-mum ... omam&#x27;ori ... artefacts that would have stayed buried if not for one shallow pile of forced registers ... Stealing and naming grounds under our feet ... including melancholy songs of the land ... settling as disturbing seasoning of blended and divided soils ...<br>
+  *<br>
+  Also from a Paraploo Quarry floor ... knowing the next timeless job that has to be done only to hold a melting skeleton of a half face hunter ... and crystal dial enclosing dust and damage ... To reveal transparent users showcasing the inner workings of chronographs ... valued for their amazing functionality ... Repeater(s) ... repeating, repeating, repeating ... chiming on demand ... striking purposeful carillons ( long-sounding bells ) a day before advent ...<br>
+  *<br>
+  What we like most of all ... plainly ... is that nothing slid off a surface and broke ... Not a ledger or line ... not a stale copy or unlawful shadow of a human figure carrying an honest load ... forward ... up a hill ... and then all the way down to God knows where ...<br>
+  *<br>
+  Our research went out and came back to our practice ... as an erased border, supplies, obsessive truth be told categorizations ... On Order ... sweetly smiling breath ... and "Outsider Thesis" ... sitting close to the small mouth entrance of a cave and Spirit world portal ... We don&#x27;t need any kind of revolving barrier between us and what&#x27;s out there nourishing life ... and truth ...<br>
+  *<br>
+  This is heartbeat Paraploo Ore that never locks or closes ... Ear against rail ... lifted from quarry rings ... Hands know what a field does not want to mention ... With posture and instrumental voice song ... Dense offerings ... compact cool dissent tightened to be more defiant ... warm ... and sayable ... Alarm Clock needs all sensory visions to get us out of bedsides ... Windows for our obvious, strange, fabulous, favorites ... Artists titling and counting drawings ... on humble alters for admissions ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/gog-guldah-variations/0007"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2016%20Tol%20Falika%20U%20Think%20You%20Know%20Conflict-600.webp" alt="02203" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0008"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%202%20Many%20Marks%20Move-600.webp" alt="02204" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0009"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2021-600.webp" alt="02205" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0010"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2022-600.webp" alt="02206" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0011"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2025-600.webp" alt="02207" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0012"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2026-600.webp" alt="02208" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0013"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2027-600.webp" alt="02209" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0014"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2028-600.webp" alt="02210" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0015"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2029-600.webp" alt="02211" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0016"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%203%20Burnt%20Map-600.webp" alt="02212" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0017"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2030-600.webp" alt="02213" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0018"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2031-600.webp" alt="02214" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0019"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2032-600.webp" alt="02215" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0020"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2033-600.webp" alt="02216" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0021"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2036-600.webp" alt="02217" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0022"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2037-600.webp" alt="02218" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0023"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2038-600.webp" alt="02219" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0024"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%204%20Ond%20Of%20Hope-600.webp" alt="02220" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0025"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2040-600.webp" alt="02221" width="600" height="338" loading="lazy"></a>
+      <a href="/marks/gog-guldah-variations/0026"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2041-600.webp" alt="02222" width="600" height="338" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-methodology/paraploos-marked-body-of-playful-works-export-state/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

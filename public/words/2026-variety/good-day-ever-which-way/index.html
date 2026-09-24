@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Day, Ever Which Way</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Good Day, Ever Which Way</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>&amp;nbsp;</p>
+  <p>Good morning Soleil! ... Good evening Burning Horizons! ... Good day Ever Which Way Coo-zzz Nectar ... Hymn Neh Antique Spirit Dancing Sign, Pt.? ... Good morning Drôles ...</p>
+  <p>&amp;nbsp;</p>
+  <p>---</p>
+  <p>&amp;nbsp;</p>
+  <p>Addressed to Run ... Elder Form ... Ritual Greeting ... o ... Or ... Intimate Sun Salutation Swerving ... Opening ... in softened French ... Star of Knots ... End of the day Arriving and or Visiting Opposite Edge Gestures ... Sky Breaths ... Held as A Thousand Ink Marks ... Litany Compressing Time ...</p>
+  <p>&amp;nbsp;</p>
+  <p>Dissolving into Sweet Sound Idioms ... Bent ... Scattered In All Directions ... Mind&#x27;s Middle Eye Injection of a Curved Sliding Dove ... Also ... A Heavenly Panda Dozing Off ... Hello Unfamiliar Taste ... in the Mouth ... Our Engines Testing How Far A Stretch Can Pivot And Still Be Polite Salutes ... carrying The Whole Team ...</p>
+  <p>&amp;nbsp;</p>
+  <p>A Brand New Tracked and Abbreviated Body ... with Numbers Pinned to All Sides ... Top of the Head to Bottom of Both Feet ... including a Series of Questionable Sharp Pointed Statements ... + plus ... Fragments Meeting Up With Liner Notes ... Today Circling Around Again ... but now with a sober Comedian ... who has their own Over The Top Practice ... Doubly Good Register ... fused into a Farewell Blessing ... Go Well ... Depart as Tomorrow&#x27;s Seed ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0034"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp" alt="02262" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0035"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War-600.webp" alt="02263" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0036"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Deframe%202-600.webp" alt="02264" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0037"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Delyoojed%20Innah%202-600.webp" alt="02265" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0042"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp" alt="02270" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0043"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp" alt="02271" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0044"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp" alt="02272" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0045"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp" alt="02273" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0046"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp" alt="02274" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0047"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp" alt="02275" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0048"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp" alt="02276" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0049"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp" alt="02277" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0050"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp" alt="02278" width="600" height="432" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0051"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border%202-600.webp" alt="02279" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0052"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border-600.webp" alt="02280" width="600" height="451" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0053"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Future%20Ancient%20See-Through%20Wall%202-600.webp" alt="02281" width="600" height="436" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/groundless-this-that-airtight/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>

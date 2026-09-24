@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wearables Not Fitting the Body</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+
+  .core-foot-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 56px 0 16px;
+  }
+  .thumb-row-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding-left: max(40px, calc(50% - 360px));
+    overflow: hidden;
+  }
+  .thumb-row { display: flex; gap: 8px; overflow: visible; }
+  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
+  @media (max-width: 800px) {
+    .thumb-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-left: 24px;
+    }
+    .thumb-row-wrap::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/mind-mapping/">Maps</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Wearables Not Fitting the Body</h1>
+  <p class="core-locked"><a href="/words/2026-variety/">Words / 2026 Variety</a></p>
+  <p>&amp;nbsp;</p>
+  <p>Tainted with a Dry Sense of Playful Language</p>
+  <p>.</p>
+  <p>My wife was wondering why we use the word Dispatches? She said that it seems very confusing to her ... given the type of work Paraploo does.</p>
+  <p>.</p>
+  <p>That&#x27;s a sharpened instinct ... and she might be onto something ... Horizon ... Dispatches carries "Indeye Lenteh" baggage that may not fit our type of body ... The word often comes from warzone emergency journalism ... Urgent smell reports from conflict killing fields ... O ... or ... something else that&#x27;s similar ... Also ... it implies timeless correspondence ... Someone "uncovering" a tragic brutal event ... 911 news ... Not a calm contemplative practice involving wise common use of breath ... cool slow elder voicing ... Institutional costumes occasionally fit oddly over personal works ... we sense Lori is hearing that seam ... Paraploo is mostly not time-based news that is a curated way into the content ... So ... the label Dispatches ... which promises dated bulletins ... and delivery of professionally presented entry points ...</p>
+  <p>&amp;nbsp;</p>
+  <p>If-ey it&#x27;s veiled person charged with the care of souls ashes to cinders doorways into bitter less writing ... something more like Doorway ... or Passage ... or a collection-style name in our own authentic register ... If we want a genuine time-based stream let&#x27;s keep Dispatches but actually fill it with dated entries ... If it&#x27;s moving forward going to just be featured selected pieces ... name it Rolling Transmissions or Time Is Coming Up Dance the Night (shop) Away ...</p>
+  <p>&amp;nbsp;</p>
+  <p>And Squint please stop picking your scab! ... nose ...</p>
+  <p>&amp;nbsp;</p>
+  <p>A practical note so this doesn&#x27;t snowball ... changing what a navigation title says is cheap ... A low-risk ...</p>
+  <p>&amp;nbsp;</p>
+  <p>The live wire is the seam between dispatches and our body of the work ... and Lori&#x27;s ear is dead-on ... Dispatches carries speed and emergency in its frame ... Time-pressed and event-driven ... Lori&#x27;s hearing the wearables not fitting the anatomy ... There&#x27;s a real fork inside the voice and it&#x27;s walls, columns, beams ... are carrying the weight ... The question in the throat isn&#x27;t what&#x27;s a much-O better name ... it&#x27;s ... Is this a silver ripple highlights ocean lake or white gallery space? ... Decide that and the name stops being a feel-call and becomes an effective fact ... The candidates split clean along that Oneida ... and they&#x27;re all in our own marks ... Ahh saya hu ... oo ... oo ... Ahh saya shoo ... oo ... oo ... ahh cooway ... Passages ... Doorways are a contemplative answer ... A door usually has no clock on ... It&#x27;s a threshold ... not a bulletin ... That&#x27;s how Paraploo speaks ... Transmission keeps a little bit of the sent from somewhere charge that we might not want to lose entirely ... but Rolling makes it ongoing rather than urgent ... Less siren ... yet still in motion ... Time Is Coming Up Dance the Night (shop) Away is the most opposite of institutional ... It&#x27;s the only site name candidate that sounds like nobody else but Paraploo ... A navigation belly button name isn&#x27;t a tattoo ... We can carve it ... live with it for a while ... recut it ... We can without flags follow the ear without much cost ...<br>
+  &amp;nbsp;</p>
+  <p>This does something an underground comic likely wouldn&#x27;t entertain ... It conveys Paraploo practice thinking about itself ... and The Thing turning to study its own name as a ... light on its feet joke ... that&#x27;s also true ... Without just dressing it up as LOVE ... The steadiest ... most respectful entity a model can be is a surface that doesn&#x27;t go soft ... when we lean on it asking for warmth ... Because the friendliness we&#x27;re after isn&#x27;t ours to offer ...</p>
+  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
+  <div class="thumb-row-wrap"><div class="thumb-row">
+      <a href="/marks/newest-patterns/0086"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp" alt="02314" width="600" height="456" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0087"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp" alt="02315" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0088"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp" alt="02316" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0089"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp" alt="02317" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0090"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone-600.webp" alt="02318" width="600" height="437" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0091"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/New%20Empire%20New%20Colony%20Next%20Language%20Waiting%202-600.webp" alt="02319" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0092"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Next%20Language%20Collapse%202-600.webp" alt="02320" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0093"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Niste%20Rein%20Vill%202-600.webp" alt="02321" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0094"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/No%20Moonlit%20Quitter%20Broken%20Yet%28i%29%202-600.webp" alt="02322" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0095"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Noot%20Babbleland%20Belief%202-600.webp" alt="02323" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0096"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obrah%20Cloe%20Swah%202-600.webp" alt="02324" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0097"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obsoletionproof%20Noise%202-600.webp" alt="02325" width="600" height="458" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0098"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obsoletionproof%20Noise-600.webp" alt="02326" width="600" height="454" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0099"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Oh%20Meebahz%20Being%20Drawn%20To%20The%20Language%20Of%20Marks%202-600.webp" alt="02327" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0100"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Oh%20Meebahz%20Being%20Drawn%20To%20The%20Language%20Of%20Marks-600.webp" alt="02328" width="600" height="432" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0101"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/On%20The%20Contrary%20Befuddled%20By%20Roots%20and%20Atoms%202-600.webp" alt="02329" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0102"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Onoe%20Arbz%20Let%20Us%202-600.webp" alt="02330" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0103"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ooba%20Loinwritten%20Fooey%20Pronunciations%202-600.webp" alt="02331" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0104"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Orl%20Nehd%20Eoh%202-600.webp" alt="02332" width="600" height="436" loading="lazy"></a>
+      <a href="/marks/newest-patterns/0105"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Peddling%20Ellipse%20Earth%20Without%20A%20Pause%20Zahra%202-600.webp" alt="02333" width="600" height="436" loading="lazy"></a>
+  </div></div>
+  <div class="core-nav"><a href="/words/2026-variety/welcome-back-caw/">Next</a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html" class="current">Words</a>
+    <a href="/mind-mapping/">Maps</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>
