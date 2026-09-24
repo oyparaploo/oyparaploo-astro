@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar of Undoing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #14100c;
+    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.0588rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+  .core-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+  }
+  .core-wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #a8998a;
+    margin: 0;
+  }
+  .core-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 120px;
+  }
+  .core-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+  .core-locked {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: #a8998a;
+    margin: 0 0 48px;
+  }
+  .core-kicker {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 20px;
+  }
+  .core-main p {
+    margin: 0 0 34px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+  .core-main p strong, .core-main p b { font-weight: 400; }
+  .core-era {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.4118rem;
+    color: #ffffff;
+    margin: 48px 0 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-era:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .core-main a {
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: #f4efe8; }
+  .core-nav {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(244, 239, 232, 0.14);
+  }
+  .core-nav a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4a574;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-nav a:hover { color: #f4efe8; }
+  @media (max-width: 768px) {
+    .core-header { padding: 40px 24px 0; }
+    .core-main { padding: 32px 24px 80px; }
+    .core-footer { padding: 0 24px 40px; }
+  }
+
+  .core-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 48px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+  }
+
+  .core-rule {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 40px;
+  }
+  .core-rule hr {
+    border: none;
+    border-top: 1px solid rgba(244, 239, 232, 0.28);
+    margin: 0;
+  }
+  .core-signature {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(168, 153, 138, 0.6);
+    margin: 24px 0 0;
+  }
+</style>
+</head>
+<body>
+<header class="site-header dark"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a><nav><a href="/writings.html" class="current">Words</a><a href="/marks.html">Marks</a><a href="/physical.html">Physical</a><a href="/digital.html">Digital</a><a href="/about.html">About</a></nav></header>
+<main class="core-main">
+  <h1 class="core-title">Grammar of Undoing</h1>
+  <p class="core-locked"><a href="/words/2025-variety/">Words / 2025 Variety</a></p>
+  <p>## The Carpenter&#x27;s Apology</p>
+  <p>---</p>
+  <p>Angelica Wall made furniture that disappeared into mercy. That&#x27;s how I met her—the silence at 7 AM where sawing should&#x27;ve been, a quiet so complete it had weight, pressing against windows like water against glass. I walked over to complain about the absence, the way you&#x27;d complain about a missing step that makes you stumble into understanding. Found her holding a glowing termite queen she called "The Architect of Undoing," its translucent abdomen pulsing with blueprints for destruction that looked like creation if you squinted.</p>
+  <p>"She remembers when wood was forest," Angelica said, placing the queen gently on cherry lumber that began dissolving into sawdust halos, each particle floating upward like prayers returning to heaven embarrassed they&#x27;d been answered. "I&#x27;m helping trees remember their way home, back through furniture, through lumber, through sawmill, to standing."</p>
+  <p>That was Angelica Wall—building backward into mercy, her hands moving counterclockwise through time, each nail she removed a small apology to the metal for making it hold things together.</p>
+  <p>---</p>
+  <p>## The Chrysalis Years</p>
+  <p>Her garage was inhabited by a grief-moth the size of a door, left by her father when he transformed. The moth&#x27;s wings were made of compressed sighs, its antennae tuned to frequencies of regret. "Cardiac metamorphosis," Angelica called it—when the heart becomes too large for the body and grows wings, not to fly but to flutter at the edges of what&#x27;s bearable.</p>
+  <p>The moth spent two years weaving his unfinished cabinet into cocoons for smaller griefs—the grief of burnt toast, of missed calls, of sentences that ended mid-thought. Angelica fed it splinters of regret soaked in tomorrow&#x27;s rain, strips of might-have-been marinated in almost-was.</p>
+  <p>Then one day she began the Great Unbuilding, like God admitting a mistake but lovingly, each deconstruction a caress. Took apart existence itself, starting with that cabinet, unscrewing screws that screamed tiny births in reverse. "Dad&#x27;s teaching me through his absence," she explained, as tools lifted themselves to work backward, hammers pulling nails with the tenderness of mothers removing splinters. "Every empty space is a lesson in letting go."</p>
+  <p>---</p>
+  <p>## The Lanternfly Prophet</p>
+  <p>Angelica traded with Joy Deck—a refugee from next Thursday who constructed things that would only exist after their owners died, inheritance before the inheritors. Joy arrived with Turkish coffee that brewed backward in a copper pot, turning bitter liquid into sweet grounds into beans into soil into the memory of rain, each stage a small resurrection.</p>
+  <p>She built Joy a table that existed in seventeen dimensions, its surface visible in three, its legs extending through parallel kitchens where other Angelicas built other tables. Joy taught her daughter to play piano that hadn&#x27;t been invented yet, notes that would only exist after current music died of boredom. The music made neighborhood dogs weep silver tears that became nails, each one inscribed with the name of something that would never be built.</p>
+  <p>"Money is cruelty disguised as choice," she&#x27;d say, watching her hands age backward while sanding, knuckles smoothing into youth with each stroke. "But suffering—suffering is currency God accepts with exact change."</p>
+  <p>Her workshop filled with skills that undid themselves—Spanish that made you forget English word by word, canning that preserved emptiness in jars that glowed with fullness, piano lessons that removed the ability to hear until silence became symphonic.</p>
+  <p>---</p>
+  <p>## The Axolotl Council</p>
+  <p>When the city wanted to build a parking garage where memories lived—not metaphorically but actually, memories walking around like citizens of conscience—Angelica became an axolotl of rage. Not transformation but revelation: she&#x27;d always been amphibious with anger, regenerating fury every time they cut it away, each new rage pinker and more tender than the last.</p>
+  <p>She attended meetings with her emotional organs visible through translucent skin, her disappointment a gray liver, her hope a tiny appendix threatening to burst. When she spoke, you could watch her lungs fill with arguments that would never convince anyone but needed to be exhaled into the municipal record.</p>
+  <p>She ran for council and received exactly eleven votes from the eleven people who didn&#x27;t exist yet—her unborn mother voted through séance (the medium charged by the minute but time ran backward so Angelica got paid), her tomorrow-self voted through time-loop, creating a paradox that made City Hall&#x27;s clocks hiccup. The newspaper called her "The Woman Who Lost to Herself" in headlines that deleted themselves after printing.</p>
+  <p>She built protest furniture from extinct wood—trees that would never exist because the parking garage prevented their birth, oak that could have been, maple that should have grown. Each chair screamed the name of its unmade forest in frequencies only the guilty could hear.</p>
+  <p>They called her "The Backwards Carpenter" in papers written in ink made from unborn squid, words that swam off the page at night. She wallpapered her garage with the insults until they became prayers, each cruel word softening into benediction through repetition.</p>
+  <p>She lost by winning—the garage was built but immediately began sinking into the earth, pulled down by the weight of deleted gardens, by the gravity of unmade beauty, by the sheer heaviness of what wasn&#x27;t there.</p>
+  <p>---</p>
+  <p>## The Pangolin&#x27;s Gift</p>
+  <p>Highway 49 curves like God&#x27;s question mark, asking why humans drive toward destinations that disappointment has already reserved. Angelica&#x27;s car didn&#x27;t crash—it gently folded into another dimension where accidents are acts of grace, where every collision is an introduction, where insurance is paid in forgiveness.</p>
+  <p>A celestial deer made of compressed starlight stepped through her windshield, dying backward into life, its antlers growing smaller until they were thoughts, then intentions, then nothing. The glass broke inward into her lap like diamonds explaining themselves.</p>
+  <p>She held its head of light in her lap, singing Russian lullabies that her grandmother had anti-taught her—songs that erased memory while creating it, each verse a gentle amnesia. The deer un-died as the ambulance arrived from yesterday, paramedics moving in reverse, putting bandages back in boxes, returning blood to veins. Angelica wept for six hours in reverse, tears flowing upward into clouds that would rain on her childhood.</p>
+  <p>She met Capital Monk—a pangolin made of compressed prayers, each scale a different request to God that had been marked "return to sender." Capital traded her three broken ribs for the ability to see how things end, a painful exchange since seeing endings means living backward through them.</p>
+  <p>She came home transparent, her skeleton visible like a glassfrog&#x27;s, each bone inscribed with its future fracture date in handwriting that looked like her father&#x27;s but older.</p>
+  <p>---</p>
+  <p>## The Decay Summer</p>
+  <p>That summer Angelica studied decay with scientific mercy, the way coroners love the dead by understanding them. Her workshop filled with specimens—leaves becoming lace through careful putrefaction, fruit growing intelligent molds that whispered stock tips in languages markets hadn&#x27;t invented, a bird skeleton reassembling itself backward into flight, bones remembering the weight of feathers.</p>
+  <p>Under the overpass lived Amos Kazbro the Temporarily Deceased—a refugee from permanent existence who&#x27;d lost his house to a hurricane that traveled backward through time, destroying before it arrived, insurance companies denying claims for precognitive damages. Amos&#x27;s grief moved like mercury, liquid and toxic, pooling in his extremities until his fingers forgot how to hold.</p>
+  <p>Angelica didn&#x27;t fix him. They sat together comparing notes on decomposition, sharing elaborate meals made from food that had already been digested—she called it "rescue cuisine in reverse," nutrients extracted from waste, flavor found in aftermath. They&#x27;d eat yesterday&#x27;s dinners, tasting what they would hunger for.</p>
+  <p>"Everything falls apart into better things," she showed me time-lapse photos playing backward, entropy reversing into terrible order. "Watch beauty ungrow into truth."</p>
+  <p>Amos taught her endurance through undoing—how to be less than nothing and still be too much, how to exist in the gap between was and wasn&#x27;t, how to breathe vacuum and exhale atmosphere.</p>
+  <p>---</p>
+  <p>## The Storm Marriage</p>
+  <p>Angelica expanded like a universe birthing itself backward, all creation returning to a point of infinite density that was just her heart trying to hold everything. Married someone we called Storm David Who Chased Yesterday&#x27;s Weather—drawing maps of storms that unhappened, tracking tornadoes that spun time counterclockwise until cows flew backward into barns.</p>
+  <p>Three children arrived in four years but in reverse order—the youngest born first at age sixteen, aging backward toward infancy, the eldest emerging as infant with adult memories, crying with the sophisticated sorrow of someone who&#x27;s already lived through what&#x27;s coming. Bang, bang, bang, like time itself misfiring, each birth a small apocalypse of causality.</p>
+  <p>Her workshop became a temporal commune where chronology went to die. Teenagers unlearned carpentry, their hands forgetting skills they&#x27;d never mastered, elderly men came to forget the smell of sawdust, inhaling absence until their lungs were clean of memory, women hammered things into productive destruction, each blow creating space where something had been.</p>
+  <p>David left on a Tuesday that happened on a Wednesday, temporal infidelity being grounds for divorce in most dimensions. Said he loved her but couldn&#x27;t compete with her infinite capacity to care about nothing with the passion others reserved for everything. Angelica signed divorce papers that turned marriage into memory before it happened, baby nursing from tomorrow&#x27;s breast, milk that would nourish yesterday&#x27;s hunger.</p>
+  <p>After: she&#x27;d stand in the workshop holding wood that remembered being furniture in houses not yet built, grain patterns showing sit-marks from dinners not yet eaten. The three children would find her at dawn, asleep in yesterday, gripping planks of trees that would grow from her grief, each ring a year of sorrow converted to cellulose.</p>
+  <p>---</p>
+  <p>## The Adjacent Lovers</p>
+  <p>Angelica dated in reverse chronology—a photographer who lasted three months in the future (they&#x27;d meet next year, break up last spring), a baker who survived six months in the past (their relationship ended before it began, perfect in its impossibility), a social worker who became a friend in a parallel timeline where friendship meant something different.</p>
+  <p>"I&#x27;m built for adjacency," she explained, her lovers existing in neighboring dimensions, close enough to feel their warmth through the walls of reality. "People beside me in other dimensions, not with me in this one. Love requires distance to breathe."</p>
+  <p>She evolved to making coffins from pre-incarnated wood—trees that remembered being human, their grain patterns spelling out names in languages only the dead speak. "Death furniture for the pre-dead," she called it cheerfully, each coffin a chrysalis for reverse metamorphosis. Each one carved with stories that hadn&#x27;t happened yet, grief transformed into prophecy, eulogies written in future tense.</p>
+  <p>She traveled to disasters before they occurred—floods that would happen next Tuesday, fires that might exist if wind patterns aligned, tornadoes still deciding whether to form. Set up temporal workshops teaching people to rebuild what hadn&#x27;t been destroyed yet, insurance against inevitability.</p>
+  <p>"After my house will burn," one future widow told me, her eyes already red from smoke that wouldn&#x27;t exist for three years, "Angelica taught me to make a table from the char that doesn&#x27;t exist. My whole death, I&#x27;ll eat breakfast on tragedy transformed into furniture."</p>
+  <p>---</p>
+  <p>## The Merciful Disease</p>
+  <p>Started with Angelica&#x27;s hands becoming too kind to hold hammers—they&#x27;d release tools before causing damage, fingers opening like flowers refusing to make fists. Then her bones turned to hollow bird bones filled with song instead of marrow, then to light itself, her skeleton becoming a constellation visible only from inside.</p>
+  <p>She modified into something post-human: straps made from tomorrow&#x27;s regrets (strong but flexible, tasting of choices not made), braces built from crystallized empathy (rigid with compassion, painful to wear), a chair made of everyone who&#x27;d ever loved her, their affection supporting her as she became less, each person a slat in her dissolution.</p>
+  <p>"Body&#x27;s just God&#x27;s apology for consciousness," she said, installing pulleys that moved objects through dimensions rather than space, effort converted to intention. "Have to accept the apology by disappearing properly, with grace, like a guest who knows when the party&#x27;s over."</p>
+  <p>---</p>
+  <p>## The Jellyfish Testament</p>
+  <p>Angelica turned her garage into a medusa cathedral—tentacles of light hanging where tools should be, each sting a blessing that paralyzed visitors with beauty too pure for motor function. The walls breathed with bioluminescence, inhaling darkness, exhaling illumination that hurt to perceive directly.</p>
+  <p>She made furniture for refugees from existence: Joy Deck needed a chair for her unbody (something to not-sit in while not-being), the Moth Council required tables that existed only at night (disappearing at dawn, reappearing at dusk with breakfast already set), Capital Monk wanted picture frames for photographs that would never be taken, holding absence in gilt borders.</p>
+  <p>Each piece was an altruistic act of deletion—removing something from reality so something else could exist in its absence, generosity through subtraction. A chair disappeared so someone could stand. A table vanished so hunger could exist. A bed unmade itself so insomnia could flourish.</p>
+  <p>---</p>
+  <p>## The Translation</p>
+  <p>Angelica died building backward—creating a cradle for her grandchild who was aging in reverse toward unbirth, each rock of the cradle unwinding DNA. Heart attack in the workshop, but really heart expansion—too much love for one dimension, her ventricles trying to pump in four directions at once. Fell forward through time, left a perfect imprint of her hand in soft pine that hardened into tomorrow, the wood grain spelling out instructions for grieving in cursive only trees understand.</p>
+  <p>The hand print exists in all times simultaneously, visitors touching it experience every moment of Angelica&#x27;s life at once—overwhelming but brief, like drowning in light. Her three children (who are one child experienced thrice—past, present, and future versions of the same sorrow) kept the imprint:</p>
+  <p>- The eldest unmakes protest furniture, returning anger to trees where it becomes rings of rage in the wood<br>
+  - The middle one builds tiny voids for the housed to become unhoused, architecture of absence<br>
+  - The youngest undocuments everything, erasing the book about transformation word by word until only punctuation remains</p>
+  <p>They run the workshop now in three different timelines, teaching what she untaught in languages that delete themselves as you speak them, tuition paid in forgetting.</p>
+  <p>---</p>
+  <p>## What Continues to End</p>
+  <p>I kept the chair that collapsed, now it&#x27;s the only solid thing in my house because everything else is dissolving backward into mercy, the way Angelica taught through her decomposition. Sitting in it is like sitting in the idea of sitting, supportive but theoretical.</p>
+  <p>Sometimes I hear tomorrow&#x27;s saw cutting yesterday&#x27;s wood, the sound arriving before the action, effect preceding cause. Angelica&#x27;s still there, building backward through time, creating absences where suffering can&#x27;t exist because nothing can exist in true absence except the memory of something.</p>
+  <p>That&#x27;s what builders really do—they remove things from reality with such skill that we mistake it for creation, like God making light by deleting darkness, making form by removing void, making humans by subtracting divinity until something small enough to suffer remained.</p>
+  <div class="core-nav"><a href="/words/2025-variety/grandmother-erya-s-orchestra-learning-to-breathe-with-earth/">Next</a></div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html">Words</a>
+    <a href="/marks.html">Marks</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Digital</a>
+    <a href="/sumi.html">Sumi</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+</body>
+</html>
