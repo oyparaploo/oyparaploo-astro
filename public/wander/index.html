@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wander | Paraploo</title>
+<meta name="description" content="A writing and a picture, chosen at random, side by side.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260921d">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: #111;
+    font-family: 'Archivo', sans-serif;
+    overflow-wrap: break-word;
+  }
+  .wander-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 64px 40px 96px;
+  }
+  .wander-wrap {
+    display: grid;
+    grid-template-areas: "picture" "writing";
+    gap: 40px;
+  }
+  .wander-writing { grid-area: writing; }
+  .wander-picture { grid-area: picture; }
+  .wander-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 2.75rem);
+    color: #111;
+    margin: 0 0 32px;
+  }
+  .wander-body p {
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+    line-height: 1.8;
+    text-wrap: pretty;
+    color: rgba(17, 17, 17, 0.82);
+  }
+  .wander-body p:last-child { margin-bottom: 0; }
+  .wander-picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .wander-caption {
+    margin: 12px 0 0;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: #888;
+  }
+  .wander-controls {
+    margin-top: 64px;
+    text-align: center;
+  }
+  .wander-another {
+    display: inline-block;
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: #111;
+    border: none;
+    padding: 20px 56px;
+    cursor: pointer;
+  }
+  .wander-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .wander-links a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (min-width: 801px) {
+    .wander-wrap {
+      grid-template-columns: 620px 1fr;
+      grid-template-areas: "writing picture";
+      gap: 48px;
+      align-items: start;
+    }
+  }
+  @media (max-width: 768px) {
+    .wander-main { padding: 40px 24px 64px; }
+    .wander-controls { margin-top: 48px; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header"><a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-dark.png" alt="Paraploo"></a><nav><a href="/writings.html">Words</a><a href="/marks.html">Marks</a><a href="/physical.html">Physical</a><a href="/digital.html">Digital</a><a href="/about.html">About</a></nav></header>
+<main class="wander-main">
+  <div class="wander-wrap">
+    <div class="wander-writing">
+      <h1 class="wander-title" id="wander-title"></h1>
+      <div class="wander-body" id="wander-body"></div>
+    </div>
+    <div class="wander-picture">
+      <img id="wander-img" src="" alt="">
+      <p class="wander-caption" id="wander-caption"></p>
+    </div>
+  </div>
+  <div class="wander-controls">
+    <button type="button" class="wander-another" id="wander-another">Another</button>
+    <div class="wander-links">
+      <a href="#" id="wander-see">See this picture</a>
+      <a href="#" id="wander-read">Read this in Words</a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/"><img src="https://media.paraploo.com/site/paraploo-logo-white.png" alt="Paraploo"></a>
+  <nav>
+    <a href="/writings.html">Words</a>
+    <a href="/marks.html">Marks</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Digital</a>
+    <a href="/sumi.html">Sumi</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
+</footer>
+<script>
+(function() {
+  var data = null;
+  var titleEl = document.getElementById('wander-title');
+  var bodyEl = document.getElementById('wander-body');
+  var imgEl = document.getElementById('wander-img');
+  var captionEl = document.getElementById('wander-caption');
+  var seeEl = document.getElementById('wander-see');
+  var readEl = document.getElementById('wander-read');
+  var anotherBtn = document.getElementById('wander-another');
+
+  function pick(list) {
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function renderPicture(pic) {
+    imgEl.src = pic.img;
+    imgEl.alt = pic.cat;
+    captionEl.textContent = pic.cat + ' — ' + pic.series;
+    seeEl.href = pic.addr;
+  }
+
+  function renderWritingFallback(writing) {
+    titleEl.textContent = writing.title;
+    bodyEl.textContent = '';
+    readEl.href = writing.addr;
+  }
+
+  function loadWriting(writing) {
+    titleEl.textContent = writing.title;
+    readEl.href = writing.addr;
+    bodyEl.innerHTML = '';
+    fetch(writing.addr)
+      .then(function(res) { return res.text(); })
+      .then(function(html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var main = doc.querySelector('main.core-main');
+        if (!main) return;
+        var paras = main.querySelectorAll('p:not(.core-locked)');
+        paras.forEach(function(p) {
+          var clone = document.createElement('p');
+          clone.innerHTML = p.innerHTML;
+          bodyEl.appendChild(clone);
+        });
+      })
+      .catch(function() {});
+  }
+
+  function another() {
+    if (!data) return;
+    var writing = pick(data.writings);
+    var pic = pick(data.pictures);
+    renderWritingFallback(writing);
+    loadWriting(writing);
+    renderPicture(pic);
+  }
+
+  anotherBtn.addEventListener('click', another);
+
+  fetch('/wander/wander.json')
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      data = json;
+      another();
+    });
+})();
+</script>
+</body>
+</html>
