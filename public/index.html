@@ -47,40 +47,64 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
+    background: #f9f7f4;
+    color: #2a2320;
     font-family: 'Archivo', sans-serif;
     font-size: 1.0588rem;
     line-height: 1.7;
     overflow-x: hidden;
     overflow-wrap: break-word;
   }
+  .home-rule {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, #a8c8e0 0%, #a8c8e0 70%, #a8d4b0 100%);
+  }
   .home-main {
-    max-width: 720px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 64px 40px 0;
+    padding: 56px 24px 0;
   }
   .home-heading {
     font-family: 'Lora', serif;
-    font-weight: 500;
-    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
-    color: #ffffff;
-    margin: 0 0 56px;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    color: #2a2320;
+    margin: 0 0 28px;
   }
   .home-passages {
-    max-width: 720px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px 24px;
+    padding: 0 24px 24px;
   }
   .home-passage {
-    margin-bottom: 64px;
+    margin: 0;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(42, 35, 32, 0.1);
+    transition: background 0.2s;
   }
-  .home-passage:last-child { margin-bottom: 0; }
+  .home-passage:first-of-type {
+    border-top: 1px solid rgba(42, 35, 32, 0.1);
+  }
+  .home-passage:hover {
+    background: rgba(42, 35, 32, 0.045);
+  }
+  .home-eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7d7168;
+    margin: 0 0 6px;
+  }
   .home-title {
     font-family: 'Lora', serif;
-    font-weight: 500;
-    font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
-    color: #ffffff;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    color: #2a2320;
     margin: 0 0 20px;
   }
   .home-title a {
@@ -88,7 +112,7 @@
     text-decoration: none;
   }
   .home-title a:hover {
-    color: #d4a574;
+    color: #7d7168;
   }
   .home-passage p {
     margin: 0 0 28px;
@@ -97,7 +121,7 @@
     font-size: 19px;
     line-height: 1.8;
     text-wrap: pretty;
-    color: rgba(244, 239, 232, 0.78);
+    color: rgba(42, 35, 32, 0.82);
   }
   .home-readon {
     margin: 0 0 20px !important;
@@ -106,26 +130,28 @@
     font-family: 'Archivo', sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    color: #7d7168;
+    text-decoration: none;
   }
-  .home-readon a:hover { color: #f4efe8; }
+  .home-readon a:hover { color: #2a2320; }
   .home-overture {
     text-align: left;
     letter-spacing: 0.02em;
     font-size: 19px;
     line-height: 1.8;
     text-wrap: pretty;
-    color: rgba(244, 239, 232, 0.78);
-    margin: 64px 0;
+    color: rgba(42, 35, 32, 0.82);
+    margin: 32px 0;
+  }
+  .home-main .home-readon {
+    margin: 0 0 48px !important;
   }
   .thumb-row-wrap {
     width: 100vw;
     position: relative;
     left: 50%;
     margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 320px));
+    padding-left: max(24px, calc(50% - 526px));
     overflow: hidden;
   }
   .thumb-row {
@@ -138,16 +164,44 @@
     height: 90px;
     width: auto;
     display: block;
-    background: #1c1712;
+    background: #e5ded3;
   }
-  .home-colophon {
-    max-width: 720px;
+  .home-figures {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 8px 40px 80px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: rgba(244, 237, 225, 0.6);
+    padding: 40px 24px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.2fr;
+    gap: 32px;
+    align-items: end;
   }
+  .home-fig-n {
+    display: block;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #2a2320;
+  }
+  .home-fig-l {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7d7168;
+    margin-top: 6px;
+  }
+  .home-everything {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #2a2320;
+    text-decoration: none;
+    justify-self: end;
+  }
+  .home-everything::after { content: " \2192"; }
+  .home-everything:hover { color: #7d7168; }
   @media (max-width: 800px) {
     .thumb-row-wrap {
       overflow-x: auto;
@@ -158,16 +212,23 @@
     }
     .thumb-row-wrap::-webkit-scrollbar { display: none; }
   }
-  @media (max-width: 768px) {
-    .home-main { padding: 40px 24px 0; }
-    .home-passages { padding: 0 24px 24px; }
-    .home-colophon { padding: 8px 24px 56px; }
-    .home-passage { margin-bottom: 48px; }
+  @media (max-width: 600px) {
+    .home-main { padding: 40px 16px 0; }
+    .home-heading { font-size: 32px; }
+    .home-passages { padding: 0 16px 16px; }
+    .home-figures {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 32px 16px 56px;
+    }
+    .home-everything { justify-self: start; }
+    .thumb-row-wrap { padding-left: 16px; }
   }
 </style>
 </head>
 <body>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Words</a><a href="/marks.html">Marks</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/mind-mapping/">Maps</a></nav></header>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Words</a><a href="/marks.html">Marks</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/mind-mapping/">Maps</a></nav></header>
+<div class="home-rule"></div>
 <main class="home-main">
 <h1 class="home-heading">Brian Otto & Paraploo</h1>
 <p class="home-overture">Please Be Fed ... What can anyone do about human flesh and fur? ... Please don't not take them in ... KM rahn-day-vous daw daw daw ... A Kind of Fizzling Out, through the Electric Blue Semi-Transparent Cords ... Our Hearts are Full with Aha-fortable Sadness and So So Foodah Sickness ... Heaven ... you should always burn the esteemed pudding in a cotton sack ... Duff ... Do you remember the guiding tan and lack of tan elder woman? ... It's such a messy, grounded song</p>
@@ -175,6 +236,7 @@
 </main>
 <div class="home-passages">
 <section class="home-passage">
+  <span class="home-eyebrow">Screen</span>
   <h2 class="home-title"><a href="/room-three.html">Come Sit</a></h2>
   <p>Hahnu Youn is eighty-three and has no house. What there is instead is a bench, wherever the bench happens to be. Weathered like an elder tortoise, and still, for reasons nobody has accounted for, easily surprised ...</p>
   <p class="home-readon"><a href="/room-three.html">read on</a></p>
@@ -203,6 +265,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Marks</span>
   <h2 class="home-title"><a href="/paraploos-marked-body-of-playful-works.html">Playful Pattern</a></h2>
   <p>Paraploo ... MARKS ... inky black on milk white ... Read(s) ... Fields of Writing ... Composed or constructed from marks that behave like loopy dashes and cross dots ... Connecting the way script joins ... never resolving into coherent handwritten words ...</p>
       <p>Called Reads ... yet no one can actually read them in the usual sense ...</p>
@@ -232,6 +295,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Physical</span>
   <h2 class="home-title"><a href="/room-five.html">Come Stand</a></h2>
   <p>What follows is one writing, whole ... nothing cut, nothing explained ...</p>
       <p>The silence after it is the room ...</p>
@@ -263,6 +327,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Words</span>
   <h2 class="home-title"><a href="/why-the-three-dots-everywhere.html">Why The Three Dots Everywhere</a></h2>
   <p>( same number of flowing through steps for every breath )</p>
       <p>Fun combined with Gravity ... in and outside of tension ... That ice shelf approved it ... The reverse is just as true ... the cold reads as cool because everything around it is warming up ... The principle underneath a stamped melt ... isn&#x27;t always a fun assemblage of tones we wear ... it&#x27;s the carrier ...</p>
@@ -293,6 +358,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Marks</span>
   <h2 class="home-title"><a href="/fun-with-a-severed-half-that-reads-as-ploo.html">Fun, with a Severed Half that Reads as ploo</a></h2>
   <p>... ploo ... is a nobody word ... and that&#x27;s why we included it in our name ... Past participle of two differences ... ploo-voir ... nourishing precipitation ... and ploo-plair ... to please and provide delight ... Something that falls and something that gives ... quietly ...</p>
   <p class="home-readon"><a href="/fun-with-a-severed-half-that-reads-as-ploo.html">read on</a></p>
@@ -321,6 +387,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Words</span>
   <h2 class="home-title"><a href="/better-place.html">Better Place</a></h2>
   <p>Paraploo ... Kilometer Stones ... Miles Rocks ... myee da day ooo daieee ... maheee eee eee ah ... ah ... ahh ... Extensive Interconnected Underground Network ... A place for us ...</p>
   <p class="home-readon"><a href="/better-place.html">read on</a></p>
@@ -349,6 +416,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Physical</span>
   <h2 class="home-title"><a href="/never-on-such-a-pile-or-bag.html">Never On Such A Pile or Bag</a></h2>
   <p>Jimm jim quarry ore ... expanding as meh-oo maye maw seams underneath ... That fixed number that doesn&#x27;t exist ... yet ... Prices decided in an empty space ... bet your aisle ... before the facade arrives ... Exact numbers can&#x27;t be calculated in advance because half of its inputs are missing ... What the piece costs in timeless sweat and what The Thing will generate ... well ... Prices converse with no one ... It&#x27;s addressed to a non-existent buyer ... Placing a set cost at a soul shaped face of love is rude ...</p>
   <p class="home-readon"><a href="/never-on-such-a-pile-or-bag.html">read on</a></p>
@@ -377,6 +445,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Marks</span>
   <h2 class="home-title"><a href="/pen-on-pulp.html">Pen on Pulp</a></h2>
   <p>Order of Elements</p>
       <p>Our eyes take in a lot of pride when drawing with pen on paper ... when articulating our dense lines, marks, patterns ... that end up more harmonious than we imagined during gazing at the blank sheet ... Consciousness over the empty page can&#x27;t see what the hand already knows ...</p>
@@ -406,6 +475,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Marks</span>
   <h2 class="home-title"><a href="/settle-that-value-floating-over-the-land-and-sea.html">Settle That Value, Floating Over the Land and Sea</a></h2>
   <p>( attempting here to crawl out of our own language, we are instruments of a drawing Spirit, who is continuously sending compassion and forgiveness out to the world )</p>
       <p>Paraploo arrivals and departures are induced with actors that have field shelter character ... Very giving type of folks ... For us honesty is not a four letter word ...</p>
@@ -435,6 +505,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Physical</span>
   <h2 class="home-title"><a href="/room-six.html">Come Down</a></h2>
   <p>The chamber is under the Malheur National Forest, in eastern Oregon, and there are fallen logs to sit on.</p>
       <p>The walls give light. Not electric, not fire — the fungus does it, and the fungus is paying attention. It brightens when the puppets are joyful. It goes dim when the weight arrives.</p>
@@ -464,6 +535,7 @@
 </section>
 
 <section class="home-passage">
+  <span class="home-eyebrow">Screen</span>
   <h2 class="home-title"><a href="/book-door-1.html">A Machine That Can Hear</a></h2>
   <p>Some mornings the trouble isn&#x27;t that the machine can&#x27;t hear us. It&#x27;s that it hears us too well. Takes every sentence for an instruction. Closes the window we were working in because we happened to say the word close inside a thought about something else.</p>
       <p>There is a particular frustration in speaking carefully to a thing that keeps mistaking our speech for orders. We slow down. We choose plainer words. We start writing around our own vocabulary, and the sentences go stiff, and we begin to suspect the problem is us.</p>
@@ -493,7 +565,12 @@
   </div></div>
 </section>
 </div>
-<p class="home-colophon">15,000 pictures, 47 writings, thirty years — Everything, in a hundred words</p>
+<div class="home-figures">
+  <div class="home-fig"><span class="home-fig-n">15,000</span><span class="home-fig-l">pictures</span></div>
+  <div class="home-fig"><span class="home-fig-n">47</span><span class="home-fig-l">writings</span></div>
+  <div class="home-fig"><span class="home-fig-n">thirty</span><span class="home-fig-l">years</span></div>
+  <a class="home-everything" href="/wander">Everything, in a hundred words</a>
+</div>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
   <nav>
