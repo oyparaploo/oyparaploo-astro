@@ -1,7 +1,7 @@
 // Builds public/everything.html: a live-counted index of every entrance into the site.
 // Counts pictures, writings and galleries by walking the public/ folder directly —
 // it does not trust the (sometimes stale) numbers printed on other pages.
-import { readdirSync, statSync, readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, statSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -55,37 +55,82 @@ const totalGalleries = allFiles.filter((f) => {
 
 // ---- Per-entry counts ----
 
-// Gallery pages link to their contents by href, and those hrefs don't always live
-// at the nested filesystem path their href implies (e.g. a group page under
+// A row's count is every numbered picture page anywhere under its address,
+// however many folders deep. Galleries don't always store their pictures at
+// the nested filesystem path their href implies (e.g. a group page under
 // /marks/fast-thin-dues/ can link out to a sub-gallery physically stored at
-// /marks/<slug>/). So counting pictures means following the real link graph,
-// not walking directories.
-function resolveHrefToFile(href) {
+// /marks/<slug>/, and some pages point back at pictures held by their own
+// parent folder), so counting means following the real link graph AND, for
+// any subfolder a page's links don't mention, falling back to what's
+// physically on disk there — so no picture page is missed just because
+// nothing links to the folder holding it.
+function resolveHrefToPath(href) {
   let p = href.replace(/^\//, '');
-  if (p === 'loves') p = 'loves.html';
-  else if (p.endsWith('/')) p = p + 'index.html';
-  else if (!p.endsWith('.html')) p = p + '.html';
-  const full = join(publicDir, p);
+  if (!p.endsWith('/') && !p.endsWith('.html')) p = p + '.html';
+  const full = join(publicDir, p).replace(/[\\/]+$/, '');
   try {
-    if (statSync(full).isFile()) return full;
-  } catch {}
-  return null;
+    statSync(full);
+    return full;
+  } catch {
+    return null;
+  }
 }
 
-function countPicturesFollowingLinks(href, visited = new Set()) {
-  if (visited.has(href)) return 0;
-  visited.add(href);
-  const file = resolveHrefToFile(href);
-  if (!file) return 0;
-  if (PICTURE_RE.test(basename(file))) return 1;
-  const content = readFileSync(file, 'utf8');
-  if (content.includes('class="gallery-grid"')) {
-    const hrefs = [...content.matchAll(/class="gallery-item"[^>]*href="([^"]+)"/g)].map(
-      (m) => m[1]
-    );
-    return hrefs.reduce((sum, h) => sum + countPicturesFollowingLinks(h, visited), 0);
+function countGeneric(target, visited) {
+  if (!target || visited.has(target)) return 0;
+  const stat = statSync(target);
+  if (stat.isDirectory()) return countDir(target, visited);
+  visited.add(target);
+  if (PICTURE_RE.test(basename(target))) return 1;
+  const content = readFileSync(target, 'utf8');
+  if (!content.includes('class="gallery-grid"')) return 0;
+  const hrefs = [...content.matchAll(/class="gallery-item"[^>]*href="([^"]+)"/g)].map(
+    (m) => m[1]
+  );
+  return hrefs.reduce((sum, h) => sum + countGeneric(resolveHrefToPath(h), visited), 0);
+}
+
+function countDir(dirPath, visited) {
+  if (visited.has(dirPath)) return 0;
+  visited.add(dirPath);
+  let total = 0;
+  const linkedNames = new Set();
+  const indexPath = join(dirPath, 'index.html');
+  if (existsSync(indexPath)) {
+    const content = readFileSync(indexPath, 'utf8');
+    if (content.includes('class="gallery-grid"')) {
+      const hrefs = [...content.matchAll(/class="gallery-item"[^>]*href="([^"]+)"/g)].map(
+        (m) => m[1]
+      );
+      for (const href of hrefs) {
+        const target = resolveHrefToPath(href);
+        if (!target) continue;
+        total += countGeneric(target, visited);
+        if (dirname(target) === dirPath) linkedNames.add(basename(target));
+      }
+    }
   }
-  return (content.match(/<img\b/g) || []).length;
+  for (const entry of readdirSync(dirPath)) {
+    if (entry === 'index.html' || linkedNames.has(entry)) continue;
+    const full = join(dirPath, entry);
+    const stat = statSync(full);
+    if (stat.isDirectory()) {
+      total += countDir(full, visited);
+    } else if (PICTURE_RE.test(entry) && !visited.has(full)) {
+      visited.add(full);
+      total += 1;
+    }
+  }
+  return total;
+}
+
+// Returns null (leave the count off) when an address has no picture pages
+// under it at all, rather than reporting a bare 0.
+function countPicturesUnder(href) {
+  const target = resolveHrefToPath(href);
+  if (!target) return null;
+  const count = countGeneric(target, new Set());
+  return count > 0 ? count : null;
 }
 
 // standing rule (2026-09-25): every list on the site runs newest first.
@@ -105,8 +150,14 @@ const WORDS_DOORS = [
 ];
 
 const MARKS_ENTRIES = [
+  // Every tile on marks.html's gallery grid, in the order it shows them.
   { name: 'Fast Thin Dues', href: '/marks/fast-thin-dues/' },
+  { name: 'Gog Guldah Variations', href: '/marks/gog-guldah-variations/' },
+  { name: 'Most Recent', href: '/marks/most-recent/' },
+  { name: 'Newest Patterns', href: '/marks/newest-patterns/' },
+  { name: 'Pages for Baby Divine', href: '/marks/pages-for-baby-divine/' },
   { name: 'Smooth Beh Laye', href: '/marks/smooth-beh-laye/' },
+  // The six wing rows.
   { name: 'Hand Writings', href: '/words/hand-writings/' },
   { name: 'Logotypes', href: '/logotypes/' },
   { name: 'Sumi', href: '/sumi.html' },
@@ -151,7 +202,7 @@ function wordsRow(entry) {
           <span class="writings-row-years">${entry.years}</span>
           <span class="writings-row-name">${entry.name}</span>
         </span>
-        <span class="writings-row-count">${count} writings</span>
+        <span class="writings-row-count">${count.toLocaleString('en-US')} writings</span>
       </a>
     </li>`;
 }
@@ -165,20 +216,21 @@ function doorRow(entry) {
 }
 
 function pictureRow(entry) {
-  const count = countPicturesFollowingLinks(entry.href);
+  const count = countPicturesUnder(entry.href);
+  if (count === null) return doorRow(entry);
   return `    <li>
       <a class="writings-row" href="${entry.href}">
         <span class="writings-row-left">
           <span class="writings-row-name">${entry.name}</span>
         </span>
-        <span class="writings-row-count">${count} pictures</span>
+        <span class="writings-row-count">${count.toLocaleString('en-US')} pictures</span>
       </a>
     </li>`;
 }
 
 function block(title, sectionHref, count, countLabel, rowsHtml) {
   return `  <div class="everything-block">
-    <h2 class="everything-block-heading"><a href="${sectionHref}">${title}</a> <span class="everything-block-count">${count} ${countLabel}</span></h2>
+    <h2 class="everything-block-heading"><a href="${sectionHref}">${title}</a> <span class="everything-block-count">${count.toLocaleString('en-US')} ${countLabel}</span></h2>
     <ul class="writings-rows">
 ${rowsHtml}
     </ul>
@@ -186,10 +238,10 @@ ${rowsHtml}
 }
 
 const wordsWritingsTotal = WORDS_ENTRIES.reduce((sum, e) => sum + countWritings(e.group), 0);
-const marksPicturesTotal = MARKS_ENTRIES.reduce((sum, e) => sum + countPicturesFollowingLinks(e.href), 0);
-const physicalPicturesTotal = PHYSICAL_ENTRIES.reduce((sum, e) => sum + countPicturesFollowingLinks(e.href), 0);
-const screenPicturesTotal = SCREEN_ENTRIES.reduce((sum, e) => sum + countPicturesFollowingLinks(e.href), 0);
-const mapsPicturesTotal = MAPS_ENTRIES.reduce((sum, e) => sum + countPicturesFollowingLinks(e.href), 0);
+const marksPicturesTotal = MARKS_ENTRIES.reduce((sum, e) => sum + (countPicturesUnder(e.href) || 0), 0);
+const physicalPicturesTotal = PHYSICAL_ENTRIES.reduce((sum, e) => sum + (countPicturesUnder(e.href) || 0), 0);
+const screenPicturesTotal = SCREEN_ENTRIES.reduce((sum, e) => sum + (countPicturesUnder(e.href) || 0), 0);
+const mapsPicturesTotal = MAPS_ENTRIES.reduce((sum, e) => sum + (countPicturesUnder(e.href) || 0), 0);
 
 const wordsRows = [...WORDS_ENTRIES.map(wordsRow), ...WORDS_DOORS.map(doorRow)].join('\n');
 const marksRows = MARKS_ENTRIES.map(pictureRow).join('\n');
