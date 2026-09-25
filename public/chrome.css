@@ -502,3 +502,52 @@ html[data-theme="dark"] .theme-dot {
     color: rgba(232, 224, 214, 0.6);
   }
 }
+
+/* ==========================================================================
+   Header return: the header pins to the top and slides in when the
+   visitor scrolls up, after having scrolled past it. The theme strip is
+   not part of this and stays unpinned.
+   ========================================================================== */
+
+.site-header-spacer {
+  height: 0;
+}
+
+.site-header.is-pinned {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transform: translateY(0);
+  transition: transform 200ms ease;
+  box-shadow: none;
+}
+
+.site-header.is-pinned.is-hidden {
+  transform: translateY(-100%);
+}
+
+.site-header.is-pinned {
+  background: #fff;
+}
+
+.site-header.dark.is-pinned {
+  background: #0d0907;
+}
+
+html[data-theme="dark"] .site-header.is-pinned {
+  background: #0d0907;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .site-header.is-pinned {
+    background: #0d0907;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.is-pinned {
+    transition: none;
+  }
+}
