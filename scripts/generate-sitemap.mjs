@@ -37,6 +37,8 @@ for (const file of walk(publicDir)) {
   if (basename(file) === 'index.html') {
     const dir = relPath === 'index.html' ? '' : relPath.slice(0, -'index.html'.length);
     urls.add(`/${dir}`);
+  } else if (relPath === 'loves.html') {
+    urls.add('/loves');
   } else {
     urls.add(`/${relPath}`);
   }
