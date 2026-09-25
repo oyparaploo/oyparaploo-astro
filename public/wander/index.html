@@ -179,7 +179,7 @@
         var doc = new DOMParser().parseFromString(html, 'text/html');
         var main = doc.querySelector('main.core-main');
         if (!main) return;
-        var paras = main.querySelectorAll('p:not(.core-locked)');
+        var paras = main.querySelectorAll('p:not(.core-locked):not(.core-foot-label)');
         paras.forEach(function(p) {
           var clone = document.createElement('p');
           clone.innerHTML = p.innerHTML;
@@ -196,6 +196,7 @@
     renderWritingFallback(writing);
     loadWriting(writing);
     renderPicture(pic);
+    window.scrollTo(0, 0);
   }
 
   anotherBtn.addEventListener('click', another);
