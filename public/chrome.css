@@ -526,6 +526,113 @@ html[data-theme="dark"] .theme-dot {
 }
 
 /* ==========================================================================
+   Light mode
+   html[data-theme="light"]  -> forced light
+   no attribute + light device -> Auto, follows prefers-color-scheme
+   These override the fixed-dark inline styles that the gallery grids
+   (physical.html, marks.html, digital.html, mind-mapping/index.html) and
+   every gallery folder page beneath them carry in their own <style>
+   block, plus the .site-header.dark variant those pages use. Individual
+   picture pages (works.css .work-body) are already light by default and
+   need no rules here. Specificity (html[data-theme] ancestor) is needed
+   to beat the pages' own same-specificity inline body {} / .gallery-*
+   rules, matching how the Dark section above beats them the other way.
+   ========================================================================== */
+
+html[data-theme="light"] body {
+  background: #fff;
+  color: #111;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body {
+    background: #fff;
+    color: #111;
+  }
+}
+
+/* Header: dark-header pages take the light header's look in Light. */
+html[data-theme="light"] .site-header.dark {
+  background: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+}
+html[data-theme="light"] .site-header.dark nav a {
+  color: #333;
+}
+html[data-theme="light"] .site-header.dark nav a.current {
+  color: #111;
+}
+html[data-theme="light"] .site-header.dark .wordmark {
+  color: #111;
+}
+html[data-theme="light"] .site-header.dark.is-pinned {
+  background: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .site-header.dark {
+    background: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+  html:not([data-theme="dark"]) .site-header.dark nav a {
+    color: #333;
+  }
+  html:not([data-theme="dark"]) .site-header.dark nav a.current {
+    color: #111;
+  }
+  html:not([data-theme="dark"]) .site-header.dark .wordmark {
+    color: #111;
+  }
+  html:not([data-theme="dark"]) .site-header.dark.is-pinned {
+    background: #fff;
+  }
+}
+
+/* Gallery grid captions ("47 pictures →" grids' .gallery-caption is the
+   primary reading type), gallery-folder descriptive copy (.gallery-words)
+   and catalogue numbers (.gallery-tile-catnum), and the shared count line
+   (.gallery-door-count, chrome.css above). */
+html[data-theme="light"] .gallery-caption,
+html[data-theme="light"] .gallery-title-block h1 {
+  color: #111;
+}
+html[data-theme="light"] .gallery-words,
+html[data-theme="light"] .gallery-tile-catnum,
+html[data-theme="light"] .gallery-door-count {
+  color: #666;
+}
+html[data-theme="light"] .gallery-item:hover .gallery-door-count {
+  color: #111;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .gallery-caption,
+  html:not([data-theme="dark"]) .gallery-title-block h1 {
+    color: #111;
+  }
+  html:not([data-theme="dark"]) .gallery-words,
+  html:not([data-theme="dark"]) .gallery-tile-catnum,
+  html:not([data-theme="dark"]) .gallery-door-count {
+    color: #666;
+  }
+  html:not([data-theme="dark"]) .gallery-item:hover .gallery-door-count {
+    color: #111;
+  }
+}
+
+/* marks.html's "Also by hand" / "Inspirations" / "Experiences" lines
+   below its gallery grid carry their color as an inline style attribute
+   (no class to hook), so beating it in Light needs !important. */
+html[data-theme="light"] .gallery-grid ~ p[style] {
+  color: #333 !important;
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .gallery-grid ~ p[style] {
+    color: #333 !important;
+  }
+}
+
+/* ==========================================================================
    Header return: the header pins to the top and slides in when the
    visitor scrolls up, after having scrolled past it. The theme strip is
    not part of this and stays unpinned.
