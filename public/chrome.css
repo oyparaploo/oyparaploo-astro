@@ -180,3 +180,321 @@
     padding: 32px 20px;
   }
 }
+
+/* ==========================================================================
+   Theme strip: a thin bar above the header with the date and the
+   Light / Dark / Auto choice. Scrolls away with the page (not pinned).
+   ========================================================================== */
+
+.theme-strip {
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+}
+
+.theme-strip .theme-date-short {
+  display: none;
+}
+
+.theme-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.theme-choice {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #999;
+  cursor: pointer;
+}
+
+.theme-choice:hover {
+  opacity: 0.7;
+}
+
+.theme-choice[data-active="true"] {
+  color: #333;
+}
+
+.theme-dot {
+  color: #999;
+}
+
+@media (max-width: 800px) {
+  .theme-strip {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .theme-strip .theme-date-full {
+    display: none;
+  }
+
+  .theme-strip .theme-date-short {
+    display: inline;
+  }
+}
+
+/* ==========================================================================
+   Dark mode
+   html[data-theme="dark"]  -> forced dark
+   html[data-theme="light"] -> forced light (no rules needed; site default)
+   no attribute             -> Auto, follows prefers-color-scheme
+   Colors are the ones the site's existing dark pages already use:
+   ground #0d0907, reading/caption type rgba(232,224,214,.9), small grey
+   type rgba(232,224,214,.6), faint white hairline rgba(255,255,255,.18).
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body,
+  html:not([data-theme="light"]) .work-body {
+    background: #0d0907;
+    color: rgba(232, 224, 214, 0.9);
+  }
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .work-body {
+  background: #0d0907;
+  color: rgba(232, 224, 214, 0.9);
+}
+
+/* Header: light-header pages take the dark header's look. Pages already
+   using .site-header.dark are unaffected (rule below matches either). */
+html[data-theme="dark"] .site-header {
+  background: transparent;
+  color: rgba(232, 224, 214, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+html[data-theme="dark"] .site-header nav a {
+  color: rgba(232, 224, 214, 0.68);
+}
+html[data-theme="dark"] .site-header nav a.current {
+  color: rgba(232, 224, 214, 0.95);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .site-header {
+    background: transparent;
+    color: rgba(232, 224, 214, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.18);
+  }
+  html:not([data-theme="light"]) .site-header nav a {
+    color: rgba(232, 224, 214, 0.68);
+  }
+  html:not([data-theme="light"]) .site-header nav a.current {
+    color: rgba(232, 224, 214, 0.95);
+  }
+}
+
+/* CSS-variable based pages (writings.html and anything else that reads
+   --white / --text from HISTORY-ASSEMBLED/history.css). */
+html[data-theme="dark"] {
+  --white: #0d0907;
+  --text: #e8e0d6;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --white: #0d0907;
+    --text: #e8e0d6;
+  }
+}
+
+/* Front door (public/index.html): cream ground + dark ink swap to the
+   same near-black / off-white as everywhere else. The blue-to-sage rule
+   under the header (.home-rule) is untouched. */
+html[data-theme="dark"] .home-heading,
+html[data-theme="dark"] .home-title,
+html[data-theme="dark"] .home-everything {
+  color: rgba(232, 224, 214, 0.95);
+}
+html[data-theme="dark"] .home-eyebrow,
+html[data-theme="dark"] .home-readon a {
+  color: rgba(232, 224, 214, 0.6);
+}
+html[data-theme="dark"] .home-readon a:hover,
+html[data-theme="dark"] .home-title a:hover,
+html[data-theme="dark"] .home-everything:hover {
+  color: rgba(232, 224, 214, 0.95);
+}
+html[data-theme="dark"] .home-passage p,
+html[data-theme="dark"] .home-overture {
+  color: rgba(232, 224, 214, 0.82);
+}
+html[data-theme="dark"] .home-passage,
+html[data-theme="dark"] .home-passage:first-of-type {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .home-heading,
+  html:not([data-theme="light"]) .home-title,
+  html:not([data-theme="light"]) .home-everything {
+    color: rgba(232, 224, 214, 0.95);
+  }
+  html:not([data-theme="light"]) .home-eyebrow,
+  html:not([data-theme="light"]) .home-readon a {
+    color: rgba(232, 224, 214, 0.6);
+  }
+  html:not([data-theme="light"]) .home-readon a:hover,
+  html:not([data-theme="light"]) .home-title a:hover,
+  html:not([data-theme="light"]) .home-everything:hover {
+    color: rgba(232, 224, 214, 0.95);
+  }
+  html:not([data-theme="light"]) .home-passage p,
+  html:not([data-theme="light"]) .home-overture {
+    color: rgba(232, 224, 214, 0.82);
+  }
+  html:not([data-theme="light"]) .home-passage,
+  html:not([data-theme="light"]) .home-passage:first-of-type {
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* Individual picture pages (works.css .work-body family) and similar
+   light-shell pages (e.g. public/wander): secondary text, hairlines and
+   swapped-color buttons. */
+html[data-theme="dark"] .work-credit,
+html[data-theme="dark"] .work-nav-arrow,
+html[data-theme="dark"] .work-nav-count,
+html[data-theme="dark"] .work-fact-label,
+html[data-theme="dark"] .work-row-label,
+html[data-theme="dark"] .work-tile-catnum,
+html[data-theme="dark"] .wander-caption,
+html[data-theme="dark"] .wander-links a {
+  color: rgba(232, 224, 214, 0.6);
+}
+html[data-theme="dark"] .work-fact-value,
+html[data-theme="dark"] .work-tile-caption,
+html[data-theme="dark"] .wander-title,
+html[data-theme="dark"] .wander-body p {
+  color: rgba(232, 224, 214, 0.9);
+}
+html[data-theme="dark"] .work-nav-arrow:hover,
+html[data-theme="dark"] .work-nav-arrow:focus-visible {
+  color: rgba(232, 224, 214, 0.95);
+  outline-color: rgba(232, 224, 214, 0.95);
+}
+html[data-theme="dark"] .work-row {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+html[data-theme="dark"] .work-row-hairline-track {
+  background: rgba(255, 255, 255, 0.18);
+}
+html[data-theme="dark"] .work-row-hairline-thumb {
+  background: rgba(232, 224, 214, 0.6);
+}
+html[data-theme="dark"] .work-row-hairline-thumb:hover,
+html[data-theme="dark"] .work-row-hairline.wrh-dragging .work-row-hairline-thumb {
+  background: rgba(232, 224, 214, 0.9);
+}
+html[data-theme="dark"] .work-fullscreen-link {
+  background: #0d0907;
+  color: rgba(232, 224, 214, 0.9);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+html[data-theme="dark"] .work-fullscreen-link:hover,
+html[data-theme="dark"] .work-fullscreen-link:focus-visible {
+  background: #e8e0d6;
+  color: #0d0907;
+}
+html[data-theme="dark"] .wander-another {
+  background: #e8e0d6;
+  color: #0d0907;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-credit,
+  html:not([data-theme="light"]) .work-nav-arrow,
+  html:not([data-theme="light"]) .work-nav-count,
+  html:not([data-theme="light"]) .work-fact-label,
+  html:not([data-theme="light"]) .work-row-label,
+  html:not([data-theme="light"]) .work-tile-catnum,
+  html:not([data-theme="light"]) .wander-caption,
+  html:not([data-theme="light"]) .wander-links a {
+    color: rgba(232, 224, 214, 0.6);
+  }
+  html:not([data-theme="light"]) .work-fact-value,
+  html:not([data-theme="light"]) .work-tile-caption,
+  html:not([data-theme="light"]) .wander-title,
+  html:not([data-theme="light"]) .wander-body p {
+    color: rgba(232, 224, 214, 0.9);
+  }
+  html:not([data-theme="light"]) .work-nav-arrow:hover,
+  html:not([data-theme="light"]) .work-nav-arrow:focus-visible {
+    color: rgba(232, 224, 214, 0.95);
+    outline-color: rgba(232, 224, 214, 0.95);
+  }
+  html:not([data-theme="light"]) .work-row {
+    border-top-color: rgba(255, 255, 255, 0.18);
+  }
+  html:not([data-theme="light"]) .work-row-hairline-track {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  html:not([data-theme="light"]) .work-row-hairline-thumb {
+    background: rgba(232, 224, 214, 0.6);
+  }
+  html:not([data-theme="light"]) .work-row-hairline-thumb:hover,
+  html:not([data-theme="light"]) .work-row-hairline.wrh-dragging .work-row-hairline-thumb {
+    background: rgba(232, 224, 214, 0.9);
+  }
+  html:not([data-theme="light"]) .work-fullscreen-link {
+    background: #0d0907;
+    color: rgba(232, 224, 214, 0.9);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+  html:not([data-theme="light"]) .work-fullscreen-link:hover,
+  html:not([data-theme="light"]) .work-fullscreen-link:focus-visible {
+    background: #e8e0d6;
+    color: #0d0907;
+  }
+  html:not([data-theme="light"]) .wander-another {
+    background: #e8e0d6;
+    color: #0d0907;
+  }
+}
+
+html[data-theme="dark"] .theme-strip {
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+  color: rgba(232, 224, 214, 0.6);
+}
+html[data-theme="dark"] .theme-choice {
+  color: rgba(232, 224, 214, 0.6);
+}
+html[data-theme="dark"] .theme-choice[data-active="true"] {
+  color: rgba(232, 224, 214, 0.95);
+}
+html[data-theme="dark"] .theme-dot {
+  color: rgba(232, 224, 214, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .theme-strip {
+    border-bottom-color: rgba(255, 255, 255, 0.18);
+    color: rgba(232, 224, 214, 0.6);
+  }
+  html:not([data-theme="light"]) .theme-choice {
+    color: rgba(232, 224, 214, 0.6);
+  }
+  html:not([data-theme="light"]) .theme-choice[data-active="true"] {
+    color: rgba(232, 224, 214, 0.95);
+  }
+  html:not([data-theme="light"]) .theme-dot {
+    color: rgba(232, 224, 214, 0.6);
+  }
+}
