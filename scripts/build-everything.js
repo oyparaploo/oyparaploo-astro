@@ -88,14 +88,15 @@ function countPicturesFollowingLinks(href, visited = new Set()) {
   return (content.match(/<img\b/g) || []).length;
 }
 
+// standing rule (2026-09-25): every list on the site runs newest first.
 const WORDS_ENTRIES = [
-  { years: '2021–25', name: 'Immediate Family', href: '/words/2021-25-immediate-family/', group: '2021-25-immediate-family' },
-  { years: '2022–23', name: 'Variety', href: '/words/2022-23-variety/', group: '2022-23-variety' },
-  { years: '2023–25', name: 'Phone Texts', href: '/words/2023-25-phone-texts/', group: '2023-25-phone-texts' },
-  { years: '2024', name: 'Variety', href: '/words/2024-variety/', group: '2024-variety' },
-  { years: '2025', name: 'Variety', href: '/words/2025-variety/', group: '2025-variety' },
   { years: '2026', name: 'Methodology', href: '/words/2026-methodology/', group: '2026-methodology' },
   { years: '2026', name: 'Variety', href: '/words/2026-variety/', group: '2026-variety' },
+  { years: '2025', name: 'Variety', href: '/words/2025-variety/', group: '2025-variety' },
+  { years: '2023–25', name: 'Phone Texts', href: '/words/2023-25-phone-texts/', group: '2023-25-phone-texts' },
+  { years: '2021–25', name: 'Immediate Family', href: '/words/2021-25-immediate-family/', group: '2021-25-immediate-family' },
+  { years: '2024', name: 'Variety', href: '/words/2024-variety/', group: '2024-variety' },
+  { years: '2022–23', name: 'Variety', href: '/words/2022-23-variety/', group: '2022-23-variety' },
 ];
 const WORDS_DOORS = [
   { name: 'The Book', href: '/the-book.html' },
