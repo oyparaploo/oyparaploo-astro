@@ -1,3 +1,29 @@
+:root {
+  --ink: #111;
+  --ink-soft: #555;
+  --ink-faint: #666;
+  --accent: #8a5a24;
+  --ground: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --ink: #e8e0d6;
+    --ink-soft: #b3aa9f;
+    --ink-faint: #8f877d;
+    --accent: #d4a574;
+    --ground: #0d0907;
+  }
+}
+
+html[data-theme="dark"] {
+  --ink: #e8e0d6;
+  --ink-soft: #b3aa9f;
+  --ink-faint: #8f877d;
+  --accent: #d4a574;
+  --ground: #0d0907;
+}
+
 .site-header {
   width: 100%;
   padding: 20px 32px;
@@ -6,7 +32,7 @@
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   background: #fff;
-  color: #111;
+  color: var(--ink);
 }
 
 .site-header a {
@@ -39,7 +65,7 @@
   font-size: 20px;
   letter-spacing: 0.02em;
   text-decoration: none;
-  color: #333;
+  color: var(--ink-soft);
 }
 
 .site-header nav a:hover {
@@ -47,7 +73,7 @@
 }
 
 .site-header nav a.current {
-  color: #111;
+  color: var(--ink);
 }
 
 .site-header.dark {
@@ -75,7 +101,7 @@
 .gallery-door-count {
   margin: 4px 2px 0;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.35;
   color: rgba(232, 224, 214, 0.72);
   text-decoration: none;
@@ -126,12 +152,12 @@
 }
 
 .site-footer nav a {
-  font-size: 15px;
+  font-size: 16px;
   color: #999;
 }
 
 .site-footer p.footer-contact {
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
   margin: 0 0 16px;
 }
@@ -147,7 +173,7 @@
 }
 
 .site-footer p:last-child {
-  font-size: 13px;
+  font-size: 16px;
   color: #999;
   margin: 0;
 }
@@ -155,7 +181,7 @@
 .gallery-eyebrow {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   opacity: 0.6;
@@ -174,7 +200,7 @@
 .gallery-door-count {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.03em;
   opacity: 0.6;
   margin: 4px 0 0;
@@ -222,8 +248,8 @@
   padding: 0 32px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #666;
+  font-size: 16px;
+  color: var(--ink-faint);
 }
 
 .theme-strip .theme-date-short {
@@ -244,7 +270,7 @@
   padding: 0;
   margin: 0;
   font: inherit;
-  color: #666;
+  color: var(--ink-faint);
   cursor: pointer;
 }
 
@@ -253,11 +279,11 @@
 }
 
 .theme-choice[data-active="true"] {
-  color: #333;
+  color: var(--ink-soft);
 }
 
 .theme-dot {
-  color: #666;
+  color: var(--ink-faint);
 }
 
 @media (max-width: 800px) {
@@ -289,55 +315,55 @@
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) body,
   html:not([data-theme="light"]) .work-body {
-    background: #0d0907;
-    color: rgba(232, 224, 214, 0.9);
+    background: var(--ground);
+    color: var(--ink);
   }
 }
 
 html[data-theme="dark"] body,
 html[data-theme="dark"] .work-body {
-  background: #0d0907;
-  color: rgba(232, 224, 214, 0.9);
+  background: var(--ground);
+  color: var(--ink);
 }
 
 /* Header: light-header pages take the dark header's look. Pages already
    using .site-header.dark are unaffected (rule below matches either). */
 html[data-theme="dark"] .site-header {
   background: transparent;
-  color: rgba(232, 224, 214, 0.9);
+  color: var(--ink);
   border-bottom-color: rgba(255, 255, 255, 0.18);
 }
 html[data-theme="dark"] .site-header nav a {
-  color: rgba(232, 224, 214, 0.68);
+  color: var(--ink-soft);
 }
 html[data-theme="dark"] .site-header nav a.current {
-  color: rgba(232, 224, 214, 0.95);
+  color: var(--ink);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .site-header {
     background: transparent;
-    color: rgba(232, 224, 214, 0.9);
+    color: var(--ink);
     border-bottom-color: rgba(255, 255, 255, 0.18);
   }
   html:not([data-theme="light"]) .site-header nav a {
-    color: rgba(232, 224, 214, 0.68);
+    color: var(--ink-soft);
   }
   html:not([data-theme="light"]) .site-header nav a.current {
-    color: rgba(232, 224, 214, 0.95);
+    color: var(--ink);
   }
 }
 
 /* CSS-variable based pages (writings.html and anything else that reads
    --white / --text from HISTORY-ASSEMBLED/history.css). */
 html[data-theme="dark"] {
-  --white: #0d0907;
-  --text: #e8e0d6;
+  --white: var(--ground);
+  --text: var(--ink);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
-    --white: #0d0907;
-    --text: #e8e0d6;
+    --white: var(--ground);
+    --text: var(--ink);
   }
 }
 
@@ -347,20 +373,20 @@ html[data-theme="dark"] {
 html[data-theme="dark"] .home-heading,
 html[data-theme="dark"] .home-title,
 html[data-theme="dark"] .home-everything {
-  color: rgba(232, 224, 214, 0.95);
+  color: var(--ink);
 }
 html[data-theme="dark"] .home-eyebrow,
 html[data-theme="dark"] .home-readon a {
-  color: rgba(232, 224, 214, 0.6);
+  color: var(--ink-soft);
 }
 html[data-theme="dark"] .home-readon a:hover,
 html[data-theme="dark"] .home-title a:hover,
 html[data-theme="dark"] .home-everything:hover {
-  color: rgba(232, 224, 214, 0.95);
+  color: var(--ink);
 }
 html[data-theme="dark"] .home-passage p,
 html[data-theme="dark"] .home-overture {
-  color: rgba(232, 224, 214, 0.82);
+  color: var(--ink);
 }
 html[data-theme="dark"] .home-passage,
 html[data-theme="dark"] .home-passage:first-of-type {
@@ -371,20 +397,20 @@ html[data-theme="dark"] .home-passage:first-of-type {
   html:not([data-theme="light"]) .home-heading,
   html:not([data-theme="light"]) .home-title,
   html:not([data-theme="light"]) .home-everything {
-    color: rgba(232, 224, 214, 0.95);
+    color: var(--ink);
   }
   html:not([data-theme="light"]) .home-eyebrow,
   html:not([data-theme="light"]) .home-readon a {
-    color: rgba(232, 224, 214, 0.6);
+    color: var(--ink-soft);
   }
   html:not([data-theme="light"]) .home-readon a:hover,
   html:not([data-theme="light"]) .home-title a:hover,
   html:not([data-theme="light"]) .home-everything:hover {
-    color: rgba(232, 224, 214, 0.95);
+    color: var(--ink);
   }
   html:not([data-theme="light"]) .home-passage p,
   html:not([data-theme="light"]) .home-overture {
-    color: rgba(232, 224, 214, 0.82);
+    color: var(--ink);
   }
   html:not([data-theme="light"]) .home-passage,
   html:not([data-theme="light"]) .home-passage:first-of-type {
@@ -403,17 +429,17 @@ html[data-theme="dark"] .work-row-label,
 html[data-theme="dark"] .work-tile-catnum,
 html[data-theme="dark"] .wander-caption,
 html[data-theme="dark"] .wander-links a {
-  color: rgba(232, 224, 214, 0.6);
+  color: var(--ink-soft);
 }
 html[data-theme="dark"] .work-fact-value,
 html[data-theme="dark"] .work-tile-caption,
 html[data-theme="dark"] .wander-title,
 html[data-theme="dark"] .wander-body p {
-  color: rgba(232, 224, 214, 0.9);
+  color: var(--ink);
 }
 html[data-theme="dark"] .work-nav-arrow:hover,
 html[data-theme="dark"] .work-nav-arrow:focus-visible {
-  color: rgba(232, 224, 214, 0.95);
+  color: var(--ink);
   outline-color: rgba(232, 224, 214, 0.95);
 }
 html[data-theme="dark"] .work-row {
@@ -430,8 +456,8 @@ html[data-theme="dark"] .work-row-hairline.wrh-dragging .work-row-hairline-thumb
   background: rgba(232, 224, 214, 0.9);
 }
 html[data-theme="dark"] .work-fullscreen-link {
-  background: #0d0907;
-  color: rgba(232, 224, 214, 0.9);
+  background: var(--ground);
+  color: var(--ink);
   border-color: rgba(255, 255, 255, 0.18);
 }
 html[data-theme="dark"] .work-fullscreen-link:hover,
@@ -453,17 +479,17 @@ html[data-theme="dark"] .wander-another {
   html:not([data-theme="light"]) .work-tile-catnum,
   html:not([data-theme="light"]) .wander-caption,
   html:not([data-theme="light"]) .wander-links a {
-    color: rgba(232, 224, 214, 0.6);
+    color: var(--ink-soft);
   }
   html:not([data-theme="light"]) .work-fact-value,
   html:not([data-theme="light"]) .work-tile-caption,
   html:not([data-theme="light"]) .wander-title,
   html:not([data-theme="light"]) .wander-body p {
-    color: rgba(232, 224, 214, 0.9);
+    color: var(--ink);
   }
   html:not([data-theme="light"]) .work-nav-arrow:hover,
   html:not([data-theme="light"]) .work-nav-arrow:focus-visible {
-    color: rgba(232, 224, 214, 0.95);
+    color: var(--ink);
     outline-color: rgba(232, 224, 214, 0.95);
   }
   html:not([data-theme="light"]) .work-row {
@@ -480,8 +506,8 @@ html[data-theme="dark"] .wander-another {
     background: rgba(232, 224, 214, 0.9);
   }
   html:not([data-theme="light"]) .work-fullscreen-link {
-    background: #0d0907;
-    color: rgba(232, 224, 214, 0.9);
+    background: var(--ground);
+    color: var(--ink);
     border-color: rgba(255, 255, 255, 0.18);
   }
   html:not([data-theme="light"]) .work-fullscreen-link:hover,
@@ -497,31 +523,31 @@ html[data-theme="dark"] .wander-another {
 
 html[data-theme="dark"] .theme-strip {
   border-bottom-color: rgba(255, 255, 255, 0.18);
-  color: rgba(232, 224, 214, 0.72);
+  color: var(--ink-faint);
 }
 html[data-theme="dark"] .theme-choice {
-  color: rgba(232, 224, 214, 0.72);
+  color: var(--ink-faint);
 }
 html[data-theme="dark"] .theme-choice[data-active="true"] {
-  color: rgba(232, 224, 214, 0.95);
+  color: var(--ink);
 }
 html[data-theme="dark"] .theme-dot {
-  color: rgba(232, 224, 214, 0.72);
+  color: var(--ink-faint);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .theme-strip {
     border-bottom-color: rgba(255, 255, 255, 0.18);
-    color: rgba(232, 224, 214, 0.72);
+    color: var(--ink-faint);
   }
   html:not([data-theme="light"]) .theme-choice {
-    color: rgba(232, 224, 214, 0.72);
+    color: var(--ink-faint);
   }
   html:not([data-theme="light"]) .theme-choice[data-active="true"] {
-    color: rgba(232, 224, 214, 0.95);
+    color: var(--ink);
   }
   html:not([data-theme="light"]) .theme-dot {
-    color: rgba(232, 224, 214, 0.72);
+    color: var(--ink-faint);
   }
 }
 
@@ -540,14 +566,14 @@ html[data-theme="dark"] .theme-dot {
    ========================================================================== */
 
 html[data-theme="light"] body {
-  background: #fff;
-  color: #111;
+  background: var(--ground);
+  color: var(--ink);
 }
 
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) body {
-    background: #fff;
-    color: #111;
+    background: var(--ground);
+    color: var(--ink);
   }
 }
 
@@ -557,16 +583,16 @@ html[data-theme="light"] .site-header.dark {
   border-bottom-color: rgba(0, 0, 0, 0.12);
 }
 html[data-theme="light"] .site-header.dark nav a {
-  color: #333;
+  color: var(--ink-soft);
 }
 html[data-theme="light"] .site-header.dark nav a.current {
-  color: #111;
+  color: var(--ink);
 }
 html[data-theme="light"] .site-header.dark .wordmark {
-  color: #111;
+  color: var(--ink);
 }
 html[data-theme="light"] .site-header.dark.is-pinned {
-  background: #fff;
+  background: var(--ground);
 }
 
 @media (prefers-color-scheme: light) {
@@ -575,16 +601,16 @@ html[data-theme="light"] .site-header.dark.is-pinned {
     border-bottom-color: rgba(0, 0, 0, 0.12);
   }
   html:not([data-theme="dark"]) .site-header.dark nav a {
-    color: #333;
+    color: var(--ink-soft);
   }
   html:not([data-theme="dark"]) .site-header.dark nav a.current {
-    color: #111;
+    color: var(--ink);
   }
   html:not([data-theme="dark"]) .site-header.dark .wordmark {
-    color: #111;
+    color: var(--ink);
   }
   html:not([data-theme="dark"]) .site-header.dark.is-pinned {
-    background: #fff;
+    background: var(--ground);
   }
 }
 
@@ -594,31 +620,31 @@ html[data-theme="light"] .site-header.dark.is-pinned {
    (.gallery-door-count, chrome.css above). */
 html[data-theme="light"] .gallery-caption,
 html[data-theme="light"] .gallery-title-block h1 {
-  color: #111;
+  color: var(--ink);
 }
 html[data-theme="light"] .gallery-words,
 html[data-theme="light"] .gallery-tile-catnum,
 html[data-theme="light"] .gallery-door-count,
 html[data-theme="light"] .section-heading {
-  color: #666;
+  color: var(--ink-faint);
 }
 html[data-theme="light"] .gallery-item:hover .gallery-door-count {
-  color: #111;
+  color: var(--ink);
 }
 
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) .gallery-caption,
   html:not([data-theme="dark"]) .gallery-title-block h1 {
-    color: #111;
+    color: var(--ink);
   }
   html:not([data-theme="dark"]) .gallery-words,
   html:not([data-theme="dark"]) .gallery-tile-catnum,
   html:not([data-theme="dark"]) .gallery-door-count,
   html:not([data-theme="dark"]) .section-heading {
-    color: #666;
+    color: var(--ink-faint);
   }
   html:not([data-theme="dark"]) .gallery-item:hover .gallery-door-count {
-    color: #111;
+    color: var(--ink);
   }
 }
 
@@ -626,11 +652,11 @@ html[data-theme="light"] .gallery-item:hover .gallery-door-count {
    below its gallery grid carry their color as an inline style attribute
    (no class to hook), so beating it in Light needs !important. */
 html[data-theme="light"] .gallery-grid ~ p[style] {
-  color: #333 !important;
+  color: var(--ink-soft) !important;
 }
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) .gallery-grid ~ p[style] {
-    color: #333 !important;
+    color: var(--ink-soft) !important;
   }
 }
 
@@ -660,7 +686,7 @@ html[data-theme="light"] .gallery-grid ~ p[style] {
 }
 
 .site-header.is-pinned {
-  background: #fff;
+  background: var(--ground);
 }
 
 .site-header.dark.is-pinned {
@@ -668,12 +694,12 @@ html[data-theme="light"] .gallery-grid ~ p[style] {
 }
 
 html[data-theme="dark"] .site-header.is-pinned {
-  background: #0d0907;
+  background: var(--ground);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .site-header.is-pinned {
-    background: #0d0907;
+    background: var(--ground);
   }
 }
 
