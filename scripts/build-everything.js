@@ -319,7 +319,7 @@ const html = `<!DOCTYPE html>
   .everything-block-count{
     font-family:'DM Sans',Arial,sans-serif;
     font-weight:400;
-    font-size:14px;
+    font-size:16px;
     color:color-mix(in srgb, var(--text) 65%, transparent);
   }
   .writings-rows{
@@ -353,7 +353,7 @@ const html = `<!DOCTYPE html>
     flex:0 0 auto;
     font-family:'DM Sans',Arial,sans-serif;
     font-weight:400;
-    font-size:14px;
+    font-size:16px;
     color:color-mix(in srgb, var(--text) 65%, transparent);
   }
   .writings-row-name{
@@ -366,7 +366,7 @@ const html = `<!DOCTYPE html>
     flex:0 0 auto;
     font-family:'DM Sans',Arial,sans-serif;
     font-weight:400;
-    font-size:14px;
+    font-size:16px;
     color:color-mix(in srgb, var(--text) 65%, transparent);
   }
   @media (hover:hover) and (min-width:701px){
