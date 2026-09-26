@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search · Otto Paraploo</title>
+<meta name="description" content="Search writings, galleries, and catalogue numbers. Otto Paraploo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260925-wordmark">
+<script src="/theme.js"></script>
+<style>
+  body{margin:0;background:var(--ground,#fff);color:var(--ink,#111);}
+  .search-wrap{max-width:640px;margin:0 auto;padding:64px 32px 96px;}
+  .search-h1{font-family:'Lora',serif;font-weight:600;font-size:56px;margin:0 0 28px;color:black;}
+  #search-box{width:100%;box-sizing:border-box;font-family:'Inter',sans-serif;font-size:20px;padding:14px 16px;border:1px solid black;border-radius:4px;background:white;color:black;}
+  .search-results{margin-top:32px;}
+  .search-row{display:block;padding:14px 0;border-bottom:1px solid saddlebrown;text-decoration:none;}
+  .search-row-title{display:block;font-family:'Lora',serif;font-size:20px;color:saddlebrown;}
+  .search-row-meta{display:block;font-family:'Inter',sans-serif;font-size:18px;margin-top:4px;color:black;}
+  .search-empty{font-family:'Inter',sans-serif;font-size:18px;color:black;margin-top:32px;}
+  .search-more{display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:18px;color:saddlebrown;text-decoration:underline;}
+  @media (max-width:800px){.search-h1{font-size:36px;}.search-wrap{padding:40px 20px 64px;}}
+  html[data-theme="dark"] body, @media (prefers-color-scheme: dark){html:not([data-theme="light"]) body{background:black;color:white;}}
+</style>
+</head>
+<body>
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/digital.html">Collage</a><a href="/musicology.html">Musicology</a><a href="/search.html" class="current">Search</a></nav></header>
+<div class="search-wrap">
+  <h1 class="search-h1">Search</h1>
+  <input id="search-box" type="text" autocomplete="off" placeholder="Search writings, galleries, and catalogue numbers">
+  <div id="search-results" class="search-results"></div>
+</div>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings.html">Writings</a>
+    <a href="/marks.html">Marks</a>
+    <a href="/digital.html">Collage</a>
+    <a href="/musicology.html">Musicology</a>
+    <a href="/search.html" class="current">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Otto Paraploo</p>
+</footer>
+<script>
+(function(){
+  var PAGE_SIZE = 20;
+  var shown = 0;
+  var idx = null;
+  var box = document.getElementById('search-box');
+  var out = document.getElementById('search-results');
+
+  function fold(s){
+    return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  }
+
+  function numberMatches(q){
+    var n = parseInt(q, 10);
+    if (isNaN(n)) return [];
+    var results = [];
+    for (var i=0;i<idx.ranges.length;i++){
+      var r = idx.ranges[i];
+      if (n >= r.s && n <= r.e){
+        var pos = String(n - r.s + r.sp).padStart(r.w, '0');
+        results.push({t: 'Catalogue ' + n, h: r.h + pos + '.html', k: 'Picture'});
+      }
+    }
+    for (var j=0;j<idx.explicit.length;j++){
+      if (idx.explicit[j].n === String(n)){
+        results.push({t: 'Catalogue ' + n, h: idx.explicit[j].h, k: 'Picture'});
+      }
+    }
+    return results;
+  }
+
+  function search(qRaw){
+    var q = fold(qRaw.trim());
+    if (q.length < 2) return [];
+    var isDigits = /^\d+$/.test(qRaw.trim());
+    var results = [];
+    if (isDigits){
+      results = results.concat(numberMatches(qRaw.trim()));
+    }
+    var w = idx.writings.filter(function(item){
+      return fold(item.t).indexOf(q) !== -1 || fold(item.d).indexOf(q) !== -1 || (item.a && fold(item.a).indexOf(q) !== -1);
+    });
+    var g = idx.galleries.filter(function(item){
+      return fold(item.t).indexOf(q) !== -1;
+    });
+    return results.concat(w).concat(g.map(function(item){ return {t:item.t,h:item.h,k:'Gallery'}; }));
+  }
+
+  function render(results, q){
+    if (!results.length){
+      out.innerHTML = '<p class="search-empty">Nothing found. Try another word, or a catalogue number.</p>';
+      return;
+    }
+    var slice = results.slice(0, shown);
+    var rows = slice.map(function(r){
+      var meta = r.k;
+      if (r.k === 'Song' && r.a) meta += ', ' + escapeHtml(r.a);
+      if ((r.k === 'Writing' || r.k === 'Song') && r.d) {
+        meta += ' &middot; ' + escapeHtml(r.d);
+      }
+      return '<a class="search-row" href="' + r.h + '"><span class="search-row-title">' + escapeHtml(r.t) + '</span><span class="search-row-meta">' + meta + '</span></a>';
+    }).join('');
+    var more = results.length > shown ? '<a href="#" class="search-more" id="search-more">More</a>' : '';
+    out.innerHTML = rows + more;
+    var moreLink = document.getElementById('search-more');
+    if (moreLink) {
+      moreLink.addEventListener('click', function(ev){
+        ev.preventDefault();
+        shown += PAGE_SIZE;
+        render(results, q);
+      });
+    }
+  }
+
+  function escapeHtml(s){
+    return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function run(){
+    var q = box.value;
+    shown = PAGE_SIZE;
+    if (!idx || q.trim().length < 2) { out.innerHTML = ''; return; }
+    render(search(q), q);
+  }
+
+  box.addEventListener('input', run);
+
+  fetch('/search-index.json').then(function(r){ return r.json(); }).then(function(data){
+    idx = data;
+    run();
+  });
+})();
+</script>
+</body>
+</html>

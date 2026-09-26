@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIEWS – Noga Erez · Otto Paraploo</title>
+<meta name="description" content="VIEWS, by Noga Erez. Otto Paraploo.">
+<meta property="og:title" content="VIEWS – Noga Erez">
+<meta property="og:description" content="Favorite Songs Musicology. Otto Paraploo.">
+<meta property="og:image" content="https://paraploo.com/musicology/img/og-card.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260925-wordmark">
+<script src="/theme.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  :root {
+    --mus-ground: #f5efe2;
+    --mus-ink: #2b2420;
+    --mus-accent: #8a4a2f;
+    --mus-rule: rgba(43, 36, 32, 0.14);
+    --mus-print-opacity: 0.12;
+  }
+  html[data-theme="dark"] {
+    --mus-ground: #241a13;
+    --mus-ink: #ece2d3;
+    --mus-accent: #c9a15a;
+    --mus-rule: rgba(236, 226, 211, 0.16);
+    --mus-print-opacity: 0.18;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      --mus-ground: #241a13;
+      --mus-ink: #ece2d3;
+      --mus-accent: #c9a15a;
+      --mus-rule: rgba(236, 226, 211, 0.16);
+      --mus-print-opacity: 0.18;
+    }
+  }
+  body.mus-body { margin: 0; background: var(--mus-ground); color: var(--mus-ink); font-family: 'Inter', sans-serif; }
+  .mus-body a { color: var(--mus-ink); text-decoration: none; }
+  .mus-body a:visited { color: var(--mus-ink); }
+  .mus-buy:visited { color: var(--mus-accent); }
+  .mus-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 96px; }
+  .mus-print-band { position: relative; overflow: hidden; }
+  .mus-print-band::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: var(--mus-print-image); background-size: cover; background-position: center 35%;
+    opacity: var(--mus-print-opacity); filter: grayscale(30%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+  }
+  .mus-list-band { height: 200px; margin-bottom: 8px; }
+  .mus-heading-band { padding: 56px 32px 28px; margin-bottom: 8px; }
+  .mus-h1 { font-family: 'Lora', serif; font-weight: 600; font-size: 64px; line-height: 1.08; letter-spacing: -0.01em; margin: 0; color: var(--mus-ink); }
+  .mus-intro { font-family: 'Lora', serif; font-size: 22px; line-height: 1.55; margin: 24px 0 0; color: var(--mus-ink); }
+  .mus-rule { border: none; border-top: 1px solid var(--mus-rule); margin: 40px 0; }
+  .song-row { display: block; margin: 0 0 36px; padding: 4px 8px; margin-left: -8px; margin-right: -8px; border-radius: 6px; }
+  .song-row:hover { background: var(--mus-rule); }
+  .song-row-title { font-family: 'Lora', serif; font-weight: 600; font-size: 34px; color: var(--mus-ink); }
+  .song-row-artist { font-family: 'Lora', serif; font-weight: 400; font-size: 26px; color: var(--mus-ink); margin-left: 12px; }
+  .song-row-line { font-family: 'Lora', serif; font-size: 20px; line-height: 1.5; margin: 8px 0 0; color: var(--mus-ink); }
+  .mus-doors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 28px; }
+  .mus-doors a { font-family: 'Inter', sans-serif; font-size: 22px; color: var(--mus-ink); }
+  .mus-doors a:hover { color: var(--mus-accent); }
+  .mus-title { font-family: 'Lora', serif; font-weight: 600; font-size: 56px; line-height: 1.1; letter-spacing: -0.01em; margin: 0; color: var(--mus-ink); }
+  .mus-artist { font-family: 'Lora', serif; font-weight: 400; font-size: 26px; margin: 10px 0 0; color: var(--mus-ink); }
+  .mus-piece { max-width: 65ch; }
+  .mus-piece p { font-family: 'Lora', serif; font-weight: 400; font-size: 21px; line-height: 1.6; margin: 0 0 32px; color: var(--mus-ink); }
+  .mus-piece h2 { font-family: 'Lora', serif; font-weight: 600; font-size: 32px; margin: 48px 0 20px; color: var(--mus-ink); }
+  .mus-piece h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 26px; margin: 40px 0 18px; color: var(--mus-ink); }
+  .mus-piece hr { border: none; border-top: 1px solid var(--mus-rule); margin: 40px 0; }
+  .mus-embed { margin: 40px 0; border-radius: 12px; overflow: hidden; }
+  .mus-buy { display: inline-block; font-family: 'Inter', sans-serif; font-size: 20px; color: var(--mus-accent); text-decoration: underline; margin: 0 0 40px; }
+  .mus-back { font-family: 'Inter', sans-serif; font-size: 18px; margin: 0; }
+  .mus-back a:hover { color: var(--mus-accent); }
+  .mus-list { list-style: none; margin: 0 0 40px; padding: 0; }
+  .mus-list li { margin: 0 0 22px; }
+  .mus-list a { font-family: 'Lora', serif; font-weight: 600; font-size: 28px; line-height: 1.4; color: var(--mus-ink); }
+  .mus-list a:hover { color: var(--mus-accent); }
+  @media (max-width: 700px) {
+    .mus-wrap { padding: 0 20px 72px; }
+    .mus-list-band { height: 140px; }
+    .mus-heading-band { padding: 36px 20px 22px; }
+    .mus-h1 { font-size: 40px; }
+    .mus-intro { font-size: 22px; }
+    .song-row-title { font-size: 28px; }
+    .song-row-artist { font-size: 22px; display: block; margin-left: 0; margin-top: 4px; }
+    .song-row-line { font-size: 18px; }
+    .mus-doors { gap: 18px; }
+    .mus-title { font-size: 36px; }
+    .mus-artist { font-size: 22px; }
+  }
+</style>
+</head>
+<body class="mus-body">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/digital.html">Collage</a><a href="/musicology.html" class="current">Musicology</a><a href="/search.html">Search</a></nav></header>
+<div class="mus-print-band mus-heading-band" style="--mus-print-image: url('https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Warm%20Floating%20Shapes%20Absolute%20Symmetrical-600.webp');">
+  <h1 class="mus-title">VIEWS</h1>
+  <p class="mus-artist">Noga Erez</p>
+</div>
+<div class="mus-wrap">
+  <div class="mus-piece">
+  <p>Three voices trade the song, between them ... Noga Erez, from Israel ... Ori Rousso, who has made every record with her and is credited here as ROUSSO ... and Reo Cragun, a rapper from Los Angeles who comes in for one verse ... The structure is the point ... nobody holds the microphone long, which is how the song is about the thing it is about ...</p>
+  <p>Song title <em>Views</em> — the number under a video, the count that tells the world whether you exist ... Erez said she wrote her verse to get inside the insecurity that makes people fake that number or buy it, not to look down on them from outside ... She wanted to relate to the impulse ... It is a song about the desire to be seen, made by someone honest enough to say she wants it too ...</p>
+  <p>It came out in February 2020, the first thing from an album called Kids that arrived the next year, a few weeks before everybody on earth was suddenly living through a screen and counting ... The timing was luck, or the kind of luck that comes from paying attention ...</p>
+  <p>The measure of it is the three-way trade ... Most pop songs have a singer and a guest ... This one has a conversation, with the producer stepping out from behind the desk to take a turn, so that the people who made the thing are all audibly in the room, arguing gently about what it means to be looked at ...</p>
+  </div>
+  <div class="mus-embed"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/14nEH8o7toND24LZLiKPM3" width="100%" height="152" frameborder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+  <a class="mus-buy" href="https://nogaerez.bandcamp.com/track/views-feat-reo-cragun-rousso">Buy this song</a>
+  <p class="mus-back"><a href="/musicology.html">Back to Musicology</a></p>
+</div>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings.html">Writings</a>
+    <a href="/marks.html">Marks</a>
+    <a href="/digital.html">Collage</a>
+    <a href="/musicology.html" class="current">Musicology</a>
+    <a href="/search.html">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Otto Paraploo</p>
+</footer>
+</body>
+</html>

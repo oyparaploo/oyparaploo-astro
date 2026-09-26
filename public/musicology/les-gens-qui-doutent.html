@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les gens qui doutent – Coline Rio · Otto Paraploo</title>
+<meta name="description" content="Les gens qui doutent, by Coline Rio. Otto Paraploo.">
+<meta property="og:title" content="Les gens qui doutent – Coline Rio">
+<meta property="og:description" content="Favorite Songs Musicology. Otto Paraploo.">
+<meta property="og:image" content="https://paraploo.com/musicology/img/og-card.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260925-wordmark">
+<script src="/theme.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  :root {
+    --mus-ground: #f5efe2;
+    --mus-ink: #2b2420;
+    --mus-accent: #8a4a2f;
+    --mus-rule: rgba(43, 36, 32, 0.14);
+    --mus-print-opacity: 0.12;
+  }
+  html[data-theme="dark"] {
+    --mus-ground: #241a13;
+    --mus-ink: #ece2d3;
+    --mus-accent: #c9a15a;
+    --mus-rule: rgba(236, 226, 211, 0.16);
+    --mus-print-opacity: 0.18;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      --mus-ground: #241a13;
+      --mus-ink: #ece2d3;
+      --mus-accent: #c9a15a;
+      --mus-rule: rgba(236, 226, 211, 0.16);
+      --mus-print-opacity: 0.18;
+    }
+  }
+  body.mus-body { margin: 0; background: var(--mus-ground); color: var(--mus-ink); font-family: 'Inter', sans-serif; }
+  .mus-body a { color: var(--mus-ink); text-decoration: none; }
+  .mus-body a:visited { color: var(--mus-ink); }
+  .mus-buy:visited { color: var(--mus-accent); }
+  .mus-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 96px; }
+  .mus-print-band { position: relative; overflow: hidden; }
+  .mus-print-band::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: var(--mus-print-image); background-size: cover; background-position: center 35%;
+    opacity: var(--mus-print-opacity); filter: grayscale(30%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+  }
+  .mus-list-band { height: 200px; margin-bottom: 8px; }
+  .mus-heading-band { padding: 56px 32px 28px; margin-bottom: 8px; }
+  .mus-h1 { font-family: 'Lora', serif; font-weight: 600; font-size: 64px; line-height: 1.08; letter-spacing: -0.01em; margin: 0; color: var(--mus-ink); }
+  .mus-intro { font-family: 'Lora', serif; font-size: 22px; line-height: 1.55; margin: 24px 0 0; color: var(--mus-ink); }
+  .mus-rule { border: none; border-top: 1px solid var(--mus-rule); margin: 40px 0; }
+  .song-row { display: block; margin: 0 0 36px; padding: 4px 8px; margin-left: -8px; margin-right: -8px; border-radius: 6px; }
+  .song-row:hover { background: var(--mus-rule); }
+  .song-row-title { font-family: 'Lora', serif; font-weight: 600; font-size: 34px; color: var(--mus-ink); }
+  .song-row-artist { font-family: 'Lora', serif; font-weight: 400; font-size: 26px; color: var(--mus-ink); margin-left: 12px; }
+  .song-row-line { font-family: 'Lora', serif; font-size: 20px; line-height: 1.5; margin: 8px 0 0; color: var(--mus-ink); }
+  .mus-doors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 28px; }
+  .mus-doors a { font-family: 'Inter', sans-serif; font-size: 22px; color: var(--mus-ink); }
+  .mus-doors a:hover { color: var(--mus-accent); }
+  .mus-title { font-family: 'Lora', serif; font-weight: 600; font-size: 56px; line-height: 1.1; letter-spacing: -0.01em; margin: 0; color: var(--mus-ink); }
+  .mus-artist { font-family: 'Lora', serif; font-weight: 400; font-size: 26px; margin: 10px 0 0; color: var(--mus-ink); }
+  .mus-piece { max-width: 65ch; }
+  .mus-piece p { font-family: 'Lora', serif; font-weight: 400; font-size: 21px; line-height: 1.6; margin: 0 0 32px; color: var(--mus-ink); }
+  .mus-piece h2 { font-family: 'Lora', serif; font-weight: 600; font-size: 32px; margin: 48px 0 20px; color: var(--mus-ink); }
+  .mus-piece h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 26px; margin: 40px 0 18px; color: var(--mus-ink); }
+  .mus-piece hr { border: none; border-top: 1px solid var(--mus-rule); margin: 40px 0; }
+  .mus-embed { margin: 40px 0; border-radius: 12px; overflow: hidden; }
+  .mus-buy { display: inline-block; font-family: 'Inter', sans-serif; font-size: 20px; color: var(--mus-accent); text-decoration: underline; margin: 0 0 40px; }
+  .mus-back { font-family: 'Inter', sans-serif; font-size: 18px; margin: 0; }
+  .mus-back a:hover { color: var(--mus-accent); }
+  .mus-list { list-style: none; margin: 0 0 40px; padding: 0; }
+  .mus-list li { margin: 0 0 22px; }
+  .mus-list a { font-family: 'Lora', serif; font-weight: 600; font-size: 28px; line-height: 1.4; color: var(--mus-ink); }
+  .mus-list a:hover { color: var(--mus-accent); }
+  @media (max-width: 700px) {
+    .mus-wrap { padding: 0 20px 72px; }
+    .mus-list-band { height: 140px; }
+    .mus-heading-band { padding: 36px 20px 22px; }
+    .mus-h1 { font-size: 40px; }
+    .mus-intro { font-size: 22px; }
+    .song-row-title { font-size: 28px; }
+    .song-row-artist { font-size: 22px; display: block; margin-left: 0; margin-top: 4px; }
+    .song-row-line { font-size: 18px; }
+    .mus-doors { gap: 18px; }
+    .mus-title { font-size: 36px; }
+    .mus-artist { font-size: 22px; }
+  }
+</style>
+</head>
+<body class="mus-body">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/digital.html">Collage</a><a href="/musicology.html" class="current">Musicology</a><a href="/search.html">Search</a></nav></header>
+<div class="mus-print-band mus-heading-band" style="--mus-print-image: url('https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Warm%20Floating%20Shapes%20Absolute%20Symmetrical-600.webp');">
+  <h1 class="mus-title">Les gens qui doutent</h1>
+  <p class="mus-artist">Coline Rio</p>
+</div>
+<div class="mus-wrap">
+  <div class="mus-piece">
+  <p>"A very intimate song for me, one I listened to with my family when I was younger," Coline Rio said of it, and then added the thing that matters ... because of that, she does not rearrange it ... With other people&#x27;s songs she takes liberties ... With this one she stays close to the melody and the words as they were written, because the song is attached to memories, some of them hard, and you do not redecorate a room like that ...</p>
+  <p>The song is not hers ... Anne Sylvestre wrote it in 1977 — Sylvestre, who spent a life writing songs for grown-ups and songs for children and was loved for both, and who died in 2020 ... Les gens qui doutent, the people who doubt, is her hymn for the unsure ... the ones who hesitate, who are not certain they are right, who keep the door open ... It has been passed from voice to voice ever since ...</p>
+  <p>Rio recorded it for a short record called Lourd et délicat — heavy and delicate — in 2022, which is as good a description of the song as anyone has managed ... A young singer taking a forty-five-year-old song and refusing to make it hers, which is the surest way to make it hers ...</p>
+  <p>The measure is fidelity ... No new chords, no clever turn ... The original melody and phrasing kept, so that what changes is only the voice — younger, closer, singing something her family once played in the house — and the change in the voice is the whole performance ...</p>
+  </div>
+  <div class="mus-embed"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7fsnHdB8abooTvR7bkhWXh" width="100%" height="152" frameborder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+  <a class="mus-buy" href="https://colinerio.boutique/">Buy this song</a>
+  <p class="mus-back"><a href="/musicology.html">Back to Musicology</a></p>
+</div>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings.html">Writings</a>
+    <a href="/marks.html">Marks</a>
+    <a href="/digital.html">Collage</a>
+    <a href="/musicology.html" class="current">Musicology</a>
+    <a href="/search.html">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Otto Paraploo</p>
+</footer>
+</body>
+</html>
