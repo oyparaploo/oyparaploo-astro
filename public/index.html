@@ -147,17 +147,6 @@
     color: #2a2320;
     margin: 32px 0;
   }
-  .home-wander {
-    margin: 0 0 20px !important;
-  }
-  .home-wander a {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    color: #2a2320;
-    text-decoration: none;
-  }
-  .home-wander a:hover { text-decoration: underline; }
   .home-main .home-readon {
     margin: 0 0 48px !important;
   }
@@ -186,16 +175,21 @@
     margin: 0 auto;
     padding: 0 24px 64px;
   }
-  .home-everything {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    color: #2a2320;
-    text-decoration: none;
+  .home-doors {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 40px;
     margin: 48px 0 40px;
   }
-  .home-everything::after { content: " \2192"; }
-  .home-everything:hover { color: var(--accent); }
+  .home-door {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #2a2320;
+    text-decoration: none;
+  }
+  .home-door:hover { text-decoration: underline; }
   @media (max-width: 800px) {
     .thumb-row-wrap {
       overflow-x: auto;
@@ -211,7 +205,8 @@
     .home-heading { font-size: 44px; }
     .home-tagline { font-size: 22px; }
     .home-overture { font-size: 20px; }
-    .home-wander a { font-size: 20px; }
+    .home-doors { flex-direction: column; gap: 16px; }
+    .home-door { font-size: 20px; }
     .home-title { font-size: 28px; }
     .home-passages { padding: 0 16px 16px; }
     .home-figures { padding: 0 16px 56px; }
@@ -227,7 +222,6 @@
 <h1 class="home-heading">Otto Paraploo</h1>
 <p class="home-tagline">Thirty years of notes, stories, letters, and fragments. A few of them:</p>
 <p class="home-overture">Please Be Fed ... What can anyone do about human flesh and fur? ... Please don't not take them in ... KM rahn-day-vous daw daw daw ... A Kind of Fizzling Out, through the Electric Blue Semi-Transparent Cords ... Our Hearts are Full with Aha-fortable Sadness and So So Foodah Sickness ... Heaven ... you should always burn the esteemed pudding in a cotton sack ... Duff ... Do you remember the guiding tan and lack of tan elder woman? ... It's such a messy and grounded song</p>
-<p class="home-wander"><a href="/wander">Wander through more</a></p>
 </main>
 <div class="home-passages">
 <section class="home-passage">
@@ -561,7 +555,7 @@
 </section>
 </div>
 <div class="home-figures">
-  <a class="home-everything" href="/everything">Everything, in a hundred words</a>
+  <p class="home-doors"><a class="home-door" href="/wander">Wander through more</a><a class="home-door" href="/everything.html">Everything, in a hundred words</a></p>
 </div>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
