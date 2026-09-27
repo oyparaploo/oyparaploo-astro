@@ -39,9 +39,10 @@
       --mus-print-opacity: 0.18;
     }
   }
-  body.mus-body { margin: 0; background: var(--mus-ground); color: var(--mus-ink); font-family: 'Inter', sans-serif; }
-  .mus-body a { color: var(--mus-ink); text-decoration: none; }
-  .mus-body a:visited { color: var(--mus-ink); }
+  body.mus-body { margin: 0; background: var(--mus-ground); font-family: 'Inter', sans-serif; }
+  .mus-content { color: var(--mus-ink); }
+  .mus-content a { color: var(--mus-ink); text-decoration: none; }
+  .mus-content a:visited { color: var(--mus-ink); }
   .mus-buy:visited { color: var(--mus-accent); }
   .mus-wrap { max-width: 720px; margin: 0 auto; padding: 0 32px 96px; }
   .mus-print-band { position: relative; overflow: hidden; }
@@ -66,13 +67,12 @@
   .mus-doors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 28px; }
   .mus-doors a { font-family: 'Inter', sans-serif; font-size: 22px; color: var(--mus-ink); }
   .mus-doors a:hover { color: var(--mus-accent); }
-  .mus-section-row { max-width: 720px; margin: 0 auto; padding: 20px 32px 0; font-family: 'Inter', sans-serif; font-size: 16px; color: var(--ink-soft); }
-  .mus-section-row a { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--ink-soft); text-decoration: none; }
+  .mus-section-row { margin: 0 0 20px; font-family: 'Lora', serif; font-size: 18px; color: var(--ink-soft); }
+  .mus-section-row a { font-family: 'Lora', serif; font-size: 18px; color: var(--ink-soft); text-decoration: none; }
   .mus-section-row a:hover { text-decoration: underline; }
   .mus-section-row a.mus-section-current { color: var(--ink); }
-  .site-header.mus-header { flex-direction: column; align-items: stretch; }
-  .site-header.mus-header .mus-header-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-  .site-header.mus-header .mus-section-row { max-width: none; margin: 6px 0 0; padding: 0; text-align: right; }
+  .mus-section-row-band { padding: 28px 32px 0; }
+  .mus-foot-row { margin: 24px 0 0; }
   .mus-title { font-family: 'Lora', serif; font-weight: 600; font-size: 56px; line-height: 1.1; letter-spacing: -0.01em; margin: 0; color: var(--mus-ink); }
   .mus-artist { font-family: 'Lora', serif; font-weight: 400; font-size: 26px; margin: 10px 0 0; color: var(--mus-ink); }
   .mus-piece { max-width: 65ch; }
@@ -89,8 +89,7 @@
   .mus-list a { font-family: 'Lora', serif; font-weight: 600; font-size: 28px; line-height: 1.4; color: var(--mus-ink); }
   .mus-list a:hover { color: var(--mus-accent); }
   @media (max-width: 700px) {
-    .mus-section-row { padding: 16px 20px 0; }
-    .site-header.mus-header .mus-section-row { text-align: left; margin-top: 10px; padding: 0; }
+    .mus-section-row-band { padding: 20px 20px 0; }
     .mus-wrap { padding: 0 20px 72px; }
     .mus-list-band { height: 140px; }
     .mus-heading-band { padding: 36px 20px 22px; }
@@ -103,18 +102,15 @@
     .mus-title { font-size: 36px; }
     .mus-artist { font-size: 22px; }
   }
-  @media (max-width: 800px) {
-    .site-header.mus-header .mus-header-row { flex-direction: column; gap: 16px; }
-    .site-header.mus-header .mus-header-row a { justify-content: center; }
-    .site-header.mus-header .mus-header-row nav { justify-content: center; text-align: center; row-gap: 10px; }
-  }
 </style>
 </head>
 <body class="mus-body">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header mus-header"><div class="mus-header-row"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html" class="current">Song</a><a href="/search.html">Search</a></nav></div><div class="mus-section-row"><a href="/musicology.html">Songs</a> &middot; <a href="/musicology/artists.html">Artists</a> &middot; <a href="/musicology/stories-and-essays.html">Stories and Essays</a> &middot; <a href="/musicology/soundtracks.html" class="mus-section-current">Noir Cinema Soundtracks</a></div></header>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html" class="current">Song</a><a href="/search.html">Search</a></nav></header>
+<div class="mus-content">
 <div class="mus-print-band mus-list-band" style="--mus-print-image: url('https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Warm%20Floating%20Shapes%20Absolute%20Symmetrical-600.webp');"></div>
 <div class="mus-wrap">
+  <div class="mus-section-row"><a href="/musicology.html">Songs</a> &middot; <a href="/musicology/artists.html">Artists</a> &middot; <a href="/musicology/stories-and-essays.html">Stories and Essays</a> &middot; <a href="/musicology/soundtracks.html" class="mus-section-current">Noir Cinema Soundtracks</a></div>
   <h1 class="mus-title">Noir Cinema Soundtracks</h1>
   <p class="mus-intro">Listening lists, by country.</p>
   <ul class="mus-list">
@@ -128,6 +124,8 @@
     <li><a href="/musicology/soundtracks/danish-noir-cinema-soundtracks.html">Danish Noir Cinema Soundtracks</a></li>
   </ul>
   <p class="mus-back"><a href="/musicology.html">Back to Musicology</a></p>
+  <div class="mus-section-row mus-foot-row"><a href="/musicology.html">Songs</a> &middot; <a href="/musicology/artists.html">Artists</a> &middot; <a href="/musicology/stories-and-essays.html">Stories and Essays</a> &middot; <a href="/musicology/soundtracks.html" class="mus-section-current">Noir Cinema Soundtracks</a></div>
+</div>
 </div>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
