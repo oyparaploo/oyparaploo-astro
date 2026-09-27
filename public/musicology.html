@@ -20,6 +20,7 @@
     --mus-ground: #f5efe2;
     --mus-ink: #2b2420;
     --mus-accent: #8a4a2f;
+    --mus-tab-inactive: #6b5c4f;
     --mus-rule: rgba(43, 36, 32, 0.14);
     --mus-print-opacity: 0.12;
   }
@@ -27,6 +28,7 @@
     --mus-ground: #241a13;
     --mus-ink: #ece2d3;
     --mus-accent: #c9a15a;
+    --mus-tab-inactive: #a3927c;
     --mus-rule: rgba(236, 226, 211, 0.16);
     --mus-print-opacity: 0.18;
   }
@@ -35,6 +37,7 @@
       --mus-ground: #241a13;
       --mus-ink: #ece2d3;
       --mus-accent: #c9a15a;
+      --mus-tab-inactive: #a3927c;
       --mus-rule: rgba(236, 226, 211, 0.16);
       --mus-print-opacity: 0.18;
     }
@@ -88,13 +91,16 @@
   .mus-list li { margin: 0 0 22px; }
   .mus-list a { font-family: 'Lora', serif; font-weight: 600; font-size: 28px; line-height: 1.4; color: var(--mus-ink); }
   .mus-list a:hover { color: var(--mus-accent); }
-  .song-row-line a.mus-read-more { color: var(--mus-accent); text-decoration: underline; }
+  .song-row-line a.mus-read-more { color: var(--mus-accent); text-decoration: none; }
+  .song-row-line a.mus-read-more:hover { text-decoration: underline; }
   .mus-keep-listening { font-family: 'Lora', serif; font-weight: 600; font-size: 34px; margin: 0 0 20px; color: var(--mus-ink); }
-  .mus-nav { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .mus-nav { list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 12px; }
   .mus-nav.mus-foot-nav { margin: 24px 0 0; }
-  .mus-nav a { display: inline-flex; align-items: center; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.3; color: var(--ink); background: transparent; border: 1px solid var(--ink); border-radius: 6px; padding: 10px 18px; text-decoration: none; }
-  .mus-nav a:hover, .mus-nav a.mus-nav-current { background: var(--ink); color: var(--ground); }
+  .mus-nav a { display: inline-block; font-family: 'Inter', sans-serif; font-size: 17px; letter-spacing: 0.02em; line-height: 1.3; color: var(--mus-tab-inactive); background: transparent; border: none; border-bottom: 2px solid transparent; border-radius: 0; padding: 0 0 6px; text-decoration: none; }
+  .mus-nav a:hover { color: var(--mus-ink); border-bottom: 1px solid var(--mus-accent); }
+  .mus-nav a.mus-nav-current { color: var(--mus-ink); border-bottom: 2px solid var(--mus-accent); }
   @media (max-width: 700px) {
+    .mus-nav { column-gap: 20px; row-gap: 10px; }
     .mus-nav a { min-height: 44px; }
     .mus-keep-listening { font-size: 28px; }
     .mus-section-row-band { padding: 20px 20px 0; }
@@ -160,7 +166,7 @@
 <div class="mus-print-band mus-list-band" style="--mus-print-image: url('https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Warm%20Floating%20Shapes%20Absolute%20Symmetrical-600.webp');"></div>
 <div class="mus-wrap">
   <h1 class="mus-h1">Favorite Songs <span style="font-weight:700;">+</span> Short Written Stories</h1>
-  <p class="mus-intro">A big part of Paraploo is that we listen to music while we work and play. Listen here, then buy it from the artist.</p>
+  <p class="mus-intro">We often love to listen to music while we work.</p>
   <div class="mus-nav"><a href="/musicology.html" class="mus-nav-current">Songs</a><a href="/musicology/artists.html">Artists</a><a href="/musicology/stories-and-essays.html">Stories and Essays</a><a href="/musicology/soundtracks.html">Noir Cinema Soundtracks</a></div>
   <hr class="mus-rule">
   <div class="song-row"><a class="song-row-link" href="/musicology/gambia.html"><span class="song-row-title">Gambia</span><span class="song-row-artist">Sona Jobarteh</span></a><p class="song-row-line">The Gambia is a river with a country wrapped around it ... a strip of land a few miles wide on either bank, running inland from the Atlantic, with Senegal on ev… <a class="mus-read-more" href="/musicology/gambia.html">Read more &rarr;</a></p></div>
@@ -202,7 +208,6 @@
 </div>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
-  <p class="footer-altered">Altered Stuff</p>
   <nav>
     <a href="/writings.html">Writings</a>
     <a href="/marks.html">Marks</a>
