@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Book · Paraploo</title>
-<meta name="description" content="The Book at Paraploo: four doors and six rooms into the writing practice of Brian Otto.">
+<meta name="description" content="The Book at Paraploo: four doors and six rooms of writing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,219 +14,157 @@
 
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
+  :root {
+    --ink: #e8e0d6;
+    --ink-soft: #b3aa9f;
+    --ink-faint: #8f877d;
+    --accent: #d4a574;
+    --ground: #0d1620;
+  }
   body {
     margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
+    background: #0c1a24;
+    color: #e8e0d6;
     font-family: 'Inter', sans-serif;
     font-size: 17px;
     line-height: 1.75;
     overflow-x: hidden;
     overflow-wrap: break-word;
   }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
+
+  .river { position: relative; }
+  .river::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
   }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav p { margin: 0; }
-  .core-nav p:not(:last-child) { margin-bottom: 1.5em; }
-  .core-nav a {
+  .band { padding: 10vh 40px; }
+  .band-inner { max-width: 680px; margin: 0 auto; }
+
+  .band-source  { background: linear-gradient(180deg, #0c1a24 0%, #0e2030 30%, #102840 60%, #0c2030 100%); padding-top: 96px; }
+  .band-current { background: linear-gradient(165deg, #14324a 0%, #1a3c58 30%, #1e4468 50%, #163854 80%, #122e46 100%); }
+  .band-silver  { background: linear-gradient(170deg, #314c5e 0%, #3e596c 25%, #4c6679 50%, #3e596c 75%, #314a57 100%); }
+  .band-earth   { background: linear-gradient(170deg, #2a3530 0%, #344038 35%, #3a4a3e 50%, #2e3832 80%, #242e28 100%); }
+  .band-deep    { background: linear-gradient(180deg, #0e1e2a 0%, #0a1620 40%, #060e16 80%, #040a10 100%); }
+
+  .bleed { height: 120px; }
+  .bleed-1 { background: linear-gradient(to bottom, #0c2030, #14324a); }
+  .bleed-2 { background: linear-gradient(to bottom, #122e46, #314c5e); }
+  .bleed-3 { background: linear-gradient(to bottom, #314a57, #2a3530); }
+  .bleed-4 { background: linear-gradient(to bottom, #242e28, #0e1e2a); }
+
+  .book-title { font-family: 'Lora', serif; font-weight: 600; font-size: 38px; line-height: 1.3; letter-spacing: -0.02em; color: #e8e0d6; margin: 0 0 24px; }
+  .book-open { font-size: 17px; line-height: 1.75; color: #e8e0d6; margin: 0; }
+  .book-open em { font-style: italic; }
+
+  .doors { list-style: none; margin: 0; padding: 0; }
+  .doors li + li { margin-top: 20px; }
+  .doors a {
     display: inline-block;
-    font-family: 'Lora', serif;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: rgba(244, 239, 232, 0.78);
+    font-family: 'Lora', serif; font-weight: 600; font-size: 30px; line-height: 1.3; letter-spacing: -0.01em;
+    color: #e8e0d6;
     text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
   }
-  .core-nav a:visited { text-decoration: none; }
-  .core-nav a:hover,
-  .core-nav a:active { color: #d4a574; }
+  .doors a:hover, .doors a:focus-visible { color: #fff; transform: translateX(6px); }
+  .band-deep .doors { text-align: center; }
+  .band-deep .doors a:hover, .band-deep .doors a:focus-visible { transform: translateY(4px); }
+
+  .js .reveal { opacity: 0; transition: opacity 1.2s ease; }
+  .js .reveal.visible { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transition: none; }
+    .doors a { transition: none; }
+  }
+
   @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
+    .band { padding: 8vh 24px; }
+    .band-source { padding-top: 64px; }
+    .bleed { height: 80px; }
+    .book-title { font-size: 28px; }
+    .doors a { font-size: 24px; }
+    .doors li + li { margin-top: 16px; }
   }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
+  @media (max-width: 480px) {
+    .bleed { height: 56px; }
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://paraploo.com/#organization",
-      "name": "Paraploo",
-      "alternateName": "Oyparaploo",
-      "url": "https://paraploo.com/",
-      "founder": { "@id": "https://paraploo.com/#person" },
-      "sameAs": [
-        "https://www.instagram.com/oyparaploo/",
-        "https://www.youtube.com/@oyparaploo",
-        "https://www.reddit.com/user/oyparaploo/"
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://paraploo.com/#person",
-      "name": "Brian William Otto",
-      "alternateName": "Reach Chimes",
-      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
-      "url": "https://paraploo.com/",
-      "worksFor": { "@id": "https://paraploo.com/#organization" },
-      "sameAs": [
-        "https://www.instagram.com/oyparaploo/",
-        "https://www.youtube.com/@oyparaploo",
-        "https://www.reddit.com/user/oyparaploo/"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://paraploo.com/#website",
-      "name": "Paraploo",
-      "url": "https://paraploo.com/",
-      "publisher": { "@id": "https://paraploo.com/#organization" }
-    }
-  ]
-}
-</script>
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Book</h1>
-  <p>Some mornings the trouble isn't that the machine can't hear us. It's that it hears us too well. Takes every sentence for an instruction. Closes the window we were working in because we happened to say the word <em>close</em> inside a thought about something else.</p>
-  <nav class="core-nav">
-    <p><a href="book-door-1.html">A Machine That Can Hear</a></p>
-    <p><a href="book-door-2.html">Too Great a Listener for its own Good</a></p>
-    <p><a href="book-door-3.html">Strange 7:46 Objects</a></p>
-    <p><a href="book-door-4.html">Morning Over Troubled Floors</a></p>
-    <p><a href="room-one.html">Come In to the&nbsp;first&nbsp;room</a></p>
-    <p><a href="room-two.html">Come Through the&nbsp;second&nbsp;room</a></p>
-    <p><a href="room-three.html">Come Sit in the&nbsp;third&nbsp;room</a></p>
-    <p><a href="room-four.html">Come Look at the&nbsp;fourth&nbsp;room</a></p>
-    <p><a href="room-five.html">Come Stand in the&nbsp;fifth&nbsp;room</a></p>
-    <p><a href="room-six.html">Come Down to the&nbsp;sixth&nbsp;room</a></p>
-  </nav>
+<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Words</a><a href="/marks.html">Marks</a><a href="/physical.html">Physical</a><a href="/digital.html">Screen</a><a href="/mind-mapping/">Maps</a></nav></header>
+<main class="river">
+
+  <section class="band band-source">
+    <div class="band-inner reveal">
+      <h1 class="book-title">The Book</h1>
+      <p class="book-open">Some mornings the trouble isn't that the machine can't hear us. It's that it hears us too well. Takes every sentence for an instruction. Closes the window we were working in because we happened to say the word <em>close</em> inside a thought about something else.</p>
+    </div>
+  </section>
+
+  <div class="bleed bleed-1" aria-hidden="true"></div>
+
+  <section class="band band-current">
+    <ul class="band-inner doors reveal">
+      <li><a href="book-door-1.html">A Machine That Can Hear</a></li>
+      <li><a href="book-door-2.html">Too Great a Listener for its own Good</a></li>
+      <li><a href="book-door-3.html">Strange 7:46 Objects</a></li>
+      <li><a href="book-door-4.html">Morning Over Troubled Floors</a></li>
+    </ul>
+  </section>
+
+  <div class="bleed bleed-2" aria-hidden="true"></div>
+
+  <section class="band band-silver">
+    <ul class="band-inner doors reveal">
+      <li><a href="room-one.html">Come In to the&nbsp;first&nbsp;room</a></li>
+      <li><a href="room-two.html">Come Through the&nbsp;second&nbsp;room</a></li>
+      <li><a href="room-three.html">Come Sit in the&nbsp;third&nbsp;room</a></li>
+    </ul>
+  </section>
+
+  <div class="bleed bleed-3" aria-hidden="true"></div>
+
+  <section class="band band-earth">
+    <ul class="band-inner doors reveal">
+      <li><a href="room-four.html">Come Look at the&nbsp;fourth&nbsp;room</a></li>
+      <li><a href="room-five.html">Come Stand in the&nbsp;fifth&nbsp;room</a></li>
+    </ul>
+  </section>
+
+  <div class="bleed bleed-4" aria-hidden="true"></div>
+
+  <section class="band band-deep">
+    <ul class="band-inner doors reveal">
+      <li><a href="room-six.html">Come Down to the&nbsp;sixth&nbsp;room</a></li>
+    </ul>
+  </section>
+
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-altered">Altered Stuff</p>
   <nav>
-    <a href="/writings.html" class="current">Writings</a>
+    <a href="/writings.html" class="current">Words</a>
     <a href="/marks.html">Marks</a>
-    <a href="/physical.html">Placings</a>
-    <a href="/digital.html">Collage</a>
-    <a href="/musicology.html">Song</a>
-    <a href="/search.html">Search</a>
+    <a href="/physical.html">Physical</a>
+    <a href="/digital.html">Screen</a>
+    <a href="/mind-mapping/">Maps</a>
   </nav>
 
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
-  <p>&copy; 2026 Otto Paraploo</p>
+  <p>&copy; 2026 Brian Otto and Paraploo</p>
 </footer>
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
 </body>
 </html>
