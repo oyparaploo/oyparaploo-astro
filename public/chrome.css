@@ -712,3 +712,62 @@ html[data-theme="dark"] .site-header.is-pinned {
     transition: none;
   }
 }
+
+/* Way-back / Previous / Next arrow links (galleries, picture pages,
+   writing pages, writing group pages). */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 6px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--ink);
+  text-decoration: none;
+}
+.arrow-link .arrow-glyph {
+  display: inline-block;
+  font-size: 1em;
+  color: var(--ink);
+  transition: transform 0.2s;
+}
+.arrow-link.arrow-prev .arrow-glyph,
+.arrow-link.arrow-back .arrow-glyph {
+  transform: translateX(0);
+}
+.arrow-link.arrow-next .arrow-glyph {
+  transform: translateX(0);
+}
+.arrow-link.arrow-prev:hover .arrow-glyph,
+.arrow-link.arrow-back:hover .arrow-glyph,
+.arrow-link.arrow-prev:focus-visible .arrow-glyph,
+.arrow-link.arrow-back:focus-visible .arrow-glyph {
+  transform: translateX(-4px);
+}
+.arrow-link.arrow-next:hover .arrow-glyph,
+.arrow-link.arrow-next:focus-visible .arrow-glyph {
+  transform: translateX(4px);
+}
+.arrow-link:hover,
+.arrow-link:focus-visible {
+  color: #000;
+}
+html[data-theme="dark"] .arrow-link:hover,
+html[data-theme="dark"] .arrow-link:focus-visible {
+  color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .arrow-link:hover,
+  html:not([data-theme="light"]) .arrow-link:focus-visible {
+    color: #fff;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link .arrow-glyph {
+    transition: none;
+  }
+  .arrow-link:hover .arrow-glyph,
+  .arrow-link:focus-visible .arrow-glyph {
+    transform: none;
+  }
+}
