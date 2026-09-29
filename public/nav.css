@@ -1,0 +1,165 @@
+/* ==========================================================================
+   WORLD OF BOOKS MENU  (spec confirmed September 29, 2026)
+   Under Writings, Marks, Placings and Collage a solid full-width panel
+   opens over the page. Writings: the eight kinds down the left side, the
+   shelves of the kind being shown to the right. The other three: bold
+   Lora headings over plain lists. Text colours are the site's named
+   colours only (Ink, Soft ink, Accent). Lora and Inter only. Nothing
+   under 16 pixels. No pictures in the panels. Phones under 800 pixels
+   get no panels: the words go straight to their pages.
+   ========================================================================== */
+:root {
+  --wob-ground: #faf6f0;
+  --wob-rule: #c0b8b0;
+  --wob-shadow: 0 22px 44px rgba(45, 30, 15, 0.13), 0 3px 8px rgba(45, 30, 15, 0.06);
+}
+html[data-theme="dark"] {
+  --wob-ground: #1a1511;
+  --wob-rule: #3a3430;
+  --wob-shadow: 0 24px 56px rgba(0, 0, 0, 0.55), 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --wob-ground: #1a1511;
+    --wob-rule: #3a3430;
+    --wob-shadow: 0 24px 56px rgba(0, 0, 0, 0.55), 0 3px 8px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* The header carries the panels and lies above the page */
+body > .site-header.wob-host:not(.is-pinned) { position: relative; z-index: 30 !important; }
+.site-header.wob-host nav a.wob-open {
+  color: var(--ink);
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+.site-header.wob-host nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* The panel */
+.wob-panel {
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  z-index: 5;
+  background: var(--wob-ground);
+  border-top: 1px solid var(--wob-rule);
+  border-bottom: 1px solid var(--wob-rule);
+  box-shadow: var(--wob-shadow);
+  max-height: var(--wob-max, 70vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0s linear 0.15s;
+}
+.wob-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.15s ease, visibility 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wob-panel, .wob-panel.is-open { transition: none; }
+}
+html.rm .wob-panel, html.rm .wob-panel.is-open { transition: none; }
+@media (max-width: 799px) {
+  .wob-panel { display: none !important; }
+}
+
+.wob-inner { max-width: 1280px; margin: 0 auto; padding: 32px 40px 40px; }
+
+.wob-panel a { display: inline; text-decoration: none; }
+.wob-panel a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.wob-panel a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.wob-panel a.wob-h {
+  display: block;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.wob-panel a.wob-h:hover { text-underline-offset: 4px; }
+.wob-list { list-style: none; margin: 6px 0 0; padding: 0; }
+.wob-list li { margin: 0; padding: 0; font-size: 16px; line-height: 1.5; }
+.wob-panel .wob-list a { color: var(--ink-soft); }
+.wob-panel .wob-list a:hover { color: var(--ink); }
+.wob-panel .wob-list .wob-more a,
+.wob-panel a.wob-all { color: var(--accent); }
+.wob-panel a.wob-all { font-weight: 600; font-size: 16px; line-height: 1.5; }
+
+.wob-cols {
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  column-gap: 32px;
+  align-items: start;
+}
+.wob-cols.wob-narrow { grid-template-columns: repeat(var(--n), minmax(0, 300px)); }
+.wob-group { margin: 0 0 20px; }
+.wob-solo { margin: 0 0 8px; }
+.wob-solo + .wob-group { margin-top: 12px; }
+.wob-col > :last-child { margin-bottom: 0; }
+.wob-col > :first-child { margin-top: 0; }
+.wob-cont .wob-list { margin-top: 0; }
+.wob-first { margin-bottom: 0; }
+
+.wob-foot { display: flex; justify-content: flex-end; margin-top: 20px; }
+.wob-go { display: inline-block; transition: transform 0.15s ease; }
+.wob-panel a:hover .wob-go { transform: translateX(3px); }
+
+/* Placings: one heading, then five columns of fourteen */
+.wob-panel a.wob-wide-h { margin: 0 0 6px; }
+
+/* Writings: the eight kinds down the left, shelves to the right */
+.wob-books {
+  display: grid;
+  grid-template-columns: 230px 1px minmax(0, 1fr);
+  column-gap: 32px;
+}
+.wob-divider { background: var(--wob-rule); }
+.wob-kinds { list-style: none; margin: 0; padding: 0; }
+.wob-panel a.wob-kind {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.wob-panel a.wob-kind:hover { color: var(--ink); text-decoration: none; }
+.wob-panel a.wob-kind.is-active { color: var(--ink); }
+.wob-arrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.wob-kind.is-active .wob-arrow { opacity: 1; transform: none; }
+html.rm .wob-arrow, html.rm .wob-go { transition: none; }
+@media (prefers-reduced-motion: reduce) { .wob-arrow, .wob-go { transition: none; } }
+.wob-panel a.wob-railfoot { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--wob-rule); }
+.wob-shelves { display: grid; }
+.wob-kindset { grid-area: 1 / 1; visibility: hidden; }
+.wob-kindset.is-active { visibility: visible; }
