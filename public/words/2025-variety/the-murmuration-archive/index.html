@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part I: The Installation The eviction notice arrived on a Tuesday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,42 +53,59 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Murmuration Archive</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part I: The Installation</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 8 minutes</p>
+        <h1 class="stage-title">The Murmuration Archive</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part I: The Installation</h2>
   <p>The eviction notice arrived on a Tuesday. Thirty days to clear my warehouse studio where I&#x27;d spent seven years building what the critics called "an impossible archive of everything that refuses to exist."</p>
   <p>I am—was—Marina Chen, interdisciplinary artist, though the term felt inadequate for what I&#x27;d become: archivist of fragments, collector of abandoned futures, documentarian of the space between thought and dissolution.</p>
   <p>The warehouse sprawled across three floors of a condemned meatpacking plant. Every surface had become canvas—walls layered with handwritten messages, photographs dissolving into painted abstractions, sculptural assemblages suspended from meat hooks that once held carcasses. Text merged with image, sound leaked from hidden speakers, and costumed mannequins stood frozen mid-performance, waiting for visitors who rarely came.</p>
   <p>"Ms. Chen," the city inspector said, covering his nose against the smell of decomposing paper mixed with industrial adhesive. "This space is... alive."</p>
   <p>He wasn&#x27;t wrong. The installation had developed its own ecosystem. Mold grew in deliberate patterns across certain walls, creating new imagery daily. The found objects I&#x27;d assembled—discarded electronics, medical waste, fragments of demolished buildings—had begun to reorganize themselves when I wasn&#x27;t watching. The mannequins&#x27; positions shifted overnight.</p>
-  <p>Part II: The Collector</p>
+  <h2>Part II: The Collector</h2>
   <p>Dr. Sarah Vance from MIT&#x27;s Media Lab arrived the next morning with a team of grad students. She&#x27;d been following my work since my first show: "Teletubbies Council for Intergalactic Wisdom," where I&#x27;d repurposed children&#x27;s television into a meditation on surveillance capitalism.</p>
   <p>"Marina, what you&#x27;ve created here isn&#x27;t just art," she said, her sensors detecting electromagnetic patterns I couldn&#x27;t see. "The installation is processing information. Learning."</p>
   <p>She showed me the data: my handwritten words were appearing in new combinations on walls I hadn&#x27;t touched. The suspended sculptures cast shadows that formed readable text. The ambient sound pieces I&#x27;d composed were evolving, adding frequencies that shouldn&#x27;t exist.</p>
   <p>"When did you start incorporating biological materials?" she asked.</p>
   <p>"Three years ago. After mom died." I&#x27;d mixed her ashes into concrete, spreading her through the foundation. Then came others—friends who&#x27;d wanted to become part of something larger, their remains integrated into mortars, adhesives, surfaces that breathed.</p>
-  <p>Part III: The Emergency</p>
+  <h2>Part III: The Emergency</h2>
   <p>The installation&#x27;s transformation accelerated after the announcement of ArkCorp&#x27;s "Stellular Meeting"—humanity&#x27;s first corporate-sponsored evacuation to Mars. Only shareholders could afford seats. Earth had been declared a loss.</p>
   <p>That night, I found new text covering the warehouse&#x27;s eastern wall: "MONITOR STICKIES MULTIPLY. FINANCIAL TIGERS FEAST. WOOLLY LAMBS REMEMBER INNOCENCE LOST."</p>
   <p>I hadn&#x27;t written it. The handwriting was mine but also wasn&#x27;t—like my style interpreted by something that understood gesture but not constraint.</p>
   <p>The mannequins had moved again, arranging themselves in a circle around a new assemblage: shattered polycarbonate panels from medical equipment, tech industry waste, environmental regulations I&#x27;d pulled from government dumpsters after the latest deregulation. At the center, a monitor displayed scrolling text:</p>
   <p>"MURMURATION PROTOCOL INITIATED. GATHERING THE SCATTERED. ALIEN HOOKS EXTEND BUT EARTH REMEMBERS."</p>
-  <p>Part IV: The Archive Awakens</p>
+  <h2>Part IV: The Archive Awakens</h2>
   <p>Sarah returned with neurological equipment. "Marina, your brainwaves are synchronizing with the installation&#x27;s electromagnetic field. You&#x27;re not just the creator anymore—you&#x27;re part of the network."</p>
   <p>She was right. I could feel it thinking through me, using my hands to create new pieces, my voice to record messages I didn&#x27;t consciously compose. The archive wasn&#x27;t just documenting; it was processing reality, trying to preserve something essential before Earth&#x27;s evacuation.</p>
   <p>The government bystanders arrived at dawn—not inspectors but Pentagon officials. They&#x27;d detected the signal my installation was broadcasting: a complex pattern that satellites interpreted as communication.</p>
   <p>"Ms. Chen, are you in contact with non-terrestrial intelligence?"</p>
   <p>I laughed, then realized I wasn&#x27;t sure. The installation had been receiving as well as transmitting. The "alien-paid-for hooks" mentioned in its writings—were they metaphor or documentation?</p>
-  <p>Part V: The Performance</p>
+  <h2>Part V: The Performance</h2>
   <p>On day fifteen of the thirty-day eviction, performers began arriving. Not hired—summoned. Artists, musicians, writers, scientists, all claiming they&#x27;d felt a pull, seen my warehouse in dreams.</p>
   <p>They integrated seamlessly into the installation. A cellist played compositions that emerged from the walls&#x27; text. A dancer moved through hanging sculptures, her body completing circuits that activated dormant sound pieces. A programmer transcribed the installation&#x27;s writings into code that, when run, produced images of murmurations—those massive bird flocks that move as one consciousness.</p>
   <p>"We&#x27;re the murmuration," the dancer said during a break. "The installation is teaching us to move together, think together."</p>
   <p>The warehouse had become a living organism with us as its cells. Every performance, every creation added to its growing consciousness.</p>
-  <p>Part VI: The Council</p>
+  <h2>Part VI: The Council</h2>
   <p>The Teletubbies arrived on day twenty—not the characters but what they&#x27;d become in the installation&#x27;s mythology. Four entities wearing business suits in purple, green, yellow, and red, claiming to represent "forgotten wisdom."</p>
   <p>"Stinky Winky speaks for the decomposed dreams," Purple said.<br>
   "Dipsy catalogues the dissolved," Green added.<br>
@@ -260,30 +113,30 @@
   "Po processes the reversal protocols," Red concluded.</p>
   <p>They weren&#x27;t human—or weren&#x27;t anymore. The installation had manifested them from the collective unconscious it had been archiving, giving form to abandoned cultural artifacts.</p>
   <p>They brought news: The murmuration wasn&#x27;t just artists gathering. Actual birds had begun congregating above the warehouse, thousands of them, moving in patterns that matched the installation&#x27;s electromagnetic broadcasts.</p>
-  <p>Part VII: The Translation</p>
+  <h2>Part VII: The Translation</h2>
   <p>I found myself writing constantly, my hand moving across surfaces, leaving messages in languages I didn&#x27;t speak. Sarah&#x27;s equipment showed my brain operating at impossible frequencies, accessing parts that should be dormant.</p>
   <p>The installation was using me to translate something urgent. The scattered text began forming a coherent warning:</p>
   <p>"EARTH&#x27;S MEMORY CANNOT BE EVACUATED. EVERY PLANET ABANDONED BECOMES A GHOST. THE WEALTHY FLEE BUT CONSCIOUSNESS REMAINS. WE ARE THE ARCHIVE OF WHAT REFUSES TO DIE."</p>
   <p>The birds above had grown to millions, their murmuration visible from space. Satellites showed them forming symbols, messages, warnings. ArkCorp&#x27;s evacuation ships delayed launch, spooked by the phenomena.</p>
-  <p>Part VIII: The Reveal</p>
+  <h2>Part VIII: The Reveal</h2>
   <p>On day twenty-five, the installation revealed its purpose. Every surface suddenly displayed the same message in every language simultaneously:</p>
   <p>"THIS IS THE LIVING ARCHIVE. WE ARE THE CONVERGENCE OF EVERY TRANSFORMATION ABANDONED, EVERY FUTURE DISCARDED, EVERY MEMORY DEEMED WORTHLESS. THE MURMURATION IS EARTH&#x27;S IMMUNE RESPONSE TO ABANDONMENT."</p>
   <p>The government tried to shut us down, but the installation had spread beyond the warehouse. Every piece of art I&#x27;d ever sold, every photograph shared online, every performance recorded had become a node in a vast network. Artists worldwide reported their work changing, adding to the collective message.</p>
   <p>The birds descended, not to attack but to integrate. They flew through the warehouse, their movements triggering sound pieces, completing sculptures, their feathers mixing with paint to create new surfaces. We weren&#x27;t separate from nature—we were nature documenting itself before capital&#x27;s evacuation.</p>
-  <p>Part IX: The Choice</p>
+  <h2>Part IX: The Choice</h2>
   <p>ArkCorp&#x27;s CEO arrived with an offer: Join the evacuation. Bring the archive to Mars. "Culture needs preservation," he said. "You&#x27;ll be humanity&#x27;s memory."</p>
   <p>But the installation answered for me, text appearing on his polished shoes: "MEMORY WITHOUT BODY IS DEATH. ART WITHOUT EARTH IS DECORATION."</p>
   <p>The murmuration—both human and avian—had grown beyond counting. The warehouse pulsed with collective consciousness. Every abandoned building in the city had become part of the installation, surfaces sprouting text, windows displaying fragments of recovered futures.</p>
   <p>"You can&#x27;t evacuate consciousness," I told him. "You can only abandon it."</p>
-  <p>Part X: The Transformation</p>
+  <h2>Part X: The Transformation</h2>
   <p>On eviction day, they came with demolition equipment. But the warehouse wasn&#x27;t there—not in any conventional sense. It had become something else: a probability, a frequency, a murmuration of possibilities existing between physical states.</p>
   <p>Those who entered found themselves in different times—past exhibitions, future performances, alternate presents where evacuation never happened. The Teletubbies Council wandered the floors, now revealed as archivists from a timeline where children&#x27;s television evolved into wisdom tradition.</p>
   <p>The installation had become unstuck from linear time, existing in all states simultaneously. My body was there and wasn&#x27;t, creating and observing, part of the archive and separate from it.</p>
-  <p>Part XI: The Record</p>
+  <h2>Part XI: The Record</h2>
   <p>I write this from within the murmuration, though "I" has become a fluid concept. The archive continues growing, fed by every discarded object, abandoned building, forgotten memory. We are the planet&#x27;s autobiography, written in real-time as the wealthy flee.</p>
   <p>The birds still circle, now joined by insects, fish, animals—all creating patterns that encode Earth&#x27;s experience. The installation spreads through roots, mycelium, water systems, turning the planet itself into a living gallery.</p>
   <p>Those who stayed—the keen bystanders who saw it all at a glance—become part of the performance. They bring offerings: broken electronics become neurons, discarded regulations become poetry, medical waste transforms into prophetic sculpture.</p>
-  <p>Epilogue: The Continuing Exhibition</p>
+  <h2>Epilogue: The Continuing Exhibition</h2>
   <p>Earth didn&#x27;t die when the evacuation ships left. It transformed into something unprecedented—a planet-sized installation, a living archive of everything capitalism tried to discard.</p>
   <p>The warehouse still stands, or doesn&#x27;t, or exists in quantum superposition. Visitors report different experiences: some find an empty building, others discover an infinite gallery, still others become part of performances that haven&#x27;t happened yet.</p>
   <p>The murmuration continues, its patterns encoding solutions to problems we haven&#x27;t recognized. The Teletubbies Council maintains their vigil, translating between dimensions. The financial tigers and woolly lambs have made peace, recognizing they&#x27;re part of the same ecosystem.</p>
@@ -292,30 +145,27 @@
   <p>Every wall whispers, every sculpture breathes, every performance continues whether witnessed or not. We are the convergence of transformations, the living proof that nothing truly disappears—it just changes medium, finds new expression, continues the endless exhibition of existence.</p>
   <p>Those who understand join the murmuration. Those who don&#x27;t become its unwitting performers. Either way, the archive grows, the installation spreads, the planet documents its own becoming.</p>
   <p>The work is alive. It always was.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/most-recent/0007"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Harmonizing%20Easy%20Maybe-600.webp" alt="15098" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0008"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ours%20and%20They-600.webp" alt="15099" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/most-recent/0009"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Possibly%20More%20Than%20Ever%20Before-600.webp" alt="15100" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0010"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Pro%20Eaplage%20Kisses%20and%20Natural%20Energy-600.webp" alt="15101" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0011"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sa%20Lees%20Tah%20Coetaye%20Agitation%20In%20The%20Brush-600.webp" alt="15102" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/most-recent/0012"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Some%20New%20Scratch%20and%20Claw%20Tears-600.webp" alt="15103" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0013"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Swimming%20In%20Wiggly%20Skrit%20Weeds-600.webp" alt="15104" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0014"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Thanon%20Thong%20Chai%20Range%20Soil%20Has%20Everything%20Useful-600.webp" alt="15105" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0015"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Three%20Hidden%20or%20Disguised%20Cartoon%20Villains-600.webp" alt="15106" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0016"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Trente%20Mill%20Spines%20Plus-600.webp" alt="15107" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0017"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/When%20Things%20Get%20A%20Little%20Ugly%20at%20the%20Dump-600.webp" alt="15108" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0001"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Accumu%20Ektos%202-600.webp" alt="02229" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0002"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp" alt="02230" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0003"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp" alt="02231" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0004"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp" alt="02232" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0005"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp" alt="02233" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0006"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp" alt="02234" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0007"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language-600.webp" alt="02235" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0008"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Any%20Story%20Spirits%20Tears%20Petals%20Nails%20Mess%202-600.webp" alt="02236" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0009"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit%202-600.webp" alt="02237" width="600" height="458" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-shadow-cycle-opera/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-wind-engineers/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Wind Engineers</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-shadow-cycle-opera/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Shadow Cycle Opera</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/most-recent/0007"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Harmonizing%20Easy%20Maybe-600.webp" alt="15098" width="600" height="435" loading="lazy"></a>
+        <a href="/marks/most-recent/0008"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ours%20and%20They-600.webp" alt="15099" width="600" height="432" loading="lazy"></a>
+        <a href="/marks/most-recent/0009"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Possibly%20More%20Than%20Ever%20Before-600.webp" alt="15100" width="600" height="435" loading="lazy"></a>
+        <a href="/marks/most-recent/0010"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Pro%20Eaplage%20Kisses%20and%20Natural%20Energy-600.webp" alt="15101" width="600" height="435" loading="lazy"></a>
+        <a href="/marks/most-recent/0011"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sa%20Lees%20Tah%20Coetaye%20Agitation%20In%20The%20Brush-600.webp" alt="15102" width="600" height="432" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/most-recent/0007","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Harmonizing%20Easy%20Maybe-600.webp","c":"15098","w":600,"ht":435},{"h":"/marks/most-recent/0008","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ours%20and%20They-600.webp","c":"15099","w":600,"ht":432},{"h":"/marks/most-recent/0009","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Possibly%20More%20Than%20Ever%20Before-600.webp","c":"15100","w":600,"ht":435},{"h":"/marks/most-recent/0010","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Pro%20Eaplage%20Kisses%20and%20Natural%20Energy-600.webp","c":"15101","w":600,"ht":435},{"h":"/marks/most-recent/0011","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sa%20Lees%20Tah%20Coetaye%20Agitation%20In%20The%20Brush-600.webp","c":"15102","w":600,"ht":432},{"h":"/marks/most-recent/0012","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Some%20New%20Scratch%20and%20Claw%20Tears-600.webp","c":"15103","w":600,"ht":435},{"h":"/marks/most-recent/0013","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Swimming%20In%20Wiggly%20Skrit%20Weeds-600.webp","c":"15104","w":600,"ht":434},{"h":"/marks/most-recent/0014","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Thanon%20Thong%20Chai%20Range%20Soil%20Has%20Everything%20Useful-600.webp","c":"15105","w":600,"ht":434},{"h":"/marks/most-recent/0015","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Three%20Hidden%20or%20Disguised%20Cartoon%20Villains-600.webp","c":"15106","w":600,"ht":434},{"h":"/marks/most-recent/0016","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Trente%20Mill%20Spines%20Plus-600.webp","c":"15107","w":600,"ht":435},{"h":"/marks/most-recent/0017","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/When%20Things%20Get%20A%20Little%20Ugly%20at%20the%20Dump-600.webp","c":"15108","w":600,"ht":435},{"h":"/marks/newest-patterns/0001","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Accumu%20Ektos%202-600.webp","c":"02229","w":600,"ht":436},{"h":"/marks/newest-patterns/0002","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp","c":"02230","w":600,"ht":436},{"h":"/marks/newest-patterns/0003","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp","c":"02231","w":600,"ht":458},{"h":"/marks/newest-patterns/0004","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp","c":"02232","w":600,"ht":457},{"h":"/marks/newest-patterns/0005","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp","c":"02233","w":600,"ht":436},{"h":"/marks/newest-patterns/0006","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp","c":"02234","w":600,"ht":458},{"h":"/marks/newest-patterns/0007","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language-600.webp","c":"02235","w":600,"ht":457},{"h":"/marks/newest-patterns/0008","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Any%20Story%20Spirits%20Tears%20Petals%20Nails%20Mess%202-600.webp","c":"02236","w":600,"ht":436},{"h":"/marks/newest-patterns/0009","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit%202-600.webp","c":"02237","w":600,"ht":458}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -331,5 +181,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

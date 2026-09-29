@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Portland Community Garden ## October 2024 **Characters:** - LIORA, 38, tech worker on stress leave - KEVIN, 45, self-appointed group leader - MYZRAEL, 62, fo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +53,29 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Composting Group</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Play &middot; 4 minutes</p>
+        <h1 class="stage-title">The Composting Group</h1>
+      </div>
+      <a class="stage-cat" href="/physical.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>Portland Community Garden<br>
   October 2024</p>
   <p><strong>Characters:</strong><br>
@@ -231,8 +84,7 @@
   - MYZRAEL, 62, former therapist, lost license<br>
   - KEMI, 29, translator<br>
   - JASPER, 51, divorced father</p>
-  <p>---</p>
-  <p>Scene 1: Circle Time</p>
+  <h2>Scene 1: Circle Time</h2>
   <p><em>Five people sit on stumps around a compost bin. Rain.</em></p>
   <p><strong>KEVIN</strong>: Welcome to Emotional Composting. Where we turn trauma into growth.</p>
   <p><strong>LIORA</strong>: Is this court-mandated for anyone else?</p>
@@ -241,81 +93,76 @@
   <p><strong>KEVIN</strong>: We don&#x27;t judge here. We decompose our pain productively.</p>
   <p><strong>MYZRAEL</strong>: Kevin, you&#x27;re not a therapist.</p>
   <p><strong>KEVIN</strong>: Neither are you. Anymore.</p>
-  <p><em>Awkward silence.</em></p>
+  <h2><em>Awkward silence.</em></h2>
   <p><strong>KEMI</strong>: I&#x27;m just here for community service hours.</p>
   <p><strong>KEVIN</strong>: Everyone grab a handful of compost.</p>
   <p><strong>LIORA</strong>: It&#x27;s raining.</p>
   <p><strong>KEVIN</strong>: Rain accelerates decomposition. Like tears.</p>
   <p><strong>JASPER</strong>: Did you get that from Pinterest?</p>
-  <p>---</p>
-  <p>Scene 2: The Exercise</p>
-  <p><em>Everyone holds wet compost.</em></p>
+  <h2>Scene 2: The Exercise</h2>
+  <h2><em>Everyone holds wet compost.</em></h2>
   <p><strong>KEVIN</strong>: Tell the compost your pain.</p>
   <p><strong>LIORA</strong>: Seriously?</p>
   <p><strong>KEVIN</strong>: The mycelial network absorbs emotional toxins.</p>
   <p><strong>MYZRAEL</strong>: That&#x27;s not how fungi work.</p>
   <p><strong>KEVIN</strong>: You lost your license for sleeping with a patient. Maybe don&#x27;t lecture about how things work.</p>
-  <p><em>Myzrael stands to leave.</em></p>
+  <h2><em>Myzrael stands to leave.</em></h2>
   <p><strong>KEMI</strong>: Wait. I&#x27;ll go first.</p>
-  <p><em>She holds the compost.</em></p>
+  <h2><em>She holds the compost.</em></h2>
   <p><strong>KEMI</strong>: My mother called me quiet thunder. In Yoruba. I can&#x27;t remember the words anymore. Three countries, three languages. I lost her voice somewhere between.</p>
-  <p><em>She puts compost in bin.</em></p>
+  <h2><em>She puts compost in bin.</em></h2>
   <p><strong>JASPER</strong>: My kids won&#x27;t talk to me. Six months now. Their therapist says I&#x27;m "emotionally absent." I don&#x27;t know what that means. I was there. Every game. Every recital.</p>
   <p><strong>LIORA</strong>: Being there isn&#x27;t the same as being present.</p>
   <p><strong>JASPER</strong>: What&#x27;s the difference?</p>
   <p><strong>LIORA</strong>: I don&#x27;t know. That&#x27;s why I&#x27;m here.</p>
-  <p>---</p>
-  <p>Scene 3: The Truth</p>
-  <p><em>Kevin&#x27;s phone rings. He silences it. Rings again.</em></p>
-  <p><strong>KEVIN</strong>: I need to—</p>
+  <h2>Scene 3: The Truth</h2>
+  <h2><em>Kevin&#x27;s phone rings. He silences it. Rings again.</em></h2>
+  <h2><strong>KEVIN</strong>: I need to—</h2>
   <p><strong>MYZRAEL</strong>: It&#x27;s your ex. Third time today.</p>
-  <p><strong>KEVIN</strong>: How do you—</p>
+  <h2><strong>KEVIN</strong>: How do you—</h2>
   <p><strong>MYZRAEL</strong>: We go to the same meetings. AA. She told me about this group. How you started it after she left. How you think pain can be composted because you can&#x27;t face it directly.</p>
-  <p><strong>KEVIN</strong>: That&#x27;s not—</p>
+  <h2><strong>KEVIN</strong>: That&#x27;s not—</h2>
   <p><strong>MYZRAEL</strong>: Your pain isn&#x27;t fertilizer, Kevin. It&#x27;s just pain.</p>
   <p><strong>LIORA</strong>: Jesus.</p>
-  <p><strong>KEVIN</strong>: You don&#x27;t understand the mycelial—</p>
+  <h2><strong>KEVIN</strong>: You don&#x27;t understand the mycelial—</h2>
   <p><strong>MYZRAEL</strong>: Stop hiding behind mushroom metaphors. Your wife left. Your kids are scared of you. You&#x27;re an accountant pretending to be a shaman.</p>
-  <p><em>Kevin throws his handful of compost at Myzrael.</em></p>
+  <h2><em>Kevin throws his handful of compost at Myzrael.</em></h2>
   <p><strong>KEVIN</strong>: At least I didn&#x27;t fuck my patient!</p>
   <p><strong>MYZRAEL</strong>: She was my patient twenty years ago. We fell in love. Adults do that.</p>
-  <p><strong>KEVIN</strong>: You took advantage—</p>
+  <h2><strong>KEVIN</strong>: You took advantage—</h2>
   <p><strong>MYZRAEL</strong>: I lost everything for love. You lost everything because you couldn&#x27;t feel it.</p>
-  <p>---</p>
-  <p>Scene 4: Real Talk</p>
-  <p><em>Everyone sits in silence. Rain harder now.</em></p>
+  <h2>Scene 4: Real Talk</h2>
+  <h2><em>Everyone sits in silence. Rain harder now.</em></h2>
   <p><strong>JASPER</strong>: This is better than my actual therapy.</p>
   <p><strong>KEMI</strong>: You want to know something stupid? I&#x27;ve been coming here three weeks. This compost bin? It&#x27;s decorative. The garden doesn&#x27;t use it. Too much contamination.</p>
   <p><strong>LIORA</strong>: So we&#x27;ve been talking to garbage.</p>
   <p><strong>KEMI</strong>: Basically.</p>
-  <p><em>They start laughing. Even Kevin.</em></p>
+  <h2><em>They start laughing. Even Kevin.</em></h2>
   <p><strong>LIORA</strong>: I threw the laptop at my boss. He said I wasn&#x27;t "fungible." I thought he said "fungal." Lost my shit about mushroom metaphors.</p>
   <p><strong>JASPER</strong>: You assaulted someone over mushrooms?</p>
   <p><strong>LIORA</strong>: I was already on edge. My mom&#x27;s dying. I&#x27;m her caregiver. He kept talking about "growth mindsets" while I&#x27;m watching her decompose.</p>
-  <p><em>Silence.</em></p>
+  <h2><em>Silence.</em></h2>
   <p><strong>KEVIN</strong>: My ex-wife is calling because our son tried to kill himself. Tuesday. Pills. He&#x27;s okay. But she thinks it&#x27;s my fault. The pressure. The achievement stuff.</p>
   <p><strong>MYZRAEL</strong>: Is it?</p>
   <p><strong>KEVIN</strong>: Yeah. Probably.</p>
-  <p>---</p>
-  <p>Scene 5: Actual Composting</p>
+  <h2>Scene 5: Actual Composting</h2>
   <p><em>Kemi opens the decorative bin. It&#x27;s full of random trash.</em></p>
   <p><strong>KEMI</strong>: Should we fix it? Make it real compost?</p>
   <p><strong>JASPER</strong>: I know how. Had a garden. Before.</p>
-  <p><em>They begin sorting trash from organic matter.</em></p>
+  <h2><em>They begin sorting trash from organic matter.</em></h2>
   <p><strong>LIORA</strong>: This is disgusting.</p>
   <p><strong>MYZRAEL</strong>: This is honest.</p>
   <p><strong>KEVIN</strong>: I don&#x27;t understand the difference anymore.</p>
   <p><strong>LIORA</strong>: That&#x27;s the first real thing you&#x27;ve said.</p>
-  <p><em>They work in silence. Sorting. The rain stops.</em></p>
+  <h2><em>They work in silence. Sorting. The rain stops.</em></h2>
   <p><strong>JASPER</strong>: My therapist says emotions need to move through you. Not around, not under. Through.</p>
   <p><strong>KEMI</strong>: Like translation. The meaning has to pass through one language to reach another.</p>
   <p><strong>MYZRAEL</strong>: Like love. Has to move through the mess to become itself.</p>
   <p><strong>KEVIN</strong>: Like compost.</p>
-  <p><strong>LIORA</strong>: Kevin—</p>
+  <h2><strong>LIORA</strong>: Kevin—</h2>
   <p><strong>KEVIN</strong>: No, really. Not as metaphor. Just as compost. Shit breaking down into something useful. Eventually.</p>
-  <p>---</p>
-  <p>Scene 6: Next Week</p>
-  <p><em>Same circle. Sun breaking through clouds.</em></p>
+  <h2>Scene 6: Next Week</h2>
+  <h2><em>Same circle. Sun breaking through clouds.</em></h2>
   <p><strong>KEVIN</strong>: I talked to my son.</p>
   <p><strong>LIORA</strong>: How&#x27;d it go?</p>
   <p><strong>KEVIN</strong>: Badly. Then better. Then badly again. Then... I don&#x27;t know. We&#x27;re talking.</p>
@@ -324,40 +171,37 @@
   <p><strong>EVERYONE</strong>: What?</p>
   <p><strong>JASPER</strong>: I&#x27;ve been sending her mushroom facts. Instead of asking to see her. Just facts. Finally she sent one back.</p>
   <p><strong>KEMI</strong>: I remembered the words. What my mother called me. "Àrá mi." My quiet thunder.</p>
-  <p><em>Liora holds fresh compost. Real compost now.</em></p>
+  <h2><em>Liora holds fresh compost. Real compost now.</em></h2>
   <p><strong>LIORA</strong>: My mom died. Thursday.</p>
-  <p><em>Everyone stops.</em></p>
+  <h2><em>Everyone stops.</em></h2>
   <p><strong>LIORA</strong>: It&#x27;s okay. It was time. She said something at the end. "You&#x27;re good soil." I think she meant I&#x27;d grow things. Eventually.</p>
-  <p><em>She puts the compost in the bin.</em></p>
+  <h2><em>She puts the compost in the bin.</em></h2>
   <p><strong>LIORA</strong>: Or maybe she was just high on morphine talking about gardening.</p>
   <p><strong>KEVIN</strong>: Both can be true.</p>
   <p><strong>LIORA</strong>: Yeah. Both.</p>
   <p><em>They sit with that. The garden around them growing.</em></p>
-  <p><strong>End</strong></p>
-  <p class="core-foot-label"><a href="/physical.html">From Physical</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/day-stage-textile-space/"><img src="https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2023-600.webp" alt="Day Stage Textile Space" width="600" height="384" loading="lazy"></a>
-      <a href="/physical/dirty-ol-shipyard/"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp" alt="Dirty Ol Shipyard" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/dug-ity-dig-wonders/"><img src="https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Be%20Icy%20Carthos%205-600.webp" alt="DUG-ITY Dig Wonders" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/entitled-white-sheets/"><img src="https://media.paraploo.com/site/images/physical/entitled-white-sheets/Entitled%20White%201-600.webp" alt="Entitled White Sheets" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/flux-art-temperature/"><img src="https://media.paraploo.com/site/images/physical/flux-art-temperature/Cowboy%20Hat%204-600.webp" alt="Flux Art Temperature" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/foamboard-holes-plus/"><img src="https://media.paraploo.com/site/images/physical/foamboard-holes-plus/Pink%20Panther%201-600.webp" alt="Foamboard Holes Plus" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/free-attempt/"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2014-600.webp" alt="Free Attempt" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/get-the-stuff-out/"><img src="https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2010-600.webp" alt="Get the Stuff Out" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/had-a-concrete-heart-once/"><img src="https://media.paraploo.com/site/images/physical/had-a-concrete-heart-once/Concrete%20Heart%201-600.webp" alt="Had a Concrete Heart Once" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/handin-pocket-still-life/"><img src="https://media.paraploo.com/site/images/physical/handin-pocket-still-life/handin%2011-600.webp" alt="Handin Pocket Still Life" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/hanging-holes-frame/"><img src="https://media.paraploo.com/site/images/physical/hanging-holes-frame/Hanging%20Bullet%201-600.webp" alt="Hanging Holes Frame" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/holy-stoney-table-and-grade/"><img src="https://media.paraploo.com/site/images/physical/holy-stoney-table-and-grade/Holy%20Stoney%2010-600.webp" alt="Holy Stoney Table and Grade" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/host-the-most/"><img src="https://media.paraploo.com/site/images/physical/host-the-most/Host%20Most%201-600.webp" alt="Host the Most" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/hot-evening-prayers/"><img src="https://media.paraploo.com/site/images/physical/hot-evening-prayers/Hot%20Prayers-01-600.webp" alt="Hot Evening Prayers" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/ignore-the-fallen-leaves/"><img src="https://media.paraploo.com/site/images/physical/ignore-the-fallen-leaves/Fallen%20Leaves%20Plus%2010-600.webp" alt="Ignore the Fallen Leaves" width="550" height="600" loading="lazy"></a>
-      <a href="/physical/it-is-good-to-not-always-know/"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%201-600.webp" alt="It Is Good to Not Always Know" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/kandah-dusk-proof/"><img src="https://media.paraploo.com/site/images/physical/kandah-dusk-proof/Kandah%2010-600.webp" alt="Kandah Dusk Proof" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/kiwanuk-questions/"><img src="https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%201-600.webp" alt="Kiwanuk Questions" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/late-grief-sun/"><img src="https://media.paraploo.com/site/images/physical/late-grief-sun/Late%20Mourning%20Sun%201-600.webp" alt="Late Grief Sun" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/let-it-be-attitude/"><img src="https://media.paraploo.com/site/images/physical/let-it-be-attitude/Just%20Be%20Attitude%2010-600.webp" alt="Let It Be Attitude" width="600" height="400" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-wellness-retreat-incident/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2><strong>End</strong></h2>
+    </div>
+    <a class="wp-one" href="/physical.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-translation-study/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Translation Study</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-wellness-retreat-incident/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Wellness Retreat Incident</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/physical.html">From Physical</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/physical/day-stage-textile-space/"><img src="https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2023-600.webp" alt="Day Stage Textile Space" width="600" height="384" loading="lazy"></a>
+        <a href="/physical/dirty-ol-shipyard/"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp" alt="Dirty Ol Shipyard" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/dug-ity-dig-wonders/"><img src="https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Be%20Icy%20Carthos%205-600.webp" alt="DUG-ITY Dig Wonders" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/entitled-white-sheets/"><img src="https://media.paraploo.com/site/images/physical/entitled-white-sheets/Entitled%20White%201-600.webp" alt="Entitled White Sheets" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/flux-art-temperature/"><img src="https://media.paraploo.com/site/images/physical/flux-art-temperature/Cowboy%20Hat%204-600.webp" alt="Flux Art Temperature" width="600" height="400" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/physical/day-stage-textile-space/","s":"https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2023-600.webp","c":"Day Stage Textile Space","w":600,"ht":384},{"h":"/physical/dirty-ol-shipyard/","s":"https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp","c":"Dirty Ol Shipyard","w":600,"ht":400},{"h":"/physical/dug-ity-dig-wonders/","s":"https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Be%20Icy%20Carthos%205-600.webp","c":"DUG-ITY Dig Wonders","w":600,"ht":400},{"h":"/physical/entitled-white-sheets/","s":"https://media.paraploo.com/site/images/physical/entitled-white-sheets/Entitled%20White%201-600.webp","c":"Entitled White Sheets","w":600,"ht":400},{"h":"/physical/flux-art-temperature/","s":"https://media.paraploo.com/site/images/physical/flux-art-temperature/Cowboy%20Hat%204-600.webp","c":"Flux Art Temperature","w":600,"ht":400},{"h":"/physical/foamboard-holes-plus/","s":"https://media.paraploo.com/site/images/physical/foamboard-holes-plus/Pink%20Panther%201-600.webp","c":"Foamboard Holes Plus","w":600,"ht":400},{"h":"/physical/free-attempt/","s":"https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2014-600.webp","c":"Free Attempt","w":600,"ht":400},{"h":"/physical/get-the-stuff-out/","s":"https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2010-600.webp","c":"Get the Stuff Out","w":600,"ht":400},{"h":"/physical/had-a-concrete-heart-once/","s":"https://media.paraploo.com/site/images/physical/had-a-concrete-heart-once/Concrete%20Heart%201-600.webp","c":"Had a Concrete Heart Once","w":600,"ht":400},{"h":"/physical/handin-pocket-still-life/","s":"https://media.paraploo.com/site/images/physical/handin-pocket-still-life/handin%2011-600.webp","c":"Handin Pocket Still Life","w":600,"ht":400},{"h":"/physical/hanging-holes-frame/","s":"https://media.paraploo.com/site/images/physical/hanging-holes-frame/Hanging%20Bullet%201-600.webp","c":"Hanging Holes Frame","w":600,"ht":400},{"h":"/physical/holy-stoney-table-and-grade/","s":"https://media.paraploo.com/site/images/physical/holy-stoney-table-and-grade/Holy%20Stoney%2010-600.webp","c":"Holy Stoney Table and Grade","w":600,"ht":400},{"h":"/physical/host-the-most/","s":"https://media.paraploo.com/site/images/physical/host-the-most/Host%20Most%201-600.webp","c":"Host the Most","w":600,"ht":400},{"h":"/physical/hot-evening-prayers/","s":"https://media.paraploo.com/site/images/physical/hot-evening-prayers/Hot%20Prayers-01-600.webp","c":"Hot Evening Prayers","w":600,"ht":400},{"h":"/physical/ignore-the-fallen-leaves/","s":"https://media.paraploo.com/site/images/physical/ignore-the-fallen-leaves/Fallen%20Leaves%20Plus%2010-600.webp","c":"Ignore the Fallen Leaves","w":550,"ht":600},{"h":"/physical/it-is-good-to-not-always-know/","s":"https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%201-600.webp","c":"It Is Good to Not Always Know","w":600,"ht":400},{"h":"/physical/kandah-dusk-proof/","s":"https://media.paraploo.com/site/images/physical/kandah-dusk-proof/Kandah%2010-600.webp","c":"Kandah Dusk Proof","w":600,"ht":400},{"h":"/physical/kiwanuk-questions/","s":"https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%201-600.webp","c":"Kiwanuk Questions","w":600,"ht":400},{"h":"/physical/late-grief-sun/","s":"https://media.paraploo.com/site/images/physical/late-grief-sun/Late%20Mourning%20Sun%201-600.webp","c":"Late Grief Sun","w":600,"ht":400},{"h":"/physical/let-it-be-attitude/","s":"https://media.paraploo.com/site/images/physical/let-it-be-attitude/Just%20Be%20Attitude%2010-600.webp","c":"Let It Be Attitude","w":600,"ht":400}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -373,5 +217,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

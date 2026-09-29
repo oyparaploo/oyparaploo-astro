@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## I.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,182 +53,199 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Chairs Nobody Sits In (2)</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>I. Tahlequah</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 11 minutes</p>
+        <h1 class="stage-title">The Chairs Nobody Sits In (2)</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>I. Tahlequah</h2>
   <p>Mae inherits seventeen wooden chairs from her grandmother along with a note written in shaky cursive: <em>Don&#x27;t let anyone sit on these. They&#x27;re busy holding space.</em></p>
   <p>She&#x27;s thirty-six, works at the Cherokee Heritage Center giving tours to school groups and tourists who want to hear about Trail of Tears and pottery and how "connected to nature" Native people are, and she&#x27;s been doing this eleven years, which is long enough to have memorized her own exhaustion.</p>
   <p>The chairs arrive on a Tuesday. Her cousin Denny brings them in his truck, makes three trips up her apartment stairs, breathing hard. "These things weigh a ton," he says. "What&#x27;s Grandma want you to do with them?"</p>
-  <p>"Not sit on them."</p>
-  <p>"That&#x27;s it?"</p>
-  <p>"That&#x27;s it."</p>
+  <h2>"Not sit on them."</h2>
+  <h2>"That&#x27;s it?"</h2>
+  <h2>"That&#x27;s it."</h2>
   <p>Each chair is draped with one of her grandmother&#x27;s shawls—the fancy ones with beadwork and fringe that she wore to powwows. One chair is completely covered in safety pins. Hundreds of them. Catching light like some punk DIY project, except her grandmother was seventy-three and had never heard of punk.</p>
   <p>"Why safety pins?" Mae had asked her once, before.</p>
   <p>"Because I had them. Because they&#x27;re shiny. Because I wanted to."</p>
   <p>Mae&#x27;s boyfriend Derek tries to sit on one the first night. Not to be difficult. Just automatically. They&#x27;re chairs.</p>
   <p>"Don&#x27;t," Mae says.</p>
-  <p>"Why not?"</p>
-  <p>"Because they&#x27;re not for sitting."</p>
+  <h2>"Why not?"</h2>
+  <h2>"Because they&#x27;re not for sitting."</h2>
   <p>He looks at her like she&#x27;s making things unnecessarily complicated, which maybe she is, but every time someone approaches one of her grandmother&#x27;s chairs she feels something rise up—protective, territorial. These chairs are doing something. Being something. She doesn&#x27;t know what, but it matters.</p>
   <p>The safety pin chair is her favorite. Her grandmother spent months on it, pinning each one individually, creating patterns. Flowers, stars, geometric shapes. Up close it&#x27;s clearly labor—obsessive, meticulous. From far away it looks festive. Celebratory. Like something you&#x27;d see at a party, though touching it would hurt.</p>
   <p>Nancy, her supervisor at the Heritage Center, says: "You seem distracted lately."</p>
-  <p>"I&#x27;m fine."</p>
-  <p>"Your grandmother passed, what, three months ago?"</p>
-  <p>"Four."</p>
-  <p>"That&#x27;s hard. Take time if you need it."</p>
+  <h2>"I&#x27;m fine."</h2>
+  <h2>"Your grandmother passed, what, three months ago?"</h2>
+  <h2>"Four."</h2>
+  <h2>"That&#x27;s hard. Take time if you need it."</h2>
   <p>But what would Mae do with time? Sit at home with seventeen chairs she can&#x27;t sit on, trying to figure out what her grandmother meant? The note didn&#x27;t explain. Just: <em>They&#x27;re busy holding space.</em> For what? For whom?</p>
   <p>At work, Mae gives her fifth tour of the day. Same script. A kid asks, "Do you still live in teepees?" and Mae says no, which is true but insufficient, and the kid looks disappointed, which tells Mae something about what people want from her.</p>
   <p>That evening, Derek says: "We need to talk about the chairs."</p>
-  <p>"What about them?"</p>
-  <p>"They&#x27;re taking up the whole living room."</p>
-  <p>"I know."</p>
-  <p>"So?"</p>
-  <p>"So nothing. They stay."</p>
-  <p>"For how long?"</p>
+  <h2>"What about them?"</h2>
+  <h2>"They&#x27;re taking up the whole living room."</h2>
+  <h2>"I know."</h2>
+  <h2>"So?"</h2>
+  <h2>"So nothing. They stay."</h2>
+  <h2>"For how long?"</h2>
   <p>Mae doesn&#x27;t answer because she doesn&#x27;t know.</p>
   <p>Her best friend Carla visits, sees the setup. "Jesus, Mae. This is a lot."</p>
-  <p>"I know."</p>
-  <p>"You can&#x27;t even sit down."</p>
-  <p>"I sit on the floor."</p>
-  <p>"Why?"</p>
-  <p>"Because that&#x27;s where there&#x27;s space."</p>
+  <h2>"I know."</h2>
+  <h2>"You can&#x27;t even sit down."</h2>
+  <h2>"I sit on the floor."</h2>
+  <h2>"Why?"</h2>
+  <h2>"Because that&#x27;s where there&#x27;s space."</h2>
   <p>Carla doesn&#x27;t push it, but Mae can see her doing the calculation people do when they&#x27;re worried but don&#x27;t want to overstep. They order Thai food. Eat on the floor. Don&#x27;t talk about the chairs.</p>
-  <p>II. Wayanad</p>
+  <h2>II. Wayanad</h2>
   <p>Suma&#x27;s father leaves her eight wooden chairs and no note. Just the chairs in the front room, each covered in embroidery and shells and bits of mirror that catch light like small fires.</p>
   <p>She&#x27;s forty-one, works as a guide at Wayanad Wildlife Sanctuary, takes tourists through the forest, shows them elephants, tells them about medicinal plants and tribal customs. They ask if she lives in the forest, if she can "communicate with nature," if she knows the "ancient ways," and she smiles and answers their questions because it&#x27;s her job, but inside she&#x27;s thinking: I live in a house with plumbing and wifi, I communicate with my phone, and the only ancient way I know is how to be annoyed by tourists.</p>
   <p>The chairs are strange. Beautiful but confrontational. One is covered entirely in cowrie shells and glass beads—looks festival-ready, celebratory, except you can&#x27;t sit on it. The shells would crack, the beads would scatter. It exists only to be looked at.</p>
   <p>Another has fabric draped over it like a person waiting. Sometimes, late at night, Suma walks past and thinks for a second her father is sitting there. He&#x27;s been dead three years, but the shape tricks her every time.</p>
   <p>The one by the door is wrapped in red thread. Thousands of meters of it. Wound around and around until the wood disappears. Her father spent a year on it. Suma watched him do it every night, wrapping in silence, and she never asked why because she assumed he&#x27;d tell her when he was ready. He finished it and died two months later, and now Suma has a chair wrapped in red thread and no explanation.</p>
   <p>Her cousin Arun thinks she&#x27;s being ridiculous. "Sell them. You could get good money. Tourists eat up this &#x27;authentic tribal art&#x27; stuff."</p>
-  <p>"They&#x27;re not for sale."</p>
-  <p>"Then what are they for?"</p>
-  <p>"Just being here."</p>
-  <p>"That&#x27;s not an answer."</p>
-  <p>"It&#x27;s the only one I have."</p>
+  <h2>"They&#x27;re not for sale."</h2>
+  <h2>"Then what are they for?"</h2>
+  <h2>"Just being here."</h2>
+  <h2>"That&#x27;s not an answer."</h2>
+  <h2>"It&#x27;s the only one I have."</h2>
   <p>Arun works in Bangalore, wears suits, visits once a year and talks about how "traditional" everything is in Wayanad, how "simple," like simplicity and authenticity are the same thing, like her life is a museum exhibit for his nostalgia.</p>
   <p>At work, Suma takes a group of German tourists through the forest. They want to see elephants. She shows them elephants. They want photos of her "in traditional dress" by the elephants. She smiles and stands where they point because her paycheck depends on their satisfaction ratings.</p>
   <p>"Are you happy living here?" one woman asks. "So far from modern life?"</p>
   <p>Suma wants to say: My father made chairs for people who never sat in them, I have better wifi than you probably do, and "modern life" is a stupid phrase. Instead she says: "Yes, very happy," and the woman nods, satisfied, having received the answer she wanted.</p>
   <p>That evening, Suma sits on the floor in front of the chair wrapped in red thread. Just sits there. Looking. Her father&#x27;s hands wrapped this. Every meter. Every loop. A year of evenings. What was he thinking? What was he trying to hold?</p>
   <p>Her sister calls from Chennai. "Arun says you&#x27;re keeping those chairs."</p>
-  <p>"Yes."</p>
-  <p>"Why?"</p>
-  <p>"Because Dad made them."</p>
+  <h2>"Yes."</h2>
+  <h2>"Why?"</h2>
+  <h2>"Because Dad made them."</h2>
   <p>"He made a lot of things. You didn&#x27;t keep all of them."</p>
   <p>This is true. But those were useful things—tables, stools, shelves. Things that did what things are supposed to do. These chairs refuse utility. They sit there, draped and wrapped and beaded, taking up space, insisting on their own existence without apologizing for being useless.</p>
   <p>"They&#x27;re important," Suma says.</p>
-  <p>"To who?"</p>
+  <h2>"To who?"</h2>
   <p>"I don&#x27;t know. To Dad. To me. I don&#x27;t know."</p>
   <p>Her sister sighs. "You sound like him. At the end. Making things that didn&#x27;t make sense."</p>
   <p>After they hang up, Suma touches the red thread chair. The texture is rough under her fingers. All those nights of wrapping. All that time. For what? To create something no one could use? To make something that just... is?</p>
-  <p>III. Seeing Each Other</p>
+  <h2>III. Seeing Each Other</h2>
   <p>Mae finds Suma through Instagram. Or Suma finds Mae. The algorithm, in its mysterious way, decides these two women with their inherited impossible furniture should know about each other.</p>
   <p>Suma posts a photo: chair covered in shells, caption: "My father&#x27;s work. Don&#x27;t ask me to explain it."</p>
   <p>Mae comments: "I have seventeen chairs from my grandmother. Nobody&#x27;s allowed to sit on them."</p>
-  <p>Suma messages: "Seventeen??"</p>
-  <p>Mae: "SEVENTEEN."</p>
+  <h2>Suma messages: "Seventeen??"</h2>
+  <h2>Mae: "SEVENTEEN."</h2>
   <p>They schedule a video call. It&#x27;s 7 AM in Tahlequah, 5:30 PM in Wayanad. They wave awkwardly through the screen.</p>
   <p>"Show me," Suma says.</p>
   <p>Mae pans her phone around. All seventeen chairs. Draped in beaded shawls. The safety pin one prominently featured.</p>
-  <p>"My god," Suma says. "They&#x27;re beautiful."</p>
-  <p>"They&#x27;re weird."</p>
-  <p>"They&#x27;re both."</p>
+  <h2>"My god," Suma says. "They&#x27;re beautiful."</h2>
+  <h2>"They&#x27;re weird."</h2>
+  <h2>"They&#x27;re both."</h2>
   <p>Suma shows hers. Eight chairs. Shells, thread, embroidery, draped fabric.</p>
   <p>"People try to sit on yours?" Mae asks.</p>
-  <p>"Constantly. You?"</p>
-  <p>"My boyfriend acts like I&#x27;m being difficult."</p>
-  <p>"My cousin says I should sell them."</p>
+  <h2>"Constantly. You?"</h2>
+  <h2>"My boyfriend acts like I&#x27;m being difficult."</h2>
+  <h2>"My cousin says I should sell them."</h2>
   <p>They both laugh. Not funny-laugh. Recognition-laugh.</p>
   <p>They talk for an hour. About grandmothers and fathers who made things that refused to be useful. About tourists wanting them to perform being Indigenous. About cousins and boyfriends who don&#x27;t understand. About chairs that take up space without apologizing.</p>
   <p>"Do you know why your dad made them?" Mae asks.</p>
-  <p>"No. You?"</p>
-  <p>"My grandmother just said they&#x27;re &#x27;holding space.&#x27;"</p>
-  <p>"For what?"</p>
-  <p>"She didn&#x27;t say."</p>
+  <h2>"No. You?"</h2>
+  <h2>"My grandmother just said they&#x27;re &#x27;holding space.&#x27;"</h2>
+  <h2>"For what?"</h2>
+  <h2>"She didn&#x27;t say."</h2>
   <p>"My father said something once," Suma says. "He said people were already sitting on us. On our land, our culture. So these chairs sit back."</p>
   <p>Mae goes quiet. Then: "That&#x27;s good. That&#x27;s really good."</p>
-  <p>"Is it?"</p>
+  <h2>"Is it?"</h2>
   <p>"I think so. I don&#x27;t know. Is anything good?"</p>
   <p>They laugh again. Sad-laugh this time.</p>
   <p>Before they hang up, Suma says: "I&#x27;m glad you exist. With your seventeen chairs."</p>
-  <p>"I&#x27;m glad you exist. With your eight."</p>
+  <h2>"I&#x27;m glad you exist. With your eight."</h2>
   <p>"We should tell our families about each other. So they know we&#x27;re not alone in this weirdness."</p>
-  <p>"They won&#x27;t care."</p>
-  <p>"No. But we&#x27;ll know."</p>
-  <p>IV. Holding</p>
+  <h2>"They won&#x27;t care."</h2>
+  <h2>"No. But we&#x27;ll know."</h2>
+  <h2>IV. Holding</h2>
   <p>Derek moves out three days later. Not just because of the chairs, but also because of the chairs. He packs his stuff while Mae&#x27;s at work, leaves a note: "I can&#x27;t compete with your dead grandmother&#x27;s furniture. Call me if you figure this out."</p>
   <p>Mae reads the note. Doesn&#x27;t call.</p>
-  <p>Carla comes over. "You okay?"</p>
-  <p>"Yeah."</p>
-  <p>"Really?"</p>
+  <h2>Carla comes over. "You okay?"</h2>
+  <h2>"Yeah."</h2>
+  <h2>"Really?"</h2>
   <p>"He was going to leave anyway. The chairs just made it faster."</p>
-  <p>"That&#x27;s one way to look at it."</p>
+  <h2>"That&#x27;s one way to look at it."</h2>
   <p>They sit on the floor, surrounded by seventeen chairs. Carla says: "So what now?"</p>
   <p>"I don&#x27;t know. Keep them. Keep not sitting on them."</p>
-  <p>"Forever?"</p>
-  <p>"Maybe."</p>
-  <p>"That&#x27;s not a plan."</p>
-  <p>"It&#x27;s not NOT a plan."</p>
+  <h2>"Forever?"</h2>
+  <h2>"Maybe."</h2>
+  <h2>"That&#x27;s not a plan."</h2>
+  <h2>"It&#x27;s not NOT a plan."</h2>
   <p>Carla looks at the safety pin chair. "That one&#x27;s kind of badass."</p>
-  <p>"Right?"</p>
-  <p>"Like, fuck you, I&#x27;m beautiful and dangerous."</p>
+  <h2>"Right?"</h2>
+  <h2>"Like, fuck you, I&#x27;m beautiful and dangerous."</h2>
   <p>Mae laughs. First real laugh in days. "Yeah. Exactly that."</p>
   <p>In Wayanad, Suma takes one of the chairs to work. The shell-covered one. Sets it in the visitor center. Tourists photograph it. Ask questions.</p>
-  <p>"What is it?"</p>
-  <p>"A chair."</p>
-  <p>"Can I sit on it?"</p>
-  <p>"No."</p>
-  <p>"Why not?"</p>
-  <p>"It&#x27;s not for sitting."</p>
-  <p>"Then what&#x27;s it for?"</p>
+  <h2>"What is it?"</h2>
+  <h2>"A chair."</h2>
+  <h2>"Can I sit on it?"</h2>
+  <h2>"No."</h2>
+  <h2>"Why not?"</h2>
+  <h2>"It&#x27;s not for sitting."</h2>
+  <h2>"Then what&#x27;s it for?"</h2>
   <p>Suma thinks about her father wrapping thread for a year. About Mae with seventeen chairs she can&#x27;t sit on. About how they&#x27;re both holding space for something that doesn&#x27;t have words.</p>
   <p>"It&#x27;s for being here," she says. "For taking up space. For existing without having to be useful."</p>
   <p>The tourist looks confused. Takes a photo. Leaves.</p>
-  <p>Suma&#x27;s supervisor asks: "What&#x27;s with the chair?"</p>
-  <p>"It&#x27;s my father&#x27;s."</p>
-  <p>"But why is it here?"</p>
-  <p>"Because I wanted it here."</p>
+  <h2>Suma&#x27;s supervisor asks: "What&#x27;s with the chair?"</h2>
+  <h2>"It&#x27;s my father&#x27;s."</h2>
+  <h2>"But why is it here?"</h2>
+  <h2>"Because I wanted it here."</h2>
   <p>The supervisor nods slowly. Decides this isn&#x27;t worth fighting about.</p>
-  <p>Mae messages Suma: "My boyfriend moved out."</p>
-  <p>Suma: "Good."</p>
-  <p>Mae: "Is it?"</p>
+  <h2>Mae messages Suma: "My boyfriend moved out."</h2>
+  <h2>Suma: "Good."</h2>
+  <h2>Mae: "Is it?"</h2>
   <p>Suma: "I don&#x27;t know. But anyone who can&#x27;t handle chairs probably can&#x27;t handle you."</p>
-  <p>Mae: "That&#x27;s either really wise or really stupid."</p>
-  <p>Suma: "Most wisdom is."</p>
+  <h2>Mae: "That&#x27;s either really wise or really stupid."</h2>
+  <h2>Suma: "Most wisdom is."</h2>
   <p>They video call again. It&#x27;s 9 PM in Tahlequah, 7:30 AM in Wayanad. Suma hasn&#x27;t had coffee yet. Mae hasn&#x27;t had dinner.</p>
   <p>"So what now?" Suma asks.</p>
   <p>"I don&#x27;t know. Keep the chairs. Keep not understanding them."</p>
-  <p>"Same."</p>
-  <p>"Your cousin still bugging you?"</p>
-  <p>"Yes. Yours?"</p>
-  <p>"Derek&#x27;s not my cousin, but yes, in spirit."</p>
+  <h2>"Same."</h2>
+  <h2>"Your cousin still bugging you?"</h2>
+  <h2>"Yes. Yours?"</h2>
+  <h2>"Derek&#x27;s not my cousin, but yes, in spirit."</h2>
   <p>They laugh. It&#x27;s getting easier, this laughing together across continents.</p>
   <p>Mae says: "I brought one to work today. The safety pin one."</p>
-  <p>"What happened?"</p>
+  <h2>"What happened?"</h2>
   <p>"Nancy asked if it was for sale. I said no. She said &#x27;then why is it here?&#x27; I said &#x27;because it needed to be here.&#x27;"</p>
-  <p>"Did she understand?"</p>
-  <p>"Absolutely not."</p>
-  <p>"Perfect."</p>
-  <p>V. Space</p>
+  <h2>"Did she understand?"</h2>
+  <h2>"Absolutely not."</h2>
+  <h2>"Perfect."</h2>
+  <h2>V. Space</h2>
   <p>Three months later, Mae has all seventeen chairs in her living room still. She sits on the floor to eat dinner. Sleeps on the couch because the bedroom has chairs in it. Carla visits less but still visits. Mae&#x27;s mother calls and asks if she&#x27;s "doing okay with all that furniture" and Mae says yes, which is mostly true.</p>
   <p>At the Heritage Center, she gives her tours. Same script. But now when people ask "do you still live in teepees?" she thinks about her grandmother&#x27;s chairs, about Suma&#x27;s father&#x27;s chairs, about furniture that refuses to be furniture, and she says: "No. We live in houses. With chairs. Lots of chairs. You can&#x27;t sit on any of them."</p>
   <p>The tourist looks confused. Mae doesn&#x27;t explain.</p>
   <p>In Wayanad, Suma keeps the shell chair at the visitor center. Tourists photograph it daily. Her supervisor stopped asking about it. Her cousin stopped suggesting she sell them. Her sister calls less, which is fine.</p>
   <p>One day a young girl touches the shell chair gently. "Why can&#x27;t we sit on it?"</p>
-  <p>"Because it&#x27;s doing something else."</p>
-  <p>"What?"</p>
+  <h2>"Because it&#x27;s doing something else."</h2>
+  <h2>"What?"</h2>
   <p>"Being beautiful. Taking up space. Not having to explain itself."</p>
   <p>The girl nods like this makes perfect sense. Her mother looks baffled. Suma smiles.</p>
   <p>Mae and Suma video call weekly now. Sometimes they talk about the chairs. Sometimes they don&#x27;t. Sometimes they just eat meals together across time zones—Mae&#x27;s dinner, Suma&#x27;s breakfast—and don&#x27;t say much at all.</p>
   <p>"Your seventeen chairs still there?" Suma asks.</p>
-  <p>"Yep."</p>
-  <p>"My eight are too."</p>
-  <p>"Good."</p>
-  <p>"Yeah."</p>
+  <h2>"Yep."</h2>
+  <h2>"My eight are too."</h2>
+  <h2>"Good."</h2>
+  <h2>"Yeah."</h2>
   <p>They sit in comfortable silence, two women with inherited furniture they don&#x27;t understand, holding space for something that doesn&#x27;t need to be named to matter.</p>
   <p>Mae looks at her chairs—all seventeen, draped and beaded and pinned, taking up her entire living room, making her life difficult and strange and somehow more honest than it was before.</p>
   <p>She thinks about her grandmother&#x27;s note: <em>They&#x27;re busy holding space.</em></p>
@@ -400,9 +253,9 @@
   <p>And so is Mae.</p>
   <p>And so is Suma.</p>
   <p>And maybe that&#x27;s enough—this taking up space, this refusing to be useful, this insisting on existence without apology, this sitting on floors because the chairs are doing something more important than furniture is supposed to do.</p>
-  <p>Derek texts: "You still have those chairs?"</p>
-  <p>Mae: "Yep."</p>
-  <p>Derek: "That&#x27;s what I figured."</p>
+  <h2>Derek texts: "You still have those chairs?"</h2>
+  <h2>Mae: "Yep."</h2>
+  <h2>Derek: "That&#x27;s what I figured."</h2>
   <p>She doesn&#x27;t respond. Doesn&#x27;t need to.</p>
   <p>The chairs are still there. Still holding space. Still refusing to be sat on.</p>
   <p>And Mae is still here. Still holding them. Still refusing to explain.</p>
@@ -411,30 +264,27 @@
   <p>It&#x27;s enough.</p>
   <p>It&#x27;s more than enough.</p>
   <p>It&#x27;s everything.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0102"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Onoe%20Arbz%20Let%20Us%202-600.webp" alt="02330" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0103"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ooba%20Loinwritten%20Fooey%20Pronunciations%202-600.webp" alt="02331" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0104"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Orl%20Nehd%20Eoh%202-600.webp" alt="02332" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0105"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Peddling%20Ellipse%20Earth%20Without%20A%20Pause%20Zahra%202-600.webp" alt="02333" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0106"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp" alt="02334" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0107"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis%202-600.webp" alt="02335" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0108"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Prelude%20Pah%20Fyee%202-600.webp" alt="02336" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0109"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Remem%20Em%20Mem%20Emner%202-600.webp" alt="02337" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0110"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Rep%20Carnage%20Ache%20Awake%20Came%20With%20Dense%20Mush%202-600.webp" alt="02338" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0111"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%202-600.webp" alt="02339" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0112"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%203-600.webp" alt="02340" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0113"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Seeds%20Toon%20Actions%20And%20Activity%202-600.webp" alt="02341" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0114"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sie%20Tu%20Stoez%202-600.webp" alt="02342" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0115"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity%202-600.webp" alt="02343" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0116"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity-600.webp" alt="02344" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0117"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Six%20Point%20Star%20Energy%20Worth%20Noting%202-600.webp" alt="02345" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0118"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sixteen%20Kandels%202-600.webp" alt="02346" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0119"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Soldjiering%20Omeyah%202-600.webp" alt="02347" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0120"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Some%20Kind%20Of%20Folly%20From%20A%20Chaotic%20Natural%20Organized%20System%20Including%20Countless%20Short%20Strands%202-600.webp" alt="02348" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0121"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks%202-600.webp" alt="02349" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-exhalation-i/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/what-we-wear-to-survive/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">What We Wear to Survive</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-exhalation-i/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Exhalation</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0102"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Onoe%20Arbz%20Let%20Us%202-600.webp" alt="02330" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0103"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ooba%20Loinwritten%20Fooey%20Pronunciations%202-600.webp" alt="02331" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0104"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Orl%20Nehd%20Eoh%202-600.webp" alt="02332" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0105"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Peddling%20Ellipse%20Earth%20Without%20A%20Pause%20Zahra%202-600.webp" alt="02333" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0106"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp" alt="02334" width="600" height="436" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0102","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Onoe%20Arbz%20Let%20Us%202-600.webp","c":"02330","w":600,"ht":436},{"h":"/marks/newest-patterns/0103","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ooba%20Loinwritten%20Fooey%20Pronunciations%202-600.webp","c":"02331","w":600,"ht":436},{"h":"/marks/newest-patterns/0104","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Orl%20Nehd%20Eoh%202-600.webp","c":"02332","w":600,"ht":436},{"h":"/marks/newest-patterns/0105","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Peddling%20Ellipse%20Earth%20Without%20A%20Pause%20Zahra%202-600.webp","c":"02333","w":600,"ht":436},{"h":"/marks/newest-patterns/0106","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp","c":"02334","w":600,"ht":436},{"h":"/marks/newest-patterns/0107","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis%202-600.webp","c":"02335","w":600,"ht":436},{"h":"/marks/newest-patterns/0108","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Prelude%20Pah%20Fyee%202-600.webp","c":"02336","w":600,"ht":436},{"h":"/marks/newest-patterns/0109","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Remem%20Em%20Mem%20Emner%202-600.webp","c":"02337","w":600,"ht":436},{"h":"/marks/newest-patterns/0110","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Rep%20Carnage%20Ache%20Awake%20Came%20With%20Dense%20Mush%202-600.webp","c":"02338","w":600,"ht":436},{"h":"/marks/newest-patterns/0111","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%202-600.webp","c":"02339","w":600,"ht":458},{"h":"/marks/newest-patterns/0112","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%203-600.webp","c":"02340","w":600,"ht":457},{"h":"/marks/newest-patterns/0113","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Seeds%20Toon%20Actions%20And%20Activity%202-600.webp","c":"02341","w":600,"ht":436},{"h":"/marks/newest-patterns/0114","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sie%20Tu%20Stoez%202-600.webp","c":"02342","w":600,"ht":436},{"h":"/marks/newest-patterns/0115","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity%202-600.webp","c":"02343","w":600,"ht":458},{"h":"/marks/newest-patterns/0116","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity-600.webp","c":"02344","w":600,"ht":456},{"h":"/marks/newest-patterns/0117","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Six%20Point%20Star%20Energy%20Worth%20Noting%202-600.webp","c":"02345","w":600,"ht":436},{"h":"/marks/newest-patterns/0118","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sixteen%20Kandels%202-600.webp","c":"02346","w":600,"ht":436},{"h":"/marks/newest-patterns/0119","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Soldjiering%20Omeyah%202-600.webp","c":"02347","w":600,"ht":436},{"h":"/marks/newest-patterns/0120","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Some%20Kind%20Of%20Folly%20From%20A%20Chaotic%20Natural%20Organized%20System%20Including%20Countless%20Short%20Strands%202-600.webp","c":"02348","w":600,"ht":436},{"h":"/marks/newest-patterns/0121","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks%202-600.webp","c":"02349","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -450,5 +300,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

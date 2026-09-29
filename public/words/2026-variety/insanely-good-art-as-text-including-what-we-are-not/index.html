@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="Oyparaploo is not just an adaptation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,14 +53,31 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Insanely Good Art as Text, including What We Are Not</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2026-variety/"><span class="arrow-glyph">&larr;</span> Words / 2026 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Essay &middot; 13 minutes</p>
+        <h1 class="stage-title">Insanely Good Art as Text, including What We Are Not</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2026-variety/"><span class="arrow-glyph">&larr;</span> Words / 2026 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>Oyparaploo is not just an adaptation. Oyparaploo is not unnecessarily captivating and or unique. Oyparaploo is not a traditional ~ chanson, hip-hop, or rap. Oyparaploo is not mostly found rising from an island celebration. Oyparaploo is not solely involved with exploring rivalries of ambition. Oyparaploo is not occupied with manufacturing a particular telling lens to adversely construct and shape a nation. Oyparaploo is not a participant in abolishing time and again proven facts and truths for the sake of human greedy self interests. Oyparaploo is not immersed into the sitting at a desk forward bent insidious counting of scores and vendettas.</p>
-  <p>Super Couches Of Veins </p>
+  <h2>Super Couches Of Veins</h2>
   <p>What flows in through the eyes travels somewhere. Deposits itself. We think we&#x27;re passive. The blood knows better.</p>
   <p>The couch is where we go when we can&#x27;t stand anymore. The tender places — inside of the wrist, behind the knee. Where we&#x27;re almost transparent. Emotion must flow or it clots. The watching is a kind of weeping that doesn&#x27;t announce itself.</p>
   <p>Where collapse is permitted. Images enter and travel to rooms we don&#x27;t have keys to. Something is being metabolized. We won&#x27;t know what until later.</p>
@@ -235,7 +88,7 @@
   <p>The part of us that needs to see bodies in motion solving problems we can&#x27;t solve sitting still. The mind working something out through someone else&#x27;s muscles. Something was fought on our behalf.</p>
   <p>Who gets to hit. Who deserves to fall. Is this rescue or revenge. We&#x27;re implicated either way.</p>
   <p>The flinch when the glass breaks. Breath held through the fall. The body believes what the eyes see. Afterward, the strange exhaustion of having gone nowhere.</p>
-  <p>Thunderous and Cranky Love Riding War Horses</p>
+  <h2>Thunderous and Cranky Love Riding War Horses</h2>
   <p>Love that refuses to be polite about itself. Loud enough to shake the floor. The cranky part knows better than to trust easy affection.</p>
   <p>The feeling that shows up irritable because it&#x27;s too big for the room. Not the love that waits to be invited. Kicks open the door still wearing its boots.</p>
   <p>The war horse knows where the battles are. Cranky from old wounds that healed crooked. Armored softness. Riding toward what it fears losing.</p>
@@ -252,7 +105,7 @@
   <p>The ache of rarity. To find the quiet place and know it might not stay. Unusual quietness isn&#x27;t empty — it&#x27;s a room waiting to be filled by something that matters.</p>
   <p>The quiet place is also interior. The painter has to find it twice — outside and in. The mind wants noise, wants distraction, will invent emergencies to avoid the blank surface. Intentional is the discipline of returning.</p>
   <p>Who gets a quiet place to work. Who gets time. Most painters of life are interrupted by the labor of staying alive. Does the story serve more than the teller. Does timeless mean anything if the present is on fire.</p>
-  <p>Combining Child Curiosity with Mastery of Imperfections</p>
+  <h2>Combining Child Curiosity with Mastery of Imperfections</h2>
   <p>The child asks what the adult forgot to wonder. Mastery is not perfection — it&#x27;s knowing which flaws to keep. The crack lets the light in.</p>
   <p>Curiosity before fear set in. The child picks up the dead bird to look closer. The master picks up the broken thing and sees what it&#x27;s becoming. Imperfections as evidence of living.</p>
   <p>The child mind stays available. The master mind knows how to use what it&#x27;s given. Combined: play with weight. Immersion happens when the watcher forgets they&#x27;re watching.</p>
@@ -266,7 +119,7 @@
   <p>What do we owe the reflection. The swan did not consent to be our symbol. The first time anyone felt anything visually was also the first taking — the eye as thief. We saw and called it ours.</p>
   <p>Light enters the eye and becomes signal. Quiet is felt in the stilled breath. Colorful lands in the chest as expansion — more room suddenly. The swan&#x27;s neck is a curve the body wants to follow.</p>
   <p>The first visual feeling imprinted something the mind still chases. We&#x27;ve been trying to get back to that pond ever since. To see beauty and know it won&#x27;t stay.</p>
-  <p>Probing Sincere and Serious Social Issues Poetically</p>
+  <h2>Probing Sincere and Serious Social Issues Poetically</h2>
   <p>The probe goes in sideways. Poetically means not announcing the wound, just pressing near it.</p>
   <p>Anti swimmingpool: refusing the clean blue rectangle, the chlorinated leisure of the comfortable. The body that won&#x27;t be contained in the lane.</p>
   <p>Blue-eyed angels painted by hands that never saw the desert where the story started. The saint&#x27;s face borrowed from the patron&#x27;s cousin. Someone else&#x27;s face on someone else&#x27;s god. Whose heaven.</p>
@@ -274,7 +127,7 @@
   <p>Militaristic power held by the super wealthy: the purchase of violence, the broadcast of permission. Radio and television as confession booths where the priest is also selling something.</p>
   <p>The old megaphones losing volume, buying louder ones. Struggling is not the same as stopping. Empires struggle in the boardroom. Bodies struggle in the street.</p>
   <p>Sincere and serious are not the same. Sincere feels. Serious thinks it should. The poetic approach lets the feeling in without the lecture.</p>
-  <p>Probing Sincere and Serious Social Issues Poetically</p>
+  <h2>Probing Sincere and Serious Social Issues Poetically</h2>
   <p>Anti swimming pool: refusing the managed blue. The lie of containment — edges, filters, someone testing the pH. The murky water where things actually live.</p>
   <p>Blue eyed angel is the replacement face. The original story overwritten by the patron&#x27;s preferences. Romantic Christian art: beauty made from terror, gold leaf over the burning. Whose features on the icon. We wanted the divine and got a portrait of power.</p>
   <p>Nationalism was once just knowing where you&#x27;re from. Now it&#x27;s held captive — chained to boots and broadcasts. The child who loved home before they were handed a flag and told what to hate.</p>
@@ -302,7 +155,7 @@
   <p>What is the steel shell of bright safety orange lights that feel so familiar or expected. The protection that announces itself. Hard surface that doesn&#x27;t give. The color hits the eye before the mind names it. We&#x27;ve been trained to expect it. Expected by whom. Familiar isn&#x27;t the same as safe. So expected it disappears.</p>
   <p>What is the divinity of sacred flesh exactly. The body as site of holiness. The pulse under the skin we call divine because we don&#x27;t understand it. Exactly is the wrong word. Tenderness toward what will die.</p>
   <p>What are subjective and subversive spider brain tiles emerging and suspended in a night dream. The pattern-making that happens underneath. The web spun in the skull. Thoughts arriving we didn&#x27;t choose. The body paralyzed, floating, watching images tile the dark. Moving and still at once. The only place these tiles can exist without explanation.</p>
-  <p>Who Is Most Successful at Eluding Public Notability</p>
+  <h2>Who Is Most Successful at Eluding Public Notability</h2>
   <p>The ones who win by disappearing. Success measured by what didn&#x27;t get seen. The body that steps out of the frame. The face turned from the camera.</p>
   <p>Expensive documentation devoid of formalities. The record kept for self, not for proof. No ribbon-cutting, no applause track. The loneliness of the archive. Boxes no one opens.</p>
   <p>If praise never happens. The hollow where the echo should be. The orphaned work that mothered itself. The ears that never hear it. We make anyway.</p>
@@ -310,7 +163,7 @@
   <p>The passionate need to quickly jot down thoughts using a black medium-tip Sharpie marker. The urgency of capture. The thought that will die if not caught now. The thickness that feels right between the fingers. The squeak on paper. Speed in the wrist. Ink that doesn&#x27;t erase.</p>
   <p>Then immediately after, create something wearing a blindfold, then blinders on. First all dark. Then selected dark. The hand leading the mind. Trusting the body to be honest.</p>
   <p>Organic and wondrously personal. The psyche recognizing its own handwriting in the dark. The fingerprint in the work that no one else could leave.</p>
-  <p>Almost Everybody Everyday Understands That Fixation with Oradour-sur-Glane</p>
+  <h2>Almost Everybody Everyday Understands That Fixation with Oradour-sur-Glane</h2>
   <p>The village left as it fell. The ruins preserved so we cannot forget. 642 people. Not a symbol. Bodies.</p>
   <p>The disaster artist fixation: the one who looks at what shouldn&#x27;t be looked at and makes something. Fixation as method. We return to the wound because leaving it alone feels like abandonment.</p>
   <p>Tragic midnight shadows with outlines of light added. The body traced on a wall. The artist&#x27;s refusal to let darkness have the last word. Adding what makes the absence visible. State of mind: the heavy, holy, unbearable weather of entering ruin.</p>
@@ -320,7 +173,7 @@
   <p>Fully woke sense of healing. Not healed. Not numbed. Not over it. Awake inside the wound, tending it.</p>
   <p>Knowing very well in that moment unimaginable loss. The contradiction held. Cannot picture it, cannot stop picturing it. The body shakes. The tears come from nowhere. The body knows what the mind calls unimaginable. The body was there, or bodies like ours were there.</p>
   <p>The body remembers.</p>
-  <p>B. W. Otto, Born 1959, Hutchinson, Minnesota</p>
+  <h2>B. W. Otto, Born 1959, Hutchinson, Minnesota</h2>
   <p>Unique personalized history serving to reconcile a host of regrets. They travel together. They have mass. They need hosting.</p>
   <p>Not having acted soon enough to address exposed sores, festering boils, figurative carnage. The cost of inaction. What happens when we don&#x27;t tend.</p>
   <p>Filling the ground with an unrecognizable voiceover. The voice laid down like seed, like burial. We don&#x27;t recognize our own sound played back.</p>
@@ -332,30 +185,27 @@
   <p>Sometimes, although rarely, graphically revealing every depicting process at one time. The vulnerability of showing how it&#x27;s done. The seams visible. The labor made real.</p>
   <p>Neurodivergence reimagined. The brain that works differently, reframed as method. Not casting away anything that is at play.</p>
   <p>Every part included. Nothing amputated. Everything belongs.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0042"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp" alt="02270" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0043"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp" alt="02271" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0044"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp" alt="02272" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0045"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp" alt="02273" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0046"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp" alt="02274" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0047"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp" alt="02275" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0048"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp" alt="02276" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0049"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp" alt="02277" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0050"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp" alt="02278" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0051"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border%202-600.webp" alt="02279" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0052"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border-600.webp" alt="02280" width="600" height="451" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0053"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Future%20Ancient%20See-Through%20Wall%202-600.webp" alt="02281" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0054"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp" alt="02282" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0055"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp" alt="02283" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0056"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp" alt="02284" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0057"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp" alt="02285" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2026-variety/more-human-than-human-final/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2026-variety/oyparaploo-set-of-lenses/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Oyparaploo Set Of Lenses</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2026-variety/more-human-than-human-final/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">More Human Than Human</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0042"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp" alt="02270" width="600" height="436" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0038","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp","c":"02266","w":600,"ht":458},{"h":"/marks/newest-patterns/0039","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp","c":"02267","w":600,"ht":459},{"h":"/marks/newest-patterns/0040","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp","c":"02268","w":600,"ht":435},{"h":"/marks/newest-patterns/0041","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp","c":"02269","w":600,"ht":436},{"h":"/marks/newest-patterns/0042","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp","c":"02270","w":600,"ht":436},{"h":"/marks/newest-patterns/0043","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp","c":"02271","w":600,"ht":436},{"h":"/marks/newest-patterns/0044","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp","c":"02272","w":600,"ht":436},{"h":"/marks/newest-patterns/0045","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp","c":"02273","w":600,"ht":436},{"h":"/marks/newest-patterns/0046","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp","c":"02274","w":600,"ht":436},{"h":"/marks/newest-patterns/0047","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp","c":"02275","w":600,"ht":436},{"h":"/marks/newest-patterns/0048","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp","c":"02276","w":600,"ht":436},{"h":"/marks/newest-patterns/0049","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp","c":"02277","w":600,"ht":436},{"h":"/marks/newest-patterns/0050","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp","c":"02278","w":600,"ht":432},{"h":"/marks/newest-patterns/0051","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border%202-600.webp","c":"02279","w":600,"ht":458},{"h":"/marks/newest-patterns/0052","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border-600.webp","c":"02280","w":600,"ht":451},{"h":"/marks/newest-patterns/0053","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Future%20Ancient%20See-Through%20Wall%202-600.webp","c":"02281","w":600,"ht":436},{"h":"/marks/newest-patterns/0054","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp","c":"02282","w":600,"ht":436},{"h":"/marks/newest-patterns/0055","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp","c":"02283","w":600,"ht":436},{"h":"/marks/newest-patterns/0056","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp","c":"02284","w":600,"ht":434},{"h":"/marks/newest-patterns/0057","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp","c":"02285","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -371,5 +221,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

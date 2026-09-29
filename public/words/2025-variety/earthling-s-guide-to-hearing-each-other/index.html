@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Humbling Start Most of us believe we're good listeners while simultaneously planning responses before others finish speaking.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,68 +53,82 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Earthling&#x27;s Guide to Hearing Each Other</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Humbling Start</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Essay &middot; 5 minutes</p>
+        <h1 class="stage-title">Earthling&#x27;s Guide to Hearing Each Other</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Humbling Start</h2>
   <p>Most of us believe we&#x27;re good listeners while simultaneously planning responses before others finish speaking. We think we&#x27;re the exception—the one who truly hears. This overconfidence blinds us to our actual behavior. I once recorded myself in conversation and discovered I interrupted seventeen times in twenty minutes, each time certain I knew where the speaker was heading. I was wrong fifteen times.</p>
   <p>Step one: catch yourself not listening. Notice when you mentally rehearse replies instead of receiving what&#x27;s being said. The mind that&#x27;s composing is not comprehending. It&#x27;s like trying to write and read simultaneously—both activities suffer.</p>
   <p>When you catch yourself, simply return. No judgment, no self-flagellation. Like meditation, you&#x27;ll drift a thousand times. Each return strengthens your attention muscle. A Buddhist teacher told me: "Returning is the practice. Noticing you&#x27;ve left is enlightenment."</p>
-  <p>Physical Practice</p>
+  <h2>Physical Practice</h2>
   <p>Put your phone face-down or away entirely. Better yet, in another room. The phone&#x27;s mere presence, even silenced, reduces listening quality by 30% according to research. That notification can wait. Something important is happening—a human being is trying to connect with you, offering you the gift of their thoughts.</p>
   <p>Stop multitasking while listening. You&#x27;re not doing two things; you&#x27;re doing neither. The myth of multitasking is especially destructive to listening. Your brain literally cannot process speech while composing email. It switches rapidly between tasks, missing crucial information in the gaps. Give full presence or admit you can&#x27;t right now: "Can we talk when I can really focus?" That honesty respects both of you more than fake listening while washing dishes.</p>
   <p>Turn toward them with your whole body, not just your head. Shoulders, hips, feet—all pointing toward the speaker. This isn&#x27;t just courtesy; it&#x27;s biology. Your body position affects your cognitive reception. Make appropriate eye contact—not staring (aggressive) but regular connection (engaged). Let your body show you&#x27;re receiving through micro-movements: slight nods, eyebrow raises at surprising points, leaning in when they lower their voice.</p>
   <p>Watch their body too. Are they leaning in (engaged) or pulling back (defensive)? Are their arms opening (trusting) or closing (protected)? Bodies tell you how your listening lands. A couple&#x27;s therapist taught me to watch feet: "Feet point toward what they want. If both feet point at you, they&#x27;re engaged. If one points toward the door, part of them has already left."</p>
-  <p>Three-Second Revolution</p>
+  <h2>Three-Second Revolution</h2>
   <p>When someone finishes speaking, count to three before responding. One Mississippi, two Mississippi, three Mississippi. It feels like forever in our rapid-fire culture but gives them space to add more—often the most important part comes after the pause—and you time to digest rather than react.</p>
   <p>In that pause, ask yourself: "Did I understand what they&#x27;re really saying, or just my interpretation?" The difference matters. We filter everything through our own experience, often missing their actual meaning. A translator told me: "I translate language all day, but the hardest translation is between two people speaking the same language."</p>
   <p>Reflect back what you heard before adding thoughts. "So you&#x27;re saying..." or "What I&#x27;m hearing is..." This isn&#x27;t therapy-speak; it&#x27;s accuracy-checking. Be prepared to be wrong. "No, that&#x27;s not what I meant" is valuable information, not failure. It means you&#x27;re getting closer to understanding.</p>
-  <p>Discipline of Patience</p>
+  <h2>Discipline of Patience</h2>
   <p>Stop finishing people&#x27;s sentences. Even when you know where they&#x27;re going, let them arrive. Sometimes they surprise themselves and you with where they actually end up. When you jump in, you rob them of discovery. A writer friend said: "I don&#x27;t know what I think until I hear myself say it. When people finish my sentences, they&#x27;re stealing my thoughts."</p>
   <p>Ask real questions from genuine curiosity. "Help me understand..." or "What was that like?" instead of "Don&#x27;t you think...?" The difference between open and closed questions is the difference between invitation and interrogation. Listen to learn, not to win. Most conversations aren&#x27;t competitions, though we treat them as such.</p>
-  <p>Advanced Practice</p>
+  <h2>Advanced Practice</h2>
   <p>Listen to people you disagree with—hearing through difference. Find the 10% you can agree with, even in something you mostly reject. A negotiator taught me: "In every position, there&#x27;s at least one legitimate concern. Find it. Acknowledge it. That&#x27;s where dialogue begins."</p>
   <p>Listen to different voices—children teach wonder, elders teach patience, people from different cultures teach different rhythms of conversation. Each requires different listening skills. Children need you to enter their imaginative world. Elders need you to slow to their pace. Different cultures need you to understand their pauses and overlaps.</p>
   <p>Listen for what&#x27;s under words. Anger might be fear. Criticism might be hurt. The emotional archaeology of listening beneath the surface reveals what&#x27;s really being communicated.</p>
-  <p>Restraint</p>
+  <h2>Restraint</h2>
   <p>Practice listening without fixing. Sometimes people need to be heard, not helped. Sit with their difficulty without rushing to resolve it. Hold space for discomfort without immediately trying to make it better. A hospice worker taught me: "The most healing thing is often just witness. To say &#x27;I see your pain&#x27; without trying to take it away."</p>
-  <p>Review</p>
+  <h2>Review</h2>
   <p>Recap conversations afterward. What did you actually hear? What do you remember? You&#x27;ll be shocked how much you miss or misremember. Journal about significant conversations: What did you learn? What did you miss? This review makes you a better listener next time.</p>
   <p>Admit when you weren&#x27;t listening: "I&#x27;m sorry, I drifted. Can you say that again?" This honesty honors the speaker more than fake nodding. Thank people for sharing: "Thank you for telling me that" validates their vulnerability.</p>
-  <p>Group Dynamic</p>
+  <h2>Group Dynamic</h2>
   <p>In groups, practice not being first to speak. See what emerges when you don&#x27;t rush to fill space. When you do speak, reference what others said. Show you were listening by weaving their thoughts into yours. Create collective conversation instead of serial monologues.</p>
-  <p>Uncomfortable Truth</p>
+  <h2>Uncomfortable Truth</h2>
   <p>Record yourself in conversation sometime. It&#x27;s mortifying but educational. You can&#x27;t unhear your interrupting, your talking over people. That horror creates change. A CEO told me: "I recorded one meeting and heard myself interrupt my team forty-three times. Forty-three. I thought I was collaborative."</p>
-  <p>Shift</p>
+  <h2>Shift</h2>
   <p>Remember that listening is a gift you give. Treat it as generosity, not obligation. The shift from "I have to listen" to "I get to listen." Being trusted with someone&#x27;s words is an honor. Honoring that trust by truly hearing them is how we rebuild connection.</p>
   <p>One conversation at a time, one moment of real listening at a time. The patient work of becoming the listeners our world desperately needs. Starting today, with the next person who speaks to us.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0030"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words-600.webp" alt="02258" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0031"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky-600.webp" alt="02259" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0032"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky2-600.webp" alt="02260" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0033"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Exuberant%20Orelia%202-600.webp" alt="02261" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0034"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp" alt="02262" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0035"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War-600.webp" alt="02263" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0036"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Deframe%202-600.webp" alt="02264" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0037"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Delyoojed%20Innah%202-600.webp" alt="02265" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0038"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp" alt="02266" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0039"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp" alt="02267" width="600" height="459" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0040"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp" alt="02268" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0041"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp" alt="02269" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0042"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp" alt="02270" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0043"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp" alt="02271" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0044"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp" alt="02272" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0045"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp" alt="02273" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0046"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp" alt="02274" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0047"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp" alt="02275" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0048"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp" alt="02276" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0049"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp" alt="02277" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-sonic-callus-finding-silence-in-noisy-places/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/listen-or-perish-the-survival-imperative-we-keep-ignoring/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Listen or Perish</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-sonic-callus-finding-silence-in-noisy-places/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Sonic Callus</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0030"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words-600.webp" alt="02258" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0031"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky-600.webp" alt="02259" width="600" height="453" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0032"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky2-600.webp" alt="02260" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0033"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Exuberant%20Orelia%202-600.webp" alt="02261" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0034"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp" alt="02262" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0030","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Controlled%20Type%20Of%20Overall%20Vigorous%20And%20Hyper%20Visual%20Energy%20And%20Words-600.webp","c":"02258","w":600,"ht":458},{"h":"/marks/newest-patterns/0031","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky-600.webp","c":"02259","w":600,"ht":453},{"h":"/marks/newest-patterns/0032","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Could%20it%20be%20in%20the%20Earth%20in%20the%20ocean%20or%20over%20the%20sky2-600.webp","c":"02260","w":600,"ht":458},{"h":"/marks/newest-patterns/0033","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Exuberant%20Orelia%202-600.webp","c":"02261","w":600,"ht":436},{"h":"/marks/newest-patterns/0034","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202-600.webp","c":"02262","w":600,"ht":458},{"h":"/marks/newest-patterns/0035","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War-600.webp","c":"02263","w":600,"ht":458},{"h":"/marks/newest-patterns/0036","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Deframe%202-600.webp","c":"02264","w":600,"ht":436},{"h":"/marks/newest-patterns/0037","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Delyoojed%20Innah%202-600.webp","c":"02265","w":600,"ht":436},{"h":"/marks/newest-patterns/0038","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity%202-600.webp","c":"02266","w":600,"ht":458},{"h":"/marks/newest-patterns/0039","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dia%20Earth%20Soil%20Underground%20Identity-600.webp","c":"02267","w":600,"ht":459},{"h":"/marks/newest-patterns/0040","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore%202-600.webp","c":"02268","w":600,"ht":435},{"h":"/marks/newest-patterns/0041","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20Personal%20Style%20Matter%20Anymore-600.webp","c":"02269","w":600,"ht":436},{"h":"/marks/newest-patterns/0042","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Does%20This%20Have%20The%20Potential%20To%20Be%20Mesmerizing%202-600.webp","c":"02270","w":600,"ht":436},{"h":"/marks/newest-patterns/0043","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Down%20To%20Earth%20O%27Uszbah%20Decadence%202-600.webp","c":"02271","w":600,"ht":436},{"h":"/marks/newest-patterns/0044","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Drink%20The%20Ocean%20Before%20You%20Burn%20Up%202-600.webp","c":"02272","w":600,"ht":436},{"h":"/marks/newest-patterns/0045","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Endroit%20anim%C3%A9%202-600.webp","c":"02273","w":600,"ht":436},{"h":"/marks/newest-patterns/0046","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp","c":"02274","w":600,"ht":436},{"h":"/marks/newest-patterns/0047","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp","c":"02275","w":600,"ht":436},{"h":"/marks/newest-patterns/0048","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp","c":"02276","w":600,"ht":436},{"h":"/marks/newest-patterns/0049","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp","c":"02277","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -294,5 +144,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

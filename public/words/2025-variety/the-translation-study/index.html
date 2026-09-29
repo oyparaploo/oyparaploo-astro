@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## UC Berkeley Mycology Lab ## November 2024 Dr.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +53,29 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Translation Study</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 4 minutes</p>
+        <h1 class="stage-title">The Translation Study</h1>
+      </div>
+      <a class="stage-cat" href="/physical.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>UC Berkeley Mycology Lab<br>
   November 2024</p>
   <p>Dr. Liora Park stares at the grant rejection. Third one this year. Her research: proving fungal networks store human memory patterns.</p>
@@ -231,8 +84,7 @@
   <p><strong>LIORA</strong>: Don&#x27;t call them that.</p>
   <p><strong>KEMI</strong>: The soil samples from plot 247?</p>
   <p><strong>LIORA</strong>: Better.</p>
-  <p>---</p>
-  <p>The Study</p>
+  <h2>The Study</h2>
   <p>Six participants. All immigrants. All grieving.</p>
   <p><strong>LIORA</strong>: We&#x27;re testing whether mycelial networks preserve emotional memory through decomposition.</p>
   <p><strong>JASPER</strong> (participant, 51): You&#x27;re saying mushrooms remember our dead?</p>
@@ -241,8 +93,7 @@
   <p><strong>LIORA</strong>: Two hundred. Plus you get soil from your loved one&#x27;s burial site.</p>
   <p><strong>MINH</strong>: My grandmother&#x27;s in Vietnam.</p>
   <p><strong>LIORA</strong>: We have samples from Saigon cemetery. Shipped yesterday.</p>
-  <p>---</p>
-  <p>The Workshop Leader</p>
+  <h2>The Workshop Leader</h2>
   <p>Enter MYZRAEL, 58, Liora&#x27;s former advisor. Dismissed from Stanford for ethics violations.</p>
   <p><strong>MYZRAEL</strong>: Still chasing your mother through mushrooms?</p>
   <p><strong>LIORA</strong>: It&#x27;s legitimate research.</p>
@@ -250,8 +101,7 @@
   <p><strong>LIORA</strong>: Says the woman who gave LSD to undergrads.</p>
   <p><strong>MYZRAEL</strong>: Psilocybin. And they consented.</p>
   <p><strong>LIORA</strong>: So did my participants.</p>
-  <p>---</p>
-  <p>The Test</p>
+  <h2>The Test</h2>
   <p>Participants hold soil samples. Electrodes measure responses.</p>
   <p><strong>KEMI</strong> (to Jasper): Your sample&#x27;s from Colma?</p>
   <p><strong>JASPER</strong>: Dad&#x27;s grave. Five years now.</p>
@@ -261,10 +111,9 @@
   <p><strong>MINH</strong>: That&#x27;s impossible.</p>
   <p>Screen shows chemical signatures matching between Minh&#x27;s DNA and the Vietnamese soil sample.</p>
   <p><strong>MINH</strong>: My grandmother... I smell her kitchen.</p>
-  <p><strong>LIORA</strong>: Olfactory hallucination. The fungi release compounds that—</p>
+  <h2><strong>LIORA</strong>: Olfactory hallucination. The fungi release compounds that—</h2>
   <p><strong>MINH</strong>: Cinnamon. She made pho with cinnamon.</p>
-  <p>---</p>
-  <p>The Crisis</p>
+  <h2>The Crisis</h2>
   <p><strong>MYZRAEL</strong>: You&#x27;re traumatizing them.</p>
   <p><strong>LIORA</strong>: I&#x27;m proving consciousness persists.</p>
   <p><strong>MYZRAEL</strong>: You&#x27;re desperate to believe your mother&#x27;s still here. In dirt.</p>
@@ -273,8 +122,7 @@
   <p><strong>LIORA</strong>: You taught me drugs were doors. I&#x27;m finding actual doors.</p>
   <p>Kemi interrupts—the specimens are overheating. Contamination spreading between samples.</p>
   <p><strong>KEMI</strong>: They&#x27;re connecting. All the samples. Creating a network.</p>
-  <p>---</p>
-  <p>The Network Forms</p>
+  <h2>The Network Forms</h2>
   <p>The separate petri dishes—Korean, Vietnamese, Mexican, Indian soils—begin growing toward each other. Hyphae bridge the gaps.</p>
   <p><strong>JASPER</strong>: My dad was Korean. Never learned the language.</p>
   <p><strong>MINH</strong>: My grandmother spoke French. Colonial education.</p>
@@ -282,25 +130,22 @@
   <p>The fungi create patterns. Not random. Linguistic.</p>
   <p><strong>LIORA</strong>: They&#x27;re translating. The networks are translating between genetic memories.</p>
   <p><strong>MYZRAEL</strong>: That&#x27;s projection. You want meaning where there&#x27;s only mold.</p>
-  <p>---</p>
-  <p>The Recording</p>
+  <h2>The Recording</h2>
   <p>Kemi plays audio from the lab&#x27;s ultrasonic recorder. Fungal networks emit sound at frequencies humans can&#x27;t hear. Slowed down, patterns emerge.</p>
   <p>It sounds like voices. Multiple languages. Overlapping.</p>
   <p><strong>JASPER</strong>: That&#x27;s... that&#x27;s my father&#x27;s laugh.</p>
   <p><strong>MINH</strong>: Stop. Please stop.</p>
-  <p><strong>LIORA</strong>: We&#x27;re documenting something unprecedented—</p>
+  <h2><strong>LIORA</strong>: We&#x27;re documenting something unprecedented—</h2>
   <p><strong>MINH</strong>: You&#x27;re using our grief for your career.</p>
   <p><strong>KEMI</strong>: Dr. Park, your mother&#x27;s sample is reacting.</p>
-  <p>---</p>
-  <p>The Mother</p>
+  <h2>The Mother</h2>
   <p>Liora&#x27;s mother&#x27;s soil—kept separate, control group—begins growing rapidly. Toward Liora.</p>
   <p><strong>LIORA</strong>: Mom was a translator. Six languages. Before the stroke.</p>
   <p><strong>MYZRAEL</strong>: She lost them all, didn&#x27;t she? The stroke took her languages.</p>
   <p><strong>LIORA</strong>: She hummed. When she couldn&#x27;t speak, she hummed.</p>
   <p>The ultrasonic recording from her mother&#x27;s sample: a melody. The lullaby she hummed in the hospital.</p>
   <p><strong>LIORA</strong>: She&#x27;s still translating. Through the fungi. Between death and life.</p>
-  <p>---</p>
-  <p>The Decision</p>
+  <h2>The Decision</h2>
   <p><strong>JASPER</strong>: I want my sample back.</p>
   <p><strong>MINH</strong>: Mine too.</p>
   <p><strong>KEMI</strong>: If we break the network now, we lose the data.</p>
@@ -309,8 +154,7 @@
   <p><strong>MYZRAEL</strong>: Let them go, Liora. Your mother&#x27;s gone.</p>
   <p><strong>LIORA</strong>: No. She&#x27;s just... translated.</p>
   <p>The participants take their samples. The network breaks. The humming stops.</p>
-  <p>---</p>
-  <p>After</p>
+  <h2>After</h2>
   <p>Liora alone with her mother&#x27;s soil.</p>
   <p><strong>KEMI</strong>: The university&#x27;s pulling your funding.</p>
   <p><strong>LIORA</strong>: I know.</p>
@@ -325,7 +169,6 @@
   <p><strong>LIORA</strong>: Now I bury her. Again. Properly this time.</p>
   <p><strong>KEMI</strong>: Not in the lab?</p>
   <p><strong>LIORA</strong>: In the ground. Where translation happens naturally.</p>
-  <p>---</p>
   <p>Berkeley Rose Garden<br>
   December 2024</p>
   <p>Liora and Kemi bury the sample illegally, midnight, under heritage roses.</p>
@@ -336,31 +179,28 @@
   <p><strong>KEMI</strong>: It&#x27;s not words. It&#x27;s just pattern. But pattern that sounds like meaning.</p>
   <p><strong>LIORA</strong>: Maybe that&#x27;s all meaning is. Pattern we choose to hear.</p>
   <p>Spring will bring new mushrooms to the rose garden. Tourists will photograph them. No one will know they&#x27;re archives. Memory translated through soil, reaching toward light.</p>
-  <p><strong>End</strong></p>
-  <p class="core-foot-label"><a href="/physical.html">From Physical</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/light-for-marine-hues/"><img src="https://media.paraploo.com/site/images/physical/light-for-marine-hues/Forelight%20For%20A%20Play%20Goldmarinelife%2011-600.webp" alt="Light for Marine Hues" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/materials-for-tinkering/"><img src="https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%201-600.webp" alt="Materials for Tinkering" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/mercy-and-no-mercy/"><img src="https://media.paraploo.com/site/images/physical/mercy-and-no-mercy/This%20Time%20Nothing%201-600.webp" alt="Mercy and No Mercy" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/messornot/"><img src="https://media.paraploo.com/site/images/physical/messornot/Messornot-01-600.webp" alt="Messornot" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/mister-sandman-garbage/"><img src="https://media.paraploo.com/site/images/physical/mister-sandman-garbage/Holy%20Sand%20Boatman%201-600.webp" alt="Mister Sandman Garbage" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/nariwen-innocence-proof/"><img src="https://media.paraploo.com/site/images/physical/nariwen-innocence-proof/Nariwen%201-600.webp" alt="Nariwen Innocence Proof" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/night-home/"><img src="https://media.paraploo.com/site/images/physical/night-home/Night%20Home%201-600.webp" alt="Night Home" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/night-red-cross-tent/"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024-600.webp" alt="Night Red Cross Tent" width="600" height="499" loading="lazy"></a>
-      <a href="/physical/noir-music-night-of-day/"><img src="https://media.paraploo.com/site/images/physical/noir-music-night-of-day/DB%20Two%20Versions%201-600.webp" alt="Noir Music Night of Day" width="600" height="397" loading="lazy"></a>
-      <a href="/physical/numbers-game-auction/"><img src="https://media.paraploo.com/site/images/physical/numbers-game-auction/Numbers%20Game%201-600.webp" alt="Numbers Game Auction" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/orange-fur-project/"><img src="https://media.paraploo.com/site/images/physical/orange-fur-project/Yellow%20Orange%201-600.webp" alt="Orange Fur Project" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/outside-carpet-treaty/"><img src="https://media.paraploo.com/site/images/physical/outside-carpet-treaty/Ouside%20Carpet%201-600.webp" alt="Outside Carpet Treaty" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/piles-of-boards/"><img src="https://media.paraploo.com/site/images/physical/piles-of-boards/above%20view%20of%20parts-600.webp" alt="Piles of Boards" width="600" height="420" loading="lazy"></a>
-      <a href="/physical/plethora-at-play-details/"><img src="https://media.paraploo.com/site/images/physical/plethora-at-play-details/Plethora%20Detail%201-600.webp" alt="Plethora At Play Details" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/pray-for-destroyed-mirrors/"><img src="https://media.paraploo.com/site/images/physical/pray-for-destroyed-mirrors/pray%20for%20less%20violence%201-600.webp" alt="Pray for Destroyed Mirrors" width="600" height="480" loading="lazy"></a>
-      <a href="/physical/precious-wet-black-soil/"><img src="https://media.paraploo.com/site/images/physical/precious-wet-black-soil/Day%20Stage%2011-600.webp" alt="Precious Wet Black Soil" width="600" height="402" loading="lazy"></a>
-      <a href="/physical/rashing-to-show-these-items/"><img src="https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp" alt="Rashing to Show These Items" width="600" height="398" loading="lazy"></a>
-      <a href="/physical/salt-of-sand-and-more/"><img src="https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp" alt="Salt of Sand and More" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/shadeless-lamps-showcased/"><img src="https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp" alt="Shadeless Lamps Showcased" width="600" height="391" loading="lazy"></a>
-      <a href="/physical/signs-of-damage/"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" alt="Signs of Damage" width="600" height="400" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-composting-group/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2><strong>End</strong></h2>
+    </div>
+    <a class="wp-one" href="/physical.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-grief-workshop/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Grief Workshop</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-composting-group/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Composting Group</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/physical.html">From Physical</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/physical/light-for-marine-hues/"><img src="https://media.paraploo.com/site/images/physical/light-for-marine-hues/Forelight%20For%20A%20Play%20Goldmarinelife%2011-600.webp" alt="Light for Marine Hues" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/materials-for-tinkering/"><img src="https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%201-600.webp" alt="Materials for Tinkering" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/mercy-and-no-mercy/"><img src="https://media.paraploo.com/site/images/physical/mercy-and-no-mercy/This%20Time%20Nothing%201-600.webp" alt="Mercy and No Mercy" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/messornot/"><img src="https://media.paraploo.com/site/images/physical/messornot/Messornot-01-600.webp" alt="Messornot" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/mister-sandman-garbage/"><img src="https://media.paraploo.com/site/images/physical/mister-sandman-garbage/Holy%20Sand%20Boatman%201-600.webp" alt="Mister Sandman Garbage" width="600" height="400" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/physical/light-for-marine-hues/","s":"https://media.paraploo.com/site/images/physical/light-for-marine-hues/Forelight%20For%20A%20Play%20Goldmarinelife%2011-600.webp","c":"Light for Marine Hues","w":600,"ht":400},{"h":"/physical/materials-for-tinkering/","s":"https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%201-600.webp","c":"Materials for Tinkering","w":600,"ht":400},{"h":"/physical/mercy-and-no-mercy/","s":"https://media.paraploo.com/site/images/physical/mercy-and-no-mercy/This%20Time%20Nothing%201-600.webp","c":"Mercy and No Mercy","w":600,"ht":400},{"h":"/physical/messornot/","s":"https://media.paraploo.com/site/images/physical/messornot/Messornot-01-600.webp","c":"Messornot","w":600,"ht":400},{"h":"/physical/mister-sandman-garbage/","s":"https://media.paraploo.com/site/images/physical/mister-sandman-garbage/Holy%20Sand%20Boatman%201-600.webp","c":"Mister Sandman Garbage","w":600,"ht":400},{"h":"/physical/nariwen-innocence-proof/","s":"https://media.paraploo.com/site/images/physical/nariwen-innocence-proof/Nariwen%201-600.webp","c":"Nariwen Innocence Proof","w":600,"ht":400},{"h":"/physical/night-home/","s":"https://media.paraploo.com/site/images/physical/night-home/Night%20Home%201-600.webp","c":"Night Home","w":600,"ht":400},{"h":"/physical/night-red-cross-tent/","s":"https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024-600.webp","c":"Night Red Cross Tent","w":600,"ht":499},{"h":"/physical/noir-music-night-of-day/","s":"https://media.paraploo.com/site/images/physical/noir-music-night-of-day/DB%20Two%20Versions%201-600.webp","c":"Noir Music Night of Day","w":600,"ht":397},{"h":"/physical/numbers-game-auction/","s":"https://media.paraploo.com/site/images/physical/numbers-game-auction/Numbers%20Game%201-600.webp","c":"Numbers Game Auction","w":600,"ht":400},{"h":"/physical/orange-fur-project/","s":"https://media.paraploo.com/site/images/physical/orange-fur-project/Yellow%20Orange%201-600.webp","c":"Orange Fur Project","w":600,"ht":400},{"h":"/physical/outside-carpet-treaty/","s":"https://media.paraploo.com/site/images/physical/outside-carpet-treaty/Ouside%20Carpet%201-600.webp","c":"Outside Carpet Treaty","w":600,"ht":400},{"h":"/physical/piles-of-boards/","s":"https://media.paraploo.com/site/images/physical/piles-of-boards/above%20view%20of%20parts-600.webp","c":"Piles of Boards","w":600,"ht":420},{"h":"/physical/plethora-at-play-details/","s":"https://media.paraploo.com/site/images/physical/plethora-at-play-details/Plethora%20Detail%201-600.webp","c":"Plethora At Play Details","w":600,"ht":400},{"h":"/physical/pray-for-destroyed-mirrors/","s":"https://media.paraploo.com/site/images/physical/pray-for-destroyed-mirrors/pray%20for%20less%20violence%201-600.webp","c":"Pray for Destroyed Mirrors","w":600,"ht":480},{"h":"/physical/precious-wet-black-soil/","s":"https://media.paraploo.com/site/images/physical/precious-wet-black-soil/Day%20Stage%2011-600.webp","c":"Precious Wet Black Soil","w":600,"ht":402},{"h":"/physical/rashing-to-show-these-items/","s":"https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp","c":"Rashing to Show These Items","w":600,"ht":398},{"h":"/physical/salt-of-sand-and-more/","s":"https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp","c":"Salt of Sand and More","w":600,"ht":400},{"h":"/physical/shadeless-lamps-showcased/","s":"https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp","c":"Shadeless Lamps Showcased","w":600,"ht":391},{"h":"/physical/signs-of-damage/","s":"https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp","c":"Signs of Damage","w":600,"ht":400}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -376,5 +216,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

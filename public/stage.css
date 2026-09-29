@@ -1,0 +1,362 @@
+/* ==========================================================================
+   WRITING PAGE: THE STAGE AND THE SHEET  (confirmed September 29, 2026)
+   The opening: one of his pictures, whole and never cropped, as tall as
+   the stage, on a haze of its own colours; the title large across the
+   lower part on a dark veil. The picture holds still while the reading
+   sheet rises over it; up to three more pictures float in the margins,
+   moving slower than the page. Pictures drawn fresh on every visit from
+   the twenty the build already picks for the writing's section.
+   Text colours are the site's four named colours only (the stage uses
+   the dark values of Ink and Soft ink). Lora and Inter only. Nothing
+   under 16 pixels.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html.size-1 { --wp-size: 17px; }
+html.size-2 { --wp-size: 18px; }
+html.size-3 { --wp-size: 20px; }
+
+:root {
+  --wp-rule: rgba(0, 0, 0, 0.16);
+  --wp-thumb: #e5ded3;
+  --wp-paper: #f9f7f4;
+  --wp-ghost: #f9f7f4;
+  --wp-sheet: #f9f7f4 linear-gradient(to bottom, #ffffff 0px, #ffffff 300px, #fdfcfb 700px, #f9f7f4 100%) no-repeat;
+  --wp-sheet-shadow: 0 40px 90px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+html[data-theme="dark"] {
+  --wp-rule: rgba(255, 255, 255, 0.18);
+  --wp-thumb: #1c1712;
+  --wp-paper: #0d0907;
+  --wp-ghost: #0d0907;
+  --wp-sheet: #0d0907;
+  --wp-sheet-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 40px 90px rgba(0, 0, 0, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --wp-rule: rgba(255, 255, 255, 0.18);
+    --wp-thumb: #1c1712;
+    --wp-paper: #0d0907;
+    --wp-ghost: #0d0907;
+    --wp-sheet: #0d0907;
+    --wp-sheet-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 40px 90px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body.writing-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--wp-paper);
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Everything the visitor reads sits above the still picture, on solid ground */
+body.writing-page > .pv-bar,
+body.writing-page > .pv-phone,
+body.writing-page > .theme-strip,
+body.writing-page > .site-header:not(.is-pinned),
+body.writing-page > main,
+body.writing-page > .site-footer { position: relative; z-index: 2; }
+body.writing-page > .theme-strip,
+body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
+
+/* ---- The still picture (fixed behind the page) ---- */
+.stage-bg {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0d0907;
+  pointer-events: none;
+}
+.stage-haze {
+  position: absolute;
+  top: -80px; left: -80px;
+  width: calc(100% + 160px);
+  height: calc(100% + 160px);
+  object-fit: cover;
+  filter: blur(44px) brightness(0.8) saturate(1.1);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.stage-pic {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+.stage-haze.is-in,
+.stage-pic.is-in { opacity: 1; }
+
+/* The margins quieten as the opening scrolls away: pale in Light, deep in Dark */
+.stage-ghost {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 1;
+  background: var(--wp-ghost);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- The opening ---- */
+.stage {
+  position: relative;
+  height: var(--stage-h, calc(100vh - 150px));
+  min-height: 420px;
+  /* The stage is dark in Light and Dark alike: its words use the dark values */
+  --ink: #e8e0d6;
+  --ink-soft: #b3aa9f;
+  color: var(--ink);
+}
+/* The veil: 10% at the top, 80% from 32 pixels above the words down
+   (on phones the rise starts below the picture, so the picture keeps its light) */
+.stage::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(to bottom,
+    rgba(13, 9, 7, 0.10) 0%,
+    rgba(13, 9, 7, 0.10) var(--vr, 12%),
+    rgba(13, 9, 7, 0.80) var(--vs, 40%),
+    rgba(13, 9, 7, 0.80) 100%);
+  pointer-events: none;
+}
+/* Below the opening the veil lets go gently, so the margins have no hard edge */
+.stage::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(13, 9, 7, 0.80), rgba(13, 9, 7, 0));
+  pointer-events: none;
+}
+.stage-words {
+  position: absolute;
+  left: max(40px, calc(50% - 310px));
+  bottom: 56px;
+  width: min(900px, calc(100% - max(40px, calc(50% - 310px)) - 40px));
+  animation: stage-rise 0.5s ease 0.15s both;
+}
+.stage-kind {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.stage-title {
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: clamp(36px, 5.2vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.stage-sub {
+  margin: 16px 0 0;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.25;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+.stage-cat {
+  position: absolute;
+  right: 32px;
+  bottom: 8px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.stage-cat:hover { color: var(--ink); }
+@keyframes stage-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* ---- The reading sheet ---- */
+.wp-reading {
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+}
+.wp-sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 44px 70px 88px;
+  background: var(--wp-sheet);
+  box-shadow: var(--wp-sheet-shadow);
+  font-size: var(--wp-size, 17px);
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+/* Floating pictures, in the margins only, never over the sheet */
+.wp-floats { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; pointer-events: none; }
+.wp-float { position: absolute; display: block; line-height: 0; pointer-events: auto; will-change: transform; }
+.wp-float img { display: block; width: 100%; height: auto; background: var(--wp-thumb); }
+.wp-float.near img { box-shadow: 0 28px 60px rgba(0, 0, 0, 0.40); }
+.wp-float.middle img { box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30); }
+.wp-float.far img { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22); }
+
+/* Under 1,200 pixels: one picture, whole, between the writing and Previous and Next */
+.wp-one { display: block; margin: 56px 0 0; line-height: 0; }
+.wp-one[hidden] { display: none; }
+.wp-one img { display: block; width: 100%; height: auto; background: var(--wp-thumb); }
+
+/* Way back */
+.wp-back { margin: 0 0 36px; line-height: 1.5; }
+.wp-back .arrow-link,
+.wp-back .arrow-link .arrow-glyph { color: var(--ink-soft); }
+.wp-back .arrow-link:hover,
+.wp-back .arrow-link:hover .arrow-glyph { color: var(--ink); }
+
+/* The brown chip and the text size */
+.wp-slot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 32px; }
+.wp-chip { width: 44px; height: 28px; background: #8b5e3c; border-radius: 4px; }
+.wp-size { display: flex; align-items: baseline; }
+.wp-size button {
+  min-width: 36px; min-height: 44px; padding: 0 4px;
+  background: none; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-weight: 600; line-height: 1;
+  color: var(--ink-faint);
+}
+.wp-size button[data-size="1"] { font-size: 16px; }
+.wp-size button[data-size="2"] { font-size: 19px; }
+.wp-size button[data-size="3"] { font-size: 22px; }
+.wp-size button[aria-pressed="true"],
+.wp-size button:hover { color: var(--ink); }
+
+/* Body */
+.wp-body p { margin: 0 0 2em; color: var(--ink); text-wrap: pretty; }
+.wp-body em, .wp-body i { font-style: italic; }
+.wp-body strong, .wp-body b { font-weight: 400; }
+.wp-body h2 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 1.2941em;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 2.2em 0 0.7em;
+  text-wrap: pretty;
+}
+.wp-body > h2:first-child { margin-top: 0; }
+.wp-break {
+  margin: 0.4em 0 2.2em;
+  text-align: center;
+  font-size: 1.15em;
+  letter-spacing: 0.35em;
+  color: var(--ink-faint);
+}
+.wp-colophon {
+  margin: 3em 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.wp-colophon::before {
+  content: ""; display: block; width: 48px; height: 1px;
+  background: var(--wp-rule); margin: 0 0 16px;
+}
+
+/* ---- After the writing: plain ground, full width ---- */
+.wp-after { position: relative; background: var(--wp-paper); }
+.wp-after::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 100%;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--wp-paper));
+  pointer-events: none;
+}
+.wp-after-in {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 40px 96px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Previous and next */
+.wp-seq {
+  padding: 20px 0 0;
+  border-top: 1px solid var(--wp-rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+.wp-seq-link {
+  display: flex; flex-direction: column; gap: 2px;
+  max-width: 46%;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+.wp-next { margin-left: auto; text-align: right; align-items: flex-end; }
+.wp-seq-word { font-size: 19px; line-height: 1.5; color: var(--ink-soft); }
+.wp-seq-word .arrow-glyph { display: inline-block; transition: transform 0.2s; }
+.wp-prev:hover .arrow-glyph { transform: translateX(-4px); }
+.wp-next:hover .arrow-glyph { transform: translateX(4px); }
+.wp-seq-title { font-size: 16px; line-height: 1.45; color: var(--ink-soft); }
+.wp-seq-link:hover .wp-seq-word,
+.wp-seq-link:hover .wp-seq-title { color: var(--ink); }
+
+.wp-also { margin: 24px 0 0; font-size: 16px; color: var(--ink-faint); }
+.wp-also a { color: var(--ink-soft); text-decoration: none; }
+.wp-also a:hover { color: var(--ink); }
+
+/* A row of five pictures */
+.wp-foot-label { margin: 56px 0 14px; font-size: 16px; letter-spacing: 0.06em; }
+.wp-foot-label a { color: var(--ink-soft); text-decoration: none; }
+.wp-foot-label a:hover { color: var(--ink); }
+.wp-after .thumb-row-wrap {
+  width: 100vw; position: relative; left: 50%; margin-left: -50vw;
+  padding-left: max(40px, calc(50vw - 310px));
+  overflow: hidden;
+}
+.wp-after .thumb-row { display: flex; gap: 8px; }
+.wp-after .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
+.wp-after .thumb-row img { height: 90px; width: auto; display: block; background: var(--wp-thumb); }
+
+/* ---- Reduced motion: the opening scrolls away like an ordinary picture ---- */
+html.rm .stage-bg { position: absolute; bottom: auto; height: var(--stage-bottom, 100vh); }
+html.rm .stage-ghost,
+html.rm .stage::after { display: none; }
+html.rm .stage-haze,
+html.rm .stage-pic { transition: none; }
+html.rm .stage-words { animation: none; }
+html.rm .wp-float { will-change: auto; transform: none !important; }
+html.rm .wp-seq-word .arrow-glyph { transition: none; }
+
+/* ---- Narrower windows and phones ---- */
+@media (max-width: 800px) {
+  .wp-after .thumb-row-wrap {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-left: 20px;
+  }
+  .wp-after .thumb-row-wrap::-webkit-scrollbar { display: none; }
+}
+@media (max-width: 767px) {
+  .wp-sheet { max-width: none; padding: 28px 20px 72px; box-shadow: none; }
+  .wp-back { margin-bottom: 28px; }
+  .stage-words { left: 20px; width: calc(100% - 40px); bottom: 48px; }
+  .stage-cat { right: 20px; bottom: 0; }
+  .wp-one { margin-top: 48px; }
+  .wp-after-in { padding: 32px 20px 72px; }
+  .wp-seq { flex-direction: column; gap: 16px; }
+  .wp-seq-link { max-width: 100%; }
+  .wp-next { margin-left: 0; text-align: left; align-items: flex-start; }
+}

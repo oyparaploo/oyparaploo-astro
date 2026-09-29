@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part One: The Shifting When she was home, she was a swan—but not merely in metaphor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,93 +53,106 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Metamorphic Ones</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part One: The Shifting</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 9 minutes</p>
+        <h1 class="stage-title">The Metamorphic Ones</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part One: The Shifting</h2>
   <p>When she was home, she was a swan—but not merely in metaphor. The radical experiment had begun three generations after the collapse, when the overseers watched mother earth convulse from their distant orbital stations. Those who remained below had discovered that survival demanded more than adaptation; it required transformation beyond recognition.</p>
   <p>Her name was Beit-47, though she insisted on keeping the ancient name her grandmother whispered: <em>Marina</em>. The tribe&#x27;s cold digitization of identity couldn&#x27;t erase what pulsed beneath her morphing flesh. In the underground settlement of New Haven, where crystalline formations grew from repurposed biological tissue—a discovery made by a precocious child named Tern who&#x27;d woven human cells into living architecture—she could maintain her swan form. White feathers emerged from follicles that remembered being hair. Her neck elongated with a crackling of vertebrae that no longer alarmed her.</p>
   <p>The transformation wasn&#x27;t just physical. In swan form, her consciousness flowed differently, rippling outward to touch the plant-like neural networks that lined the settlement&#x27;s walls. Telepathic tendrils, green and pulsing, connected every being in an US of sorts. Memories leaked between inhabitants like water through limestone—decades of experience blurring into collective understanding.</p>
   <p>"Does god exist in a world where humans become their own creators?" Beit asked the walls one evening, her swan-voice melodious and strange. The walls, woven from Tern&#x27;s bio-architectural miracle, pulsed with the accumulated doubt of five hundred souls.</p>
-  <p>Part Two: The Hunt</p>
+  <h2>Part Two: The Hunt</h2>
   <p>When she ventured outside, past the careful threshold where hope and ambition crystallized into actual stone doorways, the tiger emerged. Not gradually—the experiment had evolved past such inefficiencies. Her bones restructured in seconds, muscle mass redistributing, consciousness sharpening to a predator&#x27;s focus. Orange and black stripes wrote themselves across skin that had been white plumage moments before.</p>
   <p>The surface world demanded this ferocity. Wildlife dwindled faster than memory could catalog their passing. The tiger-Beit hunted not for food—the settlements had solved that through other innovations—but for something more precious: genetic material from the dying species, samples to feed the ongoing experiment of survival.</p>
   <p>She encountered others like herself in the wasteland. Some had pushed the transformations further—becoming creatures that had never existed, hybrids of imagination and biological possibility. They communicated through scent and posture, through electromagnetic pulses that made her fur stand on end. Individual identity rubbed against collective need with every encounter.</p>
   <p>One twilight, she met a collective that had gone too far. Seven humans who had merged into something botanical, their consciousnesses flowing together like sap. They showed her visions: mother earth breathing slowly, watching, waiting. They shared memories across delirious decades—the taste of fresh strawberries from before, the sound of extinct birds, the weight of children who would never be born in the old way.</p>
   <p>"Every being is an US now," they whispered through leaves that had once been lips. "But at what cost?"</p>
-  <p>Part Three: The Fall</p>
+  <h2>Part Three: The Fall</h2>
   <p>The day she became lost—truly lost—she was tracking through the deadlands when her transformations failed. The cellular exhaustion hit suddenly. She collapsed, neither swan nor tiger, but something pitiful and in-between. A toad-like creature with patchy fur and malformed wings, croaking in distress.</p>
   <p>This was the price of the experiment. The more one shifted, the greater the risk of losing cohesion entirely. Some called it identity vertigo. Others simply called it the cost.</p>
   <p>A wanderer found her—one of the few who had refused the experiment, who remained stubbornly, fragilely human. He gave her water infused with stabilizing minerals and placed a rose (engineered to bloom in radiation) near her trembling form. As she stretched back into something resembling her original shape, the sun rose over the wasteland, and she remembered being young.</p>
-  <p>Part Four: The Memory</p>
+  <h2>Part Four: The Memory</h2>
   <p>"When I was young," she told him as her voice returned, "I was a cow in my grandmother&#x27;s stories. She said I milked the stars."</p>
   <p>The memory wasn&#x27;t quite real—or perhaps it was realer than real. In the time before the experiment, before the cellular mutations and conscious evolution, she had been a child in the old world. Her grandmother, one of the last to remember life before the collapse, had told her stories of transformation that seemed like fantasy then.</p>
   <p>"She taught me that women who survive must be unfaithful to their child-selves," Beit continued, her form stabilizing but never quite settling. "We must let go of who we were to become what we need to be."</p>
   <p>The wanderer listened, his unchanged face a monument to stubborn continuity. Around them, the wasteland breathed with invisible observers—evolved beings whose sensory capabilities exceeded old human limitations, who could taste thoughts and see through time.</p>
-  <p>Part Five: The Settlement</p>
+  <h2>Part Five: The Settlement</h2>
   <p>They returned together to New Haven, descending through tunnels lined with bioluminescent moss and crystallized memory-fragments. The settlement spread in careful spirals, each level representing a different stage of the experiment. The lowest levels housed those who had chosen the most radical transformations—beings of pure thought anchored to fungal networks, their individual egos dissolved into something greater.</p>
   <p>The middle levels bustled with the moderately changed—those who shifted between two or three forms, who maintained enough individual identity to love and hate and grieve. Here, children discovered new ways to manipulate biological tissue, their innovations both miraculous and terrifying. One child had learned to weave neurons into tapestries that could store and replay emotions.</p>
   <p>At the settlement&#x27;s heart, in a chamber where the walls pulsed with collective uncertainty, the Council of Forms debated humanity&#x27;s future. Some argued for full transcendence—abandoning individual consciousness entirely. Others fought to preserve some kernel of the old humanity, even as their bodies sprouted chlorophyll and their minds expanded beyond singular awareness.</p>
-  <p>Part Six: The Question</p>
+  <h2>Part Six: The Question</h2>
   <p>Beit stood before them, her form shifting unconsciously—swan to tiger to toad to something unnamed. She had become a living question: How much can humans change and still remain human?</p>
   <p>"I&#x27;ve seen the merged ones," she reported. "They&#x27;ve achieved perfect unity but lost all distinction. I&#x27;ve seen the unchanged ones, clinging to form while the world transforms around them. I&#x27;ve been the swan seeking grace, the tiger claiming independence, the toad accepting vulnerability."</p>
   <p>The Council rippled with shared thoughts, their telepathic plant-formations glowing brighter. Through the network, she felt the loneliness of evolution—each advancement separating them further from what they had been, creating new forms of otherness even as they sought belonging.</p>
   <p>A child named Echo, whose artistic creations from biological tissue had reached mythic significance in the settlement, raised her hand. "What if god doesn&#x27;t exist because we&#x27;re becoming god? What if each transformation is a prayer?"</p>
-  <p>Part Seven: The Recognition</p>
+  <h2>Part Seven: The Recognition</h2>
   <p>The question reverberated through New Haven&#x27;s neural networks. In the depths, the fully merged consciousness stirred, sharing visions of earth from the overseers&#x27; perspective—a planet transforming beyond recognition, humanity splitting into isolated cells and settlements, each experimenting with different paths forward.</p>
   <p>Beit felt the weight of it—the tragic irony that even their benevolent attempts at evolution contained seeds of self-sabotage. They had gained so much: superhuman psychic abilities, freedom from biological constraints, consciousness as fluid as water. But they had lost the simple certainty of fixed identity, the comfort of knowing where self ended and other began.</p>
   <p>In the following days, she wandered the settlement, observing the strange normalcy they had created. Friendships persisted between beings who could barely recognize each other&#x27;s forms. Adult-child bonds transcended species boundaries. Spiritual rituals emerged that honored both transformation and continuity.</p>
   <p>She watched a group perform the Remembrance—a ceremony where they temporarily merged consciousnesses to share memories of the old world, then painfully separated to maintain individual identity. The sparks of life combined with hard-earned wisdom, showing how meaning persisted even as everything else changed.</p>
-  <p>Part Eight: The Choice</p>
+  <h2>Part Eight: The Choice</h2>
   <p>The wanderer who had saved her prepared to leave. His unchanged form couldn&#x27;t survive long in New Haven—the very air was saturated with transformation catalysts. But before departing, he asked her a question that pierced through all her shifting forms:</p>
-  <p>"What do you choose to be?"</p>
+  <h2>"What do you choose to be?"</h2>
   <p>She considered it as her body rippled through possibilities. The experiment had given them freedom from fixed form but had also become its own prison. Every choice of shape was temporary, every identity a fleeting arrangement of cells and consciousness.</p>
   <p>"I choose to be the question," she finally answered. "The living reminder that survival isn&#x27;t about finding answers but about continuing to transform in response to an ever-changing world."</p>
-  <p>Part Nine: The Renewal</p>
+  <h2>Part Nine: The Renewal</h2>
   <p>Years passed in the way years pass for the transformed—sometimes in seconds, sometimes in centuries of subjective experience. New Haven grew, its bio-architecture spreading through underground networks to connect with other settlements. Each pocket of humanity had developed different evolutionary paths, different answers to the question of survival.</p>
   <p>Some settlements had embraced full biological merger with plant life, becoming forests with collective consciousness. Others had pursued technological integration, their thoughts uploaded and shared through quantum networks. Still others, like New Haven, maintained the delicate balance between transformation and identity.</p>
   <p>Beit became a bridge between forms—a living translator who could shift not just shape but consciousness itself to communicate with any branch of humanity&#x27;s splintered evolution. She carried messages between the merged and the individual, the biological and the digital, the transformed and the unchanged.</p>
-  <p>Part Ten: The Legacy</p>
+  <h2>Part Ten: The Legacy</h2>
   <p>In time, she began to notice patterns. Despite the radical divergence of forms, certain human impulses persisted. Communities still organized around shared grief and joy. Love still sparked between conscious beings, regardless of shape. Art still emerged from the need to express the inexpressible.</p>
   <p>Echo, the child artist, had grown into something magnificent and terrible—a being who could sculpt living creatures from raw biological material, each creation a meditation on identity and transformation. Together, they built a monument in New Haven&#x27;s central chamber: a constantly shifting sculpture that showed all of humanity&#x27;s new forms simultaneously, a reminder that every being was indeed an US of sorts.</p>
   <p>The sculpture asked its own questions: Was humanity&#x27;s arrogance in thinking they could direct their own evolution, or was it in believing they could remain unchanged? Was their resilience found in adaptation or in maintaining some essential core through all transformations? Was this ongoing experiment self-destruction or wonderful, ongoing hope?</p>
-  <p>Epilogue: The Fable</p>
+  <h2>Epilogue: The Fable</h2>
   <p>The overseers continued their watch from orbit, documenting the strange flowering of human potential below. In their reports, transmitted to whoever might receive them in the vast cosmos, they wrote:</p>
   <p><em>Once, humans believed they were fixed in form, locked in singular bodies with discrete identities. The collapse freed them from this illusion—or perhaps condemned them to endless change. They became swans in safety, tigers in wilderness, toads in vulnerability, star-milking cows in memory.</em></p>
   <p><em>They learned that survival required unfaithfulness—not to each other, but to any fixed idea of self. They discovered that consciousness could be shared like water, that identity could flow between forms, that humanity&#x27;s greatest achievement might be its willingness to become unrecognizable to its former self.</em></p>
   <p><em>Whether this is triumph or tragedy remains unwritten. The experiment continues. Mother earth watches and waits, neither approving nor condemning, simply curious what her strangest children will become next.</em></p>
   <p><em>And in the underground settlements, in the merged forests, in the digital networks and biological collectives, the question echoes: How much can humans change—physically, culturally, spiritually—and what emerges on the other side of recognition?</em></p>
   <p><em>Perhaps the answer is the change itself. Perhaps the question is the only home they have left.</em></p>
-  <p>---</p>
   <p><em>In New Haven, Beit shifts between her forms, each transformation a verse in humanity&#x27;s evolving song. She is swan and tiger and toad and star-milker. She is the radical experiment incarnate, the living proof that survival demands constant metamorphosis. She teaches others what her grandmother taught her in different words: to survive, we must be unfaithful to who we were yesterday.</em></p>
   <p><em>The story continues, written in flesh and consciousness, in hope and grief, in the endless creativity of a species that refuses to stop becoming.</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0046"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp" alt="02274" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0047"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp" alt="02275" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0048"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp" alt="02276" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0049"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp" alt="02277" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0050"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp" alt="02278" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0051"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border%202-600.webp" alt="02279" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0052"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border-600.webp" alt="02280" width="600" height="451" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0053"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Future%20Ancient%20See-Through%20Wall%202-600.webp" alt="02281" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0054"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp" alt="02282" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0055"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp" alt="02283" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0056"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp" alt="02284" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0057"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp" alt="02285" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0058"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp" alt="02286" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0059"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp" alt="02287" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0060"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp" alt="02288" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0061"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp" alt="02289" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0062"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp" alt="02290" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0063"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp" alt="02291" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0064"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp" alt="02292" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0065"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp" alt="02293" width="600" height="453" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/a-critique-of-tomb-of-sand-by-geetanjali-shree/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/when-she-was-the-complete-chronicle/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">When She Was</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/a-critique-of-tomb-of-sand-by-geetanjali-shree/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">A Critique of Tomb of Sand by Geetanjali Shree</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0046"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp" alt="02274" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0047"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp" alt="02275" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0048"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp" alt="02276" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0049"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp" alt="02277" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0050"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp" alt="02278" width="600" height="432" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0046","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Enz%20Ahtt%20Piel%202-600.webp","c":"02274","w":600,"ht":436},{"h":"/marks/newest-patterns/0047","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Fannyz%20Gut%20Feeling%202-600.webp","c":"02275","w":600,"ht":436},{"h":"/marks/newest-patterns/0048","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Density%27s%20Register%202-600.webp","c":"02276","w":600,"ht":436},{"h":"/marks/newest-patterns/0049","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack%202-600.webp","c":"02277","w":600,"ht":436},{"h":"/marks/newest-patterns/0050","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Find%20The%20Handle%20In%20The%20Hey%20There%20Stack-600.webp","c":"02278","w":600,"ht":432},{"h":"/marks/newest-patterns/0051","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border%202-600.webp","c":"02279","w":600,"ht":458},{"h":"/marks/newest-patterns/0052","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/From%20The%20Opposite%20Side%20Of%20The%20Border-600.webp","c":"02280","w":600,"ht":451},{"h":"/marks/newest-patterns/0053","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Future%20Ancient%20See-Through%20Wall%202-600.webp","c":"02281","w":600,"ht":436},{"h":"/marks/newest-patterns/0054","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp","c":"02282","w":600,"ht":436},{"h":"/marks/newest-patterns/0055","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp","c":"02283","w":600,"ht":436},{"h":"/marks/newest-patterns/0056","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp","c":"02284","w":600,"ht":434},{"h":"/marks/newest-patterns/0057","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp","c":"02285","w":600,"ht":436},{"h":"/marks/newest-patterns/0058","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp","c":"02286","w":600,"ht":436},{"h":"/marks/newest-patterns/0059","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp","c":"02287","w":600,"ht":436},{"h":"/marks/newest-patterns/0060","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp","c":"02288","w":600,"ht":436},{"h":"/marks/newest-patterns/0061","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp","c":"02289","w":600,"ht":436},{"h":"/marks/newest-patterns/0062","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp","c":"02290","w":600,"ht":458},{"h":"/marks/newest-patterns/0063","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp","c":"02291","w":600,"ht":457},{"h":"/marks/newest-patterns/0064","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp","c":"02292","w":600,"ht":453},{"h":"/marks/newest-patterns/0065","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp","c":"02293","w":600,"ht":453}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -319,5 +168,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

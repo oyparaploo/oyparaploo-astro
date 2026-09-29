@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="June takes photos of the sunset every day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,23 +53,40 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">6:47</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 4 minutes</p>
+        <h1 class="stage-title">6:47</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>June takes photos of the sunset every day. Same spot on her roof. 6:47 PM.</p>
   <p>She&#x27;s forty-one. Lives in Delhi. Works from home doing medical transcription. Types what doctors say.</p>
   <p>Her neighbor Priya asks: "Why do you do that?"</p>
-  <p>"Do what?"</p>
-  <p>"Same picture every day."</p>
-  <p>"I just do."</p>
+  <h2>"Do what?"</h2>
+  <h2>"Same picture every day."</h2>
+  <h2>"I just do."</h2>
   <p>Her daughter Anjali calls from Toronto. "You still taking those pictures?"</p>
-  <p>"Yes."</p>
-  <p>"Of sunsets?"</p>
-  <p>"Yes."</p>
-  <p>"Okay."</p>
+  <h2>"Yes."</h2>
+  <h2>"Of sunsets?"</h2>
+  <h2>"Yes."</h2>
+  <h2>"Okay."</h2>
   <p>They talk about Anjali&#x27;s job. Her roommate. Something about a gym membership. Hang up.</p>
   <p>June goes to the roof. 6:47. Takes the photo.</p>
   <p>At work she types: "Patient presents with lower back pain. Six weeks duration. Gradual onset."</p>
@@ -242,89 +95,89 @@
   <p>Random cases. Different problems.</p>
   <p>She goes to the roof. 6:47. Takes the photo. Stays up there for a bit. Watching.</p>
   <p>Priya comes up sometimes. They don&#x27;t talk much. Just stand there.</p>
-  <p>June&#x27;s sister calls. "You didn&#x27;t answer last week."</p>
-  <p>"Sorry. Busy."</p>
-  <p>"With what?"</p>
-  <p>"Work."</p>
-  <p>"You work from home."</p>
-  <p>"Still busy."</p>
+  <h2>June&#x27;s sister calls. "You didn&#x27;t answer last week."</h2>
+  <h2>"Sorry. Busy."</h2>
+  <h2>"With what?"</h2>
+  <h2>"Work."</h2>
+  <h2>"You work from home."</h2>
+  <h2>"Still busy."</h2>
   <p>Her sister sighs. Talks about her son&#x27;s college applications. June half-listens. Says she has to go. Hangs up.</p>
   <p>6:47. Roof. Photo. The sky looks different today. Can&#x27;t say how. Just different. Takes the photo anyway.</p>
   <p>Her electricity bill came. Forgot to pay it. Adds it to the pile of mail on the counter.</p>
   <p>At work: "Patient presents with chronic headaches. Three months."</p>
   <p>Then: "Patient presents with shortness of breath. No previous cardiac history."</p>
-  <p>Then: "Patient presents with dermatitis. Both hands."</p>
+  <h2>Then: "Patient presents with dermatitis. Both hands."</h2>
   <p>Types it all. Files it.</p>
   <p>6:47. Photo. Coughs a bit. Has been coughing lately. Doesn&#x27;t think about it.</p>
-  <p>Anjali calls. "How are you?"</p>
-  <p>"Fine."</p>
-  <p>"You sound congested."</p>
-  <p>"I&#x27;m fine."</p>
-  <p>"Maybe see a doctor."</p>
-  <p>"Maybe."</p>
+  <h2>Anjali calls. "How are you?"</h2>
+  <h2>"Fine."</h2>
+  <h2>"You sound congested."</h2>
+  <h2>"I&#x27;m fine."</h2>
+  <h2>"Maybe see a doctor."</h2>
+  <h2>"Maybe."</h2>
   <p>They talk about the weather. Anjali&#x27;s boyfriend broke up with her. Or she broke up with him. June isn&#x27;t sure. Says supportive things. Hang up.</p>
   <p>Her toilet is running. Been running for weeks. Should call someone. Doesn&#x27;t.</p>
   <p>6:47. Photo. Hand shakes a little. Image comes out blurry. Takes another one. Blurry too.</p>
-  <p>Priya asks: "You okay?"</p>
-  <p>"Yeah. Why?"</p>
-  <p>"You look tired."</p>
-  <p>"I&#x27;m fine."</p>
+  <h2>Priya asks: "You okay?"</h2>
+  <h2>"Yeah. Why?"</h2>
+  <h2>"You look tired."</h2>
+  <h2>"I&#x27;m fine."</h2>
   <p>At work more cases. Hip replacement. Pneumonia. Anxiety disorder. Kidney stones. Types it all.</p>
   <p>Goes to the roof. 6:47. Photo. Sits down after. Stays up there until dark.</p>
   <p>Her sister texts: "Mom&#x27;s birthday next week. Are you coming?"</p>
-  <p>June: "Can&#x27;t. Work."</p>
-  <p>Sister: "You can take one day off."</p>
+  <h2>June: "Can&#x27;t. Work."</h2>
+  <h2>Sister: "You can take one day off."</h2>
   <p>June doesn&#x27;t respond.</p>
   <p>Building maintenance fee is due. Priya knocked about it yesterday. Said she&#x27;d pay it. Hasn&#x27;t.</p>
   <p>6:47. Photo. Can&#x27;t really see the buildings across the street today. Just haze. Takes the photo anyway.</p>
-  <p>Anjali texts: "You should visit."</p>
-  <p>June: "Can&#x27;t right now."</p>
-  <p>Anjali: "When?"</p>
-  <p>June: "I don&#x27;t know. Soon."</p>
+  <h2>Anjali texts: "You should visit."</h2>
+  <h2>June: "Can&#x27;t right now."</h2>
+  <h2>Anjali: "When?"</h2>
+  <h2>June: "I don&#x27;t know. Soon."</h2>
   <p>At work: "Patient presents with persistent cough. Four weeks duration."</p>
   <p>Then: "Patient presents with shoulder impingement. Repetitive motion injury."</p>
-  <p>Then: "Patient presents with gastroesophageal reflux."</p>
+  <h2>Then: "Patient presents with gastroesophageal reflux."</h2>
   <p>Types it. Goes to roof. 6:47. Photo.</p>
   <p>Coughs more today. Sits down. Waits for it to stop. Takes the photo.</p>
   <p>Her phone has a lot of sunset photos. Doesn&#x27;t know how many. A lot. Scrolls through them sometimes. They look the same mostly. Some are blurry. Some aren&#x27;t.</p>
   <p>Her sister calls. "You didn&#x27;t come to Mom&#x27;s birthday."</p>
-  <p>"Sorry. I was busy."</p>
-  <p>"You&#x27;re always busy."</p>
-  <p>"I had work."</p>
+  <h2>"Sorry. I was busy."</h2>
+  <h2>"You&#x27;re always busy."</h2>
+  <h2>"I had work."</h2>
   <p>"Doing what? You work from home. You can work anywhere."</p>
   <p>June doesn&#x27;t respond.</p>
   <p>"Are you okay?" her sister asks.</p>
-  <p>"I&#x27;m fine."</p>
+  <h2>"I&#x27;m fine."</h2>
   <p>Her sister doesn&#x27;t believe her. Hangs up.</p>
   <p>6:47. Photo. Sky looks thick today. Everything looks thick. Takes the photo.</p>
   <p>At work: "Patient presents with wheezing. History of asthma."</p>
-  <p>"Patient presents with knee pain. Osteoarthritis."</p>
-  <p>"Patient presents with fatigue. Unknown etiology."</p>
+  <h2>"Patient presents with knee pain. Osteoarthritis."</h2>
+  <h2>"Patient presents with fatigue. Unknown etiology."</h2>
   <p>Types it all. Files it. Goes to roof.</p>
   <p>6:47. Photo. Coughs while taking it. Image is shaky. Takes another one. Also shaky.</p>
   <p>Priya stopped asking if she&#x27;s okay. Just nods when they see each other.</p>
   <p>Anjali calls. June doesn&#x27;t answer. Anjali texts: "Please call me back."</p>
-  <p>June texts: "I&#x27;m fine. Just busy."</p>
+  <h2>June texts: "I&#x27;m fine. Just busy."</h2>
   <p>Doesn&#x27;t call back.</p>
   <p>Her electricity got shut off. Forgot to pay. Again. Calls to turn it back on. They want two months&#x27; payment plus reconnection fee. Says she&#x27;ll pay tomorrow. Doesn&#x27;t.</p>
   <p>Sits in the dark apartment. Charges her phone at work during the day.</p>
   <p>6:47. Roof. Photo. Sky is... something. Can&#x27;t describe it. Just takes the photo.</p>
   <p>Next day electricity is back on. Priya paid it. Knocked on the door. Said she added it to the maintenance fee June owes.</p>
-  <p>"Thanks."</p>
-  <p>"You need to pay that."</p>
-  <p>"I will."</p>
+  <h2>"Thanks."</h2>
+  <h2>"You need to pay that."</h2>
+  <h2>"I will."</h2>
   <p>Doesn&#x27;t.</p>
   <p>At work types cases. Different problems. Same typing. Files everything.</p>
   <p>6:47. Photo. Coughs. Sits. Takes photo.</p>
   <p>Has been doing this a while now. Doesn&#x27;t remember when she started. Just knows she does it every day.</p>
-  <p>Anjali texts: "I&#x27;m worried about you."</p>
-  <p>June: "I&#x27;m fine."</p>
-  <p>Anjali: "No you&#x27;re not."</p>
+  <h2>Anjali texts: "I&#x27;m worried about you."</h2>
+  <h2>June: "I&#x27;m fine."</h2>
+  <h2>Anjali: "No you&#x27;re not."</h2>
   <p>June doesn&#x27;t respond.</p>
   <p>Her sister texts: "Anjali called me. She&#x27;s worried. I&#x27;m worried. What&#x27;s going on?"</p>
-  <p>June: "Nothing. I&#x27;m fine."</p>
-  <p>Sister: "Are you sick?"</p>
-  <p>June: "No."</p>
+  <h2>June: "Nothing. I&#x27;m fine."</h2>
+  <h2>Sister: "Are you sick?"</h2>
+  <h2>June: "No."</h2>
   <p>Is she? Doesn&#x27;t know. Coughs more. Feels tired. Doesn&#x27;t think about it much.</p>
   <p>6:47. Roof. Photo. Sky is gray. Or green. Or something. Takes the photo.</p>
   <p>Goes downstairs. Makes instant noodles. Eats them. Looks at her phone. Scrolls through sunset photos. All the same. All different. Can&#x27;t tell.</p>
@@ -334,30 +187,27 @@
   <p>Her phone storage is almost full. All sunset photos. Should delete some. Doesn&#x27;t.</p>
   <p>6:47. Roof. Photo.</p>
   <p>Takes it.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0054"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp" alt="02282" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0055"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp" alt="02283" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0056"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp" alt="02284" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0057"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp" alt="02285" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0058"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp" alt="02286" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0059"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp" alt="02287" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0060"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp" alt="02288" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0061"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp" alt="02289" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0062"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp" alt="02290" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0063"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp" alt="02291" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0064"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp" alt="02292" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0065"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp" alt="02293" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0066"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Just%20Another%20Life%20Near%20A%20Gaddah%20Medeh%20Reef%202-600.webp" alt="02294" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0067"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Katrina%20Linear%20Visual%20Description%202-600.webp" alt="02295" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0068"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lala-La-La-La-La-La-2-600.webp" alt="02296" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0069"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Landfill%20Too%20Much%20Sha%20Noot%20Parts%20and%20Pieces%202-600.webp" alt="02297" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0070"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp" alt="02298" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0071"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp" alt="02299" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0072"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp" alt="02300" width="600" height="461" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0073"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp" alt="02301" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/cherry-slush/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/what-she-finds/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">What She Finds</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/cherry-slush/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">Cherry Slush</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0054"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp" alt="02282" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0055"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp" alt="02283" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0056"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp" alt="02284" width="600" height="434" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0057"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp" alt="02285" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0058"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp" alt="02286" width="600" height="436" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0054","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden%202-600.webp","c":"02282","w":600,"ht":436},{"h":"/marks/newest-patterns/0055","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha%202-600.webp","c":"02283","w":600,"ht":436},{"h":"/marks/newest-patterns/0056","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Gotcha%20Now%20Gitcha-600.webp","c":"02284","w":600,"ht":434},{"h":"/marks/newest-patterns/0057","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Green%20Boots%20Every%20Time-600.webp","c":"02285","w":600,"ht":436},{"h":"/marks/newest-patterns/0058","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp","c":"02286","w":600,"ht":436},{"h":"/marks/newest-patterns/0059","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp","c":"02287","w":600,"ht":436},{"h":"/marks/newest-patterns/0060","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp","c":"02288","w":600,"ht":436},{"h":"/marks/newest-patterns/0061","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp","c":"02289","w":600,"ht":436},{"h":"/marks/newest-patterns/0062","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp","c":"02290","w":600,"ht":458},{"h":"/marks/newest-patterns/0063","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp","c":"02291","w":600,"ht":457},{"h":"/marks/newest-patterns/0064","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp","c":"02292","w":600,"ht":453},{"h":"/marks/newest-patterns/0065","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp","c":"02293","w":600,"ht":453},{"h":"/marks/newest-patterns/0066","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Just%20Another%20Life%20Near%20A%20Gaddah%20Medeh%20Reef%202-600.webp","c":"02294","w":600,"ht":436},{"h":"/marks/newest-patterns/0067","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Katrina%20Linear%20Visual%20Description%202-600.webp","c":"02295","w":600,"ht":436},{"h":"/marks/newest-patterns/0068","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lala-La-La-La-La-La-2-600.webp","c":"02296","w":600,"ht":436},{"h":"/marks/newest-patterns/0069","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Landfill%20Too%20Much%20Sha%20Noot%20Parts%20and%20Pieces%202-600.webp","c":"02297","w":600,"ht":436},{"h":"/marks/newest-patterns/0070","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp","c":"02298","w":600,"ht":436},{"h":"/marks/newest-patterns/0071","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp","c":"02299","w":600,"ht":458},{"h":"/marks/newest-patterns/0072","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp","c":"02300","w":600,"ht":461},{"h":"/marks/newest-patterns/0073","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp","c":"02301","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -373,5 +223,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

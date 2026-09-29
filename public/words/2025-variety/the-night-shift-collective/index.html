@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="--- *After losing her spot in the orchestra, a violinist takes a job playing ambient music for night-shift workers, discovering that 3 AM in a distribution cent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,46 +53,61 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Night Shift Collective</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>---</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 7 minutes</p>
+        <h1 class="stage-title">The Night Shift Collective</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p><em>After losing her spot in the orchestra, a violinist takes a job playing ambient music for night-shift workers, discovering that 3 AM in a distribution center might be the most honest venue for finding out what music really does—helping bodies survive repetitive motion.</em></p>
-  <p>---</p>
   <p>Marlène Silt got the call at 2 AM. Perfect timing—she was already awake, already catastrophizing about rent. $1,850 for a studio in Queens. The ceiling leaked. The radiator clanged Morse code for "you&#x27;re fucked."</p>
   <p>"Can you play tonight? Amazon distribution center. Night shift needs... something. Bodies breaking down. Turnover at 150%. They&#x27;re trying everything."</p>
-  <p>"How much?"</p>
-  <p>"Hundred fifty for four hours."</p>
+  <h2>"How much?"</h2>
+  <h2>"Hundred fifty for four hours."</h2>
   <p>She&#x27;d made that in fifteen minutes with the Philharmonic. Before. Now she taught kids violin for forty dollars an hour when their parents remembered to pay. "I&#x27;ll be there."</p>
   <p>The warehouse was in New Jersey. Size of eight football fields. Eleven thousand workers on night shift. She set up near the sorting stations where the repetitive stress injuries started—same motion every 7.2 seconds for ten hours. The workers looked at her like she was lost.</p>
   <p>"I&#x27;m here to... play. Background music. For your... wellness."</p>
   <p>Someone laughed. Dominican woman, maybe fifty, compression gloves on both hands. "Wellness? My wellness is seventeen fifty an hour and my wrist feels like it&#x27;s full of broken glass."</p>
   <p>Marlène started anyway. Some Bach thing she could play in her sleep. The sound got swallowed by machinery, beeping scanners, the mechanical voice counting down rates: "Current rate: 287 items per hour. Target rate: 320."</p>
   <p>"Play something else," the woman said during break. Five minutes. Unpaid. "Something that bounces."</p>
-  <p>"Bounces?"</p>
+  <h2>"Bounces?"</h2>
   <p>"Like when you fall but come back up. Not the same place. Different. But up."</p>
   <p>Marlène tried a waltz. Too formal. Tried pop music. Too false. Then just... started playing what her body felt at 3 AM—exhausted but somehow still moving, broken but somehow still functioning. The bow bounced on the strings, making this percussive sob that matched the conveyor belt rhythm.</p>
-  <p>"That," the woman said. "Whatever that is."</p>
+  <h2>"That," the woman said. "Whatever that is."</h2>
   <p>More workers started listening. Not stopping—stopping meant write-ups, three write-ups meant termination—but timing their movements to Marlène&#x27;s playing. She watched their bodies, started matching their rhythms. Every 7.2 seconds, a note. Every tenth repetition, a small flourish. Like she was scoring their survival.</p>
   <p>"You understand," said a young guy, Mohamed, during the next break. "The bounce. Not up. Through."</p>
   <p>"I got fired," Marlène said, not sure why she was telling him. "From the orchestra. Played a funeral instead of the Brahms."</p>
-  <p>"Whose funeral?"</p>
-  <p>"Everyone&#x27;s."</p>
+  <h2>"Whose funeral?"</h2>
+  <h2>"Everyone&#x27;s."</h2>
   <p>He laughed. Showed her his hands—swollen, trembling. Twenty-three years old. Pre-med before this. Before student loans. Before his father&#x27;s stroke. "Everything&#x27;s a funeral at 3 AM."</p>
   <p>She played for them every night that week. Hundred fifty per night. By Thursday, she wasn&#x27;t playing music anymore. She was playing their bodies back to them—the soreness in Maria&#x27;s shoulders became a bass line, the shooting pain in Dev&#x27;s knee became staccato punctuation, the numbness in Chen&#x27;s fingers became these long, hollow notes that sounded like forgetting.</p>
   <p>"We&#x27;re bouncing," Maria said one night. "All of us. Bottom of society and bouncing back. But not back. Through. Somewhere else."</p>
   <p>The supervisor, white kid maybe twenty-five, making twenty-two dollars an hour to make everyone else miserable, complained about the music.</p>
-  <p>"It&#x27;s affecting productivity."</p>
+  <h2>"It&#x27;s affecting productivity."</h2>
   <p>"It&#x27;s increasing it," Mohamed showed him the screens. Rates were up 12%. </p>
-  <p>"But it sounds like—"</p>
+  <h2>"But it sounds like—"</h2>
   <p>"Like what we feel," Chen interrupted. Forty-seven. PhD in engineering from China. Sorting packages for seventeen fifty. "Like the truth."</p>
   <p>Amazon corporate got interested. Flew someone out. Senior Vice President of Workforce Wellness. Salary: $340,000 plus stock options.</p>
   <p>"We&#x27;d like to expand this program," she said, watching Marlène play while workers sorted packages containing everything America thought it needed. "Music therapy for our associates."</p>
   <p>"They&#x27;re not associates," Marlène said between pieces. "They&#x27;re bodies. Breaking. For seventeen fifty an hour."</p>
-  <p>"We prefer—"</p>
+  <h2>"We prefer—"</h2>
   <p>"I prefer eating. They prefer not dying. We all prefer things we don&#x27;t get."</p>
   <p>But she kept playing. Needed the money. They all needed the money. That was the bounce—not up, through. Through the humiliation of pissing in bottles because bathroom breaks were monitored. Through the pain that started at hour three and never stopped. Through the algorithms that tracked every movement, every pause, every human moment that cut into profit.</p>
   <p>Week three, Marlène brought her friend Troy. Guitar. Also fired from something better. They played together, creating this mesh of sound that held the workers&#x27; bodies like a net. Like something catching them as they fell, bouncing them not back but through.</p>
@@ -269,11 +120,11 @@
   <p>One night—Thursday, 3:47 AM, Marlène would always remember—everything aligned. The machines, the music, the bodies, the pain, the bounce. For maybe thirty seconds, the entire warehouse became an instrument. Eleven thousand people moving in sync, creating this sound that was work and resistance and exhaustion and refusal all at once.</p>
   <p>"What was that?" the SVP asked, watching from the observation deck.</p>
   <p>"The bounce," Marlène said. "When you fall so far through the bottom that you come out somewhere else. When you realize the bottom isn&#x27;t solid. It&#x27;s a membrane. You can push through it."</p>
-  <p>"That&#x27;s ridiculous."</p>
+  <h2>"That&#x27;s ridiculous."</h2>
   <p>"That&#x27;s seventeen fifty an hour. That&#x27;s bodies treated like machines until they break. That&#x27;s the sound of breaking becoming music because what else can it become?"</p>
   <p>Amazon offered Marlène a contract. Thirty distribution centers. Three thousand per week to "implement the program." She looked at Maria, at Mohamed, at Chen. At all the bodies she&#x27;d been playing for, playing with.</p>
-  <p>"Only if they all get twenty-five an hour."</p>
-  <p>"That&#x27;s impossible."</p>
+  <h2>"Only if they all get twenty-five an hour."</h2>
+  <h2>"That&#x27;s impossible."</h2>
   <p>"So is surviving on seventeen fifty. But they do it. They bounce."</p>
   <p>She didn&#x27;t get the contract. But she kept playing the warehouse. Other musicians joined. Other warehouses started hiring them. Hundred fifty per night to play the bounce. To help bodies survive repetitive motion by giving it rhythm, meaning, harmony.</p>
   <p>The Philharmonic called. Wanted her back. Special program on "Music in Non-Traditional Spaces."</p>
@@ -283,32 +134,28 @@
   <p>"What?" Marlène asked.</p>
   <p>"The sound of late capitalism eating itself. In B-flat. For broken. But bouncing."</p>
   <p>They laughed. Exhausted laughter. The kind that comes after ten hours of repetitive motion. The kind that bounces.</p>
-  <p>---</p>
   <p><em>We are all bouncing not back but through, discovering that the bottom isn&#x27;t solid but a membrane we can push through with sufficient rhythm, that bodies breaking in repetitive motion can create the most honest music, that 3 AM in a distribution center sorting packages for $17.50 an hour might be the only venue where music remembers what it&#x27;s for—helping bodies survive, helping souls bounce through the bottom into somewhere else where exhaustion becomes composition, where falling becomes rhythm, where the bounce is both the injury and the song.</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0130"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Stop%20Yelling%20We%20Have%20A%20Lot%20To%20Organize%20and%20Sort%20Out%202-600.webp" alt="02358" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0131"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Swimming%20With%20A%20Back%20Stoke%20and%20Boiling%20Frequency%202-600.webp" alt="02359" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0132"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/That%20Which%20Is%20More%20Kind%20Than%20Nice%20Is%20Immeasurably%20Valuable-600.webp" alt="02360" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0133"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Chair%20Wave%202-600.webp" alt="02361" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0134"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20False%20Ugliness%20Of%20Oireh%20Bedaub%20Knowses-600.webp" alt="02362" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0135"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Fun%20Of%20Studying%20This%20Kind%20Of%20Obliteration%202-600.webp" alt="02363" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0136"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Magic%20Of%20Nature%202-600.webp" alt="02364" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0137"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/They%20Don%27t%20Sleep%20Here-600.webp" alt="02365" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0138"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Thursdays%20Buried%20Aftermath%20Now%20Chaotically%20Alive%20Again%20And%20Waking%20Up-600.webp" alt="02366" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0139"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Tiny%20Bubbles%20Including%20Many%20Figurative%20Disturbances%202-600.webp" alt="02367" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0140"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/To%20The%20Forces%20Hea%20Lah%20Kee%20Pool%20Pool%202-600.webp" alt="02368" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0141"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Tu%20Vertah%202-600.webp" alt="02369" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0142"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ubbah%20Uoi%20Voi%20Nea%202-600.webp" alt="02370" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0143"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Underland%20Speaking%20To%20Turbulent%20Ocean%202-600.webp" alt="02371" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0144"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Underneath%20Side%20Up%20Shellsee%20Brrds%202-600.webp" alt="02372" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0145"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Urgy%20Mea%20In%20Awe%202-600.webp" alt="02373" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0146"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Virgo%20Sings%20Happy%20Biodiversity%202-600.webp" alt="02374" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0147"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Virgo%20Sings%20Happy%20Biodiversity-600.webp" alt="02375" width="600" height="448" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0148"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Visitor%20Receiver%20Reader%20Viewer%202-600.webp" alt="02376" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0149"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Visitor%20Receiver%20Reader%20Viewer-600.webp" alt="02377" width="600" height="438" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/we-has-recognized/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/a-lot-happens-on-the-ground/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">A Lot Happens On The Ground</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/we-has-recognized/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">We Has Recognized</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0130"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Stop%20Yelling%20We%20Have%20A%20Lot%20To%20Organize%20and%20Sort%20Out%202-600.webp" alt="02358" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0131"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Swimming%20With%20A%20Back%20Stoke%20and%20Boiling%20Frequency%202-600.webp" alt="02359" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0132"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/That%20Which%20Is%20More%20Kind%20Than%20Nice%20Is%20Immeasurably%20Valuable-600.webp" alt="02360" width="600" height="456" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0133"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Chair%20Wave%202-600.webp" alt="02361" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0134"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20False%20Ugliness%20Of%20Oireh%20Bedaub%20Knowses-600.webp" alt="02362" width="600" height="436" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0130","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Stop%20Yelling%20We%20Have%20A%20Lot%20To%20Organize%20and%20Sort%20Out%202-600.webp","c":"02358","w":600,"ht":436},{"h":"/marks/newest-patterns/0131","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Swimming%20With%20A%20Back%20Stoke%20and%20Boiling%20Frequency%202-600.webp","c":"02359","w":600,"ht":436},{"h":"/marks/newest-patterns/0132","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/That%20Which%20Is%20More%20Kind%20Than%20Nice%20Is%20Immeasurably%20Valuable-600.webp","c":"02360","w":600,"ht":456},{"h":"/marks/newest-patterns/0133","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Chair%20Wave%202-600.webp","c":"02361","w":600,"ht":436},{"h":"/marks/newest-patterns/0134","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20False%20Ugliness%20Of%20Oireh%20Bedaub%20Knowses-600.webp","c":"02362","w":600,"ht":436},{"h":"/marks/newest-patterns/0135","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Fun%20Of%20Studying%20This%20Kind%20Of%20Obliteration%202-600.webp","c":"02363","w":600,"ht":436},{"h":"/marks/newest-patterns/0136","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/The%20Magic%20Of%20Nature%202-600.webp","c":"02364","w":600,"ht":436},{"h":"/marks/newest-patterns/0137","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/They%20Don%27t%20Sleep%20Here-600.webp","c":"02365","w":600,"ht":436},{"h":"/marks/newest-patterns/0138","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Thursdays%20Buried%20Aftermath%20Now%20Chaotically%20Alive%20Again%20And%20Waking%20Up-600.webp","c":"02366","w":600,"ht":436},{"h":"/marks/newest-patterns/0139","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Tiny%20Bubbles%20Including%20Many%20Figurative%20Disturbances%202-600.webp","c":"02367","w":600,"ht":436},{"h":"/marks/newest-patterns/0140","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/To%20The%20Forces%20Hea%20Lah%20Kee%20Pool%20Pool%202-600.webp","c":"02368","w":600,"ht":436},{"h":"/marks/newest-patterns/0141","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Tu%20Vertah%202-600.webp","c":"02369","w":600,"ht":436},{"h":"/marks/newest-patterns/0142","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Ubbah%20Uoi%20Voi%20Nea%202-600.webp","c":"02370","w":600,"ht":436},{"h":"/marks/newest-patterns/0143","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Underland%20Speaking%20To%20Turbulent%20Ocean%202-600.webp","c":"02371","w":600,"ht":436},{"h":"/marks/newest-patterns/0144","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Underneath%20Side%20Up%20Shellsee%20Brrds%202-600.webp","c":"02372","w":600,"ht":436},{"h":"/marks/newest-patterns/0145","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Urgy%20Mea%20In%20Awe%202-600.webp","c":"02373","w":600,"ht":436},{"h":"/marks/newest-patterns/0146","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Virgo%20Sings%20Happy%20Biodiversity%202-600.webp","c":"02374","w":600,"ht":458},{"h":"/marks/newest-patterns/0147","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Virgo%20Sings%20Happy%20Biodiversity-600.webp","c":"02375","w":600,"ht":448},{"h":"/marks/newest-patterns/0148","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Visitor%20Receiver%20Reader%20Viewer%202-600.webp","c":"02376","w":600,"ht":436},{"h":"/marks/newest-patterns/0149","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Visitor%20Receiver%20Reader%20Viewer-600.webp","c":"02377","w":600,"ht":438}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -324,5 +171,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

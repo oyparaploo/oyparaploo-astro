@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part One: The Museum of Failed Containers I discovered the museum the way most people discover truths—by accident, while looking for something else entirely.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,41 +53,58 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Keeper of Uncontained Things</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part One: The Museum of Failed Containers</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 6 minutes</p>
+        <h1 class="stage-title">The Keeper of Uncontained Things</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part One: The Museum of Failed Containers</h2>
   <p>I discovered the museum the way most people discover truths—by accident, while looking for something else entirely. I&#x27;d been searching for my grandmother&#x27;s death certificate in the municipal archives when I took a wrong turn into a corridor that shouldn&#x27;t have existed. The sign read: <em>Museum of Failed Containers: A Study in Human Optimism</em>.</p>
   <p>The first exhibit was a sandwich from 1762, preserved behind glass that had begun to fog from the inside. The placard explained that John Montagu, 4th Earl of Sandwich, hadn&#x27;t invented the sandwich to contain food—he&#x27;d invented it to contain time itself, to compress the act of eating into something that wouldn&#x27;t interrupt his gambling. But time, like grease from roast beef, has a way of seeping through.</p>
   <p>Bernie would have understood this. Bernie, who I&#x27;d met thirty years later in a park where we&#x27;d sit discussing the philosophy of perishable goods while the city decomposed around us. But I&#x27;m getting ahead of myself. Stories, like sandwiches, require proper layering.</p>
   <p>The museum curator appeared beside me—a woman whose lab coat bore stains from several different centuries. "You&#x27;re here about the prophecy," she said. It wasn&#x27;t a question.</p>
-  <p>"I&#x27;m here about a death certificate."</p>
+  <h2>"I&#x27;m here about a death certificate."</h2>
   <p>She smiled. "Same thing, really. Death certificates are just containers for endings that refuse to stay ended."</p>
-  <p>Part Two: The Society of Unwritten Things</p>
-  <p><em>Flashback: 1847, London</em></p>
+  <h2>Part Two: The Society of Unwritten Things</h2>
+  <h2><em>Flashback: 1847, London</em></h2>
   <p>Lady Persephone Quickquill pressed her ear against the library door. Inside, the Shadow Council was meeting—those self-appointed guardians of literacy who believed words were too dangerous for certain minds. She could hear Lord Bartholomew Blunderworth III&#x27;s voice: "If women learn to read, they&#x27;ll discover we&#x27;ve been making things up as we go along. They&#x27;ll realize that bread was furniture before it was food, that civilization is mostly improvisation with confidence."</p>
   <p>Persephone had spent three years infiltrating their ranks, disguised as Lord Percy Quickfoot, scribe and keeper of their most secret documents. What she&#x27;d discovered would reshape history—if she could get it out alive.</p>
   <p>The document in her breast pocket contained the translation of an ancient prophecy, carved into stones older than written language: <em>When the first word is spoken by one once silenced, the containers will crack, and truth will run like juice from an overripe peach.</em></p>
   <p>But prophecies, like peaches, have no expiration dates. You never know when they&#x27;ll activate.</p>
-  <p>Part Three: The Dialogue of Impermanence</p>
-  <p><em>Present Day, Municipal Park</em></p>
+  <h2>Part Three: The Dialogue of Impermanence</h2>
+  <h2><em>Present Day, Municipal Park</em></h2>
   <p>"You ever think about food before sandwiches?" Harold asked, his voice carrying the weight of genuine philosophical inquiry.</p>
   <p>I was Bernie in this conversation, though my real name had been lost somewhere between the museum and the memory. "Food before sandwiches was honesty," I replied. "No illusions. You held meat in your hands and accepted the mess."</p>
   <p>Harold—who might have been the museum curator, or might have been time itself wearing a shabby hat—nodded slowly. "The sandwich was humanity&#x27;s first lie to itself. That we could contain chaos between two slices of bread."</p>
   <p>A pigeon landed between us, carrying in its beak what looked like a very old piece of parchment. Harold and I exchanged glances. We both knew pigeons don&#x27;t usually deliver mail from the 19th century.</p>
   <p>The parchment was signed by someone called Alexandra the Alphabet Bandit. It contained a single line: <em>The containers are cracking.</em></p>
   <p>Part Four: The Underground Railroad of Forbidden Letters</p>
-  <p><em>Three weeks after finding the museum</em></p>
+  <h2><em>Three weeks after finding the museum</em></h2>
   <p>The curator—whose name shifted between Theodore, Theodora, and sometimes just Theo—led me through tunnels beneath the city. "Your grandmother," she said, "was part of the network."</p>
   <p>The walls were lined with books that hummed with barely contained energy. Not metaphorically—literally humming, like transformers about to blow. "These are all the words that were never supposed to be written," Theo explained. "Every suppressed truth, every forbidden combination of letters that might have changed history."</p>
   <p>We stopped at a section marked 1923. There was my grandmother&#x27;s journal, glowing faintly. Inside, her handwriting revealed what I&#x27;d suspected: she&#x27;d been Regina Who-Used-To-Be-Reginald, one of the four revolutionaries who&#x27;d broken the Shadow Council&#x27;s hold on literacy.</p>
   <p>But the victory had been incomplete. The Council had evolved, transformed into something more subtle—algorithms that decided what stories got told, systems that made certain voices unsearchable, platforms that contained human expression in boxes too small for truth.</p>
   <p>"The prophecy wasn&#x27;t about the past," Theo said. "It&#x27;s about now."</p>
-  <p>Part Five: The Scene Where Everything Converges</p>
-  <p><em>The Abandoned Library, Midnight</em></p>
+  <h2>Part Five: The Scene Where Everything Converges</h2>
+  <h2><em>The Abandoned Library, Midnight</em></h2>
   <p>I stood in the ruins of what had once been the city&#x27;s first public library, built on the site where the Shadow Council had made their last stand in 1851. Harold was there, and Bernie—who I realized now were the same person viewed from different temporal angles. Theo materialized from between the shelves, her lab coat now revealing itself as a robe woven from discarded drafts of history.</p>
   <p>The pigeons had gathered—hundreds of them, each carrying fragments of the scattered prophecy. When assembled, the complete text read:</p>
   <p>*The universe is written in letters that refuse assembly  <br>
@@ -270,8 +123,8 @@
   <p>I bit.</p>
   <p>The juice tasted like every story ever suppressed finding its way to light. Like my grandmother&#x27;s voice, finally uncontained. Like the moment before sandwiches, when humans held their food honestly and accepted the beautiful impossibility of controlling anything that mattered.</p>
   <p>Above us, the stars rearranged themselves one last time, spelling out not a message but a question:</p>
-  <p><em>What will you refuse to contain today?</em></p>
-  <p>Epilogue: The Recursive Museum</p>
+  <h2><em>What will you refuse to contain today?</em></h2>
+  <h2>Epilogue: The Recursive Museum</h2>
   <p>I never found the death certificate. Instead, I found something better—the understanding that death, like literacy, like lunch, like the passage of time itself, refuses the containers we build for it.</p>
   <p>The museum still exists, probably, in that corridor between what is and what should be. Sometimes visitors stumble upon it while looking for other things. They always leave with juice on their hands and questions that won&#x27;t fit in any available box.</p>
   <p>Bernie still sits in the park, still asks Harold about sandwiches. They&#x27;re the same conversation, happening forever, because some dialogues are too important to contain in time.</p>
@@ -280,32 +133,28 @@
   <p>The pigeons know this. They&#x27;ve always known.</p>
   <p>That&#x27;s why they steal our sandwiches.</p>
   <p>They&#x27;re trying to teach us something about letting go.</p>
-  <p>---</p>
   <p><em>Author&#x27;s Note: This story exists because my grandmother refused to stay properly dead. Her words kept escaping the death certificate, insisting on being heard. The Shadow Council would have hated her. The pigeons, I think, would have understood.</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/gog-guldah-variations/0011"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2025-600.webp" alt="02207" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0012"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2026-600.webp" alt="02208" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0013"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2027-600.webp" alt="02209" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0014"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2028-600.webp" alt="02210" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0015"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2029-600.webp" alt="02211" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0016"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%203%20Burnt%20Map-600.webp" alt="02212" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0017"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2030-600.webp" alt="02213" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0018"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2031-600.webp" alt="02214" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0019"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2032-600.webp" alt="02215" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0020"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2033-600.webp" alt="02216" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0021"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2036-600.webp" alt="02217" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0022"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2037-600.webp" alt="02218" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0023"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2038-600.webp" alt="02219" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0024"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%204%20Ond%20Of%20Hope-600.webp" alt="02220" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0025"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2040-600.webp" alt="02221" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0026"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2041-600.webp" alt="02222" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0027"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2042-600.webp" alt="02223" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0028"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2043-600.webp" alt="02224" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0029"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%205%20Ond%20Of%20Hope-600.webp" alt="02225" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0030"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%206%20Burnt%20Map-600.webp" alt="02226" width="600" height="338" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-sound-of-olive-wood-burning/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-middle-eye-opens-a-memoir-of-sound-and-disappearance/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Middle Eye Opens</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-sound-of-olive-wood-burning/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Sound of Olive Wood Burning</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/gog-guldah-variations/0011"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2025-600.webp" alt="02207" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0012"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2026-600.webp" alt="02208" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0013"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2027-600.webp" alt="02209" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0014"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2028-600.webp" alt="02210" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0015"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2029-600.webp" alt="02211" width="600" height="338" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/gog-guldah-variations/0011","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2025-600.webp","c":"02207","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0012","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2026-600.webp","c":"02208","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0013","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2027-600.webp","c":"02209","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0014","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2028-600.webp","c":"02210","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0015","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2029-600.webp","c":"02211","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0016","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%203%20Burnt%20Map-600.webp","c":"02212","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0017","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2030-600.webp","c":"02213","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0018","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2031-600.webp","c":"02214","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0019","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2032-600.webp","c":"02215","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0020","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2033-600.webp","c":"02216","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0021","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2036-600.webp","c":"02217","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0022","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2037-600.webp","c":"02218","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0023","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2038-600.webp","c":"02219","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0024","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%204%20Ond%20Of%20Hope-600.webp","c":"02220","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0025","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2040-600.webp","c":"02221","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0026","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2041-600.webp","c":"02222","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0027","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2042-600.webp","c":"02223","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0028","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2043-600.webp","c":"02224","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0029","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%205%20Ond%20Of%20Hope-600.webp","c":"02225","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0030","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%206%20Burnt%20Map-600.webp","c":"02226","w":600,"ht":338}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -321,5 +170,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

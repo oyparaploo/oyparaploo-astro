@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part One: The Inheritance I inherited my grandfather Benjamin Weber's archive the same week Colombia announced it would close La Tramacúa Penitentiary—the pr">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,13 +53,30 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Fort That Never Stopped Expanding</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part One: The Inheritance</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 10 minutes</p>
+        <h1 class="stage-title">The Fort That Never Stopped Expanding</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part One: The Inheritance</h2>
   <p>I inherited my grandfather Benjamin Weber&#x27;s archive the same week Colombia announced it would close La Tramacúa Penitentiary—the prison he&#x27;d spent seventeen years documenting, built with $48 million in U.S. aid under agreements he&#x27;d helped expose. Standing in his Tampa study, I found 2,847 photographs, 341 recorded interviews, and one question written on index cards pinned to every wall: <em>When did Fort Marion stop being a place and become a system?</em></p>
   <p>The answer was in Box 47, labeled "Osceola&#x27;s Cell / Shakur&#x27;s Escape / My Father&#x27;s Silence." Inside: a coquina stone fragment from Fort Marion&#x27;s west wall, a 1979 newspaper clipping about Assata Shakur&#x27;s prison break, and a letter my grandfather never sent to his own father, dated 1962, that began: "I finally understand why you never spoke about what you saw in the Philippines."</p>
   <p>My grandfather had traced a single line from 1837 to today—from the moment Seminole Chief Osceola was imprisoned at Fort Marion in St. Augustine to the construction of supermax facilities in Colombia funded by the U.S. Bureau of Prisons. He called it "the fort that never stopped expanding."</p>
@@ -238,7 +91,7 @@
   Visitors logged: 47 in three months (tourists, $0.25 admission)*</p>
   <p>But Osceola transforms his cell into theater. He appears at the window in full regalia—silver gorgets, ostrich plumes, red leggings—refusing the prison uniform. Artist George Catlin sketches him January 17, 1838, writing: "He dies, but with the dignity of a king in exile."</p>
   <p>Osceola&#x27;s death on January 30, 1838, spreads through telegraph wires. The <em>Charleston Courier</em> reports: "The celebrated chief expired of acute tonsillitis." The prison doctor, Frederick Weedon, decapitates the corpse, keeping the head as a medical curiosity—displaying it to his children when they misbehave.</p>
-  <p>Part Three: Mapping the System (Present)</p>
+  <h2>Part Three: Mapping the System (Present)</h2>
   <p>In Box 12, I find the map my grandfather started in 1987: red pins for every prison built with U.S. funding or expertise outside American borders. Colombia has 47 pins. The Philippines, 23. Panama, 15. Puerto Rico, 31.</p>
   <p>Attached, a budget breakdown from 1999:</p>
   <p>*Plan Colombia - Prison Component:  <br>
@@ -247,7 +100,7 @@
   Guard training (Blackwater contractors): $67 million  <br>
   Reported capacity: 5,000 inmates  <br>
   Actual population by 2001: 11,000*</p>
-  <p>His margin note: "Fort Marion&#x27;s methodology, industrialized."</p>
+  <h2>His margin note: "Fort Marion&#x27;s methodology, industrialized."</h2>
   <p>I drive to Fort Marion on a Tuesday morning, thermometer reading 94°F. The parking lot charges $15. Inside the gift shop: snow globes with miniature cells ($12.99), "Escape from Fort Marion" t-shirts ($24.99), replica shackles for children ($8.99).</p>
   <p>The tour guide, Margaret, leads twelve of us through the courtyard. "This fortress protected St. Augustine for over 300 years," she chirps. No mention of Osceola until a visitor asks. "Oh yes, some Native Americans were held here briefly in the 1800s."</p>
   <p>I pull out Photograph #1,247 from my grandfather&#x27;s collection: this same courtyard, 1886, filled with Apache prisoners, including Geronimo. Children separated from parents, forced into "civilizing" programs. The photo&#x27;s back lists 47 names, 19 marked "deceased within first year."</p>
@@ -257,7 +110,7 @@
   <p>"First thing they changed: windows. Made them smaller, higher. Fourteen inches square, they said, eleven feet up. Exact measurements. Said it was about security. But I knew better. When you can&#x27;t see the horizon, time stops moving. Your mind starts eating itself.</p>
   <p>"They brought a consultant, Thompson, from Florida. Taught our guards &#x27;compliance techniques.&#x27; How to break someone without leaving marks. Sensory deprivation, they called it. Same thing Osceola faced, just with better terminology.</p>
   <p>"My cellmate, Professor Herrera—political prisoner, wrote about land reform—he studied the architecture. Said these prisons were copies of something older. Traced it back to your Fort Marion. &#x27;We&#x27;re living in their prototype,&#x27; he said. &#x27;The laboratory moved, but the experiment continues.&#x27;"</p>
-  <p>Part Five: Threading Backwards (1979)</p>
+  <h2>Part Five: Threading Backwards (1979)</h2>
   <p>Assata Shakur&#x27;s escape route, reconstructed from my grandfather&#x27;s interviews:</p>
   <p>November 2, 1979, 3:47 AM: Two men enter Clinton Correctional Facility for Women, New Jersey. Guards subdued with minimal violence. Assata walks out the front door.</p>
   <p>November 3: Safe house, East Orange. The FBI surrounds the wrong building.</p>
@@ -271,7 +124,7 @@
   <p><em>June 15, 1901: "The Filipinos call it &#x27;Bilangguan ng mga Bayani&#x27;—Prison of Heroes. They mean it as protest, but I fear they&#x27;re right. We&#x27;re imprisoning their best minds, their leaders. This isn&#x27;t construction; it&#x27;s architecture as warfare."</em></p>
   <p>His son—my grandfather&#x27;s father—never spoke about his own service in the Philippines, 1944-1946. But my grandfather found his journal in 1987, one entry bookmarked:</p>
   <p><em>"Bilibid still stands. Recognize father&#x27;s work in the walls. Japanese used it for POWs. We&#x27;re using it for &#x27;insurgents.&#x27; Same cells, different empire. Can&#x27;t stop thinking about the men inside. Look like my neighbors in Tampa. Speak differently, but their faces when discussing family—identical. What are we doing here?"</em></p>
-  <p>Part Seven: The Money Trail (Present)</p>
+  <h2>Part Seven: The Money Trail (Present)</h2>
   <p>I follow my grandfather&#x27;s paper trail to the National Archives. FOIA request #2847-B yields contracts:</p>
   <p><strong>Corrections Corporation of America (now CoreCivic):</strong><br>
   - 1998: Consulting contract, Colombian Ministry of Justice, $3.4 million<br>
@@ -292,7 +145,7 @@
   <p>The limestone walls still sweat. My fingers find grooves—not from Osceola, but from the 278 Native Americans imprisoned here 1875-1878, the 461 Apache held 1886-1887, the unnamed others. Their marks layer like sediment, each generation of prisoners adding their testimony to the stone.</p>
   <p>I place my grandfather&#x27;s coquina fragment against the wall. Perfect match—he&#x27;d chipped it from this exact spot in 1987, the day he decided to map the expansion.</p>
   <p>In my pocket: testimony from María Gonzalez, arrested in Bogotá for protesting water privatization, held in La Tramacúa 2009-2011. She describes her cell: "Eight by ten feet. Window fourteen inches, too high to reach. Limestone transferred to concrete, but the same tomb dimensions. I measured with my body—four steps long, three steps wide. Same as your Osceola. Same as your Assata. Same as every prisoner in this system they&#x27;ve spread like virus."</p>
-  <p>Part Ten: What the Archive Reveals (Present)</p>
+  <h2>Part Ten: What the Archive Reveals (Present)</h2>
   <p>In the final box, #172, I find what my grandfather considered his proof:</p>
   <p><strong>Department of Defense Memo, 1967:</strong> "The Marion Model proves effective for indigenous resistance populations. Recommend implementation in strategic territories."</p>
   <p><strong>USAID Report, 1994:</strong> "Prison infrastructure development creates stability for economic investment. Colombian implementation shows 73% reduction in organized resistance within containment zones."</p>
@@ -301,10 +154,10 @@
   <p><strong>Letter from my grandfather to me, dated one week before his death:</strong></p>
   <p><em>"Ben—By the time you read this, you&#x27;ll have the archive. You&#x27;ll see what I&#x27;ve seen: Fort Marion never stopped expanding. It just learned to reproduce. Every cell built to its specifications carries its DNA—the peculiar American fusion of efficiency and cruelty, the transformation of punishment into profit.</em></p>
   <p><em>But here&#x27;s what the documents won&#x27;t show: resistance is older than any fort. Osceola&#x27;s dignity, Assata&#x27;s escape, the Colombian protestors singing through concrete walls—they&#x27;re the same song. The fort expands, but so does the determination to tear it down.</em></p>
-  <p><em>Don&#x27;t just document this. End it.</em></p>
-  <p><em>Your inheritance isn&#x27;t the archive. It&#x27;s the obligation.</em></p>
-  <p><em>—Benjamin"</em></p>
-  <p>Epilogue: The Question That Remains</p>
+  <h2><em>Don&#x27;t just document this. End it.</em></h2>
+  <h2><em>Your inheritance isn&#x27;t the archive. It&#x27;s the obligation.</em></h2>
+  <h2><em>—Benjamin"</em></h2>
+  <h2>Epilogue: The Question That Remains</h2>
   <p>Six months after Colombia announces La Tramacúa&#x27;s closure, they break ground on a new facility fifteen miles away. The contractor: MTC (Management &amp; Training Corporation), based in Utah. The blueprints, obtained through Ricardo&#x27;s legal team, show familiar dimensions: 8 x 10 feet cells, windows 14 inches square, 11 feet up.</p>
   <p>Fort Marion&#x27;s methodology, perfected over 187 years, encoded in concrete and steel, exported through treaties and training programs, generating $70 billion annually in the U.S. alone—the fort that learned to franchise itself.</p>
   <p>I stand again in Osceola&#x27;s cell, running my fingers over marks in the limestone. A Japanese tourist asks what I&#x27;m doing. I tell her: "Measuring the prototype for the world&#x27;s largest prison system."</p>
@@ -314,32 +167,28 @@
   <p>But there&#x27;s another date worth remembering: November 2, 1979, when Assata Shakur walked out of a limestone prison, proving that no fort—no matter how far it expands—can contain the human impulse toward freedom.</p>
   <p>The archive sits in my study now, 2,847 photographs of the same prison built again and again, each one believing itself unique. But I&#x27;ve added a new box, #173: testimonies from those organizing against the next iteration, those who understand that the fort&#x27;s expansion can be stopped, must be stopped, will be stopped.</p>
   <p>The work continues.</p>
-  <p>---</p>
   <p><em>Author&#x27;s Note: Every dimension, date, and dollar amount in this narrative comes from verified documents. The prison specifications—8 x 10 feet, windows 14 inches square—appear in facilities from Florida to the Philippines, Colombia to California. The fort is real. Its expansion is ongoing. The resistance is essential.</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0070"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp" alt="02298" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0071"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp" alt="02299" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0072"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp" alt="02300" width="600" height="461" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0073"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp" alt="02301" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0074"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp" alt="02302" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0075"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp" alt="02303" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0076"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp" alt="02304" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0077"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp" alt="02305" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0078"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp" alt="02306" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0079"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp" alt="02307" width="600" height="450" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0080"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp" alt="02308" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0081"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp" alt="02309" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0082"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp" alt="02310" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0083"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp" alt="02311" width="600" height="459" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0084"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp" alt="02312" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0085"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp" alt="02313" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0086"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp" alt="02314" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0087"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp" alt="02315" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0088"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp" alt="02316" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0089"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp" alt="02317" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-language-of-olive-trees/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-prophet-of-la-tramac-a/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Prophet of La Tramacúa</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-language-of-olive-trees/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Language of Olive Trees</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0070"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp" alt="02298" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0071"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp" alt="02299" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0072"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp" alt="02300" width="600" height="461" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0073"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp" alt="02301" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0074"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp" alt="02302" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0070","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp","c":"02298","w":600,"ht":436},{"h":"/marks/newest-patterns/0071","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp","c":"02299","w":600,"ht":458},{"h":"/marks/newest-patterns/0072","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp","c":"02300","w":600,"ht":461},{"h":"/marks/newest-patterns/0073","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp","c":"02301","w":600,"ht":436},{"h":"/marks/newest-patterns/0074","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp","c":"02302","w":600,"ht":458},{"h":"/marks/newest-patterns/0075","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp","c":"02303","w":600,"ht":457},{"h":"/marks/newest-patterns/0076","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp","c":"02304","w":600,"ht":436},{"h":"/marks/newest-patterns/0077","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp","c":"02305","w":600,"ht":436},{"h":"/marks/newest-patterns/0078","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp","c":"02306","w":600,"ht":458},{"h":"/marks/newest-patterns/0079","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp","c":"02307","w":600,"ht":450},{"h":"/marks/newest-patterns/0080","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp","c":"02308","w":600,"ht":458},{"h":"/marks/newest-patterns/0081","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp","c":"02309","w":600,"ht":456},{"h":"/marks/newest-patterns/0082","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp","c":"02310","w":600,"ht":458},{"h":"/marks/newest-patterns/0083","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp","c":"02311","w":600,"ht":459},{"h":"/marks/newest-patterns/0084","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp","c":"02312","w":600,"ht":436},{"h":"/marks/newest-patterns/0085","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp","c":"02313","w":600,"ht":436},{"h":"/marks/newest-patterns/0086","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp","c":"02314","w":600,"ht":456},{"h":"/marks/newest-patterns/0087","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp","c":"02315","w":600,"ht":436},{"h":"/marks/newest-patterns/0088","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp","c":"02316","w":600,"ht":436},{"h":"/marks/newest-patterns/0089","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp","c":"02317","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -355,5 +204,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

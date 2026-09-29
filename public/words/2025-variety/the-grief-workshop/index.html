@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Asheville Community Theater ## January 2024 LIORA CHEN, 42, stands on empty stage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +53,29 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Grief Workshop</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Play &middot; 3 minutes</p>
+        <h1 class="stage-title">The Grief Workshop</h1>
+      </div>
+      <a class="stage-cat" href="/physical.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>Asheville Community Theater<br>
   January 2024</p>
   <p>LIORA CHEN, 42, stands on empty stage. Twenty folding chairs in a circle. Sign: "Somatic Grief Processing - $75"</p>
@@ -232,30 +85,27 @@
   <p><strong>KEVIN</strong>: Your flyer said something about mushrooms.</p>
   <p><strong>LIORA</strong>: Metaphorical mushrooms.</p>
   <p><strong>KEVIN</strong>: For seventy-five dollars they better be real.</p>
-  <p>---</p>
-  <p>The Participants Arrive</p>
+  <h2>The Participants Arrive</h2>
   <p>KEMI (31), JASPER (55), MINH (47) trickle in. Outside, Asheville floods. Fourth time this year.</p>
   <p><strong>JASPER</strong>: Bridge is out. We&#x27;re stuck here.</p>
-  <p><strong>LIORA</strong>: The workshop is three hours—</p>
+  <h2><strong>LIORA</strong>: The workshop is three hours—</h2>
   <p><strong>JASPER</strong>: No, literally stuck. Roads are flooded. </p>
   <p><strong>KEMI</strong>: I need to get home. My mom&#x27;s alone.</p>
-  <p><strong>LIORA</strong>: I&#x27;m sure it&#x27;ll clear—</p>
+  <h2><strong>LIORA</strong>: I&#x27;m sure it&#x27;ll clear—</h2>
   <p>Thunder. Lights flicker.</p>
   <p><strong>MINH</strong>: This building&#x27;s in a flood zone.</p>
   <p><strong>LIORA</strong>: We&#x27;re on the second floor.</p>
   <p><strong>MINH</strong>: I was on a second floor in Houston. During Harvey. Didn&#x27;t matter.</p>
-  <p>---</p>
-  <p>The Exercise Begins</p>
+  <h2>The Exercise Begins</h2>
   <p><strong>LIORA</strong>: Let&#x27;s start. Everyone stand. We&#x27;ll begin with rooting.</p>
   <p><strong>KEVIN</strong>: While flooding?</p>
-  <p><strong>LIORA</strong>: Especially while flooding. Feel your feet—</p>
+  <h2><strong>LIORA</strong>: Especially while flooding. Feel your feet—</h2>
   <p><strong>KEMI</strong>: I can&#x27;t stay. My mother has dementia. If the power goes—</p>
   <p><strong>LIORA</strong>: Can someone check on her?</p>
   <p><strong>KEMI</strong>: She only speaks Yoruba now. Who&#x27;s going to—</p>
   <p>Water drips through ceiling. Small, but persistent.</p>
   <p><strong>JASPER</strong>: That&#x27;s new.</p>
-  <p>---</p>
-  <p>The Truth Comes Out</p>
+  <h2>The Truth Comes Out</h2>
   <p><strong>LIORA</strong>: Okay. Cards on table. I&#x27;m not certified in anything. I read a book about fungi and trauma. My therapist dumped me for missing too many appointments. This is my first workshop.</p>
   <p><strong>KEVIN</strong>: What?</p>
   <p><strong>LIORA</strong>: The theater needed rent. I needed money. You needed... something.</p>
@@ -263,8 +113,7 @@
   <p><strong>LIORA</strong>: I can&#x27;t provide those.</p>
   <p><strong>JASPER</strong>: Jesus Christ.</p>
   <p><strong>KEMI</strong>: My mother is alone in a flood because of fake therapy?</p>
-  <p>---</p>
-  <p>Real Processing</p>
+  <h2>Real Processing</h2>
   <p>Water pools in corner. They move chairs.</p>
   <p><strong>LIORA</strong>: Look, we&#x27;re all here. Stuck. Might as well talk.</p>
   <p><strong>KEVIN</strong>: About what?</p>
@@ -275,8 +124,7 @@
   <p><strong>KEMI</strong>: Mother&#x27;s forgetting me. Piece by piece.</p>
   <p>Silence. Water drips louder.</p>
   <p><strong>LIORA</strong>: Father. Cancer. Two weeks ago.</p>
-  <p>---</p>
-  <p>The Exercise Changes</p>
+  <h2>The Exercise Changes</h2>
   <p><strong>LIORA</strong>: Forget the workshop. What do you need?</p>
   <p><strong>KEMI</strong>: To call my mother.</p>
   <p><strong>JASPER</strong>: To stop pretending I&#x27;m okay.</p>
@@ -287,8 +135,7 @@
   <p><strong>JASPER</strong>: My wife hated my driving. Always grabbed the door handle. Night she died, I was home. She drove herself. I keep thinking if I&#x27;d driven—</p>
   <p><strong>MINH</strong>: You&#x27;d both be dead.</p>
   <p><strong>JASPER</strong>: Maybe.</p>
-  <p>---</p>
-  <p>The Water Rises</p>
+  <h2>The Water Rises</h2>
   <p>First floor now flooded. They hear it lapping at stairs.</p>
   <p><strong>KEVIN</strong>: Should we move higher?</p>
   <p><strong>LIORA</strong>: It&#x27;s a two-story building.</p>
@@ -300,8 +147,7 @@
   <p><strong>MINH</strong>: I knew he was using again. I was tired of it.</p>
   <p><strong>LIORA</strong>: Being tired doesn&#x27;t make you guilty.</p>
   <p><strong>MINH</strong>: Doesn&#x27;t make me innocent either.</p>
-  <p>---</p>
-  <p>Real Movement</p>
+  <h2>Real Movement</h2>
   <p>Without instruction, they begin moving. Not dance. Just... movement.</p>
   <p>Jasper rocks. Kemi sways. Minh paces. Kevin stands still—the most movement of all.</p>
   <p><strong>LIORA</strong>: This is probably what I should have taught.</p>
@@ -309,8 +155,7 @@
   <p><strong>LIORA</strong>: Why?</p>
   <p><strong>KEMI</strong>: It&#x27;s honest.</p>
   <p>Water reaches top stair. They hear sirens outside.</p>
-  <p>---</p>
-  <p>Morning</p>
+  <h2>Morning</h2>
   <p>Water receded. Sun out. Asheville steaming.</p>
   <p>They&#x27;ve been there all night. Talking, not talking, moving, being still.</p>
   <p><strong>KEVIN</strong>: I should sue you.</p>
@@ -326,8 +171,7 @@
   <p><strong>KEVIN</strong>: You&#x27;re not qualified.</p>
   <p><strong>LIORA</strong>: No. But neither is grief.</p>
   <p>They leave separately. But something connects them now. Not healing. Not closure. Just shared flooding.</p>
-  <p>---</p>
-  <p>Next Week</p>
+  <h2>Next Week</h2>
   <p>Twelve people show up. Word spread.</p>
   <p><strong>NEW PERSON</strong>: Is this the grief thing?</p>
   <p><strong>LIORA</strong>: I guess it is.</p>
@@ -339,31 +183,28 @@
   <p><strong>JASPER</strong>: Sometimes.</p>
   <p>They sit. Circle forms. Someone brings coffee. Someone cries. Someone laughs.</p>
   <p>No mushroom metaphors. No root choreography. Just people, circled up, surviving high water.</p>
-  <p><strong>End</strong></p>
-  <p class="core-foot-label"><a href="/physical.html">From Physical</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/above-stones-feugo/"><img src="https://media.paraploo.com/site/images/physical/above-stones-feugo/Above%20Land%20Stones%20Directed%20Influence%20A11A-600.webp" alt="Above Stones Feugo" width="600" height="338" loading="lazy"></a>
-      <a href="/physical/after-a-storm-interpretations/"><img src="https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-01-600.webp" alt="After a Storm Interpretations" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/after-the-party/"><img src="https://media.paraploo.com/site/images/physical/after-the-party/After%20The%20Party%201-600.webp" alt="After the Party" width="600" height="397" loading="lazy"></a>
-      <a href="/physical/anthro-archeo/"><img src="https://media.paraploo.com/site/images/physical/anthro-archeo/Anthro-Archeo%201-600.webp" alt="Anthro Archeo" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/archeo/"><img src="https://media.paraploo.com/site/images/physical/archeo/Archeo%2057-600.webp" alt="Archeo" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/archeo-dream/"><img src="https://media.paraploo.com/site/images/physical/archeo-dream/ArcheoDream%201-600.webp" alt="Archeo Dream" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/attempts-to-provoke/"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%201-600.webp" alt="Attempts to Provoke" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/beauty-sleeps-here/"><img src="https://media.paraploo.com/site/images/physical/beauty-sleeps-here/Beauty%20Sleep%201-600.webp" alt="Beauty Sleeps Here" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/believable/"><img src="https://media.paraploo.com/site/images/physical/believable/Believable%203%20B-600.webp" alt="Believable" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/blame-it-on-lame-intentions/"><img src="https://media.paraploo.com/site/images/physical/blame-it-on-lame-intentions/Blame%20It%20On%201-600.webp" alt="Blame It on Lame Intentions" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/blue-glass-ball-and-more/"><img src="https://media.paraploo.com/site/images/physical/blue-glass-ball-and-more/Blue%20Glass%20Ball%201-600.webp" alt="Blue Glass Ball and More" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/boiling-point/"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%201-600.webp" alt="Boiling Point" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/brrd-house/"><img src="https://media.paraploo.com/site/images/physical/brrd-house/1%20brrdHouse%209-600.webp" alt="Brrd House" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/cool-warming/"><img src="https://media.paraploo.com/site/images/physical/cool-warming-pieces-a/Temp%201-600.webp" alt="Cool Warming" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/crutch-and-other-stuff/"><img src="https://media.paraploo.com/site/images/physical/crutch-and-other-stuff/Crutch%20No%20Crutch%20Installation%20Detail%20Color%20Photograph-600.webp" alt="Crutch and Other Stuff" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/curious-first-every-time/"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp" alt="Curious First Every Time" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/day-stage-textile-space/"><img src="https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2023-600.webp" alt="Day Stage Textile Space" width="600" height="384" loading="lazy"></a>
-      <a href="/physical/dirty-ol-shipyard/"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp" alt="Dirty Ol Shipyard" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/dug-ity-dig-wonders/"><img src="https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Be%20Icy%20Carthos%205-600.webp" alt="DUG-ITY Dig Wonders" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/entitled-white-sheets/"><img src="https://media.paraploo.com/site/images/physical/entitled-white-sheets/Entitled%20White%201-600.webp" alt="Entitled White Sheets" width="600" height="400" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-translation-study/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2><strong>End</strong></h2>
+    </div>
+    <a class="wp-one" href="/physical.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/what-the-fungi-remember-the-name-change-office/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">What the Fungi Remember</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-translation-study/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Translation Study</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/physical.html">From Physical</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/physical/above-stones-feugo/"><img src="https://media.paraploo.com/site/images/physical/above-stones-feugo/Above%20Land%20Stones%20Directed%20Influence%20A11A-600.webp" alt="Above Stones Feugo" width="600" height="338" loading="lazy"></a>
+        <a href="/physical/after-a-storm-interpretations/"><img src="https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-01-600.webp" alt="After a Storm Interpretations" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/after-the-party/"><img src="https://media.paraploo.com/site/images/physical/after-the-party/After%20The%20Party%201-600.webp" alt="After the Party" width="600" height="397" loading="lazy"></a>
+        <a href="/physical/anthro-archeo/"><img src="https://media.paraploo.com/site/images/physical/anthro-archeo/Anthro-Archeo%201-600.webp" alt="Anthro Archeo" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/archeo/"><img src="https://media.paraploo.com/site/images/physical/archeo/Archeo%2057-600.webp" alt="Archeo" width="600" height="400" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/physical/above-stones-feugo/","s":"https://media.paraploo.com/site/images/physical/above-stones-feugo/Above%20Land%20Stones%20Directed%20Influence%20A11A-600.webp","c":"Above Stones Feugo","w":600,"ht":338},{"h":"/physical/after-a-storm-interpretations/","s":"https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-01-600.webp","c":"After a Storm Interpretations","w":600,"ht":400},{"h":"/physical/after-the-party/","s":"https://media.paraploo.com/site/images/physical/after-the-party/After%20The%20Party%201-600.webp","c":"After the Party","w":600,"ht":397},{"h":"/physical/anthro-archeo/","s":"https://media.paraploo.com/site/images/physical/anthro-archeo/Anthro-Archeo%201-600.webp","c":"Anthro Archeo","w":600,"ht":400},{"h":"/physical/archeo/","s":"https://media.paraploo.com/site/images/physical/archeo/Archeo%2057-600.webp","c":"Archeo","w":600,"ht":400},{"h":"/physical/archeo-dream/","s":"https://media.paraploo.com/site/images/physical/archeo-dream/ArcheoDream%201-600.webp","c":"Archeo Dream","w":600,"ht":400},{"h":"/physical/attempts-to-provoke/","s":"https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%201-600.webp","c":"Attempts to Provoke","w":600,"ht":400},{"h":"/physical/beauty-sleeps-here/","s":"https://media.paraploo.com/site/images/physical/beauty-sleeps-here/Beauty%20Sleep%201-600.webp","c":"Beauty Sleeps Here","w":600,"ht":400},{"h":"/physical/believable/","s":"https://media.paraploo.com/site/images/physical/believable/Believable%203%20B-600.webp","c":"Believable","w":600,"ht":400},{"h":"/physical/blame-it-on-lame-intentions/","s":"https://media.paraploo.com/site/images/physical/blame-it-on-lame-intentions/Blame%20It%20On%201-600.webp","c":"Blame It on Lame Intentions","w":600,"ht":400},{"h":"/physical/blue-glass-ball-and-more/","s":"https://media.paraploo.com/site/images/physical/blue-glass-ball-and-more/Blue%20Glass%20Ball%201-600.webp","c":"Blue Glass Ball and More","w":600,"ht":400},{"h":"/physical/boiling-point/","s":"https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%201-600.webp","c":"Boiling Point","w":600,"ht":400},{"h":"/physical/brrd-house/","s":"https://media.paraploo.com/site/images/physical/brrd-house/1%20brrdHouse%209-600.webp","c":"Brrd House","w":600,"ht":400},{"h":"/physical/cool-warming/","s":"https://media.paraploo.com/site/images/physical/cool-warming-pieces-a/Temp%201-600.webp","c":"Cool Warming","w":600,"ht":400},{"h":"/physical/crutch-and-other-stuff/","s":"https://media.paraploo.com/site/images/physical/crutch-and-other-stuff/Crutch%20No%20Crutch%20Installation%20Detail%20Color%20Photograph-600.webp","c":"Crutch and Other Stuff","w":600,"ht":400},{"h":"/physical/curious-first-every-time/","s":"https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp","c":"Curious First Every Time","w":600,"ht":400},{"h":"/physical/day-stage-textile-space/","s":"https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2023-600.webp","c":"Day Stage Textile Space","w":600,"ht":384},{"h":"/physical/dirty-ol-shipyard/","s":"https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp","c":"Dirty Ol Shipyard","w":600,"ht":400},{"h":"/physical/dug-ity-dig-wonders/","s":"https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Be%20Icy%20Carthos%205-600.webp","c":"DUG-ITY Dig Wonders","w":600,"ht":400},{"h":"/physical/entitled-white-sheets/","s":"https://media.paraploo.com/site/images/physical/entitled-white-sheets/Entitled%20White%201-600.webp","c":"Entitled White Sheets","w":600,"ht":400}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -379,5 +220,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

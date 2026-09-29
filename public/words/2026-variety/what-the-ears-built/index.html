@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="A catalog of sounds ...">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +53,29 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">what the ears built</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2026-variety/"><span class="arrow-glyph">&larr;</span> Words / 2026 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Essay &middot; 5 minutes</p>
+        <h1 class="stage-title">what the ears built</h1>
+      </div>
+      <a class="stage-cat" href="/digital.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2026-variety/"><span class="arrow-glyph">&larr;</span> Words / 2026 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>A catalog of sounds ... Things the ears made while the eyes were busy elsewhere ...</p>
   <p>Taste Of Framing ... Putting up studs and rafters ... Guitar music nearby ... The guitar does not know it is part of the framing ... The framing does not know it is part of the music ... Both are building something ...</p>
   <p>Roofing A Shelter ... No description needed ... The title is the sound and the sound is the title ... A roof being put on a thing that will keep rain off other things ... The most honest sentence a building can say ...</p>
@@ -257,31 +110,28 @@
   Witness</p>
   <p>Methodology: Wonderful Garbage<br>
   Style: Noir Chanson</p>
-  <p>Oyparaploo</p>
-  <p class="core-foot-label"><a href="/digital.html">From Screen and Print</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/digital/shoe-whah-si-daye-sew/"><img src="https://media.paraploo.com/site/images/lines/shoe-whah-si-daye-sew/A%20Blee%20Laye%20One-600.webp" alt="Shoe Whah Si Daye Sew" width="600" height="428" loading="lazy"></a>
-      <a href="/digital/ga-assortment/"><img src="https://media.paraploo.com/site/images/lines/ga-assortment/Aftermath%20Of%20A%20Dog%20Fight-600.webp" alt="Ga Assortment" width="600" height="598" loading="lazy"></a>
-      <a href="/digital/desert-murat-fait/"><img src="https://media.paraploo.com/site/images/lines/desert-murat-fait/desert%202-600.webp" alt="Desert Murat Fait" width="600" height="398" loading="lazy"></a>
-      <a href="/digital/ah-ah-ah-ah/"><img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah/thumbs/Ah%20Ah%20Ah%20Ah%201.webp" alt="Ah Ah Ah Ah" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/at-lac-clouse/"><img src="https://media.paraploo.com/site/images/lines/at-lac-clouse/thumbs/Guesswerg-1-2.webp" alt="At Lac Clouse" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/blame-it-on-the-weather/"><img src="https://media.paraploo.com/site/images/lines/blame-it-on-the-weather/thumbs/Blame%20It%20On%208.webp" alt="Blame It On The Weather" width="600" height="400" loading="lazy"></a>
-      <a href="/digital/chaud-schwea-couleurs/"><img src="https://media.paraploo.com/site/images/lines/chaud-schwea-couleurs/thumbs/773.webp" alt="Chaud Schwea Couleurs" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/conflict-zone-fragments-pages/"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/thumbs/Untitled-61.00_00_02_17.Still001.webp" alt="Conflict Zone Fragments Pages" width="464" height="600" loading="lazy"></a>
-      <a href="/digital/lemon-yellow-accents/"><img src="https://media.paraploo.com/site/images/lines/lemon-yellow-accents/thumbs/333.webp" alt="Lemon Yellow Accents" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/wild-beyond-burning-ember-go/"><img src="https://media.paraploo.com/site/images/lines/wild-beyond-burning-ember-go/thumbs/111.webp" alt="Wild Beyond Burning Ember Go" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/work-mon-aye-bahta/"><img src="https://media.paraploo.com/site/images/lines/work-mon-aye-bahta/thumbs/A%20Kind%20Of%20Pushed%20Kin%20Visual%20Story.webp" alt="Work Mon Aye Bahta" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/mint-plaje-symmet/"><img src="https://media.paraploo.com/site/images/lines/mint-plaje-symmet/thumbs/aMD%20379.webp" alt="Mint Plaje Symmet" width="600" height="397" loading="lazy"></a>
-      <a href="/digital/red-stain/"><img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Art%20Garage%20Mess%20And%20Perfect%20Composition-600.webp" alt="Red Stain" width="600" height="750" loading="lazy"></a>
-      <a href="/digital/shur-shee-symmetrical/"><img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Ashes%20Smoke%20To%20Rust%20And%20Blood%20Stains%20Sideways%20Alien%20Mantis%20Absolute%20Symmetrical-600.webp" alt="Shur Shee Symmetrical" width="600" height="398" loading="lazy"></a>
-      <a href="/digital/to-worship-what-we-dig/"><img src="https://media.paraploo.com/site/images/lines/to-worship-what-we-dig/thumbs/Always%20A%20Witness%20I.webp" alt="To Worship What We Dig" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/vivid-memories-of-choice/"><img src="https://media.paraploo.com/site/images/lines/vivid-memories-of-choice/thumbs/Freedom%20Of%20Memories%20001.webp" alt="Vivid Memories Of Choice" width="600" height="338" loading="lazy"></a>
-      <a href="/digital/climate-hand-smoke-voice/"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp" alt="Climate Hand Smoke Voice" width="2000" height="1125" loading="lazy"></a>
-      <a href="/digital/they-won-the-biggest-contest-question/"><img src="https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5.webp" alt="They Won the Biggest Contest Question" width="2000" height="1125" loading="lazy"></a>
-      <a href="/digital/watch-this-not-get-carried-away/"><img src="https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs.webp" alt="Watch This Not Get Carried Away" width="2000" height="1125" loading="lazy"></a>
-      <a href="/digital/text-based-visual-works/"><img src="https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020.webp" alt="Text Based Visual Works" width="2000" height="1437" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2026-variety/the-thing-be-the-thing/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2>Oyparaploo</h2>
+    </div>
+    <a class="wp-one" href="/digital.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2026-variety/what-the-eyes-hold/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">what the eyes hold</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2026-variety/the-thing-be-the-thing/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">the thing be the thing</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/digital.html">From Screen and Print</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/digital/shoe-whah-si-daye-sew/"><img src="https://media.paraploo.com/site/images/lines/shoe-whah-si-daye-sew/A%20Blee%20Laye%20One-600.webp" alt="Shoe Whah Si Daye Sew" width="600" height="428" loading="lazy"></a>
+        <a href="/digital/ga-assortment/"><img src="https://media.paraploo.com/site/images/lines/ga-assortment/Aftermath%20Of%20A%20Dog%20Fight-600.webp" alt="Ga Assortment" width="600" height="598" loading="lazy"></a>
+        <a href="/digital/desert-murat-fait/"><img src="https://media.paraploo.com/site/images/lines/desert-murat-fait/desert%202-600.webp" alt="Desert Murat Fait" width="600" height="398" loading="lazy"></a>
+        <a href="/digital/ah-ah-ah-ah/"><img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah/thumbs/Ah%20Ah%20Ah%20Ah%201.webp" alt="Ah Ah Ah Ah" width="600" height="338" loading="lazy"></a>
+        <a href="/digital/at-lac-clouse/"><img src="https://media.paraploo.com/site/images/lines/at-lac-clouse/thumbs/Guesswerg-1-2.webp" alt="At Lac Clouse" width="600" height="338" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/digital/shoe-whah-si-daye-sew/","s":"https://media.paraploo.com/site/images/lines/shoe-whah-si-daye-sew/A%20Blee%20Laye%20One-600.webp","c":"Shoe Whah Si Daye Sew","w":600,"ht":428},{"h":"/digital/ga-assortment/","s":"https://media.paraploo.com/site/images/lines/ga-assortment/Aftermath%20Of%20A%20Dog%20Fight-600.webp","c":"Ga Assortment","w":600,"ht":598},{"h":"/digital/desert-murat-fait/","s":"https://media.paraploo.com/site/images/lines/desert-murat-fait/desert%202-600.webp","c":"Desert Murat Fait","w":600,"ht":398},{"h":"/digital/ah-ah-ah-ah/","s":"https://media.paraploo.com/site/images/lines/ah-ah-ah-ah/thumbs/Ah%20Ah%20Ah%20Ah%201.webp","c":"Ah Ah Ah Ah","w":600,"ht":338},{"h":"/digital/at-lac-clouse/","s":"https://media.paraploo.com/site/images/lines/at-lac-clouse/thumbs/Guesswerg-1-2.webp","c":"At Lac Clouse","w":600,"ht":338},{"h":"/digital/blame-it-on-the-weather/","s":"https://media.paraploo.com/site/images/lines/blame-it-on-the-weather/thumbs/Blame%20It%20On%208.webp","c":"Blame It On The Weather","w":600,"ht":400},{"h":"/digital/chaud-schwea-couleurs/","s":"https://media.paraploo.com/site/images/lines/chaud-schwea-couleurs/thumbs/773.webp","c":"Chaud Schwea Couleurs","w":600,"ht":338},{"h":"/digital/conflict-zone-fragments-pages/","s":"https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/thumbs/Untitled-61.00_00_02_17.Still001.webp","c":"Conflict Zone Fragments Pages","w":464,"ht":600},{"h":"/digital/lemon-yellow-accents/","s":"https://media.paraploo.com/site/images/lines/lemon-yellow-accents/thumbs/333.webp","c":"Lemon Yellow Accents","w":600,"ht":338},{"h":"/digital/wild-beyond-burning-ember-go/","s":"https://media.paraploo.com/site/images/lines/wild-beyond-burning-ember-go/thumbs/111.webp","c":"Wild Beyond Burning Ember Go","w":600,"ht":338},{"h":"/digital/work-mon-aye-bahta/","s":"https://media.paraploo.com/site/images/lines/work-mon-aye-bahta/thumbs/A%20Kind%20Of%20Pushed%20Kin%20Visual%20Story.webp","c":"Work Mon Aye Bahta","w":600,"ht":338},{"h":"/digital/mint-plaje-symmet/","s":"https://media.paraploo.com/site/images/lines/mint-plaje-symmet/thumbs/aMD%20379.webp","c":"Mint Plaje Symmet","w":600,"ht":397},{"h":"/digital/red-stain/","s":"https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Art%20Garage%20Mess%20And%20Perfect%20Composition-600.webp","c":"Red Stain","w":600,"ht":750},{"h":"/digital/shur-shee-symmetrical/","s":"https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Ashes%20Smoke%20To%20Rust%20And%20Blood%20Stains%20Sideways%20Alien%20Mantis%20Absolute%20Symmetrical-600.webp","c":"Shur Shee Symmetrical","w":600,"ht":398},{"h":"/digital/to-worship-what-we-dig/","s":"https://media.paraploo.com/site/images/lines/to-worship-what-we-dig/thumbs/Always%20A%20Witness%20I.webp","c":"To Worship What We Dig","w":600,"ht":338},{"h":"/digital/vivid-memories-of-choice/","s":"https://media.paraploo.com/site/images/lines/vivid-memories-of-choice/thumbs/Freedom%20Of%20Memories%20001.webp","c":"Vivid Memories Of Choice","w":600,"ht":338},{"h":"/digital/climate-hand-smoke-voice/","s":"https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp","c":"Climate Hand Smoke Voice","w":2000,"ht":1125},{"h":"/digital/they-won-the-biggest-contest-question/","s":"https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5.webp","c":"They Won the Biggest Contest Question","w":2000,"ht":1125},{"h":"/digital/watch-this-not-get-carried-away/","s":"https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs.webp","c":"Watch This Not Get Carried Away","w":2000,"ht":1125},{"h":"/digital/text-based-visual-works/","s":"https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020.webp","c":"Text Based Visual Works","w":2000,"ht":1437}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -297,5 +147,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

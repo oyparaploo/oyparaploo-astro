@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## I.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,21 +53,38 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Boards</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>I. Rafah</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 10 minutes</p>
+        <h1 class="stage-title">Boards</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>I. Rafah</h2>
   <p>The box under Layla&#x27;s bed is just boards nailed together. Her brother made it before he left—crooked nails, gaps between the slats, the kind of thing you build when you know nothing is permanent so why bother getting it perfect. Inside are photographs she doesn&#x27;t look at anymore.</p>
   <p>For fifteen years she made portraits. Weddings, families, children in their best clothes standing in front of whatever she could rig up for a backdrop. A sheet. A painted board. Once a lime green tarp that made everyone&#x27;s skin look weird but the family didn&#x27;t care, they loved it. She had a knack for making people relax. Turning their chin just a little. Catching them before they remembered to smile.</p>
   <p>Now she photographs corners. Where walls meet. Where buildings cut into sky. Anything but faces.</p>
   <p>Her nephew Yousef doesn&#x27;t get it. He&#x27;s twelve, bored out of his skull, trapped in the flat during another closure, scrolling when there&#x27;s internet, staring at the ceiling when there isn&#x27;t. He watches her pack her camera bag—some family wants their house documented before the bulldozers come—and asks what he always asks.</p>
-  <p>"Why&#x27;d you quit doing people?"</p>
+  <h2>"Why&#x27;d you quit doing people?"</h2>
   <p>Layla adjusts her hijab, pulling the gray fabric forward. Her mother says she wears it wrong now, too loose, shadowing her face too much. "Got tired of faces, I guess."</p>
-  <p>"Liar."</p>
-  <p>"Yeah."</p>
+  <h2>"Liar."</h2>
+  <h2>"Yeah."</h2>
   <p>She could tell him. Three years ago she shot a wedding and two weeks later the groom got arrested at a checkpoint. She saw her photograph on the monitor behind the soldier—the groom&#x27;s face from his wedding day, smiling, circled in red. Someone had pulled it from Facebook. Her portrait. Her composition. Her moment of capturing him happy, turned into a targeting system.</p>
   <p>She could tell him about the last kid she photographed. Ten years old, gap-toothed, his mother paid half what she usually charged because times were tight. Six months later she saw a face on the news that looked like him, except it wasn&#x27;t her photograph but it could have been. What difference did it make whose camera clicked when the looking itself was the weapon?</p>
   <p>But Yousef is twelve. He still thinks questions have answers that fit in sentences.</p>
@@ -240,7 +93,7 @@
   <p>Layla shoots the wooden shelves, hands-smoothed but no hands visible. The gray stone doorway, foot-worn but no feet showing. The kids&#x27; room with its lime green paint, bright and stupid with hope against all that gray pressing in.</p>
   <p>The mother keeps almost stepping into frame, then catching herself.</p>
   <p>"Sorry," she says the third time. "I forgot you don&#x27;t—"</p>
-  <p>"It&#x27;s fine. It&#x27;s your house."</p>
+  <h2>"It&#x27;s fine. It&#x27;s your house."</h2>
   <p>"No, I mean I forgot you stopped. With the faces."</p>
   <p>"I didn&#x27;t stop," Layla says. "I&#x27;m just careful now about who gets to see."</p>
   <p>She charges them half her old rate because what is she even selling anymore? Pictures of rooms? But the mother pushes the full amount into her hand anyway, closes Layla&#x27;s fingers around the bills. "For seeing us without showing us," the woman says, and Layla has to turn away because if she doesn&#x27;t she&#x27;ll cry.</p>
@@ -250,48 +103,48 @@
   <p>Yousef reads over her shoulder. "Is that true? That being seen is dangerous?"</p>
   <p>Layla closes the laptop. Looks at him, his face still so young, still right there in the world, and feels the familiar ache. Wanting to photograph him. Knowing she never will again, not for anyone&#x27;s files.</p>
   <p>"Being seen by people who love you—that&#x27;s good," she says. "Being seen by people who want to track you, file you, count you like inventory—that&#x27;s something else."</p>
-  <p>"So you only do things now? Not people?"</p>
+  <h2>"So you only do things now? Not people?"</h2>
   <p>"I do the shadows people leave. The rooms they were in. It&#x27;s still a portrait, just different."</p>
   <p>He thinks about this, serious the way twelve-year-olds get when they&#x27;re trying to understand adult problems. "Like you can tell someone was there without showing their face?"</p>
-  <p>"Exactly."</p>
+  <h2>"Exactly."</h2>
   <p>Later, alone, Layla takes out the wooden box. Runs her fingers along the boards, feeling where her brother&#x27;s hammer slipped, where the nails went in crooked. He&#x27;s in Jordan now. Disappeared himself into a different city, a different name, a different life. He sends messages sometimes through complicated chains of contacts. Never photos. Never his location. Just: <em>Still here. Still okay.</em></p>
   <p>She understands. Gets why he left. Gets why she stopped shooting faces.</p>
   <p>The box is falling apart, one board working itself loose from the nails. She should fix it but doesn&#x27;t. Let it come apart. Let everything that needs to disappear, disappear.</p>
-  <p>II. Alto Solimões</p>
+  <h2>II. Alto Solimões</h2>
   <p>Kaito learned Portuguese before English, English before reading, and reading before understanding that his people had a word for what he was doing: abandoning them.</p>
   <p>He&#x27;s twenty-eight. Lives in Tabatinga where Brazil meets Peru meets Colombia, works for an indigenous rights group documenting the uncontacted tribes in the western Amazon. Except his job is specifically to not document them. To prove they exist without showing them. To protect their invisibility.</p>
   <p>It&#x27;s harder than you&#x27;d think.</p>
   <p>The other workers—well-meaning Brazilians mostly, some international volunteers—want photographs. Proof. Evidence of habitation. They don&#x27;t understand why Kaito brings back pictures of broken branches, footprints, places where someone obviously built a shelter then just as obviously erased it. They want the dramatic shot. The noble savage still living in harmony with nature. The kind of image you can put on a website.</p>
   <p>Kaito gives them boards. Actual boards. He photographs the lumber illegal loggers leave behind, then photographs what the forest does to it—vines reclaiming, termites eating, the jungle breaking down colonial construction back into dirt. Different kind of evidence. Harder to fundraise with.</p>
   <p>"We need something more compelling," his supervisor Ana says, scrolling through his latest batch. "Something that makes donors care."</p>
-  <p>"People care about faces. That&#x27;s the problem."</p>
-  <p>"Kaito—"</p>
+  <h2>"People care about faces. That&#x27;s the problem."</h2>
+  <h2>"Kaito—"</h2>
   <p>"Every face we document, we make them easier to find."</p>
-  <p>"We&#x27;re trying to protect them."</p>
-  <p>"By making them visible?"</p>
+  <h2>"We&#x27;re trying to protect them."</h2>
+  <h2>"By making them visible?"</h2>
   <p>Ana closes the laptop. They&#x27;ve had this fight before. She&#x27;s tired. He&#x27;s tired. The board—always the fucking board, the administrative body in Brasília that shuffles papers about people they&#x27;ve never met—wants results. Wants proof. Wants something they can show donors to keep the money coming.</p>
   <p>"Just... get me something," Ana says. "Anything. I&#x27;m trying to keep this project funded and you&#x27;re not helping."</p>
   <p>Kaito goes into the forest alone. Against protocol. Three days&#x27; walk past the last settlement, deep enough that motor sounds fade to nothing. He knows the signs—deliberate breaks in vegetation, territorial markers, cleared spaces that say <em>we&#x27;re here but you shouldn&#x27;t be.</em></p>
   <p>He doesn&#x27;t photograph any of it.</p>
   <p>Instead he finds where someone recently made a temporary shelter. Just poles and palm fronds, already being absorbed back into green. He sits nearby, not close enough to intrude, close enough to witness. He photographs what they would have seen: canopy filtering light into gray and green, shadows moving across forest floor, peaceful surfaces of bark and leaves concealing everything, revealing nothing.</p>
   <p>Then he takes one picture of himself. The only face in his documentation. He&#x27;s wearing the traditional hood his grandmother made before she died in the epidemic. His face is turned away, refusing the camera, rejecting what Ana would call proper portraiture. You can see gray fabric, lime green forest blur, the suggestion of a person without any identifying details.</p>
-  <p>Caption: <em>Documentation of voluntary disappearance.</em></p>
+  <h2>Caption: <em>Documentation of voluntary disappearance.</em></h2>
   <p>Back in Tabatinga, Ana looks at his image for a long time. The hooded figure, the turned-away face, the forest claiming everything.</p>
-  <p>"This is what you&#x27;re giving me?"</p>
-  <p>"Yes."</p>
-  <p>"The board will kill the project."</p>
-  <p>"Maybe."</p>
-  <p>"Kaito—"</p>
+  <h2>"This is what you&#x27;re giving me?"</h2>
+  <h2>"Yes."</h2>
+  <h2>"The board will kill the project."</h2>
+  <h2>"Maybe."</h2>
+  <h2>"Kaito—"</h2>
   <p>"I can&#x27;t give them what they want," he says. "I won&#x27;t."</p>
   <p>She&#x27;s quiet for a while. Then: "Your village. Before the missionaries came. Did you have a word for privacy?"</p>
   <p>He thinks about this. "We had a word for sacred space. For places you don&#x27;t go, things you don&#x27;t speak about. It wasn&#x27;t privacy like you mean it. It was... respect for what shouldn&#x27;t be seen."</p>
-  <p>"And now?"</p>
+  <h2>"And now?"</h2>
   <p>"Now there&#x27;s nowhere you can go that isn&#x27;t on a satellite image. Nowhere you can be that isn&#x27;t documented. So the only sacred space left is refusing to be legible. Turning away."</p>
   <p>Ana saves his files. Doesn&#x27;t say whether she&#x27;ll send them to the board or not.</p>
   <p>That night Kaito burns three months of notes. Not the images—those stay encrypted, password-locked, evidence if the worst happens. But GPS coordinates, handwritten location details, maps with population estimates. He burns them in a barrel behind his building, watches paper curl and blacken, watches data turn to smoke.</p>
   <p>His phone buzzes. Message from his cousin, still in the village. Or what&#x27;s left of it. Most of them are gone now—disease, displacement, assimilation. The cousin&#x27;s message is just: <em>Coming to town next month. Don&#x27;t tell anyone.</em></p>
   <p>Kaito deletes it immediately. Clears his message history. Some things you protect by not knowing, by not remembering, by not having proof.</p>
-  <p>III. Unseen</p>
+  <h2>III. Unseen</h2>
   <p>Layla posts her newest series on Thursday. <em>Shadows of Habitation.</em> All interiors, all empty of people. Gray walls, green doors, wooden boards worn smooth but no one wearing them smooth visible. Comments are confused, supportive, sometimes angry. <em>Where are the people? Why won&#x27;t you show us the people?</em></p>
   <p>One comment catches her: <em>Withdrawal as agency when visibility becomes violence.</em></p>
   <p>She clicks the profile. Minimal. Anonymous. Forest photographs. No faces. Just trees, shadows, places people might have been but aren&#x27;t. Location says Brazil.</p>
@@ -315,30 +168,27 @@
   <p>The recognition that some people, some places, some stories are loved best by being left alone. That the highest form of respect is sometimes to turn away. To pull the hood forward. To choose invisibility as an act of preservation, of resistance, of radical tenderness.</p>
   <p>Not invisible.</p>
   <p>Just carefully, deliberately unseen.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/gog-guldah-variations/0027"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2042-600.webp" alt="02223" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0028"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2043-600.webp" alt="02224" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0029"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%205%20Ond%20Of%20Hope-600.webp" alt="02225" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0030"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%206%20Burnt%20Map-600.webp" alt="02226" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0031"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%208%20Tigran%20Shepisan-600.webp" alt="02227" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0032"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%209%20Enter%20At%20One%20Of%20The%20Corners-600.webp" alt="02228" width="600" height="338" loading="lazy"></a>
-      <a href="/marks/most-recent/0001"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Bubbly%20Strand%20Nea%20Coe%20Fo-600.webp" alt="15092" width="600" height="431" loading="lazy"></a>
-      <a href="/marks/most-recent/0002"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Cant%20Wait%20Can%20Wait%20Composed-600.webp" alt="15093" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0003"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Characters%20and%20Marks%20Flowing%20Counterclockwise-600.webp" alt="15094" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0004"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Crackle%20Of%20Cicadas%20and%20More-600.webp" alt="15095" width="600" height="433" loading="lazy"></a>
-      <a href="/marks/most-recent/0005"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ee%20Onaye%20Fatz%20Frequency-600.webp" alt="15096" width="600" height="438" loading="lazy"></a>
-      <a href="/marks/most-recent/0006"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Forest%20Gull%20Enda%20Totalis-600.webp" alt="15097" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0007"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Harmonizing%20Easy%20Maybe-600.webp" alt="15098" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0008"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ours%20and%20They-600.webp" alt="15099" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/most-recent/0009"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Possibly%20More%20Than%20Ever%20Before-600.webp" alt="15100" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0010"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Pro%20Eaplage%20Kisses%20and%20Natural%20Energy-600.webp" alt="15101" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0011"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sa%20Lees%20Tah%20Coetaye%20Agitation%20In%20The%20Brush-600.webp" alt="15102" width="600" height="432" loading="lazy"></a>
-      <a href="/marks/most-recent/0012"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Some%20New%20Scratch%20and%20Claw%20Tears-600.webp" alt="15103" width="600" height="435" loading="lazy"></a>
-      <a href="/marks/most-recent/0013"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Swimming%20In%20Wiggly%20Skrit%20Weeds-600.webp" alt="15104" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/most-recent/0014"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Thanon%20Thong%20Chai%20Range%20Soil%20Has%20Everything%20Useful-600.webp" alt="15105" width="600" height="434" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-exhalation-ii/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-red-i/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Red</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-exhalation-ii/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Exhalation (2)</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/gog-guldah-variations/0027"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2042-600.webp" alt="02223" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0028"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2043-600.webp" alt="02224" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0029"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%205%20Ond%20Of%20Hope-600.webp" alt="02225" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0030"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%206%20Burnt%20Map-600.webp" alt="02226" width="600" height="338" loading="lazy"></a>
+        <a href="/marks/gog-guldah-variations/0031"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%208%20Tigran%20Shepisan-600.webp" alt="02227" width="600" height="338" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/gog-guldah-variations/0027","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2042-600.webp","c":"02223","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0028","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2043-600.webp","c":"02224","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0029","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%205%20Ond%20Of%20Hope-600.webp","c":"02225","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0030","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%206%20Burnt%20Map-600.webp","c":"02226","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0031","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%208%20Tigran%20Shepisan-600.webp","c":"02227","w":600,"ht":338},{"h":"/marks/gog-guldah-variations/0032","s":"https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%209%20Enter%20At%20One%20Of%20The%20Corners-600.webp","c":"02228","w":600,"ht":338},{"h":"/marks/most-recent/0001","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Bubbly%20Strand%20Nea%20Coe%20Fo-600.webp","c":"15092","w":600,"ht":431},{"h":"/marks/most-recent/0002","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Cant%20Wait%20Can%20Wait%20Composed-600.webp","c":"15093","w":600,"ht":434},{"h":"/marks/most-recent/0003","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Characters%20and%20Marks%20Flowing%20Counterclockwise-600.webp","c":"15094","w":600,"ht":435},{"h":"/marks/most-recent/0004","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Crackle%20Of%20Cicadas%20and%20More-600.webp","c":"15095","w":600,"ht":433},{"h":"/marks/most-recent/0005","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ee%20Onaye%20Fatz%20Frequency-600.webp","c":"15096","w":600,"ht":438},{"h":"/marks/most-recent/0006","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Forest%20Gull%20Enda%20Totalis-600.webp","c":"15097","w":600,"ht":434},{"h":"/marks/most-recent/0007","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Harmonizing%20Easy%20Maybe-600.webp","c":"15098","w":600,"ht":435},{"h":"/marks/most-recent/0008","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Ours%20and%20They-600.webp","c":"15099","w":600,"ht":432},{"h":"/marks/most-recent/0009","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Possibly%20More%20Than%20Ever%20Before-600.webp","c":"15100","w":600,"ht":435},{"h":"/marks/most-recent/0010","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Pro%20Eaplage%20Kisses%20and%20Natural%20Energy-600.webp","c":"15101","w":600,"ht":435},{"h":"/marks/most-recent/0011","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sa%20Lees%20Tah%20Coetaye%20Agitation%20In%20The%20Brush-600.webp","c":"15102","w":600,"ht":432},{"h":"/marks/most-recent/0012","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Some%20New%20Scratch%20and%20Claw%20Tears-600.webp","c":"15103","w":600,"ht":435},{"h":"/marks/most-recent/0013","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Swimming%20In%20Wiggly%20Skrit%20Weeds-600.webp","c":"15104","w":600,"ht":434},{"h":"/marks/most-recent/0014","s":"https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Thanon%20Thong%20Chai%20Range%20Soil%20Has%20Everything%20Useful-600.webp","c":"15105","w":600,"ht":434}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -354,5 +204,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

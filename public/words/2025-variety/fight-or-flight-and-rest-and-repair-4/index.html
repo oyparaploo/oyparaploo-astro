@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="While the fight-or-flight response equips us to deal with immediate threats, the rest-and-repair response is essential for long-term health and well-being by al">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,41 +53,55 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Fight-or-Flight and Rest-and-Repair IV</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>While the fight-or-flight response equips us to deal with <br>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Essay &middot; 1 minute</p>
+        <h1 class="stage-title">Fight-or-Flight and Rest-and-Repair IV</h1>
+      </div>
+      <a class="stage-cat" href="/mind-mapping/"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <p class="wp-lines">While the fight-or-flight response equips us to deal with <br>
   immediate threats, the rest-and-repair response is essential <br>
   for long-term health and well-being by allowing the body to <br>
   recover and maintain its functions. Finding ways to engage <br>
   in rest-and-repair activities is key to sustaining a balance.</p>
-  <p class="core-foot-label"><a href="/mind-mapping/">From Mind Mapping</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/words/hand-writings/eclipse-mind-mapping/0161"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW201-600.webp" alt="00383" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0162"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW202-600.webp" alt="00384" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0163"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW203-600.webp" alt="00385" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0164"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW204-600.webp" alt="00386" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0165"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW205-600.webp" alt="00387" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0166"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW206-600.webp" alt="00388" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0167"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW207-600.webp" alt="00389" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0168"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW208-600.webp" alt="00390" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0169"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW209-600.webp" alt="00391" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0170"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW21-600.webp" alt="00392" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0171"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW210-600.webp" alt="00393" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0172"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW211-600.webp" alt="00394" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0173"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW212-600.webp" alt="00395" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0174"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW213-600.webp" alt="00396" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0175"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW214-600.webp" alt="00397" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0176"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW215-600.webp" alt="00398" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0177"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW216-600.webp" alt="00399" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0178"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW217-600.webp" alt="00400" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0179"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW218-600.webp" alt="00401" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0180"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW219-600.webp" alt="00402" width="464" height="600" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/fight-or-flight-and-rest-and-repair-3/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/mind-mapping/"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/gut-feeling-1/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Gut Feeling I</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/fight-or-flight-and-rest-and-repair-3/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">Fight-or-Flight and Rest-and-Repair III</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/mind-mapping/">From Mind Mapping</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/words/hand-writings/eclipse-mind-mapping/0161"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW201-600.webp" alt="00383" width="464" height="600" loading="lazy"></a>
+        <a href="/words/hand-writings/eclipse-mind-mapping/0162"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW202-600.webp" alt="00384" width="464" height="600" loading="lazy"></a>
+        <a href="/words/hand-writings/eclipse-mind-mapping/0163"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW203-600.webp" alt="00385" width="464" height="600" loading="lazy"></a>
+        <a href="/words/hand-writings/eclipse-mind-mapping/0164"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW204-600.webp" alt="00386" width="464" height="600" loading="lazy"></a>
+        <a href="/words/hand-writings/eclipse-mind-mapping/0165"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW205-600.webp" alt="00387" width="464" height="600" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/words/hand-writings/eclipse-mind-mapping/0161","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW201-600.webp","c":"00383","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0162","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW202-600.webp","c":"00384","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0163","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW203-600.webp","c":"00385","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0164","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW204-600.webp","c":"00386","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0165","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW205-600.webp","c":"00387","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0166","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW206-600.webp","c":"00388","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0167","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW207-600.webp","c":"00389","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0168","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW208-600.webp","c":"00390","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0169","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW209-600.webp","c":"00391","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0170","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW21-600.webp","c":"00392","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0171","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW210-600.webp","c":"00393","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0172","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW211-600.webp","c":"00394","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0173","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW212-600.webp","c":"00395","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0174","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW213-600.webp","c":"00396","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0175","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW214-600.webp","c":"00397","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0176","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW215-600.webp","c":"00398","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0177","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW216-600.webp","c":"00399","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0178","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW217-600.webp","c":"00400","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0179","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW218-600.webp","c":"00401","w":464,"ht":600},{"h":"/words/hand-writings/eclipse-mind-mapping/0180","s":"https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/brrdboHW219-600.webp","c":"00402","w":464,"ht":600}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -267,5 +117,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

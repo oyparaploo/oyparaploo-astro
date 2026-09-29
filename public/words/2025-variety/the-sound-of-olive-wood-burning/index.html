@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part One: The Decibel Meter I learned to measure silence at 4 a.m.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,28 +53,43 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Sound of Olive Wood Burning</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part One: The Decibel Meter</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 23 minutes</p>
+        <h1 class="stage-title">The Sound of Olive Wood Burning</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part One: The Decibel Meter</h2>
   <p>I learned to measure silence at 4 a.m. on Tuesday, March 12th, when the sound engineer handed me his decibel meter outside what remained of the Al-Shifa hospital. The device, a Lutron SL-4035SD, registered 47 decibels—the exact volume of my grandmother&#x27;s last breath in 1948, though of course I couldn&#x27;t have known that yet.</p>
   <p>"Hold it steady," Khalil said, adjusting his headphones. "We&#x27;re documenting absence."</p>
   <p>The meter&#x27;s needle trembled between 47 and 52 decibels. Behind us, three olive trees older than the Balfour Declaration stood in someone&#x27;s former garden, their leaves rustling at exactly 38 decibels—I measured. One tree bore scorch marks up its eastern side. When I placed my palm against the blackened bark, carbon came away on my skin like historical evidence.</p>
   <p>This is how I came to Gaza: not as a journalist or aid worker, but following a question I couldn&#x27;t quite articulate about how sound transforms into light, how violence becomes visible, how silence itself carries decibels. My great-aunt Layla had been an artist here, drawing what she called "graphic scores"—visual representations of sounds that couldn&#x27;t be heard. Her notebooks, which I inherited after her death in Amman, showed explosions rendered as spirals of gold ink, checkpoint arguments transformed into geometric patterns, the call to prayer depicted as ascending ladders of blue.</p>
   <p>But I&#x27;m getting ahead of myself. Or behind. Time works differently when you&#x27;re measuring the volume of rubble.</p>
-  <p>---</p>
-  <p><em>[Braid shift to historical context - 1000 words]</em></p>
+  <h2><em>[Braid shift to historical context - 1000 words]</em></h2>
   <p>The British Mandate&#x27;s 1945 Survey of Palestine recorded 1,368,000 olive trees in what would become the Gaza Strip. Each tree, according to Ottoman tax records I found in the Istanbul Archives, could produce 15-20 kilograms of olives annually, enough oil to light a family&#x27;s lamps for three months. My grandmother&#x27;s family owned forty-three trees in Huj, a village that no longer exists except in the basement archives of Yad Vashem, where they keep the aerial photographs taken by the German air force in 1917.</p>
   <p>I know this because I spent six months comparing those photographs with current satellite imagery, overlaying them in Photoshop until I could see the ghost roads, the phantom orchards, the spectral outlines of houses now buried under Highway 4. The olive trees appear in the 1917 images as small dark circles, arranged in neat rows like periods at the end of sentences no one finishes anymore.</p>
   <p>In her notebook from 1952, four years after the Nakba, Layla drew her first graphic score. The page, yellowed and water-stained, shows a series of concentric circles labeled in Arabic: "The sound of mother calling for Hamid (95 dB)," "Dogs barking at abandoned houses (73 dB)," "Breathing through tear gas (41 dB)." She had no decibel meter then, of course. These were estimates, guesses, the arithmetic of trauma.</p>
   <p>Dr. Salma Khayyat, who runs the oral history project at Birzeit University, told me that survivors of the 1948 expulsions often describe sounds before sights. "They remember the pitch of bullets over their heads," she said, pulling file after file from her metal cabinet. "The specific crack of their front door being kicked in. The way their grandmother&#x27;s breathing changed during the forced march."</p>
   <p>We sat in her office, which overlooks a valley where you can still see the terraces from Ottoman-era agriculture, while she played me recordings. Voice after voice describing not what they saw but what they heard: the particular silence that falls after a village empties, the way wind sounds different through an abandoned house, the unexpected loudness of fires consuming hundred-year-old wood.</p>
   <p>"Your great-aunt understood something," Dr. Khayyat said, showing me a photocopy of one of Layla&#x27;s later works—a massive score showing the sound levels of the 1967 war, hour by hour, location by location. "Sound is evidence. Decibels don&#x27;t lie."</p>
-  <p>---</p>
-  <p><em>[Braid shift to present investigation - 1000 words]</em></p>
+  <h2><em>[Braid shift to present investigation - 1000 words]</em></h2>
   <p>Khalil&#x27;s workshop occupies a converted garage in Gaza City&#x27;s Rimal district, though "converted" suggests more intentionality than the reality of tarps, salvaged equipment, and extension cords snaking through holes knocked in cinder blocks. When I arrived at dawn, he was already calibrating his equipment, preparing for what he called "the morning chorus"—that hour when the city wakes and every sound matters.</p>
   <p>"First the generators," he said, pointing to his laptop screen where sound waves appeared as mountains and valleys. "Always between 5:47 and 5:52. Sixty-eight decibels from the hospital, seventy-three from the bakery." </p>
   <p>He handed me headphones. Through them, I heard Gaza deconstructed: generators indeed, but also water pumps gasping, a child practicing violin, someone hammering metal, pigeons, a radio playing Fairuz, car engines, a woman calling someone named Mohammed, gas canisters being delivered, the Mediterranean hitting the breakwater at intervals of eleven seconds.</p>
@@ -249,8 +100,7 @@
   <p>I pressed the metal disk against a chunk of fallen ceiling. Through the earpieces came a rhythmic pulsing, like a heartbeat but mechanical. Noor signed something rapidly.</p>
   <p>"She says that&#x27;s the sound of rebar oxidizing inside the concrete," Khalil explained. "Four hertz. The frequency of fear, some scientists say. But also the same frequency as ocean waves during storms."</p>
   <p>Noor pulled out a notebook filled with drawings that looked remarkably like Layla&#x27;s—circles and spirals, waves and jagged lines, each annotated with frequencies and timestamps. She&#x27;d been mapping the sounds of destruction, but also what she called "sounds of becoming"—the specific frequencies of rebuilding, of new growth through cracks, of children playing in ruins.</p>
-  <p>---</p>
-  <p><em>[Scene construction - 500+ words]</em></p>
+  <h2><em>[Scene construction - 500+ words]</em></h2>
   <p>The explosion happened at 11:43 a.m.</p>
   <p>I know the precise time because Khalil&#x27;s equipment recorded everything—the initial crack at 157 decibels, the subsequent rumble at 134, the car alarms at 95, the silence that followed hovering at an impossible 32 decibels, quieter than the desert at night.</p>
   <p>We were in the basement of the community center, watching Fadi perform his visual poetry—a form where he simultaneously speaks, signs, and projects written words on the wall behind him. Thirty-seven people in plastic chairs. The poem was about his daughter&#x27;s first word, which wasn&#x27;t a word but a gesture, a reaching toward light.</p>
@@ -265,18 +115,17 @@
   <p>Noor walked to the window frame and held up her palm, feeling the air currents. She signed something to Khalil.</p>
   <p>"She says the explosion changed the building&#x27;s resonance. It vibrates at a different frequency now. Half a hertz lower." He paused, calculated. "That&#x27;s the difference between middle C and B."</p>
   <p>The building had been retuned by violence, dropped a half-step like a guitar with loosened strings.</p>
-  <p>---</p>
-  <p><em>[Personal memory woven with research - 1000 words]</em></p>
+  <h2><em>[Personal memory woven with research - 1000 words]</em></h2>
   <p>My grandmother only spoke about the olive trees once, the summer before she died. We were sitting in her kitchen in Detroit, where she&#x27;d ended up after Cairo, after Amman, after Beirut. She was peeling apples with a knife that had belonged to her mother, the blade worn thin as paper from ninety years of use.</p>
   <p>"Forty-three trees," she said suddenly, as if continuing a conversation we&#x27;d been having my whole life. "Do you know what that means?"</p>
   <p>I was twenty-two. I didn&#x27;t know what anything meant.</p>
   <p>"Six hundred kilograms of olives per season. Fifty liters of oil. Enough to trade for wheat, cloth, coffee. A dowry for daughters. University for sons." She quartered the apple, removed the seeds with surgical precision. "We named them."</p>
-  <p>"The trees?"</p>
+  <h2>"The trees?"</h2>
   <p>"Like children. The grandfather tree—350 years old, trunk so thick three people couldn&#x27;t wrap their arms around it. The wedding tree—planted when my parents married. The revolution tree—1936, the year of the Arab Revolt."</p>
   <p>She arranged the apple slices on a plate, a spiral from center to edge.</p>
-  <p>"What happened to them?"</p>
+  <h2>"What happened to them?"</h2>
   <p>She looked at me with an expression I&#x27;d later recognize in every Palestinian over seventy—a mixture of exhaustion and incredulity that this question still needs asking.</p>
-  <p>"What do you think happened?"</p>
+  <h2>"What do you think happened?"</h2>
   <p>Israeli military documents declassified in 2019 show that between 1948 and 1955, approximately 2.5 million olive trees were uprooted in what became Israel. The official reason: security buffer zones. The unofficial reason found in soldiers&#x27; diaries donated to the Israel State Archives: the trees were sold to landscaping companies in Tel Aviv. Ancient olive trees, some dating to the Roman period, now decorate shopping centers in Herzliya.</p>
   <p>I found the sale records in a cardboard box in the Haifa municipality building. Tree #447: Olive, est. age 200-300 years, trunk circumference 3.2 meters, purchased May 1949 for 50 Israeli pounds, currently located at the entrance to the Dan Caesarea Hotel.</p>
   <p>That could be the grandfather tree. Or not. The records don&#x27;t include origin villages.</p>
@@ -284,7 +133,6 @@
   <p>He played me dozens—trees in Jenin, Hebron, Jaffa. Each sounded different, though I couldn&#x27;t articulate how. Like accents, or fingertips, or the way each person&#x27;s breathing is distinct.</p>
   <p>"If we had a recording of your grandmother&#x27;s trees," he said, "we could identify them. Sound as DNA."</p>
   <p>But nobody was recording olive trees in 1948. Layla&#x27;s notebooks begin after the expulsion, in the refugee camps where the only trees were memory.</p>
-  <p>---</p>
   <p><em>[Return to present scene with complexity - 1000 words]</em></p>
   <p>Three days after the explosion, Sami the actor organized what he called "a theatrical investigation." We would return to the damaged community center and perform the exact moment of the blast—not to recreate trauma, he insisted, but to understand its architecture.</p>
   <p>"Violence has dramaturgy," he explained, pacing the room where we&#x27;d gathered. "Rising action, climax, denouement. If we can understand its structure, we can write a different ending."</p>
@@ -306,7 +154,6 @@
   <p>But Samah challenged him: "You think we can rehearse away trauma? Practice until bombs don&#x27;t matter?"</p>
   <p>"No," Sami replied. "But we can rehearse response. Instead of screaming, we document. Instead of running, we witness. Instead of forgetting, we transform."</p>
   <p>They argued for an hour—Samah insisting on the danger of aestheticizing violence, Sami defending art as resistance, others taking sides or finding middle ground. The debate itself became performance, their voices rising and falling in waves Khalil recorded, later showing me how argument follows musical patterns—statement, variation, crescendo, resolution or its absence.</p>
-  <p>---</p>
   <p><em>[Weaving in philosophical questions and complexity - 1000 words]</em></p>
   <p>The question that haunts every Palestinian artist: Does rendering occupation beautiful make it bearable, therefore extending it? Or does beauty become resistance by insisting on humanity despite dehumanization?</p>
   <p>Layla&#x27;s notebooks obsess over this. Pages of crossed-out attempts to draw suffering without glorifying it, to make visible without making spectacular. In 1968, she wrote: "The sunset over rubble was gorgeous. I hate myself for noticing."</p>
@@ -322,7 +169,6 @@
   <p>This future-tense audience appears throughout Palestinian art—creations addressed to people not yet born, or perhaps to a version of ourselves after liberation, strangers to our current selves.</p>
   <p>But there&#x27;s another interpretation, one Samah suggested during a particularly heated discussion: "Maybe she was drawing for the trees. The olive trees that can&#x27;t hear but might feel vibrations through their roots. Sending messages to the dispersed orchards: We remember you."</p>
   <p>It sounds mystical, but Khalil showed me research on plant bioacoustics—how trees communicate through ultrasonic clicks, how root systems respond to specific frequencies, how forests maintain underground networks of sound and chemistry. If trauma can be inherited epigenetically, why not ecologically? Why shouldn&#x27;t the land itself remember in frequencies?</p>
-  <p>---</p>
   <p><em>[The vulnerable distance - most emotional moment through physical description only - 500 words]</em></p>
   <p>In Layla&#x27;s final notebook, dated three months before her death, a single page: </p>
   <p>The drawing shows a woman&#x27;s hand pressed against paper. Around the handprint, concentric circles like topographical maps, each ring labeled with a year: 1948, 1967, 1973, 1987, 2000, 2008, 2014, 2021. The lines grow thicker with each ring, the space between them smaller, until they merge into solid black at the edges.</p>
@@ -334,8 +180,7 @@
   <p>She pulled out her own notebook, drew quickly: the same hand, but with lines radiating outward from the palm, each one labeled with a frequency rather than a year. Where Layla had created absence, Noor created presence.</p>
   <p>"This is the answer," she signed. "Not silence but new frequency. Not forgetting but transformation."</p>
   <p>She was twenty-three, the age Layla was during the Nakba. The age my grandmother was when she lost the olive trees. The age I was when I inherited notebooks I didn&#x27;t understand.</p>
-  <p>---</p>
-  <p><em>[Facts transformed to images - 1000 words]</em></p>
+  <h2><em>[Facts transformed to images - 1000 words]</em></h2>
   <p>The Gaza Strip: 365 square kilometers. But measure it in footsteps—the average person takes 5,000 steps per kilometer—and it becomes 1,825,000 footsteps long, 600,000 footsteps wide. The distance my grandmother walked from Huj to Gaza in 1948: 97,000 footsteps. She counted.</p>
   <p>Two million people live here. Stack them vertically, and they&#x27;d reach 3,400 kilometers into space, higher than satellites. Lay them horizontally, head to toe, and they&#x27;d stretch from Gaza to London, each person a link in a chain of breath and pulse.</p>
   <p>The blockade permits 80 trucks of supplies daily. Each truck carries 20 tons. Divided equally: 800 grams per person—the weight of a loaf of bread, a bottle of water, three apples. The weight of Layla&#x27;s final notebook.</p>
@@ -345,13 +190,12 @@
   <p>Power cuts: 18 hours daily. But experience it as temperature—how indoor air thickens without circulation, how food spoils at predictable rates, how darkness has its own weight measured in sleepless children. Noor showed me her drawings of electricity schedules, not as timeline but as heartbeat—four hours on (systole), eighteen hours off (diastole), the whole city pulsing like a dying organ.</p>
   <p>Water delivery: once weekly for most neighborhoods. The sound of empty pipes: 73 decibels of air rushing through copper. The sound of water finally arriving: 89 decibels of celebration, children shrieking, mothers calling, fathers dragging hoses. Khalil has recordings spanning five years—a sonic calendar of thirst and relief.</p>
   <p>The wall is eight meters high. In acoustic terms, it creates what&#x27;s called a "shadow zone"—frequencies above 500 Hz can&#x27;t cross, while bass notes below 100 Hz pass through. Families separated by concrete learn to speak in low tones, their voices dropping octaves to reach each other.</p>
-  <p>---</p>
   <p><em>[Return to opening image transformed - final scene - 1500 words]</em></p>
   <p>On my last morning in Gaza, I returned to the three olive trees outside Al-Shifa hospital. The same trees from my first morning, but now I carried Layla&#x27;s notebooks, Khalil&#x27;s recordings, Noor&#x27;s vibration maps, my grandmother&#x27;s apple-paring knife wrapped in cloth.</p>
   <p>The trees stood exactly as before—ancient, scarred, persisting. But I saw them differently. The scorch marks up the eastern trunk weren&#x27;t just burns but a calendar—each ring of char marking another war, the tree incorporating violence into its growth rings like a timeline written in carbon.</p>
   <p>Khalil met me there with his full equipment. "I want to try something," he said. He attached contact microphones to each tree&#x27;s trunk, connected them to his laptop, began recording. "Trees conduct sound through their wood. If we can isolate their resonant frequency..."</p>
   <p>The screen filled with waveforms—low, almost subsonic rumbles. He adjusted filters, enhanced certain ranges. Slowly, patterns emerged. Each tree hummed at a slightly different pitch, their frequencies separated by precise mathematical intervals.</p>
-  <p>"It&#x27;s a chord," he said, amazed. "They&#x27;re harmonizing."</p>
+  <h2>"It&#x27;s a chord," he said, amazed. "They&#x27;re harmonizing."</h2>
   <p>Noor arrived with Sami, Fadi, Samah, and a dozen others from the workshop. Word had spread about this final recording. They formed a circle around the trees, witnesses to whatever we were discovering.</p>
   <p>Dr. Masharawi came with his students. "These trees," he said, "were here before the hospital, before the neighborhood, before the Nakba, before the British, before the Ottomans. They&#x27;re older than nation-states."</p>
   <p>Yasmin, the photography student, touched the burned bark. "My grandfather told me they used to press olives here. Right here, where the parking lot is now. Stone presses from the Roman period."</p>
@@ -384,7 +228,7 @@
   <p>I turned back. A wind had picked up, moving through the olive leaves in waves. It sounded like applause, or rain, or the sea, or pages turning, or time itself made audible—all of it, none of it, everything at once.</p>
   <p>The meter read exactly 38 decibels. The same as that first morning. The same as always.</p>
   <p>But now I knew how to listen.</p>
-  <p>Coda: The Forty-Fourth Tree</p>
+  <h2>Coda: The Forty-Fourth Tree</h2>
   <p>Six months later, in Detroit, I received a package from Khalil. Inside: a USB drive and a single olive leaf, dried and pressed. The drive contained ten hours of recordings—not just our trees but olive trees from across Palestine, each file meticulously labeled with GPS coordinates, age estimates, trunk circumference.</p>
   <p>The note read: "I found it. Recording from 1946. British ornithologist studying birdsong near Huj. Background: olive trees. Your grandmother&#x27;s trees. Frequency analysis matches Tree #447 at Dan Caesarea Hotel. The grandfather tree survived."</p>
   <p>I listened to the recording on repeat—wind through leaves, birds calling, a dog barking in the distance, someone singing in Arabic, too faint to make out the words. It sounded exactly like every olive tree and like no olive tree, specific and universal, past and present collapsed into ninety seconds of tape hiss and life.</p>
@@ -394,31 +238,28 @@
   <p>The sound continues.</p>
   <p>Even now.</p>
   <p>Even here.</p>
-  <p><em>[End]</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/smooth-beh-laye/haring-bone/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp" alt="Haring Bone" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/intense-color/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp" alt="Intense Color" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/lightly-tinted/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp" alt="Lightly Tinted" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/minimal-impact/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp" alt="Minimal Impact" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/one-follicle-at-a-time/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp" alt="One Follicle at a Time" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/other-worldly/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form-600.webp" alt="Other Worldly" width="600" height="431" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/stained-fog/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Alie%20Fazia%20Fala%20V-600.webp" alt="Stained Fog" width="600" height="452" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/student-phase/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp" alt="Student Phase" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/tears-and-raindrops/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Active%20Nature%20Big-600.webp" alt="Tears and Raindrops" width="600" height="461" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/the-chair/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THE%20CHAIR%20%281%29/The%20Chair%20Wave-600.webp" alt="The Chair" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/thousand-marks/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THOUSAND%20MARKS%20%2869%29/Accumu%20Ektos-600.webp" alt="Thousand Marks" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/word-mapping/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/WORD%20MAPPING%20%2828%29/004%20An%20Ou%20Saples-600.webp" alt="Word Mapping" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/agitation-exercise/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp" alt="Agitation Exercise" width="600" height="438" loading="lazy"></a>
-      <a href="/marks/blossom-petal-garden/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/BLOSSOM%20PETAL%20GARDEN%20%284%29/img147-600.webp" alt="Blossom Petal Garden" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/clouds-redefined/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/CLOUDS%20REDEFINED%20%284%29/img151-600.webp" alt="Clouds Redefined" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/dry-grass-and-tears/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img163-600.webp" alt="Dry Grass and Tears" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/how-to-remain-a-modern-artist/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img148-600.webp" alt="How to Remain a Modern Artist" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/loops-hopes/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/LOOPS%20HOPES%20%2826%29/img135-600.webp" alt="Loops Hopes" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/most-complexy-asemities/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/MOST%20COMPLEXY%20ASEMITIES%20%286%29/img188-600.webp" alt="Most Complexy Asemities" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/slanted-character/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLANTED%20CHARACTER%20%286%29/img136-600.webp" alt="Slanted Character" width="600" height="462" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-weight-of-gold-leaf/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2><em>[End]</em></h2>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-keeper-of-uncontained-things/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Keeper of Uncontained Things</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-weight-of-gold-leaf/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Weight of Gold Leaf</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/smooth-beh-laye/haring-bone/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp" alt="Haring Bone" width="600" height="464" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/intense-color/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp" alt="Intense Color" width="600" height="464" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/lightly-tinted/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp" alt="Lightly Tinted" width="600" height="462" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/minimal-impact/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp" alt="Minimal Impact" width="600" height="464" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/one-follicle-at-a-time/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp" alt="One Follicle at a Time" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/smooth-beh-laye/haring-bone/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp","c":"Haring Bone","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/intense-color/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp","c":"Intense Color","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/lightly-tinted/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp","c":"Lightly Tinted","w":600,"ht":462},{"h":"/marks/smooth-beh-laye/minimal-impact/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp","c":"Minimal Impact","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/one-follicle-at-a-time/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp","c":"One Follicle at a Time","w":600,"ht":458},{"h":"/marks/smooth-beh-laye/other-worldly/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form-600.webp","c":"Other Worldly","w":600,"ht":431},{"h":"/marks/smooth-beh-laye/stained-fog/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Alie%20Fazia%20Fala%20V-600.webp","c":"Stained Fog","w":600,"ht":452},{"h":"/marks/smooth-beh-laye/student-phase/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp","c":"Student Phase","w":600,"ht":436},{"h":"/marks/smooth-beh-laye/tears-and-raindrops/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Active%20Nature%20Big-600.webp","c":"Tears and Raindrops","w":600,"ht":461},{"h":"/marks/smooth-beh-laye/the-chair/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THE%20CHAIR%20%281%29/The%20Chair%20Wave-600.webp","c":"The Chair","w":600,"ht":434},{"h":"/marks/smooth-beh-laye/thousand-marks/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THOUSAND%20MARKS%20%2869%29/Accumu%20Ektos-600.webp","c":"Thousand Marks","w":600,"ht":436},{"h":"/marks/smooth-beh-laye/word-mapping/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/WORD%20MAPPING%20%2828%29/004%20An%20Ou%20Saples-600.webp","c":"Word Mapping","w":600,"ht":464},{"h":"/marks/agitation-exercise/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp","c":"Agitation Exercise","w":600,"ht":438},{"h":"/marks/blossom-petal-garden/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/BLOSSOM%20PETAL%20GARDEN%20%284%29/img147-600.webp","c":"Blossom Petal Garden","w":600,"ht":462},{"h":"/marks/clouds-redefined/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/CLOUDS%20REDEFINED%20%284%29/img151-600.webp","c":"Clouds Redefined","w":600,"ht":462},{"h":"/marks/dry-grass-and-tears/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img163-600.webp","c":"Dry Grass and Tears","w":600,"ht":462},{"h":"/marks/how-to-remain-a-modern-artist/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img148-600.webp","c":"How to Remain a Modern Artist","w":600,"ht":462},{"h":"/marks/loops-hopes/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/LOOPS%20HOPES%20%2826%29/img135-600.webp","c":"Loops Hopes","w":600,"ht":462},{"h":"/marks/most-complexy-asemities/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/MOST%20COMPLEXY%20ASEMITIES%20%286%29/img188-600.webp","c":"Most Complexy Asemities","w":600,"ht":462},{"h":"/marks/slanted-character/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLANTED%20CHARACTER%20%286%29/img136-600.webp","c":"Slanted Character","w":600,"ht":462}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -434,5 +275,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

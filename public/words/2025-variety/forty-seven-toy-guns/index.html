@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Beirut Jamil's job: make the mannequin children look happy holding AK-47s.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,13 +53,30 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Forty-Seven Toy Guns</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Beirut</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 3 minutes</p>
+        <h1 class="stage-title">Forty-Seven Toy Guns</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Beirut</h2>
   <p>Jamil&#x27;s job: make the mannequin children look happy holding AK-47s.</p>
   <p>Plastic AK-47s. Important difference. Maybe.</p>
   <p>Nine years old. Night shift at City Centre because school kept closing for "weather." Weather meant explosions but saying explosions was negative for retail.</p>
@@ -233,68 +86,68 @@
   <p>Father managed the mall now. Used to manage a hotel. Hotel became sky one afternoon. Now: mannequins.</p>
   <p>Blue tarp where the roof got holes. Made everything look underwater.</p>
   <p>Found a doll someone had fucked with. Bullet casings glued on for fingers. Brass knuckles for age 3+.</p>
-  <p>The talking mannequin: "That&#x27;s me."</p>
-  <p>"You&#x27;re not a doll."</p>
-  <p>"Not anymore."</p>
+  <h2>The talking mannequin: "That&#x27;s me."</h2>
+  <h2>"You&#x27;re not a doll."</h2>
+  <h2>"Not anymore."</h2>
   <p>Arranged five mannequins. Circle. Each holding different weapon-toy. The littlest one got the drone controller. Drone hanging on fishing wire. Forever about to strike.</p>
   <p>"Why circles?" mannequin asked.</p>
-  <p>"Looks like playing."</p>
-  <p>"We are playing."</p>
-  <p>"No. You&#x27;re selling."</p>
-  <p>"Same thing here."</p>
-  <p>Houston</p>
+  <h2>"Looks like playing."</h2>
+  <h2>"We are playing."</h2>
+  <h2>"No. You&#x27;re selling."</h2>
+  <h2>"Same thing here."</h2>
+  <h2>Houston</h2>
   <p>Aunt Rania&#x27;s gallery. Jamil&#x27;s photos on walls. Americans walking through, sipping wine.</p>
-  <p>"Is this Afghanistan?"</p>
-  <p>"No."</p>
-  <p>"Iraq?"</p>
-  <p>"No."</p>
-  <p>"Where?"</p>
-  <p>"Tuesday."</p>
-  <p>"What?"</p>
-  <p>"It&#x27;s Tuesday somewhere."</p>
+  <h2>"Is this Afghanistan?"</h2>
+  <h2>"No."</h2>
+  <h2>"Iraq?"</h2>
+  <h2>"No."</h2>
+  <h2>"Where?"</h2>
+  <h2>"Tuesday."</h2>
+  <h2>"What?"</h2>
+  <h2>"It&#x27;s Tuesday somewhere."</h2>
   <p>Woman bought three. Son&#x27;s playroom. So powerful.</p>
   <p>Cousin Marcus owned forty-seven toy guns. Counted them. All orange or blue or green. Nerf mostly. SuperSoakers. Laser things.</p>
-  <p>"Let&#x27;s play war."</p>
-  <p>"How?"</p>
-  <p>"You know how."</p>
+  <h2>"Let&#x27;s play war."</h2>
+  <h2>"How?"</h2>
+  <h2>"You know how."</h2>
   <p>Different rules. Marcus&#x27;s rules: respawn at base, melee attacks allowed, capture the flag. Jamil&#x27;s rules: don&#x27;t run straight, corners are death, stay away from windows.</p>
-  <p>"Why windows?"</p>
-  <p>"Snipers."</p>
-  <p>"We don&#x27;t have snipers in Houston."</p>
-  <p>"You don&#x27;t know you have snipers until."</p>
+  <h2>"Why windows?"</h2>
+  <h2>"Snipers."</h2>
+  <h2>"We don&#x27;t have snipers in Houston."</h2>
+  <h2>"You don&#x27;t know you have snipers until."</h2>
   <p>Until.</p>
   <p>Marcus shot him with foam. Jamil dropped. Stayed down.</p>
-  <p>"Get up. You have two lives left."</p>
-  <p>"Nobody has lives left."</p>
-  <p>"It&#x27;s a game."</p>
-  <p>"Where I&#x27;m from—"</p>
-  <p>"This isn&#x27;t where you&#x27;re from."</p>
+  <h2>"Get up. You have two lives left."</h2>
+  <h2>"Nobody has lives left."</h2>
+  <h2>"It&#x27;s a game."</h2>
+  <h2>"Where I&#x27;m from—"</h2>
+  <h2>"This isn&#x27;t where you&#x27;re from."</h2>
   <p>Fair.</p>
   <p>Rania building something in the back. Wrong thing from wrong parts. Real helmet on mannequin child. Toy gun with real ammo belt. Bicycle with mounted—something. Couldn&#x27;t tell what.</p>
-  <p>"This is horrible."</p>
-  <p>"Thanks."</p>
-  <p>"That&#x27;s not a compliment."</p>
-  <p>"Here it is."</p>
+  <h2>"This is horrible."</h2>
+  <h2>"Thanks."</h2>
+  <h2>"That&#x27;s not a compliment."</h2>
+  <h2>"Here it is."</h2>
   <p>People loved it. Photos. Selfies. Kids pointing: want that one mommy want that one.</p>
   <p>All of them. They wanted all of them.</p>
   <p>Marcus gave him a gun. Orange. "For when you go back."</p>
-  <p>"Why?"</p>
-  <p>"So you can play normal."</p>
+  <h2>"Why?"</h2>
+  <h2>"So you can play normal."</h2>
   <p>Normal. Orange gun for normal.</p>
-  <p>Beirut Again</p>
+  <h2>Beirut Again</h2>
   <p>Plane descent. City looked like broken teeth with gold fillings.</p>
-  <p>Father: "How was America?"</p>
-  <p>"Orange."</p>
+  <h2>Father: "How was America?"</h2>
+  <h2>"Orange."</h2>
   <p>Mall. Dark. Mannequins in their circle. One had fallen. Toy gun to its own plastic temple.</p>
-  <p>"I&#x27;ll fix—"</p>
-  <p>"Leave it."</p>
+  <h2>"I&#x27;ll fix—"</h2>
+  <h2>"Leave it."</h2>
   <p>Home. Put Marcus&#x27;s orange gun on shelf. Looked wrong. Looked American. Looked like what safety would look like if safety was a color.</p>
   <p>The talking mannequin had told him things:</p>
-  <p>"Same factories make both."</p>
-  <p>"Both what?"</p>
-  <p>"Tuesday weapons. Thursday toys."</p>
-  <p>"That&#x27;s not—"</p>
-  <p>"Check the tags."</p>
+  <h2>"Same factories make both."</h2>
+  <h2>"Both what?"</h2>
+  <h2>"Tuesday weapons. Thursday toys."</h2>
+  <h2>"That&#x27;s not—"</h2>
+  <h2>"Check the tags."</h2>
   <p>Did.</p>
   <p>Made in China. All of it. Mannequins, toy guns, real guns, the tarp over the bomb holes. All from the same place.</p>
   <p>The orange gun on his shelf. Marcus owned forty-seven. Jamil owned one. Felt like enough. Felt like too many.</p>
@@ -306,30 +159,27 @@
   <p>Forty-seven toy guns.</p>
   <p>No.</p>
   <p>Forty-six now.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0078"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp" alt="02306" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0079"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp" alt="02307" width="600" height="450" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0080"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp" alt="02308" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0081"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp" alt="02309" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0082"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp" alt="02310" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0083"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp" alt="02311" width="600" height="459" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0084"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp" alt="02312" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0085"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp" alt="02313" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0086"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp" alt="02314" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0087"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp" alt="02315" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0088"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp" alt="02316" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0089"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp" alt="02317" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0090"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone-600.webp" alt="02318" width="600" height="437" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0091"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/New%20Empire%20New%20Colony%20Next%20Language%20Waiting%202-600.webp" alt="02319" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0092"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Next%20Language%20Collapse%202-600.webp" alt="02320" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0093"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Niste%20Rein%20Vill%202-600.webp" alt="02321" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0094"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/No%20Moonlit%20Quitter%20Broken%20Yet%28i%29%202-600.webp" alt="02322" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0095"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Noot%20Babbleland%20Belief%202-600.webp" alt="02323" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0096"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obrah%20Cloe%20Swah%202-600.webp" alt="02324" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0097"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obsoletionproof%20Noise%202-600.webp" alt="02325" width="600" height="458" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/what-marcus-wrote/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/leading-to-guaranteed-visibility/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Barrowing material diversity teaches adaptability and resourcefulness ... Scale variation helps process feelings of overwhelm ... A shredded fabric cylinder like a giant bird&#x27;s nest and childhood fort becomes a red rope hose recalling garden memories ... domestic labor made to be monumental for ants ... Industrial scale from humble materials like cardboard scraps and house walls bear weight of refuse ... Crafty and desperate ... Aesthetics infiltrate all high art through cubic volume unfortunately ... Need for another protest ... An accumulation strategy for survival ... Hoarding against scarcity ... Red industrial forms are extraction machinery ... A type of violence wrapped in expensive white cloth ... A sphere&#x27;s battered surface shows impact ... pressure ... and damage sustained ... This crime evidence shares our insistence that precarity requires bulk ... Making small wildlife size monuments from materials everyone discard, refusing minimalism when maximalism ensures or guarantees visibility</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/what-marcus-wrote/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">What Marcus Wrote</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0078"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp" alt="02306" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0079"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp" alt="02307" width="600" height="450" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0080"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp" alt="02308" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0081"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp" alt="02309" width="600" height="456" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0082"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp" alt="02310" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0078","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp","c":"02306","w":600,"ht":458},{"h":"/marks/newest-patterns/0079","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp","c":"02307","w":600,"ht":450},{"h":"/marks/newest-patterns/0080","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp","c":"02308","w":600,"ht":458},{"h":"/marks/newest-patterns/0081","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp","c":"02309","w":600,"ht":456},{"h":"/marks/newest-patterns/0082","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp","c":"02310","w":600,"ht":458},{"h":"/marks/newest-patterns/0083","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp","c":"02311","w":600,"ht":459},{"h":"/marks/newest-patterns/0084","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp","c":"02312","w":600,"ht":436},{"h":"/marks/newest-patterns/0085","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp","c":"02313","w":600,"ht":436},{"h":"/marks/newest-patterns/0086","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp","c":"02314","w":600,"ht":456},{"h":"/marks/newest-patterns/0087","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp","c":"02315","w":600,"ht":436},{"h":"/marks/newest-patterns/0088","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp","c":"02316","w":600,"ht":436},{"h":"/marks/newest-patterns/0089","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp","c":"02317","w":600,"ht":436},{"h":"/marks/newest-patterns/0090","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone-600.webp","c":"02318","w":600,"ht":437},{"h":"/marks/newest-patterns/0091","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/New%20Empire%20New%20Colony%20Next%20Language%20Waiting%202-600.webp","c":"02319","w":600,"ht":436},{"h":"/marks/newest-patterns/0092","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Next%20Language%20Collapse%202-600.webp","c":"02320","w":600,"ht":436},{"h":"/marks/newest-patterns/0093","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Niste%20Rein%20Vill%202-600.webp","c":"02321","w":600,"ht":436},{"h":"/marks/newest-patterns/0094","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/No%20Moonlit%20Quitter%20Broken%20Yet%28i%29%202-600.webp","c":"02322","w":600,"ht":436},{"h":"/marks/newest-patterns/0095","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Noot%20Babbleland%20Belief%202-600.webp","c":"02323","w":600,"ht":436},{"h":"/marks/newest-patterns/0096","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obrah%20Cloe%20Swah%202-600.webp","c":"02324","w":600,"ht":436},{"h":"/marks/newest-patterns/0097","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Obsoletionproof%20Noise%202-600.webp","c":"02325","w":600,"ht":458}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -345,5 +195,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

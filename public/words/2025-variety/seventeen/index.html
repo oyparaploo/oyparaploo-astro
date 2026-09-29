@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="Grandmother left seventeen chairs and a note saying: *Don't let anyone sit on these.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,68 +53,85 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Seventeen</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 10 minutes</p>
+        <h1 class="stage-title">Seventeen</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>Grandmother left seventeen chairs and a note saying: <em>Don&#x27;t let anyone sit on these. They&#x27;re busy.</em></p>
   <p>Mae lives at 847 Norwood Drive, apartment 2B, above Mrs. Tsosie who watches Wheel of Fortune at volume 35 every weeknight at 6:30 PM. The microwave stopped heating three months ago. Just spins and hums. Derek keeps saying he&#x27;ll look at it. Mae reheats coffee on the stove in a saucepan her mother gave her in 2019 with a note that said "This was your grandmother&#x27;s good pan."</p>
   <p>Mae does tours Tuesday through Saturday at Cherokee Heritage Center, 9 AM to 4:30 PM. Eleven years. School groups ask if she lives in teepee. Tourists want Cherokee words for their videos. She says <em>osiyo, wado, donadagohvi</em>. They clap like she&#x27;s performed a trick. Woman from Edmond tipped her five dollars last week, pressed it into Mae&#x27;s hand while saying "You people have such wisdom."</p>
   <p>The chairs are against every wall. Seventeen of them, draped with powwow shawls, beadwork, fringe catching the light from the south-facing window between 2:15 and 3:47 PM depending on season. One has 847 safety pins. Mae counted twice. Grandmother did it for seven months in 2018 and 2019. Flowers, stars, zigzags. From across the room it looks celebratory, like something you&#x27;d hang in a gallery. Up close it&#x27;s just labor. Each pin placed individually. Grandmother&#x27;s hands weren&#x27;t steady toward the end but every pin is there.</p>
   <p>Derek tries to sit. Not to be dick. Just automatic. Comes home tired from framing houses, sees chair, moves toward it.</p>
-  <p>"Don&#x27;t."</p>
-  <p>"Why not."</p>
-  <p>"You can&#x27;t."</p>
-  <p>"They&#x27;re chairs."</p>
-  <p>"Not those."</p>
+  <h2>"Don&#x27;t."</h2>
+  <h2>"Why not."</h2>
+  <h2>"You can&#x27;t."</h2>
+  <h2>"They&#x27;re chairs."</h2>
+  <h2>"Not those."</h2>
   <p>This conversation happens Tuesday and Friday minimum, sometimes Thursday if he&#x27;s had long day. Last month he moved the safety pin chair six inches to vacuum under it. Mae moved it back. He moved it again. She moved it back exactly where it was, measured against the baseboardâ€"seventeen inches from the corner, always seventeen inches. They didn&#x27;t speak for two days. On the third day Derek made eggs and they ate them on the floor and neither of them mentioned it.</p>
   <p>Carla brings her own cushion now. Stopped asking about the chairs in year two. Just shows up with her purple floor cushion from Target ($24.99, Mae knows because Carla told her) and they sit on the floor drinking wine and not talking about it.</p>
   <p>At work the script is pottery techniques, forced removal, resilience. The resilience part takes longest because that&#x27;s what they want. "Despite everything, we&#x27;re still here, we maintain our culture, we honor our ancestors." Mae&#x27;s said it so many times she can think about her grocery list while saying it. Eggs, bread, coffee, chicken thighs on sale at Walmart for $1.97 per pound.</p>
   <p>The safety pin chair is by the south window. Catches light at 3:47 PM every afternoon when Mae gets home, makes patterns on the opposite wall that look like constellations if you squint. Grandmother was seventy-three, never heard of punk rock, but it looks exactly like something Mae saw once in a gallery in Tulsa. DIY aesthetic, the placard said. Subversive domesticity.</p>
   <p>Mae googled how to remove rust from safety pins. White vinegar, baking soda, twelve to twenty-four hours soaking. She bought white vinegar at Walmart. $2.38 for 64 ounces. It&#x27;s under the sink next to the drain cleaner Derek bought in September. She hasn&#x27;t used it. The rust is rust her grandmother&#x27;s hands made. Rust is testimony to how long grandmother&#x27;s hands touched each pin, moisture from skin meeting metal over seven months.</p>
   <p>Derek says the living room looks like storage unit. Sometimes he says it looks like museum. Sometimes he just looks at it and doesn&#x27;t say anything, which is worse.</p>
-  <p>"Okay."</p>
-  <p>"We can&#x27;t have people over."</p>
-  <p>"We have Carla over."</p>
+  <h2>"Okay."</h2>
+  <h2>"We can&#x27;t have people over."</h2>
+  <h2>"We have Carla over."</h2>
   <p>"Carla brings a cushion and sits on the floor like she&#x27;s at a meditation retreat."</p>
-  <p>"She doesn&#x27;t mind."</p>
-  <p>"That&#x27;s not the point."</p>
-  <p>"What&#x27;s the point."</p>
+  <h2>"She doesn&#x27;t mind."</h2>
+  <h2>"That&#x27;s not the point."</h2>
+  <h2>"What&#x27;s the point."</h2>
   <p>He doesn&#x27;t answer. Mae doesn&#x27;t ask again.</p>
   <p>One chair has blue fabric draped over the back. From certain angles it looks like a waiting person. Mae&#x27;s neighbor Brandon (apartment 3A, plays bass guitar between 10 PM and midnight Wednesdays and Saturdays) saw it once when he was helping Derek carry in a shelf and asked if it was sculpture. Mae said no. He said it should be.</p>
   <p>Another chair has forty-three keys sewn into the seat cushion. House keys, car keys, keys that open nothing anymore. Grandmother sewed each one through the fabric with upholstery thread. The cushion is completely unusable. You&#x27;d injure yourself trying to sit. That&#x27;s the point probably, though grandmother never said. Just sewed forty-three keys into a chair and left it.</p>
   <p>Mae&#x27;s supervisor Nancy called last week about unused vacation days. Mae has seventeen days accumulated.</p>
-  <p>"That&#x27;s... that&#x27;s exactly—"</p>
+  <h2>"That&#x27;s... that&#x27;s exactly—"</h2>
   <p>"Coincidence," Derek said, looking at the chairs.</p>
-  <p>"Is it though."</p>
-  <p>"What else would it be."</p>
+  <h2>"Is it though."</h2>
+  <h2>"What else would it be."</h2>
   <p>Mae sat on the floor. The safety pin chair was catching light, making those constellation patterns. Grandmother had seventeen children in her lifetime. Three survived. Mae&#x27;s mother was second-born, survived measles and boarding school and being Cherokee in Oklahoma in 1953. Seventeen is important somehow but Mae doesn&#x27;t know how. Just knows grandmother left seventeen chairs and note saying they&#x27;re busy.</p>
   <p>Tuesday tour, man asks if Mae is "full-blooded." She&#x27;s learned to smile when answering this. "Cherokee Nation citizen" she says, which doesn&#x27;t answer his question but sounds official enough he nods. Finishes demonstration on coil pottery. Someone&#x27;s kid asks can she do rain dance. She says that&#x27;s Plains tribes, different region, different practices. Kid looks disappointed. Mother says "Maybe next time, sweetie" like they&#x27;ll encounter a different Native person who will do the rain dance her kid wants.</p>
   <p>Goes home. Bills on the table: Electric $147.23, internet $89.99, car insurance $234.50. Due dates passed five days ago, eight days ago, twelve days ago respectively. She should pay them. Opens laptop instead. Closes laptop. The chair wrapped in red embroidery thread is right there, against the east wall. Grandmother did that one for eleven months. Started March 2019, finished February 2020. Mae watched her do it every Sunday at her grandmother&#x27;s house on Stilwell Road. Grandmother sat in her recliner, wrapped thread around and around, didn&#x27;t talk. Just wrapped. When Mae asked what it was for, grandmother said "For this." Just this. Just wrapping thread around a chair for eleven months until the wood was completely hidden under red thread like blood or promise or both.</p>
   <p>Derek making dinner. Spaghetti, store brand because they&#x27;re saving for transmission repair on the Honda. $1,847 estimate from Jerry&#x27;s Auto on Muskogee Avenue. Jerry gave them until end of December. That was five weeks ago.</p>
-  <p>"Your mom called."</p>
-  <p>"Okay."</p>
-  <p>"About Thanksgiving."</p>
-  <p>"When&#x27;s Thanksgiving."</p>
-  <p>"Thursday."</p>
-  <p>"Which Thursday."</p>
-  <p>"This Thursday. Tomorrow Thursday."</p>
-  <p>"Okay."</p>
-  <p>"She wants to know if we&#x27;re bringing anything."</p>
+  <h2>"Your mom called."</h2>
+  <h2>"Okay."</h2>
+  <h2>"About Thanksgiving."</h2>
+  <h2>"When&#x27;s Thanksgiving."</h2>
+  <h2>"Thursday."</h2>
+  <h2>"Which Thursday."</h2>
+  <h2>"This Thursday. Tomorrow Thursday."</h2>
+  <h2>"Okay."</h2>
+  <h2>"She wants to know if we&#x27;re bringing anything."</h2>
   <p>Mae doesn&#x27;t answer. The chair with keys catches late afternoon light different than safety pin chair. Makes smaller patterns, precise shadows from each individual key. Forty-three shadows at 6:15 PM when sun&#x27;s at that exact angle, which is only November through January, which means grandmother planned for these shadows, measured the angle, knew what would happen with light even though she&#x27;d be dead before Mae moved the chair to this apartment.</p>
   <p>Carla came over last week. Brought two cushions this time, purple one for herself and blue one for Mae. They sat on floor drinking wine from Walmart. $8.99 per bottle, two for $15, boxed wine being even cheaper but tasting like regret according to Carla.</p>
-  <p>"How&#x27;s work."</p>
-  <p>"Same."</p>
-  <p>"Same same."</p>
+  <h2>"How&#x27;s work."</h2>
+  <h2>"Same."</h2>
+  <h2>"Same same."</h2>
   <p>They didn&#x27;t talk about chairs. Carla&#x27;s learned. They talked about Carla&#x27;s sister in Phoenix, about property taxes going up, about whether the Mexican place on Muskogee Avenue is actually good or just close. The chairs were there the whole time. Light moved across them. Made patterns. Stopped making patterns. Made different patterns.</p>
   <p>Wednesday Derek tried moving the safety pin chair again. Just two inches. To reach the outlet behind it for his phone charger.</p>
   <p>Mae moved it back.</p>
-  <p>"It&#x27;s two inches."</p>
-  <p>"No."</p>
-  <p>"I just need to charge my phone."</p>
-  <p>"Kitchen."</p>
+  <h2>"It&#x27;s two inches."</h2>
+  <h2>"No."</h2>
+  <h2>"I just need to charge my phone."</h2>
+  <h2>"Kitchen."</h2>
   <p>He unplugged his charger. Walked to kitchen. Plugged it in there. They ate leftover spaghetti without talking. Jeopardy! came through the floor at volume 35. Alex Trebek&#x27;s voice asking questions about European capitals, Mrs. Tsosie below them shouting "What is Budapest!" at her TV.</p>
   <p>Thursday tour, college students from Tulsa doing project on "Indigenous resilience." Want to interview Mae on camera. Nancy already approved it. They ask about maintaining culture in modern world. About challenges facing Native communities. About hope for future generations. Mae gives the answers. Same ones as always. About language revitalization, about cultural centers, about young people learning traditional arts. They say thank you, really appreciate it, so enlightening.</p>
   <p>One student asks if Mae makes pottery herself. Mae says no. Student looks disappointed, like Mae has failed to be authentic enough. "But you know how," the student says. Mae says yes, she knows how. Student nods, satisfied.</p>
@@ -290,8 +143,8 @@
   <p>Phone rings. Her mother. Probably about Thanksgiving. Mae doesn&#x27;t answer.</p>
   <p>Derek came home at 6:30. Tracked mud across the floor. Mae should clean it. The mud sits there like everything else sits there. He makes grilled cheese sandwiches on the stove because the microwave doesn&#x27;t work. They eat on floor. Watch show on laptop about people buying houses. Everyone wants open concept, natural light, hardwood floors. Mae&#x27;s living room has seventeen chairs nobody sits on and mud on the floor and bills on the table all past due and a microwave that just spins and hums.</p>
   <p>"Still here," Derek says. Not question.</p>
-  <p>"Yeah."</p>
-  <p>"Okay."</p>
+  <h2>"Yeah."</h2>
+  <h2>"Okay."</h2>
   <p>Saturday tour. School group from Claremore. Teacher wants Mae to "tell the children about your heritage." Mae tells them about pottery. About forced removal. About resilience. Kids are bored. One asks if they can go to gift shop. Teacher says not yet, we&#x27;re learning. The kid sighs like learning is a punishment.</p>
   <p>Mae finishes tour. Does gift shop shift 2 PM to 4:30 PM. Sells dreamcatchers made in China, turquoise jewelry made in Philippines, postcards showing "traditional Cherokee life" using photos from 1970s reenactment. Everything has "Authentic Native" stickers. Woman from Kansas buys four dreamcatchers at $12.99 each. Says they&#x27;re for her granddaughters. Says "These people have such beautiful traditions." Mae wraps them in tissue paper. Says thank you.</p>
   <p>She goes home. Derek&#x27;s not there. Working late. She sits on floor. Seventeen chairs against the walls. The safety pin chair is right there, three feet away. Rust on forty-three pins that grandmother placed over seven months. Flowers, stars, zigzags. Each pin a decision. Each pin placed. Each pin remaining.</p>
@@ -303,30 +156,27 @@
   <p>The chairs are there.</p>
   <p>Mae is there.</p>
   <p>That&#x27;s it.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0058"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp" alt="02286" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0059"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp" alt="02287" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0060"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp" alt="02288" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0061"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp" alt="02289" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0062"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp" alt="02290" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0063"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp" alt="02291" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0064"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp" alt="02292" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0065"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp" alt="02293" width="600" height="453" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0066"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Just%20Another%20Life%20Near%20A%20Gaddah%20Medeh%20Reef%202-600.webp" alt="02294" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0067"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Katrina%20Linear%20Visual%20Description%202-600.webp" alt="02295" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0068"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lala-La-La-La-La-La-2-600.webp" alt="02296" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0069"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Landfill%20Too%20Much%20Sha%20Noot%20Parts%20and%20Pieces%202-600.webp" alt="02297" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0070"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp" alt="02298" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0071"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp" alt="02299" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0072"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp" alt="02300" width="600" height="461" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0073"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp" alt="02301" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0074"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp" alt="02302" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0075"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp" alt="02303" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0076"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp" alt="02304" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0077"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp" alt="02305" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/thursday-inventory/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/seventeen-chairs/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Seventeen Chairs</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/thursday-inventory/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">Thursday Inventory</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0058"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp" alt="02286" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0059"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp" alt="02287" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0060"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp" alt="02288" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0061"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp" alt="02289" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0062"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp" alt="02290" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0058","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hairy%20Thing%20and%20Pareidolia%202-600.webp","c":"02286","w":600,"ht":436},{"h":"/marks/newest-patterns/0059","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Half%20Obliterated%20Armillaria%20Interpretation%202-600.webp","c":"02287","w":600,"ht":436},{"h":"/marks/newest-patterns/0060","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Harr-Os%20Paye-On%20Noot%202-600.webp","c":"02288","w":600,"ht":436},{"h":"/marks/newest-patterns/0061","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Hi%20Energy%20Meditation%202-600.webp","c":"02289","w":600,"ht":436},{"h":"/marks/newest-patterns/0062","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment%202-600.webp","c":"02290","w":600,"ht":458},{"h":"/marks/newest-patterns/0063","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment-600.webp","c":"02291","w":600,"ht":457},{"h":"/marks/newest-patterns/0064","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness%202-600.webp","c":"02292","w":600,"ht":453},{"h":"/marks/newest-patterns/0065","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/It%20Is%20Insane%20To%20Ignore%20Political%20Facts%20For%20The%20Sake%20Of%20So%20Called%20Happiness-600.webp","c":"02293","w":600,"ht":453},{"h":"/marks/newest-patterns/0066","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Just%20Another%20Life%20Near%20A%20Gaddah%20Medeh%20Reef%202-600.webp","c":"02294","w":600,"ht":436},{"h":"/marks/newest-patterns/0067","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Katrina%20Linear%20Visual%20Description%202-600.webp","c":"02295","w":600,"ht":436},{"h":"/marks/newest-patterns/0068","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lala-La-La-La-La-La-2-600.webp","c":"02296","w":600,"ht":436},{"h":"/marks/newest-patterns/0069","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Landfill%20Too%20Much%20Sha%20Noot%20Parts%20and%20Pieces%202-600.webp","c":"02297","w":600,"ht":436},{"h":"/marks/newest-patterns/0070","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Less%20Discharged%20Fee%20Seize%20Please%202-600.webp","c":"02298","w":600,"ht":436},{"h":"/marks/newest-patterns/0071","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language%202-600.webp","c":"02299","w":600,"ht":458},{"h":"/marks/newest-patterns/0072","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Let%20Us%20Not%20Define%20You%20Or%20Your%20Language-600.webp","c":"02300","w":600,"ht":461},{"h":"/marks/newest-patterns/0073","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Letter%20Forms%20And%20Extremely%20Different%20Lengths%20Of%20Thoughtful%20Strands%20~%20Complex%20Detailed%20Underground%20Organism%202-600.webp","c":"02301","w":600,"ht":436},{"h":"/marks/newest-patterns/0074","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp","c":"02302","w":600,"ht":458},{"h":"/marks/newest-patterns/0075","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp","c":"02303","w":600,"ht":457},{"h":"/marks/newest-patterns/0076","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp","c":"02304","w":600,"ht":436},{"h":"/marks/newest-patterns/0077","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp","c":"02305","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -342,5 +192,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

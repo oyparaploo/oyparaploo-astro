@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="## Part One: The pH Test I discovered our brook was dying at 6:47 a.m.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,20 +53,36 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Last Brook in Meadowbrook</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
-  <p>Part One: The pH Test</p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 17 minutes</p>
+        <h1 class="stage-title">The Last Brook in Meadowbrook</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
+  <h2>Part One: The pH Test</h2>
   <p>I discovered our brook was dying at 6:47 a.m. on June 15th, when the litmus strip turned orange instead of green—pH 4.3, acidic enough to dissolve teeth.</p>
   <p>The test kit belonged to my grandmother, a soil chemist who&#x27;d monitored this water for forty years before dementia took her memory but left her instincts. Even now, residing at Meadowbrook Care, she&#x27;d grab my wrist whenever I visited: "Check the brook. Something&#x27;s wrong with the brook."</p>
   <p>This morning proved her right. I knelt on the bank where we&#x27;d tested water together since I was seven, where she&#x27;d taught me that brooks remember everything they touch—every farm runoff, every factory discharge, every storm. The water ran clear but carried death: no minnows, no water striders, no algae. Just clarity that meant nothing lived here anymore.</p>
   <p>This is how I came to investigate Meadowbrook&#x27;s last water source: not as an environmental scientist, though I have the degree, but as someone whose DNA was programmed by this specific watershed, whose grandmother&#x27;s notes filled seventeen journals with pH readings, dissolved oxygen levels, and macroinvertebrate counts dating back to 1983.</p>
   <p>The question that drives this story formed as I held that orange strip: How does a community choose between economic survival and ecological death when they&#x27;re the same thing?</p>
-  <p>---</p>
-  <p><em>[Braid shift to historical context - 1000 words]</em></p>
+  <h2><em>[Braid shift to historical context - 1000 words]</em></h2>
   <p>Meadowbrook&#x27;s relationship with water began in 1887 when Danish immigrants, following Mill Creek upstream, found springs that never froze. They named it Meadowbrook—not for meadows, which didn&#x27;t exist in this pine forest, but for the Danish "maed," meaning community, and brook, the water that made community possible.</p>
   <p>The Town Archives, housed in what used to be the creamery, contain 4,847 documents related to water rights. I spent three months reading them all. The pattern was consistent: every generation fought over water, and every generation lost something in the winning.</p>
   <p>1923: Meadowbrook Creamery Cooperative diverted 70% of brook flow for cooling. Fish populations crashed. The state intervened, mandating minimum flow rates.</p>
@@ -241,8 +93,7 @@
   <p>The mill closed in 2009. Jobs vanished overnight. But the metals remain, bound in sediment, waiting for the next big storm to stir them up.</p>
   <p>Now Meridian Agriculture International wants to build a vertical farm operation here. Five hundred jobs, they promise. Mayor Jewels—Julian Jewels, though everyone still calls him his high school nickname—has the proposal on his desk. I&#x27;ve read it. Page 47, buried in appendices: "Water requirements: 2.7 million gallons daily, sourced from local watershed."</p>
   <p>That&#x27;s triple the brook&#x27;s current flow.</p>
-  <p>---</p>
-  <p><em>[Braid shift to present investigation - 1000 words]</em></p>
+  <h2><em>[Braid shift to present investigation - 1000 words]</em></h2>
   <p>"You&#x27;re measuring it wrong," Paul Andersen said, squinting at my flow meter. It was 5 a.m., mist rising off the water like the earth exhaling. Paul managed Harrison&#x27;s farm now, had for three years since Harrison&#x27;s hands started shaking too much for fine work.</p>
   <p>"Flow meter doesn&#x27;t lie," I said. "312 gallons per minute. In 1983, this spot measured 1,100."</p>
   <p>Paul crouched beside me, his knees popping. Picked up a handful of gravel from the brook bed, let it run through his fingers. "When I was a kid, you couldn&#x27;t see the bottom here. Too deep. Now look—" He stood, water barely covering his boots. "Maybe eighteen inches."</p>
@@ -253,14 +104,13 @@
   <p>"Show them the test results," she said to Paul.</p>
   <p>Paul pulled out his phone, showed me photos of documents. Water samples from below Miriam&#x27;s operation: pH improving, metal content dropping. Small improvements, but measurable.</p>
   <p>"It&#x27;s not enough," Miriam said, reading my expression. "I know it&#x27;s not enough. But it&#x27;s something."</p>
-  <p>---</p>
-  <p><em>[Scene construction - 700 words]</em></p>
+  <h2><em>[Scene construction - 700 words]</em></h2>
   <p>The Town Hall meeting was scheduled for 7 p.m., but by 6:30, all 200 seats were taken. I stood in the back, my grandmother&#x27;s journal in my hands.</p>
   <p>Mayor Jewels commanded the podium, his voice bouncing off wood-paneled walls that had heard every Meadowbrook argument since 1902. "Meridian Agriculture represents our future," he said. "Five hundred jobs. Benefits. Stability."</p>
   <p>"What about water?" shouted someone from the crowd.</p>
   <p>"They&#x27;ll use recycling systems," Jewels replied. "Ninety percent efficiency."</p>
   <p>"That&#x27;s still 270,000 gallons daily of new water," I called out. Everyone turned. "I have the brook measurements. We don&#x27;t have 270,000 gallons."</p>
-  <p>Jewels&#x27;s jaw tightened. "And who are you to—"</p>
+  <h2>Jewels&#x27;s jaw tightened. "And who are you to—"</h2>
   <p>"She&#x27;s Eleanor Lindstrom&#x27;s granddaughter," interrupted a voice. Mrs. Chen, who ran the hardware store. "Eleanor monitored that brook for forty years. If her granddaughter says we don&#x27;t have water, we don&#x27;t have water."</p>
   <p>"I have documents," I said, walking forward. Handed Jewels my grandmother&#x27;s journal, opened to June 1985. Her handwriting, precise as printed text: "Brook cannot sustain additional extraction. Minimum flow for ecosystem survival: 400 gpm. Current flow: 420 gpm. Margin of error: none."</p>
   <p>"That was forty years ago," Jewels said.</p>
@@ -270,8 +120,7 @@
   <p>"The brook is dying," he said quietly. The room went silent. "Has been for years. We just didn&#x27;t want to see it."</p>
   <p>"But the jobs—" Jewels began.</p>
   <p>"Will mean nothing if we have no water," Victor replied.</p>
-  <p>---</p>
-  <p><em>[Personal memory woven with research - 1000 words]</em></p>
+  <h2><em>[Personal memory woven with research - 1000 words]</em></h2>
   <p>My grandmother started showing signs of dementia the same year the mill closed. I don&#x27;t think that&#x27;s coincidence. She&#x27;d spent her retirement fighting for water quality, testifying at hearings, writing letters to representatives. When the mill shut down, she thought she&#x27;d won. Then came the unemployment, the foreclosures, the exodus of families who&#x27;d lived here for generations.</p>
   <p>"I saved the water but lost the town," she told me, the last day she recognized me fully.</p>
   <p>Her journals, which I inherited when we moved her to care, tell a different story. Forty years of data: pH levels, temperature readings, invertebrate surveys. But between the numbers, observations:</p>
@@ -281,18 +130,17 @@
   <p>I was that granddaughter, seven years old, kneeling beside her on smooth granite stones older than European settlement. She taught me to read water like others read books: the way healthy water sounds different from sick water, how foam patterns indicate contamination, why certain algae only grow where nutrients run too high.</p>
   <p>Dr. Chen sent me research from Montana State: watersheds have memory. Chemical signatures persist in sediment for decades. Heavy metals bind to clay particles, release slowly, accumulate in food chains. A brook poisoned in 1985 still carries that poison in 2024, passed from sediment to insect to fish to heron to soil when the heron dies, back to water when rain falls.</p>
   <p>"Your grandmother understood this," Dr. Chen wrote. "Her journals document what we&#x27;re only now proving: watershed trauma is inherited, generation to generation."</p>
-  <p>---</p>
   <p><em>[Return to present scene with complexity - 1000 words]</em></p>
   <p>Three days after the town meeting, I found Harrison in his garden at dawn, pulling weeds with hands that shook like leaves. His kale grew in perfect rows despite the tremor—muscle memory stronger than nerve damage.</p>
   <p>"It&#x27;s not Parkinson&#x27;s," he said without my asking. "Doctors can&#x27;t say what it is. Started five years ago."</p>
   <p>I knew. Had read the studies. Chronic exposure to agricultural chemicals causes progressive neurological damage. Latency period: twenty to thirty years. Harrison had sprayed his fields for twenty-seven years before switching to organic.</p>
   <p>"Paul wants me to support the vertical farm," he said, gripping a weed, pulling slowly so the roots came free intact. "Says it&#x27;s our only chance."</p>
-  <p>"What do you think?"</p>
+  <h2>"What do you think?"</h2>
   <p>He held up the weed—lamb&#x27;s quarters, edible, nutritious, what his Danish grandmother called survival food. "I think we&#x27;re pulling the wrong things out and planting the wrong things in."</p>
   <p>That afternoon, Miriam called a meeting at her filtration ponds. Seven of us showed: Harrison, Paul, Victor, Mrs. Chen, two farmers I didn&#x27;t know, and me. The ponds reflected sky, deceptively beautiful, hiding water so contaminated it required hazmat permits.</p>
   <p>"I can expand," Miriam said. "If I had twenty acres instead of five, I could filter half the brook&#x27;s flow. Remove sixty percent of heavy metals annually."</p>
   <p>"How long until clean?" asked one farmer.</p>
-  <p>"Twelve years. Maybe fifteen."</p>
+  <h2>"Twelve years. Maybe fifteen."</h2>
   <p>"Town will be dead by then," Paul said.</p>
   <p>"Town&#x27;s already dead," Victor replied. "We&#x27;re just arguing over what kind of ghost it becomes."</p>
   <p>Miriam pulled out a map, hand-drawn on restaurant placemat paper. "What if we did both? Vertical farm here—" she pointed to the old mill site, "—but require them to fund brook restoration. Make them pump water from deeper aquifer, leave brook alone."</p>
@@ -304,24 +152,22 @@
   <p>"Water rights," he said. "I wrote those ordinances. There&#x27;s a clause—Section 47-B—that requires minimum flow rates for historical usage. If we can prove historical usage includes ecosystem support, not just human consumption..."</p>
   <p>"My grandmother&#x27;s journals," I said. "Forty years of ecosystem documentation."</p>
   <p>Victor smiled—first time I&#x27;d seen that in years. "That would do it."</p>
-  <p>---</p>
   <p><em>[The vulnerable distance - most emotional moment - 500 words]</em></p>
   <p>I visited my grandmother that evening. She sat by the window, staring at parking lot asphalt where she thought the brook should be. Her hands moved like she was testing water, pinching air between thumb and forefinger, bringing nothing to her nose to smell.</p>
   <p>"pH is wrong," she said when she saw me. Always the same greeting now.</p>
   <p>I sat beside her, placed the litmus strips in her hand. She held them to the window light, studying colors that weren&#x27;t there.</p>
-  <p>"Orange," she said. "Too acidic. Fish will die."</p>
-  <p>"They already did, Grandma."</p>
+  <h2>"Orange," she said. "Too acidic. Fish will die."</h2>
+  <h2>"They already did, Grandma."</h2>
   <p>She turned to me, and for a moment, her eyes cleared. Really saw me. "Did you check the mayflies?"</p>
-  <p>"No mayflies since 1993."</p>
+  <h2>"No mayflies since 1993."</h2>
   <p>Her face crumpled—not crying, but something deeper. The kind of grief that&#x27;s past tears. She looked at her hands, still holding invisible water.</p>
   <p>"I tried," she whispered.</p>
-  <p>"I know."</p>
-  <p>"Wasn&#x27;t enough."</p>
-  <p>"It was something."</p>
+  <h2>"I know."</h2>
+  <h2>"Wasn&#x27;t enough."</h2>
+  <h2>"It was something."</h2>
   <p>She shook her head, returned to staring at the parking lot. But her hand found mine, squeezed with surprising strength. Her skin felt like paper, but warm, alive. Under the thin surface, I could feel her pulse—steady, persistent, like brook water over stones.</p>
   <p>We sat in silence while the sun set behind the parking lot, light refracting through her water glass on the windowsill, casting rainbow patterns on the wall. She watched these colors like they were test results, reading messages in light.</p>
-  <p>---</p>
-  <p><em>[Facts transformed to images - 800 words]</em></p>
+  <h2><em>[Facts transformed to images - 800 words]</em></h2>
   <p>Meadowbrook&#x27;s water crisis is fifteen communities&#x27; crisis. Across Minnesota, 247 towns depend on single water sources. When those sources fail, the towns fail.</p>
   <p>The numbers tell it precisely: Agricultural runoff increases nitrogen levels 500%. One pound of nitrogen creates 10 pounds of algae. Algae decomposition consumes oxygen at 2.3 grams per square meter daily. Brook trout require 6 parts per million dissolved oxygen. When algae blooms drop oxygen below 4 ppm, fish suffocate in water.</p>
   <p>But see it rather than count it: Green water so thick you can write your name in it. Fish floating belly-up like silver leaves. Herons standing beside water they won&#x27;t drink, waiting for prey that won&#x27;t come.</p>
@@ -330,7 +176,6 @@
   <p>Vertical farms promise solutions. Meridian&#x27;s proposal claims 95% less water than traditional agriculture. But that&#x27;s compared to irrigation, not rain-fed farming. The real number: 200 gallons per pound of tomatoes. Harrison&#x27;s greenhouse tomatoes: 30 gallons per pound. The efficiency is illusion—they&#x27;re comparing different things.</p>
   <p>The aquifer beneath Meadowbrook formed over 10,000 years, filled by glacial melt. We&#x27;ve drawn it down 47 feet in 40 years. Recharge rate: 2 inches annually. Extraction rate: 14 inches annually. The math is inexorable.</p>
   <p>But the brook keeps flowing, diminished but persistent. 312 gallons per minute equals 449,280 gallons daily. Enough for 1,200 people if we used it for nothing else. Meadowbrook population: 1,847. Already impossible.</p>
-  <p>---</p>
   <p><em>[Return to opening image transformed - final scene - 1500 words]</em></p>
   <p>Six months later, I stood at the same spot where I&#x27;d found the brook dying, but everything had changed. The litmus strip read 5.8—still acidic, but improving. Beside me, Miriam held a mason jar of brook water up to morning light.</p>
   <p>"See the cloudiness?" she said. "That&#x27;s algae. Good algae. First time in five years."</p>
@@ -352,10 +197,10 @@
   <p>"She&#x27;s engineering sediment traps. Thinks she can create mussel habitat."</p>
   <p>I thought of my grandmother&#x27;s journals, her documentation of the last native mussels dying in 1994. Thirty years gone. Maybe not forever.</p>
   <p>"The vertical farm will still destroy the aquifer," I said.</p>
-  <p>"Probably."</p>
-  <p>"The town will still struggle."</p>
-  <p>"Definitely."</p>
-  <p>"So why keep trying?"</p>
+  <h2>"Probably."</h2>
+  <h2>"The town will still struggle."</h2>
+  <h2>"Definitely."</h2>
+  <h2>"So why keep trying?"</h2>
   <p>Paul poured coffee into the thermos lid, handed it to me. Steam rose, disappeared into cold air. "Your grandmother never stopped measuring. Even when the numbers got worse. Even when nobody listened. She kept measuring."</p>
   <p>He was right. The journals continued until weeks before her death, handwriting deteriorating but numbers precise. pH levels, temperature, flow rates. Data points in a forty-year dataset that had finally, finally, changed one law, saved one brook, maybe bought time.</p>
   <p>I pulled out my notebook—not my grandmother&#x27;s, but following her format. Recorded the pH, the temperature (34°F), the flow rate (287 gallons per minute—still declining but slower). Added observations: "Thin ice at edges. Two chickadees drinking. Algae visible on stones—first growth in years."</p>
@@ -371,31 +216,28 @@
   <p>The brook would outlive Meadowbrook. Had outlived the Dakota who named it first, the Danes who renamed it, would outlive Meridian Agriculture and whatever came after. But it would carry us all downstream—our chemicals and our care, our poisons and our poor attempts at healing, our measurements and our failures to measure what actually mattered.</p>
   <p>I walked home along the brook path, ice crunching underfoot, water singing its damaged song beside me. In my notebook, numbers waited to become arguments, to become laws, to become the story of water that remembered everything we&#x27;d done and continued anyway, diminished but flowing, carrying what remained of us toward whatever ocean still existed, whatever fish still swam, whatever future still moved in ripples too complex to measure but impossible to stop.</p>
   <p>The brook hummed its broken tune, and I listened, and I measured, and I added my data to its memory, and we continued together toward an ending neither of us could see but both of us were writing, word by chemical word, number by dying number, ripple by contaminated ripple of grace.</p>
-  <p><em>[End]</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0002"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp" alt="02230" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0003"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp" alt="02231" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0004"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp" alt="02232" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0005"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp" alt="02233" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0006"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp" alt="02234" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0007"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language-600.webp" alt="02235" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0008"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Any%20Story%20Spirits%20Tears%20Petals%20Nails%20Mess%202-600.webp" alt="02236" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0009"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit%202-600.webp" alt="02237" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0010"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit-600.webp" alt="02238" width="600" height="452" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0011"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Arachi%20Ko%20Drops%20Energy%20Patience%202-600.webp" alt="02239" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0012"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity%202-600.webp" alt="02240" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0013"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity-600.webp" alt="02241" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0014"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bahb%20Sontey%20Poli%202-600.webp" alt="02242" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0015"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs%202-600.webp" alt="02243" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0016"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs-600.webp" alt="02244" width="600" height="455" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0017"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blinking%20Rose%20Petal%20Fragrance%202-600.webp" alt="02245" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0018"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bouquet%20Daisy%20Dakota%20Underground%20Aromas%202-600.webp" alt="02246" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0019"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form%202-600.webp" alt="02247" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0020"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brins%20et%20trous%20harmonieux%20deux-600.webp" alt="02248" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0021"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Is%20Also%20Loosely%20Visually%20Sort%20Of%20Humorously%20This%20Kind%20Of%20Symbolic%20Identity%202-600.webp" alt="02249" width="600" height="458" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-organism-that-owns-oregon/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+  <h2><em>[End]</em></h2>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-weight-of-olive-wood/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Weight of Olive Wood</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-organism-that-owns-oregon/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Organism That Owns Oregon</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0002"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp" alt="02230" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0003"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp" alt="02231" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0004"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp" alt="02232" width="600" height="457" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0005"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp" alt="02233" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0006"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp" alt="02234" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0002","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%202-600.webp","c":"02230","w":600,"ht":436},{"h":"/marks/newest-patterns/0003","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp","c":"02231","w":600,"ht":458},{"h":"/marks/newest-patterns/0004","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here-600.webp","c":"02232","w":600,"ht":457},{"h":"/marks/newest-patterns/0005","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/AlousOr%20Teh%202-600.webp","c":"02233","w":600,"ht":436},{"h":"/marks/newest-patterns/0006","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language%202-600.webp","c":"02234","w":600,"ht":458},{"h":"/marks/newest-patterns/0007","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Animal%20Forest%20Dense%20Rhythm%20Mystic%20Jungle%20Wildlife%20Roots%20Language-600.webp","c":"02235","w":600,"ht":457},{"h":"/marks/newest-patterns/0008","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Any%20Story%20Spirits%20Tears%20Petals%20Nails%20Mess%202-600.webp","c":"02236","w":600,"ht":436},{"h":"/marks/newest-patterns/0009","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit%202-600.webp","c":"02237","w":600,"ht":458},{"h":"/marks/newest-patterns/0010","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Apocalypse%20Hopefully%20Never%20Infinity%20Spirit-600.webp","c":"02238","w":600,"ht":452},{"h":"/marks/newest-patterns/0011","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Arachi%20Ko%20Drops%20Energy%20Patience%202-600.webp","c":"02239","w":600,"ht":436},{"h":"/marks/newest-patterns/0012","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity%202-600.webp","c":"02240","w":600,"ht":458},{"h":"/marks/newest-patterns/0013","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/At%20The%20Organic%20Wire%20Fence%20Moment%20Of%20Intricate%20Visual%20Activity-600.webp","c":"02241","w":600,"ht":458},{"h":"/marks/newest-patterns/0014","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bahb%20Sontey%20Poli%202-600.webp","c":"02242","w":600,"ht":436},{"h":"/marks/newest-patterns/0015","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs%202-600.webp","c":"02243","w":600,"ht":458},{"h":"/marks/newest-patterns/0016","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blessed%20Sacred%20Happy%20Star%20Of%20Needles%20And%20Pieces%20Of%20Willow%20Twigs-600.webp","c":"02244","w":600,"ht":455},{"h":"/marks/newest-patterns/0017","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Blinking%20Rose%20Petal%20Fragrance%202-600.webp","c":"02245","w":600,"ht":436},{"h":"/marks/newest-patterns/0018","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bouquet%20Daisy%20Dakota%20Underground%20Aromas%202-600.webp","c":"02246","w":600,"ht":436},{"h":"/marks/newest-patterns/0019","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form%202-600.webp","c":"02247","w":600,"ht":436},{"h":"/marks/newest-patterns/0020","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brins%20et%20trous%20harmonieux%20deux-600.webp","c":"02248","w":600,"ht":436},{"h":"/marks/newest-patterns/0021","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Brrd%20Roots%20Is%20Also%20Loosely%20Visually%20Sort%20Of%20Humorously%20This%20Kind%20Of%20Symbolic%20Identity%202-600.webp","c":"02249","w":600,"ht":458}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -411,5 +253,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

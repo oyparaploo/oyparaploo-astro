@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="Vera has been drawing grids for two years and four months.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,64 +53,81 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Grid Work</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 8 minutes</p>
+        <h1 class="stage-title">Grid Work</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>Vera has been drawing grids for two years and four months. Every morning. Graph paper. Purple pen. One hundred squares per page. She fills the page, tapes it to the wall, starts another.</p>
   <p>She&#x27;s fifty-six. Lives in Milwaukee. Works data entry from home. Has for fifteen years. Numbers in columns. Data in boxes. Eight hours a day staring at spreadsheets, then she comes upstairs and draws more boxes.</p>
   <p>Her walls are covered now. Bedroom walls, hallway walls, bathroom walls. Seven hundred and eighty-three pages of graph paper. She keeps count. The number matters somehow even though she can&#x27;t say why.</p>
   <p>Her daughter Rachel visits every other Sunday. Today she stands in the bedroom doorway looking at the walls. Purple grids floor to ceiling. Some perfect. Most not.</p>
-  <p>"Mom."</p>
-  <p>"I know."</p>
-  <p>"This is—"</p>
-  <p>"I know."</p>
+  <h2>"Mom."</h2>
+  <h2>"I know."</h2>
+  <h2>"This is—"</h2>
+  <h2>"I know."</h2>
   <p>Rachel has stopped using words like "concerning" and "excessive." Now she just says "I know" and they both understand what she means.</p>
   <p>"Is it helping?" Rachel asks.</p>
   <p>Vera draws another line. The pen shakes a little. The line wavers. She keeps going. "I don&#x27;t know if helping is what it does."</p>
-  <p>"Then what does it do?"</p>
-  <p>"It&#x27;s just what I do now."</p>
+  <h2>"Then what does it do?"</h2>
+  <h2>"It&#x27;s just what I do now."</h2>
   <p>Started after the divorce. Jim left on a Tuesday. Vera couldn&#x27;t sleep that night. Or the next night. Or the next. On the fourth night she found graph paper in Emma&#x27;s old desk—Emma&#x27;s been gone seven years, college then Denver then married—and she drew a grid. Just one page. All the lines straight. All the squares even. </p>
   <p>When she finished it was morning.</p>
   <p>She slept three hours. Woke up. Drew another grid.</p>
   <p>Been doing it every day since.</p>
   <p>Her therapist, Dr. Klein, asks about them every session. Vera brings photos on her phone. Dr. Klein looks at them the way you&#x27;d look at evidence.</p>
-  <p>"What do they represent?"</p>
-  <p>"Nothing. They&#x27;re just grids."</p>
-  <p>"They must represent something."</p>
-  <p>"Must they?"</p>
+  <h2>"What do they represent?"</h2>
+  <h2>"Nothing. They&#x27;re just grids."</h2>
+  <h2>"They must represent something."</h2>
+  <h2>"Must they?"</h2>
   <p>Dr. Klein writes something in her notebook. Vera knows she&#x27;s writing about obsessive behaviors, about grief responses, about middle-aged women whose husbands leave and whose daughters move away and who work jobs that require them to organize data into boxes eight hours a day and maybe she&#x27;s just trying to organize something, control something, make something that holds when everything else doesn&#x27;t.</p>
   <p>Vera doesn&#x27;t say any of this. Just shows Dr. Klein the grids and says they&#x27;re calming and Dr. Klein nods and writes and they both pretend this is helping.</p>
   <p>At work Vera enters data. Customer names. Account numbers. Purchase histories. All in boxes. All in grids. Columns and rows. Everything organized. Everything in its place.</p>
   <p>She&#x27;s good at it. Fast. Accurate. Been doing it so long her fingers know the keyboard without thinking. She can enter data and think about other things. Like why purple. Like why graph paper. Like why she can&#x27;t stop even though she knows it looks crazy.</p>
   <p>Her ex-husband Jim calls sometimes. They&#x27;re still working out the house stuff. The retirement accounts. All the administrative debris of twenty-eight years together.</p>
   <p>"How are you doing?" he asks.</p>
-  <p>"Fine."</p>
-  <p>"Rachel says you&#x27;re drawing a lot."</p>
-  <p>"Rachel should mind her business."</p>
-  <p>"She&#x27;s worried."</p>
-  <p>"Tell her not to be."</p>
+  <h2>"Fine."</h2>
+  <h2>"Rachel says you&#x27;re drawing a lot."</h2>
+  <h2>"Rachel should mind her business."</h2>
+  <h2>"She&#x27;s worried."</h2>
+  <h2>"Tell her not to be."</h2>
   <p>They hang up. Vera draws another grid. This one comes out perfect. All lines straight. All squares exactly even. She hates it. Crumples it. Throws it away. Starts another one. Lets her hand shake. Lets the lines waver. </p>
   <p>Better.</p>
   <p>The imperfect ones are better. The perfect ones feel dishonest somehow. Like lying. Like pretending everything holds together when it doesn&#x27;t.</p>
   <p>Her neighbor Mrs. Chen knocks around dinner time. Vera answers the door. Mrs. Chen holds a casserole dish.</p>
-  <p>"For you. Chicken."</p>
-  <p>"Thank you."</p>
+  <h2>"For you. Chicken."</h2>
+  <h2>"Thank you."</h2>
   <p>Mrs. Chen peers past her into the apartment. Can see the grids through the open bedroom door. Says nothing. Just: "You eating okay?"</p>
-  <p>"Yes."</p>
-  <p>"Rachel told me to check."</p>
-  <p>"Rachel needs to stop telling people to check."</p>
+  <h2>"Yes."</h2>
+  <h2>"Rachel told me to check."</h2>
+  <h2>"Rachel needs to stop telling people to check."</h2>
   <p>Mrs. Chen smiles a little. Hands over the casserole. Leaves.</p>
   <p>Vera eats the chicken standing at the counter. It&#x27;s good. Mrs. Chen is a good cook. Vera should probably invite her over sometime. Should probably do a lot of things. Instead she washes the dish, dries it, sets it by the door to return tomorrow.</p>
   <p>Goes back to drawing.</p>
   <p>Her granddaughter Emma—named after Vera&#x27;s Emma—comes over Wednesday after school. She&#x27;s seven. Rachel&#x27;s daughter. Vera&#x27;s favorite person.</p>
   <p>Emma walks straight to the bedroom. Looks at all the grids. Doesn&#x27;t say they&#x27;re weird. Just: "Can I try?"</p>
-  <p>"Sure."</p>
+  <h2>"Sure."</h2>
   <p>Vera gives her graph paper. Gives her a purple pen. Emma sits on the floor and draws. Her grids are chaos. Lines everywhere. Squares that aren&#x27;t squares. It&#x27;s beautiful.</p>
   <p>"Like this?" Emma asks.</p>
-  <p>"Exactly like that."</p>
+  <h2>"Exactly like that."</h2>
   <p>Emma draws three pages. Vera tapes them all up. On the wall with the others. Emma&#x27;s crooked grids next to Vera&#x27;s crooked grids next to Vera&#x27;s failed attempts at perfect grids.</p>
   <p>After Emma leaves—Rachel picking her up, exchanging worried looks with Vera that Vera pretends not to see—Vera draws another grid. Thinks about Emma&#x27;s fearless chaos. Tries to match it. Can&#x27;t. Her grids are controlled even when they&#x27;re imperfect. Even when she&#x27;s trying to let go.</p>
   <p>Her hand shakes but in a consistent way. The lines waver but in a pattern. She can&#x27;t escape the organization even when she&#x27;s trying to make mess.</p>
@@ -288,15 +141,15 @@
   <p>Everything in its place. Everything organized. Everything held.</p>
   <p>Her friend Marcy comes over Friday. They&#x27;ve been friends since Emma was in kindergarten with Marcy&#x27;s son. They don&#x27;t see each other as much now that the kids are grown. But Marcy calls sometimes. Checks in.</p>
   <p>Marcy walks through the apartment. Looks at all the grids. Finally: "Jesus, Vera."</p>
-  <p>"I know."</p>
-  <p>"How long have you been doing this?"</p>
-  <p>"Two years."</p>
-  <p>"And Rachel knows?"</p>
-  <p>"Rachel knows."</p>
-  <p>"And she&#x27;s not—I mean, is anyone helping you?"</p>
-  <p>"I have a therapist."</p>
-  <p>"And she&#x27;s okay with this?"</p>
-  <p>"She&#x27;s working with me on it."</p>
+  <h2>"I know."</h2>
+  <h2>"How long have you been doing this?"</h2>
+  <h2>"Two years."</h2>
+  <h2>"And Rachel knows?"</h2>
+  <h2>"Rachel knows."</h2>
+  <h2>"And she&#x27;s not—I mean, is anyone helping you?"</h2>
+  <h2>"I have a therapist."</h2>
+  <h2>"And she&#x27;s okay with this?"</h2>
+  <h2>"She&#x27;s working with me on it."</h2>
   <p>Marcy doesn&#x27;t look convinced. They drink tea. Talk about other things. Marcy&#x27;s son in Seattle. Marcy&#x27;s new boyfriend. Normal things. But Marcy keeps glancing at the walls.</p>
   <p>After she leaves Vera draws another grid. Knows what people think. Knows it looks crazy. Doesn&#x27;t care. Or cares but can&#x27;t stop anyway.</p>
   <p>The graph paper is running low. She orders more online. Six packs of one hundred sheets each. Ships in two days. She needs to pace herself to make what she has last until then.</p>
@@ -304,10 +157,10 @@
   <p>Sunday Rachel brings Emma again. And Rachel&#x27;s husband David. And their son Max. Family dinner. Vera makes pasta. They eat at the table. Normal conversation. School. Work. The weather.</p>
   <p>Nobody mentions the grids.</p>
   <p>After dinner Max asks, "Grandma, why is your house purple?"</p>
-  <p>Rachel says, "Max, don&#x27;t—"</p>
-  <p>"It&#x27;s okay," Vera says. "I like purple."</p>
-  <p>"But why lines?"</p>
-  <p>"I just do."</p>
+  <h2>Rachel says, "Max, don&#x27;t—"</h2>
+  <h2>"It&#x27;s okay," Vera says. "I like purple."</h2>
+  <h2>"But why lines?"</h2>
+  <h2>"I just do."</h2>
   <p>Max accepts this. Eight years old. Things just are. He doesn&#x27;t need reasons.</p>
   <p>After they leave Vera looks at her walls. Seven hundred and ninety-eight grids. Purple lines covering every surface. A house made of graph paper. A life organized into boxes.</p>
   <p>She draws another one. The pen is running out of ink. The purple is getting lighter. She likes it. Pale purple. Ghost purple. Purple that&#x27;s barely there.</p>
@@ -316,14 +169,14 @@
   <p>She alternates now. Pale and dark. Light and heavy. Both purple. Both lines. Both grids organizing nothing into boxes that mean nothing.</p>
   <p>Her ceiling is the only space left. She buys a step stool. Starts taping grids to the ceiling. Has to stand on the stool. Reach up. Tape the corners. It&#x27;s awkward. Her back hurts. She does it anyway.</p>
   <p>Rachel calls that night.</p>
-  <p>"Mom, David is worried."</p>
-  <p>"About what?"</p>
-  <p>"About you. About the grids."</p>
-  <p>"Tell David I&#x27;m fine."</p>
-  <p>"Are you fine?"</p>
-  <p>"I&#x27;m fine."</p>
-  <p>"Because if you&#x27;re not—"</p>
-  <p>"I&#x27;m fine, Rachel."</p>
+  <h2>"Mom, David is worried."</h2>
+  <h2>"About what?"</h2>
+  <h2>"About you. About the grids."</h2>
+  <h2>"Tell David I&#x27;m fine."</h2>
+  <h2>"Are you fine?"</h2>
+  <h2>"I&#x27;m fine."</h2>
+  <h2>"Because if you&#x27;re not—"</h2>
+  <h2>"I&#x27;m fine, Rachel."</h2>
   <p>They hang up.</p>
   <p>Vera lies in bed under the ceiling of grids. Purple lines above her. Purple lines on every wall. Purple lines in every room. A house made of boxes. A life organized by someone who knows that organization is a lie but needs to pretend anyway.</p>
   <p>She falls asleep looking at the lines. Wakes up. Draws another grid.</p>
@@ -348,30 +201,27 @@
   <p>That&#x27;s what she&#x27;s doing.</p>
   <p>That&#x27;s what&#x27;s happening.</p>
   <p>That&#x27;s all it is.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0106"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp" alt="02334" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0107"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis%202-600.webp" alt="02335" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0108"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Prelude%20Pah%20Fyee%202-600.webp" alt="02336" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0109"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Remem%20Em%20Mem%20Emner%202-600.webp" alt="02337" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0110"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Rep%20Carnage%20Ache%20Awake%20Came%20With%20Dense%20Mush%202-600.webp" alt="02338" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0111"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%202-600.webp" alt="02339" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0112"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%203-600.webp" alt="02340" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0113"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Seeds%20Toon%20Actions%20And%20Activity%202-600.webp" alt="02341" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0114"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sie%20Tu%20Stoez%202-600.webp" alt="02342" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0115"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity%202-600.webp" alt="02343" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0116"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity-600.webp" alt="02344" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0117"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Six%20Point%20Star%20Energy%20Worth%20Noting%202-600.webp" alt="02345" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0118"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sixteen%20Kandels%202-600.webp" alt="02346" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0119"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Soldjiering%20Omeyah%202-600.webp" alt="02347" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0120"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Some%20Kind%20Of%20Folly%20From%20A%20Chaotic%20Natural%20Organized%20System%20Including%20Countless%20Short%20Strands%202-600.webp" alt="02348" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0121"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks%202-600.webp" alt="02349" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0122"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Suggestive%20Appears%20As%20Part%20Of%20This%20Symphony%20Of%20Symbols%20And%20Small%20Details%202-600.webp" alt="02350" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0123"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Suggestive%20Appears%20As%20Part%20Of%20This%20Symphony%20Of%20Symbols%20And%20Small%20Details-600.webp" alt="02351" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0124"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Unknown%20Is%20Piercing%20The%20Largest%20Ectomycorrhizal%20Organism%20Resting%20Under%20The%20Zagros%20Mountains%20Of%20Iran%202-600.webp" alt="02352" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0125"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Spirited%20Dance%20Of%20Characters%20And%20Strands%20Of%20Roots%20Frozen%20In%20Time%202-600.webp" alt="02353" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/suspended-crossing/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/the-chairs-nobody-sits-in-i/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">The Chairs Nobody Sits In</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/suspended-crossing/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">Suspended Crossing</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0106"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp" alt="02334" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0107"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis%202-600.webp" alt="02335" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0108"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Prelude%20Pah%20Fyee%202-600.webp" alt="02336" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0109"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Remem%20Em%20Mem%20Emner%202-600.webp" alt="02337" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0110"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Rep%20Carnage%20Ache%20Awake%20Came%20With%20Dense%20Mush%202-600.webp" alt="02338" width="600" height="436" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0106","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Please%20Turn%20and%20Run%20Away%20If%20This%20Is%20Too%20Dense%20or%20Asemic%20for%20You-600.webp","c":"02334","w":600,"ht":436},{"h":"/marks/newest-patterns/0107","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis%202-600.webp","c":"02335","w":600,"ht":436},{"h":"/marks/newest-patterns/0108","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Prelude%20Pah%20Fyee%202-600.webp","c":"02336","w":600,"ht":436},{"h":"/marks/newest-patterns/0109","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Remem%20Em%20Mem%20Emner%202-600.webp","c":"02337","w":600,"ht":436},{"h":"/marks/newest-patterns/0110","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Rep%20Carnage%20Ache%20Awake%20Came%20With%20Dense%20Mush%202-600.webp","c":"02338","w":600,"ht":436},{"h":"/marks/newest-patterns/0111","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%202-600.webp","c":"02339","w":600,"ht":458},{"h":"/marks/newest-patterns/0112","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Scripts%20And%20Symbols%20Movement%20Plus%20Harmonious%20Network%20Of%20Marks%20Background%203-600.webp","c":"02340","w":600,"ht":457},{"h":"/marks/newest-patterns/0113","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Seeds%20Toon%20Actions%20And%20Activity%202-600.webp","c":"02341","w":600,"ht":436},{"h":"/marks/newest-patterns/0114","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sie%20Tu%20Stoez%202-600.webp","c":"02342","w":600,"ht":436},{"h":"/marks/newest-patterns/0115","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity%202-600.webp","c":"02343","w":600,"ht":458},{"h":"/marks/newest-patterns/0116","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Silent%20Harmony%20Kind%20Beings%20Vagabond%20No%20Cruelty%20Earth%20Ground%20With%20Above%20Half%20Expressing%20Overall%20Intuitive%20Fluffy%20Activity-600.webp","c":"02344","w":600,"ht":456},{"h":"/marks/newest-patterns/0117","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Six%20Point%20Star%20Energy%20Worth%20Noting%202-600.webp","c":"02345","w":600,"ht":436},{"h":"/marks/newest-patterns/0118","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sixteen%20Kandels%202-600.webp","c":"02346","w":600,"ht":436},{"h":"/marks/newest-patterns/0119","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Soldjiering%20Omeyah%202-600.webp","c":"02347","w":600,"ht":436},{"h":"/marks/newest-patterns/0120","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Some%20Kind%20Of%20Folly%20From%20A%20Chaotic%20Natural%20Organized%20System%20Including%20Countless%20Short%20Strands%202-600.webp","c":"02348","w":600,"ht":436},{"h":"/marks/newest-patterns/0121","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks%202-600.webp","c":"02349","w":600,"ht":436},{"h":"/marks/newest-patterns/0122","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Suggestive%20Appears%20As%20Part%20Of%20This%20Symphony%20Of%20Symbols%20And%20Small%20Details%202-600.webp","c":"02350","w":600,"ht":458},{"h":"/marks/newest-patterns/0123","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Suggestive%20Appears%20As%20Part%20Of%20This%20Symphony%20Of%20Symbols%20And%20Small%20Details-600.webp","c":"02351","w":600,"ht":456},{"h":"/marks/newest-patterns/0124","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Something%20Unknown%20Is%20Piercing%20The%20Largest%20Ectomycorrhizal%20Organism%20Resting%20Under%20The%20Zagros%20Mountains%20Of%20Iran%202-600.webp","c":"02352","w":600,"ht":436},{"h":"/marks/newest-patterns/0125","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Spirited%20Dance%20Of%20Characters%20And%20Strands%20Of%20Roots%20Frozen%20In%20Time%202-600.webp","c":"02353","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -387,5 +237,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

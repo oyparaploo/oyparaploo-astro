@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="*In abandoned warehouses across the rust belt, people who fell through various systems attempt to write instruction manuals for survival, discovering that teach">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,62 +53,78 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Manual</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 6 minutes</p>
+        <h1 class="stage-title">The Manual</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p><em>In abandoned warehouses across the rust belt, people who fell through various systems attempt to write instruction manuals for survival, discovering that teaching what poverty taught you requires a language that doesn&#x27;t exist yet, so they invent one using motor oil and string and the specific knowledge of which debts follow you past bankruptcy.</em></p>
-  <p>---</p>
   <p>Madison was eleven and trying to write instructions for foster care.</p>
   <p>"Pack light," she wrote on cardboard with a Sharpie someone had left behind. "They move you fast."</p>
   <p>The warehouse smelled like pigeon shit and motor oil. December in Cleveland. No heat except what burned in barrels—wood from demolished houses, mostly. The smoke made everyone cough but warmth was warmth.</p>
   <p>"That&#x27;s good," Patricia said, reading over her shoulder. Patricia used to work at the museum. Got fired for letting people touch things. Now she taught here, though teaching wasn&#x27;t the right word. More like showing. More like doing things until other people started doing them too.</p>
   <p>"Should I write about the garbage bag?" Madison asked.</p>
-  <p>"What about it?"</p>
+  <h2>"What about it?"</h2>
   <p>"How they give you garbage bags for your stuff. Black ones. So everyone knows you&#x27;re foster."</p>
-  <p>"Write it."</p>
+  <h2>"Write it."</h2>
   <p>Madison wrote it. Around them, maybe forty people. Maybe sixty. Hard to count when everyone was moving. The warehouse had been empty since the mortgage crisis. Now it was full of people teaching each other things that weren&#x27;t supposed to need teaching.</p>
   <p>In one corner, David was showing someone how to file bankruptcy. He used to be a banker. Knew the forms. </p>
   <p>"Student loans don&#x27;t discharge," he was explaining. "Neither does child support. Everything else, maybe."</p>
-  <p>"Maybe?"</p>
+  <h2>"Maybe?"</h2>
   <p>"Depends on the judge. What day it is. Whether they had coffee."</p>
   <p>The person listening—young woman, maybe twenty-five—was taking notes on her hand. Pen on skin. Would wash off but she&#x27;d remember.</p>
   <p>"Show them the knots," Patricia called over.</p>
   <p>David held up fishing line tied to itself. "This is debt," he said. "You can move it around but you can&#x27;t untie it."</p>
   <p>"That&#x27;s not helpful," the woman said.</p>
-  <p>"No. But it&#x27;s true."</p>
+  <h2>"No. But it&#x27;s true."</h2>
   <p>Madison kept writing her manual. "Don&#x27;t get attached to things. Don&#x27;t get attached to people. Don&#x27;t get attached."</p>
   <p>"That&#x27;s dark," someone said. Pearl. She was Madison&#x27;s age, maybe older. Had a real home but came here anyway. Her dad sold insurance and hated it. She understood economics as bubbles—everything that popped had to go somewhere.</p>
   <p>"It&#x27;s true," Madison said.</p>
-  <p>"Yeah."</p>
+  <h2>"Yeah."</h2>
   <p>They kept writing. Patricia had given them the assignment: Write instructions for what you know. Make a manual for whoever comes next. But the manuals weren&#x27;t making sense. How do you write instructions for falling? For poverty? For systems that eat people?</p>
   <p>Maria was trying to write about cleaning. She&#x27;d cleaned the museum for seven years before they fired her.</p>
   <p>"The rich people never see you," she wrote. "You&#x27;re invisible. Use that."</p>
   <p>"Use it how?" someone asked.</p>
   <p>Maria thought. "I don&#x27;t know. Just... remember you&#x27;re invisible. It&#x27;s bad but sometimes it&#x27;s good."</p>
-  <p>"That doesn&#x27;t make sense."</p>
-  <p>"Nothing makes sense."</p>
+  <h2>"That doesn&#x27;t make sense."</h2>
+  <h2>"Nothing makes sense."</h2>
   <p>Chen was teaching people about pain. Her knee was fucked. Torn ACL. No insurance. She&#x27;d learned to walk different.</p>
   <p>"You adjust," she was saying, demonstrating her weird gait. "The body finds ways."</p>
-  <p>"Does it hurt?"</p>
-  <p>"Always. But you adjust."</p>
+  <h2>"Does it hurt?"</h2>
+  <h2>"Always. But you adjust."</h2>
   <p>Someone was crying in the T-Rex corner. The warehouse had an inflatable T-Rex costume someone bought with their last unemployment check. When you needed privacy, you went inside the T-Rex. Everyone understood.</p>
   <p>Madison added to her manual: "Sometimes you hide in weird places. That&#x27;s okay."</p>
   <p>An old woman was teaching her knitting pattern to a group. But it wasn&#x27;t really about knitting.</p>
   <p>"You make the same motion over and over," she said, needles clicking. "Like factory work. Like cleaning. Like anything minimum wage. But you&#x27;re building something."</p>
-  <p>"What?"</p>
-  <p>"I don&#x27;t know. Something."</p>
+  <h2>"What?"</h2>
+  <h2>"I don&#x27;t know. Something."</h2>
   <p>The warehouse walls were covered in half-finished sentences. Someone would start writing something, then stop. Then someone else would add to it. Or not.</p>
-  <p>"Connection is—"</p>
-  <p>"We learned that—"</p>
-  <p>"The important thing about falling—"</p>
+  <h2>"Connection is—"</h2>
+  <h2>"We learned that—"</h2>
+  <h2>"The important thing about falling—"</h2>
   <p>All incomplete. Patricia said that was fine. Said completion was for people with time and money. The rest of them just had fragments.</p>
   <p>"Is this helping anyone?" David asked, looking around at the chaos. Smoke from the barrels. Pigeons in the rafters. Kids writing manuals for survival. Adults teaching bankruptcy like it was art class.</p>
   <p>"Don&#x27;t know," Patricia said.</p>
-  <p>"Then why—"</p>
-  <p>"What else would we do?"</p>
+  <h2>"Then why—"</h2>
+  <h2>"What else would we do?"</h2>
   <p>That was the truth. What else? Go home to apartments they couldn&#x27;t afford? Look for jobs that didn&#x27;t exist? Pretend things were fine?</p>
   <p>Madison had filled three pieces of cardboard now. Her foster care manual was getting specific:</p>
   <p>"They&#x27;ll say it&#x27;s temporary but it&#x27;s not."<br>
@@ -280,10 +132,10 @@
   "Keep one thing hidden that&#x27;s yours."</p>
   <p>Pearl was reading over her shoulder. "What&#x27;s your hidden thing?"</p>
   <p>Madison showed her. A pill bottle with ashes in it. Or cigarette ash. Or dirt. Didn&#x27;t matter.</p>
-  <p>"Why?"</p>
-  <p>"Because it&#x27;s mine."</p>
+  <h2>"Why?"</h2>
+  <h2>"Because it&#x27;s mine."</h2>
   <p>A man walked in off the street. Suit, but wrinkled. Laid off, probably. Looking lost.</p>
-  <p>"What is this?"</p>
+  <h2>"What is this?"</h2>
   <p>Everyone answered at once. Not in harmony. Just noise:</p>
   <p>"School—"<br>
   "Nothing—"<br>
@@ -292,7 +144,7 @@
   "For survival—"<br>
   "For—"</p>
   <p>They stopped. Looked at each other. Nobody actually knew what they were doing.</p>
-  <p>"Sit down," Madison told the man. "Watch."</p>
+  <h2>"Sit down," Madison told the man. "Watch."</h2>
   <p>He sat. Watched David teaching bankruptcy through knots. Maria teaching invisibility through cleaning. Chen teaching pain through walking. Madison writing about foster care with a dying Sharpie.</p>
   <p>"I don&#x27;t understand," he said.</p>
   <p>"Neither do we," Patricia said. "But we&#x27;re doing it anyway."</p>
@@ -303,52 +155,48 @@
   "Where hospitals can&#x27;t turn you away"</p>
   <p>Madison read them all. Added her own. The warehouse got darker—winter dark, comes early, stays late. Someone added wood to the barrels. Smoke thickened.</p>
   <p>"We should organize these," Pearl said, looking at the pile of manuals.</p>
-  <p>"How?"</p>
-  <p>"I don&#x27;t know. Categories?"</p>
+  <h2>"How?"</h2>
+  <h2>"I don&#x27;t know. Categories?"</h2>
   <p>They tried. "Survival." "Systems." "Pain." But everything went in every category. How do you separate surviving from systems from pain?</p>
   <p>"Leave them mixed up," Patricia said. "That&#x27;s more honest."</p>
   <p>A news crew showed up. Someone always called the news eventually. Reporter in clean clothes, cameraman looking cold.</p>
-  <p>"What are you teaching here?"</p>
+  <h2>"What are you teaching here?"</h2>
   <p>Madison held up her manual. The reporter read it on camera: "Don&#x27;t get attached."</p>
-  <p>"That&#x27;s terrible advice for a child."</p>
+  <h2>"That&#x27;s terrible advice for a child."</h2>
   <p>"I&#x27;m not giving advice. I&#x27;m writing what I know."</p>
-  <p>"But—"</p>
-  <p>"Lady, you want advice? Don&#x27;t end up here."</p>
+  <h2>"But—"</h2>
+  <h2>"Lady, you want advice? Don&#x27;t end up here."</h2>
   <p>The reporter left. The segment would air with sad music. Call it "Warehouse School for the Desperate" or something. Miss everything.</p>
   <p>Madison kept writing. Her manual was twenty pages now. Foster care, but also just life when life kept moving you.</p>
   <p>"The thing about garbage bags," she wrote, "is they rip. So you learn to carry light. So you learn to let go. So you learn."</p>
-  <p>Patricia read it. "That&#x27;s good. That&#x27;s really good."</p>
-  <p>"It&#x27;s just true."</p>
+  <h2>Patricia read it. "That&#x27;s good. That&#x27;s really good."</h2>
+  <h2>"It&#x27;s just true."</h2>
   <p>Night came. Some people left. Others stayed—nowhere else to go. Madison curled up in her corner, using her manual as a pillow. Tomorrow she&#x27;d write more. Tomorrow others would too. Tomorrow they&#x27;d keep teaching each other things that couldn&#x27;t really be taught, just shown, just lived, just survived.</p>
   <p>The warehouse quiet except for coughing. Smoke damage. Everyone had it. </p>
   <p>Madison added one more line before sleeping: "Sometimes the manual is just proof someone else survived it too."</p>
   <p>That was enough. That was everything.</p>
-  <p>---</p>
   <p><em>The only manual that matters is the one written by someone still surviving what they&#x27;re teaching, in handwriting that shakes from cold or withdrawal or age, on whatever surface is available, incomplete because completion is for people who aren&#x27;t still falling, passed hand to hand in warehouses and shelters and the spaces between, proof that someone else survived this too.</em></p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-a/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20A%20%2862%29/Baby%20Divine049-600.webp" alt="Pages for Baby Divine A" width="457" height="600" loading="lazy"></a>
-      <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-b/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20B%20%2842%29/Baby%20Divine124-600.webp" alt="Pages for Baby Divine B" width="457" height="600" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/another-booklet/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/All%20Directions%20Vibration%20and%20Scribe%20T2-600.webp" alt="Another Booklet" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/biology-class/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/BIOLOGY%20CLASS%20%2814%29/02012024%20Composition%202-600.webp" alt="Biology Class" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/haring-bone/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp" alt="Haring Bone" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/intense-color/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp" alt="Intense Color" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/lightly-tinted/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp" alt="Lightly Tinted" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/minimal-impact/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp" alt="Minimal Impact" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/one-follicle-at-a-time/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp" alt="One Follicle at a Time" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/other-worldly/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form-600.webp" alt="Other Worldly" width="600" height="431" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/stained-fog/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Alie%20Fazia%20Fala%20V-600.webp" alt="Stained Fog" width="600" height="452" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/student-phase/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp" alt="Student Phase" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/tears-and-raindrops/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Active%20Nature%20Big-600.webp" alt="Tears and Raindrops" width="600" height="461" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/the-chair/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THE%20CHAIR%20%281%29/The%20Chair%20Wave-600.webp" alt="The Chair" width="600" height="434" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/thousand-marks/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THOUSAND%20MARKS%20%2869%29/Accumu%20Ektos-600.webp" alt="Thousand Marks" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/smooth-beh-laye/word-mapping/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/WORD%20MAPPING%20%2828%29/004%20An%20Ou%20Saples-600.webp" alt="Word Mapping" width="600" height="464" loading="lazy"></a>
-      <a href="/marks/agitation-exercise/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp" alt="Agitation Exercise" width="600" height="438" loading="lazy"></a>
-      <a href="/marks/blossom-petal-garden/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/BLOSSOM%20PETAL%20GARDEN%20%284%29/img147-600.webp" alt="Blossom Petal Garden" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/clouds-redefined/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/CLOUDS%20REDEFINED%20%284%29/img151-600.webp" alt="Clouds Redefined" width="600" height="462" loading="lazy"></a>
-      <a href="/marks/dry-grass-and-tears/"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img163-600.webp" alt="Dry Grass and Tears" width="600" height="462" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/what-we-tie-together/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/off-course/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Off Course</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/what-we-tie-together/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">What We Tie Together</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-a/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20A%20%2862%29/Baby%20Divine049-600.webp" alt="Pages for Baby Divine A" width="457" height="600" loading="lazy"></a>
+        <a href="/marks/pages-for-baby-divine/pages-for-baby-divine-b/"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20B%20%2842%29/Baby%20Divine124-600.webp" alt="Pages for Baby Divine B" width="457" height="600" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/another-booklet/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/All%20Directions%20Vibration%20and%20Scribe%20T2-600.webp" alt="Another Booklet" width="600" height="457" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/biology-class/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/BIOLOGY%20CLASS%20%2814%29/02012024%20Composition%202-600.webp" alt="Biology Class" width="600" height="462" loading="lazy"></a>
+        <a href="/marks/smooth-beh-laye/haring-bone/"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp" alt="Haring Bone" width="600" height="464" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/pages-for-baby-divine/pages-for-baby-divine-a/","s":"https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20A%20%2862%29/Baby%20Divine049-600.webp","c":"Pages for Baby Divine A","w":457,"ht":600},{"h":"/marks/pages-for-baby-divine/pages-for-baby-divine-b/","s":"https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20B%20%2842%29/Baby%20Divine124-600.webp","c":"Pages for Baby Divine B","w":457,"ht":600},{"h":"/marks/smooth-beh-laye/another-booklet/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/All%20Directions%20Vibration%20and%20Scribe%20T2-600.webp","c":"Another Booklet","w":600,"ht":457},{"h":"/marks/smooth-beh-laye/biology-class/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/BIOLOGY%20CLASS%20%2814%29/02012024%20Composition%202-600.webp","c":"Biology Class","w":600,"ht":462},{"h":"/marks/smooth-beh-laye/haring-bone/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/CP-2-600.webp","c":"Haring Bone","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/intense-color/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/002%20Snake%20And%20Cross-600.webp","c":"Intense Color","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/lightly-tinted/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/003%20Linear%20Energy%20Marks%20%28Underground%20Soil%20Life%29%20III-600.webp","c":"Lightly Tinted","w":600,"ht":462},{"h":"/marks/smooth-beh-laye/minimal-impact/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp","c":"Minimal Impact","w":600,"ht":464},{"h":"/marks/smooth-beh-laye/one-follicle-at-a-time/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp","c":"One Follicle at a Time","w":600,"ht":458},{"h":"/marks/smooth-beh-laye/other-worldly/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Bring%20it%20Back%20To%20Ahh%20Ha%20Form-600.webp","c":"Other Worldly","w":600,"ht":431},{"h":"/marks/smooth-beh-laye/stained-fog/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Alie%20Fazia%20Fala%20V-600.webp","c":"Stained Fog","w":600,"ht":452},{"h":"/marks/smooth-beh-laye/student-phase/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp","c":"Student Phase","w":600,"ht":436},{"h":"/marks/smooth-beh-laye/tears-and-raindrops/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Active%20Nature%20Big-600.webp","c":"Tears and Raindrops","w":600,"ht":461},{"h":"/marks/smooth-beh-laye/the-chair/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THE%20CHAIR%20%281%29/The%20Chair%20Wave-600.webp","c":"The Chair","w":600,"ht":434},{"h":"/marks/smooth-beh-laye/thousand-marks/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THOUSAND%20MARKS%20%2869%29/Accumu%20Ektos-600.webp","c":"Thousand Marks","w":600,"ht":436},{"h":"/marks/smooth-beh-laye/word-mapping/","s":"https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/WORD%20MAPPING%20%2828%29/004%20An%20Ou%20Saples-600.webp","c":"Word Mapping","w":600,"ht":464},{"h":"/marks/agitation-exercise/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp","c":"Agitation Exercise","w":600,"ht":438},{"h":"/marks/blossom-petal-garden/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/BLOSSOM%20PETAL%20GARDEN%20%284%29/img147-600.webp","c":"Blossom Petal Garden","w":600,"ht":462},{"h":"/marks/clouds-redefined/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/CLOUDS%20REDEFINED%20%284%29/img151-600.webp","c":"Clouds Redefined","w":600,"ht":462},{"h":"/marks/dry-grass-and-tears/","s":"https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img163-600.webp","c":"Dry Grass and Tears","w":600,"ht":462}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -364,5 +212,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

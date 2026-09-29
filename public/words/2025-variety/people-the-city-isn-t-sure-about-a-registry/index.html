@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="*Lead-in:* Found pinned to three different trees near City Hall, each copy slightly different.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,21 +53,36 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">People the City Isn&#x27;t Sure About (A Registry)</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Story &middot; 3 minutes</p>
+        <h1 class="stage-title">People the City Isn&#x27;t Sure About (A Registry)</h1>
+      </div>
+      <a class="stage-cat" href="/logotypes/"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p><em>Lead-in:</em><br>
   Found pinned to three different trees near City Hall, each copy slightly different. Water damage, coffee stains, corrections in multiple hands. Someone wrote "I&#x27;m on this list" in pencil, then erased it, but you can still see the indent. The security guard says he&#x27;s seen people reading it and crying, laughing, or both.</p>
-  <p>---</p>
   <p>MUNICIPAL REGISTRY OF—OF—PENDING PERSONS?  <br>
   Department of... (rest torn off)  <br>
   Form 42-B </p>
   <p>Tuesday? Thursday? The stamp machine is broken again.</p>
-  <p><strong>THESE PEOPLE MIGHT EXIST. We keep getting reports.</strong></p>
-  <p>---</p>
+  <h2><strong>THESE PEOPLE MIGHT EXIST. We keep getting reports.</strong></h2>
   <p><strong>FRENCH NAMES (Someone sorted them this way. Don&#x27;t know why.)</strong></p>
   <p><strong>SILT, Marlène</strong>  <br>
   Waitress at the diner on 5th. Or was. Keeps actual dirt in her apron pockets. Says it helps with sadness. Customer complained. Can&#x27;t find which customer. Can&#x27;t find Marlène on payroll but she keeps showing up.  <br>
@@ -247,8 +98,7 @@
   <p><strong>ROUSSEAU, Troy</strong>  <br>
   Bridge. Books. Won&#x27;t stop talking. Someone saw him.  <br>
   <em>Note: Probably real</em></p>
-  <p>---</p>
-  <p><strong>WEIRD NAMES</strong></p>
+  <h2><strong>WEIRD NAMES</strong></h2>
   <p><strong>WHY, Ohm Lie</strong>  <br>
   Violin case. Won&#x27;t open. Can&#x27;t make them. X-ray broke. Or showed nothing. Or showed too much. Report is coffee-stained.  <br>
   <em>Note: DO NOT ASK ABOUT CASE</em></p>
@@ -258,8 +108,7 @@
   <p><strong>DELACROIX, Mo</strong>  <br>
   At intersections. Which ones? Yes.  <br>
   <em>Note: Might be a dog</em></p>
-  <p>---</p>
-  <p><strong>ALSO THESE PEOPLE??</strong></p>
+  <h2><strong>ALSO THESE PEOPLE??</strong></h2>
   <p><strong>PEARL, Margaret</strong>  <br>
   Guards building we demolished. Or didn&#x27;t? Records unclear. Still getting paid. 37 years.  <br>
   <em>Note: Payroll won&#x27;t touch this</em></p>
@@ -272,21 +121,18 @@
   <p><strong>SINGER, (Pearl? Margaret?)</strong>  <br>
   Witnessed marble crime. Hummed entire testimony. 40 minutes. Jury cried. Verdict: guilty? Not guilty? Unclear.  <br>
   <em>Note: Humming admissible?</em></p>
-  <p>---</p>
-  <p><strong>NOTES:</strong></p>
+  <h2><strong>NOTES:</strong></h2>
   <p>Branch Holloway grows through walls. Not around. Through. Building inspector quit. Might be responsible for tree-posting this document.</p>
   <p>Oyparaploo keeps signing things. Who? Everyone? No one? The name appears on forms.</p>
   <p>"Names getting loud"—Officer Martinez wrote this. Won&#x27;t explain. Took sick leave.</p>
   <p>People claiming to live "between possibilities." Not valid address. But mail arrives.</p>
-  <p>---</p>
-  <p><strong>ATTEMPTS TO VERIFY:</strong></p>
+  <h2><strong>ATTEMPTS TO VERIFY:</strong></h2>
   <p>Called Marlène&#x27;s diner: Number disconnected  <br>
   Building from 1987: Parking lot now, but guard booth still manned  <br>
   Violin case: Don&#x27;t  <br>
   Tuesday garbage route: Only exists Tuesdays  <br>
   Intersection creature: Multiple sightings, no photos work  </p>
-  <p>---</p>
-  <p><strong>FINAL STATUS:</strong></p>
+  <h2><strong>FINAL STATUS:</strong></h2>
   <p>[ ] Real  <br>
   [ ] Not real  <br>
   [X] Pending since 1987  <br>
@@ -297,7 +143,6 @@
   <strong>Approved:</strong> No one approves this  <br>
   <strong>Filed by:</strong> The tree apparently  </p>
   <p><strong>If you are on this list, report to Window 7, City Hall. Window 7 was removed in renovations. Someone will help you anyway.</strong></p>
-  <p>---</p>
   <p><strong>Added in different ink:</strong>  <br>
   I&#x27;m on this list. - Anonymous  <br>
   Me too. - M.P.  <br>
@@ -306,33 +151,29 @@
   Check your pockets for dirt  <br>
   Check if you exist on Tuesdays  <br>
   Check the trees  </p>
-  <p>---</p>
   <p><em>Coda:</em><br>
   Every city keeps lists of people it can&#x27;t quite confirm. You might be on one—check if your shadow shows up in photographs, if your mail arrives at impossible addresses, if birds argue back when you talk to them. The forms just document what nobody wants to admit: we&#x27;re all pending.</p>
-  <p class="core-foot-label"><a href="/logotypes/">From Logotypes</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/logotypes/logotypes/0031"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-11-white-600.webp" alt="16970" width="600" height="146" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0032"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-12-dark-600.webp" alt="16971" width="600" height="148" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0033"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-12-white-600.webp" alt="16972" width="600" height="148" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0034"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-13-dark-600.webp" alt="16973" width="600" height="187" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0035"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-13-white-600.webp" alt="16974" width="600" height="187" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0036"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-14-dark-600.webp" alt="16975" width="600" height="144" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0037"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-14-white-600.webp" alt="16976" width="600" height="144" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0038"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-15-dark-600.webp" alt="16977" width="600" height="114" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0039"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-15-white-600.webp" alt="16978" width="600" height="114" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0040"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-yancha-600.webp" alt="16979" width="600" height="131" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0041"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-1-600.webp" alt="16980" width="600" height="147" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0042"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-2-600.webp" alt="16981" width="600" height="156" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0043"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-3-600.webp" alt="16982" width="600" height="176" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0044"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-4-600.webp" alt="16983" width="600" height="149" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0045"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-5-600.webp" alt="16984" width="600" height="155" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0046"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-6-600.webp" alt="16985" width="600" height="183" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0047"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-7-600.webp" alt="16986" width="600" height="156" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0048"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-8-600.webp" alt="16987" width="600" height="98" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0049"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-9-600.webp" alt="16988" width="600" height="178" loading="lazy"></a>
-      <a href="/logotypes/logotypes/0050"><img src="https://media.paraploo.com/site/images/logotypes/Untitled-10-600.webp" alt="16989" width="600" height="149" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/the-day-we-realized-nobody-knew-what-they-were-doing-including-the-goon-ox/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/logotypes/"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/names-i-keep-writing-down-at-3-am/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Names I Keep Writing Down at 3 AM</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/the-day-we-realized-nobody-knew-what-they-were-doing-including-the-goon-ox/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">The Day We Realized Nobody Knew What They Were Doing (Including the Goon Ox)</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/logotypes/">From Logotypes</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/logotypes/logotypes/0031"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-11-white-600.webp" alt="16970" width="600" height="146" loading="lazy"></a>
+        <a href="/logotypes/logotypes/0032"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-12-dark-600.webp" alt="16971" width="600" height="148" loading="lazy"></a>
+        <a href="/logotypes/logotypes/0033"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-12-white-600.webp" alt="16972" width="600" height="148" loading="lazy"></a>
+        <a href="/logotypes/logotypes/0034"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-13-dark-600.webp" alt="16973" width="600" height="187" loading="lazy"></a>
+        <a href="/logotypes/logotypes/0035"><img src="https://media.paraploo.com/site/images/logotypes/paraploo-style-13-white-600.webp" alt="16974" width="600" height="187" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/logotypes/logotypes/0031","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-11-white-600.webp","c":"16970","w":600,"ht":146},{"h":"/logotypes/logotypes/0032","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-12-dark-600.webp","c":"16971","w":600,"ht":148},{"h":"/logotypes/logotypes/0033","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-12-white-600.webp","c":"16972","w":600,"ht":148},{"h":"/logotypes/logotypes/0034","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-13-dark-600.webp","c":"16973","w":600,"ht":187},{"h":"/logotypes/logotypes/0035","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-13-white-600.webp","c":"16974","w":600,"ht":187},{"h":"/logotypes/logotypes/0036","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-14-dark-600.webp","c":"16975","w":600,"ht":144},{"h":"/logotypes/logotypes/0037","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-14-white-600.webp","c":"16976","w":600,"ht":144},{"h":"/logotypes/logotypes/0038","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-15-dark-600.webp","c":"16977","w":600,"ht":114},{"h":"/logotypes/logotypes/0039","s":"https://media.paraploo.com/site/images/logotypes/paraploo-style-15-white-600.webp","c":"16978","w":600,"ht":114},{"h":"/logotypes/logotypes/0040","s":"https://media.paraploo.com/site/images/logotypes/paraploo-yancha-600.webp","c":"16979","w":600,"ht":131},{"h":"/logotypes/logotypes/0041","s":"https://media.paraploo.com/site/images/logotypes/Untitled-1-600.webp","c":"16980","w":600,"ht":147},{"h":"/logotypes/logotypes/0042","s":"https://media.paraploo.com/site/images/logotypes/Untitled-2-600.webp","c":"16981","w":600,"ht":156},{"h":"/logotypes/logotypes/0043","s":"https://media.paraploo.com/site/images/logotypes/Untitled-3-600.webp","c":"16982","w":600,"ht":176},{"h":"/logotypes/logotypes/0044","s":"https://media.paraploo.com/site/images/logotypes/Untitled-4-600.webp","c":"16983","w":600,"ht":149},{"h":"/logotypes/logotypes/0045","s":"https://media.paraploo.com/site/images/logotypes/Untitled-5-600.webp","c":"16984","w":600,"ht":155},{"h":"/logotypes/logotypes/0046","s":"https://media.paraploo.com/site/images/logotypes/Untitled-6-600.webp","c":"16985","w":600,"ht":183},{"h":"/logotypes/logotypes/0047","s":"https://media.paraploo.com/site/images/logotypes/Untitled-7-600.webp","c":"16986","w":600,"ht":156},{"h":"/logotypes/logotypes/0048","s":"https://media.paraploo.com/site/images/logotypes/Untitled-8-600.webp","c":"16987","w":600,"ht":98},{"h":"/logotypes/logotypes/0049","s":"https://media.paraploo.com/site/images/logotypes/Untitled-9-600.webp","c":"16988","w":600,"ht":178},{"h":"/logotypes/logotypes/0050","s":"https://media.paraploo.com/site/images/logotypes/Untitled-10-600.webp","c":"16989","w":600,"ht":149}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -348,5 +189,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

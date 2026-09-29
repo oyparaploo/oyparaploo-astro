@@ -1,180 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chambers of Breath: A Gesture-Based Performance Sequence · Paraploo</title>
+<title>Chambers of Breath · Paraploo</title>
 <meta name="description" content="*Performance Note: Each chamber represents a single breath cycle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,73 +53,81 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">Chambers of Breath: A Gesture-Based Performance Sequence</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Play &middot; 3 minutes</p>
+        <h1 class="stage-title">Chambers of Breath</h1>
+        <p class="stage-sub">A Gesture-Based Performance Sequence</p>
+      </div>
+      <a class="stage-cat" href="/physical.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p><em>Performance Note: Each chamber represents a single breath cycle. Performers should speak only what can be voiced in one exhalation.</em></p>
-  <p>---</p>
   <p>Chamber One: The Forbidden Telling<br>
   <em>[Performer enters with hands covering mouth, slowly lowering them]</em></p>
   <p>We were told—<br>
   <em>(pause, look over shoulder)</em><br>
   —not to write this story.</p>
   <p><em>(Trace a line across throat, then point to audience)</em></p>
-  <p>---</p>
   <p>Chamber Two: Room of Unspoken Words<br>
   <em>[Walk in a small circle, hands cupping air]</em></p>
   <p>In this room, silence grew thick as honey.<br>
   Here, a woman spoke to water—</p>
   <p><em>(Kneel, speak to cupped hands)</em><br>
   —and flame appeared.</p>
-  <p>---</p>
   <p>Chamber Three: The Cost of Memory<br>
   <em>[Mime writing in air with increasing effort]</em></p>
   <p>Handwriting costs more<br>
   than letting vivid memories<br>
   fade to ash.</p>
-  <p><em>(Let hand drop, exhausted)</em></p>
-  <p>---</p>
+  <h2><em>(Let hand drop, exhausted)</em></h2>
   <p>Chamber Four: The Cycle of Need<br>
   <em>[Three gestures in circular pattern: strike (spark), reach (wick), grasp (fire)]</em></p>
   <p>Spark asks for wick.<br>
   Wick asks for fire.<br>
   Fire asks for spark.</p>
-  <p><em>(Repeat gesture cycle once)</em></p>
-  <p>---</p>
+  <h2><em>(Repeat gesture cycle once)</em></h2>
   <p>Chamber Five: Threading Memory<br>
   <em>[Pull invisible threads from temple, offer them forward]</em></p>
   <p>We pulled memory through our fingers—<br>
   <em>(slow pulling motion)</em><br>
   —string by string.</p>
-  <p>---</p>
   <p>Chamber Six: Kitchen Silence<br>
   <em>[Mime stirring a pot in slow, hypnotic circles]</em></p>
   <p>While stirring soup,<br>
   she swallowed<br>
   the big question.</p>
-  <p><em>(Touch throat, continue stirring)</em></p>
-  <p>---</p>
+  <h2><em>(Touch throat, continue stirring)</em></h2>
   <p>Chamber Seven: The Burned Names<br>
   <em>[Touch tongue, then gesture pushing something down]</em></p>
   <p>He burned his tongue<br>
   before it could burn<br>
   their names.</p>
-  <p>---</p>
   <p>Chamber Eight: Stolen Light<br>
   <em>[Point to a crack in the air, then cup hands around invisible flame]</em></p>
   <p>This crack of light—<br>
   they forgot to steal it.<br>
   Our lamp home.</p>
-  <p>---</p>
   <p>Chamber Nine: Compressed Pain<br>
   <em>[Press hands together slowly, as if compressing millennia]</em></p>
   <p>Crude oil forms like this—<br>
   pressure, time, buried ache.<br>
   Same as us.</p>
-  <p>---</p>
   <p>Chamber Ten: Letter to Air<br>
   <em>[Write in air with whole arm movements]</em></p>
   <p>To who stays:<br>
@@ -291,67 +135,56 @@
   I leave you<br>
   <em>(smaller letters)</em><br>
   this moving alphabet.</p>
-  <p>---</p>
   <p>Chamber Eleven: The Shared Broom<br>
   <em>[Mime sweeping in unison with invisible partner]</em></p>
   <p>Sister, brother of the broom—<br>
   will floors remember<br>
   our bare feet?</p>
-  <p><em>(Stop, listen to the floor)</em></p>
-  <p>---</p>
+  <h2><em>(Stop, listen to the floor)</em></h2>
   <p>Chamber Twelve: Torn Potential<br>
   <em>[Mime tearing invisible pages, releasing them upward]</em></p>
   <p>Did you give blank pages<br>
   to the tainted breeze?<br>
   Watch them corrupt.</p>
-  <p>---</p>
   <p>Chamber Thirteen: Prophet&#x27;s Sandal<br>
   <em>[Touch throat, then gesture to ground]</em></p>
   <p>That voice—<br>
   humble as a sandal strap,<br>
   yet prophet-touched.</p>
-  <p>---</p>
   <p>Chamber Fourteen: The Binding Question<br>
   <em>[Two gestures: question (open palm up), answer (palm down)]</em></p>
   <p>His last question.<br>
   Her first answer.<br>
   Still here.</p>
-  <p>---</p>
   <p>Chamber Fifteen: Inventory of Forgetting<br>
   <em>[Breathe deeply, pat chest as if storing something]</em></p>
   <p>He kept what he forgot<br>
   folded inside<br>
   each good breath.</p>
-  <p>---</p>
   <p>Chamber Sixteen: Unquestioned Apology<br>
   <em>[Offer something invisible with both hands, then cover it]</em></p>
   <p>Take this apology.<br>
   Don&#x27;t ask if heaven<br>
   wants it.</p>
-  <p>---</p>
   <p>Chamber Seventeen: Domestic Ritual<br>
   <em>[Series of mime gestures: grinding, rinsing, folding - all in silence]</em></p>
   <p><em>(No words - only gesture sequence repeated three times with increasing intensity)</em></p>
-  <p>---</p>
   <p>Chamber Eighteen: The Room Speaks<br>
   <em>[Stand still, arms wide, becoming the room itself]</em></p>
   <p>I am the room<br>
   where silence<br>
   spoke everything.</p>
-  <p>---</p>
   <p>Chamber Nineteen: Extracting the Thread<br>
   <em>[Pull a long invisible thread from your chest]</em></p>
   <p>This thread contains:<br>
   one summer, two names,<br>
   the weight of staying.</p>
-  <p>---</p>
   <p>Chamber Twenty: Return to Breath<br>
   <em>[Hands on chest, feeling breath]</em></p>
   <p>Each fragment—a breath.<br>
   Each breath—a room.<br>
   Each room—forbidden.</p>
-  <p><em>(Cover mouth again, exit as entered)</em></p>
-  <p>---</p>
+  <h2><em>(Cover mouth again, exit as entered)</em></h2>
   <p>Performance Notes:</p>
   <p>1. <strong>Duration</strong>: Each chamber should last the length of 1-3 natural breaths<br>
   2. <strong>Transitions</strong>: Move between chambers with a full inhale/exhale<br>
@@ -367,30 +200,27 @@
   - Allow the weight of silence to be felt<br>
   - Each gesture should feel necessary, not decorative</p>
   <p><em>This sequence asks: What remains when we speak the unspeakable in fragments small enough to breathe?</em></p>
-  <p class="core-foot-label"><a href="/physical.html">From Physical</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/rashing-to-show-these-items/"><img src="https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp" alt="Rashing to Show These Items" width="600" height="398" loading="lazy"></a>
-      <a href="/physical/salt-of-sand-and-more/"><img src="https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp" alt="Salt of Sand and More" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/shadeless-lamps-showcased/"><img src="https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp" alt="Shadeless Lamps Showcased" width="600" height="391" loading="lazy"></a>
-      <a href="/physical/signs-of-damage/"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" alt="Signs of Damage" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/soiled-linoleum-cords/"><img src="https://media.paraploo.com/site/images/physical/soiled-linoleum-cords/Chords%20Soil%2010-600.webp" alt="Soiled Linoleum Cords" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/stuff-backlit/"><img src="https://media.paraploo.com/site/images/physical/stuff-backlit/Stuff%20Backlit%2010-600.webp" alt="Stuff Backlit" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/surreal-plastic-fish/"><img src="https://media.paraploo.com/site/images/physical/surreal-plastic-fish/Plastic%20Fish%201-600.webp" alt="Surreal Plastic Fish" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/temporary-frozen-thrill/"><img src="https://media.paraploo.com/site/images/physical/temporary-frozen-thrill/It%20Is%20Freezing%2010-600.webp" alt="Temporary Frozen Thrill" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/this-space-for-getting-primed/"><img src="https://media.paraploo.com/site/images/physical/this-space-for-getting-primed/Shelterless%20Place%201-600.webp" alt="This Space for Getting Primed" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/true-colors-and-grit/"><img src="https://media.paraploo.com/site/images/physical/true-colors-and-grit/Ocean%20Saltwater%201-600.webp" alt="True Colors and Grit" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/unlabeled-package/"><img src="https://media.paraploo.com/site/images/physical/unlabeled-package/two%20unlabeled%20packages%201-600.webp" alt="Unlabeled Package" width="400" height="600" loading="lazy"></a>
-      <a href="/physical/unreal-cowboy-hat/"><img src="https://media.paraploo.com/site/images/physical/unreal-cowboy-hat/Cowboy%20Hat%201-600.webp" alt="Unreal Cowboy Hat" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/we-did-not-want-to-become-this/"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp" alt="We Did Not Want to Become This" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/werg-and-gis-middle-labor/"><img src="https://media.paraploo.com/site/images/physical/werg-and-gis-middle-labor/GSWRG%201-600.webp" alt="Werg and Gis Middle Labor" width="600" height="418" loading="lazy"></a>
-      <a href="/physical/western-nothing/"><img src="https://media.paraploo.com/site/images/physical/western-nothing/Western%20Nothing%201-600.webp" alt="Western Nothing" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/woa-mun/"><img src="https://media.paraploo.com/site/images/physical/woa-mun/Woa%20Mun%20%20100-600.webp" alt="Woa Mun" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/above-stones-feugo/"><img src="https://media.paraploo.com/site/images/physical/above-stones-feugo/Above%20Land%20Stones%20Directed%20Influence%20A11A-600.webp" alt="Above Stones Feugo" width="600" height="338" loading="lazy"></a>
-      <a href="/physical/after-a-storm-interpretations/"><img src="https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-01-600.webp" alt="After a Storm Interpretations" width="600" height="400" loading="lazy"></a>
-      <a href="/physical/after-the-party/"><img src="https://media.paraploo.com/site/images/physical/after-the-party/After%20The%20Party%201-600.webp" alt="After the Party" width="600" height="397" loading="lazy"></a>
-      <a href="/physical/anthro-archeo/"><img src="https://media.paraploo.com/site/images/physical/anthro-archeo/Anthro-Archeo%201-600.webp" alt="Anthro Archeo" width="600" height="400" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/unmistakable-river-souls-crossing-our-neighborhood-paths/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/physical.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/book-award-gibberish-orbiting-close-to-earth/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Book Award Gibberish Orbiting Close To Earth ... Year-round Relevance ... Seasonal traffic patterns ... Global Accessibility ... English-only limitations ... Innovation ... Falling Behind in digital features ... Class by Category ... Discover proof of Good Reads ... comprehensive Prize Foundations .... Grant France a prestigious pub award for depth and cultural impact ... best for Access ... goes to ... Project Gutenberg ... and Open Library Ecosystems .. complete records from 1968 to present ... for International coverage ... catalogued Types ... excerpts and synopses ... Judged interviews ... video content ... including ceremonies ... streamed ... resources for schools and clubs ... curated articles ... hundreds of thousands of non-technical subscribers featured ... mobile-responsive winners ...integration with platforms ... galleries ... calendar related activities ... Book Bounce Effects ... see average announcements increase 3,000% immediately ... winners report sustained sales increases for 5+ years ... translation deals typically follow ... prize Structures ... shortlisted authors ... guaranteed coverage in 100+ nations ... placement program Limitations Identified ... year-round programming compared to competitors ... No user-generated content ... or community features ... compared to other Minimal award sites ... That dominant English-language focus limits all the true international scopes ... Unique Strengths ... Writers at Work ... busy publishing rosters ... includes laureates of multimedia podcasts that go beyond quarterly issues ... Audience Reach ... Content Breadth ... Original criticism ... cultural commentary ... wise advice regarding thematic issues that provide coherent stories and statements ... in for a few examples ... Spanish ... Portuguese ... Norwegian ... careers Launched ... Global perspective contributors from integrated Metric Documentaries ... Circulation ... 50,000+ worldwide ... Translated into Long essays ... 3,000-6,000 words ... Integration with physical Cake Shop cafés ... creating community spaces for raw networks ... Political viewpoints alongside pre-pandemic Comparative Analysis ... Magazines versus Books ... Occasional Author Interviews ... High User Engagements ... submissions ... Low or passive reading levels ... Scale the Leader&#x27;s and their Staggering Statistics ... 125+ million members only ... 3.5+ billion books in databases ... Reading challenges ... 40 million participants annually ... Q&amp;As ... algorithms ... Social hour featuring media friends ... with status updates ... Direct purchase links to Publishers making good use of market research ... Aggregator Model Strategies ... first chapter drop-offs ... Professional Authority Scale of Operations ... Industry standard for library Services ... three months before the release of new Starred reviews indicating exceptional quality ... Paid service for indie awards in several categories ... speeches ... Educational games ... interactive content ... Lesson plans for teachers ... Multiple language translations ... Scientific contexts ... Historical correspondence ... Analysis of selection processes and integrations ... Community Building for emerging writers ... National Festival participations ... tours ... Partnership with Teen programs ... Average sales boost ... 500% for winners ... Media reach ... 100 million+ impressions ... Scale and Scope 40+ languages ... Volunteer-driven digitization Focusing on public domain works ... No registration required ... Offline reading capability ... Mobile apps for daily poems ... free ebooks ... Controlled digital lending ... wiki-style integration with Archives ... Estimated Monthly Visitors ... Global Reach Indicators ... Open Library</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/unmistakable-river-souls-crossing-our-neighborhood-paths/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">river in the road … red island … run rotten darling run … parade ground … scored scape … if you want to be loved … medication room … indoctrination and spectacle for us all … upa oo ya oo … power up children in formation … b2 organ here … which orange burn? willow tree in a breeze hanging from a cloud … when you say that … it&#x27;s dead and gone … love’s poison curls … no lost male … no female in your bed … no trans … smile and move on … last night a little angel came bumping on our door … fast approaching ... runs in the roots vines look like veins</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/physical.html">From Physical</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/physical/rashing-to-show-these-items/"><img src="https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp" alt="Rashing to Show These Items" width="600" height="398" loading="lazy"></a>
+        <a href="/physical/salt-of-sand-and-more/"><img src="https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp" alt="Salt of Sand and More" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/shadeless-lamps-showcased/"><img src="https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp" alt="Shadeless Lamps Showcased" width="600" height="391" loading="lazy"></a>
+        <a href="/physical/signs-of-damage/"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" alt="Signs of Damage" width="600" height="400" loading="lazy"></a>
+        <a href="/physical/soiled-linoleum-cords/"><img src="https://media.paraploo.com/site/images/physical/soiled-linoleum-cords/Chords%20Soil%2010-600.webp" alt="Soiled Linoleum Cords" width="600" height="400" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/physical/rashing-to-show-these-items/","s":"https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp","c":"Rashing to Show These Items","w":600,"ht":398},{"h":"/physical/salt-of-sand-and-more/","s":"https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp","c":"Salt of Sand and More","w":600,"ht":400},{"h":"/physical/shadeless-lamps-showcased/","s":"https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp","c":"Shadeless Lamps Showcased","w":600,"ht":391},{"h":"/physical/signs-of-damage/","s":"https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp","c":"Signs of Damage","w":600,"ht":400},{"h":"/physical/soiled-linoleum-cords/","s":"https://media.paraploo.com/site/images/physical/soiled-linoleum-cords/Chords%20Soil%2010-600.webp","c":"Soiled Linoleum Cords","w":600,"ht":400},{"h":"/physical/stuff-backlit/","s":"https://media.paraploo.com/site/images/physical/stuff-backlit/Stuff%20Backlit%2010-600.webp","c":"Stuff Backlit","w":600,"ht":400},{"h":"/physical/surreal-plastic-fish/","s":"https://media.paraploo.com/site/images/physical/surreal-plastic-fish/Plastic%20Fish%201-600.webp","c":"Surreal Plastic Fish","w":600,"ht":400},{"h":"/physical/temporary-frozen-thrill/","s":"https://media.paraploo.com/site/images/physical/temporary-frozen-thrill/It%20Is%20Freezing%2010-600.webp","c":"Temporary Frozen Thrill","w":600,"ht":400},{"h":"/physical/this-space-for-getting-primed/","s":"https://media.paraploo.com/site/images/physical/this-space-for-getting-primed/Shelterless%20Place%201-600.webp","c":"This Space for Getting Primed","w":600,"ht":400},{"h":"/physical/true-colors-and-grit/","s":"https://media.paraploo.com/site/images/physical/true-colors-and-grit/Ocean%20Saltwater%201-600.webp","c":"True Colors and Grit","w":600,"ht":400},{"h":"/physical/unlabeled-package/","s":"https://media.paraploo.com/site/images/physical/unlabeled-package/two%20unlabeled%20packages%201-600.webp","c":"Unlabeled Package","w":400,"ht":600},{"h":"/physical/unreal-cowboy-hat/","s":"https://media.paraploo.com/site/images/physical/unreal-cowboy-hat/Cowboy%20Hat%201-600.webp","c":"Unreal Cowboy Hat","w":600,"ht":400},{"h":"/physical/we-did-not-want-to-become-this/","s":"https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp","c":"We Did Not Want to Become This","w":600,"ht":400},{"h":"/physical/werg-and-gis-middle-labor/","s":"https://media.paraploo.com/site/images/physical/werg-and-gis-middle-labor/GSWRG%201-600.webp","c":"Werg and Gis Middle Labor","w":600,"ht":418},{"h":"/physical/western-nothing/","s":"https://media.paraploo.com/site/images/physical/western-nothing/Western%20Nothing%201-600.webp","c":"Western Nothing","w":600,"ht":400},{"h":"/physical/woa-mun/","s":"https://media.paraploo.com/site/images/physical/woa-mun/Woa%20Mun%20%20100-600.webp","c":"Woa Mun","w":600,"ht":400},{"h":"/physical/above-stones-feugo/","s":"https://media.paraploo.com/site/images/physical/above-stones-feugo/Above%20Land%20Stones%20Directed%20Influence%20A11A-600.webp","c":"Above Stones Feugo","w":600,"ht":338},{"h":"/physical/after-a-storm-interpretations/","s":"https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-01-600.webp","c":"After a Storm Interpretations","w":600,"ht":400},{"h":"/physical/after-the-party/","s":"https://media.paraploo.com/site/images/physical/after-the-party/After%20The%20Party%201-600.webp","c":"After the Party","w":600,"ht":397},{"h":"/physical/anthro-archeo/","s":"https://media.paraploo.com/site/images/physical/anthro-archeo/Anthro-Archeo%201-600.webp","c":"Anthro Archeo","w":600,"ht":400}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -406,5 +236,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>

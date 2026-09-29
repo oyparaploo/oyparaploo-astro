@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="size-1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,174 +7,10 @@
 <meta name="description" content="There's a particular kind of morning light that only comes after loss—thin, uncertain, asking nothing of you except that you witness it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/stage.css?v=20260929-stage">
 <script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-
-  .core-foot-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 56px 0 16px;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(40px, calc(50% - 360px));
-    overflow: hidden;
-  }
-  .thumb-row { display: flex; gap: 8px; overflow: visible; }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img { height: 90px; width: auto; display: block; background: #1c1712; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +53,29 @@
 }
 </script>
 </head>
-<body>
+<body class="writing-page">
+<div class="stage-bg" aria-hidden="true"><img class="stage-haze" alt=""><img class="stage-pic" alt=""></div>
+<div class="stage-ghost" aria-hidden="true"></div>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-  <h1 class="core-title">The Archaeologist of Can&#x27;t</h1>
-  <p class="core-locked"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></p>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/musicology.html">Song</a><a href="/search.html">Search</a></nav></header>
+<main>
+  <article class="wp">
+    <section class="stage" aria-label="Opening">
+      <div class="stage-words">
+        <p class="stage-kind">Essay &middot; 4 minutes</p>
+        <h1 class="stage-title">The Archaeologist of Can&#x27;t</h1>
+      </div>
+      <a class="stage-cat" href="/marks.html"></a>
+    </section>
+    <div class="wp-reading">
+      <div class="wp-floats"></div>
+      <div class="wp-sheet">
+    <nav class="wp-back" aria-label="Way back"><a class="arrow-link arrow-back" href="/words/2025-variety/"><span class="arrow-glyph">&larr;</span> Words / 2025 Variety</a></nav>
+    <div class="wp-slot">
+      <div class="wp-chip" aria-hidden="true"></div>
+      <span class="wp-size" role="group" aria-label="Text size"><button type="button" data-size="1" aria-label="Normal text">A</button><button type="button" data-size="2" aria-label="Larger text">A</button><button type="button" data-size="3" aria-label="Largest text">A</button></span>
+    </div>
+    <div class="wp-body">
   <p>There&#x27;s a particular kind of morning light that only comes after loss—thin, uncertain, asking nothing of you except that you witness it. I learned to paint in that light. Not because I could paint, but because I couldn&#x27;t bear not to. My hands, still trembling from grief, mixed colors that had no names: the grey-green of absence, the ochre of almost-remembering, that terrible shade of blue that lives between goodbye and gone. The canvas became a map of everything I couldn&#x27;t do, which, it turns out, was the only way to begin doing it.</p>
   <p>Took me forty-three years to figure this out: we are all archaeologists of can&#x27;t. We dig, not because we know what we&#x27;re searching for, but because our hands need something to do with all this living. Every morning, we excavate ourselves from yesterday&#x27;s failures, brush the dust off our impossible longings, and catalogue the broken pieces as if they might someday form a whole. We become capable only by attempting what we cannot yet do. Not tomorrow. Not when ready. Now, with our unready hearts, our unprepared hands, our stumbling tongues still learning the language of survival.</p>
   <p>My grandmother, before the dementia took her words, used to make bread every Thursday. After she forgot how, she would still stand in the kitchen, her hands moving through empty air, kneading nothing into something. "I&#x27;m practicing," she&#x27;d say, and we&#x27;d let her, because who were we to say that her invisible bread wasn&#x27;t feeding something essential in her? She was doing what she couldn&#x27;t do, and somehow, in that space between capability and attempt, she was still teaching us about sustenance. Even now, years later, when I&#x27;m lost, I find myself kneading empty air. Practicing.</p>
@@ -237,30 +90,27 @@
   <p>The passages were never walls. Never even doors. Just the space between who we were yesterday and who we&#x27;re becoming by doing what we cannot yet do. In that stupid, necessary space—that terrifying space where nothing makes sense—we practice being human. We practice until practice becomes presence. We attempt the impossible daily, gently, with great tenderness for our trying, until one morning we wake up and realize we&#x27;ve been flying all along. We just called it falling, then floating, then surviving, then living, then—</p>
   <p>Almost.</p>
   <p>And almost is everything.</p>
-  <p class="core-foot-label"><a href="/marks.html">From Marks</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/newest-patterns/0074"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp" alt="02302" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0075"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp" alt="02303" width="600" height="457" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0076"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp" alt="02304" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0077"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp" alt="02305" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0078"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp" alt="02306" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0079"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp" alt="02307" width="600" height="450" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0080"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp" alt="02308" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0081"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp" alt="02309" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0082"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp" alt="02310" width="600" height="458" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0083"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp" alt="02311" width="600" height="459" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0084"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp" alt="02312" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0085"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp" alt="02313" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0086"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp" alt="02314" width="600" height="456" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0087"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp" alt="02315" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0088"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp" alt="02316" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0089"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp" alt="02317" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0090"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone-600.webp" alt="02318" width="600" height="437" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0091"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/New%20Empire%20New%20Colony%20Next%20Language%20Waiting%202-600.webp" alt="02319" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0092"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Next%20Language%20Collapse%202-600.webp" alt="02320" width="600" height="436" loading="lazy"></a>
-      <a href="/marks/newest-patterns/0093"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Niste%20Rein%20Vill%202-600.webp" alt="02321" width="600" height="436" loading="lazy"></a>
-  </div></div>
-  <div class="core-nav"><a class="arrow-link arrow-next" href="/words/2025-variety/seventeen-chairs/">Next <span class="arrow-glyph">&rarr;</span></a> · <a href="/writings.html">Back to Words</a> · <a href="/the-book.html">The Book</a></div>
+    </div>
+    <a class="wp-one" href="/marks.html"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="436" decoding="async"></a>
+      </div>
+    </div>
+    <div class="wp-after"><div class="wp-after-in">
+    <nav class="wp-seq" aria-label="Previous and next writings">
+      <a class="wp-seq-link wp-prev" href="/words/2025-variety/water-through-open-hands/"><span class="wp-seq-word"><span class="arrow-glyph">&larr;</span> Previous</span><span class="wp-seq-title">Water Through Open Hands</span></a>
+      <a class="wp-seq-link wp-next" href="/words/2025-variety/seventeen-chairs/"><span class="wp-seq-word">Next <span class="arrow-glyph">&rarr;</span></span><span class="wp-seq-title">Seventeen Chairs</span></a>
+    </nav>
+    <p class="wp-also"><a href="/writings.html">All writings</a> &middot; <a href="/the-book.html">The Book</a></p>
+    <p class="wp-foot-label"><a href="/marks.html">From Marks</a></p>
+    <div class="thumb-row-wrap"><div class="thumb-row">
+        <a href="/marks/newest-patterns/0074"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp" alt="02302" width="600" height="458" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0075"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp" alt="02303" width="600" height="457" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0076"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp" alt="02304" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0077"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp" alt="02305" width="600" height="436" loading="lazy"></a>
+        <a href="/marks/newest-patterns/0078"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp" alt="02306" width="600" height="458" loading="lazy"></a>
+    </div></div>
+    </div></div>
+    <script type="application/json" class="stage-pool">[{"h":"/marks/newest-patterns/0074","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There%202-600.webp","c":"02302","w":600,"ht":458},{"h":"/marks/newest-patterns/0075","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Life%20Show%20Us%20What%20Is%20Meant%20To%20Be%20Here%20And%20There-600.webp","c":"02303","w":600,"ht":457},{"h":"/marks/newest-patterns/0076","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lifeline%20Movement%202-600.webp","c":"02304","w":600,"ht":436},{"h":"/marks/newest-patterns/0077","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Limbz%20Sie%20See%20Os%20Ploo%20Sare%202-600.webp","c":"02305","w":600,"ht":436},{"h":"/marks/newest-patterns/0078","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second%202-600.webp","c":"02306","w":600,"ht":458},{"h":"/marks/newest-patterns/0079","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Liveliness%20And%20High%20Motivation%20Of%20Kindness%20First%20Greatness%20Second-600.webp","c":"02307","w":600,"ht":450},{"h":"/marks/newest-patterns/0080","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore%202-600.webp","c":"02308","w":600,"ht":458},{"h":"/marks/newest-patterns/0081","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Look%20At%20All%20This%20Innocent%20Remote%20Village%20And%20Negligible%20Big%20City%20Content%20That%20Washed%20Up%20Unto%20Shore-600.webp","c":"02309","w":600,"ht":456},{"h":"/marks/newest-patterns/0082","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words%202-600.webp","c":"02310","w":600,"ht":458},{"h":"/marks/newest-patterns/0083","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Lush%20Composition%20Of%20Symbols%20Glyphs%20Letterforms%20and%20English%20Words-600.webp","c":"02311","w":600,"ht":459},{"h":"/marks/newest-patterns/0084","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Magnetic%20Waste%202-600.webp","c":"02312","w":600,"ht":436},{"h":"/marks/newest-patterns/0085","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Mahl%20Ess%20Sahboo%202-600.webp","c":"02313","w":600,"ht":436},{"h":"/marks/newest-patterns/0086","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Matthew%206%20Colon%2012%20To%2014-600.webp","c":"02314","w":600,"ht":456},{"h":"/marks/newest-patterns/0087","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Moan%20Saye%20Tay-600.webp","c":"02315","w":600,"ht":436},{"h":"/marks/newest-patterns/0088","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Named%20Colors%20Energy%202-600.webp","c":"02316","w":600,"ht":436},{"h":"/marks/newest-patterns/0089","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone%202-600.webp","c":"02317","w":600,"ht":436},{"h":"/marks/newest-patterns/0090","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Never%20Coming%20Fully%20Undone-600.webp","c":"02318","w":600,"ht":437},{"h":"/marks/newest-patterns/0091","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/New%20Empire%20New%20Colony%20Next%20Language%20Waiting%202-600.webp","c":"02319","w":600,"ht":436},{"h":"/marks/newest-patterns/0092","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Next%20Language%20Collapse%202-600.webp","c":"02320","w":600,"ht":436},{"h":"/marks/newest-patterns/0093","s":"https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Niste%20Rein%20Vill%202-600.webp","c":"02321","w":600,"ht":436}]</script>
+  </article>
 </main>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
@@ -276,5 +126,6 @@
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Otto Paraploo</p>
 </footer>
+<script src="/stage.js"></script>
 </body>
 </html>
