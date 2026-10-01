@@ -158,3 +158,142 @@ html.rm .wob-arrow, html.rm .wob-go { transition: none; }
 .wob-shelves { display: grid; }
 .wob-kindset { grid-area: 1 / 1; visibility: hidden; }
 .wob-kindset.is-active { visibility: visible; }
+
+/* ==========================================================================
+   DIRECTORY FOOTER (the shared footer file carries this part)
+   Every room in the house, never a single picture or writing.
+   Ground one step above the page: cream #faf6f0 / dark #1a1511.
+   Type: labels Inter 600 18, ordinary words, Ink (the link); headings
+   Lora 600 20 (Ink); links Inter 16, line 1.5 (Soft ink, Ink on hover).
+   Grid: five columns of 214 px with 32 px between, inside 1,200 px.
+   ========================================================================== */
+:root { --df-ground: #faf6f0; --df-rule: #c0b8b0; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --df-ground: #1a1511; --df-rule: #3a3430; }
+}
+html[data-theme="dark"] { --df-ground: #1a1511; --df-rule: #3a3430; }
+
+.directory-footer {
+  background: var(--df-ground);
+  color: var(--ink);
+  border-top: 1px solid var(--df-rule);
+  padding: 48px 40px 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+body.writing-page > .directory-footer { position: relative; z-index: 2; }
+.directory-footer a { color: inherit; text-decoration: none; }
+.df-in { max-width: 1200px; margin: 0 auto; }
+
+.df-wordmark {
+  margin: 0 0 40px;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 26px; line-height: 1;
+  letter-spacing: normal; color: var(--ink);
+}
+.df-wordmark a { color: var(--ink); transition: opacity .25s; }
+.df-wordmark a:hover { opacity: .75; }
+
+/* A row: rule above, 40 px of space above and below its content */
+.df-row { padding: 40px 0; border-top: 1px solid var(--df-rule); }
+.df-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 20px; }
+.df-label {
+  margin: 0;
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  letter-spacing: normal; text-transform: none;
+  color: var(--ink);
+}
+.df-label a { color: var(--ink); }
+.df-label a:hover { font-weight: 700; }
+.df-label.df-plain { color: var(--ink); }
+
+/* The columns */
+.df-cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 32px; row-gap: 28px; }
+.df-col { min-width: 0; }
+.df-block { margin: 0 0 28px; }
+.df-block:last-child { margin-bottom: 0; }
+.df-h {
+  display: block; margin: 0 0 6px;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 20px; line-height: 1.3;
+  letter-spacing: normal; color: var(--ink);
+}
+a.df-h:hover { color: var(--accent); }
+.df-h.df-cont { color: var(--ink-soft); }
+.df-list { list-style: none; margin: 0; padding: 0; }
+.df-list li { margin: 0; padding: 0; }
+.df-list a { display: inline-block; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.df-list a:hover { color: var(--ink); }
+/* A group inside a kind: its name in Inter 16 bold Ink, 20 px before and after the group */
+.df-entry + .df-group, .df-group + .df-entry, .df-group + .df-group { margin-top: 20px; }
+.df-group > a.df-g { display: inline-block; font-weight: 600; color: var(--ink); line-height: 1.5; }
+.df-group > a.df-g:hover { color: var(--accent); }
+
+/* Favorite Songs */
+.df-song .df-line {
+  margin: 0 0 12px; max-width: 760px;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 22px; line-height: 1.3;
+  letter-spacing: normal; color: var(--ink);
+}
+.df-rooms { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.df-rooms li:not(:last-child)::after { content: "\00b7"; padding: 0 12px; color: var(--ink-soft); }
+.df-rooms a { color: var(--ink-soft); }
+.df-rooms a:hover { color: var(--ink); }
+
+/* Ways In and Contact Us */
+.df-last .df-ways { grid-column: span 2; }
+.df-last .df-contact { grid-column: span 3; }
+.df-last .df-label { margin-bottom: 10px; }
+.df-contact p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.df-contact p a { color: var(--ink-soft); }
+.df-contact p a:hover { color: var(--ink); }
+.df-contact .df-write {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 10px;
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: normal; text-transform: none; line-height: 1.3;
+  color: var(--ink);
+}
+.df-contact .df-write svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .2s; }
+.df-contact .df-write:hover svg { transform: translateX(3px); }
+
+/* The bottom lines */
+.df-legal { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--df-rule); text-align: center; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.df-legal p { margin: 0 0 4px; }
+.df-legal a { color: var(--ink-soft); }
+.df-legal a:hover { color: var(--ink); }
+.df-legal span { margin: 0 8px; }
+
+/* The fold (phones only) */
+.df-fold { display: none; }
+
+@media (max-width: 1023px) {
+  .df-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .df-last .df-ways { grid-column: span 1; }
+  .df-last .df-contact { grid-column: span 2; }
+}
+@media (max-width: 799px) {
+  .directory-footer { padding: 40px 20px 32px; }
+  .df-row { padding: 28px 0; }
+  .df-foldable:not(.is-open) .df-cols { display: none; }
+  .df-foldable:not(.is-open) .df-head { margin-bottom: 0; }
+  .df-fold {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 44px; height: 44px; margin: -10px -10px -10px 0; padding: 0;
+    background: none; border: 0; cursor: pointer; color: var(--ink); position: relative;
+  }
+  .df-fold::before, .df-fold::after { content: ""; position: absolute; background: currentColor; }
+  .df-fold::before { width: 16px; height: 2px; }
+  .df-fold::after { width: 2px; height: 16px; transition: transform .2s; }
+  .df-foldable.is-open .df-fold::after { transform: scaleY(0); }
+  .df-legal { margin-top: 28px; }
+}
+@media (max-width: 767px) {
+  .df-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .df-last .df-ways, .df-last .df-contact { grid-column: span 1; }
+}
+@media (max-width: 479px) {
+  .df-cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .df-fold::after, .df-wordmark a, .df-contact .df-write svg { transition: none; }
+}
+html.rm .df-fold::after, html.rm .df-wordmark a, html.rm .df-contact .df-write svg { transition: none; }
