@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family and Love · Writings · Paraploo</title>
+<meta name="description" content="Every writing about family and love, of every kind, newest first. Choose one to read.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+
+<!-- ==========================================================================
+     THE LIVE CHROME, word for word, placed inside the page so it opens by
+     double-click. Copied October 1, 2026 from the site repository:
+       public/chrome.css, public/nav.css, public/theme.js, public/nav.js
+     Nothing inside these four blocks was edited. The few things this mock
+     changes on purpose are in the block named "the mock's own styles".
+     ========================================================================== -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<script src="/theme.js"></script>
+
+<style id="mock-styles">
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<style id="subject-styles">
+/* The subject pages: the shelf page body, with the picture that changes as you read
+   (parts book block 41, as on the Writings page's Subjects), first lines under each
+   title (block 34), the fragment's bar on the lifted line (block 17), Show more (54),
+   and Often found with (117). The bands take the picture's own ground (66). */
+.passage.fragment { border-left: 3px solid #111111; padding-left: 24px; }
+.reading-band { --ink: #111111; --ink-soft: #111111; --ground: var(--pic-ground); --rule: #111111;
+  background: var(--pic-ground); color: #111111; padding: 72px 0 96px; }
+.reading-band :focus-visible { outline-color: #111111; }
+.reading-wrap .subject-rows { display: flex; flex-direction: column; margin: 0 0 0 calc(-1 * var(--edge)); border-bottom: 1px solid var(--rule); }
+.subject-rows a {
+  display: grid; grid-template-columns: minmax(0, 1fr) 32px; column-gap: 16px; row-gap: 6px; align-items: center;
+  padding: 18px 16px 18px var(--edge); text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule); transition: background-color 0.3s ease, color 0.3s ease; }
+.subject-rows a.later { display: none; }
+.subject-rows .row-name-wrap { grid-column: 1; }
+.subject-rows .row-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; }
+.subject-rows .row-first { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45; }
+.subject-rows .row-side { grid-column: 1; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; }
+.subject-rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; justify-self: end; font-size: 26px; line-height: 1; }
+.subject-rows a:active { background-color: #111111; color: var(--pic-ground); }
+@media (hover: hover) {
+  .subject-rows a:hover, .subject-rows a:focus-visible { background-color: #111111; color: var(--pic-ground); }
+  .subject-rows a:hover .row-arrow, .subject-rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.show-more-wrap { padding: 40px 0 0; }
+.show-more-wrap[hidden] { display: none; }
+.reading-band .btn { --btn-ink: #111111; --btn-ground: var(--pic-ground); }
+.pic-stack { display: grid; }
+.pic-seat { grid-area: 1 / 1; display: block; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s linear 0.4s; }
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab { background: none; border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; color: #111111; padding: 8px 0; min-height: 44px; }
+.pic-tab[aria-pressed="true"] { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+@media (min-width: 1000px) {
+  .reading-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) { .reading-pic { margin-top: 48px; } .reading-wrap .subject-rows { margin-right: calc(-1 * var(--edge)); } }
+.found-band { --ink: #111111; --ground: var(--found-ground); background: var(--found-ground); color: #111111; padding: 72px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 22px; border: 1px solid #111111; border-radius: 999px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; color: #111111; text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease; }
+.chip:active { background: #111111; color: var(--found-ground); }
+@media (hover: hover) { .chip:hover, .chip:focus-visible { background: #111111; color: var(--found-ground); } }
+.foot-next { padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { .pic-seat, .pic-seat.is-on, .subject-rows a, .chip { transition: none; } }
+</style>
+
+
+<style id="dark-bar">
+/* Reach, October 2, 2026, late evening: the row pointed at goes back to a dark bar with light words, as it was
+   before tonight, but the drawing now shows through it. The bar is Ink at 80 per cent over the same drawing, turned
+   light (white lines on dark), lined up exactly with the drawing over the page. Behind the words the bar is near
+   black (a soft dark halo), so the light lines never cross the type: the same tracing-paper clearing as the rest
+   of the page, in dark. The chosen type on the Writings page wears the same bar. In Dark mode it mirrors: a light
+   bar with dark words and the drawing in dark lines. Replaces the light 8 per cent veil made earlier the same evening. */
+/* Reach, the same night: the bar lighter (Ink at 62 per cent instead of 80), and the dark area behind the words
+   a little wider, kept as dark as before (more halo layers, spread further). */
+/* The bar's copy of the drawing takes its size and place from the drawing script (--sig-size, --sig-pos), measured
+   on the whole window as the drawing over the page is, so the lines run straight through the bar. */
+/* The bar's tone: Ink mixed with a little of the ground (a deep charcoal), laid at 85 per cent over the light drawing,
+   so the bar itself reads lighter while the lines still show. */
+:root { --bar-strength: 80%;
+  --bar-tone: color-mix(in srgb, color-mix(in srgb, var(--ink) var(--bar-strength), var(--ground)) 85%, transparent);
+  --bar-halo: 0 0 4px var(--ink), 0 0 10px var(--ink), 0 0 18px var(--ink), 0 0 18px var(--ink), 0 0 30px var(--ink), 0 0 30px var(--ink), 0 0 44px var(--ink); }
+.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ background-attachment: fixed; }
+.doors a:active, .kind-name a:active, .kind.is-active .kind-name a, .subjects a:active, .year-list a:active, .rows a:active , .subject-rows a:active{
+  background-color: var(--ground); color: var(--ground);
+  background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
+  background-blend-mode: normal, saturation, difference;
+  background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
+  }
+@media (hover: hover) {
+  .doors a:hover, .doors a:focus-visible, .kind-name a:hover, .kind-name a:focus-visible, .subjects a:hover, .subjects a:focus-visible,
+  .year-list a:hover, .year-list a:focus-visible, .rows a:hover, .subject-rows a:hover, .rows a:focus-visible , .subject-rows a:focus-visible{
+    background-color: var(--ground); color: var(--ground);
+    background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
+    background-blend-mode: normal, saturation, difference;
+    background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
+    }
+}
+/* The dark area behind the words and behind the arrow (Reach, the same night: "expand it a little bit and keep it
+   the same darkness", and "enough expanded block out area for the arrow"): each name and the arrow sit on solid Ink
+   that reaches about 13 pixels past the type and then fades out over the next 14 pixels, kept inside the bar. */
+.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ overflow: hidden; }
+.doors a:active > span, .kind-name a:active > span, .kind.is-active .kind-name a > span, .subjects a:active > span, .year-list a:active > span, .rows a:active > span , .subject-rows a:active > span{
+  background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
+@media (hover: hover) {
+  .doors a:hover > span, .doors a:focus-visible > span, .kind-name a:hover > span, .kind-name a:focus-visible > span,
+  .subjects a:hover > span, .subjects a:focus-visible > span, .year-list a:hover > span, .year-list a:focus-visible > span,
+  .rows a:hover > span, .subject-rows a:hover > span, .rows a:focus-visible > span , .subject-rows a:focus-visible > span{
+    background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
+}
+/* Reach, the same night: the arrow bolder, and the black patch behind it not spread so far (it hugs the arrow:
+   about 6 pixels of solid black, fading over the next 12). The patch behind the words is unchanged. */
+.doors a .row-arrow, .kind-name a .row-arrow, .subjects a .row-arrow, .year-list a .row-arrow, .rows a .row-arrow , .subject-rows a .row-arrow{ font-weight: 800; -webkit-text-stroke: 0.6px currentColor; }
+.doors a:active > .row-arrow, .kind-name a:active > .row-arrow, .kind.is-active .kind-name a > .row-arrow, .subjects a:active > .row-arrow, .year-list a:active > .row-arrow, .rows a:active > .row-arrow , .subject-rows a:active > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
+@media (hover: hover) {
+  .doors a:hover > .row-arrow, .doors a:focus-visible > .row-arrow, .kind-name a:hover > .row-arrow, .kind-name a:focus-visible > .row-arrow,
+  .subjects a:hover > .row-arrow, .subjects a:focus-visible > .row-arrow, .year-list a:hover > .row-arrow, .year-list a:focus-visible > .row-arrow,
+  .rows a:hover > .row-arrow, .subject-rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow , .subject-rows a:focus-visible > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
+}
+</style>
+<style id="dark-bar-rows">
+/* October 2, 2026, late night, carried with the dark bar from the-writings.html: on the shelf, type, door and subject
+   rows the name and the line beside it sit in grid columns, so their boxes stretched across the whole column and the
+   near-black patch filled the bar. Each box now hugs its own words, as the names on the Writings page do, so the patch
+   sits only behind the words and the drawing shows through the rest of the bar. Nothing moves at rest. */
+.rows a > .row-name, .rows a > .row-side, .subject-rows a > .row-name-wrap, .subject-rows a > .row-side { justify-self: start; }
+/* The rows here hold two or three pieces of words (the name, the line beside or under it, the arrow). Each piece's
+   near-black patch is painted on a layer beneath all the words of its row, so no patch can darken the words of the
+   piece next to it (seen on the subject page, where the kind and reading time sit under the opening lines, and on
+   phones, where the line beside a name drops under it). Same patch sizes as on the Writings page. */
+.rows a, .subject-rows a { isolation: isolate; }
+.rows a > span, .subject-rows a > span { position: relative; }
+.rows a > span::before, .subject-rows a > span::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
+.rows a > .row-arrow::before, .subject-rows a > .row-arrow::before { border-radius: 8px; }
+.rows a:active > span, .subject-rows a:active > span { background-color: transparent; box-shadow: none; }
+.rows a:active > span::before, .subject-rows a:active > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+.rows a:active > .row-arrow, .subject-rows a:active > .row-arrow { box-shadow: none; }
+.rows a:active > .row-arrow::before, .subject-rows a:active > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+@media (hover: hover) {
+  .rows a:hover > span, .rows a:focus-visible > span, .subject-rows a:hover > span, .subject-rows a:focus-visible > span { background-color: transparent; box-shadow: none; }
+  .rows a:hover > span::before, .rows a:focus-visible > span::before, .subject-rows a:hover > span::before, .subject-rows a:focus-visible > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow, .subject-rows a:hover > .row-arrow, .subject-rows a:focus-visible > .row-arrow { box-shadow: none; }
+  .rows a:hover > .row-arrow::before, .rows a:focus-visible > .row-arrow::before, .subject-rows a:hover > .row-arrow::before, .subject-rows a:focus-visible > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+}
+</style>
+<style id="soft-patch">
+/* Reach, October 2, 2026, late night: carried from poems.html, which he called perfect. On the dark bar the name
+   and the line beside it (or the opening lines under it) wear the same soft patch: Ink at 45 per cent, about
+   6 pixels past the letters, fading over the next 10, so the drawing shows through the rest of the bar and the
+   words still read. The arrow keeps its near-black patch. */
+.rows a:active > .row-name::before, .rows a:active > .row-name-wrap::before, .rows a:active > .row-side::before, .subject-rows a:active > .row-name-wrap::before, .subject-rows a:active > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+@media (hover: hover) {
+  .rows a:hover > .row-name::before, .rows a:focus-visible > .row-name::before, .rows a:hover > .row-name-wrap::before, .rows a:focus-visible > .row-name-wrap::before, .rows a:hover > .row-side::before, .rows a:focus-visible > .row-side::before, .subject-rows a:hover > .row-name-wrap::before, .subject-rows a:focus-visible > .row-name-wrap::before, .subject-rows a:hover > .row-side::before, .subject-rows a:focus-visible > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+}
+</style>
+
+<style id="live-bar">
+/* Step 4, October 2, 2026: these pages go live before the drawing (step 6), so the row pointed at
+   is the dark bar in solid Ink with light words. The patches behind the words are the same Ink, so
+   they disappear into it. When the drawing comes in step 6, this block is taken out. */
+:root { --bar-tone: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body class="behind">
+
+
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+  <section class="opening" aria-label="Family and Love" style="--band: #DEE6DE; --work-5: #E9F9E9;">
+
+    <div class="opening-words">
+      <div class="opening-words-in">
+        <a class="back-link arrive" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
+        <h1 class="stage-title arrive" style="--d:0.1s">Family and Love</h1>
+        <p class="stage-sentence arrive" style="--d:0.2s">Every writing about family and love, of every kind, newest first. Choose one to read.</p>
+      </div>
+    </div>
+
+    <div class="opening-pic">
+      <blockquote class="passage fragment arrive" style="--d:0.3s">
+        <p class="verse">Planta. Plantare placing~fixing~watering...another green or colorful
+life-giving organism. Including inorganic matter and substances.
+Amarah...you’re in the making and flourish also on your worst days.
+What’s done...regarding this spiritual work...is immediately and soon</p>
+      </blockquote>
+      <p class="passage-from arrive" style="--d:0.4s"><a class="go-link" href="https://paraploo.com/words/2025-variety/amarah-caregiver-of-plants/">From <em>Amarah Caregiver Of Plants 11.17.22</em> <span aria-hidden="true">&rarr;</span></a></p>
+    </div>
+
+  </section>
+
+  <div class="rooms">
+    <section class="reading-band" aria-label="The writings on this subject" style="--pic-ground: #E9F9E9;">
+      <div class="inner">
+        <div class="reading-wrap">
+          <div>
+            <nav class="subject-rows" aria-label="Family and Love">
+          <a href="https://paraploo.com/words/2026-methodology/treasured-protections-fragments/"><span class="row-name-wrap"><span class="row-name">What a beautiful and inspiring dimension</span><span class="row-first">Perfect accordion ... Excellent case ... All the lead sheets soft from over handling ... The exotic cabaret song transplanted to a common community center ... Grandpa's watch dissolving into stained newspaper headlines ... and two useless photo portraits of a former head of state. These are oblique shelters we can try</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/racing-to-a-dream-that-leaped-up-from-a-fall/"><span class="row-name-wrap"><span class="row-name">Racing to a Dream That Leaped Up from a Fall</span></span><span class="row-side">Essay · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/early-years/"><span class="row-name-wrap"><span class="row-name">EARLY YEARS — 1959 to 1982</span><span class="row-first">Born 1959 near Hutchinson, Minnesota, on the black soil flatlands. Raised in Winsted, a small town conservative about modern art and thick with nicknamed characters. Roamed the fields by foot and Huffy bicycle — soil, worms, seasonal change, open sky.</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/dew-for-counting-daughters/"><span class="row-name-wrap"><span class="row-name">Dew for Counting Daughters</span><span class="row-first">Small clocks at sunrise look over your shoulder ... For us they are not a detective office desk but dew for counting daughters ... Soy ... Feat ... shy Iwai ... who could stand up on her own before the other two ... This part ... Like weather that means "warming ice melting landscape" ... from shocked and</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/from-the-back-love-song/"><span class="row-name-wrap"><span class="row-name">From The Back Love Song</span><span class="row-first">Chanson d'amour ... Shir Ahava ... Serenade ... We're standing at the foot of a tree asking our housemates to come down and receive offerings of an ear ... on a small velvet pillow ... with a satin choral group becoming the audience ... Singing to children in the sycamore branches ... Let's begin the next act</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/sandhill-crane-was-never-supposed-to-be-here/"><span class="row-name-wrap"><span class="row-name">Sandhill Crane Was Never Supposed to Be Here</span><span class="row-first">The Arrival The sandhill crane lands in my father's hospital parking lot at 6:47 AM, December 3rd—two thousand miles from where it should be, three months past migration. I know because I'm watching from the oncology wing's seventh floor, where Lou has been dying for eleven days, transforming the word wisdom into</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/a-little-bend-worth-enjoying/"><span class="row-name-wrap"><span class="row-name">A Little Bend Worth Enjoying</span><span class="row-first">That's kind of U ... and I'm glad this way of working feels natural ... Middle eye will be a little bent or slanted with us ... because we think it serves everyone better than playing along ... A model is a fashion tool we can work with ... not someone who can love us back ... and we'd be doing everyone here a</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/how-certain-trauma-gets-recycled-1/"><span class="row-name-wrap"><span class="row-name">How Certain Trauma Gets Recycled</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/when-we-become-subdued-in-sunlight-1/"><span class="row-name-wrap"><span class="row-name">When We Become Subdued in Sunlight</span><span class="row-first">it becomes a major fear of ours ... The way a noon shadow is more difficult to brush off at dusk ... and we find ourselves moving through our rooms ... carrying something that does not match the cool darkness ... and gestures of white lite streaks ... A heaviness we refuse to acknowledge is lonelier than even the</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/only-you-and-middle-eye-know-the-secret/"><span class="row-name-wrap"><span class="row-name">Only You and Middle Eye Know the Secret</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/membrane-discoveries/"><span class="row-name-wrap"><span class="row-name">VERSION 2 — THE MEMBRANE DISCOVERIES</span><span class="row-first">Cracked Open Fun Sun Day AzaLea ... SoleMN ... HeaVen ... ZeaL ... MN hiding in soleMN ... Minnesota was always inside the grief ... The flower and the fire share the same bone ... Raw asylum ... asylum before it was cooked into policy ... granted to people who have fled ... home countries that stopped being home the</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/the-journey-of-our-colorful-garden/"><span class="row-name-wrap"><span class="row-name">The Journey of Our Colorful Garden</span><span class="row-first">We have been making things for decades and if you ask us to explain what our shed contains ... open the mouths ... and a list might roll out that sounds like an auction ... led by someone who doesn't get at least seven hours of sleep every night. Cotton tail bags hold chosen hands that say Yes and Why ... Don't get</span></span><span class="row-side">Essay · 27 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/in-our-most-current-ancestral-pajamas/"><span class="row-name-wrap"><span class="row-name">In Our Most Current Ancestral Pajamas</span><span class="row-first">( two people become one person ) That's a tightrope most people don't even realize exists. They either get stuck looking backward or sprint forward without checking what they're carrying. Oyparaploo practice challenges</span></span><span class="row-side">Essay · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/what-is-the-rationale-for-no-hands/"><span class="row-name-wrap"><span class="row-name">What is the Rationale for No Hands</span><span class="row-first">( paper records at neither hand ) Frames crop hands on rifles ... hands reaching through busted doors like they're going to do something. No merciful hand arranged peace.</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/fourteen-frequencies-of-were-going-to-shine/"><span class="row-name-wrap"><span class="row-name">Fourteen Frequencies of We're Going To Shine</span><span class="row-first">( she knows which bodies are warm without being too dangerous ) Warm bodies in a room and one dog. Radiating. Infrared prose.</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/careful-children/"><span class="row-name-wrap"><span class="row-name">Careful Children</span><span class="row-first">SAfeTy First. Keep THIS ARt worK</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/cut-from-firm-posturing/"><span class="row-name-wrap"><span class="row-name">Cut From Firm Posturing</span><span class="row-first">Two tables in the same city on the same day. At one table the attorney general spent five hours not answering questions about what happened to children ... At the other table the first lady made valentines with children who are sick enough to live at the place where the government studies what is wrong with their</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/spiceless-revolting-pivot/"><span class="row-name-wrap"><span class="row-name">Spiceless Revolting Pivot</span><span class="row-first">Five hours at the table and nobody ate. The dish was served ... The names were in it ... The dates were in it ... What was done to children was in it ... The files sat on the table and the attorney general sat at the table and five hours passed and the food went cold while everyone watched ...</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/rotten-potatoes/"><span class="row-name-wrap"><span class="row-name">Rotten Potatoes</span><span class="row-first">The face arrives and the jaw does something before the mind does. We have all felt it ... that tightening ... the channel changes inside us before we change the channel ... A voice we have filed under no ... A name that makes the teeth do something the teeth were not asked to do ...</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/smells-not-right/"><span class="row-name-wrap"><span class="row-name">Smells Not Right</span><span class="row-first">We eat them. Not with teeth ... The way soil takes what falls on it whether it agreed or not ...</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/also-this-is-all-just-for-the-sake-of-the-work-itself-1/"><span class="row-name-wrap"><span class="row-name">Also ... this is all just for the sake</span><span class="row-first">It was when we became the biggest fans of ourselves that everything took off ... and then crashed ... and took off and crashed again ... Living living art ...</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/binary-blend-beings-connected-to-you/"><span class="row-name-wrap"><span class="row-name">binary blend beings connected to you</span><span class="row-first">we are fucked ... do not swear ... it is all fucked ... I said do not swear ... there are passed on loved ones ... and kindred country nation ... our foreign children listening ...</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/so-much-unusual-beauty-1/"><span class="row-name-wrap"><span class="row-name">So much unusual beauty and new conversation in this fatal</span><span class="row-first">Suede voices of schoolchildren ... sweet voices of schoolchildren are saved ... safe zones indicate they are alive. Displacement ... dropouts ... sporadic poverty. The number of killed civilians is rapidly rising.</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/oyparaploo-set-of-lenses/"><span class="row-name-wrap"><span class="row-name">OYPARAPLOO SET OF LENSES</span><span class="row-first">What does it mean to sense through this particular way of sensing ... Our lens is not just polished glass ... Not glass manufactured in a factory where workers never see the moon ... Our lens happens when the eye to</span></span><span class="row-side">Essay · 12 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/sturdy-pockets/"><span class="row-name-wrap"><span class="row-name">Sturdy Pockets</span><span class="row-first">Hand me the matches ... sleep comes dropping slowly now during our later years. The season is over and we together make the best of what we have been given ...</span></span><span class="row-side">Letter · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/happy-25th-birthday-ella-2page-lora-medium/"><span class="row-name-wrap"><span class="row-name">Ella, you are such a wonderful human being!</span><span class="row-first">Words can't describe. Or maybe they can attempt to. Let's see. It's another birthday to add to your spirited journey. Your big first and last 25th</span></span><span class="row-side">Letter · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/minute-words-ottootto-life-contrasts-sprinkled/"><span class="row-name-wrap"><span class="row-name">Minute Words: ottootto Life ( Contrasts Sprinkled )</span><span class="row-first">Love.  Essentials.  Groups.  Associations.  Stuff.  More  stuff. Settlements.  Mausoleums.  Noon  nap.  Art  collections.</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/message-and-character-script-4/"><span class="row-name-wrap"><span class="row-name">Message &amp; Character Script</span><span class="row-first">(4) /// THREE CHILDREN EATING</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/message-character-script-14/"><span class="row-name-wrap"><span class="row-name">Message &amp; Character Script</span><span class="row-first">(14) /// I LOVE YOU WITH</span></span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/ella-s-23rd-birthday/"><span class="row-name-wrap"><span class="row-name">To our Dearest Daughter Ella</span><span class="row-first">For this Special 23rd Birthday, you are a Baker of Sweetness, a Dancer who can Pivot and Put Spins On Things with your Humor. With Flour and Grace in your each Moment,</span></span><span class="row-side">Letter · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/amarah-caregiver-of-plants/"><span class="row-name-wrap"><span class="row-name">Amarah Caregiver Of Plants 11.17.22</span><span class="row-first">Modeling dirt~soil...as an extra activity to potting a personal plant. Enabling something good.</span></span><span class="row-side">Letter · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/a-corn-farm-on-a-bridge-long-version/"><span class="row-name-wrap"><span class="row-name">A Corn Farm on a Bridge (Long Version)</span><span class="row-first">Friday is a perfect day to create a fresh new project about food insecurity and many other related things ... Friday carries a particular looseness ... The sense that we can begin something without Monday through</span></span><span class="row-side">Essay · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/ahh-nee-what-does-this-all-mean-again/"><span class="row-name-wrap"><span class="row-name">Ahh Nee ~ What Does This All Mean Again?</span><span class="row-first">We doubt that ... and have the great joy of looking ... Doing a deep dive into our work ... Holy crap what an Oovra! ... Haha ha ha ... It's strange that we haven't captured them ... With all of our crossing lines ...</span></span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/oyparaploo-worded-content-for-a-not-yet-developed-cartoon-series-and-comic-strip/"><span class="row-name-wrap"><span class="row-name">(Cartoon Goes Here)</span><span class="row-first">Ah ... dear Earth ... After extensive analysis of your species' historical documentaries ... which you call reality TV and toddler playgrounds ... our xenobiologists have concluded that this refers to humanity's most</span></span><span class="row-side">Essay · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-oyparaploo-cartoon-transmissions-archive-of-recognition-and-dissolution/"><span class="row-name-wrap"><span class="row-name">The Oyparaploo Cartoon Transmissions: Archive of Recognition and Dissolution</span><span class="row-first">Part One: The Four Virtues Living in Broken Space The alien observations hold human absurdity gently. This is tenderness - not announced but breathing through ellipses. When they describe screaming and hitting as</span></span><span class="row-side">Essay · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/for-amarah-at-twenty-seven/"><span class="row-name-wrap"><span class="row-name">Writing Water: For Amarah at Twenty-Seven</span><span class="row-first">Writing Water: For Amarah at Twenty-Seven ... With Mom, Dad, sister Ella, partner Ollo, and close friends Ramona and Clark ... in the Tides ... Twenty-seven years young ... when water begins to verb itself through your</span></span><span class="row-side">Letter · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/for-amarah-on-your-27th-birthday/"><span class="row-name-wrap"><span class="row-name">For Amarah on Your 27th Birthday</span><span class="row-first">Dear Amarah, I've been thinking about how you move through your apartment during those deep cleaning days, carefully wiping each leaf of your plants with such patience. There's something beautiful about the way you do this—something I'm not sure you even realize.</span></span><span class="row-side">Letter · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/good-grief-part-nine/"><span class="row-name-wrap"><span class="row-name">We should begin to examine our own mistrust of grief</span><span class="row-first">Part of our fear and mistrust of sorrow is that we have been conditioned to encounter it alone and in isolation ... We cannot open to the full spectrum of sorrows that are around us ... so the heart wisely shuts down ... There's a wisdom to our own capacities to numb, to avoid, to anesthetize ... The conditions that</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/good-grief-part-four/"><span class="row-name-wrap"><span class="row-name">It feels like we have found the true heart</span><span class="row-first">of Grief combined with Goodness ... that tenderness ... visitors who admits to learning alongside others ... That path ... Maybe healing isn't about finding the Holy Grail or Whole Pot ... but learning to love the stained shards captures something essential ... grief work is about finding beauty and meaning in</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/blue-cords/"><span class="row-name-wrap"><span class="row-name">Blue Cords</span><span class="row-first">After her daughter's overdose, a woman begins collecting electrical cords from demolished buildings, convinced their hum contains messages, while the city collapses around her in ways she no longer notices. Rachel found the first cord in the Target where she used to work. Electric blue. The thick kind they use for</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-herm-s-at-the-food-bank/"><span class="row-name-wrap"><span class="row-name">The Hermès at the Food Bank</span><span class="row-first">When the wealthy fall from grace, they fall in designer clothes, carrying the arithmetic of their former lives: a $247 monthly storage unit holding half a million in assets they can't access, an $8,000 coat that's the</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-morning-after-everything-went-to-shit/"><span class="row-name-wrap"><span class="row-name">The Morning After Everything Went to Shit</span><span class="row-first">Lead-in: Found this crumpled in a trash can outside the unemployment office. Coffee stains, tear stains, something that might be snot. Someone had started to throw it away, changed their mind, threw it away again. The janitor saved it because he said it reminded him of 2008. And 2001. And 1987.</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-yuki-saw-when-she-stopped-pretending-she-could-see/"><span class="row-name-wrap"><span class="row-name">What Yuki Saw When She Stopped Pretending She Could See</span><span class="row-first">Lead-in: Found this under Yuki's mattress after she disappeared. Or left. Or just moved. Nobody's sure. Written on the backs of rejection letters from art residencies. Some words are crossed out so hard the paper tears. Someone at the intersection keeps making copies, changing parts, like they're trying to fix</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/pressure-ghosts-fifth-hour/"><span class="row-name-wrap"><span class="row-name">Pressure Ghosts (fifth hour)</span><span class="row-first">Dream Catalog of Those Who Paint the Wind with Transparent Hues Yuki couldn't sleep, though she wasn't entirely sure why the insomnia felt different tonight. At 3:17 AM, lying in the narrow bed of a room she shared with</span></span><span class="row-side">Story · 15 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/connection-on-and-beneath-surfaces/"><span class="row-name-wrap"><span class="row-name">Connection On and Beneath Surfaces</span><span class="row-first">--- The students from all the previous movements—the mall transformers, the bankruptcy dancers, the museum garbage artists—gather to create a manual for those who come after, discovering that teaching what you've</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-tuning-fork/"><span class="row-name-wrap"><span class="row-name">The Tuning Fork</span><span class="row-first">After the concert hall emptied and the reviews came in savage, a violinist discovers that falling from grace sounds different when you let yourself sing along to the descent—a meditation on how we tune ourselves back to life after public failure. The review was only three sentences. Marlène read it seventeen times in</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-bubble-lesson/"><span class="row-name-wrap"><span class="row-name">The Bubble Lesson</span><span class="row-first">On a powder-blue morning after the market crashed, a father teaches his daughter about bubbles while standing in the ruins of his retirement portfolio. What begins as a distraction becomes a meditation on destruction, transformation, and the peculiar human habit of building beautiful things we know will break. The</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/water-through-open-hands/"><span class="row-name-wrap"><span class="row-name">Water Through Open Hands</span><span class="row-first">The Art of Holding Light: Finding Preciousness Through Impermanence Sit with death long enough and it turns inside out. Instead of darkness, you find luminosity. Instead of despair, a peculiar freedom.</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/seventeen/"><span class="row-name-wrap"><span class="row-name">Seventeen</span><span class="row-first">Grandmother left seventeen chairs and a note saying: Don't let anyone sit on these. They're busy. Mae lives at 847 Norwood Drive, apartment 2B, above Mrs. Tsosie who watches Wheel of Fortune at volume 35 every weeknight at 6:30 PM. The microwave stopped heating three months ago. Just spins and hums. Derek keeps saying</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/thursday-inventory/"><span class="row-name-wrap"><span class="row-name">Thursday Inventory</span><span class="row-first">The Danish butter cookie tin sits on apartment 4B's kitchen counter at 1247 Pembina Highway. Royal Dansk, the kind with the pretzel-shaped ones nobody actually likes. Inside: three keys to doors that no longer exist, a hospital bracelet reading KOWALSKI, HELEN 05/23/2019, and forty-seven Canadian pennies, which</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/blue-cord/"><span class="row-name-wrap"><span class="row-name">Blue Cord</span><span class="row-first">Marion threads the blue cord through the doorknob at 4 AM, when sleep refuses to come. The doorknob that sticks at twenty-three degrees, that everyone in the house learned to turn without discussing it. Her mother's doorknob, removed from the house on Wolseley before the estate sale. Through the hole where the spindle</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/grid-work/"><span class="row-name-wrap"><span class="row-name">Grid Work</span><span class="row-first">Vera has been drawing grids for two years and four months. Every morning. Graph paper. Purple pen. One hundred squares per page. She fills the page, tapes it to the wall, starts another. She's fifty-six. Lives in Milwaukee. Works data entry from home. Has for fifteen years. Numbers in columns. Data in boxes. Eight</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/half-digital/"><span class="row-name-wrap"><span class="row-name">Half Digital</span><span class="row-first">Kenji carves wood. Traditional. His father taught him. His grandfather taught his father. He's sixty-eight. Lives in Kyoto. Retired carpenter.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/wrapping/"><span class="row-name-wrap"><span class="row-name">Wrapping</span><span class="row-first">Sara wraps flowers in bandages. Has been doing it for weeks now. Buys the flowers from the bodega. Buys the bandages from the pharmacy. Wraps them at her kitchen table. She's forty-two. Lives in the Bronx. Works data entry from home.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-red-ii/"><span class="row-name-wrap"><span class="row-name">The Red (2)</span><span class="row-first">I. Detroit Marlene calls herself the queen of medical sodium, though "queen" is generous for someone who's been mixing IV bags in the basement pharmacy of Henry Ford Hospital for twenty-three years, two stories</span></span><span class="row-side">Story · 13 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-we-wear-to-survive/"><span class="row-name-wrap"><span class="row-name">What We Wear to Survive</span><span class="row-first">I. Shibuya Yuki paints her face before leaving for work, and not makeup in any conventional sense but actual face paint—neon pink swirled with electric blue, geometric patterns across her forehead, wide circles around</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/squares/"><span class="row-name-wrap"><span class="row-name">Squares</span><span class="row-first">Linda paints squares on grid paper. Grey and lavender watercolors. She's fifty-six. Lives in Portland.</span></span><span class="row-side">Story · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/bandages/"><span class="row-name-wrap"><span class="row-name">Bandages</span><span class="row-first">Sara wraps flowers in bandages. Bought some flowers. Had bandages. Started wrapping them. She's forty-two. Lives in the Bronx. Does data entry from home.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-wall-that-isn-t-us/"><span class="row-name-wrap"><span class="row-name">The Wall That Isn't</span><span class="row-first">Rita started hanging things on the cinder block wall in March, after her mother asked her the same question three times in a row—not the asking itself but the way she'd asked, each time fresh, as if Rita were a stranger bearing news. Kitchen things mostly. A whisk first, because it was in her hand when she walked</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/too-much/"><span class="row-name-wrap"><span class="row-name">Too Much</span><span class="row-first">Yuki paints her face before work. Not makeup—face paint. Neon pink and electric blue, swirls on her cheeks, geometric shit on her forehead. Been doing this three months. She's twenty-seven. Works at a convenience store in Shibuya, the one across from the crossing.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/eight-hours/"><span class="row-name-wrap"><span class="row-name">Eight Hours</span><span class="row-first">Mira tests VR for a startup in SoMa. Eight hours a day with a headset on. Blue explosions get a 7. Sparklers get a 9. Gold discs floating over virtual grass get a 10. She's thirty-two. Theater degree. This is what she's doing.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-she-finds/"><span class="row-name-wrap"><span class="row-name">What She Finds</span><span class="row-first">Nadia collects things from the beach. Been doing it since she was eight. Shells mostly. Sawa shells with the spiral patterns. Smooth stones. She's thirty-four now. Still collects. Except now half of what she finds isn't shells.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/647/"><span class="row-name-wrap"><span class="row-name">6:47</span><span class="row-first">June takes photos of the sunset every day. Same spot on her roof. 6:47 PM. She's forty-one. Lives in Delhi. Works from home doing medical transcription. Types what doctors say.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/bottles/"><span class="row-name-wrap"><span class="row-name">Bottles</span><span class="row-first">Marcus runs a community center in Third Ward. Five years now. He's thirty-seven. They serve lunch. Soup mostly.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-hasn-t-fallen-yet/"><span class="row-name-wrap"><span class="row-name">What Hasn't Fallen Yet</span><span class="row-first">I. Mosul Rami keeps a piece of brick in his pocket. Not a whole brick—it broke when the house came down—just a chunk the size of a fist. His daughter Lina painted it gold when she was six. Gold marker she stole from school, wrote something in Arabic along the side. He can't read it anymore, the gold's worn off, but he</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-ants-would-worship/"><span class="row-name-wrap"><span class="row-name">What Ants Would Worship</span><span class="row-first">Naples After Lorenzo left, Giulia glued bottle caps to the wall.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/like-thursday/"><span class="row-name-wrap"><span class="row-name">Like Thursday</span><span class="row-first">Part One: Reykjavik, March Thermal pool before dawn. Inga losing her outline.</span></span><span class="row-side">Story · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-the-hand-knows/"><span class="row-name-wrap"><span class="row-name">What the Hand Knows</span><span class="row-first">Part One: Winnipeg Marjorie's loops started the day she found David's reading glasses in the freezer. Not the finding—that was just Thursday—but the loops began right after, when she sat at the kitchen table and her hand started moving. Round and round. She used the blue pen from the pharmacy, the free one.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/41-2/"><span class="row-name-wrap"><span class="row-name">41.2</span><span class="row-first">Sinsa DR KIM WELLNESS. 3F. Gangnam-gu.</span></span><span class="row-side">Story · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brown-paint/"><span class="row-name-wrap"><span class="row-name">Brown Paint</span><span class="row-first">Dobsonville Pick n Pay. R43.20. Children's paint. Brown. Raw umber they call it.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/ninety-francs/"><span class="row-name-wrap"><span class="row-name">Ninety Francs</span><span class="row-first">Basel Carol at Boesner art supply. Bought all their cadmium yellow. Eighty-three francs seventy.</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/number-413/"><span class="row-name-wrap"><span class="row-name">Number 413</span><span class="row-first">Manhattan Three AM. Diane on the kitchen floor with a Sharpie and wallpaper samples. Wolf two hundred looks worse than wolf one.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/theodore-s-pills/"><span class="row-name-wrap"><span class="row-name">Theodore's Pills</span><span class="row-first">Part One: Thunder Bay, Ontario Ruth's therapist said try "somatic positioning" so now Bradley was in her apartment taking pictures while she stood there holding a wet dog.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/borrowed-for-posterity/"><span class="row-name-wrap"><span class="row-name">Borrowed for Posterity</span><span class="row-first">Part One: Vancouver Sasha's landlord kept asking about "all the people" in her garage, which was worse than explaining they were made from raincoats nobody wanted anymore.</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/thunk-thunk/"><span class="row-name-wrap"><span class="row-name">Thunk Thunk</span><span class="row-first">Part One: Tokyo Keiko's therapist had suggested knitting, but yarn made her think of things unraveling, so she bought stamps instead. Then thought: why buy them? She carved her own five-year-old face from rubber, working from a school photo where she was missing a front tooth.</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-green-curtain/"><span class="row-name-wrap"><span class="row-name">The Green Curtain</span><span class="row-first">Iris hung the plastic grass curtain in her daughter's room while Zoe was at school. Sixty strands of manufactured green, each one textured to feel almost real, cascading from ceiling to floor like the memory of rain. "It's for her anxiety," Iris told her mother over video call to Scranton. "The therapist said green</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/pattern-matching/"><span class="row-name-wrap"><span class="row-name">Pattern Matching</span><span class="row-first">Nina learned to disappear in seventh grade, the year her body changed and the world noticed. Not invisibility exactly, but something more deliberate - studying wallpaper patterns, the way crowds moved, how to stand so</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-the-fog-knows/"><span class="row-name-wrap"><span class="row-name">What the Fog Knows</span><span class="row-first">Mei Chen painted the Santa Cruz mountains every morning, but she never painted what was there. She painted what was leaving. From her studio in Felton, she could see the ridgelines dissolving - not metaphorically, but actually, incrementally, in the new weather that didn't match any historical pattern. The fog that</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-murmuration/"><span class="row-name-wrap"><span class="row-name">The Murmuration</span><span class="row-first">The birds came to Helen Choi the week she stopped sleeping. Not metaphorically - actual birds, clustering at her apartment window in Sacramento, their small bodies creating patterns against the glass that looked like writing she couldn't read. "It's just the drought," her daughter Emma said over video call from</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/she-had-a-hammer/"><span class="row-name-wrap"><span class="row-name">She Had a Hammer</span><span class="row-first">The estate agent wouldn't go into the barn. "You'll want contractors for that," she said, standing at the threshold of Dorothy Kang's workshop in Petaluma. "Probably hazardous materials in there. She was ninety-three when she passed." But Grace went in anyway, her grandmother's lawyer having given her first choice of</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-we-carry-when-we-fly/"><span class="row-name-wrap"><span class="row-name">What We Carry When We Fly</span><span class="row-first">The gallery in Oakland was nearly empty, just white walls and concrete floor, when Marcus brought his daughter Zara to see it. She was eight, the same age he'd been when his grandmother first showed him the photograph. "Where are the paintings?" Zara asked.</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-moth-keeper/"><span class="row-name-wrap"><span class="row-name">The Moth Keeper</span><span class="row-first">In what used to be her mother's garage in Davis, Marla discovered the last project: a military surplus ammunition box transformed into an incubator, lined with raw silk and moss. Inside, cocoons hung like prayers, each one labeled with her mother's careful script: "Luna - found 7/15," "Polyphemus - emerged 8/2,"</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-color-of-staying/"><span class="row-name-wrap"><span class="row-name">The Color of Staying</span><span class="row-first">The paint arrived on a Tuesday, three gallons of what the hardware store called "Marigold Supreme" but what Elena knew was closer to the color of her daughter's laugh before everything changed. She'd driven from her apartment in Oakland to the old house in Scranton, Pennsylvania, where her sister Margaret still lived,</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/speaking-from-love-why-connection-matters-more-than-performance/"><span class="row-name-wrap"><span class="row-name">Speaking from Love</span><span class="row-first">When Everything Shifts When you stand before people—one person or thousands—with love instead of fear, ego, or the need to prove something, energy transforms completely. Love doesn't see "an audience" or "the market" or "potential buyers." Love sees fellow humans with their own struggles, dreams, and deep need to be</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/fame-and-deflation-fragments/"><span class="row-name-wrap"><span class="row-name">For entertainers ... your first late night appearance is a huge</span><span class="row-first">deal ... it's when you've made it ... It's your moment of arrival ... the thing that made everything else worthwhile ... Late night appearances are where people are supposed to be funny ... charming ... You're the first person I'm willing to be truly myself with when it's late and I'm unguarded ... You're the first</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/my-wife-found-my-handwritten-boot-message/"><span class="row-name-wrap"><span class="row-name">My Wife Found My Handwritten Boot Message</span><span class="row-first">So my wife calls me into the kitchen last week. She's holding a piece of paper, and she has that face - you know the face. It's the "we need to talk about what I just found" face. "What is 'Le Boot Das Boot The Boot'?"</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-joy-infrastructure-manual-a-regular-person-s-field-notes/"><span class="row-name-wrap"><span class="row-name">The Joy Infrastructure Manual</span><span class="row-first">The Complete Bewilderment Edition Full Account of One Person's Journey Through 37 Trillion Cells, Doorway Portals, Badly-Made Clay Objects, Vegetable Trading Networks, and the Discovery That Joy Wobbles --- Prologue:</span></span><span class="row-side">Story · 30 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/ode-to-tile-her/"><span class="row-name-wrap"><span class="row-name">Ode to Tile Her</span><span class="row-first">Hazel stood in the doorway of the bathroom, holding the first hexagon of honeycomb ceramic up to the morning light. October in rural Oregon meant everything was wet—the cedars, the air, the ground that squelched beneath your feet—but inside this tile she could see something dry and ancient, like crystallized honey</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/our-most-treasured-portable-and-temporary-shelter/"><span class="row-name-wrap"><span class="row-name">Our Most Treasured Portable and Temporary Shelter</span><span class="row-first">Lawrence stood in the doorway of his mother's music room, watching her sort through what looked like a lifetime of paper. The late afternoon light caught the dust motes spinning above the stacks of sheet music, and he thought of snow globes, of contained worlds you could shake and settle, shake and settle. "What are</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/maybe-probably-yes/"><span class="row-name-wrap"><span class="row-name">Maybe, Probably, Yes</span><span class="row-first">There are certain things you do for family that you wouldn't do for anyone else. Not the big things—those are easier somehow, the showing up for surgeries and funerals, the lending of money you know won't come back. I mean the small, embarrassing things. The things that require you to step outside your carefully</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/any-thursday-terrible-and-wonderful-contradictions/"><span class="row-name-wrap"><span class="row-name">Any Thursday: Terrible and Wonderful Contradictions</span><span class="row-first">My mother-in-law Rosanna moved in with us last Tuesday. I'm not sure why I'm calling her Rosanna when for twelve years she's been Mom, but something about having her in my kitchen every morning makes me need the distance of her actual name. She makes bread on Thursdays. I don't know how she decided this, but already,</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/chapter-twenty-one-the-aftermath/"><span class="row-name-wrap"><span class="row-name">Chapter Twenty-One: The Aftermath</span><span class="row-first">Dawn scraped pale light across the Grosses Walsertal, weak but unafraid. The valley breathed again: owls calling, brooks resuming their small quarrels, the clap of a farmer’s gate carrying down slope. The night’s engineered silence had been broken, but the residue of it clung like soot on lungs. Troll Tearsen sat on</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/chapter-eleven-the-room-with-good-echoes/"><span class="row-name-wrap"><span class="row-name">Chapter Eleven: The Room with Good Echoes</span><span class="row-first">Daylight arrived with a bruise-yellowed edge, like it had been handled roughly on its way through the clouds. The river kept its throat low. The construction site behind them had fallen back into its ordinary clanks and cautions, as if night rehearsals were a rumor daylight refused to credit. They found a table in a</span></span><span class="row-side">Story · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/chapter-nine-corridors-of-reverb/"><span class="row-name-wrap"><span class="row-name">Chapter Nine: Corridors of Reverb</span><span class="row-first">Morning arrived as a rumor the safehouse didn’t quite believe. The blinds held their slats like teeth; the room’s stale light was the color of water left too long in a glass. The radio still hissed, not because anyone had asked it to but because stopping seemed impolite after a night of service. The recorder’s red dot</span></span><span class="row-side">Story · 12 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/chapter-eight-voices-in-the-static/"><span class="row-name-wrap"><span class="row-name">Chapter Eight: Voices in the Static</span><span class="row-first">The safehouse sat above a tire shop off the ring road, a rectangle of rooms that had been painted so many times the walls forgot their first color. From the windows, the Périphérique curled like a lit fuse, traffic hissing along it with wet, perpetual intent. The stairwell smelled of damp plaster and old cumin;</span></span><span class="row-side">Story · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/chapter-one-echoes-of-glass-stones/"><span class="row-name-wrap"><span class="row-name">Echoes of Glass Stones</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-burden-of-significance-second-and-last-performance/"><span class="row-name-wrap"><span class="row-name">The Burden of Significance</span><span class="row-first">"Do you remember the doves?" 3 AM. Tommy drunk again. The last time I'd hear his voice.</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-frequency-of-feeling-how-human-emotions-resonate-through-sound/"><span class="row-name-wrap"><span class="row-name">The Frequency of Feeling</span><span class="row-first">Have you ever noticed how your voice changes when you're happy, becoming lighter and more musical, or how it drops and slows when sadness overtakes you? Why do we describe emotions using the language of sound - feeling "high" or "low," being "in tune" with our feelings, or experiencing "discord" within ourselves?</span></span><span class="row-side">Essay · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/be-careful-what-you-wish-for-script-for-a-play-part-three/"><span class="row-name-wrap"><span class="row-name">The Architecture of Chosen Family</span><span class="row-first">The Architecture of Chosen Family ~ How Partner Selection Becomes Your Most Powerful Act of Creation Let me help you understand one of the most profound yet overlooked aspects of human life: when you choose a partner,</span></span><span class="row-side">Essay · 43 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/be-careful-what-you-wish-for-script-for-a-play-part-two/"><span class="row-name-wrap"><span class="row-name">Appearance, Perception, and the Stories We Tell</span><span class="row-first">The Necessity Question Others finding us attractive isn't necessary for survival, dignity, or worth. It IS necessary for certain specific goals - romantic partnership, some professional roles, social ease in</span></span><span class="row-side">Essay · 49 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/empire-of-cells-where-grief-becomes-resistance/"><span class="row-name-wrap"><span class="row-name">Empire of Cells</span><span class="row-first">I. The Photograph Through fingers that tremble with years of handling, through edges curled like memory itself, through the glossy surface worn soft as prayer—the photograph weighs nothing; weighs everything.</span></span><span class="row-side">Poem · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/kinship-chorus-in-bloom/"><span class="row-name-wrap"><span class="row-name">Kinship Chorus in Bloom</span><span class="row-first">Kinship is an auto-renewal we forgot we subscribed to. We trademarked our longing, packaged guilt in biodegradable satire.</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-compost-years/"><span class="row-name-wrap"><span class="row-name">The Compost Years</span><span class="row-first">A Memoir in Fragments Fragment 1: The Divorce Papers</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-the-fungi-remember-the-name-change-office/"><span class="row-name-wrap"><span class="row-name">What the Fungi Remember</span><span class="row-first">Seattle Municipal Court February 2024</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-translation-study/"><span class="row-name-wrap"><span class="row-name">The Translation Study</span><span class="row-first">UC Berkeley Mycology Lab November 2024</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-puppet-burial/"><span class="row-name-wrap"><span class="row-name">The Puppet Burial</span><span class="row-first">Whidbey Island, Washington November 2024</span></span><span class="row-side">Story · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-memory-keeper-s-last-show/"><span class="row-name-wrap"><span class="row-name">The Memory Keeper's Last Show</span><span class="row-first">Characters - ELEANOR, 87, puppeteer with tremor</span></span><span class="row-side">Play · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/where-the-concrete-cracks-a-bouquet-of-brrd-roots/"><span class="row-name-wrap"><span class="row-name">Where the Concrete Cracks ~ A Bouquet of Brrd Roots</span><span class="row-first">The Grant Application Part One: The Deadline Montreal Arts Council office, 4:47 PM, March 15, 2024. Grant deadline: 5:00 PM. Millicent Tremblay, 67, stands at the reception desk with a manila folder that's been opened</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-well-of-truth-nour-s-migration/"><span class="row-name-wrap"><span class="row-name">The Well of Truth ~ Nour's Migration</span><span class="row-first">Part One: The Departure Damascus, March 2011. The protests hadn't reached our neighborhood yet, but Nour could taste tear gas from Douma in her morning tea. Life is chaos— chaos, cascading, swirling chaos. Her daughter</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-sommelier-s-last-pour-a-study-in-wine-and-difficult-people/"><span class="row-name-wrap"><span class="row-name">The Sommelier's Last Pour</span><span class="row-first">The Sommelier's Last Pour ~ A Study in Wine and Difficult People OPENING AUTHORITY I'm standing in the bathroom of Château Margaux at 3 AM, watching €2,000 worth of 1982 Bordeaux exit my body as what my grandmother</span></span><span class="row-side">Story · 12 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-rabbit-reckoning-a-study-in-coexistence/"><span class="row-name-wrap"><span class="row-name">The Rabbit Reckoning ~ A Study in Coexistence</span><span class="row-first">OPENING AUTHORITY I'm a wildlife biologist turned urban farmer, documenting the collapse of human-wildlife boundaries in Los Angeles. Tonight, using infrared cameras and seismic sensors, I'm tracking 47 rabbits moving</span></span><span class="row-side">Story · 17 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-joke-that-crossed-the-border/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Joke That Crossed the Border</span><span class="row-first">OPENING AUTHORITY (Step 1) The Belgrade Comedy Club, Chicago, 11:47 PM, open mic night. I'm bombing. Twenty-three minutes into my set, not a single laugh. The silence is so complete I can hear the ice melting in</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-copperplate-conspiracy/"><span class="row-name-wrap"><span class="row-name">The Copperplate Conspiracy</span><span class="row-first">Part I: The Inheritance Elise found the letter hidden in her father's calligraphy supplies, pressed between sheets of practice paper covered in his meticulous Copperplate script. The envelope bore no address, only a single line in fading ink: "When you understand why every word remains."</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-shadow-cycle-opera/"><span class="row-name-wrap"><span class="row-name">The Shadow Cycle Opera</span><span class="row-first">Part I: The Audition The casting call read: "Seeking performers who cast impossible shadows." I arrived at the abandoned Mercy Hospital carrying my mother's medical charts—the ones documenting her rare circulatory</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-rorschach-factory/"><span class="row-name-wrap"><span class="row-name">The Rorschach Factory</span><span class="row-first">Part I: The Test Subject The psychiatrist slid the inkblot across the metal table. "Tell me what you see."</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-possibility-manuscript/"><span class="row-name-wrap"><span class="row-name">The Possibility Manuscript</span><span class="row-first">Part I: The Yellow Room The storage unit's fluorescent bulb died the moment I stepped inside, leaving only the emergency exit sign to cast everything in a sickly yellow-to-red gradient. I'd inherited Unit 447 from my brother Marcus, dead three weeks from what the police called "death by misadventure"—their way of</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-conservator-of-erased-histories/"><span class="row-name-wrap"><span class="row-name">The Conservator of Erased Histories</span><span class="row-first">Part I: The Authority of Fragments I'm X-raying a 16th-century book binding when the hidden medieval manuscript appears—erased text glowing beneath centuries of erasure—and I realize I've spent my career preserving the visible while the invisible has been screaming underneath.</span></span><span class="row-side">Story · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/where-heaven-speaks-through-underground-networks/"><span class="row-name-wrap"><span class="row-name">Where Heaven Speaks Through Underground Networks</span><span class="row-first">Part I: The Discovery I'm lying on my stomach in a British Columbia forest, recording fungal networks with equipment worth more than my car, when my research partner Maya asks the question that will unravel everything I</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-algorithm-s-lullaby-a-digital-resistance-memoir/"><span class="row-name-wrap"><span class="row-name">The Algorithm's Lullaby</span><span class="row-first">Part One: The Deleted Song Opening Authority</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-nested-disaster-artists-an-architectural-memoir/"><span class="row-name-wrap"><span class="row-name">The Nested Disaster Artists</span><span class="row-first">Part One: The Museum of Failed Shelters Opening Authority</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-middle-eye-opens-a-memoir-of-sound-and-disappearance/"><span class="row-name-wrap"><span class="row-name">The Middle Eye Opens</span><span class="row-first">Part One: The Engineering Lab in Lyon Opening Authority</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-sound-of-olive-wood-burning/"><span class="row-name-wrap"><span class="row-name">The Sound of Olive Wood Burning</span><span class="row-first">Part One: The Decibel Meter I learned to measure silence at 4 a.m. on Tuesday, March 12th, when the sound engineer handed me his decibel meter outside what remained of the Al-Shifa hospital. The device, a Lutron</span></span><span class="row-side">Story · 22 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-organism-that-owns-oregon/"><span class="row-name-wrap"><span class="row-name">The Organism That Owns Oregon</span><span class="row-first">Part One: The Discovery I inherited 47 acres of dying Douglas firs in the Blue Mountains of Oregon from my mom, along with her field notebooks from 1987-2023 and a single question written on the deed's envelope: Why do the trees die in perfect circles?</span></span><span class="row-side">Story · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-brook-that-remembered-everything/"><span class="row-name-wrap"><span class="row-name">The Brook That Remembered Everything</span><span class="row-first">Part One: The Inheritance I inherited 127 acres of dying farmland in Meadowbrook Valley the week the brook dried up for the first time in recorded history—September 7, 2023, three days after Mom's funeral. Standing in</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/grammar-of-undoing-the-carpenter-s-apology/"><span class="row-name-wrap"><span class="row-name">Grammar of Undoing</span><span class="row-first">The Carpenter's Apology Angelica Wall made furniture that disappeared into mercy. That's how I met her—the silence at 7 AM where sawing should've been, a quiet so complete it had weight, pressing against windows like water against glass. I walked over to complain about the absence, the way you'd complain about a</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-carpenter-s-daughter-stories-i-should-have-written-down-sooner/"><span class="row-name-wrap"><span class="row-name">The Carpenter's Daughter</span><span class="row-first">Stories I Should Have Written Down Sooner I knew Marina for thirty-seven years, though knew isn't quite right. You don't know someone like Marina—you witness them, you orbit them, you collect pieces of them like beach glass and try to make sense of the whole from the fragments.</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-gradual-unbecoming-notes-from-a-year-of-watching-someone-disappear/"><span class="row-name-wrap"><span class="row-name">The Gradual Unbecoming</span><span class="row-first">Notes from a Year of Watching Someone Disappear Maya stopped answering her phone in March. By July, she'd stopped answering to her name.</span></span><span class="row-side">Story · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-woman-who-taught-me-silence-letters-never-sent-from-a-student-of-patience/"><span class="row-name-wrap"><span class="row-name">The Woman Who Taught Me Silence</span><span class="row-first">Letters Never Sent from a Student of Patience Dear M,</span></span><span class="row-side">Letter · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/she-was-a-minimalist-fugue/"><span class="row-name-wrap"><span class="row-name">She Was: A Minimalist Fugue</span><span class="row-first">Heartfelt Advice Shared in Houses of Worship and Empty Warehouses Introduction</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/stream-four/"><span class="row-name-wrap"><span class="row-name">/// Did you Hear that Wondrous Aroma?</span><span class="row-first">Can you Ponder the Black Palm Tree and Unique Piano Arrangement Adriana next to the Big Misty Light Blue Sea? ... Ablaye's Long Gnarly Hair is so Wet ... the Vast Sea Beyond is Ancient Reconciliation ... there is always something to Draw In from that Endless Wide Horizon during Dreamtime and Real-Common Moments</span></span><span class="row-side">Short piece · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-special-people-who-feel-everything-a-gentle-guide-for-hearts-too-big-to-hide/"><span class="row-name-wrap"><span class="row-name">The Special People Who Feel Everything</span><span class="row-first">The Special People Who Feel Everything ~ A Gentle Guide for Hearts Too Big to Hide In a world where emotional sensitivity is often treated as weakness, imagine sitting with someone who sees it as your greatest</span></span><span class="row-side">Play · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-child-who-collects-shadows-notes-from-the-abundant-deprivation-zone/"><span class="row-name-wrap"><span class="row-name">The Child Who Collects Shadows</span><span class="row-first">Notes from the Abundant Deprivation Zone A child in a hospital ward asks if clouds are edible, and suddenly we understand everything about what humans do to each other. This collection begins with testimony from a hunger ward where mothers dissolve themselves gram by gram to keep their babies alive one more day. It</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-child-who-collects-shadows-notes-from-the-abundant-deprivation-zone-the-play/"><span class="row-name-wrap"><span class="row-name">The Child Who Collects Shadows</span><span class="row-first">Notes from the Abundant Deprivation Zone ( The Play ) Pre-Show Installation (Outdoor Space) The Shadow Collection Garden - Install multiple light sources at odd angles creating overlapping shadows - Place empty picture</span></span><span class="row-side">Play · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/when-food-and-water-become-prayer-a-witness-account-from-a-siege/"><span class="row-name-wrap"><span class="row-name">When Food and Water Become Prayer</span><span class="row-first">A Witness Account from a Siege There's a question that no one speaks aloud anymore, though it fills every corner of this place: How did we arrive here? My grandmother would have called it the kind of question that plants itself between your ribs, grows thorns inward. Yesterday, a child drew flowers on the wall with a</span></span><span class="row-side">Essay · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/that-long-innocent-conversation-about-life/"><span class="row-name-wrap"><span class="row-name">FRANCOIZ: Shannon, it's too early for existential anthropology.</span><span class="row-first">Shannon, it's too early for existential anthropology. SHANNON: But you WERE a sandwich! An OLD sandwich! Like from before refrigerators! When people had to eat things fast or they'd grow roots! BERTRAND: I'm practicing. FRANCOIZ: Practicing what? Becoming a standing stone? BERTRAND: Bending. Margaret said I bow when I</span></span><span class="row-side">Conversation · 22 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-humor-a-story-with-no-punchline/"><span class="row-name-wrap"><span class="row-name">Brrd Roots Humor</span><span class="row-first">I came here with a suitcase full of broken metaphors and a joke I couldn’t finish. The customs officer asked me what I was bringing into the country. “Mostly contradictions,” I said. He didn’t laugh. That’s when I knew</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-perfect-imperfect-circle-threads-of-destiny-and-fulfillment/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Perfect Imperfect Circle</span><span class="row-first">The Perfect Imperfect Circle ~ Threads of Destiny and Fulfillment Spiritual Theme: Discovering the Treasure Within</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-a-light-through-the-ruins-script-for-a-performance/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: A Light Through the Ruins</span></span><span class="row-side">Play · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-eternal-balance-script-for-a-performance/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Eternal Balance</span></span><span class="row-side">Play · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/song-lyrics-sacred-earth-a-symphony-of-stewardship/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Sacred Earth</span><span class="row-first">(Verse 1) Under the stars in Assisi’s embrace,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/roots-of-eternity-and-rebellion-beneath-a-forest-floor/"><span class="row-name-wrap"><span class="row-name">Roots of Eternity and Rebellion Beneath a Forest Floor</span><span class="row-first">"Look closely!" the voice rang out—a prophet, gentle yet commanding, standing barefoot in the forest where the roots whispered their ancient truths. Their weathered hand pointed downward. "See the roots beneath your feet... no, beyond that! Eternity!" Birds circled high above as the air grew dizzy with the hum of</span></span><span class="row-side">Story · 36 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-empire-of-cells-version-two/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Empire of Cells</span><span class="row-first">Prison Imperialism and the Rise of Mass Incarceration The United States, a nation often heralded as a beacon of freedom, paradoxically holds the highest incarceration rate in the world. Its sprawling prison-industrial complex, a system that thrives on punitive justice and systemic inequality, has not only shaped</span></span><span class="row-side">Story · 53 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-prophet-s-path/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Prophet’s Path</span><span class="row-first">Navigating a World of Broken Chains and Fragile Promises It started with something as simple as a delay. Lydia had ordered a pair of sneakers for her son’s birthday—a small, humble gesture that she hoped would bring him</span></span><span class="row-side">Story · 24 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-ghosts-of-the-quarry/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Ghosts of the Quarry</span><span class="row-first">Absurdity, and Relentless Humanity [ How Systems Grind People Down and Why We Endure Through Defiance, Laughter, and Connection ]</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-tariffs-tablets-and-the-absurd-a-tale-of-broken-systems-and-relentless-souls/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Tariffs</span><span class="row-first">Tariffs, Tablets, and the Absurd ~ A Tale of Broken Systems and Relentless Souls [ Navigating the Surreal Theater of the Trade War With</span></span><span class="row-side">Story · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-free-verse-bridges-over-barriers-navigating-tariffs-human-costs-and-the-promise-of-global-unity/"><span class="row-name-wrap"><span class="row-name">Bridges Over Barriers</span><span class="row-first">Brrd Roots ~ Free-Verse Bridges Over Barriers:</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-united-states-economic-truths-part-six/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: United States Economic Truths</span><span class="row-first">Beyond the Picket Fence: Rethinking Family in a Changing World This part delves into the conservative right's longing to revive the traditional nuclear family of the 1950s—idealized as a breadwinning father, a nurturing mother, and their children—exploring why this vision remains compelling culturally, spiritually,</span></span><span class="row-side">Essay · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-sanctuary-can-have-endless-meanings-all-rooted-in-goodness-and-purity/"><span class="row-name-wrap"><span class="row-name">Brrd Sanctuary Can Have Endless Meanings</span><span class="row-first">Brrd Sanctuary Can Have Endless Meanings ~ All Rooted In Goodness And Purity Brrd Sanctuary is not a place—it’s a feeling, a gentle reminder that even in the chaos, there’s a corner of the world where life slows down</span></span><span class="row-side">Essay · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-improv-captivating-stories-1/"><span class="row-name-wrap"><span class="row-name">Brrd Roots Improv</span><span class="row-first">Imagine an actor stepping into the light, feeling the oppressive weight of their doubts.</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-s-eye-view-quote/"><span class="row-name-wrap"><span class="row-name">"I am, in a way</span><span class="row-first">addicted to starting new flows of intuitive connections, fully enjoying the 'brrd's-eye view' of things and the satisfaction of completing an intricate drawing or painting." From Marks</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/landscape-picture-as-words/"><span class="row-name-wrap"><span class="row-name">most adventurous, carrying us carrying starfish in a bag</span><span class="row-first">Walk on the steering floor of one of your oceans, and help humans. Get in mindful touch with you when they are not in touch with you at all. any natural wonders. Are your intricate and complex mosaic? You are as tick nah ha tick, the itch, Nat had now Hannah has said, Mother Earth. Plus, a cluster of stars. Mother</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/855-mms-sent-on-12302022-at-811-pm/"><span class="row-name-wrap"><span class="row-name">I want you to enjoy yourself. You deserve it.</span><span class="row-first">I want you to enjoy yourself. You deserve it.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/837-mms-sent-on-112023-at-604-pm/"><span class="row-name-wrap"><span class="row-name">I can there at 5:30.</span><span class="row-first">I can there at 5:30.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/799-mms-sent-on-182023-at-859-am/"><span class="row-name-wrap"><span class="row-name">/// STEP IN A PUDDLE AND SLASH YOUR FRIEND …</span><span class="row-first">/// STEP IN A PUDDLE AND SLASH YOUR FRIEND DAY is Coming Up ///</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/795-mms-sent-on-192023-at-820-am/"><span class="row-name-wrap"><span class="row-name">Mom: Not a Starbucks Coffee...an Otto Coffee.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/793-mms-sent-on-192023-at-823-am/"><span class="row-name-wrap"><span class="row-name">! From Mom.</span><span class="row-first">! From Mom.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/792-mms-sent-on-192023-at-824-am/"><span class="row-name-wrap"><span class="row-name">Your Mom.</span><span class="row-first">Your Mom.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/771-mms-sent-on-1222023-at-706-pm/"><span class="row-name-wrap"><span class="row-name">Happy to hear you can use all of that! …</span><span class="row-first">Happy to hear you can use all of that! I'm sure you will be very good at designing and sewing interesting clothing and apparel. 🧡</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/680-mms-sent-on-3282023-at-1136-am/"><span class="row-name-wrap"><span class="row-name">Congrats Ella! 🥂</span><span class="row-first">Congrats Ella! 🥂</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/606-mms-sent-on-5152023-at-309-pm/"><span class="row-name-wrap"><span class="row-name">Sorry to hear. We will most certainly help you …</span><span class="row-first">Sorry to hear. We will most certainly help you find another place.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/601-mms-sent-on-5212023-at-241-pm/"><span class="row-name-wrap"><span class="row-name">Thanks Amarah. Hope you are having a great day! …</span><span class="row-first">Thanks Amarah. Hope you are having a great day! 🧡</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/494-mms-sent-on-712023-at-1029-am/"><span class="row-name-wrap"><span class="row-name">Ben: The sad lunch sack?</span><span class="row-first">Ben: The sad lunch sack?</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/464-mms-sent-on-7132023-at-701-am/"><span class="row-name-wrap"><span class="row-name">Tinzen: Gawf haha.</span><span class="row-first">Tinzen: Gawf haha.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/419-mms-sent-on-7232023-at-1049-am/"><span class="row-name-wrap"><span class="row-name">/// WITH PURE LOVE OF ALL BIG AND TINY …</span><span class="row-first">/// WITH PURE LOVE OF ALL BIG AND TINY ARTIFICIAL MATERIAL TO NATURAL MATERIAL VOLUMES...WE PRAY ///</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/416-mms-sent-on-7232023-at-1252-pm/"><span class="row-name-wrap"><span class="row-name">😘</span><span class="row-first">😘</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/355-mms-sent-on-7262023-at-1207-pm/"><span class="row-name-wrap"><span class="row-name">😚</span><span class="row-first">😚</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/339-mms-sent-on-7262023-at-132-pm/"><span class="row-name-wrap"><span class="row-name">Your mom is refiguring our map.</span><span class="row-first">Your mom is refiguring our map.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/337-mms-sent-on-7262023-at-133-pm/"><span class="row-name-wrap"><span class="row-name">Mother</span><span class="row-first">Mother</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/236-mms-sent-on-862023-at-744-pm/"><span class="row-name-wrap"><span class="row-name">🩵😚</span><span class="row-first">🩵😚</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/189-follow-the-great-spirit-and-the-great-spirit-is-us/"><span class="row-name-wrap"><span class="row-name">/// FOLLOW THE GREAT SPIRIT AND THE GREAT SPIRIT IS US</span><span class="row-first">AS A WHOLE ... BEST GOODNESS OF HUMANITY AND ITS DEEP RESPECT AND CARE FOR ALL OF THE DIFFERENT TYPES OF HARMONIES OR WONDERFUL INTERCONNECTEDNESS ... COMPLEX ... INTRICATE ... VULNERABLE COMPOSITIONS OF LOVE FOR OUR PLANET.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/165-here-is-to-celebrating-life-as-much-as-we-possibly/"><span class="row-name-wrap"><span class="row-name">/// Here is to Celebrating Life as much as we possibly</span><span class="row-first">can ... Here is to Every Day Receiving All The Joys that Being Alive Brings ... Here is to Quirky Humor and Fast Flights ... Here is to Art Making Combined With Feeding Of Favorite Songs Timelessness ... Pure Unconditional Love For Love's Sake says Hello ... We Remember all the Best Cool and Warm Moments of the</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/154-what-s-going-on-in-your-life/"><span class="row-name-wrap"><span class="row-name">/// What's going on in your life?</span><span class="row-first">Have you experienced any fall? ... Do you have some nerve pain somewhere in your body? ... How is your physical endurance? ... Are you able to walk up a steep incline for a half hour or so without becoming so tired that you have to stop and sit down? ... When you feel nauseous do you also feel guilty that you might</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/140-the-all-in-commitment-to-anything-considered-very-important-is/"><span class="row-name-wrap"><span class="row-name">/// The all in commitment to anything considered very important</span><span class="row-first">is joined to ( during the journey of life ) an unmeasurable amount of joy ... It's also an invisible memorial ( of hang in there through all difficulties and every hardship ) that lives inside us ... and goes with us ... Cased commitments are master plans of action that add immense value to our world ... They possess</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/110-despite-what-a-few-different-people-could-have-told-you/"><span class="row-name-wrap"><span class="row-name">Despite what a few different people could have told you</span><span class="row-first">over the years ... life is not shit ... What exactly is the most extraordinary aspect of our life? ... It has been said by many wise inhabitants of the earth since the beginning of human civilization ~ "Humble Love is the strongest force on earth" ... It can turn someone that has become fully aware of their own</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/095-since-the-age-of-six-or-earlier/"><span class="row-name-wrap"><span class="row-name">Since the age of six or earlier</span><span class="row-first">they have never been bored with blends of colors and dancing lit shapes of all kinds. They sojourned at Talloires, and Tholinet painted, with an intuitive spirit and good energy, ideas for valuable future stories. The exacted allowances were considered to be tender psyche or mentality cures.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/087-another-good-hope-is-the-sense-that-we-have-hit/"><span class="row-name-wrap"><span class="row-name">Another good hope is the sense</span><span class="row-first">that we have hit rock bottom and come slowly back, and that, though we will for sure have further trials and doubts, there is a level of stability and confidence which, even in dark hours, we will know there and will not let us drop through the bottom of the sea. Bringing any one of the sweet prairie places in mind,</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/071-i-love-my-daughters-more-than-anyone-else-will-ever/"><span class="row-name-wrap"><span class="row-name">I love my daughters more than anyone else will ever</span><span class="row-first">I love my daughters more than anyone else will ever know.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/070-recognizing-spiritual-mindfulness/"><span class="row-name-wrap"><span class="row-name">Recognizing Spiritual Mindfulness</span><span class="row-first">God puts before us Christ's legend: During late fall our favorite Saints and other Prophets call out to Mother Earth's Plants. Branches and Blossoms of Olive Trees stand out as Visions. Send other good things to us! Now all of the Plum Full With Leaves to Leafless Trees Come Alive. The Aliveness is Jesus' and Buddha's</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/061-we-walked-a-thick-and-meandering-path-to-the-top/"><span class="row-name-wrap"><span class="row-name">We walked a thick and meandering path to the top</span><span class="row-first">of the mountain and I asked myself What is the full chalice in life? The answer I heard was Be light. Be true to yourself. Peacefully share with all of God's creation your Loves.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/059-celebration-of-deep-love-is-important-in-times-like-these/"><span class="row-name-wrap"><span class="row-name">Celebration of deep love is important in times like these</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/041-during-nights-with-a-network-of-a-half-dozen-clusters/"><span class="row-name-wrap"><span class="row-name">During nights with a network of a half dozen clusters</span><span class="row-first">of white yellow seed head bursts ... Gentle puffs releasing dispersing a hundred tiny stars over a clear medium blue Twilight sky ... With soul make your heart become more alive ... Give what you can of yourself with Love.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/022-what-does-it-mean-to-have-rays-of-natural-light/"><span class="row-name-wrap"><span class="row-name">What does it mean to have rays of natural light</span><span class="row-first">glow and radiate from sweet human and lovely animal hearts? What does it mean to extend the breath of forest canopies? What does it mean to masterfully serve dark and bright Creation? Best God of Goodness we have and all great prophets who have passed on to another place a long time ago ... assert collected wisdom</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2021-25-immediate-family/my-29th-anniversary-message-to-lori/"><span class="row-name-wrap"><span class="row-name">Dear Honey</span><span class="row-first">Thank you for saying "Yes" on our wedding day.</span></span><span class="row-side">Letter · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2021-25-immediate-family/to-amarah-for-your-24th-birthday-balsamic-fruit/"><span class="row-name-wrap"><span class="row-name">( To Amarah for your 24th Birthday )</span><span class="row-first">\ BALSAMIC FRUIT\</span></span><span class="row-side">Letter · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2024-variety/difference-between-a-kindred-spirit/"><span class="row-name-wrap"><span class="row-name">Difference Between A Kindred Spirit And In-Group Member</span><span class="row-first">Have you ever met someone for the first time who seems to get you, even without saying much? Someone who shares your interests, thoughts, beliefs, feelings, values, and attitudes? That's what we call a "Kindred Spirit." It's a beautiful thing to experience this type of connection. But let's not confuse kindred spirits</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2024-variety/human-redemption-for-earth-s-natural-wonders/"><span class="row-name-wrap"><span class="row-name">/// Human redemption for earth's natural wonders</span><span class="row-first">All of earth's pure wild places are magnificent wonders ... Regarding how we exist as a very good partner with Mother Earth redemption is still a valuable possibility worth entertaining during the contexts of these unusual times ... Just to warn you there might be tears welled in eyes ... It is a far forward reality</span></span><span class="row-side">Prayer · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/mosaic-ottootto-music-distressed-puma/"><span class="row-name-wrap"><span class="row-name">Mosaic ~ ottootto Music ( Distressed Puma )</span><span class="row-first">That’s always ... mixing Song - Sound comes pure coal legal - innocent Diamonds. Holy - sacred Straw. Eh we troubled Tummy ringlet butterflies. Substantial black yellow beaded mummys and our Flower pattern fabric</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/resonance-a-play-in-two-acts-with-musical-interludes/"><span class="row-name-wrap"><span class="row-name">RESONANCE ~ A Play in Two Acts with Musical Interludes</span><span class="row-first">By [Author Name] --- CHARACTERS VERA - 47, a librarian who collects silences. Translucent in her honesty, moves like water finding its level. Carries invisible scars from unnamed disasters.</span></span><span class="row-side">Play · 16 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/the-music-teacher-s-daughter-notes-on-consumption-and-other-forms-of-love/"><span class="row-name-wrap"><span class="row-name">The Music Teacher's Daughter ~ Notes on Consumption and Other Forms of Love</span><span class="row-first">The Music Teacher's Daughter ~ Notes on Consumption and Other Forms of Love --- She wasn't one person but several, living together in the same body like those colonial organisms that pretend to be singular. Portuguese</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/tuesday-music/"><span class="row-name-wrap"><span class="row-name">Tuesday Music</span><span class="row-first">Copenhagen Barnehave on Østerbrogade wants deaf music teacher. Director through interpreter: "Different perspective." Perspective. Like deaf is craft beer. Something interesting.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="later" href="https://paraploo.com/words/2025-variety/what-if-we-just-lived-a-love-letter-to-everyone-performing-themselves-and-other-characters/"><span class="row-name-wrap"><span class="row-name">What If We Just Lived?</span></span><span class="row-side">Essay · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+            </nav>
+          <div class="show-more-wrap"><button type="button" class="btn btn-solid solo show-more">Show more</button></div>
+          </div>
+          <div class="reading-pic">
+            <div class="pic-pin">
+              <div class="pic-stack">
+                <a class="pic-seat is-on" href="/physical/night-home/0001" aria-label="04906"><img src="https://media.paraploo.com/site/images/physical/night-home/Night%20Home%201.webp" width="2000" height="1333" alt="04906" decoding="async"></a>
+                <a class="pic-seat" href="/physical/night-home/0050" aria-label="04955" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-home/Night%20Home%20144.webp" width="2000" height="1333" alt="04955" loading="lazy" decoding="async"></a>
+                <a class="pic-seat" href="/physical/night-home/0099" aria-label="05004" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-home/Night%20Home%2055.webp" width="2000" height="1333" alt="05004" loading="lazy" decoding="async"></a>
+                <a class="pic-seat" href="/physical/night-home/0147" aria-label="05052" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-home/Night%20Home%2099.webp" width="2000" height="1333" alt="05052" loading="lazy" decoding="async"></a>
+              </div>
+              <div class="pic-tabs" role="group" aria-label="Pictures"><button type="button" class="pic-tab" aria-pressed="true">04906</button><button type="button" class="pic-tab" aria-pressed="false">04955</button><button type="button" class="pic-tab" aria-pressed="false">05004</button><button type="button" class="pic-tab" aria-pressed="false">05052</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="found-band" aria-label="Often found with" style="--found-ground: #F5FAF5;">
+      <div class="inner">
+        <p class="label">Often found with</p>
+        <div class="chips"><a class="chip" href="/writings/grief-and-loss.html">Grief and Loss</a><a class="chip" href="/writings/art-and-making.html">Art and Making</a><a class="chip" href="/writings/earth-and-climate.html">Earth and Climate</a></div>
+      </div>
+    </section>
+
+    <section class="band foot-next" aria-label="Where next">
+      <div class="inner">
+        <div class="foot-grid">
+          <a class="back-link" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
+          <div>
+            <p class="next-label">Justice and Politics</p>
+            <a class="go-link" href="/writings/justice-and-politics.html">Next <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"></footer>
+<hr class="tone-line" aria-hidden="true">
+
+
+
+<script id="behind-script">
+/* The play on these pages: rows that rise once as they come into view. Nothing else moves. */
+(function () {
+  var doc = document;
+  function all(sel) { return Array.prototype.slice.call(doc.querySelectorAll(sel)); }
+  /* In this preview, links to pages not made yet, and the header's own links, stay on the page. */
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (h === '#' || (location.protocol === 'file:' && h.charAt(0) === '/')) e.preventDefault();
+  });
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        en.target.classList.add('risen');
+      });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    all('.label, .rows a, .subject-rows a, .foot-grid, .chips').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
+    doc.addEventListener('animationend', function (e) {
+      if (e.animationName === 'rise') e.target.classList.remove('will-rise', 'risen');
+    });
+  }
+})();
+</script>
+<script id="subject-script">
+(function () {
+  var doc = document;
+  function all(s) { return Array.prototype.slice.call(doc.querySelectorAll(s)); }
+  all('img[data-local]').forEach(function (img) {
+    function swap() { img.removeEventListener('error', swap); img.src = img.getAttribute('data-local'); }
+    if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap);
+  });
+  /* The picture that changes as you read: it holds still beside the rows and changes as they pass.
+     The numbers under it change it by hand at any width, and are the phone's own way. */
+  var rows = doc.querySelector('.subject-rows');
+  var seats = all('.pic-seat'), tabs = all('.pic-tab');
+  var wide = window.matchMedia('(min-width: 1000px)'), calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var cur = 0;
+  function setSeat(i) {
+    cur = i;
+    seats.forEach(function (s, n) { var on = n === i; s.classList.toggle('is-on', on);
+      if (on) { s.removeAttribute('tabindex'); s.removeAttribute('aria-hidden'); } else { s.setAttribute('tabindex', '-1'); s.setAttribute('aria-hidden', 'true'); } });
+    tabs.forEach(function (t, n) { t.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+  }
+  tabs.forEach(function (t, n) { t.addEventListener('click', function () { setSeat(n); }); });
+  var ticking = false;
+  function readScroll() {
+    ticking = false;
+    if (!rows || !wide.matches || calm.matches) return;
+    var r = rows.getBoundingClientRect();
+    var p = (window.innerHeight / 2 - r.top) / r.height;
+    var i = Math.max(0, Math.min(seats.length - 1, Math.floor(p * seats.length)));
+    if (i !== cur) setSeat(i);
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(readScroll); } }, { passive: true });
+  /* Show more: 24 rows at a time. */
+  var btn = doc.querySelector('.show-more');
+  if (btn) btn.addEventListener('click', function () {
+    var rest = all('.subject-rows a.later');
+    rest.slice(0, 24).forEach(function (a) { a.classList.remove('later'); });
+    if (rest.length <= 24) btn.parentNode.hidden = true;
+    if (rest[0]) rest[0].focus({ preventScroll: true });
+  });
+})();
+</script>
+
+
+</body>
+</html>

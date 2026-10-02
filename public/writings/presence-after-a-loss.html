@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presence After a Loss · Poems · Paraploo</title>
+<meta name="description" content="Poems, newest first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+
+<!-- ==========================================================================
+     THE LIVE CHROME, word for word, placed inside the page so it opens by
+     double-click. Copied October 1, 2026 from the site repository:
+       public/chrome.css, public/nav.css, public/theme.js, public/nav.js
+     Nothing inside these four blocks was edited. The few things this mock
+     changes on purpose are in the block named "the mock's own styles".
+     ========================================================================== -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<script src="/theme.js"></script>
+
+<style id="mock-styles">
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+
+
+<style id="dark-bar">
+/* Reach, October 2, 2026, late evening: the row pointed at goes back to a dark bar with light words, as it was
+   before tonight, but the drawing now shows through it. The bar is Ink at 80 per cent over the same drawing, turned
+   light (white lines on dark), lined up exactly with the drawing over the page. Behind the words the bar is near
+   black (a soft dark halo), so the light lines never cross the type: the same tracing-paper clearing as the rest
+   of the page, in dark. The chosen type on the Writings page wears the same bar. In Dark mode it mirrors: a light
+   bar with dark words and the drawing in dark lines. Replaces the light 8 per cent veil made earlier the same evening. */
+/* Reach, the same night: the bar lighter (Ink at 62 per cent instead of 80), and the dark area behind the words
+   a little wider, kept as dark as before (more halo layers, spread further). */
+/* The bar's copy of the drawing takes its size and place from the drawing script (--sig-size, --sig-pos), measured
+   on the whole window as the drawing over the page is, so the lines run straight through the bar. */
+/* The bar's tone: Ink mixed with a little of the ground (a deep charcoal), laid at 85 per cent over the light drawing,
+   so the bar itself reads lighter while the lines still show. */
+:root { --bar-strength: 80%;
+  --bar-tone: color-mix(in srgb, color-mix(in srgb, var(--ink) var(--bar-strength), var(--ground)) 85%, transparent);
+  --bar-halo: 0 0 4px var(--ink), 0 0 10px var(--ink), 0 0 18px var(--ink), 0 0 18px var(--ink), 0 0 30px var(--ink), 0 0 30px var(--ink), 0 0 44px var(--ink); }
+.doors a, .kind-name a, .subjects a, .year-list a, .rows a { background-attachment: fixed; }
+.doors a:active, .kind-name a:active, .kind.is-active .kind-name a, .subjects a:active, .year-list a:active, .rows a:active {
+  background-color: var(--ground); color: var(--ground);
+  background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
+  background-blend-mode: normal, saturation, difference;
+  background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
+  }
+@media (hover: hover) {
+  .doors a:hover, .doors a:focus-visible, .kind-name a:hover, .kind-name a:focus-visible, .subjects a:hover, .subjects a:focus-visible,
+  .year-list a:hover, .year-list a:focus-visible, .rows a:hover, .rows a:focus-visible {
+    background-color: var(--ground); color: var(--ground);
+    background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
+    background-blend-mode: normal, saturation, difference;
+    background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
+    }
+}
+/* The dark area behind the words and behind the arrow (Reach, the same night: "expand it a little bit and keep it
+   the same darkness", and "enough expanded block out area for the arrow"): each name and the arrow sit on solid Ink
+   that reaches about 13 pixels past the type and then fades out over the next 14 pixels, kept inside the bar. */
+.doors a, .kind-name a, .subjects a, .year-list a, .rows a { overflow: hidden; }
+.doors a:active > span, .kind-name a:active > span, .kind.is-active .kind-name a > span, .subjects a:active > span, .year-list a:active > span, .rows a:active > span {
+  background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
+@media (hover: hover) {
+  .doors a:hover > span, .doors a:focus-visible > span, .kind-name a:hover > span, .kind-name a:focus-visible > span,
+  .subjects a:hover > span, .subjects a:focus-visible > span, .year-list a:hover > span, .year-list a:focus-visible > span,
+  .rows a:hover > span, .rows a:focus-visible > span {
+    background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
+}
+/* Reach, the same night: the arrow bolder, and the black patch behind it not spread so far (it hugs the arrow:
+   about 6 pixels of solid black, fading over the next 12). The patch behind the words is unchanged. */
+.doors a .row-arrow, .kind-name a .row-arrow, .subjects a .row-arrow, .year-list a .row-arrow, .rows a .row-arrow { font-weight: 800; -webkit-text-stroke: 0.6px currentColor; }
+.doors a:active > .row-arrow, .kind-name a:active > .row-arrow, .kind.is-active .kind-name a > .row-arrow, .subjects a:active > .row-arrow, .year-list a:active > .row-arrow, .rows a:active > .row-arrow { box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
+@media (hover: hover) {
+  .doors a:hover > .row-arrow, .doors a:focus-visible > .row-arrow, .kind-name a:hover > .row-arrow, .kind-name a:focus-visible > .row-arrow,
+  .subjects a:hover > .row-arrow, .subjects a:focus-visible > .row-arrow, .year-list a:hover > .row-arrow, .year-list a:focus-visible > .row-arrow,
+  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow { box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
+}
+</style>
+<style id="dark-bar-rows">
+/* October 2, 2026, late night, carried with the dark bar from the-writings.html: on the shelf, type, door and subject
+   rows the name and the line beside it sit in grid columns, so their boxes stretched across the whole column and the
+   near-black patch filled the bar. Each box now hugs its own words, as the names on the Writings page do, so the patch
+   sits only behind the words and the drawing shows through the rest of the bar. Nothing moves at rest. */
+.rows a > .row-name, .rows a > .row-side, .subject-rows a > .row-name-wrap, .subject-rows a > .row-side { justify-self: start; }
+/* The rows here hold two or three pieces of words (the name, the line beside or under it, the arrow). Each piece's
+   near-black patch is painted on a layer beneath all the words of its row, so no patch can darken the words of the
+   piece next to it (seen on the subject page, where the kind and reading time sit under the opening lines, and on
+   phones, where the line beside a name drops under it). Same patch sizes as on the Writings page. */
+.rows a, .subject-rows a { isolation: isolate; }
+.rows a > span, .subject-rows a > span { position: relative; }
+.rows a > span::before, .subject-rows a > span::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
+.rows a > .row-arrow::before, .subject-rows a > .row-arrow::before { border-radius: 8px; }
+.rows a:active > span, .subject-rows a:active > span { background-color: transparent; box-shadow: none; }
+.rows a:active > span::before, .subject-rows a:active > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+.rows a:active > .row-arrow, .subject-rows a:active > .row-arrow { box-shadow: none; }
+.rows a:active > .row-arrow::before, .subject-rows a:active > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+@media (hover: hover) {
+  .rows a:hover > span, .rows a:focus-visible > span, .subject-rows a:hover > span, .subject-rows a:focus-visible > span { background-color: transparent; box-shadow: none; }
+  .rows a:hover > span::before, .rows a:focus-visible > span::before, .subject-rows a:hover > span::before, .subject-rows a:focus-visible > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow, .subject-rows a:hover > .row-arrow, .subject-rows a:focus-visible > .row-arrow { box-shadow: none; }
+  .rows a:hover > .row-arrow::before, .rows a:focus-visible > .row-arrow::before, .subject-rows a:hover > .row-arrow::before, .subject-rows a:focus-visible > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+}
+</style>
+<style id="soft-patch">
+/* Reach, October 2, 2026, late night: carried from poems.html, which he called perfect. On the dark bar the name
+   and the line beside it (or the opening lines under it) wear the same soft patch: Ink at 45 per cent, about
+   6 pixels past the letters, fading over the next 10, so the drawing shows through the rest of the bar and the
+   words still read. The arrow keeps its near-black patch. */
+.rows a:active > .row-name::before, .rows a:active > .row-name-wrap::before, .rows a:active > .row-side::before, .subject-rows a:active > .row-name-wrap::before, .subject-rows a:active > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+@media (hover: hover) {
+  .rows a:hover > .row-name::before, .rows a:focus-visible > .row-name::before, .rows a:hover > .row-name-wrap::before, .rows a:focus-visible > .row-name-wrap::before, .rows a:hover > .row-side::before, .rows a:focus-visible > .row-side::before, .subject-rows a:hover > .row-name-wrap::before, .subject-rows a:focus-visible > .row-name-wrap::before, .subject-rows a:hover > .row-side::before, .subject-rows a:focus-visible > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+}
+</style>
+
+<style id="live-bar">
+/* Step 4, October 2, 2026: these pages go live before the drawing (step 6), so the row pointed at
+   is the dark bar in solid Ink with light words. The patches behind the words are the same Ink, so
+   they disappear into it. When the drawing comes in step 6, this block is taken out. */
+:root { --bar-tone: var(--ink); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body class="behind">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+  <section class="opening" aria-label="Presence After a Loss" style="--band: #E6E5DE; --work-5: #F9F7E9;">
+
+    <div class="opening-words">
+      <div class="opening-words-in">
+        <a class="back-link arrive" href="/writings/poems.html"><span aria-hidden="true">&larr;</span> Poems</a>
+        <h1 class="stage-title arrive" style="--d:0.1s">Presence After a Loss</h1>
+        <p class="stage-sentence arrive" style="--d:0.2s">Poems, newest first. Choose one to read.</p>
+      </div>
+    </div>
+
+    <div class="opening-pic">
+      <blockquote class="passage arrive" style="--d:0.3s">
+        <p>The child draws chalk flowers—yellow like sun, like hope, like the lies we tell ourselves. But watch her hands: how they shake slightly, how the chalk crumbles, how she continues anyway because the alternative is to stop drawing, and stopping means accepting, and accepting means—</p>
+      </blockquote>
+      <p class="passage-from arrive" style="--d:0.4s"><a class="go-link" href="https://paraploo.com/words/2025-variety/empire-of-cells-where-grief-becomes-resistance/">From Empire of Cells <span aria-hidden="true">&rarr;</span></a></p>
+    </div>
+
+  </section>
+
+  <div class="rooms">
+    <section class="band" aria-label="The writings on this shelf">
+      <div class="inner">
+        <nav class="rows rows-writings" aria-label="Presence After a Loss">
+          <a href="https://paraploo.com/words/2026-variety/we-would-love-to-get-inside-their-mind/"><span class="row-name">We Would Love to Get Inside Their Mind</span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/oyparaploo-all-over/"><span class="row-name">All Over</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/this-this-alert-and-nervous-mammal-1/"><span class="row-name">This This Alert and Nervous Mammal</span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/when-we-become-subdued-in-sunlight-1/"><span class="row-name">When We Become Subdued in Sunlight</span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/membrane-discoveries/"><span class="row-name">VERSION 2 — THE MEMBRANE DISCOVERIES</span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/u-could-be-right-in-front-u-could-be-left-behind-locked/"><span class="row-name">U Could Be Right in Front U Could Be Left</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/double-check-the-inventory/"><span class="row-name">Examine at the checklist</span><span class="row-side">Poem · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/empire-of-cells-where-grief-becomes-resistance/"><span class="row-name">Empire of Cells</span><span class="row-side">Poem · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/dazed-hymns-inheritance-and-fluid-stream/"><span class="row-name">Dazed Hymns: Inheritance and Fluid Stream</span><span class="row-side">Poem · 13 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/the-memory-eater-and-the-echo-collector/"><span class="row-name">The Memory Eater and the Echo Collector</span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/167-here-is-to-every-recalled-or-recorded-joy/"><span class="row-name">/// Here is to Every Recalled or Recorded Joy</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/139-for-lewis-easy/"><span class="row-name">/// For Lewis Easy</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/034-lovely-posture-of-a-person/"><span class="row-name">Lovely posture of a person</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/004-the-fires-rise-and-precious-water-falls-warm/"><span class="row-name">The fires rise and precious water falls warm</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2024-variety/fill-in-the-blanks-yourself-and-complete-this-if-you-wish/"><span class="row-name">Fill In The Blanks Yourself And</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="band foot-next" aria-label="Where next">
+      <div class="inner">
+        <div class="foot-grid">
+          <a class="back-link" href="/writings/poems.html"><span aria-hidden="true">&larr;</span> Poems</a>
+          <div>
+            <p class="next-label">Stillness Movement</p>
+            <a class="go-link" href="/writings/stillness-movement.html">Next <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"></footer>
+<hr class="tone-line" aria-hidden="true">
+
+
+
+<script id="behind-script">
+/* The play on these pages: rows that rise once as they come into view. Nothing else moves. */
+(function () {
+  var doc = document;
+  function all(sel) { return Array.prototype.slice.call(doc.querySelectorAll(sel)); }
+  /* In this preview, links to pages not made yet, and the header's own links, stay on the page. */
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (h === '#' || (location.protocol === 'file:' && h.charAt(0) === '/')) e.preventDefault();
+  });
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        en.target.classList.add('risen');
+      });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    all('.label, .rows a, .foot-grid').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
+    doc.addEventListener('animationend', function (e) {
+      if (e.animationName === 'rise') e.target.classList.remove('will-rise', 'risen');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
