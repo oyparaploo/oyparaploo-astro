@@ -297,3 +297,82 @@ a.df-h:hover { color: var(--accent); }
   .df-fold::after, .df-wordmark a, .df-contact .df-write svg { transition: none; }
 }
 html.rm .df-fold::after, html.rm .df-wordmark a, html.rm .df-contact .df-write svg { transition: none; }
+
+/* ==========================================================================
+   STEP 6 (October 2, 2026): the footer as Reach set it, from grief-and-loss-THREE.html,
+   the header words larger, and The Book's footer dark. Made by
+   SITE-ORDER\STEP-6\make-step-6.py.
+   ========================================================================== */
+/* Reach, October 2, 2026, evening.
+   1) A row pointed at takes a light veil of ink (8 per cent); its words stay black and
+      the drawing shows through the veil.
+   2) The footer:
+      - section names (Writings, Marks, Placings, Collage, Favorite Songs, Ways In,
+        Contact Us) in Archivo, the face of the page's own big heading, 36 pixels
+        (28 on phones);
+      - the category names over each column (By year, The Book, Most Recent, Smooth Beh
+        Laye and the rest) in Archivo too, 20 pixels, each section in its own deep
+        colour, so the eye sees at once where one section ends and the next begins:
+        Writings wine, Marks ink blue, Placings umber, Collage green, Favorite Songs
+        plum. Each passes 7 to 1 on the footer's ground, with a lighter partner in Dark;
+      - the links one pixel smaller, 17 pixels at weight 500, in full Ink, line height 1.8;
+      - every footer link underlined when pointed at. */
+@media (hover: hover) {
+}
+.df-label { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 36px; line-height: 1.15; }
+@media (max-width: 700px) { .df-label { font-size: 28px; } }
+.df-h, .df-group > a.df-g { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 20px; line-height: 1.3; margin-bottom: 8px; }
+.df-list a, .df-rooms, .df-rooms a, .df-contact p, .df-contact p a { font-size: 17px; font-weight: 500; line-height: 1.8; color: var(--ink); }
+.df-rooms li:not(:last-child)::after { color: var(--ink); }
+:root { --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; }
+html[data-theme="dark"] { --df-writings: #E8A3AE; --df-marks: #A8C3E6; --df-placings: #D9B48C; --df-collage: #A6D1B2; --df-song: #CDB2E0; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --df-writings: #E8A3AE; --df-marks: #A8C3E6; --df-placings: #D9B48C; --df-collage: #A6D1B2; --df-song: #CDB2E0; }
+}
+.df-writings .df-h, .df-writings .df-h:hover, .df-writings .df-g, .df-writings .df-g:hover { color: var(--df-writings); }
+.df-marks .df-h, .df-marks .df-h:hover, .df-marks .df-g, .df-marks .df-g:hover { color: var(--df-marks); }
+.df-placings .df-h, .df-placings .df-h:hover, .df-placings .df-g, .df-placings .df-g:hover { color: var(--df-placings); }
+.df-collage .df-h, .df-collage .df-h:hover, .df-collage .df-g, .df-collage .df-g:hover { color: var(--df-collage); }
+.df-song .df-h, .df-song .df-h:hover, .df-song .df-g, .df-song .df-g:hover { color: var(--df-song); }
+.df-list a:hover, .df-rooms a:hover, .df-contact p a:hover, .df-legal a:hover,
+.df-group > a.df-g:hover, a.df-h:hover, .df-label a:hover {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.df-list a:hover, .df-rooms a:hover, .df-contact p a:hover, .df-legal a:hover, .df-label a:hover { color: var(--ink); }
+/* Marks in the footer: Most Recent stands first on its own line; the groups after it run left to right, newest to oldest. Newest Patterns is folded into Most Recent. */
+.df-cols-dated .df-lead { grid-column: 1 / -1; margin-bottom: 8px; }
+.df-lead .df-lead-link { display: inline-block; margin-bottom: 0; }
+.df-lead .df-lead-link span { display: inline-block; transition: transform .2s; }
+.df-lead .df-lead-link:hover span { transform: translateX(4px); }
+.df-lead-line { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .df-lead .df-lead-link span { transition: none; } }
+/* Four Marks groups in the deep-bodied palette Reach chose (Ivory, Ocean, Olive, Plum, Terracotta; Ivory is too light for words): Smooth Beh Laye deep Ochre #86641C (added by Claude, Reach asked for a fifth), Fast Thin Dues Ocean #326075, Pages for Baby Divine Plum #673751 (Reach: purple), Gog Guldah Variations Olive (one step deeper, #6E6E47, so it reads at 4.5 to 1), Handwritten Every Which Way Terracotta #A45C36; lighter partners in Dark. */
+:root { --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+html[data-theme="dark"] { --df-ocean: #9CC3D3; --df-olive: #C9C99A; --df-plum: #D9A7C0; --df-terracotta: #E6A585; --df-ochre: #E3C27A; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --df-ocean: #9CC3D3; --df-olive: #C9C99A; --df-plum: #D9A7C0; --df-terracotta: #E6A585; --df-ochre: #E3C27A; } }
+.df-marks .df-grp-fast-thin-dues .df-h, .df-marks .df-grp-fast-thin-dues .df-h:hover { color: var(--df-ocean); }
+.df-marks .df-grp-pages-for-baby-divine .df-h, .df-marks .df-grp-pages-for-baby-divine .df-h:hover { color: var(--df-plum); }
+.df-marks .df-grp-gog-guldah-variations .df-h, .df-marks .df-grp-gog-guldah-variations .df-h:hover { color: var(--df-ochre); }
+.df-marks .df-grp-smooth-beh-laye .df-h, .df-marks .df-grp-smooth-beh-laye .df-h:hover { color: var(--df-olive); }
+.df-marks .df-grp-handwritten .df-h, .df-marks .df-grp-handwritten .df-h:hover { color: var(--df-terracotta); }
+/* Reach, October 2, 2026, late evening (second ruling): the big word Collage stays in the footer, because it
+   matches the header word. The first item under it, Collage Work, reads "Pieces Together" in the footer only, so the
+   heading and the item do not repeat (the Part A and Part B precedent); the folder name, the page address and the
+   header's menu panel keep Collage Work. The names under Collage stay one pixel larger, 21 pixels, and black
+   (full Ink, so Dark mode still reads). */
+.df-collage .df-h, .df-collage .df-h:hover, .df-collage .df-g, .df-collage .df-g:hover { color: var(--ink); font-size: 21px; }
+/* The Book is dark in every mode, so its footer is too: the dark ground and the light partners of the deep colours. */
+html.always-dark {
+  --df-ground: #1a1511; --df-rule: #3a3430;
+  --df-writings: #E8A3AE; --df-marks: #A8C3E6; --df-placings: #D9B48C; --df-collage: #A6D1B2; --df-song: #CDB2E0;
+  --df-ocean: #9CC3D3; --df-olive: #C9C99A; --df-plum: #D9A7C0; --df-terracotta: #E6A585; --df-ochre: #E3C27A;
+}
+/* The header words larger (Reach's yes, October 2, 2026, night): the menu words at 20 pixels and the wordmark
+   at 32; phones under 600 pixels keep the menu at 18 and take the wordmark at 26. Written strongly enough to
+   hold on every page, whatever the page's own styles say. */
+html:root body .site-header nav a { font-size: 20px; }
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header nav a { font-size: 18px; }
+  html:root body .site-header .wordmark { font-size: 26px; }
+}

@@ -658,18 +658,13 @@ main .rooms { padding: 0 0 72px; }
 }
 </style>
 
-<style id="live-bar">
-/* Step 4, October 2, 2026: these pages go live before the drawing (step 6), so the row pointed at
-   is the dark bar in solid Ink with light words. The patches behind the words are the same Ink, so
-   they disappear into it. When the drawing comes in step 6, this block is taken out. */
-:root { --bar-tone: var(--ink); }
-</style>
 <style id="phone-opening">
 /* Step 4: on the Writings page the opening words sit on the blended band with no ground of their own,
    so on narrower screens they must not stay pinned while the picture slides up under them (seen
    October 2, 2026: the picture rode over the words and the Subjects button). They scroll with the page. */
 @media (max-width: 999px) { .opening-words { position: static; } }
 </style>
+<link rel="stylesheet" href="/drawing.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -732,6 +727,7 @@ main .rooms { padding: 0 0 72px; }
     </div>
 
   </section>
+  <div class="sky" data-sky="fog" style="--sky-foot: var(--ground);" aria-hidden="true"></div>
 
   <div class="rooms">
 
@@ -1127,5 +1123,6 @@ main .rooms { padding: 0 0 72px; }
 })();
 </script>
 
+<script src="/drawing.js"></script>
 </body>
 </html>

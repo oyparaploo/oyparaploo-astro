@@ -731,12 +731,7 @@ main .rooms { padding: 0 0 72px; }
 }
 </style>
 
-<style id="live-bar">
-/* Step 4, October 2, 2026: these pages go live before the drawing (step 6), so the row pointed at
-   is the dark bar in solid Ink with light words. The patches behind the words are the same Ink, so
-   they disappear into it. When the drawing comes in step 6, this block is taken out. */
-:root { --bar-tone: var(--ink); }
-</style>
+<link rel="stylesheet" href="/drawing.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -805,6 +800,7 @@ UV reveals for hidden elements (scars, trails)</p>
     </div>
 
   </section>
+  <div class="sky" data-sky="fog" style="--sky-foot: var(--ground);" aria-hidden="true"></div>
 
   <div class="rooms">
     <section class="band" aria-label="The writings on this shelf">
@@ -937,5 +933,6 @@ UV reveals for hidden elements (scars, trails)</p>
 })();
 </script>
 
+<script src="/drawing.js"></script>
 </body>
 </html>

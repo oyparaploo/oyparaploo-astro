@@ -1,0 +1,60 @@
+/* ==========================================================================
+   The drawing over the page and the sky band (step 6 of the knock-down plan).
+   Ruled perfect by Reach October 2, 2026, on grief-and-loss-THREE.html, and
+   passed on the four step 6 test previews ("Everything looks gorgeous").
+   Loaded only by the pages Reach said yes to: the Writings page and the 78
+   pages behind it, every writing page with the stage, and The Book entrance.
+   Made by D:\PARAPLOO.COM BUILD\SITE-ORDER\STEP-6\make-step-6.py.
+   ========================================================================== */
+
+/* 1. The drawing (drawing.js paints it): 10 per cent, darkening only. In Dark mode,
+      and on The Book (dark in every mode), light lines at 12 per cent, because dark
+      lines vanish on a dark ground. */
+:root { --drawing: 0.10; }
+.signature {
+  position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 4000; pointer-events: none; display: block;
+  filter: grayscale(1) brightness(1.08) contrast(1.25);
+  mix-blend-mode: multiply; opacity: var(--drawing);
+}
+html[data-theme="dark"] .signature, html.always-dark .signature {
+  filter: grayscale(1) brightness(1.08) contrast(1.25) invert(1); mix-blend-mode: screen; opacity: var(--drawing-dark, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .signature { filter: grayscale(1) brightness(1.08) contrast(1.25) invert(1); mix-blend-mode: screen; opacity: var(--drawing-dark, 0.12); }
+}
+@media print { .signature { display: none; } }
+
+/* 2. The sky band: Reach's own picture (Stained Fog, Cool Mist IA) blurred until only
+      light and colour remain, a third lighter toward white.
+      On the Writings pages it sits between the opening band and the writings, and its
+      foot dissolves into the page's own ground, with no line. */
+.sky {
+  position: relative; overflow: hidden; height: clamp(300px, 52vh, 620px);
+  background: var(--sky-base, #9fbdd0);
+}
+.sky::before {
+  content: ""; position: absolute; inset: -18%;
+  background-size: 260% auto; background-position: 38% 42%; background-repeat: no-repeat;
+  filter: blur(70px) saturate(1.1);
+  transform: translateZ(0);
+}
+.sky::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+  background: linear-gradient(to bottom, transparent, var(--sky-foot, #F4ECE4));
+}
+.sky[data-sky="fog"] { --sky-base: #C5D9E4; }
+.sky[data-sky="fog"]::before { background-image: linear-gradient(rgba(255,255,255,0.33), rgba(255,255,255,0.33)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+
+/* On a writing page the sky sits at the foot, after Previous and Next and before the
+   footer, so the writing still leads. Its top fades from the reading paper, its foot
+   into the footer. In Dark it is the same sky darkened to a night sky. */
+.sky.sky-foot { z-index: 2; --sky-base: #C5D9E4; background: var(--sky-base); }
+.sky.sky-foot::before { background-image: linear-gradient(rgba(255,255,255,0.33), rgba(255,255,255,0.33)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+.sky-top { position: absolute; left: 0; right: 0; top: 0; height: 38%; background: linear-gradient(to bottom, var(--wp-paper, var(--ground)), transparent); }
+.sky.sky-foot::after { background: linear-gradient(to bottom, transparent, var(--df-ground)); }
+html[data-theme="dark"] .sky.sky-foot { --sky-base: #1f2a33; }
+html[data-theme="dark"] .sky.sky-foot::before { background-image: linear-gradient(rgba(13,9,7,0.55), rgba(13,9,7,0.55)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sky.sky-foot { --sky-base: #1f2a33; }
+  html:not([data-theme="light"]) .sky.sky-foot::before { background-image: linear-gradient(rgba(13,9,7,0.55), rgba(13,9,7,0.55)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+}
