@@ -1,0 +1,298 @@
+/* ==========================================================================
+   The whole Marks section: the preview's own styles. October 3, 2026.
+   Started from the October 1 preview's marks.css. The live chrome
+   (live/chrome.css, live/nav.css, step-6.css) is loaded before this file
+   and is not edited. Text colours on the frame are the site's named
+   colours (Ink, Soft ink). Words on a colour band stay dark.
+   Faces: Archivo for headings and the opening words, Inter for reading
+   and labels, Lora for the wordmark only.
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.5;
+  color: var(--ink); background: var(--ground);
+  overflow-x: clip;
+}
+h1, h2, p, figure { margin: 0; }
+h1, h2, p { text-wrap: pretty; }
+img { display: block; max-width: 100%; height: auto; }
+main a { color: inherit; text-decoration: none; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+:root {
+  --edge: 24px;            /* the whole-window frame */
+  --gap: 32px;             /* between columns */
+  --band-ink: #111111;     /* words on a colour band stay dark */
+  --rule: var(--ink);
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --way-1: #e8d898; --way-2: #e8a888; --way-3: #a8a8b8; --way-4: #f8a808; --way-5: #b8e8f8; --way-6: #f8d828;
+  --tones: linear-gradient(to right,
+    var(--way-1) 0 16.666%, var(--way-2) 16.666% 33.333%, var(--way-3) 33.333% 50%,
+    var(--way-4) 50% 66.666%, var(--way-5) 66.666% 83.333%, var(--way-6) 83.333% 100%);
+}
+
+/* The header's bottom edge in the work's own tones: the six colours of the six ways in. */
+html:root body .site-header {
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+
+/* ---------- shared pieces ---------- */
+.arch { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; }
+.arr { display: inline-block; transition: transform 0.25s var(--ease); }
+
+/* A drawing's own words and its catalogue number, under the drawing (ruled October 4, 2026): its title,
+   or the label Reach ruled for it. The number follows the last word and never breaks from itself. */
+.cap { display: block; margin-top: 12px; font-size: 18px; line-height: 1.4; }
+.cap .w { font-weight: 600; }
+.cap .n { font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; margin-left: 0.3em; }
+
+/* A colour band: flat, edge to edge, in a colour from the work on it. */
+.band { background: var(--band); color: var(--band-ink); }
+.band :focus-visible { outline-color: var(--band-ink); }
+
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+/* ---------- The Marks page: the opening ---------- */
+.open {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gap);
+  grid-template-areas: "head pic" "sent pic"; grid-template-rows: auto 1fr; align-items: start;
+  padding: 64px var(--edge) 104px;
+}
+.open-head { grid-area: head; }
+.open-pic { grid-area: pic; position: sticky; top: 24px; }
+.open-sentence { grid-area: sent; }
+.open-title { font-size: clamp(64px, 8.4vw, 132px); line-height: 0.94; letter-spacing: -0.02em; margin-left: -0.04em; }
+.open-sub { margin-top: 6px; font-size: clamp(30px, 3.1vw, 46px); line-height: 1.1; letter-spacing: -0.005em; color: var(--ink-soft); }
+/* Reach's own passage, set to be scanned: each phrase whole on its line with its three dots. */
+.open-sentence { margin-top: 36px; max-width: 29em; font-size: 20px; line-height: 1.5; }
+.open-sentence .ph { display: inline-block; max-width: 100%; margin-right: 0.35em; text-wrap: balance; }
+.open-sentence .close { display: block; }
+.open-sentence .tie { white-space: nowrap; }
+.open-sentence .dots { color: var(--ink-soft); }
+.open-pic img { width: auto; max-height: 78vh; }
+
+/* ---------- The bands on the Marks page: Most Recent, the six ways in, Handwritten Every Which Way ---------- */
+.way-band {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gap);
+  padding: 72px var(--edge);
+}
+.wb-words { display: flex; flex-direction: column; min-height: 100%; }
+.wb-name { font-size: clamp(40px, 5.4vw, 84px); line-height: 0.98; letter-spacing: -0.012em; }
+.wb-line { display: block; font-size: 22px; line-height: 1.4; max-width: 22em; margin-top: 24px; }
+.go { display: block; margin-top: auto; padding-top: 40px; font-size: 44px; line-height: 1; font-weight: 500; }
+.wb-pic { display: block; min-width: 0; align-self: center; }
+.wb-pic img { width: auto; max-height: 470px; transition: transform 0.4s var(--ease); }
+/* Every Title, then Handwritten Every Which Way, each stands as its own band after the six, with a
+   full-width line and air over it. */
+.hw-band-wrap, .tt-band-wrap { border-top: 1px solid var(--rule); margin-top: 120px; }
+/* Every Title's band shows the page's own first five rows, as they stand on the page. */
+.wb-stamps { display: block; min-width: 0; align-self: center; border-bottom: 1px solid var(--band-ink); }
+.st-row {
+  display: grid; grid-template-columns: 148px minmax(0, 1fr) auto; column-gap: 24px; align-items: center;
+  padding: 12px 0; border-top: 1px solid var(--band-ink);
+}
+.st-row .w { font-size: clamp(22px, 1.9vw, 28px); line-height: 1.12; letter-spacing: -0.004em; }
+.st-row .n, .stamp .n { font-size: 18px; font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hw-band .wb-name { font-size: clamp(40px, 4.6vw, 72px); }
+
+/* ---------- The top of every page behind the Marks page ---------- */
+.page-top { padding: 28px var(--edge) 64px; }
+.up { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 18px; font-weight: 600; }
+.page-title { margin-top: 28px; max-width: 15em; font-size: clamp(48px, 6.6vw, 104px); line-height: 0.96; letter-spacing: -0.015em; margin-left: -0.03em; }
+/* A group's name is a whole title of Reach's, often long, so it is set a step smaller. */
+.group-top .page-title { font-size: clamp(36px, 4.4vw, 68px); line-height: 1.02; max-width: 18em; }
+.hw-top .page-title { font-size: clamp(44px, 5.6vw, 92px); }
+.page-sentence { margin-top: 24px; max-width: 34em; font-size: 22px; line-height: 1.45; }
+
+/* ---------- Rows: ways in to categories, categories to groups, the eight galleries ---------- */
+.label { padding: 64px var(--edge) 20px; font-size: 18px; font-weight: 600; }
+.rows { display: block; border-bottom: 1px solid var(--rule); }
+.row {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr) 56px; column-gap: var(--gap); align-items: center;
+  padding: 28px var(--edge); border-top: 1px solid var(--rule);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.row-name { font-size: clamp(30px, 3.2vw, 48px); line-height: 1.04; letter-spacing: -0.008em; }
+.row-group .row-name { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.15; }
+.row-pics { display: flex; gap: 16px; align-items: flex-end; min-width: 0; }
+.rp { flex: 0 1 auto; min-width: 0; }
+.rp img { width: auto; max-width: 100%; height: auto; max-height: 150px; }
+.row .go { margin: 0; padding: 0; font-size: 36px; justify-self: end; }
+.row-plain { grid-template-columns: minmax(0, 1fr) 56px; padding-top: 18px; padding-bottom: 18px; }
+.row-plain .row-name { font-size: clamp(26px, 2.4vw, 36px); }
+
+/* ---------- The wall: every drawing whole, at one size, each with its word and number ---------- */
+.wall {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 64px; align-items: end;
+  padding: 72px var(--edge) 104px;
+}
+.wall.tall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tile { display: block; cursor: zoom-in; }
+.tile img { width: 100%; transition: transform 0.3s var(--ease); }
+
+/* The uneven wall (kept from the Maps preview): marks.js deals the drawings into columns. */
+.wall.laid { display: flex; gap: var(--gap); align-items: flex-start; }
+.wall.laid .col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+
+/* ---------- Every Title (October 4, 2026): every drawing as one row, newest first ---------- */
+/* Each row: the drawing whole inside a box 72 pixels tall (never cropped), set against the page's left
+   edge like the words above it; its words large, lined up; its catalogue number at the right. A row pointed at fills with the page's colour;
+   nothing grows and nothing below moves. */
+.tt-top .page-sentence { max-width: 36em; }
+.stamps { list-style: none; margin: 64px 0 0; padding: 0; border-bottom: 1px solid var(--rule); }
+.stamp {
+  display: grid; grid-template-columns: 148px minmax(0, 1fr) auto; column-gap: var(--gap); align-items: center;
+  padding: 12px var(--edge); border-top: 1px solid var(--rule);
+  cursor: zoom-in; transition: background-color 0.25s ease, color 0.25s ease;
+}
+.st-pic { display: block; width: 148px; height: 72px; }
+.st-pic img { width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: 0 50%; }
+.stamp .w { font-size: clamp(24px, 2.2vw, 32px); line-height: 1.12; letter-spacing: -0.006em; max-width: 26em; }
+.stamp:focus-visible { outline-offset: -3px; }
+.stamp:active { background: var(--band); color: var(--band-ink); }
+
+/* ---------- The foot: back up, and on ---------- */
+.foot {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: var(--gap);
+  padding: 40px var(--edge) 88px; border-top: 1px solid var(--rule);
+}
+.back { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; font-size: 20px; font-weight: 600; }
+.next { display: flex; flex-direction: column; align-items: flex-end; text-align: right; max-width: 60%; }
+.next-where { font-size: 20px; line-height: 1.4; }
+.next-word { font-size: clamp(40px, 5.2vw, 76px); line-height: 1; letter-spacing: -0.012em; margin-top: 6px; white-space: nowrap; }
+
+/* ---------- What answers a mouse: the playful reversal on rows (Kanal), arrows that slide ---------- */
+@media (hover: hover) {
+  .way-band:hover .arr, .next:hover .arr { transform: translateX(12px); }
+  .way-band:hover .wb-pic img { transform: translateY(-6px); }
+  .back:hover .arr, .up:hover .arr { transform: translateX(-6px); }
+  .row .arr { opacity: 0; transform: translateX(-12px); transition: opacity 0.25s ease, transform 0.25s var(--ease); }
+  .row:hover, .row:focus-visible { background: var(--band); color: var(--band-ink); }
+  .row:hover .arr, .row:focus-visible .arr { opacity: 1; transform: none; }
+  .tile:hover img { transform: translateY(-5px); }
+  .stamp:hover, .stamp:focus-visible { background: var(--band); color: var(--band-ink); }
+}
+/* ---------- What answers a finger: the arrows always show, and a press fills or moves ---------- */
+.way-band:active .arr, .next:active .arr { transform: translateX(12px); }
+.back:active .arr, .up:active .arr { transform: translateX(-6px); }
+.row:active { background: var(--band); color: var(--band-ink); }
+.tile:active img { transform: scale(0.985); }
+
+/* ---------- Narrower windows ---------- */
+@media (max-width: 1099px) {
+  .open { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .wall.tall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) 40px; }
+  .rp img { max-height: 120px; }
+}
+@media (max-width: 799px) {
+  /* On a phone: the name, then the drawing, then the passage (answer 4). */
+  .open { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "pic" "sent"; grid-template-rows: auto; row-gap: 28px; padding: 36px var(--edge) 64px; }
+  .open-pic { position: static; }
+  .open-sentence { margin-top: 0; font-size: 20px; line-height: 1.45; }
+  .open-sentence .ph { display: inline; margin-right: 0; }
+  .open-sentence .close { display: inline; }
+  .open-sentence br.dk { display: none; }
+  .open-sentence .tie { white-space: normal; }
+  .open-pic img { max-height: none; width: 100%; }
+  .way-band { grid-template-columns: minmax(0, 1fr); row-gap: 32px; padding: 48px var(--edge); }
+  .wb-line { font-size: 20px; margin-top: 16px; }
+  .go { padding-top: 20px; font-size: 36px; }
+  .wb-pic img { max-height: none; }
+  .hw-band-wrap, .tt-band-wrap { margin-top: 72px; }
+  .st-row { grid-template-columns: 104px minmax(0, 1fr); grid-template-areas: "pic w" "pic n"; column-gap: 16px; row-gap: 2px; }
+  .st-row .st-pic { grid-area: pic; }
+  .st-row .w { grid-area: w; font-size: 22px; align-self: end; }
+  .st-row .n { grid-area: n; align-self: start; }
+  /* on a phone the band shows the first three rows, so it stays calm */
+  .st-row:nth-child(n+4) { display: none; }
+  .page-top { padding-bottom: 44px; }
+  .page-sentence { font-size: 20px; }
+  .label { padding-top: 44px; }
+  .row { grid-template-columns: minmax(0, 1fr) 28px; grid-template-areas: "name go" "pics pics"; row-gap: 16px; column-gap: 16px; padding: 22px var(--edge); }
+  .row-name { grid-area: name; font-size: 30px; }
+  .row-group .row-name { font-size: 24px; }
+  .row-pics { grid-area: pics; gap: 12px; }
+  .rp { flex: 1 1 0; }
+  .rp img { max-height: 110px; margin: 0 auto 0 0; }
+  .row .go { grid-area: go; font-size: 24px; }
+  .row-plain { grid-template-areas: "name go"; }
+  /* On a phone every drawing runs the full width of the screen. */
+  .wall, .wall.tall { grid-template-columns: minmax(0, 1fr); row-gap: 40px; padding: 48px var(--edge) 72px; }
+  .wall.laid .col { gap: 40px; }
+  .stamps { margin-top: 44px; }
+  .stamp { grid-template-columns: 104px minmax(0, 1fr); grid-template-areas: "pic w" "pic n"; column-gap: 16px; row-gap: 2px; padding: 12px var(--edge); }
+  .st-pic { width: 104px; }
+  .stamp .st-pic { grid-area: pic; }
+  .stamp .w { grid-area: w; font-size: 22px; line-height: 1.15; align-self: end; }
+  .stamp .n { grid-area: n; align-self: start; }
+  .foot { flex-direction: column-reverse; align-items: stretch; gap: 28px; padding: 32px var(--edge) 64px; }
+  .next { align-items: flex-start; text-align: left; max-width: none; }
+}
+
+/* ---------- The slideshow (ruled October 3, 2026): one drawing whole and large on the page's own ground ---------- */
+html.show-open, html.show-open body { overflow: hidden; }
+.show {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; flex-direction: column;
+  background: var(--ground); color: var(--ink);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.show[hidden] { display: none; }
+.show:focus { outline: none; }
+.show-top { display: flex; justify-content: flex-end; padding: 16px var(--edge) 12px; }
+.show-stage { position: relative; flex: 1 1 auto; min-height: 0; margin: 0 var(--edge); touch-action: pan-y pinch-zoom; }
+/* never cropped: the drawing fits whole inside the stage, in its own shape, as large as the stage allows */
+.show-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none;
+  object-fit: contain; object-position: 50% 50%;
+  opacity: 0; transition-property: opacity; transition-timing-function: ease;
+}
+.show-img.on { opacity: 1; }
+.show-bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--gap); align-items: start;
+  padding: 20px var(--edge) 24px;
+}
+/* the first line of the words sits level with the words on the buttons */
+.show-cap { margin: 0; padding-top: 11px; }
+.show-measure { position: absolute; left: -9999px; top: 0; visibility: hidden; pointer-events: none; }
+.show-ctl { display: flex; gap: 12px; }
+/* buttons: 5-pixel corners; outline at rest, solid when pointed at or pressed (the reversal) */
+.show-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 20px;
+  font: 600 18px/1 'Inter', sans-serif; color: var(--ink);
+  background: transparent; border: 1.5px solid var(--ink); border-radius: 5px;
+  cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease;
+}
+.show-btn[hidden] { display: none; }
+.show-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.show-btn:active { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .show-btn:hover { background: var(--ink); color: var(--ground); }
+  .show-prev:hover .arr { transform: translateX(-5px); }
+  .show-next:hover .arr { transform: translateX(5px); }
+}
+@media (max-width: 599px) {
+  .show-top { padding: 12px var(--edge) 10px; }
+  /* on a phone the drawing runs the full width of the screen and sits just above its words */
+  .show-stage { margin: 0; }
+  .show-img { object-position: 50% 100%; }
+  .show-cap { padding-top: 0; }
+  .show-bar { grid-template-columns: minmax(0, 1fr); row-gap: 16px; padding: 16px var(--edge) 20px; }
+  .show-ctl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .show.still .show-ctl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .show-btn { padding: 0 6px; gap: 6px; font-size: 17px; }
+}
+
+/* ---------- Visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .way-band:hover .wb-pic img, .tile:hover img, .tile:active img { transform: none; }
+  .arr { transform: none !important; }
+}
