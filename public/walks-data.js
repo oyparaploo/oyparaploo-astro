@@ -1,7 +1,8 @@
 /* Every walk, its stops and its gift. Made October 5, 2026 by SITE-ORDER\STEP-8\make-step-8.py from the
-   walks-data.js of the preview Reach called perfect (HTML DOCS\PREVIEWS\WALKS-WHOLE-2026-10-04).
-   So Much Loss and News of Healing joins when Reach gives its sentence. build-site.py reads the writing
-   stops ("at") from this file: a writing that is a stop carries walks.css, walks-data.js and walks.js. */
+   walks-data.js of the preview Reach called perfect (HTML DOCS\PREVIEWS\WALKS-WHOLE-2026-10-04); the twelfth
+   walk, So Much Loss and News of Healing, added by SITE-ORDER\STEP-8B\make-step-8b.py once Reach gave its
+   sentence. build-site.py reads the writing stops ("at") from this file: a writing that is a stop carries
+   walks.css, walks-data.js and walks.js. */
 window.PARAPLOO_WALKS = {
  "walksHref": "/walks.html",
  "order": [
@@ -15,6 +16,7 @@ window.PARAPLOO_WALKS = {
   "family",
   "the-witnesses",
   "outside-world-inside",
+  "so-much-loss-and-news-of-healing",
   "machine-that-doesnt-eat-ties"
  ],
  "walks": {
@@ -1847,6 +1849,189 @@ window.PARAPLOO_WALKS = {
       "h": 1296
      },
      "at": "/words/2025-variety/hope-veil-brrd-roots-potential-for-change/"
+    }
+   ]
+  },
+  "so-much-loss-and-news-of-healing": {
+   "name": "So Much Loss and News of Healing",
+   "href": "/walks/so-much-loss-and-news-of-healing.html",
+   "shades": [
+    "#423F38",
+    "#3E3B35",
+    "#3B3832",
+    "#37342F",
+    "#33312C",
+    "#2F2D28",
+    "#2C2925",
+    "#282622",
+    "#24221F",
+    "#201F1C",
+    "#1D1B18",
+    "#191815"
+   ],
+   "gift": {
+    "kind": "text",
+    "html": "",
+    "phone": true
+   },
+   "stops": [
+    {
+     "href": "/words/2025-variety/beginning-again-and-again-revised/?walk=so-much-loss-and-news-of-healing",
+     "time": "2 minutes",
+     "kind": "writing",
+     "name": "Good Grief",
+     "half": "This is what beginning again looks like",
+     "pic": {
+      "n": "02262",
+      "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War%202.webp",
+      "w": 1800,
+      "h": 1374
+     },
+     "at": "/words/2025-variety/beginning-again-and-again-revised/"
+    },
+    {
+     "href": "/walks/so-much-loss-and-news-of-healing/02-05609.html",
+     "time": "1 minute",
+     "kind": "picture",
+     "n": "05609",
+     "name": "05609",
+     "words": null,
+     "where": [
+      "Placings · Pray for Destroyed Mirrors",
+      "/physical/pray-for-destroyed-mirrors/"
+     ],
+     "family": false,
+     "page": "/physical/pray-for-destroyed-mirrors/0001.html",
+     "pic": {
+      "n": "05609",
+      "src": "https://media.paraploo.com/site/images/physical/pray-for-destroyed-mirrors/pray%20for%20less%20violence%201.webp",
+      "w": 1800,
+      "h": 1441
+     }
+    },
+    {
+     "href": "/words/2025-variety/brown-paint/?walk=so-much-loss-and-news-of-healing",
+     "time": "2 minutes",
+     "kind": "writing",
+     "name": "Brown Paint",
+     "half": "Painting with fingers. No brushes.",
+     "pic": {
+      "n": "02346",
+      "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Sixteen%20Kandels%202.webp",
+      "w": 1800,
+      "h": 1308
+     },
+     "at": "/words/2025-variety/brown-paint/"
+    },
+    {
+     "href": "/words/2026-variety/clothing-and-perfumes-1/?walk=so-much-loss-and-news-of-healing",
+     "time": "1 minute",
+     "kind": "writing",
+     "name": "Clothing and perfumes",
+     "half": "We like to smell what is left behind.",
+     "pic": {
+      "n": "02227",
+      "src": "https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%208%20Tigran%20Shepisan.webp",
+      "w": 1800,
+      "h": 1012
+     },
+     "at": "/words/2026-variety/clothing-and-perfumes-1/"
+    },
+    {
+     "href": "/walks/so-much-loss-and-news-of-healing/05-02142.html",
+     "time": "1 minute",
+     "kind": "picture",
+     "n": "02142",
+     "name": "The Marsh Had a Good Tearful Weep, Minimal",
+     "words": "The Marsh Had a Good Tearful Weep, Minimal",
+     "where": null,
+     "family": false,
+     "page": "/marks/dry-grass-and-tears/0003.html",
+     "pic": {
+      "n": "02142",
+      "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img165.webp",
+      "w": 1800,
+      "h": 1385
+     }
+    },
+    {
+     "href": "/words/2026-variety/sandhill-crane-was-never-supposed-to-be-here/?walk=so-much-loss-and-news-of-healing",
+     "time": "10 minutes",
+     "kind": "writing",
+     "name": "Sandhill Crane Was Never Supposed to Be Here",
+     "half": "The sandhill crane lands in my father's hospital parking lot",
+     "pic": {
+      "n": "02330",
+      "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Onoe%20Arbz%20Let%20Us%202.webp",
+      "w": 1800,
+      "h": 1308
+     },
+     "at": "/words/2026-variety/sandhill-crane-was-never-supposed-to-be-here/"
+    },
+    {
+     "href": "/walks/so-much-loss-and-news-of-healing/07-10793.html",
+     "time": "1 minute",
+     "kind": "picture",
+     "n": "10793",
+     "name": "10793",
+     "words": null,
+     "where": [
+      "Collage · Hear Us Cry and Flow",
+      "/digital/hear-us-cry-and-flow/"
+     ],
+     "family": false,
+     "page": "/digital/hear-us-cry-and-flow/0004.html",
+     "pic": {
+      "n": "10793",
+      "src": "https://media.paraploo.com/site/images/lines/hear-us-cry-and-flow/Hear%20Us%20Crying%20IV.webp",
+      "w": 1800,
+      "h": 1012
+     }
+    },
+    {
+     "href": "/words/2025-variety/field-notes-from-the-territory-of-mending-revised/?walk=so-much-loss-and-news-of-healing",
+     "time": "2 minutes",
+     "kind": "writing",
+     "name": "Good Grief (2)",
+     "half": "living with damage rather than fixing it",
+     "pic": {
+      "n": "02816",
+      "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Active%20Nature%20Big.webp",
+      "w": 1800,
+      "h": 1382
+     },
+     "at": "/words/2025-variety/field-notes-from-the-territory-of-mending-revised/"
+    },
+    {
+     "href": "/walks/so-much-loss-and-news-of-healing/09-02714.html",
+     "time": "1 minute",
+     "kind": "picture",
+     "n": "02714",
+     "name": "Healthy Courage",
+     "words": "Healthy Courage",
+     "where": null,
+     "family": false,
+     "page": "/marks/other-worldly/0018.html",
+     "pic": {
+      "n": "02714",
+      "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Healthy%20Courage.webp",
+      "w": 1800,
+      "h": 1307
+     }
+    },
+    {
+     "href": "/words/2026-variety/yes-were-all-in/?walk=so-much-loss-and-news-of-healing",
+     "time": "2 minutes",
+     "kind": "writing",
+     "name": "Yes, We're All In",
+     "half": "At our softest ... we are least dangerous",
+     "pic": {
+      "n": "02242",
+      "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Bahb%20Sontey%20Poli%202.webp",
+      "w": 1800,
+      "h": 1308
+     },
+     "at": "/words/2026-variety/yes-were-all-in/"
     }
    ]
   },
