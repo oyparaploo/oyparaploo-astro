@@ -2,7 +2,9 @@
    walks-data.js of the preview Reach called perfect (HTML DOCS\PREVIEWS\WALKS-WHOLE-2026-10-04); the twelfth
    walk, So Much Loss and News of Healing, added by SITE-ORDER\STEP-8B\make-step-8b.py once Reach gave its
    sentence. build-site.py reads the writing stops ("at") from this file: a writing that is a stop carries
-   walks.css, walks-data.js and walks.js. */
+   walks.css, walks-data.js and walks.js.
+   Step 8C (SITE-ORDER\STEP-8C, October 5, 2026): the two empty gifts, The Witnesses and So Much Loss and
+   News of Healing, take the words of their phone texts, exactly as those pages show them. */
 window.PARAPLOO_WALKS = {
  "walksHref": "/walks.html",
  "order": [
@@ -1502,7 +1504,7 @@ window.PARAPLOO_WALKS = {
    ],
    "gift": {
     "kind": "text",
-    "html": "",
+    "html": "  <p>Seeing awe and grace in others makes life worth living.</p>",
     "phone": true
    },
    "stops": [
@@ -1871,7 +1873,7 @@ window.PARAPLOO_WALKS = {
    ],
    "gift": {
     "kind": "text",
-    "html": "",
+    "html": "  <p>/// Hearted and Soulful Resilience is your Hope ///</p>",
     "phone": true
    },
    "stops": [
