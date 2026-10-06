@@ -4,28 +4,636 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loves · Paraploo</title>
-<meta name="description" content="Loves — inspirations and influences, image galleries from Otto Paraploo.">
+<meta name="description" content="Work by other artists, loved at Paraploo. Every picture carries its maker's name and a link to where their work lives. None of it was made here.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome, and the Writings pages' shared look (the first style block of /walks.html, word for word). -->
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
-<script src="/theme.js"></script>
-<style>
-  * { box-sizing: border-box; }
-  body { margin: 0; background: #0d0907; color: rgba(232, 224, 214, 0.9); font-family: 'Inter', sans-serif; }
-  .gallery-title-block { max-width: 1400px; margin: 0 auto; padding: 56px 32px 24px; }
-  .gallery-title-block h1 { font-family: 'Lora', serif; font-weight: 600; font-size: 38px; letter-spacing: -0.02em; line-height: 1.3; margin: 0; color: rgba(232, 224, 214, 0.95); }
-  .gallery-subhead { font-size: 16px; margin: 8px 0 0; color: rgba(232,224,214,0.6); }
-  .gallery-grid { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
-  .gallery-item { display: block; text-decoration: none; }
-  .gallery-item img { width: 100%; aspect-ratio: 4/3; object-fit: contain; object-position: center; display: block; background: transparent; }
-  .gallery-caption { margin: 10px 2px 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.35; text-wrap: balance; color: rgba(232, 224, 214, 0.9); }
-  .holding-block { max-width: 1400px; margin: 0 auto; padding: 0 32px 80px; }
-  .holding-block p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.5; max-width: 720px; color: rgba(232, 224, 214, 0.9); }
-  .holding-block p.grey-note { color: rgba(232, 224, 214, 0.6); font-size: 16px; }
-</style>
 <link rel="stylesheet" href="/nav.css">
-<script src="/nav.js" defer></script>
+<style id="pages-styles">
+/* Copied word for word from the live /walks.html, its first style block (the Writings pages' shared look). Not edited. */
+
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/loves.css">
+<style>:root { --tones: linear-gradient(to right, #875F39 0% 20%, #4A3E23 20% 40%, #74793F 40% 60%, #985F63 60% 80%, #EEB288 80% 100%); }</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,27 +676,265 @@
 }
 </script>
 </head>
-<body>
-<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
-<div class="gallery-title-block"><h1>Loves</h1></div>
-<div class="holding-block">
-  <p>The diversity of details, the overall wide array of possibilities, and then when you get your nose close up, the fascination with how a surface or an object conveys a different concept for sensing something.</p>
-  <p class="grey-note">This room is being rebuilt so that every picture carries its maker's name. Back soon.</p>
-</div>
 
-<footer class="site-footer">
-  <a href="/" class="wordmark">Paraploo</a>
-  <nav>
-    <a href="/writings.html">Writings</a>
-    <a href="/marks.html">Marks</a>
-    <a href="/physical.html">Placings</a>
-    <a href="/digital.html">Collage</a>
-    <a href="/musicology.html">Song</a>
-    <a href="/search.html">Search</a>
-  </nav>
-  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
-  <p>&copy; 2026 Paraploo</p>
-</footer>
+<body class="loves-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+  <section class="loves-opening" aria-labelledby="loves-title">
+    <div class="opening-left">
+      <p class="label">Inspirations and Influences</p>
+      <h1 class="stage-title" id="loves-title">Loves</h1>
+    </div>
+    <div class="opening-right">
+      <p class="stage-sentence">The diversity of details, the overall wide array of possibilities, and then when you get your nose close up, the fascination with how a surface or an object conveys a different concept for sensing something.</p>
+      <div class="loves-plain">
+        <p>Work by other artists. None of it was made here. Every picture carries its maker's name, and every name opens the place where their work lives.</p>
+        <p>If your work is here and you would like it taken down, <a href="#footer">write to us</a> and it comes down the same day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="three" aria-label="Three of the makers">
+    <a class="panel" href="#moshekwa-langa" style="--band:#EECFB5; --d:0.00s"><span class="panel-pic"><img src="/images/loves/moshekwa-langa-1.webp" width="1293" height="862" alt="Tall stained cloths in browns and rust, hanging from the ceiling of a white gallery"></span><span class="panel-name">Moshekwa Langa</span><span class="panel-title">Paintings hung in the room</span></a>
+    <a class="panel" href="#dineo-seshee-bopape" style="--band:#F1E4CB; --d:0.15s"><span class="panel-pic"><img src="/images/loves/dineo-seshee-bopape-1.webp" width="690" height="461" alt="A canopy of dried earth on thin poles, over a dark soil floor set with round gold discs"></span><span class="panel-name">Dineo Seshee Bopape</span><span class="panel-title">Installation</span></a>
+    <a class="panel" href="#marshmallow-laser-feast" style="--band:#C5C6A1; --d:0.30s"><span class="panel-pic"><img src="/images/loves/marshmallow-laser-feast-1.webp" width="736" height="1104" alt="A person in a forest wearing a round black helmet whose face is covered in moss"></span><span class="panel-name">Marshmallow Laser Feast</span><span class="panel-title"><i>In the Eyes of the Animal</i>, 2015</span></a>
+  </section>
+
+  <section class="makers" aria-label="The makers">
+    <nav class="maker-list" id="the-makers" aria-label="The makers">
+      <div class="maker-list-in">
+        <p class="label">The makers</p>
+        <ol><li><a href="#moshekwa-langa" data-for="moshekwa-langa"><span>Moshekwa Langa</span></a></li><li><a href="#dineo-seshee-bopape" data-for="dineo-seshee-bopape"><span>Dineo Seshee Bopape</span></a></li><li><a href="#marshmallow-laser-feast" data-for="marshmallow-laser-feast"><span>Marshmallow Laser Feast</span></a></li><li><a href="#sethembile-msezane" data-for="sethembile-msezane"><span>Sethembile Msezane</span></a></li><li><a href="#sir-francis-rose" data-for="sir-francis-rose"><span>Sir Francis Rose</span></a></li><li><a href="#andy-warhol" data-for="andy-warhol"><span>Andy Warhol</span></a></li><li><a href="#gary-hume" data-for="gary-hume"><span>Gary Hume</span></a></li><li><a href="#christopher-wool" data-for="christopher-wool"><span>Christopher Wool</span></a></li><li><a href="#daniel-boyd" data-for="daniel-boyd"><span>Daniel Boyd</span></a></li><li><a href="#rose-wylie" data-for="rose-wylie"><span>Rose Wylie</span></a></li><li><a href="#cecilia-vicuna" data-for="cecilia-vicuna"><span>Cecilia Vicuña</span></a></li><li><a href="#isa-genzken" data-for="isa-genzken"><span>Isa Genzken</span></a></li><li><a href="#francoiz-breut" data-for="francoiz-breut"><span>Françoiz Breut</span></a></li><li><a href="#sara-anjargolian" data-for="sara-anjargolian"><span>Sara Anjargolian</span></a></li><li><a href="#pia-camil" data-for="pia-camil"><span>Pia Camil</span></a></li><li><a href="#klara-hosnedlova" data-for="klara-hosnedlova"><span>Klára Hosnedlová</span></a></li><li><a href="#theaster-gates" data-for="theaster-gates"><span>Theaster Gates</span></a></li><li><a href="#xu-bing" data-for="xu-bing"><span>Xu Bing</span></a></li></ol>
+      </div>
+    </nav>
+<article class="maker" id="moshekwa-langa" style="--band:#EECFB5" aria-labelledby="moshekwa-langa-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="moshekwa-langa-name">Moshekwa Langa</h2>
+      <p class="maker-what">Drawings, paintings and installations · Amsterdam</p>
+      <p class="maker-para">Moshekwa Langa was born in 1975 in Bakenberg, South Africa, and works in Amsterdam. He makes maps out of whatever comes to hand: spools of cotton, toy cars, bottles, street maps, bubble wrap. From across the room a floor of his tangled thread looks like a mess. Get closer and it turns into roads, borders and the long way home.</p>
+      <a class="btn btn-solid solo go" href="https://www.stevenson.info/artist/moshekwa-langa" target="_blank" rel="noopener">See more at Stevenson <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="2"><figure style="--r:1.5000"><a class="pic-link" href="https://www.stevenson.info/artist/moshekwa-langa" target="_blank" rel="noopener"><img src="/images/loves/moshekwa-langa-1.webp" width="1293" height="862" alt="Tall stained cloths in browns and rust, hanging from the ceiling of a white gallery" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.stevenson.info/artist/moshekwa-langa" target="_blank" rel="noopener">Moshekwa Langa <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Paintings hung in the room</span></figcaption></figure><figure style="--r:1.5326"><a class="pic-link" href="https://www.stevenson.info/artist/moshekwa-langa" target="_blank" rel="noopener"><img src="/images/loves/moshekwa-langa-2.webp" width="1600" height="1044" alt="A web of coloured thread spread across a gallery floor, with bottles, spools and toy cars set along it" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.stevenson.info/artist/moshekwa-langa" target="_blank" rel="noopener">Moshekwa Langa <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Floor installation</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="dineo-seshee-bopape" style="--band:#F1E4CB" aria-labelledby="dineo-seshee-bopape-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="dineo-seshee-bopape-name">Dineo Seshee Bopape</h2>
+      <p class="maker-what">Installations of soil, clay and gold · Johannesburg</p>
+      <p class="maker-para">Dineo Seshee Bopape, born in 1981 in Polokwane, South Africa, builds whole rooms out of earth. Her materials are soil, clay, healing herbs and gold leaf, and some of her clay pieces are shaped by a clenched fist, so each one keeps the print of a hand. Step close and the packed ground starts to read like a memory of land: who worked it, and what it still holds.</p>
+      <a class="btn btn-solid solo go" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener">See more at Sfeir-Semler Gallery <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="3"><figure style="--r:1.4967"><a class="pic-link" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener"><img src="/images/loves/dineo-seshee-bopape-1.webp" width="690" height="461" alt="A canopy of dried earth on thin poles, over a dark soil floor set with round gold discs" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener">Dineo Seshee Bopape <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation</span></figcaption></figure><figure style="--r:1.4993"><a class="pic-link" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener"><img src="/images/loves/dineo-seshee-bopape-2.webp" width="1024" height="683" alt="A wide raised platform of packed earth, its top set with rows of small soil bricks around a ring" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener">Dineo Seshee Bopape <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation of earth</span></figcaption></figure><figure style="--r:1.5023"><a class="pic-link" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener"><img src="/images/loves/dineo-seshee-bopape-3.webp" width="1600" height="1065" alt="Wooden poles, cables, mirrors and white cloth strung through a gallery" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://sfeir-semler.com/artists/artists/dineo-seshee-bopape" target="_blank" rel="noopener">Dineo Seshee Bopape <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="marshmallow-laser-feast" style="--band:#C5C6A1" aria-labelledby="marshmallow-laser-feast-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="marshmallow-laser-feast-name">Marshmallow Laser Feast</h2>
+      <p class="maker-what">Immersive installations, virtual reality and film · London</p>
+      <p class="maker-para">Marshmallow Laser Feast is a group of artists in London: Ersin Han Ersin, Barnaby Steel and Robin McNicholas. They scan real trees and forests with lasers and medical scanners, then turn what they find into places you can walk into. Put on one of their headsets and a tree becomes a slow river of light, or a wood looks the way it might to a dragonfly or an owl. The forest was always this busy. They let you notice.</p>
+      <a class="btn btn-solid solo go" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">See more on their own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="5"><figure style="--r:0.6667"><a class="pic-link" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener"><img src="/images/loves/marshmallow-laser-feast-1.webp" width="736" height="1104" alt="A person in a forest wearing a round black helmet whose face is covered in moss" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">Marshmallow Laser Feast <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>In the Eyes of the Animal</i>, 2015</span></figcaption></figure><figure style="--r:1.8663"><a class="pic-link" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener"><img src="/images/loves/marshmallow-laser-feast-2.webp" width="1200" height="643" alt="A visitor in a headset reaching toward huge blue forms of a tree" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">Marshmallow Laser Feast <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Virtual reality installation</span></figcaption></figure><figure style="--r:1.3611"><a class="pic-link" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener"><img src="/images/loves/marshmallow-laser-feast-3.webp" width="818" height="601" alt="Green laser lines crossing a forest of fallen trees and orange moss" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">Marshmallow Laser Feast <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation with lasers</span></figcaption></figure><figure style="--r:1.5000"><a class="pic-link" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener"><img src="/images/loves/marshmallow-laser-feast-4.webp" width="1200" height="800" alt="A woman&#x27;s face covered in small points of projected light" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">Marshmallow Laser Feast <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation of light</span></figcaption></figure><figure style="--r:1.0000"><a class="pic-link" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener"><img src="/images/loves/marshmallow-laser-feast-5.webp" width="960" height="960" alt="A round golden disc lying in long grass" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.marshmallowlaserfeast.com" target="_blank" rel="noopener">Marshmallow Laser Feast <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">From their work</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="sethembile-msezane" style="--band:#F3CBCC" aria-labelledby="sethembile-msezane-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="sethembile-msezane-name">Sethembile Msezane</h2>
+      <p class="maker-what">Performance, photography and sculpture · Cape Town</p>
+      <p class="maker-para">Sethembile Msezane, born in 1991 in KwaZulu-Natal, South Africa, asks why so few public statues are of Black women, and then becomes one. She stands for hours on a plinth, as still as bronze. In 2015 she stood for nearly four hours at the University of Cape Town while the statue of Cecil Rhodes behind her was lifted away by a crane. Up close, the stillness is the work: a body holding its place while history moves.</p>
+      <a class="btn btn-solid solo go" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">See more at Tyburn Gallery <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="5"><figure style="--r:1.2542"><a class="pic-link" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener"><img src="/images/loves/sethembile-msezane-1.webp" width="1500" height="1196" alt="A woman with outspread wings stands on a plinth above a crowd while a crane lifts away a statue" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">Sethembile Msezane <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>Chapungu – The Day Rhodes Fell</i>, 2015</span></figcaption></figure><figure style="--r:1.2580"><a class="pic-link" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener"><img src="/images/loves/sethembile-msezane-2.webp" width="512" height="407" alt="A woman in pink holds up a dark figure before a giant bronze monument on a hill" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">Sethembile Msezane <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>So Long a Letter</i>, 2016</span></figcaption></figure><figure style="--r:0.6667"><a class="pic-link" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener"><img src="/images/loves/sethembile-msezane-3.webp" width="1000" height="1500" alt="A woman in a school blazer stands on a plinth with a stack of books on her head" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">Sethembile Msezane <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>Untitled (Youth Day)</i>, 2014</span></figcaption></figure><figure style="--r:1.5023"><a class="pic-link" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener"><img src="/images/loves/sethembile-msezane-4.webp" width="1600" height="1065" alt="A kneeling woman with a beaded veil holds a teacup, with cups on the earth before her and people watching" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">Sethembile Msezane <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Performance</span></figcaption></figure><figure style="--r:1.5556"><a class="pic-link" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener"><img src="/images/loves/sethembile-msezane-5.webp" width="1400" height="900" alt="A seated woman with a beaded veil beside a small table with an old radio, before a stone wall" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.tyburngallery.com/artists/sethembile-msezane" target="_blank" rel="noopener">Sethembile Msezane <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Performance</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="sir-francis-rose" style="--band:#FFDDC3" aria-labelledby="sir-francis-rose-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="sir-francis-rose-name">Sir Francis Rose</h2>
+      <p class="maker-what">Painting, drawing and stage design · England, 1909–1979</p>
+      <p class="maker-para">Sir Francis Rose was an English painter, draughtsman and stage designer who went to Paris as a young man to study with Francis Picabia. Gertrude Stein bought his paintings and championed him, and he designed scenery and costumes for Diaghilev&#x27;s ballet. This drawing of Venice, dated 1951, is all quick red line: boats, rooftops and a tall bell tower, set down as if the whole city were floating on the paper.</p>
+      <a class="btn btn-solid solo go" href="https://artuk.org/discover/artists/rose-francis-19091979" target="_blank" rel="noopener">See more at Art UK <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:0.7819"><a class="pic-link" href="https://artuk.org/discover/artists/rose-francis-19091979" target="_blank" rel="noopener"><img src="/images/loves/sir-francis-rose-1.webp" width="1251" height="1600" alt="A red line drawing of boats, rooftops and a bell tower on stained paper" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://artuk.org/discover/artists/rose-francis-19091979" target="_blank" rel="noopener">Sir Francis Rose <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Drawing of Venice, 1951</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="andy-warhol" style="--band:#B2DFBF" aria-labelledby="andy-warhol-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="andy-warhol-name">Andy Warhol</h2>
+      <p class="maker-what">Painting, prints, drawing and film · New York, 1928–1987</p>
+      <p class="maker-para">Before the soup cans, Andy Warhol was one of the busiest commercial illustrators in New York, drawing for Tiffany &amp; Co. and The New York Times. In 1954 he made a small book of cats, printed and then coloured by hand. From a distance it is a quick, almost careless line. Close up, the green wash pooling in the fur and the purple eyes show how much life one loose line can carry.</p>
+      <a class="btn btn-solid solo go" href="https://www.warhol.org" target="_blank" rel="noopener">See more at The Andy Warhol Museum <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:0.7878"><a class="pic-link" href="https://www.warhol.org" target="_blank" rel="noopener"><img src="/images/loves/andy-warhol-1.webp" width="438" height="556" alt="A green cat with purple eyes, drawn in loose ink and wash" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.warhol.org" target="_blank" rel="noopener">Andy Warhol <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Cat from <i>25 Cats Name[d] Sam and One Blue Pussy</i>, 1954</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="gary-hume" style="--band:#BDD8ED" aria-labelledby="gary-hume-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="gary-hume-name">Gary Hume</h2>
+      <p class="maker-what">Paintings in household gloss · London and New York</p>
+      <p class="maker-para">Gary Hume, born in 1962 in Kent, England, paints with household gloss, the paint made for doors, often on sheets of aluminium. From across the room his pictures are flat, simple shapes: a mother, a child, a face. Close up, the gloss is so smooth it turns the painting into a mirror, and you find the room, and yourself, inside it.</p>
+      <a class="btn btn-solid solo go" href="https://spruethmagers.com/artists/gary-hume" target="_blank" rel="noopener">See more at Sprüth Magers <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:0.8007"><a class="pic-link" href="https://spruethmagers.com/artists/gary-hume" target="_blank" rel="noopener"><img src="/images/loves/gary-hume-1.webp" width="940" height="1174" alt="A painting of a green-faced mother in black holding a blue child, on a green ground" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://spruethmagers.com/artists/gary-hume" target="_blank" rel="noopener">Gary Hume <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>Young Mother and Child</i>, 2001</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="christopher-wool" style="--band:#F0CDC5" aria-labelledby="christopher-wool-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="christopher-wool-name">Christopher Wool</h2>
+      <p class="maker-what">Painting, printing and photography · New York</p>
+      <p class="maker-para">Christopher Wool, born in 1955 in Boston, has worked in New York since the 1970s, often in enamel on aluminium or linen. He lets one mark sit over another: a line is painted, wiped back, printed and painted again. From a distance it reads as one loose tangle. Close up you can read the order it was made in, which loop came first, what was rubbed away, and what was allowed to stay.</p>
+      <a class="btn btn-solid solo go" href="https://www.luhringaugustine.com/artists/christopher-wool" target="_blank" rel="noopener">See more at Luhring Augustine <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:0.6925"><a class="pic-link" href="https://www.luhringaugustine.com/artists/christopher-wool" target="_blank" rel="noopener"><img src="/images/loves/christopher-wool-1.webp" width="1108" height="1600" alt="Looping black and pink lines over grey and pale washes on paper" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.luhringaugustine.com/artists/christopher-wool" target="_blank" rel="noopener">Christopher Wool <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Work on paper</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="daniel-boyd" style="--band:#C5D6EE" aria-labelledby="daniel-boyd-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="daniel-boyd-name">Daniel Boyd</h2>
+      <p class="maker-what">Painting · Sydney</p>
+      <p class="maker-para">Daniel Boyd, born in 1982 in Gimuy (Cairns), Queensland, is a painter of Aboriginal and ni-Vanuatu heritage who lives in Sydney. He covers his paintings with thousands of small clear dots he calls lenses, so every picture is seen through a screen of points, like light through leaves or water. Step back and a figure appears; step close and it falls apart into gaps. His paintings take the colonial history of Australia and look at it again from the side of the people who were already there.</p>
+      <a class="btn btn-solid solo go" href="https://www.mariangoodman.com/artists/daniel-boyd/" target="_blank" rel="noopener">See more at Marian Goodman Gallery <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:1.3841"><a class="pic-link" href="https://www.mariangoodman.com/artists/daniel-boyd/" target="_blank" rel="noopener"><img src="/images/loves/daniel-boyd-1.webp" width="872" height="630" alt="A figure drawing a bow, made of blue and white dots on a dark ground" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.mariangoodman.com/artists/daniel-boyd/" target="_blank" rel="noopener">Daniel Boyd <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Painting</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="rose-wylie" style="--band:#DFD3BA" aria-labelledby="rose-wylie-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="rose-wylie-name">Rose Wylie</h2>
+      <p class="maker-what">Painting · Kent, England</p>
+      <p class="maker-para">Rose Wylie, born in 1934, paints large, bright, loose pictures in oil in Kent, England. From across the room they look fast and childlike: three faces in sailor collars, a row of palm trees. Close up you see how much was worked out, the paint scraped, covered and laid down again until the simple thing looks simple.</p>
+      <a class="btn btn-solid solo go" href="https://www.davidzwirner.com/artists/rose-wylie" target="_blank" rel="noopener">See more at David Zwirner <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:1.3412"><a class="pic-link" href="https://www.davidzwirner.com/artists/rose-wylie" target="_blank" rel="noopener"><img src="/images/loves/rose-wylie-1.webp" width="1600" height="1193" alt="Three faces with red mouths and blue sailor collars under a row of palm trees, painted on cream" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.davidzwirner.com/artists/rose-wylie" target="_blank" rel="noopener">Rose Wylie <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Painting</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="cecilia-vicuna" style="--band:#F6E2CB" aria-labelledby="cecilia-vicuna-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="cecilia-vicuna-name">Cecilia Vicuña</h2>
+      <p class="maker-what">Poetry, sculpture and thread · Santiago and New York</p>
+      <p class="maker-para">Cecilia Vicuña, born in 1948 in Santiago, Chile, is a poet and an artist who works in New York and Santiago. She calls her small sculptures precarios, precarious things, made from what washes up or falls: feathers, sticks, shells, scraps of cloth and wire. Her hanging threads follow the quipu, the knotted cords the ancient Andes used to keep records. Walk among them and the room becomes a poem you read with your whole body, one knot and one twig at a time.</p>
+      <a class="btn btn-solid solo go" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener">See more on her own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="3"><figure style="--r:1.5009"><a class="pic-link" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener"><img src="/images/loves/cecilia-vicuna-1.webp" width="1600" height="1066" alt="A long raft of sticks on a gallery floor, with bundles of rope and fibre hanging above it" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener">Cecilia Vicuña <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation</span></figcaption></figure><figure style="--r:1.4985"><a class="pic-link" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener"><img src="/images/loves/cecilia-vicuna-2.webp" width="1500" height="1001" alt="Sticks, rope and coloured fibre hanging and lying in a white gallery" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener">Cecilia Vicuña <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation</span></figcaption></figure><figure style="--r:1.5009"><a class="pic-link" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener"><img src="/images/loves/cecilia-vicuna-3.webp" width="1600" height="1066" alt="Threads and small objects hanging through a room hung with bright paintings" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.ceciliavicuna.com" target="_blank" rel="noopener">Cecilia Vicuña <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation view</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="isa-genzken" style="--band:#BFD6FA" aria-labelledby="isa-genzken-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="isa-genzken-name">Isa Genzken</h2>
+      <p class="maker-what">Sculpture · Berlin</p>
+      <p class="maker-para">Isa Genzken, born in 1948 in Germany, has made sculpture in Berlin for decades, from steel, plaster, wood, mirror foil, photographs and whatever the city throws away. Her early floor pieces are long painted wooden forms that touch the ground at only one or two points. Since 2013 she has dressed shop mannequins in clothes, found things and odd masks, and called them Actors. Each one stands like someone you half know, caught between a costume and a person.</p>
+      <a class="btn btn-solid solo go" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener">See more at David Zwirner <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="3"><figure style="--r:1.2966"><a class="pic-link" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener"><img src="/images/loves/isa-genzken-1.webp" width="1600" height="1234" alt="Long red, grey and blue forms lying on the stone floor of a glass hall" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener">Isa Genzken <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation view of <i>75/75</i>, Neue Nationalgalerie, Berlin, 2023</span></figcaption></figure><figure style="--r:1.4324"><a class="pic-link" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener"><img src="/images/loves/isa-genzken-2.webp" width="1600" height="1117" alt="A dressed mannequin in an orange hat standing beside a yellow bicycle" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener">Isa Genzken <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Sculpture</span></figcaption></figure><figure style="--r:0.7500"><a class="pic-link" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener"><img src="/images/loves/isa-genzken-3.webp" width="1200" height="1600" alt="A seated mannequin in a white mask, wrapped in lace and wire" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.davidzwirner.com/artists/isa-genzken" target="_blank" rel="noopener">Isa Genzken <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Sculpture</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="francoiz-breut" style="--band:#D9DED9" aria-labelledby="francoiz-breut-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="francoiz-breut-name">Françoiz Breut</h2>
+      <p class="maker-what">Songs and illustration · Brussels</p>
+      <p class="maker-para">Françoiz Breut, born in 1969 in Cherbourg, France, is a singer who trained as an illustrator, and she still draws children&#x27;s books. She began by singing with Dominique A and has made her own records since 1997; she lives in Brussels. Her voice is close and plain, like someone talking to you from the next seat, and her songs leave room around every word. Her newest album, Vif!, came out in 2024.</p>
+      <a class="btn btn-solid solo go" href="http://www.francoizbreut.be/" target="_blank" rel="noopener">Listen on her own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="2"><figure style="--r:1.0000"><a class="pic-link" href="http://www.francoizbreut.be/" target="_blank" rel="noopener"><img src="/images/loves/francoiz-breut-1.webp" width="900" height="900" alt="A woman in black standing on grey pavement, looking to one side" loading="lazy" decoding="async"></a><figcaption><a class="by" href="http://www.francoizbreut.be/" target="_blank" rel="noopener">Françoiz Breut <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Portrait</span></figcaption></figure><figure style="--r:0.8960"><a class="pic-link" href="http://www.francoizbreut.be/" target="_blank" rel="noopener"><img src="/images/loves/francoiz-breut-2.webp" width="310" height="346" alt="A black and white portrait of a young woman with a fringe" loading="lazy" decoding="async"></a><figcaption><a class="by" href="http://www.francoizbreut.be/" target="_blank" rel="noopener">Françoiz Breut <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Portrait</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="sara-anjargolian" style="--band:#ADC7DF" aria-labelledby="sara-anjargolian-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="sara-anjargolian-name">Sara Anjargolian</h2>
+      <p class="maker-what">Documentary photography · Los Angeles and Yerevan</p>
+      <p class="maker-para">Sara Anjargolian is a documentary photographer and a lawyer who has worked between Los Angeles and Yerevan, in Armenia. Her project How We Live, from 2010, is a show, a book and a film about families living in poverty in Armenia. Her pictures stay with everyday things: laundry on a line, a child&#x27;s toy in the dust. Close up, those small things carry the whole story of how people make a home with very little.</p>
+      <a class="btn btn-solid solo go" href="https://www.saraanjargolian.com" target="_blank" rel="noopener">See more on her own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:1.5030"><a class="pic-link" href="https://www.saraanjargolian.com" target="_blank" rel="noopener"><img src="/images/loves/sara-anjargolian-1.webp" width="1500" height="998" alt="A flowered dress and a blue toy rabbit on a washing line in a dry yard, an old blue car behind" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.saraanjargolian.com" target="_blank" rel="noopener">Sara Anjargolian <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Photograph</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="pia-camil" style="--band:#F0CDC4" aria-labelledby="pia-camil-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="pia-camil-name">Pia Camil</h2>
+      <p class="maker-what">Installations built with the public · Mexico City</p>
+      <p class="maker-para">Pia Camil, born in 1980 in Mexico City, makes art that strangers help to build. She works with second-hand clothes, T-shirts and jeans, and with whatever people are willing to give away. In A Pot for a Latch, at the New Museum in New York in 2016, visitors could take an object from her shelves only by leaving one of their own. Up close, every shirt and trinket carries somebody&#x27;s story, and the trading is the work.</p>
+      <a class="btn btn-solid solo go" href="https://omr.art/artists/pia-camil" target="_blank" rel="noopener">See more at OMR <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="2"><figure style="--r:1.3333"><a class="pic-link" href="https://omr.art/artists/pia-camil" target="_blank" rel="noopener"><img src="/images/loves/pia-camil-1.webp" width="700" height="525" alt="A pink room with red grid shelves holding clothes, pictures and small objects" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://omr.art/artists/pia-camil" target="_blank" rel="noopener">Pia Camil <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>A Pot for a Latch</i>, New Museum, New York, 2016</span></figcaption></figure><figure style="--r:1.5000"><a class="pic-link" href="https://omr.art/artists/pia-camil" target="_blank" rel="noopener"><img src="/images/loves/pia-camil-2.webp" width="1200" height="800" alt="Lines of hanging clothes seen from below against a blue sky" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://omr.art/artists/pia-camil" target="_blank" rel="noopener">Pia Camil <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="klara-hosnedlova" style="--band:#FEDFD0" aria-labelledby="klara-hosnedlova-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="klara-hosnedlova-name">Klára Hosnedlová</h2>
+      <p class="maker-what">Sculpture, installation and performance · Berlin</p>
+      <p class="maker-para">Klára Hosnedlová, born in 1990 in the Czech Republic, lives and works in Berlin. Her sculptures, rooms and performances borrow from the modern buildings of Czech and Eastern Europe, such as the Ještěd Tower, and from the craft that went into them. She works in hand-blown glass, stainless steel, terrazzo, leather and fine embroidery in cotton thread. Close up, every surface is made so carefully that it feels like touch you can see.</p>
+      <a class="btn btn-solid solo go" href="https://k-t-z.com/artists/33" target="_blank" rel="noopener">See more at Kraupa-Tuskany Zeidler <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:0.6675"><a class="pic-link" href="https://k-t-z.com/artists/33" target="_blank" rel="noopener"><img src="/images/loves/klara-hosnedlova-1.webp" width="1068" height="1600" alt="A performer in black leather sits on a rock, holding a small glass and metal sculpture" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://k-t-z.com/artists/33" target="_blank" rel="noopener">Klára Hosnedlová <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>Nest</i>, Kraupa-Tuskany Zeidler, Berlin, 2020</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="theaster-gates" style="--band:#F9CD96" aria-labelledby="theaster-gates-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="theaster-gates-name">Theaster Gates</h2>
+      <p class="maker-what">Painting, clay, sound and buildings · Chicago</p>
+      <p class="maker-para">Theaster Gates, born in 1973, works in Chicago, where he also rebuilds empty buildings into places for art, books and music. He makes paintings from salvaged roofing and tar, fused with a hand torch, and vessels from clay. In A Heavenly Chord, a Hammond organ and seven speakers bring the sound of the Black church into the gallery. Up close, the tar paintings keep every scar of the roofs they came from.</p>
+      <a class="btn btn-solid solo go" href="https://www.theastergates.com" target="_blank" rel="noopener">See more on his own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="2"><figure style="--r:1.7778"><a class="pic-link" href="https://www.theastergates.com" target="_blank" rel="noopener"><img src="/images/loves/theaster-gates-1.webp" width="1600" height="900" alt="A long dark-framed tar painting with yellow and pink strips, and a yellow glazed vessel on the floor" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.theastergates.com" target="_blank" rel="noopener">Theaster Gates <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Installation view of <i>And Other Paintings</i>, White Cube Paris, 2026</span></figcaption></figure><figure style="--r:1.9048"><a class="pic-link" href="https://www.theastergates.com" target="_blank" rel="noopener"><img src="/images/loves/theaster-gates-2.webp" width="1200" height="630" alt="Seven wooden speaker cabinets on a brick wall above an organ, before purple graffiti" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.theastergates.com" target="_blank" rel="noopener">Theaster Gates <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work"><i>A Heavenly Chord</i>, 2022</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+<article class="maker" id="xu-bing" style="--band:#C7C3BA" aria-labelledby="xu-bing-name">
+  <div class="maker-in">
+    <div class="maker-words">
+      <h2 class="maker-name" id="xu-bing-name">Xu Bing</h2>
+      <p class="maker-what">Printmaking, books and installations · Beijing</p>
+      <p class="maker-para">Xu Bing, born in 1955 in Chongqing, China, grew up in Beijing and was sent to work in the countryside for two years near the end of the Cultural Revolution. For Book from the Sky he carved more than four thousand printing blocks of Chinese characters he invented, so the book looks perfectly readable and no one can read it. He has also made art from tobacco, building rubble, twigs and surveillance-camera film. In this ink drawing of a hillside, the banks of earth already run like lines of writing.</p>
+      <a class="btn btn-solid solo go" href="https://www.xubing.com/en" target="_blank" rel="noopener">See more on his own site <span class="go-arrow" aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="maker-pics" data-count="1"><figure style="--r:1.5328"><a class="pic-link" href="https://www.xubing.com/en" target="_blank" rel="noopener"><img src="/images/loves/xu-bing-1.webp" width="630" height="411" alt="An ink drawing of terraced hillsides with a red-flowering tree" loading="lazy" decoding="async"></a><figcaption><a class="by" href="https://www.xubing.com/en" target="_blank" rel="noopener">Xu Bing <span class="go-arrow" aria-hidden="true">&#8599;</span></a><span class="work">Ink drawing</span></figcaption></figure></div>
+  </div>
+  <a class="to-list" href="#the-makers">&uarr; The makers</a>
+</article>
+  </section>
+
+  <section class="loves-foot">
+    <a class="arrow-back" href="/everything.html"><span class="arr" aria-hidden="true">&larr;</span> Everything</a>
+  </section>
+</main>
+
+<footer class="site-footer"></footer>
+
+<script src="/nav.js"></script>
+<script src="/loves.js"></script>
 </body>
 </html>

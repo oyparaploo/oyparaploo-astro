@@ -1,0 +1,155 @@
+/* ==========================================================================
+   LOVES — the twenty makers (made whole October 6, 2026)
+   The page's own styles, on top of the live chrome and the Writings pages'
+   shared look (the style block in loves.html). From the parts book:
+     18  three makers side by side open the page
+     43  the list that stays and shows where you are
+     44  maker first, the title of the work under the name
+     61  colour meets colour, with no line
+     67  every maker in their own colour (taken from their own pictures by rule)
+     7   the line of the work's own tones under the header
+   Words on every band are Ink's light value, #111111, at 7 to 1 or better;
+   the bands keep their colours in Light, Dark and Auto, as the work does.
+   ========================================================================== */
+
+:root {
+  --list-w: 220px;
+  --band-ink: #111111;
+}
+
+/* ---------- the opening, on the frame: Kanal's text-left grid ---------- */
+.loves-opening {
+  display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); column-gap: var(--column-gap);
+  align-items: start; padding: 88px var(--edge) 104px;
+}
+.loves-opening .label { margin-left: var(--indent); }
+.loves-opening .stage-title { margin-bottom: 0; }
+.opening-right { padding-top: 34px; }
+.loves-plain {
+  margin: 40px 0 0; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.55; color: var(--ink);
+}
+.loves-plain p + p { margin-top: 12px; }
+.loves-plain a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+@media (hover: hover) { .loves-plain a:hover { text-decoration: none; } }
+
+/* ---------- three makers side by side ---------- */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.panel {
+  background: var(--band); color: var(--band-ink); text-decoration: none;
+  display: flex; flex-direction: column; padding: 56px var(--edge) 60px;
+  animation: panel-in 0.6s var(--ease) both; animation-delay: var(--d, 0s);
+}
+.panel-pic { height: clamp(260px, 29vw, 470px); display: flex; align-items: center; justify-content: center; margin-bottom: 36px; }
+.panel-pic img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+.panel-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 42px); line-height: 1.05; letter-spacing: -0.01em;
+}
+.panel-title { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.4; }
+.panel-title::after { content: " \2193"; display: inline-block; margin-left: 4px; transition: transform 0.3s var(--ease); }
+@media (hover: hover) { .panel:hover .panel-title::after { transform: translateY(4px); } }
+.panel:focus-visible { outline: 2px solid var(--band-ink); outline-offset: -6px; }
+@keyframes panel-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ---------- the makers: each on a band of their own colour ---------- */
+.makers { position: relative; border-top: 1px solid var(--band-ink); }
+.maker {
+  background: var(--band); color: var(--band-ink);
+  padding: 112px var(--edge) 128px calc(var(--edge) + var(--list-w) + var(--column-gap));
+}
+.maker :focus-visible { outline-color: var(--band-ink); }
+.maker-in { display: grid; grid-template-columns: minmax(0, 36fr) minmax(0, 64fr); column-gap: 48px; align-items: start; }
+.maker-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 3.7vw, 58px); line-height: 1.0; letter-spacing: -0.01em;
+}
+.maker-what { text-wrap: balance; margin-top: 16px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; }
+.maker-para { margin-top: 28px; font-family: 'Inter', sans-serif; font-size: 19px; line-height: 1.6; max-width: 34em; }
+.maker .go {
+  --btn-ink: var(--band-ink); --btn-ground: var(--band);
+  margin-top: 32px; font-size: 18px; min-height: 50px;
+}
+.go-arrow { display: inline-block; transition: transform 0.3s var(--ease); }
+@media (hover: hover) { .go:hover .go-arrow, .by:hover .go-arrow { transform: translate(3px, -3px); } }
+
+/* the pictures: whole, in their own shapes, in rows of one height (a reference shelf). Each row grows
+   to the full width; a row that cannot fill stops growing at --hmax, so nothing is ever blown up. */
+.maker-pics { display: flex; flex-wrap: wrap; gap: 36px 24px; align-items: flex-start; }
+.maker-pics figure {
+  --h: 190px; --hmax: 330px;
+  flex: calc(var(--r) * 100) 1 calc(var(--r) * var(--h)); max-width: calc(var(--r) * var(--hmax)); min-width: 0;
+}
+.maker-pics[data-count="1"] figure { --h: 560px; --hmax: 560px; }
+.maker-pics[data-count="2"] figure { --h: 215px; --hmax: 400px; }
+.maker-pics[data-count="3"] figure { --h: 200px; --hmax: 340px; }
+.maker-pics img { width: 100%; height: auto; }
+.pic-link { display: block; }
+.maker-pics figcaption { margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; }
+.by { font-weight: 600; color: var(--band-ink); text-decoration: none; }
+.work { display: block; margin-top: 2px; }
+.pic-waiting {
+  flex: 1 1 100%; min-height: 300px; display: flex; align-items: center;
+  border: 1px dashed var(--band-ink); padding: 40px 32px;
+  font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.5;
+}
+
+/* the list that stays, with the bar beside the maker being read */
+.maker-list { position: absolute; top: 0; bottom: 0; left: var(--edge); width: var(--list-w); padding-top: 112px; z-index: 2; }
+.maker-list-in { position: sticky; top: 96px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: thin; }
+.maker-list .label { color: var(--band-ink); margin: 0 0 14px 18px; }
+.maker-list ol { list-style: none; }
+.maker-list a {
+  position: relative; display: block; padding: 5px 0 5px 18px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.3;
+  color: var(--band-ink); text-decoration: none;
+}
+.maker-list a::before {
+  content: ""; position: absolute; left: 0; top: 5px; bottom: 5px; width: 4px;
+  background: var(--band-ink); transform: scaleY(0); transition: transform 0.25s var(--ease);
+}
+.maker-list a.is-here { font-weight: 700; }
+.maker-list a.is-here::before { transform: none; }
+@media (hover: hover) { .maker-list a:hover::before { transform: scaleY(0.5); } .maker-list a.is-here:hover::before { transform: none; } }
+.to-list { display: none; }
+
+/* ---------- the foot ---------- */
+.loves-foot { padding: 96px var(--edge) 128px; }
+.arrow-back { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none; }
+.arrow-back .arr { display: inline-block; transition: transform 0.3s var(--ease); }
+@media (hover: hover) { .arrow-back:hover .arr { transform: translateX(-4px); } }
+
+/* ---------- phones and narrow windows ---------- */
+@media (max-width: 999px) {
+  .loves-opening { display: block; padding: 56px var(--edge) 72px; }
+  .loves-opening .label, .loves-opening .stage-title { margin-left: 0; }
+  .loves-opening .stage-title { margin-bottom: 20px; }
+  .opening-right { padding-top: 0; }
+  .loves-plain { font-size: 18px; margin-top: 40px; }
+  .three { grid-template-columns: 1fr; }
+  .panel { padding: 40px var(--edge) 44px; }
+  .panel-pic { height: auto; }
+  .panel-pic img { max-height: 60vh; }
+  .maker-list { position: static; width: auto; padding: 56px var(--edge) 40px; }
+  .maker-list-in { position: static; max-height: none; overflow: visible; }
+  .maker-list .label, .maker-list a, .maker-list a::before { color: var(--ink); }
+  .maker-list a::before { background: var(--ink); }
+  .maker-list ol { columns: 2; column-gap: var(--column-gap); }
+  .maker-list li { break-inside: avoid; }
+  .maker { padding: 72px var(--edge) 56px; }
+  .maker-in { display: block; }
+  .maker-pics { margin-top: 44px; }
+  .maker-pics figure { flex: 1 1 100%; max-width: none; }
+  .maker-pics img { width: auto; max-width: 100%; max-height: 75vh; }
+  .to-list { display: inline-block; margin-top: 40px; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--band-ink); text-decoration: none; }
+}
+@media (max-width: 560px) {
+  .maker-list ol { columns: 1; }
+  .maker-name { font-size: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .panel { animation: none; }
+  .go-arrow, .arrow-back .arr, .panel-title::after, .maker-list a::before { transition: none; }
+}
