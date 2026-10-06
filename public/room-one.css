@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Come In, the first room behind The Book.
+   Dressed in the design draft HTML DOCS\11-maya-lin-works_2.html ("very classy",
+   Reach, September 27, 2026): full-screen windows that hold a picture still while
+   the page moves past, large titles listed over the first one, a plain block
+   between the windows, and a quote band to close.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): the pictures are shown whole on a
+   haze of their own colours, never cropped; Archivo for headings, Inter for
+   reading; nothing under 16 pixels; text only in the named colours (Ink, Soft ink,
+   and Ink's dark value #e8e0d6 over the dark windows); colour as flat bands from
+   the work on them.
+   ========================================================================== */
+
+:root {
+  --on-dark: #e8e0d6;          /* Ink's dark value, for words over the dark windows */
+  --haze-dim: 0.5;             /* how far the haze is darkened under the words */
+  --pic-top: 136px;            /* the still picture sits below the header and the date strip */
+  --pic-foot: 40px;
+  --part-air: 120px;
+}
+
+/* ---------- the windows ---------- */
+.window {
+  position: relative;
+  clip-path: inset(0);         /* the still layers show only through their own window */
+  min-height: 100vh;
+  color: var(--on-dark);
+  background: #0d0907;
+}
+.window .still { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.window .haze {
+  position: absolute; inset: -80px;
+  background: var(--pic) center / cover no-repeat;
+  filter: blur(48px) saturate(1.15);
+  transform: translateZ(0);
+}
+.window .still::after {
+  content: ""; position: absolute; inset: 0;
+  /* words over a picture get a darkened band behind them: deeper on the left, where the words are */
+  background: linear-gradient(to right, rgba(13, 9, 7, 0.34) 0%, rgba(13, 9, 7, 0.22) 38%, rgba(13, 9, 7, 0) 58%),
+              rgba(13, 9, 7, var(--haze-dim));
+}
+@media (max-width: 999px) {
+  .window .still::after { background: rgba(13, 9, 7, calc(var(--haze-dim) + 0.14)); }
+}
+
+/* the picture, whole, held still on the right */
+.window-pic {
+  position: fixed; z-index: 1;
+  top: var(--pic-top); bottom: var(--pic-foot); right: var(--edge);
+  width: calc(56vw - 2 * var(--edge));
+  display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
+}
+.window-pic a { display: block; line-height: 0; }
+.window-pic img {
+  display: block; width: auto; height: auto;
+  max-width: 100%; max-height: calc(100vh - var(--pic-top) - var(--pic-foot) - 40px);
+}
+.window-pic figcaption { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.window-pic figcaption a { color: var(--on-dark); text-decoration: none; line-height: 1.4; }
+@media (hover: hover) { .window-pic figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; } }
+
+/* the words, on the left over the haze */
+.window-words {
+  position: relative; z-index: 2;
+  width: 44%; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 72px var(--gap-6) 72px var(--edge);
+}
+.window-opening, .window-opening .window-words { min-height: calc(100vh - 122px); }
+.window-opening { --haze-dim: 0.58; }   /* its lamp-lit haze is the brightest of the six */  /* the opening starts under the date strip and header */
+.label.on-dark { color: var(--on-dark); }
+
+.room-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: -0.015em;
+  margin: 0 0 28px;
+}
+.room-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; max-width: 19em;
+  margin: 0 0 40px;
+}
+
+/* the five makers, listed over the picture as the draft lists its works */
+.makers { list-style: none; border-top: 1px solid rgba(232, 224, 214, 0.5); }
+.makers li { border-bottom: 1px solid rgba(232, 224, 214, 0.5); }
+.makers a {
+  display: flex; align-items: baseline; gap: var(--gap-4);
+  min-height: 68px; padding: 16px var(--gap-4) 14px;
+  margin: 0 calc(-1 * var(--gap-4));
+  color: var(--on-dark); text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.m-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2.2vw, 32px); line-height: 1.1;
+}
+.m-place { font-size: 18px; line-height: 1.3; flex: 1; }
+.m-bar { margin-right: 6px; }
+.makers .row-arrow { font-size: 24px; }
+/* PLAY: the row turns into its opposite under the hand, light with dark words, and the arrow slides in */
+@media (hover: hover) {
+  .makers a:hover { background: var(--on-dark); color: #111111; }
+  .makers a:hover .row-arrow { opacity: 1; transform: none; }
+}
+.makers a:active, .makers a:focus-visible { background: var(--on-dark); color: #111111; outline: none; }
+.makers a:focus-visible .row-arrow { opacity: 1; transform: none; }
+
+/* a maker's window */
+.maker-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 6vw, 104px); line-height: 0.98; letter-spacing: -0.01em;
+  margin: 0 0 40px;
+}
+/* the fragment's bar: these are the writing's own words, lifted whole */
+.lifted { border-left: 3px solid var(--on-dark); padding: 2px 0 2px 20px; margin: 0 0 40px; max-width: 30em; }
+.lifted p { font-size: 22px; line-height: 1.5; }
+.begin, .w-next a {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-weight: 600; font-size: 20px; text-decoration: none; color: inherit;
+}
+.begin-arrow { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) { .begin:hover .begin-arrow, .w-next a:hover .begin-arrow { transform: translateY(4px); } }
+
+/* ---------- the writing, on a flat band from its own picture ---------- */
+.reading { position: relative; background: var(--paper); color: var(--ink); }
+html[data-theme="dark"] .reading { background: var(--ground); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .reading { background: var(--ground); } }
+
+.reading-in { display: grid; grid-template-columns: 44% 56%; padding-top: var(--part-air); }
+.parts {
+  position: sticky; top: 104px; align-self: start;
+  padding: 0 var(--gap-6) var(--part-air) var(--edge);
+}
+.parts-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.15;
+}
+.parts-time { font-size: 18px; margin: 6px 0 28px; }
+.parts-list { list-style: none; max-width: 30em; }
+.parts-list a {
+  display: grid; grid-template-columns: 1.6em 1fr auto; column-gap: var(--gap-3); align-items: baseline;
+  padding: 9px 0 9px 16px; border-left: 3px solid transparent;
+  font-size: 18px; line-height: 1.35; text-decoration: none; color: var(--ink);
+  transition: border-color 0.25s ease;
+}
+.p-time { white-space: nowrap; }
+/* the list that stays and shows where you are: a solid bar beside the part being read */
+.parts-list a.is-here { border-left-color: var(--ink); font-weight: 600; }
+@media (hover: hover) { .parts-list a:hover { border-left-color: var(--ink); } }
+.parts-up { margin-top: 28px; font-size: 18px; }
+.parts-up a { text-decoration: none; font-weight: 600; }
+
+.writing { padding: 0 var(--edge) 160px 0; max-width: calc(700px + var(--edge)); font-size: 18px; line-height: 1.75; }
+.writing p { margin: 0 0 1.3em; }
+.writing em { font-style: italic; }
+
+.w-title { margin: 0 0 8px; }
+.w-mark { font-weight: 600; }
+.w-titleline { font-weight: 600; }
+.w-before { margin-top: 1.3em; }
+
+.w-part { margin-top: var(--part-air); padding-top: 36px; border-top: 1px solid var(--ink); scroll-margin-top: 96px; }
+.w-head { font-weight: 600; font-size: 18px; line-height: 1.4; margin: 0 0 12px !important; }
+.w-sub {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 32px); line-height: 1.15; letter-spacing: -0.005em;
+  margin: 0 0 40px; max-width: 20em;
+}
+.w-break { text-align: center; letter-spacing: 0.35em; margin: 2.4em 0 !important; }
+.w-colophon { font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+.w-next { margin-top: var(--part-air); }
+
+/* ---------- the quote band, as the draft closes ---------- */
+.tuning-band {
+  background: #ECD3D4;   /* the pale rose of 05114's curtain; the same in every mode */
+  color: #111111;
+  padding: 160px var(--edge);
+  text-align: center;
+}
+.q-fr { font-style: italic; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.35; max-width: 24em; margin: 0 auto; }
+.q-en { font-size: 22px; line-height: 1.5; max-width: 30em; margin: 28px auto 0; }
+.q-by { font-weight: 600; font-size: 18px; margin-top: 36px; }
+
+/* ---------- the way on ---------- */
+.room-foot {
+  display: flex; justify-content: space-between; gap: var(--gap-6);
+  padding: 56px var(--edge) 80px;
+  font-weight: 600; font-size: 22px;
+}
+.room-foot a { text-decoration: none; color: var(--ink); display: inline-flex; gap: 10px; align-items: baseline; }
+.room-foot .arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) {
+  .room-foot .back:hover .arr { transform: translateX(-4px); }
+  .room-foot .next:hover .arr { transform: translateX(4px); }
+}
+
+/* ---------- phones and narrow windows: the picture whole on top, the words under it ---------- */
+@media (max-width: 999px) {
+  .window { clip-path: none; min-height: 0; }
+  .window .still { position: absolute; }
+  .window-pic {
+    position: relative; inset: auto; width: auto;
+    padding: 40px var(--edge) 0; align-items: flex-start;
+  }
+  .window-pic img { width: 100%; max-height: none; }
+  .window-words { width: auto; min-height: 0; padding: 36px var(--edge) 72px; }
+  .room-sentence { margin-bottom: 40px; }
+  .reading-in { display: block; }
+  .reading-in { padding-top: 72px; }
+  .parts { position: static; padding: 0 var(--edge); }
+  .writing { padding: 56px var(--edge) 112px; max-width: none; }
+  .tuning-band { padding: 112px var(--edge); }
+}
+@media (max-width: 999px) {
+  .window-opening { display: flex; flex-direction: column; }
+  .window-opening .window-pic { order: 2; padding-bottom: 56px; }
+  .window-opening .window-words { padding-bottom: 8px; }
+}
+@media (max-width: 600px) {
+  .makers a { min-height: 64px; flex-wrap: wrap; row-gap: 2px; position: relative; padding-right: 40px; }
+  .m-name { flex-basis: 100%; }
+  .m-bar { display: none; }
+  .m-place { font-size: 16px; }
+  .makers .row-arrow { position: absolute; right: 16px; top: 50%; translate: 0 -50%; }
+  .lifted p { font-size: 20px; }
+  .room-foot { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .arrive { animation: none; }
+  .begin-arrow, .room-foot .arr, .makers a, .parts-list a { transition: none; }
+}
