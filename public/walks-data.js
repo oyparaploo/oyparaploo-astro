@@ -4,7 +4,9 @@
    sentence. build-site.py reads the writing stops ("at") from this file: a writing that is a stop carries
    walks.css, walks-data.js and walks.js.
    Step 8C (SITE-ORDER\STEP-8C, October 5, 2026): the two empty gifts, The Witnesses and So Much Loss and
-   News of Healing, take the words of their phone texts, exactly as those pages show them. */
+   News of Healing, take the words of their phone texts, exactly as those pages show them.
+   The phone texts cleanup (SITE-ORDER\CLEANUP-3, October 2026): Childhood Years' gift takes the heading
+   that now opens its phone text, as the page shows it; the other eight phone gifts already match their pages. */
 window.PARAPLOO_WALKS = {
  "walksHref": "/walks.html",
  "order": [
@@ -1150,7 +1152,7 @@ window.PARAPLOO_WALKS = {
    ],
    "gift": {
     "kind": "text",
-    "html": "  <p>As this child grew old, their world became more rested and less restricted. They were not yet a label or number. When at a loved one&#x27;s funeral, they inherited a special Maine shag cat born into this world in a vintage seaside Palermo hotel room.</p>",
+    "html": "  <p>Motifs Of A Wonderful Person Named Tholinet</p>\n  <p>As this child grew old, their world became more rested and less restricted. They were not yet a label or number. When at a loved one&#x27;s funeral, they inherited a special Maine shag cat born into this world in a vintage seaside Palermo hotel room.</p>",
     "phone": true
    },
    "stops": [
