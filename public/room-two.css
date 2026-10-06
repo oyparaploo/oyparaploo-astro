@@ -1,0 +1,240 @@
+/* ==========================================================================
+   Come Through, the second room behind The Book.
+   Dressed in the design draft HTML DOCS\archive_2.html, the Archive reading room:
+   a dark ground that deepens as the page goes down, a faint grain on it, the name
+   of each part held still in its own column while its entries pass, entries set
+   against a fine line, and entries that brighten as they arrive.
+   The writing asks for exactly that house: the porch alone is light, "glowing like
+   paper while everything behind it went to low lamps", and the corridor has "a light
+   at intervals", each a different colour. So each room keeps one lamp, a colour
+   from its own picture, and the lamp lights as the visitor reaches the room.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; words in Ink
+   (#111111 on the paper) or Ink's dark value (#e8e0d6 on the dark ground).
+   ========================================================================== */
+
+:root {
+  --on-dark: #e8e0d6;          /* Ink's dark value, for words on the dark ground */
+  --night: #0d0907;            /* the site's own dark ground, where the house begins */
+  --night-deep: #111521;       /* night blue, where the corridor ends (archive_2's foot) */
+  --paper: #F3ECDD;            /* the porch: warm paper, the same in every mode */
+  --name-col: 18%;
+  --room-air: 128px;
+  /* archive_2's faint grain, made light so it shows on the dark ground; it lies on the ground only */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- the house: dark in every mode, as the house was drawn ---------- */
+.house { color: var(--on-dark); }
+.house a { color: inherit; }
+.house :focus-visible { outline-color: currentColor; }
+.label.on-dark { color: var(--on-dark); }
+
+/* ---------- the approach: the room's name, its sentence, the eight rooms, and the house's lamps ---------- */
+.approach {
+  display: grid; grid-template-columns: 44% 56%; align-items: start;
+  min-height: calc(100vh - 122px);
+  background: var(--grain), var(--night);
+}
+.approach-words { padding: 72px var(--gap-6) 72px var(--edge); }
+.room-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 6vw, 104px); line-height: 0.95; letter-spacing: -0.015em;
+  margin: 0 0 28px;
+}
+.room-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; max-width: 19em;
+  margin: 0 0 40px;
+}
+/* the house's lamps, held still beside the list while it passes (as archive_2 holds its year) */
+.approach-pic { position: sticky; top: 0; padding: 72px var(--edge) 72px var(--gap-4); display: flex; flex-direction: column; align-items: flex-end; }
+.approach-pic a { display: block; line-height: 0; }
+.approach-pic img { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 122px - 160px); }
+.approach-pic figcaption, .room-pic figcaption { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.approach-pic figcaption a, .room-pic figcaption a { text-decoration: none; }
+@media (hover: hover) {
+  .approach-pic figcaption a:hover, .room-pic figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* the eight rooms, listed as the draft lists its entries, each with its lamp */
+.rooms-list { list-style: none; border-top: 1px solid rgba(232, 224, 214, 0.5); }
+.rooms-list li { border-bottom: 1px solid rgba(232, 224, 214, 0.5); }
+.rooms-list a {
+  display: flex; align-items: center; gap: var(--gap-4);
+  min-height: 52px; padding: 8px var(--gap-4);
+  margin: 0 calc(-1 * var(--gap-4));
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.r-lamp {
+  flex: none; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--lamp); box-shadow: 0 0 10px 2px var(--lamp);
+}
+.r-name {
+  flex: 1;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 1.7vw, 26px); line-height: 1.15;
+}
+.rooms-list .row-arrow { font-size: 24px; }
+/* PLAY: the row turns into its opposite under the hand, light with dark words, and the arrow slides in */
+@media (hover: hover) {
+  .rooms-list a:hover { background: var(--on-dark); color: #111111; }
+  .rooms-list a:hover .row-arrow { opacity: 1; transform: none; }
+}
+.rooms-list a:active, .rooms-list a:focus-visible { background: var(--on-dark); color: #111111; outline: none; }
+.rooms-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+
+/* ---------- before the rooms: the writing's opening, in the reading room's large voice ---------- */
+.note { background: var(--grain), var(--night); padding: 24px var(--edge) var(--room-air); }
+.note-in { margin-left: calc(var(--name-col) + var(--column-gap) - var(--edge)); max-width: 700px; }
+.note p { font-size: 22px; line-height: 1.7; margin: 0 0 1.2em; }
+.note .threshold {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 1.4em 0 0;
+}
+
+/* ---------- a room: its name held still with its lamp, what it holds, its question, its picture ---------- */
+.room {
+  position: relative;
+  display: grid; grid-template-columns: var(--name-col) minmax(0, 0.8fr) minmax(0, 1.2fr);
+  column-gap: var(--column-gap); align-items: start;
+  padding: var(--room-air) var(--edge);
+  border-top: 1px solid rgba(232, 224, 214, 0.22);
+  scroll-margin-top: 0;
+}
+.room > * { position: relative; z-index: 1; }
+/* the lamp's light on the corridor wall: a soft pool of its own colour, there once the room is reached */
+.room::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(80% 70% at 0% 0%, var(--lamp-pool), transparent 72%);
+  opacity: 1; transition: opacity 0.9s var(--ease);
+}
+.room-head { position: sticky; top: 104px; padding-top: 6px; }
+.lamp {
+  display: block; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--lamp);
+  box-shadow: 0 0 20px 7px var(--lamp-glow), 0 0 80px 28px var(--lamp-pool);
+  margin: 0 0 24px;
+  transition: opacity 0.9s var(--ease), box-shadow 0.9s var(--ease);
+}
+.room-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.3vw, 40px); line-height: 1.08; letter-spacing: -0.005em;
+  max-width: 9em;
+}
+
+/* the entries, each against archive_2's fine line; the question against a bar of the room's own light */
+.room-words { max-width: 640px; transition: opacity 0.9s var(--ease); }
+.entry { border-left: 1px solid rgba(232, 224, 214, 0.5); padding: 2px 0 2px 24px; }
+.entry p { font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; }
+.entry p:last-child { margin-bottom: 0; }
+.entry-question { margin-top: 40px; border-left: 3px solid var(--lamp); padding-left: 22px; }
+
+.room-pic { margin: 0; position: sticky; top: 104px; transition: opacity 0.9s var(--ease); }
+.room-pic a { display: block; line-height: 0; }
+.room-pic img { width: 100%; height: auto; }
+
+/* PLAY: entries brighten as they arrive, and each lamp lights when its room is reached.
+   Only once the page's own script is running; without it, everything shows lit. */
+.arrival .room:not(.is-lit) .room-words,
+.arrival .room:not(.is-lit) .room-pic { opacity: 0.32; }
+.arrival .room:not(.is-lit)::before { opacity: 0; }
+.arrival .room:not(.is-lit) .lamp { opacity: 0.4; box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent; }
+
+/* ---------- the porch: the one bright room, warm paper in every mode ---------- */
+.room-porch { background: var(--paper); color: #111111; border-top: none; }
+.room-porch .entry { border-left-color: rgba(17, 17, 17, 0.5); }
+.room-porch .lamp { background: var(--lamp); box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.35), 0 0 24px 10px rgba(242, 200, 120, 0.75); }
+.room-porch::before { background: radial-gradient(70% 60% at 0% 0%, rgba(255, 250, 238, 0.9), transparent 70%); }
+.room-porch .entry-question { border-left-color: #111111; }
+.room-porch :focus-visible { outline-color: #111111; }
+
+/* ---------- the corridor: everything behind the porch, on a ground that deepens ---------- */
+.corridor {
+  background: var(--grain), linear-gradient(180deg, var(--night) 0%, #0d0b0e 35%, #0f1019 70%, var(--night-deep) 100%);
+}
+.corridor .room:first-child { border-top: none; }
+
+/* ---------- the closing: all eight lamps lit, and what is left ---------- */
+.closing {
+  display: grid; grid-template-columns: var(--name-col) minmax(0, 1fr); column-gap: var(--column-gap);
+  padding: var(--room-air) var(--edge) 160px;
+  border-top: 1px solid rgba(232, 224, 214, 0.22);
+}
+.closing-lamps { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 18px; align-content: flex-start; }
+.lamp-link { display: block; padding: 6px; margin: -6px; border-radius: 50%; }
+.lamp-link .lamp { width: 14px; height: 14px; margin: 0; box-shadow: 0 0 14px 4px var(--lamp-glow); }
+@media (hover: hover) { .lamp-link:hover .lamp { transform: scale(1.3); } }
+.lamp-link .lamp { transition: transform 0.25s ease; }
+.closing-words { max-width: 980px; }
+.closing-line {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 40px; max-width: 17em;
+}
+.closing-words p:not(.closing-line) { font-size: 22px; line-height: 1.7; max-width: 700px; }
+
+/* ---------- the house that did get built: the last line, back in the light ---------- */
+.built { background: var(--paper); color: #111111; padding: 160px var(--edge); text-align: center; }
+.built p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.8vw, 42px); line-height: 1.2; max-width: 22em; margin: 0 auto;
+}
+
+/* ---------- the way on (as Come In's) ---------- */
+.room-foot {
+  display: flex; justify-content: space-between; gap: var(--gap-6);
+  padding: 56px var(--edge) 80px;
+  font-weight: 600; font-size: 22px;
+}
+.room-foot a { text-decoration: none; color: var(--ink); display: inline-flex; gap: 10px; align-items: baseline; }
+.room-foot .arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) {
+  .room-foot .back:hover .arr { transform: translateX(-4px); }
+  .room-foot .next:hover .arr { transform: translateX(4px); }
+}
+
+/* ---------- narrower windows: the name, then the picture whole, then the words ---------- */
+@media (max-width: 1199px) and (min-width: 1000px) {
+  /* the name and its lamp go above the words, so the picture keeps its size */
+  .room { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); grid-template-areas: "head pic" "words pic"; }
+  .room-head { grid-area: head; position: static; margin-bottom: 32px; }
+  .room-words { grid-area: words; }
+  .room-pic { grid-area: pic; }
+  .note-in { margin-left: 0; }
+  .closing { display: block; }
+  .closing-lamps { margin-bottom: 40px; padding-top: 0; }
+}
+@media (max-width: 999px) {
+  :root { --room-air: 88px; }
+  .approach { display: block; min-height: 0; }
+  .approach-words { padding: 56px var(--edge) 8px; }
+  .approach-pic { position: static; padding: 48px var(--edge) 56px; align-items: flex-start; }
+  .approach-pic img { max-height: none; width: 100%; }
+  .note-in { margin-left: 0; }
+  .room { display: block; }
+  .room-head { position: static; margin-bottom: 32px; }
+  .room-pic { position: static; margin: 0 0 40px; }
+  .room-words { max-width: none; }
+  /* the picture comes before the words, as it does on Come In */
+  .room { display: flex; flex-direction: column; }
+  .room-head { order: 1; } .room-pic { order: 2; } .room-words { order: 3; }
+  .closing { display: block; padding-bottom: 112px; }
+  .closing-lamps { margin-bottom: 40px; padding-top: 0; }
+  .built { padding: 112px var(--edge); }
+}
+@media (max-width: 600px) {
+  .note p, .closing-words p:not(.closing-line) { font-size: 20px; }
+  .entry p { font-size: 18px; }
+  .entry { padding-left: 18px; }
+  .entry-question { padding-left: 16px; }
+  .rooms-list a { min-height: 52px; padding-right: 40px; position: relative; }
+  .rooms-list .row-arrow { position: absolute; right: 16px; top: 50%; translate: 0 -50%; }
+  .room-foot { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .arrive { animation: none; }
+  .room::before, .lamp, .room-words, .room-pic, .rooms-list a, .room-foot .arr, .lamp-link .lamp { transition: none; }
+}
