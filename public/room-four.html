@@ -7,164 +7,633 @@
 <meta name="description" content="Come Look, the fourth room: how the house was built once there was nothing left to buy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome, and the Writings pages' shared look (the first style block of /walks.html, word for word). -->
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
-<script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: #f4efe8; }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 0 0 8px;
-  }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #d4a574;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: #f4efe8; }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-  .booklet-text {
-    white-space: pre-wrap;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    margin: 0 0 34px;
-  }
-</style>
 <link rel="stylesheet" href="/nav.css">
-<script src="/nav.js" defer></script>
+<style id="pages-styles">
+/* Copied word for word from the live /walks.html, its first style block (the Writings pages' shared look). Not edited. */
+
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/room-four.css">
+<style>:root { --tones: linear-gradient(to right, #969675 0.0% 20.0%, #766757 20.0% 40.0%, #C09C68 40.0% 60.0%, #815625 60.0% 80.0%, #869191 80.0% 100.0%); }</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -207,63 +676,118 @@
 }
 </script>
 </head>
-<body>
+
+<body class="room-page look-page">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-<h1 class="core-title">Come Look</h1>
-<div class="booklet-text">The practice had no address. A thousand finished pieces, eighty-three of them prayers, and nowhere to put any of it. It lived in files on a computer, the way a root system lives. Underground. Working. Not available to anybody who might have wanted to look.
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
 
-What was wanted was a house. Rooms, doors between the rooms, light that changed as a person moved through it.
+<main>
+<section class="look-hero look-band" style="--band:#ECEBD8" aria-label="Come Look">
+  <p class="label arrive">The fourth room &middot; 3 minutes</p>
+  <h1 class="room-title arrive" style="--d:0.12s">Come Look</h1>
+  <p class="room-sentence arrive" style="--d:0.24s">How the house was built once there was nothing left to buy.</p>
+  <figure class="hero-pic"><a href="/digital/workspace-incidences-no-people/0038"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/studio%20table.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/studio%20table-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/studio%20table.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 1100px" width="2000" height="1330" fetchpriority="high" alt="A folding card table in a whitewashed cinder-block corner, splashed with ink: a jar, a roll of paper towel, tape and an ink drawing on it, a folding chair pushed in"></a><figcaption><a href="/digital/workspace-incidences-no-people/0038">09698</a></figcaption></figure>
+</section>
 
-Five months went into rented machinery at twenty-five dollars a month before the machinery was abandoned for plain files that cost nothing. That is the dull half of the story and it is over.
+<section class="look-intro" aria-label="No address">
+  <p>The practice had no address. A thousand finished pieces, eighty-three of them prayers, and nowhere to put any of it. It lived in files on a computer, the way a root system lives. Underground. Working. Not available to anybody who might have wanted to look.</p>
+  <p class="intro-big">What was wanted was a house. Rooms, doors between the rooms, light that changed as a person moved through it.</p>
+  <p>Five months went into rented machinery at twenty-five dollars a month before the machinery was abandoned for plain files that cost nothing. That is the dull half of the story and it is over.</p>
+  <h2 class="intro-turn">The other half is what a house turns out to be made of once there is nothing left to buy.</h2>
+</section>
 
-The other half is what a house turns out to be made of once there is nothing left to buy.
+<section class="found look-band" style="--band:#EDE4D6" aria-label="The found object">
+  <figure class="found-pic"><a href="/digital/workspace-incidences-no-people/0029"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/Many%20Great%20Finds%20On%20Display.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/Many%20Great%20Finds%20On%20Display-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/Many%20Great%20Finds%20On%20Display.webp 2000w" sizes="(max-width: 999px) 100vw, 52vw" width="2000" height="1333" loading="lazy" decoding="async" alt="Found things laid out close together: brass candlesticks, glass and china knobs, shells, crumpled tin and scraps of coloured cloth"></a><figcaption><a href="/digital/workspace-incidences-no-people/0029">09689</a></figcaption></figure>
+  <div class="found-words">
+    <p class="found-lead">Forty-seven buildings were studied the way a carpenter studies a building rather than the way a visitor walks through one.</p>
+    <p>The Met. The British Museum. The Rijksmuseum. The Louvre. The Paris Review. Dia. Maya Lin's studio. Each one had bones underneath it — a grid, a way of moving, a behavior when the window narrows. Keep the skeleton. Throw out the rest: the type, the colors, the words, the entire interior, everything that belonged to somebody else.</p>
+    <p class="found-end">The found object was a museum. What was made of it was this.</p>
+  </div>
+</section>
 
-Forty-seven buildings were studied the way a carpenter studies a building rather than the way a visitor walks through one. The Met. The British Museum. The Rijksmuseum. The Louvre. The Paris Review. Dia. Maya Lin's studio. Each one had bones underneath it — a grid, a way of moving, a behavior when the window narrows. Keep the skeleton. Throw out the rest: the type, the colors, the words, the entire interior, everything that belonged to somebody else. The found object was a museum. What was made of it was this.
+<section class="dark-ground" aria-label="The ground">
+  <div class="dark-words">
+    <span class="blue-rule" aria-hidden="true"></span>
+    <p class="dark-lead">The ground went dark.</p>
+    <p class="dark-first">Not for style and not for drama. Dark because the atmosphere is shadow and the light comes through the cracks, and the cracks are the writing.</p>
+    <p>The gradient runs from pure black at the top through twelve stops to a deep navy at the bottom, so slowly that nobody sees it. Nobody sees it. Everybody feels it.</p>
+    <p>The text on it is a warm white, because white on a dark ground is cold, and this one has cream in it. The accent blue is not electric. It is a blue that has been through something.</p>
+    <p>On the twenty-fifth of February the faintest text allowed anywhere was raised from fifty-five percent to sixty-two. Seven hundredths of opacity. The reason written down at the time was the difference between squinting and sitting down.</p>
+  </div>
+  <figure class="dark-pic"><a href="/digital/workspace-incidences-no-people/0042"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_4.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_4-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_4.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 54vw" width="2000" height="1321" loading="lazy" decoding="async" alt="Inside a dark wooden shed stacked with lumber, daylight coming through a lattice and between the boards"></a><figcaption><a href="/digital/workspace-incidences-no-people/0042">09702</a></figcaption></figure>
+</section>
 
-The ground went dark. Not for style and not for drama. Dark because the atmosphere is shadow and the light comes through the cracks, and the cracks are the writing.
+<section class="faces" aria-label="Three fonts">
+  <p class="faces-lead">Three fonts were locked the day before that. Choosing three fonts took six months.</p>
+  <div class="faces-three">
+    <p><span class="face-name">Lora</span> for titles and for the moments of direct speaking, never italic, because presence was the whole point of it.</p>
+    <p><span class="face-name">Inter</span> for navigation and the small functional words — a typeface that does not arrive, being already there.</p>
+    <p><span class="face-name">Work Sans</span> for ordinary prose, and the note describing it calls it the Tuesday of the system. Unremarkable, reliable, and the reason anything extraordinary standing near it reads as extraordinary.</p>
+  </div>
+</section>
 
-The gradient runs from pure black at the top through twelve stops to a deep navy at the bottom, so slowly that nobody sees it. Nobody sees it. Everybody feels it.
+<section class="lights" aria-labelledby="lights-title">
+  <h2 class="lights-title" id="lights-title">Every page was to be a room with its own light.</h2>
+  <ol class="lights-three">
+    <li class="light light-paper"><figure class="light-pic"><a href="/digital/workspace-incidences-no-people/0036"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/russian%20portrait%205.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/russian%20portrait%205-600.webp 377w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/russian%20portrait%205.webp 1258w" sizes="(max-width: 999px) calc(100vw - 104px), 30vw" width="1258" height="2000" loading="lazy" decoding="async" alt="The corner of a small room with warm walls hung with ink drawings, a gold panel, a white sink, a folding chair and a heap of coral cloth on the floor"></a><figcaption><a href="/digital/workspace-incidences-no-people/0036">09696</a></figcaption></figure><p>One stays on warm paper.</p></li>
+    <li class="light light-alt"><figure class="light-pic"><a href="/digital/workspace-incidences-no-people/0023"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/iw%2064.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/iw%2064-600.webp 575w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/iw%2064.webp 1917w" sizes="(max-width: 999px) calc(100vw - 104px), 30vw" width="1917" height="2000" loading="lazy" decoding="async" alt="A workshop wall of shelves and boards, white lattice strips, wire, yellow mesh and a boot hung up high"></a><figcaption><a href="/digital/workspace-incidences-no-people/0023">09683</a></figcaption></figure><p>One alternates, light and dark, as a visitor moves through it.</p></li>
+    <li class="light light-night"><figure class="light-pic"><a href="/digital/workspace-incidences-no-people/0007"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/aw%2025.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/aw%2025-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/aw%2025.webp 2000w" sizes="(max-width: 999px) calc(100vw - 104px), 30vw" width="2000" height="1378" loading="lazy" decoding="async" alt="Seven round lamps glowing under a dark ceiling, over a hanging sheet of dark plastic"></a><figcaption><a href="/digital/workspace-incidences-no-people/0007">09667</a></figcaption></figure><p>The portraits go full dark: the gallery at night.</p></li>
+  </ol>
+  <p class="lights-after">The shift between them was not a fault to be smoothed out. The shift was the experience. Nobody walks through a cathedral and complains that the nave feels different from the cloister.</p>
+</section>
 
-The text on it is a warm white, because white on a dark ground is cold, and this one has cream in it. The accent blue is not electric. It is a blue that has been through something.
+<section class="checks look-band" style="--band:#F5EDD3" aria-labelledby="checks-title">
+  <p class="checks-title" id="checks-title">Five checks govern every room.</p>
+  <ul class="checks-five">
+    <li>Gravity.</li>
+    <li>Kindness.</li>
+    <li>Light through cracks.</li>
+    <li>Lucidity over legacy.</li>
+    <li>Rest before conversation.</li>
+  </ul>
+</section>
 
-On the twenty-fifth of February the faintest text allowed anywhere was raised from fifty-five percent to sixty-two. Seven hundredths of opacity. The reason written down at the time was the difference between squinting and sitting down.
+<section class="steal" aria-label="The rule worth stealing">
+  <div class="steal-words">
+    <p class="steal-lead">Then the rule worth stealing.</p>
+    <p>Take any page and remove all the text from it. Look at what is left standing. If what is left is lines and boxes and borders and containers, there is too much scaffolding, and the design has got louder than the work. Structure is supposed to come from the size of the type, the weight of it, and the distance between things. Remove the scaffolding and see whether the building stands.</p>
+    <div class="words-way"><button type="button" class="btn btn-solid solo words-toggle" aria-pressed="false" hidden>Take the words away</button></div>
+    <p class="steal-after">A reader moves in a line. A visitor moves in any direction at all. Writing is allowed to assume a beginning. A house is not allowed to assume anything. And kindness turns out to be a design decision rather than an afterthought, tested by one question asked of every room: could anybody hang out here?</p>
+  </div>
+  <figure class="stands-pic"><a href="/digital/workspace-incidences-no-people/0044"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_6.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_6-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/w_6.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 48vw" width="2000" height="1321" loading="lazy" decoding="async" alt="A new wooden post standing upright among stacked boards and a leaning tree trunk"></a><figcaption><a href="/digital/workspace-incidences-no-people/0044">09704</a></figcaption></figure>
+</section>
 
-Three fonts were locked the day before that. Choosing three fonts took six months.
+<section class="compass" aria-label="The compass">
+  <p class="compass-lead">There was a compass, written on February 8, before most of the rooms existed. Not a style guide. Not a brand book. It carries four prohibitions, and the prohibitions are the part that matters.</p>
+  <ol class="nevers">
+    <li>Never explain before the visitor has looked around.</li>
+    <li>Never treat the place as a portfolio.</li>
+    <li>Never let the design get louder than the work.</li>
+    <li>Never rush anyone past the door.</li>
+  </ol>
+  <p class="fences">The nevers are the fences. Inside the fences, free.</p>
+</section>
 
-Lora for titles and for the moments of direct speaking, never italic, because presence was the whole point of it. Inter for navigation and the small functional words — a typeface that does not arrive, being already there. Work Sans for ordinary prose, and the note describing it calls it the Tuesday of the system. Unremarkable, reliable, and the reason anything extraordinary standing near it reads as extraordinary.
+<section class="opens look-band" style="--band:#E3E8E4" aria-label="And it opens">
+  <p class="opens-lead">And it opens like this.</p>
+  <p class="opens-words">This is not a remote tropical wonder. Not a tender cultural organization. Not a site in the way people expect one to be. Think of it like a backyard with two chairs. The plantain trees are right there. The light is good. Sit down if you want to. Nobody is going to explain everything before you have had a chance to look around.</p>
+  <figure class="opens-pic"><a href="/digital/workspace-incidences-no-people/0015"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/cup%20fan.webp" srcset="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/cup%20fan-600.webp 600w, https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/cup%20fan.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 1100px" width="2000" height="1253" loading="lazy" decoding="async" alt="A rough painted sculpture, yellow, black, white and red, on a metal rail outdoors under trees and an open sky"></a><figcaption><a href="/digital/workspace-incidences-no-people/0015">09675</a></figcaption></figure>
+</section>
 
-Every page was to be a room with its own light. One stays on warm paper. One alternates, light and dark, as a visitor moves through it. The portraits go full dark: the gallery at night. The shift between them was not a fault to be smoothed out. The shift was the experience. Nobody walks through a cathedral and complains that the nave feels different from the cloister.
-
-Five checks govern every room. Gravity. Kindness. Light through cracks. Lucidity over legacy. Rest before conversation.
-
-Then the rule worth stealing. Take any page and remove all the text from it. Look at what is left standing. If what is left is lines and boxes and borders and containers, there is too much scaffolding, and the design has got louder than the work. Structure is supposed to come from the size of the type, the weight of it, and the distance between things. Remove the scaffolding and see whether the building stands.
-
-A reader moves in a line. A visitor moves in any direction at all. Writing is allowed to assume a beginning. A house is not allowed to assume anything. And kindness turns out to be a design decision rather than an afterthought, tested by one question asked of every room: could anybody hang out here?
-
-There was a compass, written on February 8, before most of the rooms existed. Not a style guide. Not a brand book. It carries four prohibitions, and the prohibitions are the part that matters. Never explain before the visitor has looked around. Never treat the place as a portfolio. Never let the design get louder than the work. Never rush anyone past the door.
-
-The nevers are the fences. Inside the fences, free.
-
-And it opens like this.
-
-This is not a remote tropical wonder. Not a tender cultural organization. Not a site in the way people expect one to be. Think of it like a backyard with two chairs. The plantain trees are right there. The light is good. Sit down if you want to. Nobody is going to explain everything before you have had a chance to look around.</div>
-<div class="core-nav"><a href="/the-book.html">The Book</a> &nbsp; <a href="/room-five.html">Next room</a></div>
+<nav class="room-foot" aria-label="Where to go next">
+  <a class="back" href="/the-book.html"><span class="arr" aria-hidden="true">&larr;</span> The Book</a>
+  <a class="next" href="/room-five.html">Next <span class="arr" aria-hidden="true">&rarr;</span></a>
+</nav>
 </main>
+
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
-  <nav>
-    <a href="/writings.html" class="current">Writings</a>
-    <a href="/marks.html">Marks</a>
-    <a href="/physical.html">Placings</a>
-    <a href="/digital.html">Collage</a>
-    <a href="/musicology.html">Song</a>
-    <a href="/search.html">Search</a>
-  </nav>
-
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Paraploo</p>
 </footer>
+<button type="button" class="btn btn-solid solo words-toggle words-back" aria-pressed="true" hidden>Bring the words back</button>
+
+<script src="/nav.js"></script>
+<script src="/room-four.js"></script>
 </body>
 </html>

@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Come Sit, the third room behind The Book.
+   Dressed in the design draft HTML DOCS\CLEAN-good-grounds_4.html, the Good Grounds
+   landing, worn on its light ground (white warming toward paper) and, in Dark, on its
+   own dark ground: a narrow opening with its intro paragraphs; the voices as cards,
+   each against its own bar; the dialogue set apart, each voice in its own colour;
+   hairline air between the parts; and the invitation, centred over a short rule.
+   The writing is about sitting still and counting, so the counting is kept by hand:
+   the bounces and the people asked appear as tally marks after the lines that count
+   them, and the treeline keeps one darker, damper mark where the foot rested.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; words in the
+   named colours, and dark on every colour band (#111111), in every mode.
+   ========================================================================== */
+
+:root {
+  --open-air: 120px;
+  --hy: var(--accent);         /* Hahnu Youn's voice: the site's Accent, on every bench */
+  --dust: #B9A88C;             /* the soil beside the foot */
+  --wet: #3A2E22;              /* the soil where the foot rested */
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --dust: #9C8A6E; --wet: #000000; }
+}
+html[data-theme="dark"] { --dust: #9C8A6E; --wet: #000000; }
+
+/* Good Grounds' light ground: white at the top, warming toward paper by the foot.
+   (In Dark, the shared look's own dark ground, which deepens to night blue, is Good Grounds' dark ground.) */
+body.sit-page { background: linear-gradient(to bottom, #ffffff 0px, #ffffff 300px, #fdfcfb 700px, #f9f7f4 100%); }
+
+/* ---------- the colour bands: flat, edge to edge, from the work on them; words dark in every mode ---------- */
+.sit-band {
+  background: var(--band); color: #111111;
+  --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24;
+}
+.sit-band a { color: inherit; }
+.sit-band :focus-visible { outline-color: #111111; }
+
+/* each voice's colour: the deep tone on the light ground, its lighter partner on the dark */
+.three-benches a, .bench { --vv: var(--v); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .three-benches a, html:not([data-theme="light"]) .bench { --vv: var(--v-d); }
+}
+html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv: var(--v-d); }
+
+/* ---------- the opening: the room's name, its sentence, the writing's first lines, and the chair ---------- */
+.sit-open {
+  display: grid; grid-template-columns: minmax(0, 48fr) minmax(0, 52fr); column-gap: var(--column-gap);
+  align-items: start;
+  padding: 72px var(--edge) var(--open-air);
+}
+.room-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: -0.015em;
+  margin: 0 0 28px;
+}
+.room-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; max-width: 19em;
+  margin: 0 0 40px;
+}
+.open-intro p { font-size: 20px; line-height: 1.65; margin: 0 0 1em; max-width: 34em; }
+.open-intro p:last-child { margin-bottom: 0; }
+
+.open-pic, .bench-pic, .close-pic, .side-pic { margin: 0; display: flex; flex-direction: column; align-items: flex-end; }
+.open-pic a, .bench-pic a, .close-pic a, .side-pic a { display: block; line-height: 0; }
+.open-pic img, .bench-pic img, .close-pic img { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 150px); }
+.open-pic figcaption, .bench-pic figcaption, .close-pic figcaption, .side-pic figcaption { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.open-pic figcaption a, .bench-pic figcaption a, .close-pic figcaption a, .side-pic figcaption a { text-decoration: none; }
+@media (hover: hover) {
+  .open-pic figcaption a:hover, .bench-pic figcaption a:hover, .close-pic figcaption a:hover, .side-pic figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* ---------- three times, somebody sat down: the voices grid of Good Grounds, as three benches ---------- */
+.three { padding: var(--open-air) var(--edge); }
+.three-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  max-width: 18em; margin: 0 0 48px;
+}
+.three-benches { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--column-gap); }
+.three-benches li { display: flex; }
+.three-benches a {
+  position: relative; flex: 1;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 28px 64px 32px 25px;
+  border-left: 3px solid var(--vv);
+  color: var(--ink); text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.c-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 44px); line-height: 1.05; margin-bottom: 4px;
+}
+.c-who { font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--accent); transition: color 0.3s ease; }
+.c-where { font-size: 20px; line-height: 1.45; }
+.three-benches .row-arrow { position: absolute; right: 24px; bottom: 26px; font-size: 26px; line-height: 1; transform: translateY(-10px); }
+/* PLAY: the card turns into its opposite under the hand, and the arrow drops toward its bench */
+@media (hover: hover) {
+  .three-benches a:hover { background: var(--ink); color: var(--ground); }
+  .three-benches a:hover .c-who { color: var(--ground); }
+  .three-benches a:hover .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: none) { .three-benches .row-arrow { transform: none; } }
+.three-benches a:active, .three-benches a:focus-visible { background: var(--ink); color: var(--ground); outline: none; }
+.three-benches a:active .c-who, .three-benches a:focus-visible .c-who { color: var(--ground); }
+.three-benches a:focus-visible .row-arrow { opacity: 1; transform: none; }
+
+/* ---------- a bench: its name and its place on a band from its picture, then what happened there ---------- */
+.bench { scroll-margin-top: 0; }
+.bench-head {
+  display: grid; grid-template-columns: minmax(0, 48fr) minmax(0, 52fr); column-gap: var(--column-gap);
+  grid-template-areas: "name pic" "scene pic"; grid-template-rows: auto 1fr;
+  padding: var(--open-air) var(--edge);
+}
+.bench-name {
+  grid-area: name;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.015em;
+  margin: 0 0 36px;
+}
+.bench-scene { grid-area: scene; font-size: 22px; line-height: 1.6; max-width: 30em; margin: 0; }
+.bench-pic { grid-area: pic; }
+
+/* what happened there: the words on the left; beside them a second picture from the same walk
+   through the parks, held still while the words pass (as the writing stage holds its pictures) */
+.bench-body {
+  display: grid; grid-template-columns: minmax(0, 48fr) minmax(0, 52fr); column-gap: var(--column-gap);
+  align-items: start;
+  padding: 88px var(--edge) var(--open-air);
+}
+.bench-text > p { font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; max-width: 700px; }
+.bench-text > p:last-child { margin-bottom: 0; }
+/* smaller than the band's picture and set a little lower, so the two never stand one under the other */
+.side-pic { position: sticky; top: 48px; margin-top: 96px; align-items: flex-start; width: 76%; }
+.side-pic img { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 130px); }
+/* the dialogue, as Good Grounds sets its excerpts: each spoken line against a bar in its speaker's colour */
+.said { border-left: 3px solid var(--vv); padding-left: 21px; }
+.said-hahnu { border-left-color: var(--hy); }
+
+/* PLAY: the count kept by hand. Bundles of four crossed by a fifth, drawn in under a second
+   once the line that counts them is reached. Without the page's script, and for visitors who
+   ask for less motion, every mark is simply there. */
+.tally { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 4px 0 40px; max-width: 700px; color: var(--ink); }
+.tally svg { display: block; overflow: visible; }
+.tally path { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.tally path.mark { stroke: var(--vv); stroke-width: 3; }
+.counting .tally path {
+  stroke-dasharray: 1 1; stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.16s ease-out calc(var(--i) * var(--step));
+}
+.counting .tally.is-counted path { stroke-dashoffset: 0; }
+.damp { margin: 0 0 36px; max-width: 700px; }
+.damp svg { display: block; max-width: 100%; height: auto; }
+.counting .damp { opacity: 0; transition: opacity 0.9s ease; }
+.counting .damp.is-counted { opacity: 1; }
+
+/* ---------- the closing: three benches, on a band from the swings ---------- */
+.sit-close {
+  display: grid; grid-template-columns: minmax(0, 48fr) minmax(0, 52fr); column-gap: var(--column-gap);
+  grid-template-areas: "line pic" "words pic"; grid-template-rows: auto 1fr;
+  padding: var(--open-air) var(--edge);
+}
+.close-line {
+  grid-area: line;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  max-width: 15em; margin: 0 0 36px;
+}
+.close-words { grid-area: words; }
+.close-words p { font-size: 20px; line-height: 1.7; margin: 0 0 1em; max-width: 32em; }
+.close-words p:last-child { margin-bottom: 0; }
+.close-pic { grid-area: pic; }
+
+/* ---------- the invitation: the last line, centred over Good Grounds' short rule ---------- */
+.invitation { padding: 160px var(--edge); text-align: center; }
+.invitation p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4.6vw, 76px); line-height: 1.05; letter-spacing: -0.01em; margin: 0;
+}
+.invitation-rule { display: block; width: 64px; height: 3px; background: var(--accent); margin: 36px auto 0; }
+
+/* ---------- the way on (as Come In's and Come Through's); on a walk it steps aside for the walk's foot ---------- */
+.room-foot {
+  display: flex; justify-content: space-between; gap: var(--gap-6);
+  padding: 56px var(--edge) 80px;
+  border-top: 1px solid var(--ink);
+  font-weight: 600; font-size: 22px;
+}
+.room-foot a { text-decoration: none; color: var(--ink); display: inline-flex; gap: 10px; align-items: baseline; }
+.room-foot .arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) {
+  .room-foot .back:hover .arr { transform: translateX(-4px); }
+  .room-foot .next:hover .arr { transform: translateX(4px); }
+}
+
+/* ---------- narrower windows: the words, then the picture whole, then what follows ---------- */
+@media (max-width: 999px) {
+  :root { --open-air: 88px; }
+  .sit-open, .bench-head, .sit-close { display: flex; flex-direction: column; }
+  .sit-open { padding-top: 56px; }
+  .open-pic { margin-top: 48px; }
+  .open-pic, .bench-pic, .close-pic { align-items: flex-start; }
+  .open-pic img, .bench-pic img, .close-pic img { max-height: none; width: 100%; }
+  .bench-name { order: 1; margin-bottom: 32px; }
+  .bench-pic { order: 2; margin-bottom: 36px; }
+  .bench-scene { order: 3; }
+  .close-line { order: 1; margin-bottom: 32px; }
+  .close-pic { order: 2; margin-bottom: 36px; }
+  .close-words { order: 3; }
+  .three-benches { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .three-benches a { padding: 22px 64px 24px 21px; }
+  .bench-body { display: block; }
+  .side-pic { position: static; margin-top: 48px; align-items: flex-start; width: auto; }
+  .side-pic img { max-height: none; width: 100%; }
+  .three-benches .row-arrow { bottom: auto; top: 50%; translate: 0 -50%; }
+  .invitation { padding: 112px var(--edge); }
+}
+@media (max-width: 600px) {
+  .open-intro p, .close-words p { font-size: 18px; }
+  .bench-scene { font-size: 20px; }
+  .bench-text > p { font-size: 18px; }
+  .said { padding-left: 17px; }
+  .c-who, .c-where { font-size: 18px; }
+  .tally { gap: 2px 10px; }
+  .tally svg { width: 42px; height: auto; }
+  .room-foot { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .arrive { animation: none; }
+  .three-benches a, .c-who, .room-foot .arr { transition: none; }
+}

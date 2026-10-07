@@ -7,165 +7,634 @@
 <meta name="description" content="Come Sit, the third room: Hahnu Youn, a bench wherever the bench happens to be, and three people who sat down.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome, the walk's three files, and the Writings pages' shared look (the first style block of /walks.html, word for word). -->
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
-<script src="/theme.js"></script>
-<style>
-
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #14100c;
-    color: rgba(244, 239, 232, 0.78);
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .core-header {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 64px 40px 0;
-  }
-  .core-wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #a8998a;
-    margin: 0;
-  }
-  .core-main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 40px 120px;
-  }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: var(--ink);
-    margin: 0 0 8px;
-  }
-  .core-locked {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: #a8998a;
-    margin: 0 0 48px;
-  }
-  .core-kicker {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 20px;
-  }
-  .core-main p {
-    margin: 0 0 34px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    text-wrap: pretty;
-  }
-  .core-main p strong, .core-main p b { font-weight: 400; }
-  .core-era {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: #ffffff;
-    margin: 48px 0 16px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-era:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-  .core-main a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-main a:hover { color: var(--ink); }
-  .core-title {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 38px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    color: var(--ink);
-    margin: 0 0 8px;
-  }
-  .core-nav {
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(244, 239, 232, 0.14);
-  }
-  .core-nav a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .core-nav a:hover { color: var(--ink); }
-  @media (max-width: 768px) {
-    .core-header { padding: 40px 24px 0; }
-    .core-main { padding: 32px 24px 80px; }
-    .core-footer { padding: 0 24px 40px; }
-  }
-
-  .core-footer {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 40px 48px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-  }
-
-  .core-rule {
-    max-width: 720px;
-    margin: 48px auto 0;
-    padding: 0 40px;
-  }
-  .core-rule hr {
-    border: none;
-    border-top: 1px solid rgba(244, 239, 232, 0.28);
-    margin: 0;
-  }
-  .core-signature {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    color: rgba(168, 153, 138, 0.6);
-    margin: 24px 0 0;
-  }
-  .booklet-text {
-    white-space: pre-wrap;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 17px;
-    line-height: 1.75;
-    margin: 0 0 34px;
-  }
-</style>
 <link rel="stylesheet" href="/nav.css">
-<script src="/nav.js" defer></script>
+<style id="pages-styles">
+/* Copied word for word from the live /walks.html, its first style block (the Writings pages' shared look). Not edited. */
+
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
 <link rel="stylesheet" href="/walks.css">
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/room-three.css">
+<style>:root { --tones: linear-gradient(to right, #B8956A 0.0% 20.0%, #9690AC 20.0% 40.0%, #C0603F 40.0% 60.0%, #8E9046 60.0% 80.0%, #A3B1C2 80.0% 100.0%); }</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -208,112 +677,130 @@
 }
 </script>
 </head>
-<body>
+
+<body class="room-page sit-page">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
-<main class="core-main">
-<h1 class="core-title">Come Sit</h1>
-<div class="booklet-text">Hahnu Youn is eighty-three and has no house. What there is instead is a bench, wherever the bench happens to be. Weathered like an elder tortoise, and still, for reasons nobody has accounted for, easily surprised ...
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
 
-In one pocket, seeds. Carried, not planted. For when I need reminding that I do not know what alive looks like.
+<main>
+<section class="sit-open sit-band" style="--band:#EFE4D3" aria-label="Come Sit">
+  <div class="open-words">
+    <p class="label arrive">The third room &middot; 4 minutes</p>
+    <h1 class="room-title arrive" style="--d:0.12s">Come Sit</h1>
+    <p class="room-sentence arrive" style="--d:0.24s">Hahnu Youn, a bench wherever the bench happens to be, and three people who sat down.</p>
+    <div class="open-intro arrive" style="--d:0.36s">
+      <p>Hahnu Youn is eighty-three and has no house. What there is instead is a bench, wherever the bench happens to be. Weathered like an elder tortoise, and still, for reasons nobody has accounted for, easily surprised ...</p>
+      <p>In one pocket, seeds. Carried, not planted. For when I need reminding that I do not know what alive looks like.</p>
+      <p>No advice is given. Sometimes a question gets asked, and only if the question is real — not one to fill a silence, but one where the answer is honestly not known ...</p>
+    </div>
+  </div>
+  <figure class="open-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0011"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%209.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%209-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%209.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 52vw" width="2000" height="1991" fetchpriority="high" alt="A child&#x27;s folding beach chair standing alone on the sand, a blue inflatable sitting in it, a pink shirt over its arm and an orange hat on the seat"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0011">09928</a></figcaption></figure>
+</section>
 
-No advice is given. Sometimes a question gets asked, and only if the question is real — not one to fill a silence, but one where the answer is honestly not known ...
+<section class="three" aria-labelledby="three-title">
+  <h2 class="three-title" id="three-title">Three times, somebody sat down nearby.</h2>
+  <ol class="three-benches">
+    <li><a href="#houston" style="--v:#6F6890; --v-d:#A79FC9"><span class="c-name">Houston</span><span class="c-who">A bouncing leg</span><span class="c-where">A hospital waiting room</span><span class="row-arrow" aria-hidden="true">&darr;</span></a></li>
+    <li><a href="#duluth" style="--v:#2F5A7A; --v-d:#86AECB"><span class="c-name">Duluth</span><span class="c-who">A lost sock</span><span class="c-where">A green bench outside a laundromat</span><span class="row-arrow" aria-hidden="true">&darr;</span></a></li>
+    <li><a href="#the-treeline" style="--v:#6E7128; --v-d:#AEB25E"><span class="c-name">The treeline</span><span class="c-who">A pair of dusty feet</span><span class="c-where">A traveler comes out of the trees</span><span class="row-arrow" aria-hidden="true">&darr;</span></a></li>
+  </ol>
+</section>
+<section class="bench" id="houston" style="--band:#E6E3EE; --v:#6F6890; --v-d:#A79FC9" aria-labelledby="houston-name">
+  <div class="bench-head sit-band">
+    <h2 class="bench-name" id="houston-name">Houston</h2>
+    <figure class="bench-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0014"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%204.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%204-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%204.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 52vw" width="2000" height="1286" loading="lazy" decoding="async" alt="A weathered park sign with arrows pointing both ways: Beach, Restrooms, Office, Trailhead one way; Picnic Area, Shelter, Water the other"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0014">09931</a></figcaption></figure>
+    <p class="bench-scene">A hospital waiting room. Orange plastic chairs bolted to eleven others, so that nobody is able to move a chair closer to anybody. On the television, a truck drives through mud, a woman smiles about yogurt, a pill makes a cartoon stomach feel better ...</p>
+  </div>
+  <div class="bench-body">
+    <div class="bench-text">
+      <p>A young man sits across the aisle, one leg bouncing. Forty-seven bounces in a minute. Hahnu Youn counts them.</p>
+      <div class="tally" aria-hidden="true" style="--step:0.0166s"><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:1" d="M8.7 4.4Q8.1 22.7 7.5 41.0"/><path pathLength="1" style="--i:2" d="M17.3 2.7Q14.6 21.8 14.8 40.9"/><path pathLength="1" style="--i:3" d="M25.5 6.8Q26.8 24.0 25.1 41.2"/><path pathLength="1" style="--i:4" d="M35.3 5.1Q34.5 22.5 34.8 40.0"/><path pathLength="1" style="--i:5" d="M3.9 30.2Q22.7 22.7 41.4 14.1"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:6" d="M9.1 5.9Q11.0 23.0 9.9 40.1"/><path pathLength="1" style="--i:7" d="M16.6 4.0Q16.2 22.3 15.5 40.6"/><path pathLength="1" style="--i:8" d="M25.5 5.4Q27.3 24.2 26.6 43.0"/><path pathLength="1" style="--i:9" d="M33.9 5.8Q34.5 24.2 33.8 42.5"/><path pathLength="1" style="--i:10" d="M2.6 33.9Q21.8 22.4 41.1 13.3"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:11" d="M9.1 2.7Q8.5 21.5 9.6 40.4"/><path pathLength="1" style="--i:12" d="M18.0 6.1Q16.9 23.9 17.9 41.7"/><path pathLength="1" style="--i:13" d="M26.0 6.8Q25.6 25.1 25.6 43.4"/><path pathLength="1" style="--i:14" d="M35.5 5.0Q33.5 23.8 33.2 42.6"/><path pathLength="1" style="--i:15" d="M3.6 32.7Q23.0 24.8 42.5 12.6"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:16" d="M8.1 3.7Q8.4 22.8 7.5 41.9"/><path pathLength="1" style="--i:17" d="M17.4 5.7Q15.1 24.1 16.1 42.6"/><path pathLength="1" style="--i:18" d="M25.5 4.1Q26.8 23.8 26.7 43.5"/><path pathLength="1" style="--i:19" d="M33.9 6.6Q33.9 23.1 31.8 39.6"/><path pathLength="1" style="--i:20" d="M2.7 32.0Q21.9 19.1 41.2 10.0"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:21" d="M8.1 2.6Q7.2 20.9 6.3 39.2"/><path pathLength="1" style="--i:22" d="M17.5 6.0Q17.5 24.3 17.0 42.7"/><path pathLength="1" style="--i:23" d="M25.0 2.8Q25.0 22.8 26.1 42.8"/><path pathLength="1" style="--i:24" d="M35.2 6.4Q32.7 23.3 32.9 40.1"/><path pathLength="1" style="--i:25" d="M2.2 30.3Q22.0 22.8 41.9 11.4"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:26" d="M9.1 5.0Q10.8 23.7 8.9 42.4"/><path pathLength="1" style="--i:27" d="M16.7 4.7Q17.0 23.1 17.9 41.5"/><path pathLength="1" style="--i:28" d="M25.7 3.9Q24.1 23.3 25.1 42.8"/><path pathLength="1" style="--i:29" d="M35.4 3.0Q36.9 22.1 36.0 41.1"/><path pathLength="1" style="--i:30" d="M2.9 32.8Q22.6 23.1 42.4 10.4"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:31" d="M9.6 4.7Q9.8 22.1 7.9 39.5"/><path pathLength="1" style="--i:32" d="M16.8 2.6Q16.3 21.0 16.1 39.4"/><path pathLength="1" style="--i:33" d="M25.6 5.0Q27.8 23.5 26.6 42.1"/><path pathLength="1" style="--i:34" d="M33.9 5.6Q33.0 22.4 32.3 39.2"/><path pathLength="1" style="--i:35" d="M2.1 33.9Q22.4 24.6 42.7 14.3"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:36" d="M9.1 6.1Q9.3 23.8 8.1 41.6"/><path pathLength="1" style="--i:37" d="M18.3 5.8Q18.9 22.6 19.5 39.4"/><path pathLength="1" style="--i:38" d="M25.6 6.8Q23.6 24.1 24.5 41.4"/><path pathLength="1" style="--i:39" d="M35.4 6.3Q34.2 24.3 34.2 42.3"/><path pathLength="1" style="--i:40" d="M3.7 34.6Q22.9 21.7 42.1 11.6"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:41" d="M8.4 6.3Q8.8 24.5 9.6 42.7"/><path pathLength="1" style="--i:42" d="M18.1 3.9Q17.0 23.0 16.1 42.0"/><path pathLength="1" style="--i:43" d="M25.1 6.4Q26.3 23.9 24.9 41.3"/><path pathLength="1" style="--i:44" d="M34.1 3.9Q33.6 23.5 33.2 43.2"/><path pathLength="1" style="--i:45" d="M3.9 32.5Q22.8 19.8 41.8 11.9"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:46" d="M9.2 6.4Q10.1 24.6 10.3 42.9"/><path pathLength="1" style="--i:47" d="M17.7 5.3Q18.2 23.2 17.3 41.1"/></svg></div>
+      <p class="said">"I don't know what to do," the young man says. Not to Hahnu Youn exactly. To the room. To the orange chairs.</p>
+      <p class="said said-hahnu">"No," Hahnu Youn says. "You don't."</p>
+      <p>Which is not what anyone expects from an old woman in a waiting room. No advice arrives. No comfort arrives either ...</p>
+      <p class="said">"What do you do when you don't know what to do?"</p>
+      <p class="said said-hahnu">"I sit. I notice what is. I count things sometimes. The counting is not for understanding. The counting is for being present with what I am counting."</p>
+      <p class="said">"That's it?"</p>
+      <p class="said said-hahnu">"Sometimes I ask a question. But only if the question is real. Not a question to fill the silence. A question I actually do not know the answer to."</p>
+      <p>The question does not come that day. When it comes it will get asked. Maybe to the young man. Maybe to the orange chair. Maybe to nobody at all ...</p>
+    </div>
+    <figure class="side-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0023"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Pond%20Near%20Lake%20Mille%20Lacs%20Minnesota.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Pond%20Near%20Lake%20Mille%20Lacs%20Minnesota-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Pond%20Near%20Lake%20Mille%20Lacs%20Minnesota.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 50vw" width="2000" height="1355" loading="lazy" decoding="async" alt="A pond near Lake Mille Lacs covered edge to edge with lily pads, a few of them turning"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0023">09940</a></figcaption></figure>
+  </div>
+</section>
+<section class="bench" id="duluth" style="--band:#F4E0D6; --v:#2F5A7A; --v-d:#86AECB" aria-labelledby="duluth-name">
+  <div class="bench-head sit-band">
+    <h2 class="bench-name" id="duluth-name">Duluth</h2>
+    <figure class="bench-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0010"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%208.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%208-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%208.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 52vw" width="2000" height="1173" loading="lazy" decoding="async" alt="Left on a striped blue beach chair: an orange knitted hat with a ring of keys, a flowered strap, a pink shirt and a blue inflatable"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0010">09927</a></figcaption></figure>
+    <p class="bench-scene">A green bench outside a laundromat, the paint peeling in shapes like maps of countries that do not exist. Seven machines turning inside, and if the listening goes slightly wrong, they are playing a waltz. One two three ...</p>
+  </div>
+  <div class="bench-body">
+    <div class="bench-text">
+      <p>A child comes out, maybe five years old, holding one blue sock with orange stripes.</p>
+      <p class="said">"This isn't ours."</p>
+      <p>What follows is a census of belonging. The child asks everyone who passes whose sock this is. The mother allows five more minutes. The five minutes run out. Hahnu Youn takes over the search.</p>
+      <p class="said">"You have to ask everyone."</p>
+      <p class="said said-hahnu">"I will."</p>
+      <p class="said">"And count."</p>
+      <p class="said said-hahnu">"I will count."</p>
+      <p class="said">"We're at four."</p>
+      <p class="said said-hahnu">"I will start at five."</p>
+      <p>The sock changes hands. Warm from the child's hand, and soft ...</p>
+      <p>Two more hours on the bench. Nineteen more people asked. And number seventeen is a woman who begins to cry, though the sock belongs to nobody in that parking lot and never did. There was a son once with socks like this. Orange stripes on blue. The son is grown now, and lives in a city whose name will not come out right, and does not call enough ...</p>
+      <div class="tally" aria-hidden="true" style="--step:0.0339s"><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:1" class="mark" d="M9.4 6.0Q8.7 23.7 8.8 41.3"/><path pathLength="1" style="--i:2" class="mark" d="M18.5 3.8Q16.9 21.7 16.9 39.7"/><path pathLength="1" style="--i:3" class="mark" d="M25.7 3.7Q24.3 21.6 24.4 39.5"/><path pathLength="1" style="--i:4" class="mark" d="M34.6 3.4Q33.9 21.4 32.8 39.3"/><path pathLength="1" style="--i:5" d="M2.8 33.7Q22.6 21.1 42.5 12.5"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:6" d="M9.5 5.9Q8.7 23.3 9.5 40.8"/><path pathLength="1" style="--i:7" d="M18.3 6.3Q18.0 24.4 19.5 42.6"/><path pathLength="1" style="--i:8" d="M26.1 5.8Q24.3 24.2 25.1 42.6"/><path pathLength="1" style="--i:9" d="M34.8 3.0Q33.3 22.6 32.2 42.2"/><path pathLength="1" style="--i:10" d="M3.0 30.6Q22.3 21.1 41.7 13.0"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:11" d="M9.8 6.4Q7.3 24.7 8.2 43.0"/><path pathLength="1" style="--i:12" d="M17.3 3.0Q15.1 22.6 15.7 42.2"/><path pathLength="1" style="--i:13" d="M25.6 4.3Q24.5 23.3 24.8 42.3"/><path pathLength="1" style="--i:14" d="M34.9 2.7Q35.8 21.3 35.0 39.9"/><path pathLength="1" style="--i:15" d="M2.2 30.3Q22.0 19.7 41.8 13.9"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:16" d="M8.9 3.7Q7.1 21.6 7.0 39.4"/><path pathLength="1" style="--i:17" class="mark" d="M17.4 3.0Q18.6 22.4 18.3 41.8"/><path pathLength="1" style="--i:18" d="M25.1 5.4Q23.4 23.6 22.6 41.9"/><path pathLength="1" style="--i:19" d="M34.8 6.8Q35.0 25.0 34.5 43.2"/><path pathLength="1" style="--i:20" d="M3.9 31.1Q22.8 22.1 41.8 10.4"/></svg><svg viewBox="0 0 48 46" width="48" height="46" focusable="false"><path pathLength="1" style="--i:21" d="M9.3 3.4Q10.0 21.7 8.8 39.9"/><path pathLength="1" style="--i:22" d="M16.8 4.0Q17.4 22.6 15.2 41.3"/><path pathLength="1" style="--i:23" d="M26.5 6.8Q25.7 24.3 26.6 41.9"/></svg></div>
+      <p>They talk about sons, and distance, and socks, and the things that carry memory in their softness.</p>
+      <p>The sock was never the point. The sock was how a stranger arrived at the thing that needed saying out loud. The way into a person is almost never through the front door ...</p>
+    </div>
+    <figure class="side-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0015"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%2012.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%2012-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Door%20County%2012.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 50vw" width="2000" height="1486" loading="lazy" decoding="async" alt="Two beach umbrellas over empty folding chairs, a loaded cart, towels and sandals on the sand, nobody there"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0015">09932</a></figcaption></figure>
+  </div>
+</section>
+<section class="bench" id="the-treeline" style="--band:#E7E7D2; --v:#6E7128; --v-d:#AEB25E" aria-labelledby="the-treeline-name">
+  <div class="bench-head sit-band">
+    <h2 class="bench-name" id="the-treeline-name">The treeline</h2>
+    <figure class="bench-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0018"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/ep%205.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/ep%205-600.webp 483w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/ep%205.webp 1609w" sizes="(max-width: 999px) calc(100vw - 48px), 52vw" width="1609" height="2000" loading="lazy" decoding="async" alt="A mossy path coming out of green woods, fallen leaves lying on it"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0018">09935</a></figcaption></figure>
+    <p class="bench-scene">A traveler comes out of the trees. Dusty feet. Ordinary clothes. Hands that have worked. No announcement, no halo, no explanation ...</p>
+  </div>
+  <div class="bench-body">
+    <div class="bench-text">
+      <p>Two people who had understood the same optical illusion, from different centuries and in different languages. Neither one listened to by the people who claimed to be listening.</p>
+      <p class="said said-hahnu">"Did they listen?" Hahnu Youn asks.</p>
+      <p class="said">"They built buildings."</p>
+      <p>Five words, and the entire disaster is inside them. Walking through towns saying what people needed to hear, and the listening got turned into architecture, and the walking into an institution, and the message into stone that could be visited on Sundays instead of carried in a pocket every day ...</p>
+      <p class="said">"You're doing the same work."</p>
+      <p class="said said-hahnu">"Someone has to sit still while you walk."</p>
+      <p>Afterward the soil where the foot had rested looks darker and damper than the soil beside it. Not a miracle. Not a sign. Earth responding to a foot that has walked a long way, carrying a weight the ground recognizes ...</p>
+      <div class="damp" aria-hidden="true"><svg viewBox="0 0 220 84" width="220" height="84" focusable="false"><defs><radialGradient id="dust" cx="50%" cy="52%" r="50%"><stop offset="0" style="stop-color:var(--dust)" stop-opacity="0.55"/><stop offset="0.7" style="stop-color:var(--dust)" stop-opacity="0.32"/><stop offset="1" style="stop-color:var(--dust)" stop-opacity="0"/></radialGradient><radialGradient id="wet" cx="50%" cy="50%" r="50%"><stop offset="0" style="stop-color:var(--wet)" stop-opacity="0.92"/><stop offset="0.62" style="stop-color:var(--wet)" stop-opacity="0.7"/><stop offset="1" style="stop-color:var(--wet)" stop-opacity="0"/></radialGradient></defs><ellipse cx="110" cy="44" rx="106" ry="36" fill="url(#dust)"/><path fill="url(#wet)" d="M58 47C56 33 80 25 108 26C140 27 166 33 164 45C162 57 136 62 106 61C78 60 60 58 58 47Z"/></svg></div>
+    </div>
+    <figure class="side-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0022"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/northwoods%2011.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/northwoods%2011-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/northwoods%2011.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 50vw" width="2000" height="1403" loading="lazy" decoding="async" alt="Inside a northern wood: dark trunks, young firs and broad leaves catching the light"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0022">09939</a></figcaption></figure>
+  </div>
+</section>
+<section class="sit-close sit-band" style="--band:#E1E6EC" aria-label="Three benches">
+  <p class="close-line">Three benches. A bouncing leg, a lost sock, a pair of dusty feet.</p>
+  <figure class="close-pic"><a href="/digital/photo-realism/photo-realism-park-details-series/0006"><img src="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%203.webp" srcset="https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%203-600.webp 600w, https://media.paraploo.com/site/images/lines/photo-realism-park-details-series/Beached%203.webp 2000w" sizes="(max-width: 999px) calc(100vw - 48px), 52vw" width="2000" height="1115" loading="lazy" decoding="async" alt="An empty swing set standing in tall grass at the edge of the sand, a fence behind it, under a grey sky"></a><figcaption><a href="/digital/photo-realism/photo-realism-park-details-series/0006">09923</a></figcaption></figure>
+  <div class="close-words">
+    <p>Nobody is fixed in any of them. No advice is given, no problem is solved, and in two of the three the person who sat down leaves with exactly what they arrived with ...</p>
+    <p>What changes is that somebody stayed put long enough for the real thing to surface. Forty-seven bounces counted without comment. Nineteen people asked about a sock nobody owned. A question held back because it was not real yet ...</p>
+  </div>
+</section>
 
-Three times, somebody sat down nearby.
+<section class="invitation" aria-label="Same work">
+  <p>Same work. Different shift ...</p>
+  <span class="invitation-rule" aria-hidden="true"></span>
+</section>
 
-Houston
-
-A hospital waiting room. Orange plastic chairs bolted to eleven others, so that nobody is able to move a chair closer to anybody. On the television, a truck drives through mud, a woman smiles about yogurt, a pill makes a cartoon stomach feel better ...
-
-A young man sits across the aisle, one leg bouncing. Forty-seven bounces in a minute. Hahnu Youn counts them.
-
-"I don't know what to do," the young man says. Not to Hahnu Youn exactly. To the room. To the orange chairs.
-
-"No," Hahnu Youn says. "You don't."
-
-Which is not what anyone expects from an old woman in a waiting room. No advice arrives. No comfort arrives either ...
-
-"What do you do when you don't know what to do?"
-
-"I sit. I notice what is. I count things sometimes. The counting is not for understanding. The counting is for being present with what I am counting."
-
-"That's it?"
-
-"Sometimes I ask a question. But only if the question is real. Not a question to fill the silence. A question I actually do not know the answer to."
-
-The question does not come that day. When it comes it will get asked. Maybe to the young man. Maybe to the orange chair. Maybe to nobody at all ...
-
-Duluth
-
-A green bench outside a laundromat, the paint peeling in shapes like maps of countries that do not exist. Seven machines turning inside, and if the listening goes slightly wrong, they are playing a waltz. One two three ...
-
-A child comes out, maybe five years old, holding one blue sock with orange stripes.
-
-"This isn't ours."
-
-What follows is a census of belonging. The child asks everyone who passes whose sock this is. The mother allows five more minutes. The five minutes run out. Hahnu Youn takes over the search.
-
-"You have to ask everyone."
-
-"I will."
-
-"And count."
-
-"I will count."
-
-"We're at four."
-
-"I will start at five."
-
-The sock changes hands. Warm from the child's hand, and soft ...
-
-Two more hours on the bench. Nineteen more people asked. And number seventeen is a woman who begins to cry, though the sock belongs to nobody in that parking lot and never did. There was a son once with socks like this. Orange stripes on blue. The son is grown now, and lives in a city whose name will not come out right, and does not call enough ...
-
-They talk about sons, and distance, and socks, and the things that carry memory in their softness.
-
-The sock was never the point. The sock was how a stranger arrived at the thing that needed saying out loud. The way into a person is almost never through the front door ...
-
-The treeline
-
-A traveler comes out of the trees. Dusty feet. Ordinary clothes. Hands that have worked. No announcement, no halo, no explanation ...
-
-Two people who had understood the same optical illusion, from different centuries and in different languages. Neither one listened to by the people who claimed to be listening.
-
-"Did they listen?" Hahnu Youn asks.
-
-"They built buildings."
-
-Five words, and the entire disaster is inside them. Walking through towns saying what people needed to hear, and the listening got turned into architecture, and the walking into an institution, and the message into stone that could be visited on Sundays instead of carried in a pocket every day ...
-
-"You're doing the same work."
-
-"Someone has to sit still while you walk."
-
-Afterward the soil where the foot had rested looks darker and damper than the soil beside it. Not a miracle. Not a sign. Earth responding to a foot that has walked a long way, carrying a weight the ground recognizes ...
-
-Three benches. A bouncing leg, a lost sock, a pair of dusty feet.
-
-Nobody is fixed in any of them. No advice is given, no problem is solved, and in two of the three the person who sat down leaves with exactly what they arrived with ...
-
-What changes is that somebody stayed put long enough for the real thing to surface. Forty-seven bounces counted without comment. Nineteen people asked about a sock nobody owned. A question held back because it was not real yet ...
-
-Same work. Different shift ...</div>
-<div class="core-nav"><a href="/the-book.html">The Book</a> &nbsp; <a href="/room-four.html">Next room</a></div>
+<nav class="room-foot wp-after" aria-label="Where to go next">
+  <a class="back" href="/the-book.html"><span class="arr" aria-hidden="true">&larr;</span> The Book</a>
+  <a class="next" href="/room-four.html">Next <span class="arr" aria-hidden="true">&rarr;</span></a>
+</nav>
 </main>
+
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
-  <nav>
-    <a href="/writings.html" class="current">Writings</a>
-    <a href="/marks.html">Marks</a>
-    <a href="/physical.html">Placings</a>
-    <a href="/digital.html">Collage</a>
-    <a href="/musicology.html">Song</a>
-    <a href="/search.html">Search</a>
-  </nav>
-
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Paraploo</p>
 </footer>
+
+<script src="/nav.js"></script>
+<script src="/room-three.js"></script>
 <script src="/walks-data.js"></script>
 <script src="/walks.js"></script>
 </body>

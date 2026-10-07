@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Come Stand, the fifth room behind The Book.
+   Dressed in the design draft HTML DOCS\WRITING_2.html: the title set huge across
+   the whole window on fine rules, a label at each corner above it, one centred
+   reading column on the dark ground, the paragraphs arriving as the reader reaches
+   them, and a line across the top of the window that answers the reading.
+   The booklet says it at the door: "What follows is one writing, whole ... nothing
+   cut, nothing explained ... The silence after it is the room ..." So nothing
+   interrupts the writing. After its last line comes the silence: a flat band of the
+   brown, edge to edge, with nothing in it.
+   Its condensed capitals, its serif, its small grey labels and its underlined links
+   are left out. Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never
+   cropped; Archivo for headings, Inter for reading; nothing under 16 pixels; every
+   word in Ink's dark value on the dark ground. The room is dark in every mode.
+   ========================================================================== */
+
+:root {
+  --stand-air: 144px;
+  --on-dark: #e8e0d6;          /* Ink's dark value: the warm white with cream in it */
+  --night: #14100C;            /* WRITING_2's own ground, and the darkest of the two pictures (#120C07) */
+  --hair: rgba(232, 224, 214, 0.32);   /* the fine rules the title stands on */
+  --paint: #4E3118;            /* the brown of the strokes on the cloth (Late Mourning Sun 48), dry */
+  --brush: #8A5A24;            /* the site's own Accent, a brown: the line across the top, and the small marks */
+}
+
+/* ---------- the room: dark in every mode, as WRITING_2 is ---------- */
+.stand {
+  background: var(--night); color: var(--on-dark);
+  --ink: var(--on-dark); --ground: var(--night);
+}
+.stand a { color: inherit; }
+.stand :focus-visible { outline-color: var(--on-dark); }
+
+/* ---------- PLAY: the tube of brown. A line across the top of the window, full when the
+   writing begins, spent as it is read, and left at two ninths when it ends: seven
+   portraits, and "Enough for two more". Shown only by room-five.js. ---------- */
+.tube { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200; pointer-events: none; }
+.tube[hidden] { display: none; }
+.tube-paint { display: block; height: 100%; background: var(--brush); transform-origin: left center; transform: scaleX(1); }
+
+/* the pictures: whole, at their own shape, the catalogue number under each */
+.stand-page figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+.stand-page figure > a { display: block; line-height: 0; }
+.stand-page figure img { width: auto; height: auto; max-width: min(100%, 1240px); max-height: calc(100vh - 140px); }
+.stand-page figcaption { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.stand-page figcaption a { text-decoration: none; }
+@media (hover: hover) {
+  .stand-page figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* ---------- the title, huge across the whole window on its fine rules, a label at each corner ---------- */
+.title-screen { padding: 72px var(--edge) var(--stand-air); }
+.title-block { position: relative; padding-top: 44px; }
+.stand .corner { position: absolute; top: 0; margin: 0; }
+.corner-left { left: 0; }
+.corner-right { right: 0; }
+.title-lines {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(80px, 14vw, 232px); line-height: 0.9; letter-spacing: -0.02em;
+  text-align: center; margin: 0;
+}
+.title-line { display: block; padding: 0.1em 0 0.13em; border-bottom: 1px solid var(--hair); }
+.title-line:first-child { border-top: 1px solid var(--hair); }
+.room-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2.2vw, 34px); line-height: 1.2;
+  text-align: center; text-wrap: balance; max-width: 24em; margin: 56px auto 88px;
+}
+
+/* ---------- the note at the door ---------- */
+.door-note { padding: 0 var(--edge); text-align: center; }
+.door-note p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.5vw, 38px); line-height: 1.2; letter-spacing: -0.005em;
+  text-wrap: balance; max-width: 22em; margin: 0 auto;
+}
+.door-note p + p { margin-top: 36px; }
+
+/* ---------- the writing: one centred column, nothing between its parts but a small mark of the brown ---------- */
+.writing { padding: 0 var(--edge) var(--stand-air); }
+.mark { display: block; width: 56px; height: 3px; border: 0; border-radius: 2px; background: var(--brush); margin: 104px auto; }
+.writing-in { max-width: 30em; margin: 0 auto; text-align: center; font-size: 21px; line-height: 1.8; }
+.writing-in p { margin: 0 0 1.15em; }
+.writing-in p:last-child { margin-bottom: 0; }
+.writing-in .mark { margin: 88px auto; }
+
+/* PLAY: the paragraphs arrive as the reader reaches them, as the faces come back while Grace paints.
+   Only with room-five.js, which adds stand-fade; never for visitors who ask for less motion. */
+html.stand-fade .writing-in p { opacity: 0; transform: translateY(10px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+html.stand-fade .writing-in p.in { opacity: 1; transform: none; }
+
+/* ---------- PLAY: the silence after it is the room. A flat band of the brown, edge to edge, empty for most of
+   a window, then the same ground as at the opening, later in the day. Wet when the visitor reaches it; while
+   the visitor stands in it, the brown deepens, "as the water evaporates" (room-five.js). Without the script,
+   or for visitors who ask for less motion, it is dry. Its one word, the catalogue number, is Ink's dark value,
+   5.4 to 1 on the wet brown and 9.4 to 1 on the dry. ---------- */
+.silence { background: var(--paint); padding: max(56vh, 320px) var(--edge) 112px; }
+
+/* ---------- the way on (as Come In's, Come Through's, Come Sit's and Come Look's) ---------- */
+.room-foot {
+  display: flex; justify-content: space-between; gap: var(--gap-6);
+  padding: 56px var(--edge) 80px;
+  border-top: 1px solid var(--ink);
+  font-weight: 600; font-size: 22px;
+}
+.room-foot a { text-decoration: none; color: var(--ink); display: inline-flex; gap: 10px; align-items: baseline; }
+.room-foot .arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) {
+  .room-foot .back:hover .arr { transform: translateX(-4px); }
+  .room-foot .next:hover .arr { transform: translateX(4px); }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 999px) {
+  :root { --stand-air: 96px; }
+  .title-screen { padding-top: 56px; }
+  .room-sentence { margin: 44px auto 64px; }
+  .stand-page figure img { max-height: none; width: 100%; }
+  .mark { margin: 80px auto; }
+  .writing-in .mark { margin: 72px auto; }
+}
+@media (max-width: 600px) {
+  .title-block { padding-top: 40px; }
+  .title-lines { font-size: 21vw; }
+  .door-note p { font-size: 24px; }
+  .writing-in { font-size: 18px; line-height: 1.75; text-align: left; }
+  .silence { padding-top: max(48vh, 280px); padding-bottom: 88px; }
+  .room-foot { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .arrive { animation: none; }
+  .room-foot .arr { transition: none; }
+}

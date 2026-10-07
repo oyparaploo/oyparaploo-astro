@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Come Down, the sixth room behind The Book.
+   Dressed in the design draft HTML DOCS\CLEAN-the-puppets_2.html, the Puppets room
+   landing, made for exactly these ten: the dark ground that deepens from black to
+   night blue, the glow in the walls, the prose on the underground theatre, the
+   ten-name selector (a numbered list of names on the left runs a panel on the
+   right; the two stack on a phone), the row of three acts, and the block of
+   figures beside its own people.
+   The rainbow ground (BRANDING_1.html, the parts book's block 73, first candidate
+   Come Down) is the light in the walls: soft blooms of colour at the edges of the
+   dark, foxfire green at rest, each puppet's own colour while it is read.
+   Left out of the draft: its own header, menu and footer, its font-size and
+   contrast buttons, its capitals spaced wide, its grey words, its tabs (they hid
+   most of each puppet's words), its scrolling inner boxes, the theatre cycle and
+   the Last Fall block (other writings), and its underlined links.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; every word on
+   the dark in Ink's dark value; words on the gold band in Ink's light value. The
+   room is dark in every mode.
+   ========================================================================== */
+
+:root {
+  --down-air: 152px;
+  --on-dark: #e8e0d6;          /* Ink's dark value */
+  --hair: rgba(232, 224, 214, 0.26);
+  --gold: #ED9F27;             /* the gold light through the soil, from all three pictures */
+  --fox: #5FD39A;              /* foxfire: the green the honey fungus gives in the dark */
+}
+
+/* ---------- the room: dark in every mode, the draft's ground deepening from black to night blue ---------- */
+.down {
+  position: relative; overflow: clip;
+  background: linear-gradient(to bottom,
+    #000000 0%, #000000 5%, #020203 12%, #040507 20%,
+    #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%,
+    #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  color: var(--on-dark);
+  --ink: var(--on-dark); --ground: #000000; --rule: var(--hair);
+}
+.down a { color: inherit; }
+.down :focus-visible { outline-color: var(--on-dark); }
+.down > section { position: relative; z-index: 1; }
+
+/* ---------- PLAY: the walls give light. Three soft blooms at the edges of the window (the rainbow ground,
+   turned to the dark), held still while the room moves past. "It brightens when the puppets are joyful. It goes
+   dim when the weight arrives." room-six.js sets their colour and brightness from the part being read; without
+   it, and for visitors who ask for less motion, they rest in a quiet foxfire. Kept low enough that every word
+   over them holds 7 to 1 or better. ---------- */
+.walls {
+  position: sticky; top: 0; z-index: 0;
+  height: 100vh; margin-bottom: -100vh;
+  overflow: hidden; pointer-events: none;
+  opacity: 0.15;
+  transition: opacity 1.4s var(--ease);
+}
+.bloom {
+  position: absolute; display: block;
+  background-color: var(--fox);
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+  transition: background-color 1.4s var(--ease);
+}
+.bloom-a { left: -32vw; top: 4vh; width: 62vw; height: 92vh; }
+.bloom-b { right: -32vw; top: 14vh; width: 62vw; height: 92vh; }
+.bloom-c { left: 14vw; bottom: -38vh; width: 72vw; height: 62vh; }
+.walls.quick, .walls.quick .bloom { transition-duration: 0.45s; }
+
+/* the pictures: whole, at their own shape, the catalogue number under each */
+.down figure { margin: 0; }
+.down figure > a { display: block; line-height: 0; }
+.down figure img { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 140px); }
+.down figcaption { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.down figcaption a { text-decoration: none; }
+@media (hover: hover) {
+  .down figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* ---------- the opening: the label, the title stepping down, the sentence, and the walls' own light ---------- */
+.down-hero { padding: 88px var(--edge) var(--down-air); }
+.down .label { color: var(--on-dark); margin: 0 0 28px; }
+.down-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(84px, 13vw, 224px); line-height: 0.92; letter-spacing: -0.025em;
+  margin: 0;
+}
+.down-title span { display: block; }
+/* PLAY: the second word comes down a step, to the far side, as the visitor does. */
+.t-down { text-align: right; animation: come-down 0.9s var(--ease) both; animation-delay: 0.2s; }
+@keyframes come-down { from { opacity: 0; transform: translateY(-0.32em); } to { opacity: 1; transform: none; } }
+.down-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.5vw, 40px); line-height: 1.2;
+  max-width: 22em; margin: 56px 0 88px;
+}
+.walls-pic { display: flex; flex-direction: column; align-items: flex-start; }
+.walls-pic img { max-width: min(100%, 1400px); }
+
+/* ---------- the chamber: the prose on the underground theatre ---------- */
+.chamber { padding: 0 var(--edge) var(--down-air); }
+.chamber p {
+  max-width: 34em; margin: 0 0 1.2em max(0px, calc(8.33vw - var(--edge)));
+  font-size: 21px; line-height: 1.75;
+}
+.chamber p:last-child { margin-bottom: 0; }
+.chamber .lead {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.6vw, 40px); line-height: 1.25; max-width: 21em; margin-bottom: 1.4em;
+}
+
+/* the writing's own headings: its sentences that open the ten, the two and the acts */
+.down-head {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.1; letter-spacing: -0.01em;
+  margin: 0 0 48px;
+}
+
+/* ---------- PLAY: the ten. A numbered list of names on the left runs one panel on the right: the puppet chosen
+   stands there whole, its name large, and the walls take its colour. The rows stand still; nothing below moves.
+   On a phone the panel opens under the name tapped. Without room-six.js all ten stand one under another. ---------- */
+.ten { padding: 0 var(--edge) var(--down-air); }
+.cast { border-bottom: 1px solid var(--hair); }
+.cast-row {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 8px; align-items: baseline;
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--hair);
+  text-decoration: none; color: var(--on-dark);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.cast-num { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; }
+.cast-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.15; }
+.cast-what { grid-column: 2; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.4; }
+.cast-row { scroll-margin-top: 16px; }
+.cast-panel { padding: 28px 0 56px; }
+.cast-panel p { font-size: 22px; line-height: 1.65; max-width: 31em; margin: 0; }
+.cast-panel strong:first-child {
+  display: block; margin: 0 0 20px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(48px, 5vw, 80px); line-height: 1; letter-spacing: -0.015em;
+}
+.cast-next {
+  display: inline-flex; align-items: baseline; gap: 10px; min-height: 44px; margin-top: 32px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; text-decoration: none;
+}
+.cast-next .arr, .room-foot .arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) { .cast-next:hover .arr { transform: translateX(4px); } }
+
+/* the one chosen: a bar of its own colour at the left, its row lit a little */
+html.cast-on .puppet.is-on .cast-row { box-shadow: inset 6px 0 0 var(--pc); background-color: rgba(232, 224, 214, 0.07); }
+.cast-row:active { background-color: var(--on-dark); color: #000000; }
+@media (hover: hover) {
+  .cast-row:hover, .cast-row:focus-visible { background-color: var(--on-dark); color: #000000; }
+  html.cast-on .puppet.is-on .cast-row:hover { background-color: var(--on-dark); }
+}
+.cast-row:focus-visible { outline-offset: -4px; outline-color: #000000; }
+
+@media (min-width: 1000px) {
+  html.cast-on .cast {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap);
+    align-items: start; border-bottom: 0;
+  }
+  html.cast-on .puppet { display: contents; }
+  html.cast-on .cast-row { grid-column: 1; }
+  html.cast-on .puppet:last-child .cast-row { border-bottom: 1px solid var(--hair); }
+  html.cast-on .cast-panel {
+    grid-column: 2; grid-row: 1 / span 10; align-self: start;
+    position: sticky; top: 112px;
+    padding: 4px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+  }
+  html.cast-on .puppet.is-on .cast-panel { opacity: 1; visibility: visible; transition: opacity 0.35s ease 0.05s, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .cast-row { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  html.cast-on .cast-panel { display: none; }
+  html.cast-on .puppet.is-on .cast-panel { display: block; }
+}
+
+/* ---------- the two outside the ten, beside the one picture of a person in the room ---------- */
+.two { padding: 0 var(--edge) var(--down-air); }
+.two-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--column-gap); align-items: start; }
+.two-words p { font-size: 22px; line-height: 1.65; margin: 0 0 48px; max-width: 26em; }
+.two-words p:last-child { margin-bottom: 0; }
+.two-words strong:first-child {
+  display: block; margin: 0 0 14px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 36px; line-height: 1.1;
+}
+
+/* ---------- the three acts, one row ---------- */
+.acts { padding: 0 var(--edge) var(--down-air); }
+.acts-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.act { border-top: 1px solid var(--hair); padding: 28px 0 0; margin: 0; font-size: 22px; line-height: 1.6; }
+.act-n {
+  display: block; margin: 0 0 14px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.15;
+}
+
+/* ---------- afterwards: the gold band, the light through the soil, edge to edge ---------- */
+.seeds {
+  --ink: #111111; --ground: var(--gold); --rule: #111111;
+  background: var(--gold); color: #111111;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: center;
+  padding: 120px var(--edge);
+}
+.seeds :focus-visible { outline-color: #111111; }
+.seeds-line {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.8vw, 60px); line-height: 1.1; letter-spacing: -0.01em; margin: 0; max-width: 11em;
+}
+.seeds-pic { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* ---------- the last line, alone in the dark ---------- */
+.last { padding: max(34vh, 220px) var(--edge) max(38vh, 240px); text-align: center; }
+.last-line {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(32px, 4vw, 64px); line-height: 1.15; margin: 0 auto; max-width: 16em;
+}
+
+/* ---------- the way on (as the rooms before it) ---------- */
+.room-foot {
+  display: flex; justify-content: space-between; gap: var(--gap-6);
+  padding: 56px var(--edge) 80px;
+  border-top: 1px solid var(--ink);
+  font-weight: 600; font-size: 22px;
+}
+.room-foot a { text-decoration: none; color: var(--ink); display: inline-flex; gap: 10px; align-items: baseline; }
+@media (hover: hover) { .room-foot .back:hover .arr { transform: translateX(-4px); } }
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 999px) {
+  :root { --down-air: 104px; }
+  .down-hero { padding-top: 64px; }
+  .down-sentence { margin: 40px 0 64px; }
+  .down figure img { max-height: none; width: 100%; }
+  .two-grid, .seeds { grid-template-columns: minmax(0, 1fr); }
+  .two-words { margin-top: 48px; }
+  .acts-row { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .seeds { padding: 88px var(--edge); row-gap: 48px; }
+  .bloom-a { left: -46vw; width: 70vw; }
+  .bloom-b { right: -46vw; width: 70vw; }
+}
+@media (max-width: 600px) {
+  .down .label { margin-bottom: 20px; }
+  .down-title { font-size: 25vw; }
+  .chamber p { font-size: 19px; }
+  .cast-panel p, .two-words p, .act { font-size: 19px; line-height: 1.7; }
+  .cast-name { font-size: 26px; }
+  .cast-row { grid-template-columns: 36px minmax(0, 1fr); }
+  .two-words strong:first-child { font-size: 30px; }
+  .act-n { font-size: 26px; }
+  .room-foot { font-size: 20px; }
+  .bloom-a { left: -54vw; }
+  .bloom-b { right: -54vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .arrive, .t-down { animation: none; }
+  .walls, .bloom, .cast-row, .cast-panel, .arr { transition: none; }
+}
