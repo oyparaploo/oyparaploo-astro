@@ -1,0 +1,235 @@
+/* ==========================================================================
+   The walks page, a design room (the first of the second set).
+   Dressed in the design draft HTML DOCS\CLEAN-portraits-landing-v4.html, The
+   Portraits landing: "Image-dominant. Zone-based. Scale shifts. Restrained text."
+   Its bones, kept: a tall first window that is mostly atmosphere, its words at
+   its foot; one work shown large under its own label, its name, line and button
+   on the left and its opening words on the right; the strip of choices between
+   hairlines; a header over a grid where every piece is its picture first, then
+   its name and one line; one passage set alone in the middle. The draft's own
+   two grounds are the site's two modes: warm paper in Light, night blue in Dark.
+   Left out of the draft: its own header, menu and footer, its font-size and
+   contrast buttons, its capitals spaced wide, its grey words, its closing
+   figure (the page counts nothing), and its cards that fade when pointed at.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; labels
+   ordinary words at 18 pixels in full ink; words on a band dark at 7 to 1 or
+   better in Light; touch gets its own version; less motion gets none.
+   ========================================================================== */
+
+:root {
+  --w-paper: #FAF6F0;                         /* the draft's warm paper */
+  --w-hair: rgba(17, 17, 17, 0.2);
+  --w-air: 128px;
+  /* the veil: the sky lighter toward the paper, most where the words stand, so they hold 7 to 1 or better */
+  --w-veil: linear-gradient(to bottom, rgba(250, 246, 240, 0.26) 0%, rgba(250, 246, 240, 0.62) 38%, rgba(250, 246, 240, 0.74) 100%);
+  --w-sky-base: #D9CDB4;
+}
+html[data-theme="dark"] {
+  --w-paper: transparent;                     /* the night blue the shared look gives the page in Dark */
+  --w-hair: rgba(232, 224, 214, 0.26);
+  --w-veil: linear-gradient(to bottom, rgba(13, 9, 7, 0.46) 0%, rgba(13, 9, 7, 0.7) 38%, rgba(13, 9, 7, 0.78) 100%);   /* a night sky */
+  --w-sky-base: #2A2116;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --w-paper: transparent;
+    --w-hair: rgba(232, 224, 214, 0.26);
+    --w-veil: linear-gradient(to bottom, rgba(13, 9, 7, 0.46) 0%, rgba(13, 9, 7, 0.7) 38%, rgba(13, 9, 7, 0.78) 100%);
+    --w-sky-base: #2A2116;
+  }
+}
+
+.walks-room { background: var(--w-paper); color: var(--ink); overflow-x: clip; }
+.walks-room a { color: inherit; }
+.walks-room .w-label { margin: 0 0 24px; }
+
+/* ---------- 1. The first window: mostly atmosphere, the words at its foot ----------
+   PLAY: the sky is made from the twelve walks' own pictures, blurred until only their light and colour remain
+   (the site's sky band), and it drifts slowly from one walk's colours to the next, in Reach's order, Running
+   Jokes first. walks-room.js turns it; without the script, and for visitors who ask for less motion, it rests on
+   Running Jokes. Its foot dissolves into the page's own ground, with no line. */
+.w-hero {
+  position: relative; overflow: hidden;
+  min-height: max(440px, 68vh);
+  display: flex; align-items: flex-end;
+  padding: 0 var(--edge) 72px;
+}
+.w-sky {
+  position: absolute; inset: 0; z-index: 0; background: var(--w-sky-base);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);   /* the foot dissolves */
+  mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+}
+.w-sky-pic {
+  position: absolute; inset: -18%;
+  background-size: cover; background-position: 50% 45%; background-repeat: no-repeat;
+  filter: blur(64px) saturate(1.15);
+  opacity: 0; transition: opacity 3.2s var(--ease);
+  transform: translateZ(0);
+}
+.w-sky-pic.is-on { opacity: 1; }
+.w-sky::before {                                /* the veil: lighter in Light, a night sky in Dark */
+  content: ""; position: absolute; inset: 0; z-index: 1; background: var(--w-veil);
+}
+.w-hero-in { position: relative; z-index: 2; max-width: 980px; }
+.w-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 9vw, 152px); line-height: 0.95; letter-spacing: -0.025em;
+  margin: 0;
+}
+.w-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2.3vw, 36px); line-height: 1.22;
+  max-width: 24em; margin: 28px 0 0;
+}
+
+/* ---------- 2. Start here: one walk, large ---------- */
+.w-start { padding: 64px 0 0; }
+.w-start .w-label { padding: 0 var(--edge); }
+.w-band {                                       /* edge to edge, in Running Jokes' own tone */
+  display: flex; justify-content: center; align-items: center;
+  background: var(--band);
+  padding: clamp(28px, 4.5vw, 72px) var(--edge);
+  line-height: 0;
+}
+html[data-theme="dark"] .w-band { background: var(--band-d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .w-band { background: var(--band-d); } }
+.w-band-pic { width: auto; height: auto; max-width: 100%; max-height: min(72vh, 760px); }
+.w-start-body {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px;
+  padding: 40px var(--edge) 0;
+}
+.w-start-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.4vw, 54px); line-height: 1.05; letter-spacing: -0.015em;
+  margin: 0;
+}
+.w-start-name a { text-decoration: none; }
+.w-start-line { font-size: 21px; line-height: 1.45; max-width: 26em; margin: 16px 0 0; }
+.w-start-time { font-size: 18px; font-weight: 600; line-height: 1.3; margin: 14px 0 0; }
+.w-begin { margin-top: 28px; }
+.walks-room .w-begin { color: var(--ground); }               /* the shared look's solid button, Ink on the ground */
+@media (hover: hover) { .walks-room .w-begin:hover { color: var(--ink); } .w-begin:hover .arr { transform: translateX(4px); } }
+.walks-room .w-begin:active { color: var(--ink); }
+.w-begin .arr { display: inline-block; transition: transform 0.2s ease; }
+.w-start-para { font-size: 21px; line-height: 1.7; max-width: 34em; margin: 0; }
+.w-start-num { margin: 18px 0 0; font-size: 16px; line-height: 1.4; }
+.w-start-num a { text-decoration: none; }
+
+/* ---------- 3. How long do you have? The strip of choices between hairlines ----------
+   PLAY: the true reversal. A choice pointed at turns solid; the one chosen stays solid until it is chosen again,
+   and the walks that do not fit step back. */
+.w-choose { padding: var(--w-air) 0 0; }
+.w-choose .w-label { padding: 0 var(--edge); }
+.w-strip {
+  display: flex; border-top: 1px solid var(--w-hair); border-bottom: 1px solid var(--w-hair);
+  padding: 0 var(--edge);
+}
+.w-tab {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: var(--ink); background: transparent; cursor: pointer;
+  border: 0; border-right: 1px solid var(--w-hair);
+  padding: 20px 28px; min-height: 64px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.w-tab:first-child { border-left: 1px solid var(--w-hair); }
+.w-tab[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .w-tab:hover { background: var(--ink); color: var(--ground); }
+}
+.w-tab:focus-visible { outline: 2px solid var(--ink); outline-offset: -6px; }
+
+/* ---------- 4. Every walk: the header over the grid ---------- */
+.w-every { padding: 0 var(--edge); }
+.w-every-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 72px 0 24px; border-bottom: 1px solid var(--w-hair);
+}
+.w-every-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 40px); line-height: 1.1; margin: 0;
+}
+.w-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 64px var(--column-gap); padding: 40px 0 0;
+}
+.w-card { display: block; text-decoration: none; transition: opacity 0.45s var(--ease); }
+.w-mat {                                        /* each picture whole, on its own quiet tone */
+  position: relative; display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 4 / 3; padding: 9% 9% 12%;   /* room at the foot for the catalogue number */
+  background: var(--mat);
+  transition: background-color 0.3s ease;
+}
+html[data-theme="dark"] .w-mat { background: var(--mat-d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .w-mat { background: var(--mat-d); } }
+.w-mat img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.w-num {
+  position: absolute; right: 12px; bottom: 8px;
+  font-size: 16px; line-height: 1.4; color: var(--ink);
+  transition: color 0.3s ease;
+}
+.w-name {
+  display: block; margin-top: 22px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2vw, 30px); line-height: 1.12; letter-spacing: -0.005em;
+}
+.w-name .arr {
+  display: inline-block; margin-left: 0.3em;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.w-line { display: block; margin-top: 10px; font-size: 18px; line-height: 1.45; max-width: 30em; }
+.w-time { display: block; margin-top: 12px; font-size: 18px; font-weight: 600; line-height: 1.3; }
+/* A walk pointed at: its mat turns solid and the arrow slides in. Nothing grows and nothing below moves. */
+@media (hover: hover) {
+  .w-card:hover .w-mat { background: var(--ink); }
+  .w-card:hover .w-num { color: var(--ground); }
+  .w-card:hover .w-name .arr { opacity: 1; transform: none; }
+}
+.w-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+.w-card:focus-visible .w-mat { background: var(--ink); }
+.w-card:focus-visible .w-num { color: var(--ground); }
+.w-card:focus-visible .w-name .arr { opacity: 1; transform: none; }
+
+/* ---------- 5. The breathing section: the Come Sit passage, alone ---------- */
+.w-breathe { padding: 160px var(--edge) 168px; text-align: center; }
+.w-passage { margin: 0; }
+.w-passage p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.8vw, 44px); line-height: 1.2;
+  max-width: 19em; margin: 0 auto;
+}
+.w-from { margin: 36px 0 0; }
+.walks-room .w-from .go-link { color: var(--ink); font-size: 20px; }
+
+/* ---------- arriving: the grid and the strip rise once as they come into view ---------- */
+.w-rise { opacity: 0; transform: translateY(16px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.w-rise.is-in { opacity: 1; transform: none; }
+.walks-room .w-card.is-faded { opacity: 0.24; }   /* a walk that does not fit steps back */
+
+/* ---------- widths ---------- */
+@media (max-width: 1023px) {
+  .w-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px var(--column-gap); }
+  .w-start-body { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 600px) {
+  :root { --w-air: 96px; }
+  .w-hero { min-height: max(400px, 60vh); padding-bottom: 48px; }
+  .w-sentence { margin-top: 20px; }
+  .w-start-body { padding-top: 28px; }
+  .w-start-line, .w-start-para { font-size: 19px; }
+  .w-strip { flex-direction: column; padding: 0; }
+  .w-tab { text-align: left; border-right: 0; border-left: 0; padding: 18px var(--edge); }
+  .w-tab:first-child { border-left: 0; }
+  .w-tab + .w-tab { border-top: 1px solid var(--w-hair); }
+  .w-grid { grid-template-columns: 1fr; gap: 56px; padding-top: 32px; }
+  .w-every-head { padding-top: 64px; }
+  .w-breathe { padding: 112px var(--edge) 120px; }
+}
+
+/* ---------- less motion: none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .w-sky-pic { transition: none; }
+  .w-rise { opacity: 1; transform: none; transition: none; }
+  .w-card, .w-mat, .w-num, .w-name .arr, .w-tab, .w-begin .arr { transition: none; }
+}
