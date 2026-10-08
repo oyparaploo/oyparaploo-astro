@@ -1,0 +1,291 @@
+/* ==========================================================================
+   The About room, a design room (the third set). Thirteen pages: /about.html
+   and the twelve chapters behind its doors, /about/<chapter>.html.
+   Dressed in the design draft HTML DOCS\making-v2_2.html, the Making landing,
+   "The Practice Becoming Physical". Its bones, kept: the hero, a short label
+   over one plain heading and a few paragraphs, set to the left with air beside
+   it; the rooms, each its picture first, then a small label, its name and one
+   line; a ruled section of prose in one column; the closer, one passage set
+   alone in the middle over a short rule. The draft's two grounds are the
+   site's two modes: its light paper in Light, its black running to night blue
+   in Dark.
+   Left out of the draft: its own header, menu and footer, its font-size and
+   contrast buttons, its purple words and capitals spaced wide, its strip of
+   stand-in pictures, its colour swatches, and its band of numbers (the page
+   counts nothing).
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; labels
+   ordinary words at 18 pixels in full ink; words on a band dark at 7 to 1 or
+   better (measured: Ink on the three Light bands 13.6 to 1 or better, Ink's
+   dark value on the three Dark bands 10.8 to 1 or better); touch gets its own
+   version; less motion gets none.
+   ========================================================================== */
+
+:root {
+  --ab-paper: linear-gradient(to bottom, #ffffff 0px, #ffffff 300px, #fdfcfb 700px, #f9f7f4 100%);
+  --ab-hair: rgba(17, 17, 17, 0.18);
+  --ab-hair-strong: rgba(17, 17, 17, 0.55);
+  --ab-air: 128px;
+  --ab-read: 700px;
+  --ab-quote-ground: rgba(17, 17, 17, 0.035);
+}
+html[data-theme="dark"] {
+  --ab-paper: linear-gradient(to bottom, #000000 0%, #030204 12%, #08060e 30%, #0c0a15 50%, #100e1a 70%, #141220 100%);
+  --ab-hair: rgba(232, 224, 214, 0.2);
+  --ab-hair-strong: rgba(232, 224, 214, 0.5);
+  --ab-quote-ground: rgba(232, 224, 214, 0.045);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --ab-paper: linear-gradient(to bottom, #000000 0%, #030204 12%, #08060e 30%, #0c0a15 50%, #100e1a 70%, #141220 100%);
+    --ab-hair: rgba(232, 224, 214, 0.2);
+    --ab-hair-strong: rgba(232, 224, 214, 0.5);
+    --ab-quote-ground: rgba(232, 224, 214, 0.045);
+  }
+}
+
+.about-room { background: var(--ab-paper); color: var(--ink); overflow-x: clip; }
+.about-room a { color: inherit; }
+.about-room p { margin: 0 0 1.05em; }
+.about-room p:last-child { margin-bottom: 0; }
+
+/* ---------- the reading: Inter at 20 pixels, a column of about 700 ---------- */
+.ab-col, .ab-read { font-size: 20px; line-height: 1.7; max-width: var(--ab-read); }
+
+/* ---------- a lifted passage: the work's own words, told apart at a glance ----------
+   A bar in the chapter's own colour, a faint ground, Inter at a larger size; the page's own voice has none of
+   the three. Its door, a quiet line under it: "— from" and the writing's name, bare, the arrow sliding when
+   pointed at. */
+.ab-passage { margin: 36px 0 32px; }
+.ab-passage blockquote {
+  margin: 0; padding: 18px 24px 18px 28px;
+  border-left: 4px solid var(--tone);
+  background: var(--ab-quote-ground);
+  border-radius: 0 5px 5px 0;
+}
+.ab-passage blockquote p { font-size: 22px; line-height: 1.6; font-weight: 500; margin: 0; }
+.ab-from { margin: 12px 0 0 32px; font-size: 18px; line-height: 1.4; color: var(--ink-soft); }
+.ab-from a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.ab-from a .arr, .ab-door .arr, .ab-card-name .arr, .ab-back .arr, .ab-next .arr { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .ab-from a:hover .arr, .ab-door:hover .arr, .ab-next:hover .arr { transform: translateX(4px); }
+  .ab-back:hover .arr { transform: translateX(-4px); }
+}
+.ab-from a:focus-visible .arr, .ab-door:focus-visible .arr { transform: translateX(4px); }
+
+/* ---------- a door: bare, its arrow sliding; Start here, the one loud door ---------- */
+.ab-door { font-weight: 600; text-decoration: none; white-space: normal; }
+.ab-doorline { margin-top: 0.9em; }
+.ab-loud {
+  font-weight: 700;
+  text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px;
+  text-decoration-color: var(--tone);
+}
+@media (hover: hover) { .ab-loud:hover { text-decoration-color: transparent; } }
+
+/* ---------- 1. The hero: the label, the opening line, and the Placing beside it ---------- */
+.ab-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-areas: "words fig" "intro fig";
+  grid-template-rows: auto 1fr;
+  column-gap: 64px;
+  padding: 88px var(--edge) 104px;
+  border-bottom: 1px solid var(--ab-hair);
+}
+.ab-hero-words { grid-area: words; max-width: 760px; }
+.ab-eyebrow { margin: 0 0 24px; }
+.ab-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 48px); line-height: 1.06; letter-spacing: -0.015em;
+  margin: 0 0 40px; max-width: 15em;
+}
+.ab-hero-intro { grid-area: intro; max-width: var(--ab-read); font-size: 21px; line-height: 1.65; }
+.ab-hero-fig { grid-area: fig; align-self: start; margin: 8px 0 0; }
+
+/* a picture: whole, never cropped, its own shape; its words under it, the number leading to its picture page */
+.ab-fig { margin: 0; }
+.ab-fig-pic { display: block; line-height: 0; }
+.ab-fig img { display: block; width: 100%; height: auto; }
+.ab-hero-fig img { max-height: 78vh; width: auto; max-width: 100%; margin-left: auto; }
+.ab-hero-fig .ab-cap { text-align: right; }
+.ab-cap { margin: 12px 0 0; font-size: 16px; line-height: 1.45; color: var(--ink); }
+.ab-cap-title { display: block; margin-bottom: 2px; }
+.ab-num { text-decoration: none; font-weight: 600; }
+@media (hover: hover) { .ab-num:hover { text-decoration: underline; text-underline-offset: 3px; } }
+
+/* ---------- 2. The prose sections: one column, set in from the left as the draft sets its prose ---------- */
+.ab-sec { padding: var(--ab-air) var(--edge); border-bottom: 1px solid var(--ab-hair); }
+.ab-what .ab-col, .ab-why .ab-col {
+  margin-left: calc((100% - 64px) * 5 / 12 + 64px);   /* the reading starts where the tips' words start */
+}
+.ab-what { padding-top: 96px; }
+
+/* ---------- 3. How to find your way: a heading, then the tips as ruled rows ----------
+   Each tip's first words stand as its name on the left (the tip's own words, not new ones); the rest of it
+   reads on the right. The Marks drawing and the mirrored picture stand under the tips that speak of them. */
+.ab-find { padding-bottom: 0; }
+.ab-find { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px; }
+.ab-find-head { grid-column: 1; }
+.ab-find-intro { grid-column: 2; }
+.ab-tips { grid-column: 1 / -1; }
+.ab-h2 {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(32px, 3vw, 44px); line-height: 1.08; letter-spacing: -0.012em; margin: 0;
+}
+.ab-find-intro { margin-bottom: 96px; }
+.ab-tips { border-top: 1px solid var(--ab-hair-strong); }
+.ab-tip {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px;
+  padding: 56px 0 64px; border-bottom: 1px solid var(--ab-hair);
+}
+.ab-tip:last-child { border-bottom: 0; }
+.ab-tip-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 32px); line-height: 1.15; letter-spacing: -0.01em;
+  margin: 0; max-width: 14em;
+}
+.ab-tip-fig { margin-top: 32px; max-width: 520px; }
+.ab-tip-fig img { max-height: 64vh; width: auto; max-width: 100%; }
+.ab-tip-body { font-size: 20px; line-height: 1.7; max-width: var(--ab-read); }
+
+/* ---------- 4. The closer: one passage, set alone and large, on the cord's own colour, edge to edge ----------
+   The one huge thing on the page, on its colour band. Words dark at 7 to 1 or better in Light. */
+.ab-close { background: var(--band); padding: var(--ab-air) var(--edge); text-align: center; }
+html[data-theme="dark"] .ab-close { background: var(--band-d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ab-close { background: var(--band-d); } }
+.ab-close-in { max-width: 1100px; margin: 0 auto; font-size: 21px; line-height: 1.6; }
+.ab-close-in > p:first-child { max-width: 32em; margin: 0 auto; }
+.ab-close .ab-passage { margin: 64px 0 40px; }
+.ab-close .ab-passage blockquote { border: 0; background: none; padding: 0; }
+.ab-close .ab-passage blockquote p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 6.2vw, 96px); line-height: 0.98; letter-spacing: -0.025em;
+}
+.ab-close .ab-from { margin: 28px 0 0; color: var(--ink); }   /* on the band, every word in full ink: 7 to 1 or better */
+.ab-close .ab-doorline { margin-top: 24px; }
+.ab-close .ab-passage::after {
+  content: ""; display: block; width: 64px; height: 2px; background: var(--ink); opacity: 0.5; margin: 40px auto 0;
+}
+
+/* ---------- 5. The chapters: twelve doors, the draft's rooms grid ----------
+   PLAY: the true reversal. A door pointed at turns solid, ink with paper words, and its arrow slides in.
+   Nothing grows and nothing below moves. */
+.ab-chapters-label { margin: 0 0 32px; }
+.ab-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
+.ab-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 22px 20px 30px; margin: 0 -20px;
+  border-top: 1px solid var(--ab-hair-strong);
+  text-decoration: none; color: var(--ink);
+  border-radius: 0 0 5px 5px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  position: relative;
+}
+.ab-card::before {                    /* the chapter's own colour, a short rule at its top */
+  content: ""; position: absolute; left: 20px; top: -1px; width: 48px; height: 4px; background: var(--tone);
+}
+.ab-card-time { font-size: 16px; line-height: 1.3; font-weight: 600; }
+.ab-card-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2vw, 30px); line-height: 1.12; letter-spacing: -0.01em;
+}
+.ab-card-name .arr { margin-left: 10px; opacity: 0; transform: translateX(-6px); transition: transform 0.2s ease, opacity 0.2s ease; }
+.ab-card-line { font-size: 18px; line-height: 1.5; color: var(--ink-soft); }
+@media (hover: hover) {
+  .ab-card:hover { background: var(--ink); color: var(--ground); }
+  .ab-card:hover .ab-card-line { color: var(--ground); }
+  .ab-card:hover .arr { opacity: 1; transform: none; }
+}
+.ab-card:focus-visible { background: var(--ink); color: var(--ground); outline: none; }
+.ab-card:focus-visible .ab-card-line { color: var(--ground); }
+.ab-card:focus-visible .arr { opacity: 1; transform: none; }
+.ab-card:active { background: var(--ink); color: var(--ground); }
+.ab-card:active .ab-card-line { color: var(--ground); }
+
+/* ---------- A chapter: its hero on the chapter's own colour band, edge to edge, then one column ---------- */
+.ab-ch-hero {
+  background: var(--band);
+  display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 64px; align-items: end;
+  padding: 120px var(--edge) 72px;
+}
+html[data-theme="dark"] .ab-ch-hero { background: var(--band-d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .ab-ch-hero { background: var(--band-d); } }
+.ab-ch-hero.has-fig { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); padding-top: 72px; }
+.ab-kicker { font-size: 18px; font-weight: 600; line-height: 1.3; margin: 0 0 20px; }
+.ab-kicker a { text-decoration: none; }
+@media (hover: hover) { .ab-kicker a:hover { text-decoration: underline; text-underline-offset: 3px; } }
+.ab-ch-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.6vw, 88px); line-height: 0.98; letter-spacing: -0.022em;
+  margin: 0; max-width: 12em;
+}
+.ab-ch-fig img { max-height: 62vh; width: auto; max-width: 100%; margin-left: auto; }
+.ab-ch-fig .ab-cap { text-align: right; }
+.ab-read { margin: 0 auto; padding: 96px var(--edge) 0; box-sizing: content-box; }
+.ab-read > p:first-child, .ab-read > .ab-passage:first-child { margin-top: 0; }
+
+.ab-foot {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 32px;
+  max-width: var(--ab-read); margin: 0 auto; padding: 64px var(--edge) var(--ab-air); box-sizing: content-box;
+}
+.ab-foot::before { content: none; }
+.ab-back, .ab-next { text-decoration: none; font-weight: 600; font-size: 18px; line-height: 1.3; min-height: 44px; }
+.ab-back { padding-top: 28px; border-top: 1px solid var(--ab-hair-strong); }
+.ab-next { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 8px; padding-top: 28px; border-top: 1px solid var(--ab-hair-strong); }
+.ab-next-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 2vw, 28px); line-height: 1.15; max-width: 14em;
+}
+
+/* ---------- arriving: the tips and the doors rise once as they come into view (about-room.js) ---------- */
+.js .ab-tip, .js .ab-card { opacity: 0; transform: translateY(14px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), background-color 0.25s ease, color 0.25s ease; }
+.js .ab-tip.is-in, .js .ab-card.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .ab-tip, .js .ab-card { opacity: 1; transform: none; transition: none; }
+  .ab-card, .arr { transition: none !important; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1100px) {
+  .ab-what .ab-col, .ab-why .ab-col { margin-left: calc((100% - 48px) * 4 / 10 + 48px); }
+  .ab-find { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); column-gap: 48px; }
+  .ab-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ab-tip { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); column-gap: 48px; }
+}
+
+/* ---------- Phone: one column; the Placing under the opening line ---------- */
+@media (max-width: 760px) {
+  :root { --ab-air: 88px; }
+  .ab-hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "words" "fig" "intro"; grid-template-rows: auto;
+    padding: 56px var(--edge) 72px;
+  }
+  .ab-title { margin-bottom: 32px; }
+  .ab-hero-fig { margin: 0 0 40px; }
+  .ab-hero-fig img, .ab-tip-fig img, .ab-ch-fig img { max-height: none; width: 100%; }
+  .ab-hero-intro { font-size: 20px; }
+  .ab-col, .ab-read, .ab-tip-body { font-size: 19px; }
+  .ab-passage blockquote { padding: 14px 16px 14px 20px; }
+  .ab-passage blockquote p { font-size: 20px; }
+  .ab-from { margin-left: 24px; }
+  .ab-tip { grid-template-columns: minmax(0, 1fr); padding: 44px 0 52px; }
+  .ab-what .ab-col, .ab-why .ab-col { margin-left: 0; }
+  .ab-find { grid-template-columns: minmax(0, 1fr); }
+  .ab-find-head, .ab-find-intro { grid-column: 1; }
+  .ab-find-head { margin-bottom: 32px; }
+  .ab-tip-name { margin-bottom: 20px; }
+  .ab-tip-fig { margin: 8px 0 32px; }
+  .ab-cards { grid-template-columns: minmax(0, 1fr); }
+  .ab-card { margin: 0; padding: 22px 16px 28px; }
+  .ab-card::before { left: 16px; }
+  .ab-card-name .arr { opacity: 1; transform: none; }
+  .ab-ch-hero, .ab-ch-hero.has-fig { grid-template-columns: minmax(0, 1fr); padding: 64px var(--edge) 48px; }
+  .ab-ch-fig { margin-top: 40px; }
+  .ab-ch-fig .ab-cap { text-align: left; }
+  .ab-read { padding-top: 64px; }
+  .ab-foot { flex-direction: column; align-items: stretch; gap: 16px; padding-top: 48px; }
+  .ab-next { align-items: flex-start; text-align: left; }
+  .ab-close-in > p:first-child { text-align: left; }
+}

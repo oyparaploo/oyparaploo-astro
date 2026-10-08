@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collage · About · Paraploo</title>
+<meta name="description" content="A Collage picture begins before the camera is picked up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome, and the Writings pages' shared look (the first style block of /walks.html, word for word). -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<style id="pages-styles">
+/* Copied word for word from the live /walks.html, its first style block (the Writings pages' shared look). Not edited. */
+
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/about-room.css">
+<style>:root { --tones: linear-gradient(to right, #B5776E 0% 100%); }</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="room-page about-page about-chapter">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+<div class="about-room ab-chapter" style="--tone: #B5776E; --band: #EDD6D1; --band-d: #3A2422;">
+
+<section class="ab-ch-hero has-fig" aria-label="Collage">
+  <div class="ab-ch-words">
+    <p class="ab-kicker"><a href="/about.html">About</a> &middot; 3 minutes</p>
+    <h1 class="ab-ch-title">Collage</h1>
+  </div>
+  <figure class="ab-fig ab-ch-fig" style="--r:0.8405"><a class="ab-fig-pic" href="/digital/saw-shur-shee-symmet/0056.html" aria-label="07688"><img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/big%20eyes.webp" srcset="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/big%20eyes-600.webp 600w, https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/big%20eyes.webp 1681w" sizes="(max-width: 760px) calc(100vw - 48px), 36vw" width="1681" height="2000" alt="07688" fetchpriority="high" decoding="async"></a><figcaption class="ab-cap"><a class="ab-num" href="/digital/saw-shur-shee-symmet/0056.html">07688</a></figcaption></figure>
+</section>
+
+<article class="ab-read">
+<p>A Collage picture begins before the camera is picked up. The hands are busy with something else, and the eye is already framing it.</p>
+<figure class="ab-passage"><blockquote><p>While working on dimensional fragmented works ... while pruning a tree ... while priming a canvas ... arranging an assemblage ... we imagine how it all might look as a picture ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2026-variety/also-what-will-this-be-further-into-the-future-1/">Also ... what will this be further into the future <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>So the camera stays close at hand. It takes in things found and kept, scraps and debris, machine parts, flowers and animals. The flowers, the coneflowers among them, are mostly from our own yard and garden. Even the small changes on a workbench from one day to the next are photographed for their own sake, and they have a gallery to themselves, Workspace Incidences No People.</p>
+<p>Then the photographs go into the computer. Every Collage picture is made in Adobe Photoshop, from photographs we took ourselves. No AI program made any of them. The photograph is only where a picture sets out from. We said so once about painting, and it holds here:</p>
+<figure class="ab-passage"><blockquote><p>Paintings That Utilize A Photograph As The Beginning Point To Depart To Somewhere Else ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2023-25-phone-texts/141-gift-and-possibilities-of-play/">the Text Message Memoir <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>The pictures under Collage Work join pieces of several photographs into one. It is close to how remembering goes.</p>
+<figure class="ab-passage"><blockquote><p>Compositing fragments ... coming and going memories ... some thought or visual projection from the past ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2026-variety/border-wall-size-mirror-of-nonbiodegradable-stuff/">Border Wall Size Mirror of Nonbiodegradable Stuff <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>A mirrored picture goes another way. It usually starts from a single photograph. Part of it is copied and flipped, and the copy is laid against the original so the halves answer each other across a middle line, the way an inkblot does when the paper is folded. Then it is done again, and again, until the picture closes into a pattern. What happens next is the reason we keep at it. A scrap of rust or a coneflower turns into something with a face in it, or an eye, or a doorway. Nobody drew the face. The fold made it, and the person looking finishes it.</p>
+<figure class="ab-passage"><blockquote><p>Our compositions love mirrors, reflecting back pieces of blue-sky optimism, the giggling of wild animals, the quiet grin of truth-making processes.</p></blockquote><figcaption class="ab-from">— from <a href="/words/2025-variety/brrd-roots-convergence-of-transformations-and-more/">Convergence of Transformations and More <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>No mirrored picture arrives on the first try. The middle line moves a little, the fold is made again, and the picture comes out changed. Some galleries hold several versions of the same picture, kept as volumes. The trying is not a step on the way to the work. It is the work.</p>
+<figure class="ab-passage"><blockquote><p>Reflecting... Mirroring ... Shining Back are important for Ongoing Day-To-Day Learning ... Steadily Flowing Through A Bold New Experiment And Examining All Potential Slight Variations Of A Process ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2023-25-phone-texts/164-reflect-on-your-practice/">the Text Message Memoir <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>A photomosaic runs the other direction. Small photographs are set edge to edge, and from far enough back they add up to a single large picture. It is the best way we know to show how much of something there is.</p>
+<figure class="ab-passage"><blockquote><p>Very intricate and very large volume of stuff recorded ... to show just how big a problem ... accumulation of for example nonbiodegradable stuff ... Not just talking about it but also showing what that stuff looks like ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2026-variety/border-wall-size-mirror-of-nonbiodegradable-stuff/">Border Wall Size Mirror of Nonbiodegradable Stuff <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p>The rest is plainer. The photographs of places and things, and the photographs of people, are shown much as they were taken, with only the light and the color adjusted. The pieces made only of type are built in Photoshop too.</p>
+<p>On this site, the word Collage at the top of every page opens the section. Its headings run in this order: Collage Work, Symmetrical and Kaleidoscopic, Photomosaics, Photographs of Places and Things, Photographs of People, Text and Typographic Pieces. Each gallery opens as a wall of pictures. A picture carries a catalogue number and no title, so nothing on the wall tells a visitor what to see in it. Choosing a picture opens it whole on its own page, and Play slideshow walks on through the rest of its gallery.</p>
+<p>We hang them close together and leave the sorting to whoever comes.</p>
+<figure class="ab-passage"><blockquote><p>Because the eye does not sort ... The eye holds everything at once and lets the viewer decide what belongs next to what ...</p></blockquote><figcaption class="ab-from">— from <a href="/words/2026-variety/what-the-eyes-hold/">what the eyes hold <span class="arr" aria-hidden="true">&rarr;</span></a></figcaption></figure>
+<p class="ab-doorline">See them: <a class="ab-door" href="/digital.html">Collage <span class="arr" aria-hidden="true">&rarr;</span></a> or start with the mirrors: <a class="ab-door" href="/digital.html#symmetrical-and-kaleidoscopic">Symmetrical and Kaleidoscopic <span class="arr" aria-hidden="true">&rarr;</span></a></p>
+</article>
+
+<nav class="ab-foot" aria-label="Where to go next">
+  <a class="ab-back" href="/about.html"><span class="arr" aria-hidden="true">&larr;</span> About</a>
+  <a class="ab-next" href="/about/wonderful-garbage-and-noir-chanson.html"><span class="ab-next-word">Next <span class="arr" aria-hidden="true">&rarr;</span></span><span class="ab-next-name">Wonderful Garbage and Noir Chanson</span></a>
+</nav>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+
+<script src="/nav.js"></script>
+<script src="/about-room.js"></script>
+</body>
+</html>
