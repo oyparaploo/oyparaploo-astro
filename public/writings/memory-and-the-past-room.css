@@ -1,0 +1,211 @@
+/* Memory and the Past: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\VIDEO_2.html (Video): the black ground; a small line and the headline seat; the centred
+   quote; the pinned list, a picture held still on the left while the list runs down the right, the picture changing
+   as the list passes the middle of the window; and the index, ruled rows, a large name on the left and its seat on
+   the right.
+   The room is dark in Light, Dark and Auto alike, as the draft is; the date strip, the header and the footer
+   follow the mode, as on every page. Words in the room use only the dark values of the four named colours:
+   Ink #E8E0D6 (16.1 to 1 on the black), Soft ink #B3AA9F (9.2 to 1) and Accent #D4A574 (9.4 to 1). On the band of
+   oxide red the words are Ink's light value, #111, at 8.1 to 1. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four pictures (Placings, Archeo Dream). */
+  --work-1: #271D13;
+  --work-2: #4C3823;
+  --work-3: #6C2F30;
+  --work-4: #8E4F48;
+  --work-5: #867452;
+  --mp-ground: #000000;                         /* the draft's ground */
+  --mp-ink: #E8E0D6;
+  --mp-soft: #B3AA9F;
+  --mp-gold: #D4A574;
+  --mp-rule: rgba(255, 255, 255, 0.22);         /* the draft's own hairline */
+  --mp-oxide: #D49C9C;                          /* the oxide red in Archeo Dream, lifted to carry dark words */
+  --mp-oxide-ink: #111111;
+  --mp-margin: 34px;                            /* the draft's margin */
+}
+
+.mp-room {
+  background: var(--mp-ground);
+  color: var(--mp-ink);
+  padding: 0 0 120px;
+  overflow-x: clip;
+}
+.mp-wrap { padding-left: var(--mp-margin); padding-right: var(--mp-margin); }
+
+/* ---------- the opening: the draft's small line, then its headline seat ---------- */
+.mp-open { padding-top: 112px; }
+.mp-back, .mp-door {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.5;
+  color: var(--mp-ink); text-decoration: none;
+}
+.mp-back span, .mp-door-arrow { display: inline-block; color: var(--mp-gold); transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .mp-back:hover span, .mp-door:hover .mp-door-arrow:first-child { transform: translateX(-6px); }
+  .mp-door:hover .mp-door-arrow:last-child { transform: translateX(6px); }
+}
+.mp-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 64px); line-height: 1.06; letter-spacing: -0.01em;
+  color: #FFFFFF; margin: 40px 0 0; max-width: 50%; text-wrap: balance;
+}
+
+/* ---------- the passage, in the draft's centred quote seat, on the band of oxide red: the one large thing ---------- */
+.mp-quote { background: var(--mp-oxide); color: var(--mp-oxide-ink); margin-top: 136px; padding: 128px var(--mp-margin) 120px; }
+.mp-quote-block { max-width: max(50%, 720px); margin: 0 auto; text-align: center; }
+.mp-passage p {
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(28px, 3.3vw, 48px);
+  line-height: 1.18; letter-spacing: -0.015em; color: var(--mp-oxide-ink); text-wrap: balance;
+}
+.mp-from { margin-top: 56px; }
+.mp-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--mp-oxide-ink); text-decoration: none; }
+.mp-from a span { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) { .mp-from a:hover span { transform: translateX(6px); } }
+
+/* ---------- the pinned list: the picture held on the left, the writings down the right ---------- */
+.mp-pinned {
+  display: grid; grid-template-columns: 5fr 1fr 6fr; align-items: stretch;
+  margin-top: 160px;
+}
+.mp-pin-cell { position: relative; grid-column: 1; }
+.mp-pin { position: sticky; top: max(96px, calc(50vh - 14vw - 36px)); }   /* held near the middle of the window */
+.mp-stack { display: grid; }
+.mp-held {
+  grid-area: 1 / 1; margin: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;      /* the draft's own fade */
+}
+.mp-held.on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.mp-pic { display: block; }
+.mp-pic img { display: block; width: 100%; height: auto; background: #0B0907; }
+.mp-held figcaption { margin-top: 14px; }
+.mp-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 20px; letter-spacing: 0.04em;
+  color: var(--mp-soft); text-decoration: none; transition: color 0.2s ease;
+}
+@media (hover: hover) { .mp-num:hover { color: #FFFFFF; } }
+.mp-pic:focus-visible, .mp-num:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 4px; }
+/* which of the four is held: four short lines, the draft's sound bars laid down */
+.mp-ticks { display: flex; gap: 8px; margin-top: 18px; }
+.mp-tick { width: 28px; height: 3px; background: var(--mp-rule); transition: background-color 0.4s ease; }
+.mp-tick.on { background: var(--mp-ink); }
+
+.mp-list-col { grid-column: 3; min-width: 0; }
+.mp-intro { font-family: 'Inter', sans-serif; font-size: 26px; line-height: 1.38; color: var(--mp-ink); margin: 0; max-width: 24em; }
+.mp-list { display: block; margin-top: 104px; }
+.mp-group {
+  display: block; color: inherit; text-decoration: none;
+  padding: 0 0 72px;
+}
+.mp-label {
+  display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.5;
+  color: var(--mp-gold);
+}
+.mp-name {
+  display: block; margin-top: 16px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.22; letter-spacing: 0.005em; color: #FFFFFF;
+}
+.mp-arrow {   /* no width of its own, so a name never wraps for it */
+  display: inline-block; width: 0; white-space: nowrap; color: var(--mp-gold);
+  opacity: 0; transform: translateX(4px); transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mp-first {
+  display: block; margin-top: 14px; max-width: 40em;
+  font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.65; color: var(--mp-ink); overflow-wrap: break-word;
+}
+.mp-group.later { display: none; }
+@media (hover: hover) {
+  .mp-group:hover .mp-arrow, .mp-group:focus-visible .mp-arrow { opacity: 1; transform: translateX(14px); }
+  .mp-group:hover .mp-first { color: #FFFFFF; }
+}
+.mp-group:active .mp-arrow { opacity: 1; transform: translateX(14px); }
+.mp-group:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 8px; }
+
+/* ---------- Show more: outline turning solid ---------- */
+.mp-more { padding: 8px 0 0; }
+.mp-more[hidden] { display: none; }
+.mp-btn {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  min-height: 54px; padding: 8px 22px; border-radius: 5px; cursor: pointer;
+  background: transparent; color: var(--mp-ink); border: 1px solid var(--mp-ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .mp-btn:hover { background: var(--mp-ink); color: var(--mp-ground); } }
+.mp-btn:active { background: var(--mp-ink); color: var(--mp-ground); }
+
+/* ---------- often found with, as the draft's index: ruled rows, the name large, its seat on the right ---------- */
+.mp-index { margin-top: 160px; display: grid; grid-template-columns: 1fr 2fr; border-top: 1px solid var(--mp-rule); }
+.mp-index-head { padding-top: 40px; }
+.mp-index-label { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: var(--mp-ink); margin: 0; }
+.mp-index-rows { display: block; padding-top: 40px; }
+.mp-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  min-height: 96px; border-bottom: 1px solid var(--mp-rule);
+  color: #FFFFFF; text-decoration: none;
+}
+.mp-row:first-child { border-top: 1px solid var(--mp-rule); }
+.mp-subject { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; }
+.mp-row-arrow { font-size: 28px; color: var(--mp-gold); transition: transform 0.2s ease; }
+@media (hover: hover) { .mp-row:hover .mp-row-arrow { transform: translateX(8px); } }
+.mp-row:active .mp-row-arrow { transform: translateX(8px); }
+.mp-row:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 4px; }
+
+/* ---------- the doors at the foot ---------- */
+.mp-doors { margin-top: 96px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.mp-door-next { text-align: right; margin: 0; }
+.mp-next-label { display: block; font-family: 'Inter', sans-serif; font-size: 18px; color: var(--mp-soft); margin-bottom: 4px; }
+
+/* ---------- each part fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .mp-held, .mp-held.on, .mp-tick, .mp-arrow, .mp-back span, .mp-door-arrow, .mp-from a span, .mp-row-arrow { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1100px) {
+  .mp-pinned { grid-template-columns: 5fr 0.6fr 6.4fr; }
+  .mp-intro { font-size: 24px; }
+  .mp-name { font-size: 25px; }
+}
+
+/* ---------- touch and narrow windows: the draft's phone version, the list stacked; the four pictures a row
+   that swipes sideways, each whole with its number, above the writings ---------- */
+@media (max-width: 899px) {
+  .mp-room { --mp-margin: 24px; padding-bottom: 88px; }
+  .mp-open { padding-top: 64px; }
+  .mp-title { max-width: 100%; margin-top: 28px; font-size: 40px; }
+  .mp-quote { margin-top: 72px; padding: 72px var(--mp-margin) 64px; }
+  .mp-quote-block { max-width: 100%; }
+  .mp-passage p { font-size: 26px; line-height: 1.24; }
+  .mp-from { margin-top: 32px; }
+  .mp-from a { font-size: 18px; }
+  .mp-pinned { display: block; margin-top: 72px; padding-left: 0; padding-right: 0; }
+  .mp-pin { position: static; }
+  .mp-stack {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 var(--mp-margin) 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .mp-stack::-webkit-scrollbar { display: none; }
+  .mp-held, .mp-held.on {
+    flex: 0 0 86%; scroll-snap-align: center; opacity: 1; visibility: visible; transition: none;
+  }
+  .mp-num { font-size: 18px; }
+  .mp-ticks { padding: 0 var(--mp-margin); }
+  .mp-list-col { padding: 0 var(--mp-margin); margin-top: 48px; }
+  .mp-intro { font-size: 20px; line-height: 1.45; }
+  .mp-list { margin-top: 56px; }
+  .mp-group { padding-bottom: 48px; }
+  .mp-name { font-size: 22px; margin-top: 10px; }
+  .mp-arrow { display: none; }
+  .mp-first { margin-top: 10px; }
+  .mp-index { display: block; margin-top: 96px; }
+  .mp-index-head { padding-top: 28px; }
+  .mp-index-rows { padding-top: 20px; }
+  .mp-row { min-height: 76px; }
+  .mp-subject { font-size: 26px; }
+  .mp-doors { flex-direction: column; align-items: flex-start; margin-top: 72px; }
+  .mp-door-next { text-align: left; }
+}

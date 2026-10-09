@@ -1,0 +1,264 @@
+/* Earth and Climate: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\STORIES_2.html (Cinema): the slate ground; the hero the height of the window, its heading
+   at its foot, a chip at its top left and a mark at its bottom right; the intro band's large grey paragraph; tiles
+   edge to edge in rows of two and rows of three, each a dark seat with a mark at its centre and its caption at its
+   foot; the full-width tile; the orange button; the black foot with its row of links parted by bars.
+   The room is dark in Light, Dark and Auto alike, as the draft is; the date strip, the header and the footer
+   follow the mode, as on every page. Words in the room use only the dark values of the named colours, and white
+   as in the draft: on the slate, Ink #E8E0D6 (7.2 to 1) and white (9.4 to 1); on a tile's seat, Ink (11.0 to 1)
+   and Accent #D4A574 (6.4 to 1; 5.1 to 1 on a tile pointed at); on the black foot, Ink (16.1 to 1), Soft ink
+   #B3AA9F (9.2 to 1) and Accent (9.4 to 1). On the band of pale clay the words are Ink's light value, #111, at
+   12.0 to 1. White on the orange button holds 5.6 to 1. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four pictures (Placings, Precious Wet Black Soil). */
+  --work-1: #151419;
+  --work-2: #4A3C3A;
+  --work-3: #8A5E51;
+  --work-4: #A17D77;
+  --work-5: #E2C9BD;
+  --ec-ground: #40474F;                         /* the draft's slate */
+  --ec-seat: #2A2A2A;                           /* the draft's seat */
+  --ec-seat-on: #353B41;                        /* a seat pointed at: turns solid toward the slate */
+  --ec-ink: #E8E0D6;
+  --ec-soft: #B3AA9F;
+  --ec-gold: #D4A574;
+  --ec-orange: #B4441E;                         /* the draft's orange, deepened to the rust in the paint cup of 05678 */
+  --ec-clay: #E2C9BD;                           /* the pale clay ground under the spilled soil of 05711 */
+  --ec-clay-ink: #111111;
+  --ec-rule: rgba(255, 255, 255, 0.22);
+  --ec-margin: 106px;                           /* the draft's margin */
+}
+
+.ec-room { background: var(--ec-ground); color: var(--ec-ink); overflow-x: clip; }
+.ec-wrap { padding-left: var(--ec-margin); padding-right: var(--ec-margin); }
+
+/* ---------- the hero: the first picture whole on a haze of its own colours, the height of the window ---------- */
+.ec-hero {
+  position: relative; overflow: hidden; background: var(--ec-seat);
+  height: clamp(460px, calc(100vh - 128px), 64vw);
+}
+.ec-haze {
+  position: absolute; inset: -60px; background-size: cover; background-position: center;
+  filter: blur(42px) brightness(0.55) saturate(1.1); transform: scale(1.05);
+}
+.ec-hero-pic { position: absolute; inset: 0; display: block; }
+.ec-hero-pic img { display: block; width: 100%; height: 100%; object-fit: contain; }   /* whole, never cropped */
+.ec-shade {   /* the draft's darkening at the foot, so the words over the picture stay clear */
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.78) 100%);
+}
+.ec-chip {   /* the draft's home chip */
+  display: inline-flex; align-items: center; gap: 12px; min-height: 50px; padding: 0 22px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  color: #FFFFFF; text-decoration: none; background: rgba(0,0,0,0.42); transition: background-color 0.15s ease;
+}
+.ec-hero .ec-chip { position: absolute; top: 32px; left: calc(var(--ec-margin) - 22px); }
+.ec-chev { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .ec-chip:hover { background: rgba(0,0,0,0.68); }
+  .ec-chip:hover .ec-chev { transform: translateX(-6px); }
+}
+.ec-chip:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+.ec-title {
+  position: absolute; left: var(--ec-margin); bottom: 58px; max-width: calc(100% - 2 * var(--ec-margin) - 160px); margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(48px, 6.4vw, 96px); line-height: 0.98; letter-spacing: -0.015em; color: #FFFFFF;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+.ec-num {
+  display: inline-flex; align-items: center; gap: 16px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 20px; letter-spacing: 0.04em;
+  color: #FFFFFF; text-decoration: none;
+}
+.ec-hero-num { position: absolute; right: var(--ec-margin); bottom: 62px; }
+/* the draft's plus mark: open the picture */
+.ec-plus { position: relative; width: 26px; height: 26px; flex: none; transition: transform 0.3s ease; }
+.ec-plus i { position: absolute; background: currentColor; }
+.ec-plus i:first-child { width: 26px; height: 3px; top: 11.5px; left: 0; }
+.ec-plus i:last-child { width: 3px; height: 26px; top: 0; left: 11.5px; }
+@media (hover: hover) {
+  .ec-hero-pic:hover ~ .ec-hero-num .ec-plus, .ec-num:hover .ec-plus,
+  .ec-wide-pic:hover ~ .ec-wide-cap .ec-plus { transform: rotate(90deg); }
+}
+.ec-num:focus-visible, .ec-hero-pic:focus-visible, .ec-wide-pic:focus-visible { outline: 2px solid #FFFFFF; outline-offset: -4px; }
+
+/* ---------- the intro band: the page's sentence as the draft's large paragraph ---------- */
+.ec-intro { padding-top: 64px; padding-bottom: 72px; }
+.ec-intro-para {
+  margin: 0; max-width: 1100px;
+  font-family: 'Inter', sans-serif; font-size: clamp(22px, 2vw, 28px); line-height: 1.32; color: var(--ec-ink);
+}
+
+/* ---------- the passage, as the draft's full-width tile, on the band of pale clay: the one large thing ---------- */
+.ec-quote {
+  background: var(--ec-clay); color: var(--ec-clay-ink);
+  min-height: min(84vh, 760px); display: flex; align-items: flex-end;
+}
+.ec-quote-in { padding-top: 120px; padding-bottom: 72px; width: 100%; }
+.ec-lines { display: flex; flex-direction: column; justify-content: space-between; width: 28px; height: 22px; }
+.ec-lines i { display: block; height: 3px; background: currentColor; transition: width 0.3s ease, background-color 0.3s ease; }
+.ec-lines i:nth-child(1) { width: 28px; }
+.ec-lines i:nth-child(2) { width: 19px; }
+.ec-lines i:nth-child(3) { width: 24px; }
+.ec-quote-mark { color: var(--ec-clay-ink); margin-bottom: 40px; }
+.ec-passage { margin: 0; max-width: 1180px; }
+.ec-passage p {
+  margin: 0; max-width: 21em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(30px, 3.4vw, 52px); line-height: 1.16; letter-spacing: -0.015em; color: var(--ec-clay-ink);
+}
+.ec-from { margin: 48px 0 0; }
+.ec-from a {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4;
+  color: var(--ec-clay-ink); text-decoration: none;
+}
+.ec-from a span { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) { .ec-from a:hover span { transform: translateX(6px); } }
+.ec-from a:focus-visible { outline: 2px solid var(--ec-clay-ink); outline-offset: 4px; }
+
+/* ---------- the tiles: rows of two, then rows of three, edge to edge ---------- */
+.ec-tiles { padding-top: 2px; }
+.ec-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px; }
+.ec-tile {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  color: var(--ec-ink); text-decoration: none;
+  background: linear-gradient(to bottom, var(--ec-seat) 0%, var(--ec-seat) 50%, #1F1F1F 100%);
+  transition: background-color 0.25s ease;
+}
+.ec-tile::before {   /* turns solid when pointed at */
+  content: ""; position: absolute; inset: 0; background: var(--ec-seat-on); opacity: 0; transition: opacity 0.25s ease;
+}
+/* the draft's tile shapes as the least height (a half 16 by 9, a third 4 by 3); a row takes its tallest tile's height */
+.ec-s3 { grid-column: span 3; min-height: 28vw; }
+.ec-s2 { grid-column: span 2; min-height: 25vw; }
+.ec-s6 { grid-column: span 6; min-height: 300px; }
+.ec-tile.later { display: none; }
+.ec-disc { position: relative; flex: 1 1 auto; min-height: 96px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+.ec-cap { position: relative; display: block; padding: 0 40px 40px; }
+.ec-s2 .ec-cap { padding: 0 32px 32px; }
+.ec-label {
+  display: block; margin-bottom: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.4; color: var(--ec-gold);
+}
+.ec-name {
+  display: block; margin-bottom: 8px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 26px; line-height: 1.2; color: #FFFFFF; overflow-wrap: break-word;
+}
+.ec-s2 .ec-name { font-size: 23px; }
+.ec-sub {
+  display: block; max-width: 40em;
+  font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.55; color: var(--ec-ink); overflow-wrap: break-word;
+}
+@media (hover: hover) {
+  .ec-tile:hover::before { opacity: 1; }
+  .ec-tile:hover .ec-lines i { width: 28px; background: var(--ec-gold); }
+}
+.ec-tile:active::before { opacity: 1; }
+.ec-tile:focus-visible { outline: 2px solid var(--ec-ink); outline-offset: -6px; }
+.ec-tile:focus-visible::before { opacity: 1; }
+
+/* the other three pictures, as the draft's full-width tile: each whole, its number at its foot */
+.ec-wide { grid-column: 1 / -1; position: relative; margin: 0; background: var(--ec-seat); }
+.ec-wide-pic { display: block; }
+.ec-wide-pic img { display: block; width: 100%; height: auto; }
+.ec-wide-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 120px var(--ec-margin) 52px;
+  display: flex; justify-content: flex-end; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.66) 100%);
+}
+.ec-wide-cap .ec-num { pointer-events: auto; }
+
+/* ---------- the draft's orange button: solid, turning to its outline when pointed at ---------- */
+.ec-more { padding-top: 64px; padding-bottom: 8px; }
+.ec-more[hidden] { display: none; }
+.ec-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 24px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.2;
+  background: var(--ec-orange); color: #FFFFFF; border: 2px solid var(--ec-orange); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+@media (hover: hover) { .ec-btn:hover { background: transparent; } }
+.ec-btn:active { background: transparent; }
+.ec-btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+.ec-next-arrow { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) { .ec-next:hover .ec-next-arrow { transform: translateX(6px); } }
+
+/* ---------- the black foot: often found with, the draft's row of links parted by bars; then the doors ---------- */
+.ec-foot { background: #000000; margin-top: 120px; padding-top: 96px; padding-bottom: 112px; }
+.ec-found-label {
+  margin: 0; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: #FFFFFF;
+}
+.ec-filter { display: flex; flex-wrap: wrap; align-items: center; row-gap: 14px; margin-top: 28px; }
+.ec-subject {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.15; color: var(--ec-ink); text-decoration: none; transition: color 0.2s ease;
+}
+.ec-bar { display: inline-block; width: 1px; height: 30px; background: var(--ec-soft); margin: 0 26px; }
+@media (hover: hover) { .ec-subject:hover { color: var(--ec-gold); } }
+.ec-subject:active { color: var(--ec-gold); }
+.ec-subject:focus-visible { outline: 2px solid var(--ec-ink); outline-offset: 4px; }
+.ec-doors {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
+  margin-top: 112px; padding-top: 40px; border-top: 1px solid var(--ec-rule);
+}
+.ec-door { background: #2A2A2A; margin-left: -22px; }
+@media (hover: hover) { .ec-door:hover { background: #3A3A3A; } }
+.ec-door-next { margin: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.ec-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ec-soft); }
+
+/* ---------- each part fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .ec-tile, .ec-tile::before, .ec-lines i, .ec-plus, .ec-chev, .ec-chip, .ec-btn, .ec-next-arrow, .ec-from a span, .ec-subject { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1199px) {
+  .ec-room { --ec-margin: 64px; }
+  .ec-cap { padding: 0 32px 32px; }
+  .ec-s2 .ec-cap { padding: 0 24px 26px; }
+  .ec-name { font-size: 24px; }
+  .ec-s2 .ec-name { font-size: 21px; }
+  .ec-sub { font-size: 16px; }
+}
+
+/* ---------- touch and narrow windows: the draft's phone version, every tile one column ---------- */
+@media (max-width: 899px) {
+  .ec-room { --ec-margin: 24px; }
+  .ec-hero { height: auto; display: flex; flex-direction: column; background: var(--ec-ground); }
+  .ec-haze, .ec-shade { display: none; }
+  .ec-hero .ec-chip { position: static; align-self: flex-start; margin: 24px var(--ec-margin) 24px; background: var(--ec-seat); order: 1; }
+  .ec-hero-pic { position: static; order: 2; }
+  .ec-hero-pic img { height: auto; }
+  .ec-hero-num { position: static; order: 3; align-self: flex-end; margin: 14px var(--ec-margin) 0; }
+  .ec-title { position: static; order: 4; max-width: none; margin: 28px var(--ec-margin) 0; font-size: 44px; text-shadow: none; }
+  .ec-intro { padding-top: 28px; padding-bottom: 48px; }
+  .ec-intro-para { font-size: 20px; line-height: 1.42; }
+  .ec-quote { min-height: 0; }
+  .ec-quote-in { padding-top: 72px; padding-bottom: 56px; }
+  .ec-quote-mark { margin-bottom: 28px; }
+  .ec-passage p { font-size: 27px; line-height: 1.22; }
+  .ec-from { margin-top: 32px; }
+  .ec-from a { font-size: 18px; }
+  .ec-grid { grid-template-columns: minmax(0, 1fr); }
+  .ec-s3, .ec-s2, .ec-s6 { grid-column: 1 / -1; min-height: 0; }
+  .ec-disc { flex: none; min-height: 0; justify-content: flex-start; padding: 30px 24px 18px; }
+  .ec-cap, .ec-s2 .ec-cap { padding: 0 24px 30px; }
+  .ec-name, .ec-s2 .ec-name { font-size: 22px; }
+  .ec-wide-cap { padding: 64px var(--ec-margin) 18px; }
+  .ec-num { font-size: 18px; gap: 12px; }
+  .ec-plus { width: 20px; height: 20px; }
+  .ec-plus i:first-child { width: 20px; top: 8.5px; }
+  .ec-plus i:last-child { height: 20px; left: 8.5px; }
+  .ec-more { padding-top: 40px; }
+  .ec-foot { margin-top: 80px; padding-top: 64px; padding-bottom: 72px; }
+  .ec-filter { flex-direction: column; align-items: flex-start; }
+  .ec-bar { display: none; }
+  .ec-subject { font-size: 26px; }
+  .ec-doors { flex-direction: column; align-items: flex-start; margin-top: 72px; }
+  .ec-door { margin-left: 0; }
+  .ec-door-next { align-items: flex-start; }
+}

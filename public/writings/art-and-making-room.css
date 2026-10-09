@@ -1,0 +1,220 @@
+/* Art and Making: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\DRAWINGS_1.html (Drawings): the warm dark ground, the title in a narrow column, then the
+   door bands, each full width between fine hairlines, a seat on the left and the name to the right, lifting a
+   little when pointed at; and the walk through the pictures, whole, on the dark.
+   The room is dark in Light, Dark and Auto alike, as the draft is; the date strip, the header and the footer
+   follow the mode, as on every page. Words in the room use only the dark values of the four named colours:
+   Ink #E8E0D6 (14.5 to 1 on the ground), Soft ink #B3AA9F (8.3 to 1) and Accent #D4A574, the draft's own gold
+   (8.5 to 1). On the band of cardboard the words are Ink's light value, #111, at 8.0 to 1. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four still lifes (Materials for Tinkering). */
+  --work-1: #0F0A08;
+  --work-2: #39292A;
+  --work-3: #664B3D;
+  --work-4: #AA6A4A;
+  --work-5: #C9A07E;
+  --am-ground: #14100C;                         /* the draft's ground */
+  --am-ink: #E8E0D6;
+  --am-soft: #B3AA9F;
+  --am-gold: #D4A574;
+  --am-line: rgba(244, 239, 232, 0.16);         /* the draft's hairline, a touch stronger */
+  --am-lift: rgba(244, 239, 232, 0.05);         /* the draft's lift when a band is pointed at */
+  --am-tube: #C9A07E;                           /* the cardboard tubes in 04574, lifted to carry dark words */
+  --am-tube-ink: #111111;
+}
+
+.am-room {
+  background: var(--am-ground);
+  color: var(--am-ink);
+  padding: 96px 0 120px;
+  overflow-x: clip;
+}
+
+.am-col { max-width: 768px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- the opening, in the draft's narrow column ---------- */
+.am-back, .am-door {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.5;
+  color: var(--am-ink); text-decoration: none;
+}
+.am-back span, .am-door-arrow { display: inline-block; color: var(--am-gold); transition: transform 0.3s ease; }
+@media (hover: hover) {
+  .am-back:hover span, .am-door:hover .am-door-arrow:first-child { transform: translateX(-4px); }
+  .am-door:hover .am-door-arrow:last-child { transform: translateX(4px); }
+}
+.am-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.01em;
+  color: #FFFFFF; margin: 40px 0 24px;
+}
+.am-sentence { font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.45; color: var(--am-ink); max-width: 30em; }
+
+/* ---------- the passage on the band of cardboard: the one large thing on the page ---------- */
+.am-tube { background: var(--am-tube); color: var(--am-tube-ink); padding: 104px 0 96px; margin-top: 96px; }
+.am-passage p {
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.3; letter-spacing: -0.01em; color: var(--am-tube-ink);
+}
+.am-passage p + p { margin-top: 0.8em; }
+.am-passage .verse { white-space: pre-line; }
+.am-from { margin-top: 32px; }
+.am-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; color: var(--am-tube-ink); text-decoration: none; }
+.am-from a span { display: inline-block; transition: transform 0.3s ease; }
+@media (hover: hover) { .am-from a:hover span { transform: translateX(4px); } }
+
+/* ---------- the door bands, edge to edge ---------- */
+.am-bands { margin-top: 96px; border-bottom: 1px solid var(--am-line); container-type: inline-size; }
+.am-list { display: block; }
+.am-band {
+  display: flex; align-items: flex-start; gap: 40px;
+  width: 100%; padding: 28px 60px;
+  border-top: 1px solid var(--am-line);
+  color: inherit; text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+/* the seat: a writing's kind and reading time, in the draft's gold; wide enough that the names and first lines
+   start on the same line as the title and the passage above them */
+.am-seat {
+  flex: 0 0 max(180px, calc(50cqw - 460px)); padding-top: 3px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.5; color: var(--am-gold);
+}
+.am-body { flex: 1 1 auto; min-width: 0; max-width: 46em; }
+.am-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 23px; line-height: 1.3; letter-spacing: 0.01em; color: #FFFFFF;
+}
+.am-first {
+  display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.7;
+  color: var(--am-ink); overflow-wrap: break-word;
+}
+.am-arrow {
+  flex: 0 0 auto; margin-left: auto; align-self: center; font-size: 24px; color: var(--am-gold);
+  opacity: 0; transform: translateX(-8px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.am-w.later { display: none; }
+@media (hover: hover) {
+  .am-w:hover, .am-w:focus-visible { background: var(--am-lift); }
+  .am-w:hover .am-arrow, .am-w:focus-visible .am-arrow { opacity: 1; transform: translateX(0); }
+}
+.am-w:active { background: var(--am-lift); }
+.am-w:active .am-arrow { opacity: 1; transform: translateX(0); }
+.am-w:focus-visible { outline: 2px solid var(--am-ink); outline-offset: -4px; }
+
+/* a picture band: the still life whole in a wider seat, its number set to the right as the draft's door name */
+.am-band-pic { align-items: center; padding-top: 36px; padding-bottom: 36px; }
+.am-seat-pic { flex: 0 0 440px; display: block; cursor: zoom-in; }
+.am-seat-pic img { width: 100%; height: auto; display: block; background: #0C0906; }
+.am-num {
+  flex: 1 1 auto; text-align: right;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 23px; letter-spacing: 0.04em;
+  color: var(--am-soft); text-decoration: none; transition: color 0.2s ease;
+}
+@media (hover: hover) {
+  .am-band-pic:hover { background: var(--am-lift); }
+  .am-num:hover { color: #FFFFFF; }
+}
+.am-seat-pic:focus-visible, .am-num:focus-visible { outline: 2px solid var(--am-ink); outline-offset: 4px; }
+
+/* ---------- Show more: outline turning solid ---------- */
+.am-more { padding: 40px 60px 40px calc(100px + max(180px, calc(50cqw - 460px))); border-top: 1px solid var(--am-line); }   /* under the names */
+.am-more[hidden] { display: none; }
+.am-btn {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  min-height: 54px; padding: 8px 22px; border-radius: 5px; cursor: pointer;
+  background: transparent; color: var(--am-ink); border: 1px solid var(--am-ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .am-btn:hover { background: var(--am-ink); color: var(--am-ground); } }
+.am-btn:active { background: var(--am-ink); color: var(--am-ground); }
+
+/* ---------- often found with ---------- */
+.am-found { margin-top: 112px; }
+.am-label { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--am-ink); margin-bottom: 16px; }
+.am-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.am-chip {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.2;
+  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--am-gold);
+  color: var(--am-ink); text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .am-chip:hover { background: var(--am-gold); color: var(--am-ground); } }
+.am-chip:active { background: var(--am-gold); color: var(--am-ground); }
+
+/* ---------- the doors at the foot ---------- */
+.am-doors { margin-top: 72px; }
+.am-doors .am-col { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.am-door-next { text-align: right; }
+.am-next-label { display: block; font-family: 'Inter', sans-serif; font-size: 18px; color: var(--am-soft); margin-bottom: 4px; }
+
+/* ---------- the walk: the four still lifes one at a time, whole, on the draft's dark ---------- */
+.am-walk {
+  position: fixed; inset: 0; z-index: 1000; background: var(--am-ground);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.am-walk.open { opacity: 1; }
+.am-walk[hidden] { display: none; }
+.am-walk-back {
+  position: absolute; top: 24px; left: 28px; z-index: 2;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.5;
+  color: var(--am-ink); background: none; border: 0; padding: 8px 4px; cursor: pointer;
+}
+.am-walk-back span { display: inline-block; color: var(--am-gold); transition: transform 0.3s ease; }
+@media (hover: hover) { .am-walk-back:hover span { transform: translateX(-4px); } }
+.am-walk-stage { display: flex; flex-direction: column; align-items: center; max-width: 92vw; }
+.am-walk-img { max-width: 84vw; max-height: 76vh; width: auto; height: auto; object-fit: contain; display: block; }
+.am-walk-num {
+  margin-top: 20px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 20px; letter-spacing: 0.04em; color: var(--am-soft); text-decoration: none;
+}
+@media (hover: hover) { .am-walk-num:hover { color: #FFFFFF; } }
+.am-walk-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  background: none; border: 0; cursor: pointer; padding: 12px 22px;
+  font-family: 'Archivo', sans-serif; font-size: 44px; line-height: 1; color: rgba(244, 239, 232, 0.7);
+}
+@media (hover: hover) { .am-walk-arrow:hover { color: #FFFFFF; } }
+.am-walk-prev { left: 4px; }
+.am-walk-next { right: 4px; }
+.am-walk button:focus-visible, .am-walk a:focus-visible { outline: 2px solid var(--am-ink); outline-offset: 4px; }
+
+/* ---------- each part fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .am-band, .am-arrow, .am-back span, .am-door-arrow, .am-from a span, .am-walk, .am-walk-back span { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1100px) {
+  .am-band { padding-left: 40px; padding-right: 40px; gap: 32px; }
+  .am-seat { flex-basis: 180px; }
+  .am-seat-pic { flex-basis: 340px; }
+  .am-more { padding-left: 252px; padding-right: 40px; }
+}
+
+/* ---------- phones: the draft's bands stack, the seat on top ---------- */
+@media (max-width: 600px) {
+  .am-room { padding: 56px 0 88px; }
+  .am-title { font-size: 38px; margin: 28px 0 18px; }
+  .am-sentence { font-size: 20px; }
+  .am-tube { margin-top: 64px; padding: 64px 0 60px; }
+  .am-passage p { font-size: 24px; }
+  .am-bands { margin-top: 64px; }
+  .am-band { flex-direction: column; align-items: stretch; gap: 6px; padding: 22px 24px; }
+  .am-seat { flex-basis: auto; padding-top: 0; }
+  .am-name { font-size: 21px; }
+  .am-arrow { display: none; }
+  .am-band-pic { gap: 14px; padding-top: 24px; padding-bottom: 24px; }
+  .am-seat-pic { flex-basis: auto; }
+  .am-num { text-align: left; font-size: 20px; }
+  .am-more { padding: 32px 24px; }
+  .am-found { margin-top: 80px; }
+  .am-doors .am-col { flex-direction: column; align-items: flex-start; }
+  .am-door-next { text-align: left; }
+  .am-walk-back { top: 14px; left: 14px; }
+  /* on a phone the arrows sit under the picture, either side of its number, never over the work */
+  .am-walk-arrow { font-size: 34px; padding: 8px 18px; top: auto; bottom: 12vh; transform: none; }
+  .am-walk-img { max-width: 94vw; max-height: 70vh; }
+}

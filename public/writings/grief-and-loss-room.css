@@ -1,0 +1,168 @@
+/* Grief and Loss: the room's own look (October 8, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\artists.html (The Artists): one long column on a ground running from black to night
+   blue, each writing a quiet block with its gold line, gold hairlines between the parts, doors with gold
+   arrows. The room is dark in Light, Dark and Auto alike, as the draft is; the date strip, the header and the
+   footer follow the mode, as on every page. Words in the room use only the dark values of the four named
+   colours: Ink #E8E0D6, Soft ink #B3AA9F and Accent #D4A574 (the draft's gold), each 8.5 to 1 or better on the
+   ground. On the band of late sun the words are Ink's light value, #111, at 8.4 to 1. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four still lifes (Late Grief Sun). */
+  --work-1: #0A0B07;
+  --work-2: #45201E;
+  --work-3: #59544B;
+  --work-4: #827C72;
+  --work-5: #938A7E;
+  --gl-ink: #E8E0D6;
+  --gl-soft: #B3AA9F;
+  --gl-gold: #D4A574;
+  --gl-gold-line: rgba(212, 165, 116, 0.38);   /* the draft's gold hairline, a little stronger */
+  --gl-sun: #B8AE9F;                           /* the cloth in the late sun, lifted from 04407 and 04380 */
+  --gl-sun-ink: #111111;
+  --gl-ground-top: #000000;
+  --gl-ground-foot: #111521;
+}
+
+.gl-room {
+  /* The draft's ground, black at the top running to night blue at the foot, held still as the page moves. */
+  background: linear-gradient(to bottom, #000000 0%, #000000 5%, #020203 12%, #040507 20%, #060810 30%, #080a13 40%,
+    #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  background-attachment: fixed;
+  color: var(--gl-ink);
+  padding: 96px 0 120px;
+  overflow-x: clip;
+}
+/* Fixed grounds are not kept by phones; there the ground runs once down the page. */
+@media (hover: none), (max-width: 760px) { .gl-room { background-attachment: scroll; } }
+
+.gl-col { max-width: 768px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- the opening ---------- */
+.gl-back, .gl-door {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.5;
+  color: var(--gl-ink); text-decoration: none;
+}
+.gl-back span, .gl-door-arrow { display: inline-block; color: var(--gl-gold); transition: transform 0.3s ease; }
+@media (hover: hover) {
+  .gl-back:hover span, .gl-door:hover .gl-door-arrow:first-child { transform: translateX(-4px); }
+  .gl-door:hover .gl-door-arrow:last-child { transform: translateX(4px); }
+}
+.gl-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.01em;
+  color: var(--gl-ink); margin: 40px 0 24px;
+}
+.gl-sentence { font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.45; color: var(--gl-ink); max-width: 30em; }
+
+/* ---------- the pictures: each whole on the column, a little wider than the words ---------- */
+.gl-plate { max-width: 928px; margin: 72px auto 0; padding: 0 24px; }
+.gl-plate-first { margin-top: 64px; }
+.gl-plate img { width: 100%; height: auto; display: block; }
+.gl-plate figcaption { margin-top: 12px; }
+.gl-num {
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.02em;
+  color: var(--gl-soft); text-decoration: none;
+}
+@media (hover: hover) { .gl-num:hover { color: var(--gl-ink); } }
+.gl-list + .gl-plate, .gl-writings .gl-plate { margin: 24px auto 64px; }
+
+/* ---------- the draft's gold hairline between the parts ---------- */
+.gl-rule { height: 1px; background: var(--gl-gold-line); max-width: 538px; margin: 96px auto; }
+
+/* ---------- the passage on the band of late sun: the one large thing on the page ---------- */
+.gl-sun { background: var(--gl-sun); color: var(--gl-sun-ink); padding: 104px 0 96px; }
+.gl-passage p {
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.3; letter-spacing: -0.01em; color: var(--gl-sun-ink);
+}
+.gl-passage p + p { margin-top: 0.8em; }
+.gl-passage .verse { white-space: pre-line; }
+.gl-from { margin-top: 32px; }
+.gl-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; color: var(--gl-sun-ink); text-decoration: none; }
+.gl-from a span { display: inline-block; transition: transform 0.3s ease; }
+@media (hover: hover) { .gl-from a:hover span { transform: translateX(4px); } }
+
+/* ---------- the writings: each the draft's artist block ---------- */
+.gl-list { display: block; }
+.gl-w {
+  display: block; position: relative; text-decoration: none; color: var(--gl-ink);
+  padding: 4px 0 4px 0; margin-bottom: 48px;
+}
+.gl-w::before {
+  /* pointed at, a gold line grows down the block's left side */
+  content: ""; position: absolute; left: -20px; top: 6px; bottom: 6px; width: 2px;
+  background: var(--gl-gold); transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
+}
+.gl-w-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 24px; line-height: 1.3; color: var(--gl-ink);
+}
+.gl-w-side {
+  display: block; margin: 4px 0 12px; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 18px; line-height: 1.5; color: var(--gl-gold);
+}
+.gl-w-arrow { display: inline-block; margin-left: 10px; opacity: 0; transform: translateX(-6px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.gl-w-first {
+  display: block; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.75; color: var(--gl-ink);
+  overflow-wrap: break-word;
+}
+.gl-w.later { display: none; }
+@media (hover: hover) {
+  .gl-w:hover::before, .gl-w:focus-visible::before { transform: scaleY(1); }
+  .gl-w:hover .gl-w-arrow, .gl-w:focus-visible .gl-w-arrow { opacity: 1; transform: translateX(0); }
+}
+.gl-w:active::before { transform: scaleY(1); }
+.gl-w:active .gl-w-arrow { opacity: 1; transform: translateX(0); }
+.gl-w:focus-visible { outline: 2px solid var(--gl-ink); outline-offset: 8px; }
+
+/* ---------- Show more: the true reversal, outline turning solid ---------- */
+.gl-more { margin-top: 8px; }
+.gl-btn {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  min-height: 54px; padding: 8px 22px; border-radius: 5px; cursor: pointer;
+  background: transparent; color: var(--gl-ink); border: 1px solid var(--gl-ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .gl-btn:hover { background: var(--gl-ink); color: #0b0f18; } }
+.gl-btn:active { background: var(--gl-ink); color: #0b0f18; }
+
+/* ---------- often found with ---------- */
+.gl-label { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--gl-ink); margin-bottom: 16px; }
+.gl-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.gl-chip {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.2;
+  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--gl-gold);
+  color: var(--gl-ink); text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .gl-chip:hover { background: var(--gl-gold); color: #0b0f18; } }
+.gl-chip:active { background: var(--gl-gold); color: #0b0f18; }
+
+/* ---------- the doors at the foot ---------- */
+.gl-doors { margin-top: 72px; }
+.gl-doors .gl-col { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.gl-door-next { text-align: right; }
+.gl-next-label { display: block; font-family: 'Inter', sans-serif; font-size: 18px; color: var(--gl-soft); margin-bottom: 4px; }
+
+/* ---------- each part fades in as it is reached (the draft's reveal, under a second) ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .gl-w::before, .gl-w-arrow, .gl-back span, .gl-door-arrow, .gl-from a span { transition: none; }
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 600px) {
+  .gl-room { padding: 56px 0 88px; }
+  .gl-title { font-size: 38px; margin: 28px 0 18px; }
+  .gl-sentence { font-size: 20px; }
+  .gl-plate { margin-top: 48px; }
+  .gl-rule { margin: 64px 24px; }
+  .gl-sun { padding: 64px 0 60px; }
+  .gl-passage p { font-size: 24px; }
+  .gl-w { margin-bottom: 40px; }
+  .gl-w::before { left: -12px; }
+  .gl-w-name { font-size: 22px; }
+  .gl-doors .gl-col { flex-direction: column; align-items: flex-start; }
+  .gl-door-next { text-align: left; }
+}
