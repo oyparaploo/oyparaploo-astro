@@ -1,0 +1,244 @@
+/* War and Displacement: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\TEST-DARK-OCULA-ENTRANCE_4.html (the dark entrance): a words-only index on the night ground,
+   its bands one under another, each parted from the next by the draft's hairline; the lead, a title and its line; the
+   witnesses, three cards across, each opened by a hairline; the marks, a row of pictures; the words, three across, a
+   title with its count under it; the rooms, a list of large names; and "Also" at the foot.
+   The colours are the pictures' (Physical Proof, Night Red Cross Tent): the night of 05101, which is the draft's own
+   ground (#14100C); the tarp's blue where the light comes through it at dusk (05085, 05069) for the one band; the
+   cross's magenta (05101) for the marks, never for words. The room is dark in Light, Dark and Auto alike, as the draft
+   is; the date strip, the header and the footer follow the mode, as on every page. Words in the room use only the dark
+   values of the four named colours: Ink #E8E0D6 (14.5 to 1 on the night), Soft ink #B3AA9F (8.3), Faint ink #8F877D
+   (5.3) and Accent #D4A574 (8.5). On the tarp's band every word is Ink's light value, #111, at 9.0 to 1. */
+
+:root {
+  --wd-night: #14100C;                          /* the night of 05101: the draft's own ground */
+  --wd-ink: #E8E0D6;
+  --wd-soft: #B3AA9F;
+  --wd-faint: #8F877D;
+  --wd-gold: #D4A574;
+  --wd-hair: rgba(244, 237, 225, 0.18);         /* the draft's hairline */
+  --wd-stub: rgba(244, 237, 225, 0.34);
+  --wd-tarp: #A6B2DC;                           /* the tarp's blue, lit from inside at dusk (05085, 05069) */
+  --wd-tarp-ink: #111111;
+  --wd-cross: #C0307E;                          /* the cross's magenta (05101), lifted to show on the night: 3.6 to 1 */
+  --wd-cross-deep: #861052;                     /* the cross's own magenta, on the tarp's band: 4.5 to 1 */
+  --wd-lamp: 166, 178, 220;                     /* the light through the tarp */
+  --wd-margin: 40px;
+}
+
+.wd-room {
+  position: relative; overflow: clip;
+  background: var(--wd-night); color: var(--wd-ink);
+}
+
+/* the light that answers the hand: the tarp's blue, faint, under the words and never over a picture.
+   At rest (on a touch screen, without the script, or for visitors who ask for less motion) it sits still behind
+   the title; where a pointer can hover it follows the hand. */
+.wd-lamp {
+  position: absolute; left: 0; top: 0; z-index: 0; pointer-events: none;
+  width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--wd-lamp), 0.13) 0%, rgba(var(--wd-lamp), 0.06) 32%, rgba(var(--wd-lamp), 0) 68%);
+  transform: translate3d(24vw, 330px, 0);
+}
+.lamp-follows .wd-lamp { opacity: 0; transition: opacity 0.6s ease; will-change: transform; }
+.lamp-follows.lit .wd-lamp { opacity: 1; }
+
+/* every part sits over the lamp */
+.wd-band, .wd-tarp { position: relative; z-index: 1; }
+
+/* the draft's bands: one under another, each parted from the next by a hairline across the content's width */
+.wd-band { padding: 0 var(--wd-margin); }
+.wd-band > .wd-wrap { max-width: 1320px; margin: 0 auto; padding: 64px 0; border-bottom: 1px solid var(--wd-hair); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.wd-arrow { display: inline-block; transition: transform 0.25s ease, opacity 0.25s ease; }
+.wd-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--wd-ink); text-decoration: none;
+}
+.wd-back .wd-arrow { color: var(--wd-gold); }
+@media (hover: hover) { .wd-back:hover .wd-arrow { transform: translateX(-6px); } }
+.wd-room a:focus-visible, .wd-room button:focus-visible { outline: 2px solid var(--wd-ink); outline-offset: 4px; }
+
+/* every picture whole, never cropped, its number under it */
+.wd-room figure { margin: 0; }
+.wd-pic { display: block; }
+.wd-pic img { display: block; width: 100%; height: auto; }
+.wd-room figcaption { margin-top: 12px; }
+.wd-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--wd-ink); text-decoration: none;
+}
+
+/* ---------- 1. the lead: the title and its line, the tent at night beside them ---------- */
+.wd-band > .wd-lead-in {
+  padding: 56px 0 72px; border-bottom: 0;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: stretch;
+}
+/* the way back at the top of the picture, the title and its line at its foot */
+.wd-lead-words { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; padding-bottom: 38px; }
+.wd-title {
+  margin: 44px 0 0; padding-top: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.0; letter-spacing: -0.015em; color: var(--wd-ink);
+}
+.wd-line {
+  margin: 28px 0 0; max-width: 24em;
+  font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.5; color: var(--wd-ink);
+}
+
+/* the kind and reading time, as the draft's count under a title */
+.wd-side { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.35; }
+.wd-kind { color: var(--wd-gold); }
+.wd-dot { color: var(--wd-faint); }
+.wd-time { color: var(--wd-soft); }
+.wd-name { font-family: 'Archivo', sans-serif; font-weight: 600; color: var(--wd-ink); }
+.wd-name .wd-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); color: var(--wd-gold); }
+.wd-first { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--wd-soft); }
+
+/* ---------- 2. the witnesses: three cards across, each opened by a hairline ---------- */
+.wd-witness-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.wd-witness { transition: opacity 0.35s ease; }
+.wd-witness.off { opacity: 0.28; }
+.wd-witness-a {
+  position: relative; display: flex; flex-direction: column; gap: 12px; height: 100%;
+  padding: 24px 0 8px; border-top: 1px solid var(--wd-hair); color: var(--wd-ink); text-decoration: none;
+}
+.wd-witness-a .wd-name { font-size: 30px; line-height: 1.15; }
+.wd-witness-a .wd-first { font-size: 18px; }
+.wd-witnesses > .wd-wrap { padding-top: 0; }
+/* the draft's card under the hand: its hairline brightens; here it turns the cross's magenta, drawn from the left */
+.wd-witness-a::before, .wd-word-a::before, .wd-room-a::before {
+  content: ''; position: absolute; top: -1px; left: 0; height: 2px; width: 0; background: var(--wd-cross);
+  transition: width 0.45s ease;
+}
+
+/* ---------- 3. the marks: the other three pictures whole, side by side, one height ---------- */
+.wd-marks > .wd-wrap { border-bottom: 0; padding-bottom: 72px; }
+.wd-pic-row { display: flex; gap: 16px; align-items: flex-start; }
+.wd-row-pic { flex: var(--r) 1 0; min-width: 0; }
+
+/* ---------- 4. the passage on the tarp's blue, edge to edge: the one large thing on the page ---------- */
+.wd-tarp { background: var(--wd-tarp); color: var(--wd-tarp-ink); padding: 0 var(--wd-margin); }
+.wd-tarp-in { max-width: 1320px; margin: 0 auto; padding: 112px 0 104px; }
+.wd-tarp-mark { display: block; width: 64px; height: 3px; background: var(--wd-cross-deep); margin-bottom: 40px; }
+.wd-passage { margin: 0; }
+.wd-passage p {
+  margin: 0; max-width: 21em;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(30px, 3.7vw, 54px);
+  line-height: 1.12; letter-spacing: -0.015em; color: var(--wd-tarp-ink);
+}
+.wd-passage p + p { margin-top: 0.6em; }
+.wd-from { margin: 44px 0 0; }
+.wd-from-a {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--wd-tarp-ink); text-decoration: none;
+}
+.wd-from-a em { font-style: normal; }
+@media (hover: hover) { .wd-from-a:hover .wd-arrow { transform: translateX(6px); } }
+.wd-tarp a:focus-visible { outline-color: var(--wd-tarp-ink); }
+
+/* ---------- 5. the words: the chooser as the band's head, then three across ---------- */
+.wd-words > .wd-wrap { padding: 80px 0 96px; }
+.wd-choices { display: flex; flex-wrap: wrap; gap: 4px 28px; margin: 0 0 44px; }
+.wd-choices[hidden] { display: none; }
+.wd-choice {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--wd-soft);
+  background: none; border: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  padding: 10px 0 8px; min-height: 44px; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease;
+}
+.wd-choice[aria-pressed="true"] { color: var(--wd-ink); border-bottom-color: var(--wd-cross); }
+@media (hover: hover) { .wd-choice:hover { color: var(--wd-ink); } }
+
+.wd-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 40px; }
+.wd-word.later, .wd-word.off { display: none; }
+.wd-grid.filtered .wd-word.later:not(.off) { display: block; }
+.wd-word-a {
+  position: relative; display: flex; flex-direction: column; gap: 10px; height: 100%;
+  padding-top: 20px; color: var(--wd-ink); text-decoration: none;
+}
+/* a short tie at the top of each, as the rope is tied at the tarp's corners; under the hand it runs across */
+.wd-word-a::after {
+  content: ''; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; background: var(--wd-stub);
+}
+.wd-word-a::before { z-index: 1; }
+.wd-word-a .wd-name { font-size: 21px; line-height: 1.25; }
+@media (hover: hover) {
+  .wd-witness-a:hover::before, .wd-word-a:hover::before, .wd-room-a:hover::before { width: 100%; }
+  .wd-witness-a:hover .wd-name .wd-arrow, .wd-word-a:hover .wd-name .wd-arrow { opacity: 1; transform: translateX(4px); }
+}
+
+/* the buttons: solid, turning to their outline under the hand */
+.wd-more { margin-top: 64px; }
+.wd-more[hidden] { display: none; }
+.wd-btn {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 26px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2; text-decoration: none;
+  background: var(--wd-ink); color: var(--wd-night); border: 1.5px solid var(--wd-ink); border-radius: 5px; cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) {
+  .wd-btn:hover { background: transparent; color: var(--wd-ink); }
+  .wd-btn:hover .wd-arrow { transform: translateX(5px); }
+}
+
+/* ---------- 6. the rooms: "Often found with", the draft's list of large names ---------- */
+.wd-head { margin: 0 0 28px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; color: var(--wd-ink); }
+.wd-room-list { display: flex; flex-direction: column; }
+.wd-room-a {
+  position: relative; display: flex; align-items: baseline; gap: 14px; padding: 20px 0 22px;
+  border-top: 1px solid var(--wd-hair); color: var(--wd-ink); text-decoration: none;
+}
+.wd-room-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 3vw, 40px); line-height: 1.15;
+}
+.wd-room-a .wd-arrow { font-size: 28px; color: var(--wd-gold); opacity: 0; transform: translateX(-10px); }
+@media (hover: hover) { .wd-room-a:hover .wd-arrow { opacity: 1; transform: translateX(0); } }
+
+/* ---------- 7. "Also": the next subject and the way on ---------- */
+.wd-band > .wd-also-in {
+  border-bottom: 0; padding: 64px 0 120px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px 56px;
+}
+.wd-next-wrap { margin: 0; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.wd-next-label {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.2; color: var(--wd-ink);
+}
+
+/* each part fades in as it is reached, in under a second */
+.js-reveal .wd-room .reveal, .js-reveal .wd-room .wd-word { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .wd-room .reveal.visible, .js-reveal .wd-room .wd-word.visible { opacity: 1; }
+
+/* ---------- narrower ---------- */
+@media (max-width: 1179px) {
+  .wd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wd-band > .wd-lead-in { gap: 44px; }
+}
+@media (max-width: 899px) {
+  .wd-room { --wd-margin: 20px; }
+  .wd-band > .wd-wrap { padding: 48px 0; }
+  .wd-band > .wd-lead-in { grid-template-columns: minmax(0, 1fr); gap: 40px; padding: 32px 0 48px; }
+  .wd-lead-words { display: block; padding-bottom: 0; }
+  .wd-title { margin-top: 32px; font-size: clamp(40px, 11vw, 56px); }
+  .wd-line { font-size: 19px; }
+  .wd-witnesses > .wd-wrap { padding-top: 0; }
+  .wd-witness-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .wd-witness-a .wd-name { font-size: 24px; }
+  .wd-pic-row { flex-direction: column; gap: 32px; }
+  .wd-row-pic { flex: none; width: 100%; }
+  .wd-marks > .wd-wrap { padding-bottom: 56px; }
+  .wd-tarp-in { padding: 72px 0 64px; }
+  .wd-tarp-mark { margin-bottom: 28px; }
+  .wd-passage p { font-size: clamp(28px, 7.6vw, 34px); line-height: 1.16; }
+  .wd-from { margin-top: 32px; }
+  .wd-words > .wd-wrap { padding: 56px 0 72px; }
+  .wd-choices { gap: 0 22px; margin-bottom: 32px; }
+  .wd-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .wd-band > .wd-also-in { flex-direction: column; align-items: flex-start; padding: 48px 0 88px; }
+}
+
+/* visitors who ask for less motion see everything at once, and the lamp stays still */
+@media (prefers-reduced-motion: reduce) {
+  .wd-room *, .wd-room *::before, .wd-room *::after { transition: none !important; }
+  .js-reveal .wd-room .reveal, .js-reveal .wd-room .wd-word { opacity: 1; }
+}

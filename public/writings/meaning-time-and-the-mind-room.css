@@ -1,0 +1,313 @@
+/* Meaning, Time and the Mind: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\05-met-exhibitions_2.html, a museum's exhibitions page: a small line above a large title and
+   its sentence, then a hairline; sections one under another, each with its head on the left and a pair of round
+   arrows on the right over a row of cards that slides sideways; a row of large cards ("Featured", here Newest), a row
+   of small cards ("Recently Published", here headed by the chooser of the type), a grid of small cards three across
+   ("Upcoming", here every other writing); a grey banner at the close (here "Often found with" and the way on).
+   The draft's picture seat on a small card holds a clock instead: its minute hand at the writing's reading time, the
+   red wedge the time it takes; the draft's date line carries the reading time.
+   The colours are the pictures' (Placings, It Is Good To Not Always Know: a beaded oval mirror lying in the debris,
+   the sky and the leaves in it; a red fire extinguisher on a stump; the dusty ground in the sun):
+     the pale of the sky in the mirror for the passage's band, edge to edge; the pale of the sunlit dust for the
+     banner; the extinguisher's red, where the draft has its red, for the wedges, the chosen type and the rails, marks
+     only, never words; the seats, each type a pale of one of the pictures' colours.
+   The page follows the mode, as the draft's white does: white in Light, the dark ground in Dark; the sky band and the
+   banner are the same in all three, their words Ink's light value (#111: 12.9 and 14.5 to 1). Words elsewhere use only
+   the four named colours as the mode sets them. */
+
+:root {
+  --mt-sky: #C6D8E2;                 /* the pale of the sky in the mirror (04115, 04113) */
+  --mt-dust: #E6E1D2;                /* the pale of the sunlit dust (04108, 04110): the draft's grey banner */
+  --mt-red: #882121;                 /* the extinguisher's red (04108): marks only. 9.2 to 1 on white */
+  --mt-hair: rgba(17, 17, 17, 0.16); /* the draft's hairline */
+  --mt-ring: rgba(17, 17, 17, 0.22);
+  --mt-face: #FFFFFF;
+  --mt-tick: rgba(17, 17, 17, 0.55);
+  --mt-hand: #111111;
+  --mt-wedge: rgba(136, 33, 33, 0.82);
+  --mt-btn: #111111; --mt-btn-ink: #FFFFFF;
+  /* each type's seat: a pale of one of the pictures' colours */
+  --mt-t-essay: #ECE8DC;             /* the dust */
+  --mt-t-text: #E1EAEF;              /* the sky in the mirror */
+  --mt-t-short: #E7E9DA;             /* the leaves in the mirror */
+  --mt-t-story: #E7E7E3;             /* the mirror's beads */
+  --mt-t-poem: #F1E2E0;              /* the extinguisher */
+  --mt-t-play: #ECE3D5;              /* the stump */
+  --mt-t-prayer: #E6E5EC;            /* the stone */
+  --mt-t-conv: #E2E8E2;              /* the lichen on the rail */
+  --mt-margin: 40px;
+  --mt-max: 1360px;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --mt-red: #D0574F;
+    --mt-hair: rgba(232, 224, 214, 0.16);
+    --mt-ring: rgba(232, 224, 214, 0.22);
+    --mt-face: #2A2723;
+    --mt-tick: rgba(232, 224, 214, 0.6);
+    --mt-hand: #E8E0D6;
+    --mt-wedge: rgba(208, 87, 79, 0.85);
+    --mt-btn: #E8E0D6; --mt-btn-ink: #0D0907;
+    --mt-t-essay: #1F1C17; --mt-t-text: #172024; --mt-t-short: #1C1F17; --mt-t-story: #1D1D1B;
+    --mt-t-poem: #241817; --mt-t-play: #221D16; --mt-t-prayer: #1C1B22; --mt-t-conv: #18201B;
+  }
+}
+html[data-theme="dark"] {
+  --mt-red: #D0574F;
+  --mt-hair: rgba(232, 224, 214, 0.16);
+  --mt-ring: rgba(232, 224, 214, 0.22);
+  --mt-face: #2A2723;
+  --mt-tick: rgba(232, 224, 214, 0.6);
+  --mt-hand: #E8E0D6;
+  --mt-wedge: rgba(208, 87, 79, 0.85);
+  --mt-btn: #E8E0D6; --mt-btn-ink: #0D0907;
+  --mt-t-essay: #1F1C17; --mt-t-text: #172024; --mt-t-short: #1C1F17; --mt-t-story: #1D1D1B;
+  --mt-t-poem: #241817; --mt-t-play: #221D16; --mt-t-prayer: #1C1B22; --mt-t-conv: #18201B;
+}
+
+.mt-room { position: relative; overflow: clip; background: var(--ground); color: var(--ink); padding-bottom: 96px; }
+.mt-wrap { max-width: var(--mt-max); margin-left: auto; margin-right: auto; padding-left: var(--mt-margin); padding-right: var(--mt-margin); box-sizing: border-box; }
+.mt-room figure { margin: 0; }
+.mt-room a:focus-visible, .mt-room button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.mt-arrow { display: inline-block; transition: transform 0.25s ease, opacity 0.25s ease; }
+
+/* ---------- 1. the head: the draft's small line, the title, the sentence, a hairline ---------- */
+.mt-head { padding-top: 40px; padding-bottom: 48px; }
+.mt-crumb { margin: 0; }
+.mt-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+.mt-back .mt-arrow { color: var(--mt-red); }
+@media (hover: hover) { .mt-back:hover .mt-arrow { transform: translateX(-6px); } }
+.mt-title {
+  margin: 36px 0 0; max-width: 15ch;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.02; letter-spacing: -0.015em; color: var(--ink);
+}
+.mt-line { margin: 22px 0 0; max-width: 46ch; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--ink-soft); }
+.mt-divider { position: relative; height: 1px; }
+.mt-divider::before { content: ''; position: absolute; left: var(--mt-margin); right: var(--mt-margin); top: 0; height: 1px; background: var(--mt-hair); }
+
+/* ---------- the sections, each with its head and its pair of round arrows ---------- */
+.mt-section { padding: 48px 0 56px; }
+.mt-section-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  margin-bottom: 28px;
+}
+.mt-section-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.2; color: var(--ink);
+}
+.mt-arrows { display: flex; gap: 10px; flex: none; }
+.mt-arrows button {
+  width: 46px; height: 46px; border-radius: 50%; padding: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; color: var(--ink); border: 1.5px solid var(--mt-ring);
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+.mt-arrows button[disabled] { opacity: 0.32; cursor: default; }
+@media (hover: hover) {
+  .mt-arrows button:not([disabled]):hover { border-color: var(--mt-btn); background: var(--mt-btn); color: var(--mt-btn-ink); }
+}
+
+/* the row that slides sideways: starts at the content's left edge, runs off the window's right edge */
+.mt-slider {
+  --mt-in: max(var(--mt-margin), calc((100% - var(--mt-max)) / 2 + var(--mt-margin)));
+  display: flex; gap: 24px; overflow-x: auto; overscroll-behavior-x: contain;
+  padding: 0 var(--mt-margin) 4px var(--mt-in); scroll-padding-left: var(--mt-in);
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.mt-slider::-webkit-scrollbar { display: none; }
+.mt-slider > * { scroll-snap-align: start; }
+/* the rail under each row: the red shows where the row stands, as time on a line */
+.mt-track { max-width: var(--mt-max); margin: 26px auto 0; padding: 0 var(--mt-margin); box-sizing: border-box; }
+.mt-track::before { content: ''; display: block; height: 2px; background: var(--mt-hair); }
+.mt-track span { display: block; height: 2px; margin-top: -2px; width: 30%; background: var(--mt-red); transform-origin: left; transition: margin-left 0.2s linear, width 0.2s linear; }
+.mt-track[hidden] { display: none; }
+
+/* ---------- 2. Newest: the draft's large cards, each with one picture whole ---------- */
+.mt-card-lg { flex: 0 0 560px; display: flex; flex-direction: column; }
+.mt-fig { margin: 0 0 16px; }
+.mt-pic { display: block; }
+.mt-pic img { display: block; width: 100%; height: auto; }
+.mt-fig figcaption { margin-top: 10px; }
+.mt-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none;
+}
+.mt-word-a { display: block; color: var(--ink); text-decoration: none; }
+.mt-card-lg .mt-name { font-size: 26px; line-height: 1.22; }
+.mt-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 106%;
+  font-size: 21px; line-height: 1.25; color: var(--ink);
+}
+/* the arrow after a name stays on the name's last line: inline, so the no-break space holds it */
+.mt-name .mt-arrow { display: inline; position: relative; left: -8px; color: var(--mt-red); opacity: 0; transition: left 0.25s ease, opacity 0.25s ease; }
+.mt-date { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.mt-side { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--ink-soft); }
+.mt-word-a > .mt-side { margin-top: 8px; }
+.mt-dot { color: var(--ink-faint); }
+.mt-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+  margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ---------- the clock: the minute hand at the reading time, the red wedge the time it takes ---------- */
+.mt-clock {
+  --a: calc(var(--m) * 6deg);
+  position: relative; display: block; flex: none; border-radius: 50%;
+  background: conic-gradient(var(--mt-wedge) 0 var(--a), transparent 0), var(--mt-face);
+  box-shadow: inset 0 0 0 1.5px var(--mt-ring);
+}
+.mt-clock::before {               /* the twelve marks */
+  content: ''; position: absolute; inset: 7%; border-radius: 50%;
+  background: repeating-conic-gradient(from -1.5deg, var(--mt-tick) 0 3deg, transparent 3deg 30deg);
+  -webkit-mask: radial-gradient(circle closest-side, transparent 0 82%, #000 83% 100%, transparent 100%);
+          mask: radial-gradient(circle closest-side, transparent 0 82%, #000 83% 100%, transparent 100%);
+}
+.mt-clock::after {                /* the pin */
+  content: ''; position: absolute; left: 50%; top: 50%; width: 9%; height: 9%; min-width: 4px; min-height: 4px;
+  transform: translate(-50%, -50%); border-radius: 50%; background: var(--mt-hand);
+}
+.mt-clock i {                     /* the minute hand */
+  position: absolute; left: 50%; bottom: 50%; width: 2px; height: 38%; margin-left: -1px; border-radius: 1px;
+  background: var(--mt-hand); transform-origin: 50% 100%; transform: rotate(var(--a));
+}
+.mt-clock-sm { width: 24px; height: 24px; box-shadow: inset 0 0 0 1.25px var(--mt-ring); }
+.mt-clock-sm::before { display: none; }
+.mt-clock-sm i { width: 1.5px; margin-left: -0.75px; }
+.mt-clock-lg { width: 112px; height: 112px; }
+/* under the hand the minute hand goes once around the hour and comes back to its minute */
+@keyframes mt-turn { from { transform: rotate(calc(var(--a) - 360deg)); } to { transform: rotate(var(--a)); } }
+
+/* ---------- the small cards: the seat (here a clock), the title, the date line, the first lines ---------- */
+.mt-card-sm { flex: 0 0 340px; }
+.mt-seat {
+  display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; margin-bottom: 14px;
+  border-radius: 3px; background: var(--mt-t-essay); transition: filter 0.3s ease;
+}
+.mt-t-essay { background: var(--mt-t-essay); } .mt-t-text { background: var(--mt-t-text); }
+.mt-t-short { background: var(--mt-t-short); } .mt-t-story { background: var(--mt-t-story); }
+.mt-t-poem { background: var(--mt-t-poem); } .mt-t-play { background: var(--mt-t-play); }
+.mt-t-prayer { background: var(--mt-t-prayer); } .mt-t-conv { background: var(--mt-t-conv); }
+
+@media (hover: hover) {
+  .mt-word-a:hover .mt-name .mt-arrow { opacity: 1; left: 0; }
+  .mt-word-a:hover .mt-seat { filter: brightness(0.95); }
+  .mt-word-a:hover .mt-clock i { animation: mt-turn 1.2s cubic-bezier(.35, .6, .25, 1); }
+}
+.mt-word-a:focus-visible .mt-name .mt-arrow { opacity: 1; left: 0; }
+
+/* ---------- 3. the passage, on the pale of the sky in the mirror, edge to edge ---------- */
+.mt-sky { background: var(--mt-sky); color: #111111; margin: 24px 0 8px; }
+.mt-sky-in { padding-top: 128px; padding-bottom: 120px; }
+.mt-passage { margin: 0; max-width: 1080px; }
+.mt-passage p {
+  margin: 0; font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(30px, 3.5vw, 52px);
+  line-height: 1.16; letter-spacing: -0.015em; color: #111111;
+}
+.mt-passage p + p { margin-top: 0.6em; }
+.mt-from { margin: 40px 0 0; }
+.mt-from-a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111111; text-decoration: none; }
+.mt-from-a em { font-style: normal; }
+.mt-from-a .mt-arrow { color: #882121; }
+@media (hover: hover) { .mt-from-a:hover .mt-arrow { transform: translateX(6px); } }
+
+/* ---------- 4. the chooser of the type, as the section's head ---------- */
+.mt-choices { display: flex; flex-wrap: wrap; gap: 4px 26px; }
+.mt-choice {
+  appearance: none; background: none; border: 0; cursor: pointer; padding: 6px 0 7px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--ink);
+  border-bottom: 3px solid transparent; transition: border-color 0.25s ease;
+}
+.mt-choice[aria-pressed="true"] { border-bottom-color: var(--mt-red); }
+@media (hover: hover) { .mt-choice:not([aria-pressed="true"]):hover { border-bottom-color: var(--mt-ring); } }
+
+/* ---------- 5. every other writing: the draft's grid, three across ---------- */
+.mt-rest { padding-top: 56px; }
+.mt-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 28px; }
+.mt-grid .mt-seat { aspect-ratio: 2 / 1; }
+.mt-word.later, .mt-word.off { display: none; }
+.mt-grid.filtered .mt-word.later:not(.off) { display: block; }
+.mt-card-lg.off { display: flex; opacity: 0.28; }
+.mt-more { margin-top: 56px; }
+.mt-btn {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  padding: 16px 26px; border-radius: 5px; border: 1.5px solid var(--mt-btn);
+  background: var(--mt-btn); color: var(--mt-btn-ink); transition: background-color 0.25s ease, color 0.25s ease;
+}
+@media (hover: hover) { .mt-btn:hover { background: transparent; color: var(--ink); } .mt-btn:hover .mt-arrow { transform: translateX(5px); } }
+
+/* ---------- 6. the draft's banner, on the pale of the sunlit dust ---------- */
+.mt-banner { max-width: var(--mt-max); margin: 40px auto 0; padding: 0 var(--mt-margin); box-sizing: border-box; }
+.mt-banner-in {
+  background: var(--mt-dust); color: #111111; border-radius: 3px; padding: 56px 56px 60px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: end;
+}
+.mt-found-head { margin: 0 0 18px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; color: #111111; }
+.mt-found-list { display: flex; flex-direction: column; }
+.mt-found-a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.2); text-decoration: none; color: #111111;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 21px; line-height: 1.3;
+}
+.mt-found-a:last-child { border-bottom: 1px solid rgba(17, 17, 17, 0.2); }
+.mt-found-a .mt-arrow { color: #882121; }
+@media (hover: hover) { .mt-found-a:hover .mt-arrow { transform: translateX(6px); } }
+.mt-next-label {
+  margin: 0 0 26px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 3vw, 44px); line-height: 1.08; color: #111111;
+}
+.mt-next-row { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
+.mt-banner .mt-btn { --mt-btn: #111111; --mt-btn-ink: #FFFFFF; }
+@media (hover: hover) { .mt-banner .mt-btn:hover { color: #111111; } }
+.mt-banner .mt-back { color: #111111; }
+.mt-banner .mt-back .mt-arrow, .mt-banner .mt-next .mt-arrow { color: inherit; }
+.mt-banner .mt-back .mt-arrow { color: #882121; }
+.mt-banner a:focus-visible { outline-color: #111111; }
+
+/* each part fades in as it is reached, in under a second */
+.js-reveal .mt-room .reveal, .js-reveal .mt-room .mt-grid .mt-word { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .mt-room .reveal.visible, .js-reveal .mt-room .mt-grid .mt-word.visible { opacity: 1; }
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1100px) {
+  .mt-card-lg { flex-basis: 480px; }
+  .mt-card-sm { flex-basis: 300px; }
+  .mt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  :root { --mt-margin: 20px; }
+  .mt-head { padding-top: 28px; padding-bottom: 36px; }
+  .mt-title { margin-top: 26px; font-size: clamp(38px, 11vw, 48px); }
+  .mt-line { font-size: 18px; }
+  .mt-section { padding: 36px 0 44px; }
+  .mt-section-head { margin-bottom: 20px; }
+  .mt-arrows { display: none; }
+  .mt-slider { gap: 16px; }
+  .mt-card-lg { flex-basis: 85vw; }
+  .mt-card-sm { flex-basis: 72vw; }
+  .mt-card-lg .mt-name { font-size: 23px; }
+  .mt-sky-in { padding-top: 80px; padding-bottom: 76px; }
+  .mt-passage p { font-size: 28px; }
+  .mt-choices { gap: 2px 20px; }
+  /* on a phone the grid is one card a row: the clock beside the words */
+  .mt-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .mt-grid .mt-word-a {
+    display: grid; grid-template-columns: 84px minmax(0, 1fr); column-gap: 16px; align-items: start;
+    padding: 20px 0; border-top: 1px solid var(--mt-hair);
+  }
+  .mt-grid .mt-seat { grid-row: 1 / span 3; aspect-ratio: 1; margin: 0; }
+  .mt-grid .mt-clock-lg { width: 60px; height: 60px; }
+  .mt-grid .mt-name, .mt-grid .mt-side, .mt-grid .mt-first { grid-column: 2; }
+  .mt-grid .mt-first { -webkit-line-clamp: 3; }
+  .mt-more { margin-top: 36px; }
+  .mt-banner-in { grid-template-columns: minmax(0, 1fr); padding: 40px 24px 44px; gap: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mt-room *, .mt-room *::before, .mt-room *::after { transition: none !important; animation: none !important; }
+  .js-reveal .mt-room .reveal, .js-reveal .mt-room .mt-grid .mt-word { opacity: 1; }
+  .mt-slider { scroll-behavior: auto; }
+}

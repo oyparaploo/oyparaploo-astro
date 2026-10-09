@@ -639,150 +639,7 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
 </style>
-<style id="subject-styles">
-/* The subject pages: the shelf page body, with the picture that changes as you read
-   (parts book block 41, as on the Writings page's Subjects), first lines under each
-   title (block 34), the fragment's bar on the lifted line (block 17), Show more (54),
-   and Often found with (117). The bands take the picture's own ground (66). */
-.passage.fragment { border-left: 3px solid #111111; padding-left: 24px; }
-.reading-band { --ink: #111111; --ink-soft: #111111; --ground: var(--pic-ground); --rule: #111111;
-  background: var(--pic-ground); color: #111111; padding: 72px 0 96px; }
-.reading-band :focus-visible { outline-color: #111111; }
-.reading-wrap .subject-rows { display: flex; flex-direction: column; margin: 0 0 0 calc(-1 * var(--edge)); border-bottom: 1px solid var(--rule); }
-.subject-rows a {
-  display: grid; grid-template-columns: minmax(0, 1fr) 32px; column-gap: 16px; row-gap: 6px; align-items: center;
-  padding: 18px 16px 18px var(--edge); text-decoration: none; color: var(--ink);
-  border-top: 1px solid var(--rule); transition: background-color 0.3s ease, color 0.3s ease; }
-.subject-rows a.later { display: none; }
-.subject-rows .row-name-wrap { grid-column: 1; }
-.subject-rows .row-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; }
-.subject-rows .row-first { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-  margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45; }
-.subject-rows .row-side { grid-column: 1; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; }
-.subject-rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; justify-self: end; font-size: 26px; line-height: 1; }
-.subject-rows a:active { background-color: #111111; color: var(--pic-ground); }
-@media (hover: hover) {
-  .subject-rows a:hover, .subject-rows a:focus-visible { background-color: #111111; color: var(--pic-ground); }
-  .subject-rows a:hover .row-arrow, .subject-rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
-}
-.show-more-wrap { padding: 40px 0 0; }
-.show-more-wrap[hidden] { display: none; }
-.reading-band .btn { --btn-ink: #111111; --btn-ground: var(--pic-ground); }
-.pic-stack { display: grid; }
-.pic-seat { grid-area: 1 / 1; display: block; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s linear 0.4s; }
-.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
-.pic-seat img { width: 100%; height: auto; }
-.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
-.pic-tab { background: none; border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; color: #111111; padding: 8px 0; min-height: 44px; }
-.pic-tab[aria-pressed="true"] { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-@media (min-width: 1000px) {
-  .reading-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
-  .reading-pic { padding-left: 64px; }
-  .pic-pin { position: sticky; top: 96px; }
-}
-@media (max-width: 999px) { .reading-pic { margin-top: 48px; } .reading-wrap .subject-rows { margin-right: calc(-1 * var(--edge)); } }
-.found-band { --ink: #111111; --ground: var(--found-ground); background: var(--found-ground); color: #111111; padding: 72px 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 12px; }
-.chip { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 22px; border: 1px solid #111111; border-radius: 999px;
-  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; color: #111111; text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease; }
-.chip:active { background: #111111; color: var(--found-ground); }
-@media (hover: hover) { .chip:hover, .chip:focus-visible { background: #111111; color: var(--found-ground); } }
-.foot-next { padding-top: 72px; }
-@media (prefers-reduced-motion: reduce) { .pic-seat, .pic-seat.is-on, .subject-rows a, .chip { transition: none; } }
-</style>
-
-
-<style id="dark-bar">
-/* Reach, October 2, 2026, late evening: the row pointed at goes back to a dark bar with light words, as it was
-   before tonight, but the drawing now shows through it. The bar is Ink at 80 per cent over the same drawing, turned
-   light (white lines on dark), lined up exactly with the drawing over the page. Behind the words the bar is near
-   black (a soft dark halo), so the light lines never cross the type: the same tracing-paper clearing as the rest
-   of the page, in dark. The chosen type on the Writings page wears the same bar. In Dark mode it mirrors: a light
-   bar with dark words and the drawing in dark lines. Replaces the light 8 per cent veil made earlier the same evening. */
-/* Reach, the same night: the bar lighter (Ink at 62 per cent instead of 80), and the dark area behind the words
-   a little wider, kept as dark as before (more halo layers, spread further). */
-/* The bar's copy of the drawing takes its size and place from the drawing script (--sig-size, --sig-pos), measured
-   on the whole window as the drawing over the page is, so the lines run straight through the bar. */
-/* The bar's tone: Ink mixed with a little of the ground (a deep charcoal), laid at 85 per cent over the light drawing,
-   so the bar itself reads lighter while the lines still show. */
-:root { --bar-strength: 80%;
-  --bar-tone: color-mix(in srgb, color-mix(in srgb, var(--ink) var(--bar-strength), var(--ground)) 85%, transparent);
-  --bar-halo: 0 0 4px var(--ink), 0 0 10px var(--ink), 0 0 18px var(--ink), 0 0 18px var(--ink), 0 0 30px var(--ink), 0 0 30px var(--ink), 0 0 44px var(--ink); }
-.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ background-attachment: fixed; }
-.doors a:active, .kind-name a:active, .kind.is-active .kind-name a, .subjects a:active, .year-list a:active, .rows a:active , .subject-rows a:active{
-  background-color: var(--ground); color: var(--ground);
-  background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
-  background-blend-mode: normal, saturation, difference;
-  background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
-  }
-@media (hover: hover) {
-  .doors a:hover, .doors a:focus-visible, .kind-name a:hover, .kind-name a:focus-visible, .subjects a:hover, .subjects a:focus-visible,
-  .year-list a:hover, .year-list a:focus-visible, .rows a:hover, .subject-rows a:hover, .rows a:focus-visible , .subject-rows a:focus-visible{
-    background-color: var(--ground); color: var(--ground);
-    background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
-    background-blend-mode: normal, saturation, difference;
-    background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
-    }
-}
-/* The dark area behind the words and behind the arrow (Reach, the same night: "expand it a little bit and keep it
-   the same darkness", and "enough expanded block out area for the arrow"): each name and the arrow sit on solid Ink
-   that reaches about 13 pixels past the type and then fades out over the next 14 pixels, kept inside the bar. */
-.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ overflow: hidden; }
-.doors a:active > span, .kind-name a:active > span, .kind.is-active .kind-name a > span, .subjects a:active > span, .year-list a:active > span, .rows a:active > span , .subject-rows a:active > span{
-  background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
-@media (hover: hover) {
-  .doors a:hover > span, .doors a:focus-visible > span, .kind-name a:hover > span, .kind-name a:focus-visible > span,
-  .subjects a:hover > span, .subjects a:focus-visible > span, .year-list a:hover > span, .year-list a:focus-visible > span,
-  .rows a:hover > span, .subject-rows a:hover > span, .rows a:focus-visible > span , .subject-rows a:focus-visible > span{
-    background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
-}
-/* Reach, the same night: the arrow bolder, and the black patch behind it not spread so far (it hugs the arrow:
-   about 6 pixels of solid black, fading over the next 12). The patch behind the words is unchanged. */
-.doors a .row-arrow, .kind-name a .row-arrow, .subjects a .row-arrow, .year-list a .row-arrow, .rows a .row-arrow , .subject-rows a .row-arrow{ font-weight: 800; -webkit-text-stroke: 0.6px currentColor; }
-.doors a:active > .row-arrow, .kind-name a:active > .row-arrow, .kind.is-active .kind-name a > .row-arrow, .subjects a:active > .row-arrow, .year-list a:active > .row-arrow, .rows a:active > .row-arrow , .subject-rows a:active > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
-@media (hover: hover) {
-  .doors a:hover > .row-arrow, .doors a:focus-visible > .row-arrow, .kind-name a:hover > .row-arrow, .kind-name a:focus-visible > .row-arrow,
-  .subjects a:hover > .row-arrow, .subjects a:focus-visible > .row-arrow, .year-list a:hover > .row-arrow, .year-list a:focus-visible > .row-arrow,
-  .rows a:hover > .row-arrow, .subject-rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow , .subject-rows a:focus-visible > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
-}
-</style>
-<style id="dark-bar-rows">
-/* October 2, 2026, late night, carried with the dark bar from the-writings.html: on the shelf, type, door and subject
-   rows the name and the line beside it sit in grid columns, so their boxes stretched across the whole column and the
-   near-black patch filled the bar. Each box now hugs its own words, as the names on the Writings page do, so the patch
-   sits only behind the words and the drawing shows through the rest of the bar. Nothing moves at rest. */
-.rows a > .row-name, .rows a > .row-side, .subject-rows a > .row-name-wrap, .subject-rows a > .row-side { justify-self: start; }
-/* The rows here hold two or three pieces of words (the name, the line beside or under it, the arrow). Each piece's
-   near-black patch is painted on a layer beneath all the words of its row, so no patch can darken the words of the
-   piece next to it (seen on the subject page, where the kind and reading time sit under the opening lines, and on
-   phones, where the line beside a name drops under it). Same patch sizes as on the Writings page. */
-.rows a, .subject-rows a { isolation: isolate; }
-.rows a > span, .subject-rows a > span { position: relative; }
-.rows a > span::before, .subject-rows a > span::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
-.rows a > .row-arrow::before, .subject-rows a > .row-arrow::before { border-radius: 8px; }
-.rows a:active > span, .subject-rows a:active > span { background-color: transparent; box-shadow: none; }
-.rows a:active > span::before, .subject-rows a:active > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
-.rows a:active > .row-arrow, .subject-rows a:active > .row-arrow { box-shadow: none; }
-.rows a:active > .row-arrow::before, .subject-rows a:active > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
-@media (hover: hover) {
-  .rows a:hover > span, .rows a:focus-visible > span, .subject-rows a:hover > span, .subject-rows a:focus-visible > span { background-color: transparent; box-shadow: none; }
-  .rows a:hover > span::before, .rows a:focus-visible > span::before, .subject-rows a:hover > span::before, .subject-rows a:focus-visible > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
-  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow, .subject-rows a:hover > .row-arrow, .subject-rows a:focus-visible > .row-arrow { box-shadow: none; }
-  .rows a:hover > .row-arrow::before, .rows a:focus-visible > .row-arrow::before, .subject-rows a:hover > .row-arrow::before, .subject-rows a:focus-visible > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
-}
-</style>
-<style id="soft-patch">
-/* Reach, October 2, 2026, late night: carried from poems.html, which he called perfect. On the dark bar the name
-   and the line beside it (or the opening lines under it) wear the same soft patch: Ink at 45 per cent, about
-   6 pixels past the letters, fading over the next 10, so the drawing shows through the rest of the bar and the
-   words still read. The arrow keeps its near-black patch. */
-.rows a:active > .row-name::before, .rows a:active > .row-name-wrap::before, .rows a:active > .row-side::before, .subject-rows a:active > .row-name-wrap::before, .subject-rows a:active > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
-@media (hover: hover) {
-  .rows a:hover > .row-name::before, .rows a:focus-visible > .row-name::before, .rows a:hover > .row-name-wrap::before, .rows a:focus-visible > .row-name-wrap::before, .rows a:hover > .row-side::before, .rows a:focus-visible > .row-side::before, .subject-rows a:hover > .row-name-wrap::before, .subject-rows a:focus-visible > .row-name-wrap::before, .subject-rows a:hover > .row-side::before, .subject-rows a:focus-visible > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
-}
-</style>
-
-<link rel="stylesheet" href="/drawing.css">
+<link rel="stylesheet" href="/writings/war-and-displacement-room.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -825,224 +682,318 @@ main .rooms { padding: 0 0 72px; }
 }
 </script>
 </head>
-<body class="behind">
+<body class="room-page subject-room wd-page">
 
 
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
 
 <main>
-  <section class="opening" aria-label="War and Displacement" style="--band: #E5E6DE; --work-5: #F7F9E9;">
-
-    <div class="opening-words">
-      <div class="opening-words-in">
-        <a class="back-link arrive" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
-        <h1 class="stage-title arrive" style="--d:0.1s">War and Displacement</h1>
-        <p class="stage-sentence arrive" style="--d:0.2s">Every writing about war and displacement, of every kind, newest first. Choose one to read.</p>
-      </div>
-    </div>
-
-    <div class="opening-pic">
-      <blockquote class="passage fragment arrive" style="--d:0.3s">
-        <p>Masked gunmen with AK-47s and shoulder rockets ... Standing in front of the olive trees ... The trees do not move ...</p>
-      </blockquote>
-      <p class="passage-from arrive" style="--d:0.4s"><a class="go-link" href="https://paraploo.com/words/2026-variety/what-the-eyes-hold/">From <em>what the eyes hold</em> <span aria-hidden="true">&rarr;</span></a></p>
-    </div>
-
-  </section>
-  <div class="sky" data-sky="fog" aria-hidden="true"></div>
-
-  <div class="rooms">
-    <section class="reading-band" aria-label="The writings on this subject" style="--pic-ground: #F7F9E9;">
-      <div class="inner">
-        <div class="reading-wrap">
-          <div>
-            <nav class="subject-rows" aria-label="War and Displacement">
-          <a href="https://paraploo.com/words/2026-variety/from-the-back-love-song/"><span class="row-name-wrap"><span class="row-name">From The Back Love Song</span><span class="row-first">Chanson d'amour ... Shir Ahava ... Serenade ... We're standing at the foot of a tree asking our housemates to come down and receive offerings of an ear ... on a small velvet pillow ... with a satin choral group becoming the audience ... Singing to children in the sycamore branches ... Let's begin the next act</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/"><span class="row-name-wrap"><span class="row-name">The store walked into the garden and forgot its own</span><span class="row-first">The store walked into the garden and forgot its own name ... The agent stood at the threshold of rose vines and couldn't find the door because the door was painted the same color as the flowers ... The agency that hunts</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/membrane-discoveries/"><span class="row-name-wrap"><span class="row-name">VERSION 2 — THE MEMBRANE DISCOVERIES</span><span class="row-first">Cracked Open Fun Sun Day AzaLea ... SoleMN ... HeaVen ... ZeaL ... MN hiding in soleMN ... Minnesota was always inside the grief ... The flower and the fire share the same bone ... Raw asylum ... asylum before it was cooked into policy ... granted to people who have fled ... home countries that stopped being home the</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/nothing-opaque-interests-us-anymore/"><span class="row-name-wrap"><span class="row-name">Nothing Completely Opaque Interests Us Anymore</span><span class="row-first">Cut ... With hush Ethiopian ... Hold ... the lyrics as ... Tight ... ghosts ... oh boy angel ... detained for stealing maybes ... Cardamom Said Cookie ... Stitches are not what they seem to be ... middle(e)ye ...</span></span><span class="row-side">Essay · 17 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/joy-of-staying-alive/"><span class="row-name-wrap"><span class="row-name">Joy Of Staying Alive</span><span class="row-first">Begin to gain recognition. Hesitant about stepping into the limelight ... lowercasing of names. Opting for a blank white canvas of anonymity. Possessing transgressive humility. Resistance to conforming defines the charm. Embracing improvised mutability, in response to moving between migrant parents. Authenticity</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/all-senses-human-and-other-natures/"><span class="row-name-wrap"><span class="row-name">All senses Human and Other natures</span><span class="row-first">( we just started a running and growing writing project ) ambient pioneer ... NOTE ON SILENCE ... Oldboy maestro ... An American who defined sound operating under conditions other traditions never faced ... Darkly lit synth-driven scores ... How horror can be tender and define crossing a border ... including that Big</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/bowed-cello-playing-sound-of-words-next-to-a-killing-field/"><span class="row-name-wrap"><span class="row-name">Bowed Cello Playing "Sound Of Words" Next To A Killing</span><span class="row-first">( laying there to be recorded ) we sometimes have a lot of fear ... our nation has a lot of fear ... and in numerous cases rightly so ... fear has rarely accomplished positive actions for any society ...</span></span><span class="row-side">Short piece · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/conflict-zone-air-type/"><span class="row-name-wrap"><span class="row-name">Conflict zone air type</span><span class="row-first">As an adult mortal human bird Earth laying ... if I had to make a choice ... to be down to earth and prejudice or not at all prejudice and up in the air ... I would every time choose to be up in the air. Earth and air types without anything else attached I believe are all good though. Nothing wrong with living fully</span></span><span class="row-side">Prayer · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/so-much-unusual-beauty-1/"><span class="row-name-wrap"><span class="row-name">So much unusual beauty and new conversation in this fatal</span><span class="row-first">Suede voices of schoolchildren ... sweet voices of schoolchildren are saved ... safe zones indicate they are alive. Displacement ... dropouts ... sporadic poverty. The number of killed civilians is rapidly rising.</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/what-the-eyes-hold/"><span class="row-name-wrap"><span class="row-name">what the eyes hold</span><span class="row-first">A catalog of looking ... Everything the eyes refused to turn away from ... Olive trees ... Wide open stony Holy Land landscapes ... The stones were there before the land was holy ... They will be there after ... Masked</span></span><span class="row-side">Essay · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/what-the-ears-built/"><span class="row-name-wrap"><span class="row-name">what the ears built</span><span class="row-first">A catalog of sounds ... Things the ears made while the eyes were busy elsewhere ... Taste Of Framing ... Putting up studs and rafters ... Guitar music nearby ... The guitar does not know it is part of the framing ...</span></span><span class="row-side">Essay · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/the-gathering-of-questions-complete/"><span class="row-name-wrap"><span class="row-name">The Gathering of Questions</span><span class="row-first">Complete Production Package — Oyparaploo Part 1: Source &amp; Transformation The Transformation Mandate Transform methodology manuscripts into seamless, fluid running text. Make it intriguing and interesting. Ensure every</span></span><span class="row-side">Essay · 23 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/leaf-02-what-the-wreckage-knows/"><span class="row-name-wrap"><span class="row-name">WHAT THE WRECKAGE KNOWS</span><span class="row-first">Leaf #2 — Oyparaploo Production Specifications</span></span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/pressure-ghosts-seventh-hour/"><span class="row-name-wrap"><span class="row-name">Pressure Ghosts (seventh hour)</span><span class="row-first">How Communities Learn to Wobble Together Here's what you need to understand about how communities of expanded perception actually function, because what unfolded at the intersection over the days and weeks following</span></span><span class="row-side">Story · 24 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/pressure-ghosts-second-hour/"><span class="row-name-wrap"><span class="row-name">Pressure Ghosts (second hour)</span><span class="row-first">Second Movement: When the Green Zone Burns and Language Fails The all-heart moment came unexpectedly, the way genuine compassion always does. The woman in the Barney costume—her name was Desta, though few people had ever asked—knelt beside a child crying at the intersection. She didn't speak. She couldn't anymore,</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/pops-for-four-nations/"><span class="row-name-wrap"><span class="row-name">Pops For Four Nations</span><span class="row-first">When the Prophet Speaks Through Fire and the Young Woman's Voice Becomes Four Countries' Sacred Sound There's a particular kind of insanity that comes from high self-criticism of hello literature—that moment when we first greet a piece of writing and immediately begin dismantling it, questioning whether language</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/boards/"><span class="row-name-wrap"><span class="row-name">Boards</span><span class="row-first">I. Rafah The box under Layla's bed is just boards nailed together. Her brother made it before he left—crooked nails, gaps between the slats, the kind of thing you build when you know nothing is permanent so why bother</span></span><span class="row-side">Story · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/forty-seven-toy-guns/"><span class="row-name-wrap"><span class="row-name">Forty-Seven Toy Guns</span><span class="row-first">Beirut Jamil's job: make the mannequin children look happy holding AK-47s.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/american-streets-american-soldiers-why-trump-s-military-deployment-plan-threatens-everything/"><span class="row-name-wrap"><span class="row-name">American Streets American Soldiers</span><span class="row-first">American Streets American Soldiers ~ Why Trump's Military Deployment Plan Threatens Everything Trump wants to put soldiers on American streets. Not for war, not for natural disaster—for immigration raids and "crime</span></span><span class="row-side">Essay · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/when-democracy-holds-its-breath-a-reflection-on-military-deployment-in-our-cities-vii/"><span class="row-name-wrap"><span class="row-name">When Democracy Holds Its Breath</span><span class="row-first">When Democracy Holds Its Breath ~ A Reflection on Military Deployment in Our Cities I keep thinking about what the World War II veterans used to say, the ones who came home and spent decades teaching in our schools.</span></span><span class="row-side">Essay · 19 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/soldiers-in-chicago-what-the-crime-numbers-won-t-tell-you/"><span class="row-name-wrap"><span class="row-name">Soldiers in Chicago</span><span class="row-first">Soldiers in Chicago ~ What the Crime Numbers Won't Tell You When I first read that President Trump had authorized military troops to deploy in Chicago, my immediate question was: why Chicago? I started looking at the</span></span><span class="row-side">Essay · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/the-uncrossable-distance-how-not-listening-creates-a-cruel-world/"><span class="row-name-wrap"><span class="row-name">The Uncrossable Distance</span><span class="row-first">Caricature Factory When listening stops, humans become cartoons. Without hearing complexity, everyone gets sorted into simple categories—enemy, ally, threat. One keyword triggers complete categorization: "You said that phrase, so you're one of those people."</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/deadly-sin-of-being-right-how-dogmatism-kills-effective-communication/"><span class="row-name-wrap"><span class="row-name">Deadly Sin of Being Right</span><span class="row-first">Pre-Emptive Funeral Dogmatism announces from the start: "This conversation is already over. I have nothing to learn from you." It's communication that arrives dead, wrapped in certainty's shroud. The dogmatist broadcasts carved-in-stone positions while pretending to converse—mouths moving, words emerging, but no</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/the-beautiful-both-when-opposing-truths-dance-together/"><span class="row-name-wrap"><span class="row-name">The Beautiful Both</span><span class="row-first">Elephant in Every Room Two people experience the same moment. One touches the trunk and says "snake." Another touches the leg and says "tree." Both are right about their piece of reality. The tragedy begins only when each insists their piece is the whole.</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/notes-to-a-lost-mother-tongue/"><span class="row-name-wrap"><span class="row-name">Notes to a Lost Mother Tongue</span><span class="row-first">You only come back when I lie. Yesterday, the refugee child at the intake desk. Seven years old, maybe eight. Speaking our language—yours and mine. Perfect grammar. Better than mine ever was. She asked if I could help her find her grandmother.</span></span><span class="row-side">Story · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-well-of-truth-nour-s-migration/"><span class="row-name-wrap"><span class="row-name">The Well of Truth ~ Nour's Migration</span><span class="row-first">Part One: The Departure Damascus, March 2011. The protests hadn't reached our neighborhood yet, but Nour could taste tear gas from Douma in her morning tea. Life is chaos— chaos, cascading, swirling chaos. Her daughter</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-moving-through-montreal-as-an-angelic-ghost/"><span class="row-name-wrap"><span class="row-name">Brrd Roots ~ Moving Through Montreal as an Angelic Ghost</span><span class="row-first">The Whisper That Never Fades January 2021. Mile End. The eviction notice arrives in French only, though my landlord knows I struggle with the subjunctive. Reprise de logement—taking back the dwelling. Even the language</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-joke-that-crossed-the-border/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Joke That Crossed the Border</span><span class="row-first">OPENING AUTHORITY (Step 1) The Belgrade Comedy Club, Chicago, 11:47 PM, open mic night. I'm bombing. Twenty-three minutes into my set, not a single laugh. The silence is so complete I can hear the ice melting in</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-cartographer-of-disappeared-things/"><span class="row-name-wrap"><span class="row-name">The Cartographer of Disappeared Things</span><span class="row-first">Part I: The Discovery My mother's storage unit smelled of mildew and failed promises. Box 47, labeled "Dad's Work Things" in her careful script, split at the seams when I lifted it. What spilled out changed everything I</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-prison-dance-therapist-movement-as-survival-in-war-zones/"><span class="row-name-wrap"><span class="row-name">The Prison Dance Therapist</span><span class="row-first">Part I: The Authority of Motion I'm teaching imprisoned soldiers to dance in a Serbian detention camp when Verli starts singing Beyoncé's "End of Time" to hallucinated roaches, and I realize trauma doesn't break people—stillness does.</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-mortal-bird-artist-dancing-through-conflict-zones/"><span class="row-name-wrap"><span class="row-name">The Mortal Bird Artist</span><span class="row-first">Part I: The Authority of Movement I'm performing interpretive dance in a bombed-out gallery in Aleppo when a sniper's bullet passes through my shadow, and I realize my body is both the art and the archive of everything we're losing.</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-moving-images-that-live-through-us/"><span class="row-name-wrap"><span class="row-name">The Moving Images That Live Through Us</span><span class="row-first">Part I: The Authority of Memory I'm debugging neural-link cinema code at 3 AM in a warehouse that used to package superhero capes when my Iraqi coworker Hadi discovers our test footage is creating memories that don't</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-language-of-olive-trees/"><span class="row-name-wrap"><span class="row-name">The Language of Olive Trees</span><span class="row-first">Part One: The Inheritance I inherited deafness from birth and art from necessity—Layla Hamidi, born in Gaza City's Shifa Hospital during the 1987 intifada, when tear gas seeped through maternity windows. My</span></span><span class="row-side">Story · 7 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-poor-air-breathless-horizon-and-more/"><span class="row-name-wrap"><span class="row-name">Brrd Roots ~ Poor Air ~ Breathless Horizon and More</span><span class="row-first">LOOP(S) The smog didn’t arrive with thunder. It crept, patient and inevitable, curling through the streets, slipping between windowpanes, folding itself into the spaces between moments. At first, Jonas barely</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-woman-of-boundless-prisons-unfounded-tapestry/"><span class="row-name-wrap"><span class="row-name">The Woman of Boundless Prisons</span><span class="row-first">A Chronicle of Mandatory Metamorphosis Introduction</span></span><span class="row-side">Story · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/dazed-hymns-inheritance-and-fluid-stream/"><span class="row-name-wrap"><span class="row-name">Dazed Hymns: Inheritance and Fluid Stream</span><span class="row-first">May arrives with tears, the way my grandmother's May always did—orange blossoms mixed with tear gas, sweetness and burning. Sheep ahh to cure what the old women knew needed no curing, only witnessing. Pata spak ee aye—my mother's nonsense words when words failed her, when heritage wasn't safe, when silence grew teeth.</span></span><span class="row-side">Poem · 13 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/when-language-becomes-a-refugee-songs-as-salt-rivers-archives-of-displacement/"><span class="row-name-wrap"><span class="row-name">When Language Becomes a Refugee</span><span class="row-first">Songs as Salt Rivers ~ Archives of Displacement ( Introduction) In this extraordinary testament to human resilience, language itself becomes a refugee—seeking asylum in gesture, fracturing like bombed buildings,</span></span><span class="row-side">Essay · 20 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-mirror-of-displacement-hustle/"><span class="row-name-wrap"><span class="row-name">The Mirror of Displacement Hustle</span><span class="row-first">You are holding a profound document. About displacement, they say. About survival. And resistance through music. But listen: here is how the body knows. Your throat hurts from the dust—you are learning, cell by cell,</span></span><span class="row-side">Essay · 12 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/342-meters-a-phosphorescent-tide-songs-of-displacement-from-block-j-tent-47/"><span class="row-name-wrap"><span class="row-name">342 Meters: A Phosphorescent Tide</span><span class="row-first">Songs of Displacement from Block J Tent 47 The Singer</span></span><span class="row-side">Story · 35 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/static-meeting-signal-between-frequencies-breathing-through-floating-ash-and-light-iii/"><span class="row-name-wrap"><span class="row-name">The smoke rises like a whisper unanswered</span><span class="row-first">curling through the morning air with the patience of all forgotten prayers, and I think of the old archivist in her room, bent over recording equipment that glows with tiny red lights—each one a small beacon against the coming darkness. She's mapping the city's sounds before the dust storms arrive, catching birdsong</span></span><span class="row-side">Story · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/the-child-who-collects-shadows-notes-from-the-abundant-deprivation-zone/"><span class="row-name-wrap"><span class="row-name">The Child Who Collects Shadows</span><span class="row-first">Notes from the Abundant Deprivation Zone fragments/wind/ruins—picking up setting down but WHO'S PICKING? whose hands? the birds aren't birds they're ribs they're—no wait they're the SOUND of birds that were never there</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/are-clouds-edible-where-love-holds-on-despite-everything-the-play/"><span class="row-name-wrap"><span class="row-name">Are Clouds Edible?</span><span class="row-first">Where Love Holds On Despite Everything (The Play) A child asks if clouds are edible, and suddenly we understand everything about hunger. This play takes place in a hospital ward under siege, where mothers count their</span></span><span class="row-side">Play · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-hardships-hope-and-expanding-perceptions/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide</span><span class="row-first">Hardships Faced by a Specific Group The displaced farmers who once tilled the fertile lands now confront relentless challenges. Denied access to their fields, they struggle to adapt to an urban landscape that offers little of the certainty they once knew. Their hands, calloused from years of harvesting crops, now ache</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-juxtaposing-rhythms-hope-and-resistance/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide</span><span class="row-first">Juxtaposing Rhythm: Nuanced Patterns of Power This story holds a rhythm that mirrors the human experience—its movements are both fractured and flowing, interrupted and continuous. Juxtaposition creates moments of tension: where silence follows noise, where despair meets sudden joy, where stillness lingers amid chaos.</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-dimensions-of-humanity-and-the-interplay-of-suffering-and-connection/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide…</span><span class="row-first">The Divide ~ Dimensions of Humanity and the Interplay of Suffering and Connection A Distinct Perspective: Connection Through Fractures</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-amplified-voices-shared-resilience-and-dimensions-of-connection/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide</span><span class="row-first">The Divide ~ Amplified Voices, Shared Resilience, and Dimensions of Connection City Fever Noises and the Weight of Anticipation</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-innovation-identity-and-the-weight-of-justice/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide…</span><span class="row-first">The Divide ~ Innovation, Identity, and the Weight of Justice Aesthetic Innovation Meets Sociopolitical Critique</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-wisdom-compassion-and-the-costs-of-justice/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide…</span><span class="row-first">The Divide ~ Wisdom, Compassion, and the Costs of Justice Arbitrary Nature Exposed</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-resilience-accessibility-and-a-new-language-of-connection/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Divide…</span><span class="row-first">The Divide ~ Resilience, Accessibility, and a New Language of Connection A Conversation on Fair Accessibility</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-enduring-voices/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Enduring Voices</span><span class="row-first">Gaza, Exile, and the Resilience of the Human Spirit Gaza has long been misunderstood in international discourse—a place cast in shadow, mischaracterized as a land defined solely by despair and destruction. Yet beneath the blockade, beyond the walls that confine and restrict, Gaza pulses with light. Its people are not</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-the-light-beyond-the-ruins-script-for-a-performance/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: The Light Beyond the Ruins</span></span><span class="row-side">Play · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-threads-of-resilience/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Threads of Resilience</span><span class="row-first">and the Quiet Strength to Rebuild How Isolation, Fear, and Fragile Systems Shape Collapse —and the Bridges That Carry Us Forward The world wasn’t just fraying—it was unraveling, thread by thread, like a sweater caught</span></span><span class="row-side">Story · 26 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-united-states-revolutionary-war-story-version-10/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: United States Revolutionary War Story</span><span class="row-first">War smells like the awkward, damp corner of the world—where humanity’s broken plans tend to pile up like soggy laundry. That’s what the farmer-turned-soldier thought as he crouched low in the trench, gripping his musket</span></span><span class="row-side">Story · 13 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/original-brrd-roots-united-states-revolutionary-war-intimate-story/"><span class="row-name-wrap"><span class="row-name">(original): Brrd Roots</span><span class="row-first">No one tells you that war smells like a soggy basement—or like socks left forgotten in the back of a barn. But it does. That was the first thing the farmer-turned-soldier noticed as he crouched low in the trench,</span></span><span class="row-side">Story · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-blood-bonds-and-blueprints-forging-modern-america-amidst-the-civil-war-s-ruins/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Blood…</span><span class="row-first">Blood, Bonds, and Blueprints ~ Forging Modern America Amidst the Civil War's Ruins The Civil War (1861–1865) was not just a bitter brother-against-brother conflict that claimed roughly 750,000 lives—it was also a seismic event that reshaped America’s economic destiny and left deep scars on the nation's soul. At its</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/in-the-turbulent-shadow/"><span class="row-name-wrap"><span class="row-name">In the turbulent shadow of the Cold War</span><span class="row-first">the Vietnam War stands as a somber testament to both human conflict and fiscal overreach, where the clashing of military might obscured the profound economic toll exacted on nations and communities alike. Amidst massive troop deployments and an astronomical budget that diverted vital resources from domestic progress,</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-blood-bills-and-broken-trust-unmasking-the-dual-toll-of-the-vietnam-war-and-my-lai/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Blood</span><span class="row-first">Blood, Bills, and Broken Trust ~ Unmasking the Dual Toll of the Vietnam War and My Lai The Vietnam War was a tumultuous era defined not only by its bloodshed but also by an economic toll that still reverberates today. Framed by Cold War geopolitics and fueled by the drive to contain communism, U.S. involvement</span></span><span class="row-side">Essay · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/brrd-roots-exiled-assets-unveiling-the-hidden-economic-toll-of-japanese-american-internment/"><span class="row-name-wrap"><span class="row-name">Brrd Roots: Exiled Assets</span><span class="row-first">Exiled Assets ~ Unveiling the Hidden Economic Toll of Japanese American Internment The internment of Japanese Americans during World War II stands as a stark testament to the perils of wartime hysteria and racial prejudice—a disturbing episode where fear overrode justice, and over 110,000 individuals (two-thirds of</span></span><span class="row-side">Essay · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2025-variety/imagine-a-nation-in-turmoil/"><span class="row-name-wrap"><span class="row-name">Imagine a nation in turmoil</span><span class="row-first">where the clashing of armies on battlefields was matched only by the revolution unfolding in factories, railroads, and financial institutions—a tumultuous era where the brutal legacy of slavery and a fractured agrarian order gave way to a new economic dawn. This narrative explores how the Civil War, while scarred by</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/220-makayla-i-m-paddling-against-waves-away-from-a-major/"><span class="row-name-wrap"><span class="row-name">Makayla: I'm paddling against waves away from a major</span><span class="row-first">I'm paddling against waves away from a major wildfire can you help me!!!</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/137-beginning-saturday-morning/"><span class="row-name-wrap"><span class="row-name">/// Beginning Saturday morning</span><span class="row-first">A group that doesn't describe themselves as militant ( but recommends extreme methods of physical violence) started a savage attack on their neighbor with a concentrated artillery rocket bombardment ... Over a thousand people have lost their lives ( are dead ) including babies and non-violent elderly women ... The</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/128-this-suspended-from-high-ceiling-series/"><span class="row-name-wrap"><span class="row-name">/// This suspended from high ceiling series</span><span class="row-first">this balanced and ill-structured collection of objects and fragments represents or is meant to show our interpretation of ~ dire-urgent-appalling situations ... that occur within a conflict zone ... For one example ~ the use of starvation of a population during a military struggle is simply wrong ... Even though our</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/120-this-is-not-the-first-time-we-have-detached-removed/"><span class="row-name-wrap"><span class="row-name">/// This is not the first time we have detached-removed</span><span class="row-first">-/// This is not the first time we have detached-removed our metal coverings ... This is not the first time we have shed our protective coverings to appear absolutely vulnerable ... with the intention to ( in a different way ) wound a thief or long time enemy ... We have no water for our toilet yet we feel more alive</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/117-josea-eat-or-be-eaten/"><span class="row-name-wrap"><span class="row-name">Josea: Eat or be eaten.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2023-25-phone-texts/091-humans-all-you-have-to-do-is-take-some-time/"><span class="row-name-wrap"><span class="row-name">Humans - All you have to do is Take Some Time</span><span class="row-first">To Observe Aromatic Magnolia Blossoms in a Soft Breeze and All Wars Will Come To An End.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/a-l-o-w-o-c-another-language-of-w/"><span class="row-name-wrap"><span class="row-name">A.L.O</span><span class="row-first">Imagine living in a place where dangers are a part of everyday life and people from different cultures and backgrounds struggle to communicate with each other. Translation and interpreting become crucial in breaking down existing language barriers and offering support. This concerns "Another Language of War's Other</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/an-artist-a-journalist-and-many-w/"><span class="row-name-wrap"><span class="row-name">An Artist, a Journalist</span><span class="row-first">and Many Warriors Who Taught Us Something Human About War And Genocide. We understand how difficult it can be to talk about the impact. These individuals are a testament to the severe effects. One such individual was James R. O'Neill, an Irish-born artist-correspondent who worked for Frank Leslie's Illustrated</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/military-toys-disaster-and-hope/"><span class="row-name-wrap"><span class="row-name">Military Toys Disaster and Hope</span><span class="row-first">What are the symbolisms of natural and artificial/material interpretations of damaged plastic military toys on a theater of war battleground? The music of visual art teaches us that repaired brokenness is gold. We can be mended and transformed. Leonard Cohen’s quote, “There is a crack, a crack in everything. That’s</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/what-is-a-challenged-neighborhood/"><span class="row-name-wrap"><span class="row-name">WHAT IS A CHALLENGED NEIGHBORHOOD?</span><span class="row-first">Living in a "challenged neighborhood" can be incredibly tough. These areas often have older infrastructure, lower home values, and fewer new developments. As a result, they may struggle with high vacancy and unemployment rates, leading to economic and social difficulties for the people who call them home. It's</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/new-kind-of-tactical-weapons-and-human-arms/"><span class="row-name-wrap"><span class="row-name">New Kind Of Tactical Weapons and Human Arms</span><span class="row-first">New tactical weapon rockets are growing arms. Soldiers. They will serve you. seed pods. On the battlefield. Be where the powder and black sticky substance, your sacrifices will be rewarded with the worst of all directions. The Worst of all, addictions. By disguised evil intentions. The plague of past armies will stick</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="later" href="https://paraploo.com/words/2024-variety/fill-in-the-blanks-yourself-and-complete-this-if-you-wish/"><span class="row-name-wrap"><span class="row-name">Fill In The Blanks Yourself And</span><span class="row-first">Complete This If You Wish What human empathy Looks like, if it were an</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-            </nav>
-          <div class="show-more-wrap"><button type="button" class="btn btn-solid solo show-more">Show more</button></div>
-          </div>
-          <div class="reading-pic">
-            <div class="pic-pin">
-              <div class="pic-stack">
-                <a class="pic-seat is-on" href="/physical/night-red-cross-tent/0001" aria-label="05053"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024.webp" width="2000" height="1664" alt="05053" decoding="async"></a>
-                <a class="pic-seat" href="/physical/night-red-cross-tent/0017" aria-label="05069" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%2010.webp" width="2000" height="1500" alt="05069" loading="lazy" decoding="async"></a>
-                <a class="pic-seat" href="/physical/night-red-cross-tent/0033" aria-label="05085" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%205.webp" width="2000" height="1686" alt="05085" loading="lazy" decoding="async"></a>
-                <a class="pic-seat" href="/physical/night-red-cross-tent/0049" aria-label="05101" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/tent%20at%20night%205.webp" width="2000" height="1442" alt="05101" loading="lazy" decoding="async"></a>
-              </div>
-              <div class="pic-tabs" role="group" aria-label="Pictures"><button type="button" class="pic-tab" aria-pressed="true">05053</button><button type="button" class="pic-tab" aria-pressed="false">05069</button><button type="button" class="pic-tab" aria-pressed="false">05085</button><button type="button" class="pic-tab" aria-pressed="false">05101</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="found-band" aria-label="Often found with" style="--found-ground: #FAFAF5;">
-      <div class="inner">
-        <p class="label">Often found with</p>
-        <div class="chips"><a class="chip" href="/writings/hope-and-healing.html">Hope and Healing</a><a class="chip" href="/writings/memory-and-the-past.html">Memory and the Past</a><a class="chip" href="/writings/art-and-making.html">Art and Making</a></div>
-      </div>
-    </section>
-
-    <section class="band foot-next" aria-label="Where next">
-      <div class="inner">
-        <div class="foot-grid">
-          <a class="back-link" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
-          <div>
-            <p class="next-label">Science, Senses and the Body</p>
-            <a class="go-link" href="/writings/science-senses-and-the-body.html">Next <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="wd-room">
+<div class="wd-lamp" aria-hidden="true"></div>
+<section class="wd-band wd-lead" aria-label="War and Displacement">
+<div class="wd-wrap wd-lead-in">
+<div class="wd-lead-words">
+  <a class="wd-back" href="/writings.html"><span class="wd-arrow" aria-hidden="true">&larr;</span> The Writings</a>
+  <div class="wd-lead-title">
+  <h1 class="wd-title">War and Displacement</h1>
+  <p class="wd-line">Every writing about war and displacement, of every kind, newest first. Choose one to read.</p>
   </div>
+</div>
+<figure class="wd-lead-pic">
+  <a class="wd-pic" href="/physical/night-red-cross-tent/0049" aria-label="05101"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/tent%20at%20night%205.webp" srcset="https://media.paraploo.com/site/images/physical/night-red-cross-tent/tent%20at%20night%205-600.webp 600w, https://media.paraploo.com/site/images/physical/night-red-cross-tent/tent%20at%20night%205.webp 2000w" sizes="(max-width: 899px) 92vw, 54vw" width="2000" height="1442" alt="05101" fetchpriority="high" decoding="async"></a>
+  <figcaption><a class="wd-num" href="/physical/night-red-cross-tent/0049">05101</a></figcaption>
+</figure>
+</div>
+</section>
+<section class="wd-band wd-witnesses" aria-label="War and Displacement">
+<div class="wd-wrap">
+<div class="wd-witness-grid">
+<article class="wd-witness" data-kind="Poem">
+  <a class="wd-witness-a" href="https://paraploo.com/words/2026-variety/from-the-back-love-song/"><span class="wd-name">From The Back Love Song&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Poem</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">Chanson d'amour ... Shir Ahava ... Serenade ... We're standing at the foot of a tree asking our housemates to come down and receive offerings of an ear ... on a small velvet pillow ... with a satin choral group becoming the audience ... Singing to children in the sycamore branches ... Let's begin the next act</span></a>
+</article>
+<article class="wd-witness" data-kind="Story">
+  <a class="wd-witness-a" href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/"><span class="wd-name">The store walked into the garden and forgot its own&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">6 minutes</span></span><span class="wd-first">The store walked into the garden and forgot its own name ... The agent stood at the threshold of rose vines and couldn't find the door because the door was painted the same color as the flowers ... The agency that hunts</span></a>
+</article>
+<article class="wd-witness" data-kind="Poem">
+  <a class="wd-witness-a" href="https://paraploo.com/words/2026-variety/membrane-discoveries/"><span class="wd-name">VERSION 2 — THE MEMBRANE DISCOVERIES&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Poem</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">Cracked Open Fun Sun Day AzaLea ... SoleMN ... HeaVen ... ZeaL ... MN hiding in soleMN ... Minnesota was always inside the grief ... The flower and the fire share the same bone ... Raw asylum ... asylum before it was cooked into policy ... granted to people who have fled ... home countries that stopped being home the</span></a>
+</article>
+</div>
+</div>
+</section>
+<section class="wd-band wd-marks" aria-label="War and Displacement">
+<div class="wd-wrap">
+<div class="wd-pic-row">
+<figure class="wd-row-pic reveal" style="--r:1.2019">
+  <a class="wd-pic" href="/physical/night-red-cross-tent/0001" aria-label="05053"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024.webp" srcset="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024-600.webp 600w, https://media.paraploo.com/site/images/physical/night-red-cross-tent/Day%20Stage%2024.webp 2000w" sizes="(max-width: 899px) 92vw, 32vw" width="2000" height="1664" alt="05053" loading="lazy" decoding="async"></a>
+  <figcaption><a class="wd-num" href="/physical/night-red-cross-tent/0001">05053</a></figcaption>
+</figure>
+<figure class="wd-row-pic reveal" style="--r:1.3333">
+  <a class="wd-pic" href="/physical/night-red-cross-tent/0017" aria-label="05069"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%2010.webp" srcset="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%2010-600.webp 600w, https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%2010.webp 2000w" sizes="(max-width: 899px) 92vw, 32vw" width="2000" height="1500" alt="05069" loading="lazy" decoding="async"></a>
+  <figcaption><a class="wd-num" href="/physical/night-red-cross-tent/0017">05069</a></figcaption>
+</figure>
+<figure class="wd-row-pic reveal" style="--r:1.1862">
+  <a class="wd-pic" href="/physical/night-red-cross-tent/0033" aria-label="05085"><img src="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%205.webp" srcset="https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%205-600.webp 600w, https://media.paraploo.com/site/images/physical/night-red-cross-tent/Tenting%20Interior%205.webp 2000w" sizes="(max-width: 899px) 92vw, 32vw" width="2000" height="1686" alt="05085" loading="lazy" decoding="async"></a>
+  <figcaption><a class="wd-num" href="/physical/night-red-cross-tent/0033">05085</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section class="wd-tarp" aria-label="From what the eyes hold">
+<div class="wd-wrap wd-tarp-in reveal">
+  <span class="wd-tarp-mark" aria-hidden="true"></span>
+  <blockquote class="wd-passage">
+  <p>Masked gunmen with AK-47s and shoulder rockets ... Standing in front of the olive trees ... The trees do not move ...</p>
+  </blockquote>
+  <p class="wd-from"><a class="wd-from-a" href="https://paraploo.com/words/2026-variety/what-the-eyes-hold/">From <em>what the eyes hold</em> <span class="wd-arrow" aria-hidden="true">&rarr;</span></a></p>
+</div>
+</section>
+<section class="wd-band wd-words" aria-label="War and Displacement">
+<div class="wd-wrap">
+<div class="wd-choices" role="group" aria-label="Types" hidden>
+  <button type="button" class="wd-choice" data-kind="" aria-pressed="true">Every type</button>
+  <button type="button" class="wd-choice" data-kind="Poem" aria-pressed="false">Poems</button>
+  <button type="button" class="wd-choice" data-kind="Story" aria-pressed="false">Stories</button>
+  <button type="button" class="wd-choice" data-kind="Play" aria-pressed="false">Plays</button>
+  <button type="button" class="wd-choice" data-kind="Essay" aria-pressed="false">Essays</button>
+  <button type="button" class="wd-choice" data-kind="Prayer" aria-pressed="false">Prayers</button>
+  <button type="button" class="wd-choice" data-kind="Text" aria-pressed="false">Texts</button>
+  <button type="button" class="wd-choice" data-kind="Conversation" aria-pressed="false">Conversations</button>
+  <button type="button" class="wd-choice" data-kind="Short piece" aria-pressed="false">Short pieces</button>
+</div>
+<div class="wd-grid">
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/nothing-opaque-interests-us-anymore/"><span class="wd-name">Nothing Completely Opaque Interests Us Anymore&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">17 minutes</span></span><span class="wd-first">Cut ... With hush Ethiopian ... Hold ... the lyrics as ... Tight ... ghosts ... oh boy angel ... detained for stealing maybes ... Cardamom Said Cookie ... Stitches are not what they seem to be ... middle(e)ye ...</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/joy-of-staying-alive/"><span class="wd-name">Joy Of Staying Alive&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">Begin to gain recognition. Hesitant about stepping into the limelight ... lowercasing of names. Opting for a blank white canvas of anonymity. Possessing transgressive humility. Resistance to conforming defines the charm. Embracing improvised mutability, in response to moving between migrant parents. Authenticity</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/all-senses-human-and-other-natures/"><span class="wd-name">All senses Human and Other natures&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">( we just started a running and growing writing project ) ambient pioneer ... NOTE ON SILENCE ... Oldboy maestro ... An American who defined sound operating under conditions other traditions never faced ... Darkly lit synth-driven scores ... How horror can be tender and define crossing a border ... including that Big</span></a>
+</article>
+<article class="wd-word" data-kind="Short piece">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/bowed-cello-playing-sound-of-words-next-to-a-killing-field/"><span class="wd-name">Bowed Cello Playing "Sound Of Words" Next To A Killing&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Short piece</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">( laying there to be recorded ) we sometimes have a lot of fear ... our nation has a lot of fear ... and in numerous cases rightly so ... fear has rarely accomplished positive actions for any society ...</span></a>
+</article>
+<article class="wd-word" data-kind="Prayer">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/conflict-zone-air-type/"><span class="wd-name">Conflict zone air type&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Prayer</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">As an adult mortal human bird Earth laying ... if I had to make a choice ... to be down to earth and prejudice or not at all prejudice and up in the air ... I would every time choose to be up in the air. Earth and air types without anything else attached I believe are all good though. Nothing wrong with living fully</span></a>
+</article>
+<article class="wd-word" data-kind="Short piece">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/so-much-unusual-beauty-1/"><span class="wd-name">So much unusual beauty and new conversation in this fatal&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Short piece</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">Suede voices of schoolchildren ... sweet voices of schoolchildren are saved ... safe zones indicate they are alive. Displacement ... dropouts ... sporadic poverty. The number of killed civilians is rapidly rising.</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/what-the-eyes-hold/"><span class="wd-name">what the eyes hold&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">6 minutes</span></span><span class="wd-first">A catalog of looking ... Everything the eyes refused to turn away from ... Olive trees ... Wide open stony Holy Land landscapes ... The stones were there before the land was holy ... They will be there after ... Masked</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2026-variety/what-the-ears-built/"><span class="wd-name">what the ears built&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">6 minutes</span></span><span class="wd-first">A catalog of sounds ... Things the ears made while the eyes were busy elsewhere ... Taste Of Framing ... Putting up studs and rafters ... Guitar music nearby ... The guitar does not know it is part of the framing ...</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-gathering-of-questions-complete/"><span class="wd-name">The Gathering of Questions&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">23 minutes</span></span><span class="wd-first">Complete Production Package — Oyparaploo Part 1: Source &amp; Transformation The Transformation Mandate Transform methodology manuscripts into seamless, fluid running text. Make it intriguing and interesting. Ensure every</span></a>
+</article>
+<article class="wd-word" data-kind="Conversation">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/leaf-02-what-the-wreckage-knows/"><span class="wd-name">WHAT THE WRECKAGE KNOWS&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Conversation</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">Leaf #2 — Oyparaploo Production Specifications</span></a>
+</article>
+<article class="wd-word" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/pressure-ghosts-seventh-hour/"><span class="wd-name">Pressure Ghosts (seventh hour)&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">24 minutes</span></span><span class="wd-first">How Communities Learn to Wobble Together Here's what you need to understand about how communities of expanded perception actually function, because what unfolded at the intersection over the days and weeks following</span></a>
+</article>
+<article class="wd-word" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/pressure-ghosts-second-hour/"><span class="wd-name">Pressure Ghosts (second hour)&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">Second Movement: When the Green Zone Burns and Language Fails The all-heart moment came unexpectedly, the way genuine compassion always does. The woman in the Barney costume—her name was Desta, though few people had ever asked—knelt beside a child crying at the intersection. She didn't speak. She couldn't anymore,</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/pops-for-four-nations/"><span class="wd-name">Pops For Four Nations&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">When the Prophet Speaks Through Fire and the Young Woman's Voice Becomes Four Countries' Sacred Sound There's a particular kind of insanity that comes from high self-criticism of hello literature—that moment when we first greet a piece of writing and immediately begin dismantling it, questioning whether language</span></a>
+</article>
+<article class="wd-word" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/boards/"><span class="wd-name">Boards&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">9 minutes</span></span><span class="wd-first">I. Rafah The box under Layla's bed is just boards nailed together. Her brother made it before he left—crooked nails, gaps between the slats, the kind of thing you build when you know nothing is permanent so why bother</span></a>
+</article>
+<article class="wd-word" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/forty-seven-toy-guns/"><span class="wd-name">Forty-Seven Toy Guns&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">Beirut Jamil's job: make the mannequin children look happy holding AK-47s.</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/american-streets-american-soldiers-why-trump-s-military-deployment-plan-threatens-everything/"><span class="wd-name">American Streets American Soldiers&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">6 minutes</span></span><span class="wd-first">American Streets American Soldiers ~ Why Trump's Military Deployment Plan Threatens Everything Trump wants to put soldiers on American streets. Not for war, not for natural disaster—for immigration raids and "crime</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/when-democracy-holds-its-breath-a-reflection-on-military-deployment-in-our-cities-vii/"><span class="wd-name">When Democracy Holds Its Breath&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">19 minutes</span></span><span class="wd-first">When Democracy Holds Its Breath ~ A Reflection on Military Deployment in Our Cities I keep thinking about what the World War II veterans used to say, the ones who came home and spent decades teaching in our schools.</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/soldiers-in-chicago-what-the-crime-numbers-won-t-tell-you/"><span class="wd-name">Soldiers in Chicago&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">8 minutes</span></span><span class="wd-first">Soldiers in Chicago ~ What the Crime Numbers Won't Tell You When I first read that President Trump had authorized military troops to deploy in Chicago, my immediate question was: why Chicago? I started looking at the</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-uncrossable-distance-how-not-listening-creates-a-cruel-world/"><span class="wd-name">The Uncrossable Distance&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Caricature Factory When listening stops, humans become cartoons. Without hearing complexity, everyone gets sorted into simple categories—enemy, ally, threat. One keyword triggers complete categorization: "You said that phrase, so you're one of those people."</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/deadly-sin-of-being-right-how-dogmatism-kills-effective-communication/"><span class="wd-name">Deadly Sin of Being Right&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Pre-Emptive Funeral Dogmatism announces from the start: "This conversation is already over. I have nothing to learn from you." It's communication that arrives dead, wrapped in certainty's shroud. The dogmatist broadcasts carved-in-stone positions while pretending to converse—mouths moving, words emerging, but no</span></a>
+</article>
+<article class="wd-word" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-beautiful-both-when-opposing-truths-dance-together/"><span class="wd-name">The Beautiful Both&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">Elephant in Every Room Two people experience the same moment. One touches the trunk and says "snake." Another touches the leg and says "tree." Both are right about their piece of reality. The tragedy begins only when each insists their piece is the whole.</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/notes-to-a-lost-mother-tongue/"><span class="wd-name">Notes to a Lost Mother Tongue&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">You only come back when I lie. Yesterday, the refugee child at the intake desk. Seven years old, maybe eight. Speaking our language—yours and mine. Perfect grammar. Better than mine ever was. She asked if I could help her find her grandmother.</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-well-of-truth-nour-s-migration/"><span class="wd-name">The Well of Truth ~ Nour's Migration&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">Part One: The Departure Damascus, March 2011. The protests hadn't reached our neighborhood yet, but Nour could taste tear gas from Douma in her morning tea. Life is chaos— chaos, cascading, swirling chaos. Her daughter</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-moving-through-montreal-as-an-angelic-ghost/"><span class="wd-name">Brrd Roots ~ Moving Through Montreal as an Angelic Ghost&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">The Whisper That Never Fades January 2021. Mile End. The eviction notice arrives in French only, though my landlord knows I struggle with the subjunctive. Reprise de logement—taking back the dwelling. Even the language</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-joke-that-crossed-the-border/"><span class="wd-name">Brrd Roots: The Joke That Crossed the Border&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">10 minutes</span></span><span class="wd-first">OPENING AUTHORITY (Step 1) The Belgrade Comedy Club, Chicago, 11:47 PM, open mic night. I'm bombing. Twenty-three minutes into my set, not a single laugh. The silence is so complete I can hear the ice melting in</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-cartographer-of-disappeared-things/"><span class="wd-name">The Cartographer of Disappeared Things&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">10 minutes</span></span><span class="wd-first">Part I: The Discovery My mother's storage unit smelled of mildew and failed promises. Box 47, labeled "Dad's Work Things" in her careful script, split at the seams when I lifted it. What spilled out changed everything I</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-prison-dance-therapist-movement-as-survival-in-war-zones/"><span class="wd-name">The Prison Dance Therapist&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">Part I: The Authority of Motion I'm teaching imprisoned soldiers to dance in a Serbian detention camp when Verli starts singing Beyoncé's "End of Time" to hallucinated roaches, and I realize trauma doesn't break people—stillness does.</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-mortal-bird-artist-dancing-through-conflict-zones/"><span class="wd-name">The Mortal Bird Artist&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">Part I: The Authority of Movement I'm performing interpretive dance in a bombed-out gallery in Aleppo when a sniper's bullet passes through my shadow, and I realize my body is both the art and the archive of everything we're losing.</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-moving-images-that-live-through-us/"><span class="wd-name">The Moving Images That Live Through Us&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">7 minutes</span></span><span class="wd-first">Part I: The Authority of Memory I'm debugging neural-link cinema code at 3 AM in a warehouse that used to package superhero capes when my Iraqi coworker Hadi discovers our test footage is creating memories that don't</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-language-of-olive-trees/"><span class="wd-name">The Language of Olive Trees&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">7 minutes</span></span><span class="wd-first">Part One: The Inheritance I inherited deafness from birth and art from necessity—Layla Hamidi, born in Gaza City's Shifa Hospital during the 1987 intifada, when tear gas seeped through maternity windows. My</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-poor-air-breathless-horizon-and-more/"><span class="wd-name">Brrd Roots ~ Poor Air ~ Breathless Horizon and More&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">11 minutes</span></span><span class="wd-first">LOOP(S) The smog didn’t arrive with thunder. It crept, patient and inevitable, curling through the streets, slipping between windowpanes, folding itself into the spaces between moments. At first, Jonas barely</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-woman-of-boundless-prisons-unfounded-tapestry/"><span class="wd-name">The Woman of Boundless Prisons&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">A Chronicle of Mandatory Metamorphosis Introduction</span></a>
+</article>
+<article class="wd-word later" data-kind="Poem">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/dazed-hymns-inheritance-and-fluid-stream/"><span class="wd-name">Dazed Hymns: Inheritance and Fluid Stream&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Poem</span><span class="wd-dot"> · </span><span class="wd-time">13 minutes</span></span><span class="wd-first">May arrives with tears, the way my grandmother's May always did—orange blossoms mixed with tear gas, sweetness and burning. Sheep ahh to cure what the old women knew needed no curing, only witnessing. Pata spak ee aye—my mother's nonsense words when words failed her, when heritage wasn't safe, when silence grew teeth.</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/when-language-becomes-a-refugee-songs-as-salt-rivers-archives-of-displacement/"><span class="wd-name">When Language Becomes a Refugee&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">20 minutes</span></span><span class="wd-first">Songs as Salt Rivers ~ Archives of Displacement ( Introduction) In this extraordinary testament to human resilience, language itself becomes a refugee—seeking asylum in gesture, fracturing like bombed buildings,</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-mirror-of-displacement-hustle/"><span class="wd-name">The Mirror of Displacement Hustle&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">12 minutes</span></span><span class="wd-first">You are holding a profound document. About displacement, they say. About survival. And resistance through music. But listen: here is how the body knows. Your throat hurts from the dust—you are learning, cell by cell,</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/342-meters-a-phosphorescent-tide-songs-of-displacement-from-block-j-tent-47/"><span class="wd-name">342 Meters: A Phosphorescent Tide&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">35 minutes</span></span><span class="wd-first">Songs of Displacement from Block J Tent 47 The Singer</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/static-meeting-signal-between-frequencies-breathing-through-floating-ash-and-light-iii/"><span class="wd-name">The smoke rises like a whisper unanswered&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">11 minutes</span></span><span class="wd-first">curling through the morning air with the patience of all forgotten prayers, and I think of the old archivist in her room, bent over recording equipment that glows with tiny red lights—each one a small beacon against the coming darkness. She's mapping the city's sounds before the dust storms arrive, catching birdsong</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/the-child-who-collects-shadows-notes-from-the-abundant-deprivation-zone/"><span class="wd-name">The Child Who Collects Shadows&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Notes from the Abundant Deprivation Zone fragments/wind/ruins—picking up setting down but WHO'S PICKING? whose hands? the birds aren't birds they're ribs they're—no wait they're the SOUND of birds that were never there</span></a>
+</article>
+<article class="wd-word later" data-kind="Play">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/are-clouds-edible-where-love-holds-on-despite-everything-the-play/"><span class="wd-name">Are Clouds Edible?&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Play</span><span class="wd-dot"> · </span><span class="wd-time">6 minutes</span></span><span class="wd-first">Where Love Holds On Despite Everything (The Play) A child asks if clouds are edible, and suddenly we understand everything about hunger. This play takes place in a hospital ward under siege, where mothers count their</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-hardships-hope-and-expanding-perceptions/"><span class="wd-name">Brrd Roots: The Divide&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Hardships Faced by a Specific Group The displaced farmers who once tilled the fertile lands now confront relentless challenges. Denied access to their fields, they struggle to adapt to an urban landscape that offers little of the certainty they once knew. Their hands, calloused from years of harvesting crops, now ache</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-juxtaposing-rhythms-hope-and-resistance/"><span class="wd-name">Brrd Roots: The Divide&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Juxtaposing Rhythm: Nuanced Patterns of Power This story holds a rhythm that mirrors the human experience—its movements are both fractured and flowing, interrupted and continuous. Juxtaposition creates moments of tension: where silence follows noise, where despair meets sudden joy, where stillness lingers amid chaos.</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-dimensions-of-humanity-and-the-interplay-of-suffering-and-connection/"><span class="wd-name">Brrd Roots: The Divide…&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">The Divide ~ Dimensions of Humanity and the Interplay of Suffering and Connection A Distinct Perspective: Connection Through Fractures</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-amplified-voices-shared-resilience-and-dimensions-of-connection/"><span class="wd-name">Brrd Roots: The Divide&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">The Divide ~ Amplified Voices, Shared Resilience, and Dimensions of Connection City Fever Noises and the Weight of Anticipation</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-innovation-identity-and-the-weight-of-justice/"><span class="wd-name">Brrd Roots: The Divide…&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">The Divide ~ Innovation, Identity, and the Weight of Justice Aesthetic Innovation Meets Sociopolitical Critique</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-wisdom-compassion-and-the-costs-of-justice/"><span class="wd-name">Brrd Roots: The Divide…&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">The Divide ~ Wisdom, Compassion, and the Costs of Justice Arbitrary Nature Exposed</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-divide-resilience-accessibility-and-a-new-language-of-connection/"><span class="wd-name">Brrd Roots: The Divide…&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">The Divide ~ Resilience, Accessibility, and a New Language of Connection A Conversation on Fair Accessibility</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-enduring-voices/"><span class="wd-name">Brrd Roots: Enduring Voices&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">3 minutes</span></span><span class="wd-first">Gaza, Exile, and the Resilience of the Human Spirit Gaza has long been misunderstood in international discourse—a place cast in shadow, mischaracterized as a land defined solely by despair and destruction. Yet beneath the blockade, beyond the walls that confine and restrict, Gaza pulses with light. Its people are not</span></a>
+</article>
+<article class="wd-word later" data-kind="Play">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-the-light-beyond-the-ruins-script-for-a-performance/"><span class="wd-name">Brrd Roots: The Light Beyond the Ruins&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Play</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-threads-of-resilience/"><span class="wd-name">Brrd Roots: Threads of Resilience&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">26 minutes</span></span><span class="wd-first">and the Quiet Strength to Rebuild How Isolation, Fear, and Fragile Systems Shape Collapse —and the Bridges That Carry Us Forward The world wasn’t just fraying—it was unraveling, thread by thread, like a sweater caught</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-united-states-revolutionary-war-story-version-10/"><span class="wd-name">Brrd Roots: United States Revolutionary War Story&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">13 minutes</span></span><span class="wd-first">War smells like the awkward, damp corner of the world—where humanity’s broken plans tend to pile up like soggy laundry. That’s what the farmer-turned-soldier thought as he crouched low in the trench, gripping his musket</span></a>
+</article>
+<article class="wd-word later" data-kind="Story">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/original-brrd-roots-united-states-revolutionary-war-intimate-story/"><span class="wd-name">(original): Brrd Roots&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Story</span><span class="wd-dot"> · </span><span class="wd-time">10 minutes</span></span><span class="wd-first">No one tells you that war smells like a soggy basement—or like socks left forgotten in the back of a barn. But it does. That was the first thing the farmer-turned-soldier noticed as he crouched low in the trench,</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-blood-bonds-and-blueprints-forging-modern-america-amidst-the-civil-war-s-ruins/"><span class="wd-name">Brrd Roots: Blood…&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">Blood, Bonds, and Blueprints ~ Forging Modern America Amidst the Civil War's Ruins The Civil War (1861–1865) was not just a bitter brother-against-brother conflict that claimed roughly 750,000 lives—it was also a seismic event that reshaped America’s economic destiny and left deep scars on the nation's soul. At its</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/in-the-turbulent-shadow/"><span class="wd-name">In the turbulent shadow of the Cold War&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">the Vietnam War stands as a somber testament to both human conflict and fiscal overreach, where the clashing of military might obscured the profound economic toll exacted on nations and communities alike. Amidst massive troop deployments and an astronomical budget that diverted vital resources from domestic progress,</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-blood-bills-and-broken-trust-unmasking-the-dual-toll-of-the-vietnam-war-and-my-lai/"><span class="wd-name">Brrd Roots: Blood&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">5 minutes</span></span><span class="wd-first">Blood, Bills, and Broken Trust ~ Unmasking the Dual Toll of the Vietnam War and My Lai The Vietnam War was a tumultuous era defined not only by its bloodshed but also by an economic toll that still reverberates today. Framed by Cold War geopolitics and fueled by the drive to contain communism, U.S. involvement</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/brrd-roots-exiled-assets-unveiling-the-hidden-economic-toll-of-japanese-american-internment/"><span class="wd-name">Brrd Roots: Exiled Assets&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">4 minutes</span></span><span class="wd-first">Exiled Assets ~ Unveiling the Hidden Economic Toll of Japanese American Internment The internment of Japanese Americans during World War II stands as a stark testament to the perils of wartime hysteria and racial prejudice—a disturbing episode where fear overrode justice, and over 110,000 individuals (two-thirds of</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2025-variety/imagine-a-nation-in-turmoil/"><span class="wd-name">Imagine a nation in turmoil&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">where the clashing of armies on battlefields was matched only by the revolution unfolding in factories, railroads, and financial institutions—a tumultuous era where the brutal legacy of slavery and a fractured agrarian order gave way to a new economic dawn. This narrative explores how the Civil War, while scarred by</span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/220-makayla-i-m-paddling-against-waves-away-from-a-major/"><span class="wd-name">Makayla: I'm paddling against waves away from a major&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">I'm paddling against waves away from a major wildfire can you help me!!!</span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/137-beginning-saturday-morning/"><span class="wd-name">/// Beginning Saturday morning&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">A group that doesn't describe themselves as militant ( but recommends extreme methods of physical violence) started a savage attack on their neighbor with a concentrated artillery rocket bombardment ... Over a thousand people have lost their lives ( are dead ) including babies and non-violent elderly women ... The</span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/128-this-suspended-from-high-ceiling-series/"><span class="wd-name">/// This suspended from high ceiling series&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">this balanced and ill-structured collection of objects and fragments represents or is meant to show our interpretation of ~ dire-urgent-appalling situations ... that occur within a conflict zone ... For one example ~ the use of starvation of a population during a military struggle is simply wrong ... Even though our</span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/120-this-is-not-the-first-time-we-have-detached-removed/"><span class="wd-name">/// This is not the first time we have detached-removed&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">-/// This is not the first time we have detached-removed our metal coverings ... This is not the first time we have shed our protective coverings to appear absolutely vulnerable ... with the intention to ( in a different way ) wound a thief or long time enemy ... We have no water for our toilet yet we feel more alive</span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/117-josea-eat-or-be-eaten/"><span class="wd-name">Josea: Eat or be eaten.&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span></a>
+</article>
+<article class="wd-word later" data-kind="Text">
+  <a class="wd-word-a" href="https://paraploo.com/words/2023-25-phone-texts/091-humans-all-you-have-to-do-is-take-some-time/"><span class="wd-name">Humans - All you have to do is Take Some Time&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Text</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">To Observe Aromatic Magnolia Blossoms in a Soft Breeze and All Wars Will Come To An End.</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/a-l-o-w-o-c-another-language-of-w/"><span class="wd-name">A.L.O&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">Imagine living in a place where dangers are a part of everyday life and people from different cultures and backgrounds struggle to communicate with each other. Translation and interpreting become crucial in breaking down existing language barriers and offering support. This concerns "Another Language of War's Other</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/an-artist-a-journalist-and-many-w/"><span class="wd-name">An Artist, a Journalist&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">2 minutes</span></span><span class="wd-first">and Many Warriors Who Taught Us Something Human About War And Genocide. We understand how difficult it can be to talk about the impact. These individuals are a testament to the severe effects. One such individual was James R. O'Neill, an Irish-born artist-correspondent who worked for Frank Leslie's Illustrated</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/military-toys-disaster-and-hope/"><span class="wd-name">Military Toys Disaster and Hope&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">What are the symbolisms of natural and artificial/material interpretations of damaged plastic military toys on a theater of war battleground? The music of visual art teaches us that repaired brokenness is gold. We can be mended and transformed. Leonard Cohen’s quote, “There is a crack, a crack in everything. That’s</span></a>
+</article>
+<article class="wd-word later" data-kind="Essay">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/what-is-a-challenged-neighborhood/"><span class="wd-name">WHAT IS A CHALLENGED NEIGHBORHOOD?&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Essay</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">Living in a "challenged neighborhood" can be incredibly tough. These areas often have older infrastructure, lower home values, and fewer new developments. As a result, they may struggle with high vacancy and unemployment rates, leading to economic and social difficulties for the people who call them home. It's</span></a>
+</article>
+<article class="wd-word later" data-kind="Short piece">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/new-kind-of-tactical-weapons-and-human-arms/"><span class="wd-name">New Kind Of Tactical Weapons and Human Arms&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Short piece</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">New tactical weapon rockets are growing arms. Soldiers. They will serve you. seed pods. On the battlefield. Be where the powder and black sticky substance, your sacrifices will be rewarded with the worst of all directions. The Worst of all, addictions. By disguised evil intentions. The plague of past armies will stick</span></a>
+</article>
+<article class="wd-word later" data-kind="Poem">
+  <a class="wd-word-a" href="https://paraploo.com/words/2024-variety/fill-in-the-blanks-yourself-and-complete-this-if-you-wish/"><span class="wd-name">Fill In The Blanks Yourself And&nbsp;<span class="wd-arrow" aria-hidden="true">&rarr;</span></span><span class="wd-side"><span class="wd-kind">Poem</span><span class="wd-dot"> · </span><span class="wd-time">1 minute</span></span><span class="wd-first">Complete This If You Wish What human empathy Looks like, if it were an</span></a>
+</article>
+</div>
+<div class="wd-more"><button type="button" class="wd-btn show-more">Show more</button></div>
+</div>
+</section>
+<section class="wd-band wd-rooms" aria-label="Often found with">
+<div class="wd-wrap">
+  <h2 class="wd-head">Often found with</h2>
+  <nav class="wd-room-list" aria-label="Often found with">
+    <a class="wd-room-a" href="/writings/hope-and-healing.html"><span class="wd-room-name">Hope and Healing</span> <span class="wd-arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="wd-room-a" href="/writings/memory-and-the-past.html"><span class="wd-room-name">Memory and the Past</span> <span class="wd-arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="wd-room-a" href="/writings/art-and-making.html"><span class="wd-room-name">Art and Making</span> <span class="wd-arrow" aria-hidden="true">&rarr;</span></a>
+  </nav>
+</div>
+</section>
+<section class="wd-band wd-also" aria-label="Where next">
+<div class="wd-wrap wd-also-in">
+  <a class="wd-back" href="/writings.html"><span class="wd-arrow" aria-hidden="true">&larr;</span> The Writings</a>
+  <p class="wd-next-wrap"><span class="wd-next-label">Science, Senses and the Body</span>
+  <a class="wd-btn wd-next" href="/writings/science-senses-and-the-body.html">Next <span class="wd-arrow" aria-hidden="true">&rarr;</span></a></p>
+</div>
+</section>
+</div>
 </main>
+
 
 <footer class="site-footer"></footer>
 <hr class="tone-line" aria-hidden="true">
 
-
-
-<script id="behind-script">
-/* The play on these pages: rows that rise once as they come into view. Nothing else moves. */
-(function () {
-  var doc = document;
-  function all(sel) { return Array.prototype.slice.call(doc.querySelectorAll(sel)); }
-  /* In this preview, links to pages not made yet, and the header's own links, stay on the page. */
-  doc.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href]');
-    if (!a) return;
-    var h = a.getAttribute('href');
-    if (h === '#' || (location.protocol === 'file:' && h.charAt(0) === '/')) e.preventDefault();
-  });
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        en.target.classList.add('risen');
-      });
-    }, { rootMargin: '0px 0px -6% 0px' });
-    all('.label, .rows a, .subject-rows a, .foot-grid, .chips').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
-    doc.addEventListener('animationend', function (e) {
-      if (e.animationName === 'rise') e.target.classList.remove('will-rise', 'risen');
-    });
-  }
-})();
-</script>
-<script id="subject-script">
-(function () {
-  var doc = document;
-  function all(s) { return Array.prototype.slice.call(doc.querySelectorAll(s)); }
-  all('img[data-local]').forEach(function (img) {
-    function swap() { img.removeEventListener('error', swap); img.src = img.getAttribute('data-local'); }
-    if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap);
-  });
-  /* The picture that changes as you read: it holds still beside the rows and changes as they pass.
-     The numbers under it change it by hand at any width, and are the phone's own way. */
-  var rows = doc.querySelector('.subject-rows');
-  var seats = all('.pic-seat'), tabs = all('.pic-tab');
-  var wide = window.matchMedia('(min-width: 1000px)'), calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var cur = 0;
-  function setSeat(i) {
-    cur = i;
-    seats.forEach(function (s, n) { var on = n === i; s.classList.toggle('is-on', on);
-      if (on) { s.removeAttribute('tabindex'); s.removeAttribute('aria-hidden'); } else { s.setAttribute('tabindex', '-1'); s.setAttribute('aria-hidden', 'true'); } });
-    tabs.forEach(function (t, n) { t.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
-  }
-  tabs.forEach(function (t, n) { t.addEventListener('click', function () { setSeat(n); }); });
-  var ticking = false;
-  function readScroll() {
-    ticking = false;
-    if (!rows || !wide.matches || calm.matches) return;
-    var r = rows.getBoundingClientRect();
-    var p = (window.innerHeight / 2 - r.top) / r.height;
-    var i = Math.max(0, Math.min(seats.length - 1, Math.floor(p * seats.length)));
-    if (i !== cur) setSeat(i);
-  }
-  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(readScroll); } }, { passive: true });
-  /* Show more: 24 rows at a time. */
-  var btn = doc.querySelector('.show-more');
-  if (btn) btn.addEventListener('click', function () {
-    var rest = all('.subject-rows a.later');
-    rest.slice(0, 24).forEach(function (a) { a.classList.remove('later'); });
-    if (rest.length <= 24) btn.parentNode.hidden = true;
-    if (rest[0]) rest[0].focus({ preventScroll: true });
-  });
-})();
-</script>
-
-
-<script src="/drawing.js"></script>
+<script src="/writings/war-and-displacement-room.js"></script>
 </body>
 </html>

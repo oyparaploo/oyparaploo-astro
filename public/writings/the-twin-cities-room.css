@@ -1,0 +1,212 @@
+/* The Twin Cities: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\TEST-DARK-OCULA-HOME_3.html (the dark home page with one lead item): on the night ground one
+   thing dominates the top, a panel across the content with its title under it, larger than anything else, and its
+   opening line under that; a hairline that fades out at both ends; then a band, its head on the left, its cards three
+   across, each a 3:2 panel with a hairline border, a title, a date line and an opening line.
+   The colours are the pictures' (Physical Proof, Dirty Ol Shipyard: the ground of a shipyard at dusk, wood, shards,
+   cords and toys in dark soil, the low sun across it): the soil for the ground (#1A120B); the panels a step lighter, as
+   the draft's are (#251B12); the pale of the green shard in 03757 for the one band; the shard's green, lifted to show
+   on the soil, for the marks, never for words. The room is dark in Light, Dark and Auto alike, as the draft and the
+   pictures are; the date strip, the header and the footer follow the mode, as on every page. Words in the room use only
+   the dark values of the four named colours: Ink #E8E0D6 (14.2 to 1 on the soil, 12.9 on a panel), Soft ink #B3AA9F
+   (8.1), Faint ink #8F877D (5.2) and Accent #D4A574 (8.3). On the shard's band every word is Ink's light value, #111,
+   at 14.7 to 1. */
+
+:root {
+  --tc-soil: #1A120B;                           /* the soil of the four pictures */
+  --tc-panel: #251B12;                          /* the draft's panel, a step lighter than its ground */
+  --tc-ink: #E8E0D6;
+  --tc-soft: #B3AA9F;
+  --tc-faint: #8F877D;
+  --tc-gold: #D4A574;
+  --tc-hair: rgba(244, 237, 225, 0.18);         /* the draft's hairline */
+  --tc-shard: #E2E8B0;                          /* the pale of the green shard (03757) */
+  --tc-shard-ink: #111111;
+  --tc-green: #B4C24A;                          /* the shard's green, lifted to show on the soil: 9.5 to 1 */
+  --tc-sun: 212, 165, 116;                      /* the low sun on the wood (03743) */
+  --tc-margin: 40px;
+}
+
+.tc-room { background: var(--tc-soil); color: var(--tc-ink); overflow: clip; }
+.tc-wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--tc-margin); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.tc-arrow { display: inline-block; transition: transform 0.25s ease, opacity 0.25s ease; }
+.tc-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--tc-ink); text-decoration: none;
+}
+.tc-back .tc-arrow { color: var(--tc-gold); }
+@media (hover: hover) { .tc-back:hover .tc-arrow { transform: translateX(-6px); } }
+.tc-room a:focus-visible, .tc-room button:focus-visible { outline: 2px solid var(--tc-ink); outline-offset: 4px; }
+
+/* every picture whole, never cropped, its number under it */
+.tc-room figure { margin: 0; }
+.tc-pic { display: block; }
+.tc-room figcaption { margin-top: 12px; }
+.tc-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--tc-ink); text-decoration: none;
+}
+
+/* ---------- 1. the lead: one thing dominates the top ---------- */
+.tc-lead { padding: 48px 0 0; }
+.tc-crumb { margin: 0 0 28px; }
+/* the low sun across the ground, whole: as wide as the content allows, and short enough that the title shows under it
+   in the first window */
+.tc-lead-fig .tc-pic { display: inline-block; max-width: 100%; vertical-align: top; }
+.tc-lead-fig img { display: block; width: auto; height: auto; max-width: 100%; max-height: max(320px, calc(100vh - 460px)); }
+.tc-title {
+  margin: 40px 0 20px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.02; letter-spacing: -0.015em; color: var(--tc-ink);
+}
+.tc-line { margin: 0; max-width: 34em; font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.55; color: var(--tc-ink); }
+
+/* ---------- 2. the draft's hairline, fading out at both ends ---------- */
+.tc-hairline {
+  max-width: 1120px; height: 1px; margin: 64px auto 0;
+  background: linear-gradient(to right, transparent, rgba(244, 237, 225, 0.38), transparent);
+}
+
+/* ---------- 3. the passage on the pale of the green shard, edge to edge: the one large thing on the page ---------- */
+.tc-shard { margin-top: 64px; background: var(--tc-shard); color: var(--tc-shard-ink); }
+.tc-shard-in { padding-top: 112px; padding-bottom: 104px; }
+.tc-passage { margin: 0; }
+.tc-passage p {
+  margin: 0; max-width: 22em;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(30px, 3.6vw, 52px);
+  line-height: 1.13; letter-spacing: -0.015em; color: var(--tc-shard-ink);
+}
+.tc-passage p + p { margin-top: 0.6em; }
+.tc-from { margin: 44px 0 0; }
+.tc-from-a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--tc-shard-ink); text-decoration: none; }
+.tc-from-a em { font-style: normal; }
+@media (hover: hover) { .tc-from-a:hover .tc-arrow { transform: translateX(6px); } }
+.tc-shard a:focus-visible { outline-color: var(--tc-shard-ink); }
+
+/* ---------- 4. the band: its head on the left, its cards three across ---------- */
+.tc-band { padding: 80px 0 24px; }
+.tc-band-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin: 0 0 36px; }
+.tc-band-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--tc-ink); }
+.tc-choices { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.tc-choices[hidden] { display: none; }
+.tc-choice {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--tc-soft);
+  background: none; border: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  padding: 10px 0 8px; min-height: 44px; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease;
+}
+.tc-choice[aria-pressed="true"] { color: var(--tc-ink); border-bottom-color: var(--tc-green); }
+@media (hover: hover) { .tc-choice:hover { color: var(--tc-ink); } }
+
+.tc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 28px; }
+.tc-card.later, .tc-card.off { display: none; }
+.tc-grid.filtered .tc-card.later:not(.off) { display: block; }
+.tc-card-fig { margin: 0 0 18px; }
+.tc-seat img { display: block; width: 100%; height: auto; }
+.tc-card-fig figcaption { margin-top: 10px; }
+.tc-card-a { display: flex; flex-direction: column; gap: 10px; color: var(--tc-ink); text-decoration: none; }
+
+/* the kind and reading time, as the draft's date line */
+.tc-side { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.35; }
+.tc-kind { color: var(--tc-gold); }
+.tc-dot { color: var(--tc-faint); }
+.tc-time { color: var(--tc-soft); }
+.tc-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25; color: var(--tc-ink); }
+.tc-name .tc-arrow, .tc-sign .tc-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); color: var(--tc-green); }
+/* the first lines, three lines of them, as the draft clamps its opening line; every word is still in the link */
+.tc-first {
+  font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--tc-soft);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* the draft's hairline-bordered panel, become a lit sign: the writing's name set large inside it */
+.tc-panel {
+  position: relative; display: flex; align-items: flex-end; aspect-ratio: 3 / 2; overflow: hidden;
+  padding: 26px 26px 24px; margin-bottom: 8px;
+  background: var(--tc-panel); border: 1px solid var(--tc-hair); transition: border-color 0.4s ease;
+}
+.tc-sign {
+  position: relative; z-index: 1; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 108%;
+  font-size: clamp(24px, 2.1vw, 30px); line-height: 1.14; letter-spacing: -0.005em; color: var(--tc-ink);
+}
+/* the low sun: a warm light raking in from the panel's left edge, as it lies across the ground in 03743 */
+.tc-sun {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transform: translateX(-28%);
+  background: linear-gradient(100deg, rgba(var(--tc-sun), 0.30) 0%, rgba(var(--tc-sun), 0.13) 34%, rgba(var(--tc-sun), 0) 72%);
+  transition: opacity 0.7s ease, transform 1.1s cubic-bezier(.2, .7, .2, 1);
+}
+.tc-card-a.lit .tc-panel { border-color: var(--tc-green); }
+.tc-card-a.lit .tc-sun { opacity: 1; transform: translateX(0); }
+@media (hover: hover) {
+  .tc-card-a:hover .tc-panel { border-color: var(--tc-green); }
+  .tc-card-a:hover .tc-sun { opacity: 1; transform: translateX(0); }
+  .tc-card-a:hover .tc-arrow { opacity: 1; transform: translateX(4px); }
+}
+
+/* ---------- 5. "Often found with": the same cards, each subject's name inside its panel ---------- */
+.tc-found { padding-top: 96px; }
+.tc-found-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.tc-found-a .tc-panel { aspect-ratio: 5 / 2; margin-bottom: 0; }
+
+/* ---------- 6. the way on ---------- */
+.tc-onward { padding: 96px 0 120px; }
+.tc-onward-in {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px 56px;
+  padding-top: 48px; background: linear-gradient(to right, transparent, rgba(244, 237, 225, 0.38), transparent) top / calc(100% - 2 * var(--tc-margin)) 1px no-repeat;
+}
+.tc-next-wrap { margin: 0; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.tc-next-label { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; color: var(--tc-ink); }
+
+/* the buttons: solid, turning to their outline under the hand */
+.tc-more { margin-top: 64px; }
+.tc-more[hidden] { display: none; }
+.tc-btn {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 12px 26px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2; text-decoration: none;
+  background: var(--tc-ink); color: var(--tc-soil); border: 1.5px solid var(--tc-ink); border-radius: 5px; cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) {
+  .tc-btn:hover { background: transparent; color: var(--tc-ink); }
+  .tc-btn:hover .tc-arrow { transform: translateX(5px); }
+}
+
+/* each part fades in as it is reached, in under a second */
+.js-reveal .tc-room .reveal, .js-reveal .tc-room .tc-card { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .tc-room .reveal.visible, .js-reveal .tc-room .tc-card.visible { opacity: 1; }
+
+/* ---------- narrower ---------- */
+@media (max-width: 1023px) {
+  .tc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tc-found-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .tc-found-a .tc-panel { aspect-ratio: auto; min-height: 120px; }
+}
+@media (max-width: 899px) {
+  .tc-room { --tc-margin: 20px; }
+  .tc-lead { padding-top: 32px; }
+  .tc-crumb { margin-bottom: 24px; }
+  .tc-lead-fig .tc-pic { display: block; }
+  .tc-lead-fig img { width: 100%; max-height: none; }
+  .tc-title { margin-top: 32px; font-size: clamp(40px, 11vw, 56px); }
+  .tc-line { font-size: 19px; }
+  .tc-hairline { margin-top: 48px; }
+  .tc-shard { margin-top: 48px; }
+  .tc-shard-in { padding-top: 72px; padding-bottom: 64px; }
+  .tc-passage p { font-size: clamp(28px, 7.6vw, 34px); line-height: 1.16; }
+  .tc-from { margin-top: 32px; }
+  .tc-band { padding-top: 56px; }
+  .tc-band-head { margin-bottom: 28px; }
+  .tc-choices { gap: 0 22px; }
+  .tc-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .tc-sign { font-size: 26px; }
+  .tc-found { padding-top: 72px; }
+  .tc-onward { padding: 72px 0 88px; }
+  .tc-onward-in { flex-direction: column; align-items: flex-start; }
+}
+
+/* visitors who ask for less motion see everything at once, and the light does not move */
+@media (prefers-reduced-motion: reduce) {
+  .tc-room *, .tc-room *::before, .tc-room *::after { transition: none !important; }
+  .tc-sun { transform: none; }
+  .js-reveal .tc-room .reveal, .js-reveal .tc-room .tc-card { opacity: 1; }
+}

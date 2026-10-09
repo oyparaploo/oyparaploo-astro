@@ -639,150 +639,7 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
 </style>
-<style id="subject-styles">
-/* The subject pages: the shelf page body, with the picture that changes as you read
-   (parts book block 41, as on the Writings page's Subjects), first lines under each
-   title (block 34), the fragment's bar on the lifted line (block 17), Show more (54),
-   and Often found with (117). The bands take the picture's own ground (66). */
-.passage.fragment { border-left: 3px solid #111111; padding-left: 24px; }
-.reading-band { --ink: #111111; --ink-soft: #111111; --ground: var(--pic-ground); --rule: #111111;
-  background: var(--pic-ground); color: #111111; padding: 72px 0 96px; }
-.reading-band :focus-visible { outline-color: #111111; }
-.reading-wrap .subject-rows { display: flex; flex-direction: column; margin: 0 0 0 calc(-1 * var(--edge)); border-bottom: 1px solid var(--rule); }
-.subject-rows a {
-  display: grid; grid-template-columns: minmax(0, 1fr) 32px; column-gap: 16px; row-gap: 6px; align-items: center;
-  padding: 18px 16px 18px var(--edge); text-decoration: none; color: var(--ink);
-  border-top: 1px solid var(--rule); transition: background-color 0.3s ease, color 0.3s ease; }
-.subject-rows a.later { display: none; }
-.subject-rows .row-name-wrap { grid-column: 1; }
-.subject-rows .row-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; }
-.subject-rows .row-first { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-  margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45; }
-.subject-rows .row-side { grid-column: 1; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; }
-.subject-rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; justify-self: end; font-size: 26px; line-height: 1; }
-.subject-rows a:active { background-color: #111111; color: var(--pic-ground); }
-@media (hover: hover) {
-  .subject-rows a:hover, .subject-rows a:focus-visible { background-color: #111111; color: var(--pic-ground); }
-  .subject-rows a:hover .row-arrow, .subject-rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
-}
-.show-more-wrap { padding: 40px 0 0; }
-.show-more-wrap[hidden] { display: none; }
-.reading-band .btn { --btn-ink: #111111; --btn-ground: var(--pic-ground); }
-.pic-stack { display: grid; }
-.pic-seat { grid-area: 1 / 1; display: block; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s linear 0.4s; }
-.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
-.pic-seat img { width: 100%; height: auto; }
-.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
-.pic-tab { background: none; border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; color: #111111; padding: 8px 0; min-height: 44px; }
-.pic-tab[aria-pressed="true"] { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-@media (min-width: 1000px) {
-  .reading-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
-  .reading-pic { padding-left: 64px; }
-  .pic-pin { position: sticky; top: 96px; }
-}
-@media (max-width: 999px) { .reading-pic { margin-top: 48px; } .reading-wrap .subject-rows { margin-right: calc(-1 * var(--edge)); } }
-.found-band { --ink: #111111; --ground: var(--found-ground); background: var(--found-ground); color: #111111; padding: 72px 0; }
-.chips { display: flex; flex-wrap: wrap; gap: 12px; }
-.chip { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 22px; border: 1px solid #111111; border-radius: 999px;
-  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; color: #111111; text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease; }
-.chip:active { background: #111111; color: var(--found-ground); }
-@media (hover: hover) { .chip:hover, .chip:focus-visible { background: #111111; color: var(--found-ground); } }
-.foot-next { padding-top: 72px; }
-@media (prefers-reduced-motion: reduce) { .pic-seat, .pic-seat.is-on, .subject-rows a, .chip { transition: none; } }
-</style>
-
-
-<style id="dark-bar">
-/* Reach, October 2, 2026, late evening: the row pointed at goes back to a dark bar with light words, as it was
-   before tonight, but the drawing now shows through it. The bar is Ink at 80 per cent over the same drawing, turned
-   light (white lines on dark), lined up exactly with the drawing over the page. Behind the words the bar is near
-   black (a soft dark halo), so the light lines never cross the type: the same tracing-paper clearing as the rest
-   of the page, in dark. The chosen type on the Writings page wears the same bar. In Dark mode it mirrors: a light
-   bar with dark words and the drawing in dark lines. Replaces the light 8 per cent veil made earlier the same evening. */
-/* Reach, the same night: the bar lighter (Ink at 62 per cent instead of 80), and the dark area behind the words
-   a little wider, kept as dark as before (more halo layers, spread further). */
-/* The bar's copy of the drawing takes its size and place from the drawing script (--sig-size, --sig-pos), measured
-   on the whole window as the drawing over the page is, so the lines run straight through the bar. */
-/* The bar's tone: Ink mixed with a little of the ground (a deep charcoal), laid at 85 per cent over the light drawing,
-   so the bar itself reads lighter while the lines still show. */
-:root { --bar-strength: 80%;
-  --bar-tone: color-mix(in srgb, color-mix(in srgb, var(--ink) var(--bar-strength), var(--ground)) 85%, transparent);
-  --bar-halo: 0 0 4px var(--ink), 0 0 10px var(--ink), 0 0 18px var(--ink), 0 0 18px var(--ink), 0 0 30px var(--ink), 0 0 30px var(--ink), 0 0 44px var(--ink); }
-.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ background-attachment: fixed; }
-.doors a:active, .kind-name a:active, .kind.is-active .kind-name a, .subjects a:active, .year-list a:active, .rows a:active , .subject-rows a:active{
-  background-color: var(--ground); color: var(--ground);
-  background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
-  background-blend-mode: normal, saturation, difference;
-  background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
-  }
-@media (hover: hover) {
-  .doors a:hover, .doors a:focus-visible, .kind-name a:hover, .kind-name a:focus-visible, .subjects a:hover, .subjects a:focus-visible,
-  .year-list a:hover, .year-list a:focus-visible, .rows a:hover, .subject-rows a:hover, .rows a:focus-visible , .subject-rows a:focus-visible{
-    background-color: var(--ground); color: var(--ground);
-    background-image: linear-gradient(var(--bar-tone), var(--bar-tone)), linear-gradient(#808080, #808080), var(--sig-url, none);
-    background-blend-mode: normal, saturation, difference;
-    background-size: auto, auto, var(--sig-size, cover); background-position: 0 0, 0 0, var(--sig-pos, center); background-repeat: no-repeat; background-attachment: fixed;
-    }
-}
-/* The dark area behind the words and behind the arrow (Reach, the same night: "expand it a little bit and keep it
-   the same darkness", and "enough expanded block out area for the arrow"): each name and the arrow sit on solid Ink
-   that reaches about 13 pixels past the type and then fades out over the next 14 pixels, kept inside the bar. */
-.doors a, .kind-name a, .subjects a, .year-list a, .rows a , .subject-rows a{ overflow: hidden; }
-.doors a:active > span, .kind-name a:active > span, .kind.is-active .kind-name a > span, .subjects a:active > span, .year-list a:active > span, .rows a:active > span , .subject-rows a:active > span{
-  background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
-@media (hover: hover) {
-  .doors a:hover > span, .doors a:focus-visible > span, .kind-name a:hover > span, .kind-name a:focus-visible > span,
-  .subjects a:hover > span, .subjects a:focus-visible > span, .year-list a:hover > span, .year-list a:focus-visible > span,
-  .rows a:hover > span, .subject-rows a:hover > span, .rows a:focus-visible > span , .subject-rows a:focus-visible > span{
-    background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); border-radius: 10px; text-shadow: none; }
-}
-/* Reach, the same night: the arrow bolder, and the black patch behind it not spread so far (it hugs the arrow:
-   about 6 pixels of solid black, fading over the next 12). The patch behind the words is unchanged. */
-.doors a .row-arrow, .kind-name a .row-arrow, .subjects a .row-arrow, .year-list a .row-arrow, .rows a .row-arrow , .subject-rows a .row-arrow{ font-weight: 800; -webkit-text-stroke: 0.6px currentColor; }
-.doors a:active > .row-arrow, .kind-name a:active > .row-arrow, .kind.is-active .kind-name a > .row-arrow, .subjects a:active > .row-arrow, .year-list a:active > .row-arrow, .rows a:active > .row-arrow , .subject-rows a:active > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
-@media (hover: hover) {
-  .doors a:hover > .row-arrow, .doors a:focus-visible > .row-arrow, .kind-name a:hover > .row-arrow, .kind-name a:focus-visible > .row-arrow,
-  .subjects a:hover > .row-arrow, .subjects a:focus-visible > .row-arrow, .year-list a:hover > .row-arrow, .year-list a:focus-visible > .row-arrow,
-  .rows a:hover > .row-arrow, .subject-rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow , .subject-rows a:focus-visible > .row-arrow{ box-shadow: 0 0 12px 6px var(--ink); border-radius: 8px; }
-}
-</style>
-<style id="dark-bar-rows">
-/* October 2, 2026, late night, carried with the dark bar from the-writings.html: on the shelf, type, door and subject
-   rows the name and the line beside it sit in grid columns, so their boxes stretched across the whole column and the
-   near-black patch filled the bar. Each box now hugs its own words, as the names on the Writings page do, so the patch
-   sits only behind the words and the drawing shows through the rest of the bar. Nothing moves at rest. */
-.rows a > .row-name, .rows a > .row-side, .subject-rows a > .row-name-wrap, .subject-rows a > .row-side { justify-self: start; }
-/* The rows here hold two or three pieces of words (the name, the line beside or under it, the arrow). Each piece's
-   near-black patch is painted on a layer beneath all the words of its row, so no patch can darken the words of the
-   piece next to it (seen on the subject page, where the kind and reading time sit under the opening lines, and on
-   phones, where the line beside a name drops under it). Same patch sizes as on the Writings page. */
-.rows a, .subject-rows a { isolation: isolate; }
-.rows a > span, .subject-rows a > span { position: relative; }
-.rows a > span::before, .subject-rows a > span::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
-.rows a > .row-arrow::before, .subject-rows a > .row-arrow::before { border-radius: 8px; }
-.rows a:active > span, .subject-rows a:active > span { background-color: transparent; box-shadow: none; }
-.rows a:active > span::before, .subject-rows a:active > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
-.rows a:active > .row-arrow, .subject-rows a:active > .row-arrow { box-shadow: none; }
-.rows a:active > .row-arrow::before, .subject-rows a:active > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
-@media (hover: hover) {
-  .rows a:hover > span, .rows a:focus-visible > span, .subject-rows a:hover > span, .subject-rows a:focus-visible > span { background-color: transparent; box-shadow: none; }
-  .rows a:hover > span::before, .rows a:focus-visible > span::before, .subject-rows a:hover > span::before, .subject-rows a:focus-visible > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
-  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow, .subject-rows a:hover > .row-arrow, .subject-rows a:focus-visible > .row-arrow { box-shadow: none; }
-  .rows a:hover > .row-arrow::before, .rows a:focus-visible > .row-arrow::before, .subject-rows a:hover > .row-arrow::before, .subject-rows a:focus-visible > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
-}
-</style>
-<style id="soft-patch">
-/* Reach, October 2, 2026, late night: carried from poems.html, which he called perfect. On the dark bar the name
-   and the line beside it (or the opening lines under it) wear the same soft patch: Ink at 45 per cent, about
-   6 pixels past the letters, fading over the next 10, so the drawing shows through the rest of the bar and the
-   words still read. The arrow keeps its near-black patch. */
-.rows a:active > .row-name::before, .rows a:active > .row-name-wrap::before, .rows a:active > .row-side::before, .subject-rows a:active > .row-name-wrap::before, .subject-rows a:active > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
-@media (hover: hover) {
-  .rows a:hover > .row-name::before, .rows a:focus-visible > .row-name::before, .rows a:hover > .row-name-wrap::before, .rows a:focus-visible > .row-name-wrap::before, .rows a:hover > .row-side::before, .rows a:focus-visible > .row-side::before, .subject-rows a:hover > .row-name-wrap::before, .subject-rows a:focus-visible > .row-name-wrap::before, .subject-rows a:hover > .row-side::before, .subject-rows a:focus-visible > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
-}
-</style>
-
-<link rel="stylesheet" href="/drawing.css">
+<link rel="stylesheet" href="/writings/the-twin-cities-room.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -825,170 +682,137 @@ main .rooms { padding: 0 0 72px; }
 }
 </script>
 </head>
-<body class="behind">
+<body class="room-page subject-room tc-page">
 
 
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html" class="current">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
 
 <main>
-  <section class="opening" aria-label="The Twin Cities" style="--band: #E3E2E0; --work-5: #F3F0EC;">
-
-    <div class="opening-words">
-      <div class="opening-words-in">
-        <a class="back-link arrive" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
-        <h1 class="stage-title arrive" style="--d:0.1s">The Twin Cities</h1>
-        <p class="stage-sentence arrive" style="--d:0.2s">Every writing about the Twin Cities, of every kind, newest first. Choose one to read.</p>
-      </div>
-    </div>
-
-    <div class="opening-pic">
-      <blockquote class="passage fragment arrive" style="--d:0.3s">
-        <p>Habeas corpus ... produce the body ... The state produced a body and the body didn't recognize the state ... The body said I was here before you were a word ... The body said I was soil before you were a map ... The body said deport me and I'll arrive before you do ...</p>
-      </blockquote>
-      <p class="passage-from arrive" style="--d:0.4s"><a class="go-link" href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/">From <em>The store walked into the garden and forgot its own</em> <span aria-hidden="true">&rarr;</span></a></p>
-    </div>
-
-  </section>
-  <div class="sky" data-sky="fog" aria-hidden="true"></div>
-
-  <div class="rooms">
-    <section class="reading-band" aria-label="The writings on this subject" style="--pic-ground: #F3F0EC;">
-      <div class="inner">
-        <div class="reading-wrap">
-          <div>
-            <nav class="subject-rows" aria-label="The Twin Cities">
-          <a href="https://paraploo.com/words/2026-variety/three-decades-spine/"><span class="row-name-wrap"><span class="row-name">THREE DECADES — THE SPINE</span><span class="row-first">Winsted Foundations, 1959–1978. Born 1959 near Hutchinson, Minnesota, raised in Winsted. The full telling of these years is the first room: EARLY YEARS — 1959 to 1982.</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/"><span class="row-name-wrap"><span class="row-name">The store walked into the garden and forgot its own</span><span class="row-first">The store walked into the garden and forgot its own name ... The agent stood at the threshold of rose vines and couldn't find the door because the door was painted the same color as the flowers ... The agency that hunts</span></span><span class="row-side">Story · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/local-elder-women-on-creating-a-flower-garden-that-blooms-mostly-locked/"><span class="row-name-wrap"><span class="row-name">Local Elder Women On Creating a Flower Garden That Blooms Mostly</span><span class="row-first">The soil had been placing bets in our yard longer than deeds existed ... Mint and other winning territories in the northeast corner ... through a campaign so slow it made every extreme conflict seem like a tantrum ... A moody Monday in March decided to be a Minnesota early January snowfall festival ... Inside ...</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/in-the-oyparaploo-way-of-conjuring/"><span class="row-name-wrap"><span class="row-name">In the Oyparaploo Way of Conjuring</span><span class="row-first">( melt ice with your indigenous beating heart ) We hear a theme of softness.</span></span><span class="row-side">Short piece · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/thirty-seconds-final/"><span class="row-name-wrap"><span class="row-name">Thirty Seconds</span><span class="row-first">Phone in hand. Pushed toward the sidewalk. Stepped between a falling protester and the officer who shoved her. Arms reaching out. Pepper spray. Surrounded. Wrestled down. Hit. Gun removed from his waist by an officer backing away. Then shot anyway.</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/standing-through/"><span class="row-name-wrap"><span class="row-name">Standing Through</span><span class="row-first">How's the day shaping up in Minneapolis? Extremely cold. But we have seen thousands of candle flames and people all bundled up standing on street corners and sidewalks at night everywhere, holding signs. Bodies of all types standing through, in our frigid north January air. Eight below and breath turning visible the</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/get-up/"><span class="row-name-wrap"><span class="row-name">Get Up</span><span class="row-first">You don't need a ... college degree ... certificate ... years of training ... or a list of key reasons to start ... Get up is how it starts ... Not reading a book about the best way to get up ...</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/another-minneapolis-urgency-entering-a-new-frame/"><span class="row-name-wrap"><span class="row-name">Another Minneapolis Urgency Entering A New Frame</span><span class="row-first">01.15.2026, early morning, Saint Paul, Minnesota Cold shapes every movement.</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/a-tongue-yelling-to-another-throat-fuck/"><span class="row-name-wrap"><span class="row-name">A Tongue Yelling To Another Throat</span><span class="row-first">01.10.2026 ... Minneapolis A woman was killed for looking.</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/we-examine-you-arrived-before-the-bullet-final/"><span class="row-name-wrap"><span class="row-name">We Examine You Arrived Before The Bullet</span><span class="row-first">01.15.2026 ... Minneapolis ... Saint Paul We are looking at the words that came before the violence.</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/a-great-place/"><span class="row-name-wrap"><span class="row-name">A Great Place</span><span class="row-first">(where stories get raised) Feeling bad is not a great place to raise children ...</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/still-here/"><span class="row-name-wrap"><span class="row-name">Still Here</span><span class="row-first">A companion to What Gives --- Food and drink are something that all types of people can connect with ... They are tools that can be used for all kinds of different types of people to be able to get along better ... What</span></span><span class="row-side">Essay · 18 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/land-acknowledgment/"><span class="row-name-wrap"><span class="row-name">We acknowledge the land on which Brrd Roots Organization</span><span class="row-first">and its workspaces stand is the original homeland of the Dakota people. Learn More LAND ACKNOWLEDGMENT</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/659-mms-sent-on-4112023-at-703-am/"><span class="row-name-wrap"><span class="row-name">Parrot: Also, Art In Bloom will be at MIA …</span><span class="row-first">Parrot: Also, Art In Bloom will be at MIA coming up soon.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/563-mms-sent-on-6142023-at-336-pm/"><span class="row-name-wrap"><span class="row-name">My AirVisual phone app is showing the air is …</span><span class="row-first">My AirVisual phone app is showing the air is Unhealthy in St Paul and Very Unhealthy in Minneapolis.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/208-jobarteh-talked-about-continuing-to-reduce-colonialism-from-africa/"><span class="row-name-wrap"><span class="row-name">Jobarteh talked about continuing to reduce colonialism from Africa</span><span class="row-first">And a funny part of the concert was ~ one of the band member had to tell her what city she was in. She then said, "Oh Minneapolis...Minneapolis is a great city...we have been playing in so many cities on this tour...I will not forget Minneapolis."</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/109-b-otto-will-and-brrd-roots-is-a-writer-visual/"><span class="row-name-wrap"><span class="row-name">Will and Brrd Roots is a writer-visual</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-            </nav>
-          <div class="show-more-wrap"><button type="button" class="btn btn-solid solo show-more">Show more</button></div>
-          </div>
-          <div class="reading-pic">
-            <div class="pic-pin">
-              <div class="pic-stack">
-                <a class="pic-seat is-on" href="/physical/dirty-ol-shipyard/0001" aria-label="03743"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201.webp" width="2000" height="1333" alt="03743" decoding="async"></a>
-                <a class="pic-seat" href="/physical/dirty-ol-shipyard/0008" aria-label="03750" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2019.webp" width="2000" height="1333" alt="03750" loading="lazy" decoding="async"></a>
-                <a class="pic-seat" href="/physical/dirty-ol-shipyard/0015" aria-label="03757" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2034.webp" width="2000" height="1333" alt="03757" loading="lazy" decoding="async"></a>
-                <a class="pic-seat" href="/physical/dirty-ol-shipyard/0021" aria-label="03763" tabindex="-1" aria-hidden="true"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%209.webp" width="2000" height="1333" alt="03763" loading="lazy" decoding="async"></a>
-              </div>
-              <div class="pic-tabs" role="group" aria-label="Pictures"><button type="button" class="pic-tab" aria-pressed="true">03743</button><button type="button" class="pic-tab" aria-pressed="false">03750</button><button type="button" class="pic-tab" aria-pressed="false">03757</button><button type="button" class="pic-tab" aria-pressed="false">03763</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="found-band" aria-label="Often found with" style="--found-ground: #F9F8F7;">
-      <div class="inner">
-        <p class="label">Often found with</p>
-        <div class="chips"><a class="chip" href="/writings/justice-and-politics.html">Justice and Politics</a><a class="chip" href="/writings/art-and-making.html">Art and Making</a><a class="chip" href="/writings/earth-and-climate.html">Earth and Climate</a></div>
-      </div>
-    </section>
-
-    <section class="band foot-next" aria-label="Where next">
-      <div class="inner">
-        <div class="foot-grid">
-          <a class="back-link" href="/writings.html"><span aria-hidden="true">&larr;</span> The Writings</a>
-          <div>
-            <p class="next-label">Grief and Loss</p>
-            <a class="go-link" href="/writings/grief-and-loss.html">Next <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="tc-room">
+<section class="tc-lead" aria-label="The Twin Cities">
+<div class="tc-wrap">
+  <p class="tc-crumb"><a class="tc-back" href="/writings.html"><span class="tc-arrow" aria-hidden="true">&larr;</span> The Writings</a></p>
+  <figure class="tc-lead-fig">
+    <a class="tc-pic" href="/physical/dirty-ol-shipyard/0001" aria-label="03743"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201.webp" srcset="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201-600.webp 600w, https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%201.webp 2000w" sizes="(max-width: 899px) 92vw, 1120px" width="2000" height="1333" alt="03743" fetchpriority="high" decoding="async"></a>
+    <figcaption><a class="tc-num" href="/physical/dirty-ol-shipyard/0001">03743</a></figcaption>
+  </figure>
+  <h1 class="tc-title">The Twin Cities</h1>
+  <p class="tc-line">Every writing about the Twin Cities, of every kind, newest first. Choose one to read.</p>
+</div>
+</section>
+<div class="tc-hairline" aria-hidden="true"></div>
+<section class="tc-shard" aria-label="From The store walked into the garden and forgot its own">
+<div class="tc-wrap tc-shard-in reveal">
+  <blockquote class="tc-passage">
+  <p>Habeas corpus ... produce the body ... The state produced a body and the body didn't recognize the state ... The body said I was here before you were a word ... The body said I was soil before you were a map ... The body said deport me and I'll arrive before you do ...</p>
+  </blockquote>
+  <p class="tc-from"><a class="tc-from-a" href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/">From <em>The store walked into the garden and forgot its own</em> <span class="tc-arrow" aria-hidden="true">&rarr;</span></a></p>
+</div>
+</section>
+<section class="tc-band tc-words" aria-label="The Twin Cities">
+<div class="tc-wrap">
+<div class="tc-band-head">
+<div class="tc-choices" role="group" aria-label="Types" hidden>
+  <button type="button" class="tc-choice" data-kind="" aria-pressed="true">Every type</button>
+  <button type="button" class="tc-choice" data-kind="Poem" aria-pressed="false">Poems</button>
+  <button type="button" class="tc-choice" data-kind="Story" aria-pressed="false">Stories</button>
+  <button type="button" class="tc-choice" data-kind="Essay" aria-pressed="false">Essays</button>
+  <button type="button" class="tc-choice" data-kind="Text" aria-pressed="false">Texts</button>
+  <button type="button" class="tc-choice" data-kind="Short piece" aria-pressed="false">Short pieces</button>
+</div>
+</div>
+<div class="tc-grid">
+<article class="tc-card tc-card-pic" data-kind="Essay">
+  <figure class="tc-card-fig">
+    <a class="tc-pic tc-seat" href="/physical/dirty-ol-shipyard/0008" aria-label="03750"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2019.webp" srcset="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2019-600.webp 600w, https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2019.webp 2000w" sizes="(max-width: 899px) 92vw, 380px" width="2000" height="1333" alt="03750" loading="lazy" decoding="async"></a>
+    <figcaption><a class="tc-num" href="/physical/dirty-ol-shipyard/0008">03750</a></figcaption>
+  </figure>
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/three-decades-spine/"><span class="tc-name">THREE DECADES — THE SPINE&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">Winsted Foundations, 1959–1978. Born 1959 near Hutchinson, Minnesota, raised in Winsted. The full telling of these years is the first room: EARLY YEARS — 1959 to 1982.</span></a>
+</article>
+<article class="tc-card tc-card-pic" data-kind="Story">
+  <figure class="tc-card-fig">
+    <a class="tc-pic tc-seat" href="/physical/dirty-ol-shipyard/0015" aria-label="03757"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2034.webp" srcset="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2034-600.webp 600w, https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%2034.webp 2000w" sizes="(max-width: 899px) 92vw, 380px" width="2000" height="1333" alt="03757" loading="lazy" decoding="async"></a>
+    <figcaption><a class="tc-num" href="/physical/dirty-ol-shipyard/0015">03757</a></figcaption>
+  </figure>
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/ice-versus-minnesota-locked/"><span class="tc-name">The store walked into the garden and forgot its own&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span><span class="tc-side"><span class="tc-kind">Story</span><span class="tc-dot"> · </span><span class="tc-time">6 minutes</span></span><span class="tc-first">The store walked into the garden and forgot its own name ... The agent stood at the threshold of rose vines and couldn't find the door because the door was painted the same color as the flowers ... The agency that hunts</span></a>
+</article>
+<article class="tc-card tc-card-pic" data-kind="Essay">
+  <figure class="tc-card-fig">
+    <a class="tc-pic tc-seat" href="/physical/dirty-ol-shipyard/0021" aria-label="03763"><img src="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%209.webp" srcset="https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%209-600.webp 600w, https://media.paraploo.com/site/images/physical/dirty-ol-shipyard/Dirty%20Shipyard%209.webp 2000w" sizes="(max-width: 899px) 92vw, 380px" width="2000" height="1333" alt="03763" loading="lazy" decoding="async"></a>
+    <figcaption><a class="tc-num" href="/physical/dirty-ol-shipyard/0021">03763</a></figcaption>
+  </figure>
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/local-elder-women-on-creating-a-flower-garden-that-blooms-mostly-locked/"><span class="tc-name">Local Elder Women On Creating a Flower Garden That Blooms Mostly&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">3 minutes</span></span><span class="tc-first">The soil had been placing bets in our yard longer than deeds existed ... Mint and other winning territories in the northeast corner ... through a campaign so slow it made every extreme conflict seem like a tantrum ... A moody Monday in March decided to be a Minnesota early January snowfall festival ... Inside ...</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Short piece">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/in-the-oyparaploo-way-of-conjuring/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">In the Oyparaploo Way of Conjuring&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Short piece</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">( melt ice with your indigenous beating heart ) We hear a theme of softness.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/thirty-seconds-final/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Thirty Seconds&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">2 minutes</span></span><span class="tc-first">Phone in hand. Pushed toward the sidewalk. Stepped between a falling protester and the officer who shoved her. Arms reaching out. Pepper spray. Surrounded. Wrestled down. Hit. Gun removed from his waist by an officer backing away. Then shot anyway.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/standing-through/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Standing Through&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">How's the day shaping up in Minneapolis? Extremely cold. But we have seen thousands of candle flames and people all bundled up standing on street corners and sidewalks at night everywhere, holding signs. Bodies of all types standing through, in our frigid north January air. Eight below and breath turning visible the</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/get-up/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Get Up&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">You don't need a ... college degree ... certificate ... years of training ... or a list of key reasons to start ... Get up is how it starts ... Not reading a book about the best way to get up ...</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Poem">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/another-minneapolis-urgency-entering-a-new-frame/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Another Minneapolis Urgency Entering A New Frame&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Poem</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">01.15.2026, early morning, Saint Paul, Minnesota Cold shapes every movement.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Poem">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/a-tongue-yelling-to-another-throat-fuck/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">A Tongue Yelling To Another Throat&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Poem</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">01.10.2026 ... Minneapolis A woman was killed for looking.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/we-examine-you-arrived-before-the-bullet-final/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">We Examine You Arrived Before The Bullet&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">3 minutes</span></span><span class="tc-first">01.15.2026 ... Minneapolis ... Saint Paul We are looking at the words that came before the violence.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2026-variety/a-great-place/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">A Great Place&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">(where stories get raised) Feeling bad is not a great place to raise children ...</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2025-variety/still-here/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Still Here&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">18 minutes</span></span><span class="tc-first">A companion to What Gives --- Food and drink are something that all types of people can connect with ... They are tools that can be used for all kinds of different types of people to be able to get along better ... What</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Essay">
+  <a class="tc-card-a" href="https://paraploo.com/words/2025-variety/land-acknowledgment/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">We acknowledge the land on which Brrd Roots Organization&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Essay</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">and its workspaces stand is the original homeland of the Dakota people. Learn More LAND ACKNOWLEDGMENT</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Text">
+  <a class="tc-card-a" href="https://paraploo.com/words/2023-25-phone-texts/659-mms-sent-on-4112023-at-703-am/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Parrot: Also, Art In Bloom will be at MIA …&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Text</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">Parrot: Also, Art In Bloom will be at MIA coming up soon.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Text">
+  <a class="tc-card-a" href="https://paraploo.com/words/2023-25-phone-texts/563-mms-sent-on-6142023-at-336-pm/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">My AirVisual phone app is showing the air is …&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Text</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">My AirVisual phone app is showing the air is Unhealthy in St Paul and Very Unhealthy in Minneapolis.</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Text">
+  <a class="tc-card-a" href="https://paraploo.com/words/2023-25-phone-texts/208-jobarteh-talked-about-continuing-to-reduce-colonialism-from-africa/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Jobarteh talked about continuing to reduce colonialism from Africa&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Text</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span><span class="tc-first">And a funny part of the concert was ~ one of the band member had to tell her what city she was in. She then said, "Oh Minneapolis...Minneapolis is a great city...we have been playing in so many cities on this tour...I will not forget Minneapolis."</span></a>
+</article>
+<article class="tc-card tc-card-sign" data-kind="Text">
+  <a class="tc-card-a" href="https://paraploo.com/words/2023-25-phone-texts/109-b-otto-will-and-brrd-roots-is-a-writer-visual/"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Will and Brrd Roots is a writer-visual&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span><span class="tc-side"><span class="tc-kind">Text</span><span class="tc-dot"> · </span><span class="tc-time">1 minute</span></span></a>
+</article>
+</div>
+</div>
+</section>
+<section class="tc-band tc-found" aria-label="Often found with">
+<div class="tc-wrap">
+<div class="tc-band-head"><h2 class="tc-band-title">Often found with</h2></div>
+<nav class="tc-found-grid" aria-label="Often found with">
+  <a class="tc-card-a tc-found-a" href="/writings/justice-and-politics.html"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Justice and Politics&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span></a>
+  <a class="tc-card-a tc-found-a" href="/writings/art-and-making.html"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Art and Making&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span></a>
+  <a class="tc-card-a tc-found-a" href="/writings/earth-and-climate.html"><span class="tc-panel"><span class="tc-sun" aria-hidden="true"></span><span class="tc-sign">Earth and Climate&nbsp;<span class="tc-arrow" aria-hidden="true">&rarr;</span></span></span></a>
+</nav>
+</div>
+</section>
+<section class="tc-onward" aria-label="Where next">
+<div class="tc-wrap tc-onward-in">
+  <a class="tc-back" href="/writings.html"><span class="tc-arrow" aria-hidden="true">&larr;</span> The Writings</a>
+  <p class="tc-next-wrap"><span class="tc-next-label">Grief and Loss</span>
+  <a class="tc-btn tc-next" href="/writings/grief-and-loss.html">Next <span class="tc-arrow" aria-hidden="true">&rarr;</span></a></p>
+</div>
+</section>
+</div>
 </main>
+
 
 <footer class="site-footer"></footer>
 <hr class="tone-line" aria-hidden="true">
 
-
-
-<script id="behind-script">
-/* The play on these pages: rows that rise once as they come into view. Nothing else moves. */
-(function () {
-  var doc = document;
-  function all(sel) { return Array.prototype.slice.call(doc.querySelectorAll(sel)); }
-  /* In this preview, links to pages not made yet, and the header's own links, stay on the page. */
-  doc.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href]');
-    if (!a) return;
-    var h = a.getAttribute('href');
-    if (h === '#' || (location.protocol === 'file:' && h.charAt(0) === '/')) e.preventDefault();
-  });
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        en.target.classList.add('risen');
-      });
-    }, { rootMargin: '0px 0px -6% 0px' });
-    all('.label, .rows a, .subject-rows a, .foot-grid, .chips').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
-    doc.addEventListener('animationend', function (e) {
-      if (e.animationName === 'rise') e.target.classList.remove('will-rise', 'risen');
-    });
-  }
-})();
-</script>
-<script id="subject-script">
-(function () {
-  var doc = document;
-  function all(s) { return Array.prototype.slice.call(doc.querySelectorAll(s)); }
-  all('img[data-local]').forEach(function (img) {
-    function swap() { img.removeEventListener('error', swap); img.src = img.getAttribute('data-local'); }
-    if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap);
-  });
-  /* The picture that changes as you read: it holds still beside the rows and changes as they pass.
-     The numbers under it change it by hand at any width, and are the phone's own way. */
-  var rows = doc.querySelector('.subject-rows');
-  var seats = all('.pic-seat'), tabs = all('.pic-tab');
-  var wide = window.matchMedia('(min-width: 1000px)'), calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var cur = 0;
-  function setSeat(i) {
-    cur = i;
-    seats.forEach(function (s, n) { var on = n === i; s.classList.toggle('is-on', on);
-      if (on) { s.removeAttribute('tabindex'); s.removeAttribute('aria-hidden'); } else { s.setAttribute('tabindex', '-1'); s.setAttribute('aria-hidden', 'true'); } });
-    tabs.forEach(function (t, n) { t.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
-  }
-  tabs.forEach(function (t, n) { t.addEventListener('click', function () { setSeat(n); }); });
-  var ticking = false;
-  function readScroll() {
-    ticking = false;
-    if (!rows || !wide.matches || calm.matches) return;
-    var r = rows.getBoundingClientRect();
-    var p = (window.innerHeight / 2 - r.top) / r.height;
-    var i = Math.max(0, Math.min(seats.length - 1, Math.floor(p * seats.length)));
-    if (i !== cur) setSeat(i);
-  }
-  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(readScroll); } }, { passive: true });
-  /* Show more: 24 rows at a time. */
-  var btn = doc.querySelector('.show-more');
-  if (btn) btn.addEventListener('click', function () {
-    var rest = all('.subject-rows a.later');
-    rest.slice(0, 24).forEach(function (a) { a.classList.remove('later'); });
-    if (rest.length <= 24) btn.parentNode.hidden = true;
-    if (rest[0]) rest[0].focus({ preventScroll: true });
-  });
-})();
-</script>
-
-
-<script src="/drawing.js"></script>
+<script src="/writings/the-twin-cities-room.js"></script>
 </body>
 </html>
