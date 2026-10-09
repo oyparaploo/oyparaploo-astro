@@ -1,0 +1,257 @@
+/* Language and Sound: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\books-berg.html (a book catalogue): the bar of categories run together with commas, the
+   chosen one underlined; the grid of three identical cards, each a pedestal with a cover standing on it, a soft
+   shadow under the cover, and a centred stack of details below, its first line bold; the thin coloured rule.
+   Each writing is a book: its name and first lines are its cover, its kind and reading time the stack under it.
+   The colours are the pictures' (Placings, Noir Music Night of Day): the stage's wine, rose and mauve, the tent's
+   cool grey, the candle's ivory. The room follows the mode, white in Light and the dark ground in Dark. The passage's
+   band and the light covers stay lit in both, their words in Ink's light value (#111, 13.7 to 1 or better); the two
+   dark covers, Poems in the stage's wine and Plays in its black, carry Ink's dark value (#e8e0d6, 10.4 to 1 or
+   better). Off the band and the covers the words use only the named colours, as chrome.css sets them for the mode.
+   The waves and the rule take the pictures' colours; they are marks, not words. */
+
+:root {
+  --ls-band: #E6DEDE;            /* the passage's band: the page's own band colour, from its pictures */
+  --ls-ped: #EDE7E7;             /* the pedestals: the stage's mauve grey, where the draft's are warm grey */
+  --ls-wine: #7A4047;            /* the stage's wine (05119) */
+  --ls-rose: #C9969D;            /* the stage's rose (05102, 05136) */
+  --ls-hair: rgba(17, 17, 17, 0.2);
+  --ls-lift: rgba(0, 0, 0, 0.15);
+  --ls-lift-up: rgba(0, 0, 0, 0.24);
+  --ls-margin: 40px;             /* the draft's own margin */
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --ls-ped: #1E1618; --ls-hair: rgba(232, 224, 214, 0.22); --ls-lift: rgba(0, 0, 0, 0.5); --ls-lift-up: rgba(0, 0, 0, 0.7); }
+}
+html[data-theme="dark"] { --ls-ped: #1E1618; --ls-hair: rgba(232, 224, 214, 0.22); --ls-lift: rgba(0, 0, 0, 0.5); --ls-lift-up: rgba(0, 0, 0, 0.7); }
+
+.ls-room { overflow-x: clip; color: var(--ink); }
+.ls-wrap { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: var(--ls-margin); padding-right: var(--ls-margin); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.ls-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+.ls-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .ls-back:hover .ls-arrow { transform: translateX(-6px); } }
+.ls-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+/* an arrow after a name takes no room until it slides in, so it never wraps alone */
+.ls-name .ls-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
+
+/* ---------- the header ---------- */
+.ls-head { padding-top: 40px; padding-bottom: 64px; }
+.ls-title {
+  margin: 44px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+}
+.ls-desc { margin: 22px 0 0; max-width: 34em; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--ink-soft); }
+
+/* ---------- the passage, on its band edge to edge; the first picture standing beside it ---------- */
+.ls-band {
+  background: var(--ls-band);
+  --ink: #111; --ink-soft: #111; --ink-faint: #111; --accent: #111; color: #111;
+}
+.ls-band-in {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center;
+  padding-top: 88px; padding-bottom: 88px;
+}
+.ls-passage { margin: 0; }
+.ls-passage p {
+  margin: 0; max-width: 19em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(26px, 2.4vw, 36px); line-height: 1.3; letter-spacing: -0.01em; color: #111;
+}
+.ls-from { margin: 36px 0 0; }
+.ls-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111; text-decoration: none; }
+@media (hover: hover) { .ls-from a:hover .ls-arrow { transform: translateX(6px); } }
+.ls-from a:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+.ls-band-pic { margin: 0; display: flex; flex-direction: column; align-items: center; }
+.ls-band-pic .ls-pic { width: 86%; }
+
+/* every picture whole, never cropped, standing as a cover does, with the draft's soft shadow */
+.ls-pic { display: block; transition: transform 0.35s ease; }
+.ls-pic img { display: block; width: 100%; height: auto; box-shadow: 4px 6px 20px var(--ls-lift); transition: box-shadow 0.35s ease; }
+.ls-band .ls-pic img { box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.18); }
+@media (hover: hover) {
+  .ls-pic:hover { transform: translateY(-6px); }
+  .ls-pic:hover img { box-shadow: 10px 16px 32px var(--ls-lift-up); }
+  .ls-band .ls-pic:hover img { box-shadow: 10px 16px 32px rgba(0, 0, 0, 0.26); }
+}
+.ls-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.ls-band-pic figcaption { margin-top: 18px; }
+.ls-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none;
+}
+.ls-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the catalogue ---------- */
+.ls-cat { padding-top: 80px; }
+/* the draft's bar of categories, as the chooser of the type: run together with commas, the chosen one underlined */
+.ls-bar { display: flex; flex-wrap: wrap; align-items: baseline; padding: 0 0 20px; border-bottom: 1px solid var(--ls-hair); }
+.ls-bar[hidden] { display: none; }
+.ls-choice {
+  -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 8px 0; margin: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; line-height: 1.3; color: var(--ink-soft);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 6px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.ls-choice:not(:last-child)::after { content: ','; display: inline-block; margin-right: 12px; color: var(--ink-soft); text-decoration: none; }
+.ls-choice[aria-pressed="true"] { color: var(--ink); text-decoration-color: currentColor; }
+@media (hover: hover) { .ls-choice:hover { color: var(--ink); } }
+.ls-choice:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* the draft's grid: three across, every card the same */
+.ls-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 32px; margin-top: 44px; align-items: stretch; }
+/* every card in a row the same height, the pedestals with it, so the stacks under them sit on one line as the draft's */
+.ls-card { display: flex; flex-direction: column; text-align: center; transition: opacity 0.35s ease; }
+.ls-card > .ls-book:only-child { flex: 1 1 auto; display: flex; flex-direction: column; }
+.ls-card > .ls-book:only-child > .ls-ped { flex: 1 1 auto; }
+.ls-card.later, .ls-card.off { display: none; }
+.ls-grid.filtered .ls-card.later:not(.off) { display: flex; }
+/* a picture card whose writing is not of the type chosen steps back, its picture still in its place */
+.ls-grid.filtered .ls-photo.off { display: flex; opacity: 0.3; }
+
+.ls-book { display: block; color: var(--ink); text-decoration: none; }
+.ls-book:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+
+/* the pedestal, where the draft's is grey; the cover standing on it, centred */
+.ls-ped {
+  display: flex; align-items: center; justify-content: center; margin: 0;
+  aspect-ratio: 1 / 1.15; padding: 32px; background: var(--ls-ped);
+}
+.ls-ped-pic .ls-pic { width: 86%; }
+.ls-ped-pic.ls-tall .ls-pic { width: 62%; }
+
+/* the cover: the writing's name and first lines, set as a book's, in the colour of its kind */
+.ls-cover {
+  display: flex; flex-direction: column; width: 78%; aspect-ratio: 3 / 4; padding: 26px 22px 24px;
+  text-align: left; background: var(--ls-cv, #fff); color: var(--ls-cw, #111); border-radius: 2px;
+  box-shadow: 4px 6px 20px var(--ls-lift);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.ls-k-essay { --ls-cv: #FFFFFF; }                                        /* paper */
+.ls-k-story { --ls-cv: #E9D7DA; }                                        /* the stage's mauve, pale */
+.ls-k-short { --ls-cv: #DEE0E8; }                                        /* the tent's cool grey, pale */
+.ls-k-text { --ls-cv: #F6E8EA; }                                         /* the stage's rose, pale */
+.ls-k-conversation { --ls-cv: #F2EDE6; }                                 /* the candle's ivory */
+.ls-k-letter, .ls-k-prayer, .ls-k-other { --ls-cv: #F2EDE6; }
+.ls-k-poem { --ls-cv: #4E1F26; --ls-cw: #e8e0d6; --ls-wv: var(--ls-rose); }   /* the stage's wine */
+.ls-k-play { --ls-cv: #1C1315; --ls-cw: #e8e0d6; --ls-wv: var(--ls-rose); }   /* the stage's black */
+.ls-cover .ls-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 22px; line-height: 1.15; color: inherit; overflow-wrap: break-word;
+}
+/* the cover's ornament: a line of sound, still at rest, playing when the book is pointed at */
+.ls-wave {
+  display: block; flex: none; width: 100%; height: 18px; margin: 16px 0 14px;
+  background-color: var(--ls-wv, var(--ls-wine));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='18' viewBox='0 0 120 18'%3E%3Cpath d='M0 9 Q3 7 6 9 Q9 14 12 9 Q15 1 18 9 Q21 13 24 9 Q27 2 30 9 Q33 12 36 9 Q39 1 42 9 Q45 14 48 9 Q51 7 54 9 Q57 15 60 9 Q63 1 66 9 Q69 12 72 9 Q75 4 78 9 Q81 16 84 9 Q87 7 90 9 Q93 13 96 9 Q99 1 102 9 Q105 15 108 9 Q111 6 114 9 Q117 14 120 9' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") 0 0 / 120px 18px repeat-x;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='18' viewBox='0 0 120 18'%3E%3Cpath d='M0 9 Q3 7 6 9 Q9 14 12 9 Q15 1 18 9 Q21 13 24 9 Q27 2 30 9 Q33 12 36 9 Q39 1 42 9 Q45 14 48 9 Q51 7 54 9 Q57 15 60 9 Q63 1 66 9 Q69 12 72 9 Q75 4 78 9 Q81 16 84 9 Q87 7 90 9 Q93 13 96 9 Q99 1 102 9 Q105 15 108 9 Q111 6 114 9 Q117 14 120 9' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E") 0 0 / 120px 18px repeat-x;
+}
+.ls-card:nth-child(3n+1) .ls-wave { -webkit-mask-position: -40px 0; mask-position: -40px 0; }
+.ls-card:nth-child(3n+2) .ls-wave { -webkit-mask-position: -78px 0; mask-position: -78px 0; }
+@keyframes ls-sound { from { -webkit-mask-position: 0 0; mask-position: 0 0; } to { -webkit-mask-position: -120px 0; mask-position: -120px 0; } }
+.ls-cover .ls-first { display: block; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.5; color: inherit; overflow-wrap: break-word; }
+
+/* the stack under the pedestal: the kind, bold, as the draft's bold line; the reading time under it */
+.ls-stack { display: block; padding: 20px 12px 0; }
+.ls-kind { display: block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; color: var(--ink); }
+.ls-dot { display: none; }
+.ls-time { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.5; color: var(--ink-soft); }
+
+/* the first row: the picture stands as the cover, its number under it, the writing's words in the stack */
+.ls-numline { margin: 16px 0 0; }
+.ls-photo .ls-book { margin-top: 2px; }
+.ls-photo .ls-stack { padding-top: 10px; }
+.ls-photo .ls-name {
+  display: block; margin-top: 12px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 1.8vw, 27px); line-height: 1.15; color: var(--ink); overflow-wrap: break-word; transition: color 0.25s ease;
+}
+.ls-photo .ls-first { display: block; margin: 12px auto 0; max-width: 30em; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
+
+/* pointed at, the book lifts a little off its pedestal, its shadow deepening, the line of sound plays, and an arrow
+   slides in after its name; nothing grows and nothing below moves */
+@media (hover: hover) {
+  .ls-book:hover .ls-cover { transform: translateY(-8px) rotate(-1deg); box-shadow: 10px 18px 34px var(--ls-lift-up); }
+  .ls-book:hover .ls-wave { animation: ls-sound 1.4s linear infinite; }
+  .ls-book:hover .ls-name .ls-arrow { opacity: 1; transform: translateX(0); }
+  .ls-photo .ls-book:hover .ls-name { color: var(--accent); }
+}
+.ls-book:focus-visible .ls-cover { transform: translateY(-8px) rotate(-1deg); box-shadow: 10px 18px 34px var(--ls-lift-up); }
+.ls-book:focus-visible .ls-name .ls-arrow { opacity: 1; transform: none; }
+.ls-book:active .ls-cover { transform: translateY(-8px) rotate(-1deg); }
+
+/* ---------- the buttons: solid, turning to their outline when pointed at ---------- */
+.ls-more { padding-top: 72px; text-align: center; }
+.ls-more[hidden] { display: none; }
+.ls-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  background: var(--ink); color: var(--ground, #fff); border: 2px solid var(--ink); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+@media (hover: hover) { .ls-btn:hover { background: transparent; color: var(--ink); } .ls-next:hover .ls-arrow { transform: translateX(6px); } }
+.ls-btn:active { background: transparent; color: var(--ink); }
+.ls-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the way on ---------- */
+.ls-way { padding-top: 120px; padding-bottom: 128px; }
+.ls-way-head { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.2; color: var(--ink); }
+/* its three subjects, run together with commas as the draft's bar; an underline when pointed at */
+.ls-subjects { display: flex; flex-wrap: wrap; align-items: baseline; margin-top: 18px; }
+.ls-subject {
+  padding: 6px 0; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.35; color: var(--ink);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 6px;
+  transition: text-decoration-color 0.2s ease;
+}
+.ls-subject:not(:last-child)::after { content: ','; display: inline-block; margin-right: 14px; }
+@media (hover: hover) { .ls-subject:hover { text-decoration-color: currentColor; } }
+.ls-subject:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+/* the draft's thin coloured rule, in the stage's wine and rose */
+.ls-rule { height: 3px; margin-top: 72px; background: linear-gradient(90deg, var(--ls-wine), var(--ls-rose), var(--ls-wine)); opacity: 0.85; }
+.ls-doors { margin-top: 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.ls-next-wrap { margin: 0; display: flex; align-items: center; gap: 20px; }
+.ls-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ink-soft); }
+
+/* ---------- each part fades in as it is reached, in under a second ---------- */
+.js-reveal .reveal, .js-reveal .ls-card { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .reveal.visible, .js-reveal .ls-card.visible { opacity: 1; }
+.js-reveal .ls-grid.filtered .ls-photo.off { opacity: 0.3; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal, .js-reveal .ls-card { opacity: 1; transition: none; }
+  .ls-arrow, .ls-pic, .ls-pic img, .ls-cover, .ls-card, .ls-choice, .ls-subject, .ls-btn, .ls-photo .ls-name { transition: none; }
+  .ls-book:hover .ls-cover, .ls-book:focus-visible .ls-cover, .ls-book:active .ls-cover, .ls-pic:hover { transform: none; }
+  .ls-wave { animation: none !important; }
+}
+
+/* ---------- narrower windows: the draft's own steps, three across, then two, then one ---------- */
+@media (max-width: 1100px) {
+  .ls-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 24px; }
+  .ls-band-in { gap: 48px; }
+}
+@media (max-width: 767px) {
+  .ls-room { --ls-margin: 24px; }
+  .ls-head { padding-top: 28px; padding-bottom: 44px; }
+  .ls-title { margin-top: 32px; font-size: 42px; line-height: 1.04; }
+  .ls-desc { font-size: 18px; margin-top: 18px; }
+  .ls-band-in { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-top: 56px; padding-bottom: 56px; }
+  .ls-passage p { font-size: 26px; line-height: 1.28; }
+  .ls-from { margin-top: 28px; }
+  .ls-from a { font-size: 18px; }
+  .ls-band-pic .ls-pic { width: 100%; }
+  .ls-cat { padding-top: 56px; }
+  .ls-choice { font-size: 18px; }
+  .ls-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; max-width: 520px; margin-left: auto; margin-right: auto; margin-top: 36px; }
+  .ls-ped { padding: 24px; }
+  .ls-cover { width: 88%; padding: 24px 20px 22px; }
+  /* on a phone a picture's pedestal holds it closer, so it stands larger */
+  .ls-ped-pic { aspect-ratio: auto; padding: 36px 24px; }
+  .ls-ped-pic .ls-pic { width: 92%; }
+  .ls-ped-pic.ls-tall .ls-pic { width: 72%; }
+  .ls-way { padding-top: 88px; padding-bottom: 96px; }
+  .ls-subject { font-size: 20px; }
+  .ls-rule { margin-top: 56px; }
+  .ls-doors { flex-direction: column-reverse; align-items: flex-start; gap: 40px; }
+  .ls-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

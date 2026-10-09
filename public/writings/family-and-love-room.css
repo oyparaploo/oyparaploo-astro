@@ -1,0 +1,247 @@
+/* Family and Love: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\homepage-iaam_2.html (a museum's front page, after the International African American
+   Museum): the dark opening with its dark card between two copper rules; the thin blue band; the pink section of one
+   tall tile beside two stacked tiles, each caption on a dark strip with an arrow; the blue section of programs, a
+   dark card on the left between copper rules and white program cards beside it; the half-and-half close, a picture
+   on the left and a dark panel on the right with its copper button.
+   The colours are the pictures' (Placings, Night Home: things of a household laid out on the ground at night): the
+   night's warm black, the brass's copper, the hose's blue, the beads' lavender. The room is the same in Light, Dark
+   and Auto: on the dark parts the words take the named colours' dark values (Ink #e8e0d6, 12.1 to 1 or better; the
+   title in Accent's dark value #d4a574, the draft's copper, 7.1 to 1 or better); on the white program cards they take
+   the light values (Ink #111, Soft ink #555, 7.5 to 1 or better); the blue ground carries #111 at 7.5 to 1. The rules,
+   bands and strips take the pictures' colours; they are marks, not words. */
+
+.fl-room {
+  --fl-night: #15100F;           /* the night's warm black (04906, 04955) */
+  --fl-card: #2A201D;            /* the draft's dark card, in the night's brown */
+  --fl-brass: #C4956A;           /* the brass's copper: the draft's rules */
+  --fl-hose: #3B6176;            /* the hose's blue (05004): the thin band */
+  --fl-blue: #7FA9BD;            /* the hose's blue, lit: the programs' ground (#111 on it, 7.5 to 1) */
+  --fl-beads: #DCC5E2;           /* the beads' lavender (05004): the pink section */
+  --fl-margin: 40px;             /* the draft's own margin */
+  --d-ink: #e8e0d6; --d-soft: #b3aa9f; --d-accent: #d4a574;   /* the named colours' dark values */
+  --l-ink: #111; --l-soft: #555;                              /* and their light values */
+  overflow-x: clip;
+}
+.fl-wrap { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: var(--fl-margin); padding-right: var(--fl-margin); }
+
+/* the dark parts: the named colours' dark values, the same in every mode */
+.fl-hero, .fl-tall, .fl-cap, .fl-prog-card, .fl-split {
+  --ink: var(--d-ink); --ink-soft: var(--d-soft); --ink-faint: var(--d-soft); --accent: var(--d-accent); color: var(--d-ink);
+}
+
+/* the draft's copper rule */
+.fl-rule { display: block; height: 2px; background: var(--fl-brass); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.fl-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+.fl-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .fl-back:hover .fl-arrow { transform: translateX(-6px); } }
+.fl-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* every picture whole, never cropped */
+.fl-pic { display: block; }
+.fl-pic img { display: block; width: 100%; height: auto; }
+.fl-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.fl-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none;
+}
+.fl-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- 1. the dark opening ---------- */
+.fl-hero { background: var(--fl-night); }
+.fl-hero-in {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center;
+  padding-top: 48px; padding-bottom: 88px;
+}
+.fl-hero-words { align-self: stretch; display: flex; flex-direction: column; }
+.fl-card { margin: auto 0; padding: 44px 44px 48px; background: var(--fl-card); }
+.fl-hero-words .fl-card { margin-top: 56px; }
+.fl-title {
+  margin: 22px 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 4.6vw, 72px); line-height: 1.02; letter-spacing: -0.015em; color: var(--d-accent);
+}
+.fl-desc { margin: 22px 0 0; max-width: 26em; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.55; color: var(--d-ink); }
+.fl-hero-pic { margin: 0; }
+.fl-hero-pic figcaption, .fl-split-pic figcaption { margin-top: 16px; }
+
+/* ---------- 2. the draft's thin blue band ---------- */
+.fl-strip { height: 40px; background: var(--fl-hose); }
+
+/* ---------- 3. the pink section: one tall tile beside two stacked ---------- */
+.fl-pink { background: var(--fl-beads); }
+.fl-pink-in {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch;
+  padding-top: 48px; padding-bottom: 48px;
+}
+.fl-pink-right { display: flex; flex-direction: column; gap: 24px; }
+.fl-tall {
+  display: flex; flex-direction: column; justify-content: center; padding: 56px 52px; background: var(--fl-card);
+}
+.fl-passage { margin: 28px 0; }
+.fl-passage p {
+  margin: 0; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(24px, 2.2vw, 33px); line-height: 1.36; letter-spacing: -0.01em; color: var(--d-ink);
+  overflow-wrap: anywhere;
+}
+.fl-from { margin: 28px 0 0; }
+.fl-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--d-ink); text-decoration: none; }
+@media (hover: hover) { .fl-from a:hover .fl-arrow { transform: translateX(6px); } }
+.fl-from a:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 4px; }
+/* a tile: the picture whole, its caption on the dark strip under it, the draft's arrow at the right */
+.fl-tile-pic { margin: 0; background: var(--fl-card); }
+.fl-cap { display: block; }
+.fl-cap .fl-num { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; font-size: 18px; }
+.fl-cap .fl-arrow { font-family: 'Inter', sans-serif; font-size: 22px; }
+@media (hover: hover) { .fl-tile-pic:hover .fl-cap .fl-arrow, .fl-cap .fl-num:hover .fl-arrow { transform: translateX(6px); } }
+
+/* ---------- 4. the blue section of programs ---------- */
+.fl-prog { background: var(--fl-blue); --ink: var(--l-ink); color: var(--l-ink); }
+.fl-prog-in {
+  display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; align-items: start;
+  padding-top: 64px; padding-bottom: 80px;
+}
+.fl-prog-in:has(> .fl-prog-card[hidden]) { grid-template-columns: minmax(0, 1fr); }
+/* the dark card, standing still while the list moves; it holds the chooser of the type */
+.fl-prog-card { position: sticky; top: 32px; padding: 36px 36px 40px; background: var(--fl-card); }
+.fl-prog-card[hidden] { display: none; }
+.fl-choices { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin: 22px 0; }
+.fl-choice {
+  -webkit-appearance: none; appearance: none; background: none; border: 0; margin: 0; padding: 7px 0; cursor: pointer; text-align: left;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; line-height: 1.3; color: var(--d-soft);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 6px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.fl-choice[aria-pressed="true"] { color: var(--d-ink); text-decoration-color: var(--fl-brass); }
+@media (hover: hover) { .fl-choice:hover { color: var(--d-ink); } }
+.fl-choice:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+
+/* every writing one white program card: the copper rule, its name, its first lines, then its kind and reading time */
+.fl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.fl-ev { display: flex; }
+.fl-ev.later, .fl-ev.off { display: none; }
+.fl-grid.filtered .fl-ev.later:not(.off) { display: flex; }
+.fl-ev-a {
+  flex: 1 1 auto; display: flex; flex-direction: column; padding: 24px 24px 22px; background: #fff;
+  color: var(--l-ink); text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease;
+}
+.fl-ev-a .fl-rule { margin-bottom: 20px; }
+.fl-ev-a:focus-visible { outline: 3px solid var(--l-ink); outline-offset: 3px; }
+.fl-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 22px; line-height: 1.18; color: inherit; overflow-wrap: break-word;
+}
+/* an arrow after a name takes no room until it slides in, so it never wraps alone */
+.fl-name .fl-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
+.fl-first {
+  display: block; margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55;
+  color: var(--l-soft); overflow-wrap: break-word; transition: color 0.3s ease;
+}
+.fl-side { display: block; margin-top: auto; padding-top: 18px; }
+.fl-kind { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.45; color: inherit; }
+.fl-dot { display: none; }
+.fl-time { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.45; color: inherit; }
+/* pointed at, the card turns to the dark card, its words lit; an arrow slides in after its name.
+   Nothing grows and nothing below moves. */
+@media (hover: hover) {
+  .fl-ev-a:hover { background: var(--fl-card); color: var(--d-ink); }
+  .fl-ev-a:hover .fl-first { color: var(--d-soft); }
+  .fl-ev-a:hover .fl-name .fl-arrow { opacity: 1; transform: translateX(0); }
+}
+.fl-ev-a:active { background: var(--fl-card); color: var(--d-ink); }
+.fl-ev-a:active .fl-first { color: var(--d-soft); }
+.fl-ev-a:focus-visible .fl-name .fl-arrow { opacity: 1; transform: none; }
+
+/* ---------- the buttons: solid, turning to their outline when pointed at ---------- */
+.fl-more { padding-top: 48px; text-align: center; }
+.fl-more[hidden] { display: none; }
+.fl-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2; cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.fl-more .fl-btn { background: var(--fl-card); color: var(--d-ink); border: 2px solid var(--fl-card); }
+@media (hover: hover) { .fl-more .fl-btn:hover { background: transparent; color: var(--l-ink); } }
+.fl-more .fl-btn:active { background: transparent; color: var(--l-ink); }
+.fl-more .fl-btn:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 3px; }
+
+/* ---------- 5. the half-and-half close ---------- */
+.fl-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--fl-card); }
+.fl-split-pic { margin: 0; padding: 64px 56px; background: var(--fl-night); display: flex; flex-direction: column; justify-content: center; }
+.fl-split-words { padding: 80px 64px 88px; display: flex; flex-direction: column; justify-content: center; }
+.fl-way-head {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.8vw, 40px); line-height: 1.15; color: var(--d-ink);
+}
+.fl-subjects { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 22px; }
+.fl-subject {
+  padding: 6px 0; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.35; color: var(--d-ink);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 6px;
+  transition: text-decoration-color 0.2s ease;
+}
+@media (hover: hover) { .fl-subject:hover { text-decoration-color: var(--fl-brass); } }
+.fl-subject:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+.fl-split-words > .fl-rule { margin-top: 44px; }
+.fl-doors { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+.fl-next-wrap { margin: 0; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.fl-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--d-soft); }
+/* the draft's copper button */
+.fl-next { background: var(--d-accent); color: var(--l-ink); border: 2px solid var(--d-accent); }
+@media (hover: hover) { .fl-next:hover { background: transparent; color: var(--d-accent); } .fl-next:hover .fl-arrow { transform: translateX(6px); } }
+.fl-next:active { background: transparent; color: var(--d-accent); }
+.fl-next:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+
+/* ---------- each part fades in as it is reached, in under a second ---------- */
+.js-reveal .fl-room .reveal, .js-reveal .fl-ev { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .fl-room .reveal.visible, .js-reveal .fl-ev.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .fl-room .reveal, .js-reveal .fl-ev { opacity: 1; transition: none; }
+  .fl-arrow, .fl-ev-a, .fl-first, .fl-choice, .fl-subject, .fl-btn { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1100px) {
+  /* the passage's long joined words keep whole: the tall tile takes the full width above its two pictures */
+  .fl-pink-in { grid-template-columns: minmax(0, 1fr); }
+  .fl-passage p { font-size: clamp(24px, 3vw, 32px); max-width: 26em; }
+}
+@media (max-width: 1240px) {
+  .fl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fl-prog-in { grid-template-columns: 300px minmax(0, 1fr); }
+}
+@media (max-width: 899px) {
+  .fl-hero-in { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-bottom: 64px; }
+  .fl-hero-words .fl-card { margin-top: 40px; }
+  .fl-prog-in { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .fl-prog-card { position: static; }
+  /* the chooser runs along on narrower windows, so the list starts sooner */
+  .fl-choices { flex-direction: row; flex-wrap: wrap; gap: 2px 22px; }
+  .fl-split { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  .fl-room { --fl-margin: 24px; }
+  .fl-hero-in { padding-top: 28px; padding-bottom: 48px; gap: 32px; }
+  .fl-card { padding: 30px 26px 34px; }
+  .fl-hero-words .fl-card { margin-top: 28px; }
+  .fl-title { font-size: 44px; line-height: 1.04; margin: 18px 0; }
+  .fl-desc { font-size: 18px; }
+  .fl-strip { height: 28px; }
+  .fl-pink-in { padding-top: 24px; padding-bottom: 24px; gap: 16px; }
+  .fl-pink-right { gap: 16px; }
+  .fl-tall { padding: 34px 20px; }
+  .fl-passage p { font-size: 19px; line-height: 1.45; letter-spacing: -0.015em; }
+  .fl-from a { font-size: 18px; }
+  .fl-prog-in { padding-top: 40px; padding-bottom: 56px; gap: 16px; }
+  .fl-prog-card { padding: 26px 24px 28px; }
+  .fl-choice { font-size: 18px; }
+  .fl-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .fl-split-pic { padding: 40px 24px; }
+  .fl-split-words { padding: 56px 24px 64px; }
+  .fl-subject { font-size: 20px; }
+  .fl-doors { flex-direction: column-reverse; align-items: flex-start; gap: 36px; }
+  .fl-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

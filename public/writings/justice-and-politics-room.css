@@ -1,0 +1,250 @@
+/* Justice and Politics: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\01-bold-statement_2.html (the bold statement): the black opening with its fine grain and red
+   glow, the title as three staggered lines rising into place at the foot of the first screen, one plain line under
+   it; the two columns, a picture on the left and the warm-white panel on the right with its red dot, a large heading
+   and a link underlined in red; the full-width black section of centred statements; the two columns again, mirrored.
+   The colours are the pictures' (Physical Proof, Mercy and No Mercy: rubble at night, black plastic, a crimson cloth,
+   a purple net): the plastic's black, the cloth's crimson, the net's purple in the glow. The room is the same in
+   Light, Dark and Auto: on the black the words take the named colours' dark values (Ink #e8e0d6, 15.1 to 1; Soft ink
+   #b3aa9f, 8.6 to 1); in the warm-white panels they take the light values (Ink #111, 16.6 to 1). The crimson is a
+   mark, never words: the band, the dot, the rules and the underlines. */
+
+.jp-room {
+  --jp-black: #0a0a0a;           /* the plastic's black, the draft's ground */
+  --jp-deep: #161413;            /* the rubble's dark, under the pictures (the draft's image column) */
+  --jp-paper: #f2f0ec;           /* the draft's warm white: the panels */
+  --jp-cloth: #8c0a24;           /* the cloth's crimson in its folds (04575): the band */
+  --jp-red: #a3112e;             /* the cloth's crimson: the marks on the warm white (6.9 to 1) */
+  --jp-lit: #c4243f;             /* the cloth where the light catches it: the marks on the black (3.5 to 1) */
+  --jp-net: #4e2d77;             /* the net's purple (04575): the glow */
+  --jp-line: #2a2626;            /* the draft's hairline on the black */
+  --jp-margin: 40px;             /* the draft's own margin */
+  --d-ink: #e8e0d6; --d-soft: #b3aa9f; --d-faint: #8f877d; --d-accent: #d4a574;   /* the named colours' dark values */
+  --l-ink: #111; --l-soft: #555;                                                  /* and their light values */
+  --ink: var(--d-ink); --ink-soft: var(--d-soft); --ink-faint: var(--d-faint); --accent: var(--d-accent);
+  color: var(--d-ink); background: var(--jp-black);
+  overflow-x: clip;
+}
+
+/* the warm-white panels: the named colours' light values, the same in every mode */
+.jp-panel { --ink: var(--l-ink); --ink-soft: var(--l-soft); color: var(--l-ink); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.jp-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+.jp-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .jp-back:hover .jp-arrow { transform: translateX(-6px); } }
+.jp-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* every picture whole, never cropped */
+.jp-pic { display: block; }
+.jp-pic img { display: block; width: 100%; height: auto; }
+.jp-pic:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 4px; }
+.jp-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--d-ink); text-decoration: none;
+}
+.jp-num:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+.jp-room figure { margin: 0; }
+.jp-room figcaption { margin-top: 16px; }
+
+/* the draft's red dot */
+.jp-dot-mark { display: block; width: 12px; height: 12px; border-radius: 50%; background: var(--jp-red); }
+
+/* ---------- 1. the black opening ---------- */
+.jp-hero {
+  position: relative; overflow: hidden; min-height: 74vh; display: flex;
+  background:
+    radial-gradient(ellipse at 72% 28%, rgba(196, 36, 63, 0.16) 0%, transparent 58%),
+    radial-gradient(ellipse at 22% 82%, rgba(78, 45, 119, 0.16) 0%, transparent 52%),
+    linear-gradient(135deg, #1a1a1a 0%, var(--jp-black) 50%, #1a1210 100%);
+}
+.jp-grain {
+  position: absolute; inset: 0; opacity: 0.4; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+.jp-hero-in {
+  position: relative; z-index: 1; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between;
+  gap: 64px; padding: 44px var(--jp-margin) 80px; max-width: 1440px; width: 100%; margin: 0 auto;
+}
+.jp-hero-words { max-width: 1100px; }
+.jp-title {
+  margin: 0 0 32px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(60px, 9.4vw, 136px); line-height: 0.95; letter-spacing: -0.02em; color: var(--d-ink);
+}
+/* the draft's three staggered lines, each rising into place */
+.jp-line { display: block; animation: jp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.jp-line:nth-child(2) { animation-delay: 0.12s; }
+.jp-line:nth-child(3) { animation-delay: 0.24s; }
+@keyframes jp-rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.jp-desc {
+  margin: 0; max-width: 30em; padding-top: 26px; border-top: 3px solid var(--jp-lit);
+  font-family: 'Inter', sans-serif; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.45; color: var(--d-ink);
+  animation: jp-fade 0.6s 0.35s ease both;
+}
+@keyframes jp-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- 2. the cloth's crimson, edge to edge ---------- */
+.jp-band { height: 28px; background: var(--jp-cloth); }
+
+/* ---------- 3 and 6. the two columns ---------- */
+.jp-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 72vh; }
+.jp-two-pic {
+  display: flex; flex-direction: column; justify-content: center; padding: 64px 56px; background: var(--jp-deep);
+}
+.jp-panel {
+  display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 88px 64px; background: var(--jp-paper);
+}
+.jp-passage { margin: 0; max-width: 21em; }
+.jp-passage p {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: -0.01em; color: var(--l-ink);
+  overflow-wrap: break-word;
+}
+.jp-from { margin: 8px 0 0; }
+/* the draft's link, underlined in red; the arrow slides when pointed at */
+.jp-link {
+  display: inline; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.6;
+  color: var(--l-ink); text-decoration: underline; text-decoration-color: var(--jp-red);
+  text-decoration-thickness: 2px; text-underline-offset: 7px;
+}
+@media (hover: hover) { .jp-link:hover .jp-arrow { transform: translateX(6px); } }
+.jp-link:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 4px; }
+
+/* ---------- 4. the second and third pictures, side by side, edge to edge ---------- */
+.jp-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; background: var(--jp-black); }
+.jp-room .jp-pair-pic figcaption { margin: 16px var(--jp-margin) 0; }
+
+/* ---------- 5. the full-width black section of statements ---------- */
+.jp-state { background: var(--jp-black); }
+.jp-state-in { max-width: 920px; margin: 0 auto; padding: 120px var(--jp-margin) 128px; text-align: center; }
+/* the chooser of the type: one centred line, the chosen one underlined in red */
+.jp-choices {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 30px;
+  padding-bottom: 40px; margin-bottom: 8px; border-bottom: 1px solid var(--jp-line);
+}
+.jp-choices[hidden] { display: none; }
+.jp-choice {
+  -webkit-appearance: none; appearance: none; background: none; border: 0; margin: 0; padding: 8px 0; cursor: pointer;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 19px; line-height: 1.3; color: var(--d-soft);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 8px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.jp-choice[aria-pressed="true"] { color: var(--d-ink); text-decoration-color: var(--jp-lit); }
+@media (hover: hover) { .jp-choice:hover { color: var(--d-ink); } }
+.jp-choice:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+
+/* every writing a centred statement: its name large, its first lines, then its kind and reading time */
+.jp-row { border-bottom: 1px solid var(--jp-line); }
+.jp-row.later, .jp-row.off { display: none; }
+.jp-list.filtered .jp-row.later:not(.off) { display: block; }
+.jp-row-a {
+  display: block; padding: 44px 32px 42px; color: var(--d-ink); text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.jp-row-a:focus-visible { outline: 2px solid var(--d-ink); outline-offset: -2px; }
+.jp-name {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.4vw, 34px); line-height: 1.16; letter-spacing: -0.01em; color: inherit; overflow-wrap: break-word;
+}
+/* an arrow after a name takes no room until it slides in, so it never wraps alone */
+.jp-name .jp-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
+.jp-first {
+  display: block; max-width: 36em; margin: 16px auto 0; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.65;
+  color: var(--d-soft); overflow-wrap: break-word; transition: color 0.3s ease;
+}
+.jp-side { display: block; margin-top: 16px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.45; color: inherit; }
+/* pointed at, the statement turns to the warm-white panel, its words dark; an arrow slides in after its name.
+   Nothing grows and nothing below moves. */
+@media (hover: hover) {
+  .jp-row-a:hover { background: var(--jp-paper); color: var(--l-ink); }
+  .jp-row-a:hover .jp-first { color: var(--l-soft); }
+  .jp-row-a:hover .jp-name .jp-arrow { opacity: 1; transform: translateX(0); }
+}
+.jp-row-a:active { background: var(--jp-paper); color: var(--l-ink); }
+.jp-row-a:active .jp-first { color: var(--l-soft); }
+.jp-row-a:focus-visible .jp-name .jp-arrow { opacity: 1; transform: none; }
+
+/* ---------- the buttons: solid, turning to their outline when pointed at ---------- */
+.jp-more { padding-top: 56px; }
+.jp-more[hidden] { display: none; }
+.jp-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2; cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.jp-more .jp-btn { background: var(--jp-paper); color: var(--l-ink); border: 2px solid var(--jp-paper); }
+@media (hover: hover) { .jp-more .jp-btn:hover { background: transparent; color: var(--d-ink); } }
+.jp-more .jp-btn:active { background: transparent; color: var(--d-ink); }
+.jp-more .jp-btn:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
+
+/* ---------- 6. the close: the way on in the warm-white panel ---------- */
+.jp-label {
+  margin: 0; display: flex; align-items: center; gap: 12px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--l-ink);
+}
+.jp-subjects { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.jp-subject {
+  padding: 4px 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: -0.01em; color: var(--l-ink);
+  text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 8px;
+  transition: text-decoration-color 0.2s ease;
+}
+@media (hover: hover) { .jp-subject:hover { text-decoration-color: var(--jp-red); } }
+.jp-subject:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 3px; }
+.jp-doors {
+  margin-top: 20px; padding-top: 32px; border-top: 2px solid var(--jp-red);
+  display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;
+}
+.jp-next-wrap { margin: 0; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.jp-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--l-soft); }
+/* the black button: solid, turning to its outline */
+.jp-next { background: var(--jp-black); color: var(--d-ink); border: 2px solid var(--jp-black); }
+@media (hover: hover) { .jp-next:hover { background: transparent; color: var(--l-ink); } .jp-next:hover .jp-arrow { transform: translateX(6px); } }
+.jp-next:active { background: transparent; color: var(--l-ink); }
+.jp-next:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 3px; }
+
+/* ---------- each part fades in as it is reached, in under a second ---------- */
+.js-reveal .jp-room .reveal, .js-reveal .jp-row { opacity: 0; transition: opacity 0.8s ease; }
+.js-reveal .jp-room .reveal.visible, .js-reveal .jp-row.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .jp-line, .jp-desc { animation: none; }
+  .js-reveal .jp-room .reveal, .js-reveal .jp-row { opacity: 1; transition: none; }
+  .jp-arrow, .jp-row-a, .jp-first, .jp-choice, .jp-subject, .jp-btn { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1100px) {
+  .jp-two-pic { padding: 48px 36px; }
+  .jp-panel { padding: 72px 44px; }
+}
+@media (max-width: 899px) {
+  .jp-hero { min-height: 64vh; }
+  .jp-two { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .jp-pair { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-bottom: 32px; }
+}
+@media (max-width: 767px) {
+  .jp-room { --jp-margin: 24px; }
+  .jp-hero { min-height: 0; }
+  .jp-hero-in { gap: 72px; padding-top: 28px; padding-bottom: 56px; }
+  .jp-title { font-size: clamp(50px, 15vw, 72px); margin-bottom: 26px; }
+  .jp-desc { font-size: 19px; padding-top: 20px; }
+  .jp-band { height: 20px; }
+  .jp-two-pic { padding: 32px 24px; }
+  .jp-panel { padding: 52px 24px 56px; gap: 22px; }
+  .jp-passage p { font-size: 26px; line-height: 1.2; }
+  .jp-link { font-size: 18px; }
+  .jp-state-in { padding-top: 72px; padding-bottom: 80px; }
+  .jp-choices { gap: 2px 22px; padding-bottom: 28px; }
+  .jp-choice { font-size: 18px; }
+  .jp-row-a { padding: 34px 6px 32px; }
+  .jp-name { font-size: 25px; }
+  .jp-first { font-size: 16px; }
+  .jp-side { font-size: 16px; }
+  .jp-subject { font-size: 26px; }
+  .jp-doors { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+  .jp-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
