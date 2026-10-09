@@ -1,0 +1,264 @@
+/* Playful Humor: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\CLEAN-broadcast-blend_2.html (the broadcast hub): the stage edge to edge, its words at the
+   lower left; a row of cards, each a picture with a coloured bar under it; the schedule on a pale band edge to edge,
+   a chooser on the left and the list on the right; the river line.
+   The colours are the plastic's, from the page's own pictures (Collage, Surreal Plastic Fish): the toy's blue, the
+   cloth's red, the resin's green and pink. The room follows the mode, white in Light and the dark ground in Dark;
+   its two bands, the stage and the schedule, stay lit in both, their words in Ink's light value (#111), 13 to 1 or
+   better. Off the bands the words use only the named colours, as chrome.css sets them for the mode. The bars and
+   rules take the plastic's colours; they are marks, not words. */
+
+:root {
+  --ph-blue: #0D28B3;            /* the toy's blue (06068, 06100) */
+  --ph-red: #AC2131;             /* the cloth's red (06068) */
+  --ph-green: #6E9A27;           /* the resin's green (06079, 06090) */
+  --ph-pink: #C24A73;            /* the resin's pink (06079, 06090) */
+  --ph-stage: #DCE2F7;           /* the stage: the pale of the toy's blue */
+  --ph-sched: #F7E4EA;           /* the schedule's band: the pale of the resin's pink, where the draft's is pale pink */
+  --ph-margin: 40px;             /* the draft's own margin */
+}
+
+.ph-room { overflow-x: clip; color: var(--ink); }
+/* the two lit bands: Ink's light value, whatever the mode */
+.ph-stage, .ph-band {
+  --ink: #111; --ink-soft: #111; --ink-faint: #111; --accent: #111;
+  color: #111;
+}
+.ph-wrap { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: var(--ph-margin); padding-right: var(--ph-margin); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.ph-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+.ph-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .ph-back:hover .ph-arrow { transform: translateX(-6px); } }
+.ph-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+/* an arrow after a name takes no room until it slides in, so it never wraps alone */
+.ph-name .ph-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
+
+/* ---------- the header: the draft's section header, the title left, the sentence right at its baseline ---------- */
+.ph-head { padding-top: 40px; padding-bottom: 56px; }
+.ph-head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 32px 64px; flex-wrap: wrap; margin-top: 44px; }
+.ph-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+}
+.ph-desc {
+  margin: 0; max-width: 26em;
+  font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ---------- the stage, edge to edge: the passage at the lower left, the picture whole on the right ---------- */
+.ph-stage {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: stretch;
+  background: var(--ph-stage);
+}
+.ph-stage-words {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 96px 56px 64px var(--ph-margin);
+}
+/* the passage: the one large thing on the page, where the draft sets its title */
+.ph-passage { margin: 0; }
+.ph-passage p {
+  margin: 0; max-width: 15em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(30px, 3.1vw, 46px); line-height: 1.2; letter-spacing: -0.015em; color: #111;
+}
+/* the passage's door, where the draft keeps its button */
+.ph-from { margin: 36px 0 0; }
+.ph-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111; text-decoration: none; }
+@media (hover: hover) { .ph-from a:hover .ph-arrow { transform: translateX(6px); } }
+.ph-from a:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+.ph-stage-pic { margin: 0; padding: 48px 0 32px; display: flex; flex-direction: column; justify-content: center; }
+
+/* every picture whole, never cropped, its number under it */
+.ph-pic { display: block; }
+.ph-pic img { display: block; width: 100%; height: auto; transition: opacity 0.4s ease; }
+@media (hover: hover) { .ph-pic:hover img { opacity: 0.88; } }          /* the draft's own fade under the hand */
+.ph-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.ph-room figcaption { display: flex; margin-top: 12px; }
+.ph-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none;
+}
+.ph-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the draft's row of cards: the three newest writings ---------- */
+.ph-cards { padding-top: 96px; padding-bottom: 112px; }
+.ph-track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.ph-card { transition: opacity 0.35s ease; }
+.ph-card-pic { margin: 0; }
+.ph-c1 { --ph-c: var(--ph-red); }
+.ph-c2 { --ph-c: var(--ph-green); }
+.ph-c3 { --ph-c: var(--ph-pink); }
+/* the draft's coloured bar under each picture. Pointed at, the bar plays: it empties and runs across again from the
+   left, as a broadcast's bar does when the next thing starts. */
+.ph-bar { position: relative; display: block; height: 4px; margin-top: 0; background: transparent; overflow: hidden; }
+.ph-bar::before { content: ''; position: absolute; inset: 0; background: var(--ph-c); opacity: 0.28; }
+.ph-bar::after { content: ''; position: absolute; inset: 0; background: var(--ph-c); transform-origin: left center; }
+@keyframes ph-play { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (hover: hover) {
+  .ph-card:has(.ph-card-words:hover) .ph-bar::after,
+  .ph-card:has(.ph-pic:hover) .ph-bar::after { animation: ph-play 0.9s cubic-bezier(0.3, 0.1, 0.3, 1); }
+}
+.ph-card:has(.ph-card-words:focus-visible) .ph-bar::after { animation: ph-play 0.9s cubic-bezier(0.3, 0.1, 0.3, 1); }
+.ph-card-words { display: block; margin-top: 22px; color: var(--ink); text-decoration: none; }
+.ph-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--ink-soft); }
+.ph-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; transition: color 0.25s ease; }
+.ph-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
+.ph-card .ph-name { margin-top: 10px; font-size: clamp(24px, 2vw, 30px); line-height: 1.15; }
+.ph-card .ph-first { margin-top: 14px; max-width: 34em; }
+@media (hover: hover) {
+  .ph-card-words:hover .ph-name { color: var(--accent); }               /* the draft's title taking colour */
+  .ph-card-words:hover .ph-name .ph-arrow { opacity: 1; transform: translateX(0); }
+}
+.ph-card-words:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+.ph-card-words:focus-visible .ph-name { color: var(--accent); }
+.ph-card-words:focus-visible .ph-name .ph-arrow { opacity: 1; transform: none; }
+/* a card whose type is not the one chosen steps back */
+.ph-card.dim { opacity: 0.3; }
+
+/* ---------- the draft's schedule, on its band edge to edge ---------- */
+.ph-band { background: var(--ph-sched); }
+.ph-band-in { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 96px; padding-bottom: 104px; align-items: start; }
+.ph-band-in > .ph-list-wrap { grid-column: 2; }
+/* the draft's chooser, held in view while the list passes */
+.ph-controls { position: sticky; top: 120px; }
+.ph-controls[hidden] { display: none; }
+.ph-label { display: block; margin-bottom: 12px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: #111; }
+.ph-select {
+  -webkit-appearance: none; appearance: none; width: 100%; min-height: 48px; padding: 8px 40px 8px 12px; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: #111;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23111' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;
+  border: none; border-bottom: 2px solid #111; border-radius: 3px 3px 0 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+@media (hover: hover) { .ph-select:hover { box-shadow: inset 0 -3px 0 var(--ph-blue); } }
+.ph-select:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+
+/* each item: its kind and reading time where the draft keeps the time, its name and first lines beside it */
+.ph-list { border-top: 1px solid rgba(17, 17, 17, 0.45); }
+.ph-item {
+  position: relative; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px;
+  padding: 22px 0 24px; border-bottom: 1px solid rgba(17, 17, 17, 0.45); color: #111; text-decoration: none;
+}
+.ph-item.later, .ph-item.off { display: none; }
+.ph-band.filtered .ph-item.later:not(.off) { display: grid; }
+.ph-time { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.45; padding-top: 3px; }
+.ph-item .ph-name { font-size: 22px; line-height: 1.25; color: #111; }
+.ph-item .ph-first { margin-top: 8px; color: #111; max-width: 42em; }
+.ph-time, .ph-info { transition: transform 0.3s ease; }
+/* pointed at, the draft's bar slides in at the left edge in one of the plastic's colours, the words step right,
+   and an arrow slides in after the name; nothing grows and nothing below moves */
+.ph-item::before {
+  content: ''; position: absolute; left: 0; top: -1px; bottom: -1px; width: 5px; background: var(--ph-i, var(--ph-blue));
+  transform: scaleX(0); transform-origin: left center; transition: transform 0.25s ease;
+}
+.ph-item:nth-child(4n+2) { --ph-i: var(--ph-red); }
+.ph-item:nth-child(4n+3) { --ph-i: var(--ph-green); }
+.ph-item:nth-child(4n+4) { --ph-i: var(--ph-pink); }
+@media (hover: hover) {
+  .ph-item:hover::before { transform: scaleX(1); }
+  .ph-item:hover .ph-time, .ph-item:hover .ph-info { transform: translateX(18px); }
+  .ph-item:hover .ph-name .ph-arrow { opacity: 1; transform: translateX(0); }
+}
+.ph-item:active::before { transform: scaleX(1); }
+.ph-item:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
+.ph-item:focus-visible::before { transform: scaleX(1); }
+.ph-item:focus-visible .ph-name .ph-arrow { opacity: 1; transform: none; }
+
+/* ---------- the buttons: solid, turning to their outline when pointed at ---------- */
+.ph-more { padding-top: 48px; }
+.ph-more[hidden] { display: none; }
+.ph-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  background: var(--ink); color: var(--ph-btn-on, var(--ground, #fff)); border: 2px solid var(--ink); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.ph-band .ph-btn { --ph-btn-on: var(--ph-sched); }
+@media (hover: hover) { .ph-btn:hover { background: transparent; color: var(--ink); } .ph-next:hover .ph-arrow { transform: translateX(6px); } }
+.ph-btn:active { background: transparent; color: var(--ink); }
+.ph-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the draft's river line, fading at both ends ---------- */
+.ph-river { width: 1px; height: 120px; margin: 72px auto 0; background: linear-gradient(to bottom, transparent 0%, var(--ink) 50%, transparent 100%); opacity: 0.45; }
+
+/* ---------- the way on ---------- */
+.ph-way { padding-top: 56px; padding-bottom: 128px; }
+.ph-way-head { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.2; color: var(--ink); }
+.ph-pills { display: flex; flex-wrap: wrap; gap: 16px 20px; margin-top: 26px; }
+.ph-pill {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px;
+  border: 2px solid var(--ph-p, var(--ph-blue)); color: var(--ink); text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.2;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.ph-pill { --ph-pf: var(--ph-stage); }
+.ph-pill:nth-child(2) { --ph-p: var(--ph-red); --ph-pf: #F5DADC; }      /* the pale of the cloth's red */
+.ph-pill:nth-child(3) { --ph-p: var(--ph-green); --ph-pf: #E2ECD0; }    /* the pale of the resin's green */
+/* pointed at, a pill fills with the pale of its own colour, its words dark */
+@media (hover: hover) {
+  .ph-pill:hover { background: var(--ph-pf); color: #111; }
+  .ph-pill:hover .ph-arrow { transform: translateX(5px); }
+}
+.ph-pill:active { background: var(--ph-pf); color: #111; }
+.ph-pill:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.ph-doors {
+  margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.ph-next-wrap { margin: 0; display: flex; align-items: center; gap: 20px; }
+.ph-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ink-soft); }
+
+/* ---------- each part fades in as it is reached, in under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .ph-arrow, .ph-pic img, .ph-name, .ph-card, .ph-time, .ph-info, .ph-item::before, .ph-btn, .ph-pill, .ph-select { transition: none; }
+  .ph-bar::after { animation: none !important; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1024px) {
+  .ph-stage { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ph-stage-words { padding: 72px 40px 56px var(--ph-margin); }
+  .ph-track { gap: 24px; }
+  .ph-band-in { grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+  .ph-item { grid-template-columns: 1fr; gap: 6px; }
+}
+/* on a phone the draft's own steps: the stage in one column, the cards sliding sideways, the chooser above the list */
+@media (max-width: 767px) {
+  .ph-room { --ph-margin: 24px; }
+  .ph-head { padding-top: 28px; padding-bottom: 40px; }
+  .ph-head-row { margin-top: 32px; gap: 20px; }
+  .ph-title { font-size: 42px; line-height: 1.04; }
+  .ph-desc { font-size: 18px; }
+  .ph-stage { grid-template-columns: minmax(0, 1fr); }
+  .ph-stage-words { padding: 56px 24px 36px; }
+  .ph-passage p { font-size: 28px; line-height: 1.22; }
+  .ph-from { margin-top: 28px; }
+  .ph-from a { font-size: 18px; }
+  .ph-stage-pic { padding: 0 0 24px; }
+  .ph-stage-pic figcaption { padding: 0 24px; }
+  .ph-cards { padding-top: 64px; padding-bottom: 72px; padding-left: 0; padding-right: 0; }
+  .ph-track {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    padding: 0 24px 8px; scroll-padding: 0 24px; -webkit-overflow-scrolling: touch;
+  }
+  .ph-track::-webkit-scrollbar { display: none; }
+  .ph-card { flex: 0 0 85%; scroll-snap-align: start; }
+  .ph-card .ph-name { font-size: 24px; }
+  .ph-band-in { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 64px; padding-bottom: 72px; }
+  .ph-band-in > .ph-list-wrap { grid-column: 1; }
+  .ph-controls { position: static; }
+  .ph-item { padding: 20px 0 22px; }
+  .ph-item .ph-name { font-size: 21px; }
+  .ph-item:hover .ph-time, .ph-item:hover .ph-info { transform: translateX(14px); }
+  .ph-river { height: 88px; margin-top: 56px; }
+  .ph-way { padding-top: 40px; padding-bottom: 96px; }
+  .ph-pills { flex-direction: column; align-items: flex-start; }
+  .ph-doors { flex-direction: column-reverse; align-items: flex-start; gap: 40px; }
+  .ph-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

@@ -1,0 +1,242 @@
+/* Belonging and Identity: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\stories-sfmoma.html (Stories): a light page; the header row, the title large in colour, the
+   tabs' seat and the short description set to the right; the split of three fifths and two fifths, the featured
+   story with its picture and the starred picks beside it; the centred callout; the masonry of three columns, cards
+   of different heights; the section heading over its rule.
+   Light into dark (Reach, October 9, 2026): the page scrolls from light into dark, the same in Light, Dark and Auto.
+   The top (the title, the first picture and the three starred picks) is light on white, its words in the named
+   colours' light values; then a flat band halfway between the white and the cream (#EDE8DC), the gray band's depth,
+   edge to edge, no words, so the two blend; the cream band with the passage stays; right after it a short flat band of medium gray,
+   edge to edge, no words, the shadow on the painted case in 03385 (#908C74); from there to the foot the masonry,
+   the other three pictures, "Often found with" and the doors sit on the dark ground, their words in the named
+   colours' dark values.
+   Words use only the named colours: Ink, Soft ink and Accent (Accent's light value #8A5A24 holds 5.9 to 1 on white
+   and 5.3 on a pick pointed at; Soft ink's light value 7.5 to 1 on white and 6.7 on a pick pointed at, its dark
+   value 8.7 on the dark ground and 7.8 on a card pointed at; Ink's dark value 15.2 on the dark ground). On the cream band the words are Ink's light
+   value, #111, at 12.3 to 1. The stars and the rules take the work's own colours; they are marks, not words. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four pictures (Placings, Brrd House). */
+  --work-1: #0F0C07;
+  --work-2: #504733;
+  --work-3: #8E723B;                            /* the ochre twine */
+  --work-4: #2A904D;                            /* the green rope */
+  --work-5: #DAD0BA;                            /* the cream of the painted case */
+  --bi-cream: #DAD0BA;
+  --bi-cream-ink: #111111;
+  --bi-green: #2A904D;
+  --bi-ochre: #8E723B;
+  --bi-blend: #EDE8DC;                          /* halfway between the white and the cream */
+  --bi-gray: #908C74;                           /* the shadow on the painted case in 03385 */
+  --bi-margin: 80px;                            /* the draft's margin */
+}
+
+/* the light part: the named colours' light values, whatever the mode */
+.bi-room {
+  --ink: #111; --ink-soft: #555; --ink-faint: #666; --accent: #8a5a24; --ground: #fff;
+  --bi-rule: #E0D8D0;                           /* the draft's hairline */
+  --bi-rule-strong: #2A2320;
+  --bi-hover: #F6F2EC;                          /* the draft's pale fill, warmed */
+  --bi-red: #8A1C2A;                            /* the red of the glass knob and the painted ball */
+}
+/* the dark part: the named colours' dark values, whatever the mode */
+.bi-dark {
+  --ink: #e8e0d6; --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --bi-rule: rgba(232, 224, 214, 0.16);
+  --bi-rule-strong: rgba(232, 224, 214, 0.55);
+  --bi-hover: #1C1712;
+  --bi-red: #B0303F;
+  background: var(--ground); color: var(--ink);
+}
+
+.bi-room { background: var(--ground); color: var(--ink); overflow-x: clip; }
+.bi-wrap { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: var(--bi-margin); padding-right: var(--bi-margin); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.bi-arrow { display: inline-block; transition: transform 0.2s ease; }
+.bi-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .bi-back:hover .bi-arrow { transform: translateX(-6px); } }
+
+/* ---------- the header row ---------- */
+.bi-head { padding-top: 56px; padding-bottom: 36px; }
+.bi-head-row { display: flex; align-items: baseline; gap: 24px 48px; flex-wrap: wrap; margin-top: 36px; }
+.bi-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 4.3vw, 62px); line-height: 1.0; letter-spacing: -0.015em; color: var(--accent);
+}
+.bi-desc {
+  margin: 0 0 0 auto; max-width: 300px;
+  font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.5; color: var(--accent);
+}
+
+/* ---------- the split: three fifths and two fifths ---------- */
+.bi-split { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 48px; padding-top: 16px; align-items: start; }
+.bi-hero, .bi-tile { margin: 0; }
+.bi-pic { display: block; }
+.bi-pic img { display: block; width: 100%; height: auto; transition: opacity 0.4s ease; }   /* whole, never cropped */
+@media (hover: hover) { .bi-pic:hover img { opacity: 0.85; } }
+.bi-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+figure figcaption { display: flex; justify-content: flex-end; margin-top: 10px; }
+.bi-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-soft); text-decoration: none;
+}
+@media (hover: hover) { .bi-num:hover { color: var(--ink); } }
+
+.bi-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.bi-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.4; color: var(--ink-soft); }
+.bi-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink-soft); overflow-wrap: break-word; }
+
+/* the featured writing and the picks, each with the draft's star, in the green of the rope */
+.bi-feat, .bi-pick {
+  position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 6px;
+  text-decoration: none; color: var(--ink); transition: background-color 0.3s ease;
+}
+.bi-feat::before, .bi-pick::before {
+  content: "\2736"; grid-column: 1; grid-row: 1; align-self: start;
+  font-size: 20px; line-height: 1.5; color: var(--bi-green); transition: transform 0.4s ease;
+}
+.bi-feat > span, .bi-pick > span { grid-column: 2; }
+.bi-feat { margin-top: 22px; padding: 14px 16px 18px 10px; margin-left: -10px; margin-right: -16px; }
+.bi-feat .bi-name { font-size: clamp(24px, 2vw, 30px); line-height: 1.2; margin-bottom: 8px; }
+.bi-feat .bi-meta { margin-bottom: 10px; }
+.bi-feat .bi-first { font-size: 18px; line-height: 1.6; max-width: 44em; }
+.bi-picks { border-top: 2px solid var(--bi-rule-strong); }
+.bi-pick { padding: 18px 12px 20px 6px; border-bottom: 1px solid var(--bi-rule); }
+.bi-pick .bi-name { font-size: 20px; line-height: 1.3; margin-bottom: 6px; }
+.bi-pick .bi-meta { margin-bottom: 6px; }
+.bi-pick .bi-first { font-size: 16px; }
+@media (hover: hover) {
+  .bi-feat:hover, .bi-pick:hover { background: var(--bi-hover); }
+  .bi-feat:hover::before, .bi-pick:hover::before { transform: rotate(45deg); }
+}
+.bi-feat:active, .bi-pick:active { background: var(--bi-hover); }
+.bi-feat:focus-visible, .bi-pick:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; background: var(--bi-hover); }
+
+/* ---------- the passage, as the draft's centred callout, on the cream band edge to edge: the one large thing ---------- */
+/* just above the cream band: a flat band halfway between the white and the cream, the gray band's depth, no words */
+.bi-blend { margin-top: 120px; height: 96px; background: var(--bi-blend); }
+.bi-callout { background: var(--bi-cream); color: var(--bi-cream-ink); }
+.bi-callout-in { padding-top: 136px; padding-bottom: 128px; text-align: center; }
+.bi-passage { margin: 0 auto; }
+.bi-passage p {
+  margin: 0 auto; max-width: 21em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(30px, 3.4vw, 50px); line-height: 1.18; letter-spacing: -0.015em; color: var(--bi-cream-ink);
+}
+.bi-from { margin: 48px 0 0; }
+.bi-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--bi-cream-ink); text-decoration: none; }
+@media (hover: hover) { .bi-from a:hover .bi-arrow { transform: translateX(6px); } }
+.bi-from a:focus-visible { outline: 2px solid var(--bi-cream-ink); outline-offset: 4px; }
+
+/* ---------- right after the cream band: a short flat band of medium gray, edge to edge, no words ---------- */
+.bi-gray { height: 96px; background: var(--bi-gray); }
+
+/* ---------- the masonry: three columns, cards of different heights, the pictures whole among them ---------- */
+.bi-cards { padding-top: 120px; }
+.bi-mason { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; row-gap: 32px; align-items: start; }
+.bi-mason.is-laid { grid-auto-rows: 4px; row-gap: 0; }      /* the room's script places each card in the shortest column */
+.bi-tile { grid-column: span 2; }                               /* a picture takes two columns, whole */
+.bi-card {
+  position: relative; display: block; padding: 22px 20px 26px; text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--bi-rule); transition: background-color 0.3s ease;
+}
+.bi-card::before {   /* the rule grows into the green of the rope when pointed at */
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 5px; background: var(--bi-green);
+  transform: scaleY(0); transform-origin: top; transition: transform 0.3s ease;
+}
+.bi-card.later { display: none; }
+.bi-card .bi-name { font-size: 23px; line-height: 1.22; margin: 8px 0 10px; }
+@media (hover: hover) {
+  .bi-card:hover { background: var(--bi-hover); }
+  .bi-card:hover::before { transform: scaleY(1); }
+}
+.bi-card:active { background: var(--bi-hover); }
+.bi-card:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; background: var(--bi-hover); }
+.bi-card:focus-visible::before { transform: scaleY(1); }
+
+/* ---------- the button: solid, turning to its outline when pointed at ---------- */
+.bi-more { padding-top: 40px; }
+.bi-more[hidden] { display: none; }
+.bi-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 24px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  background: var(--ink); color: var(--ground); border: 2px solid var(--ink); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+@media (hover: hover) { .bi-btn:hover { background: transparent; color: var(--ink); } .bi-next:hover .bi-arrow { transform: translateX(6px); } }
+.bi-btn:active { background: transparent; color: var(--ink); }
+.bi-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- often found with: the draft's section heading over its rule; then the doors ---------- */
+.bi-found { padding-top: 140px; padding-bottom: 120px; }
+.bi-cat-head { padding-bottom: 12px; margin-bottom: 36px; border-bottom: 1px solid var(--bi-rule); }
+.bi-cat-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; color: var(--ink);
+}
+.bi-subjects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.bi-subject {
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 22px; text-decoration: none; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.1vw, 29px); line-height: 1.2;
+}
+.bi-subject::before {   /* each in one of the work's colours: the twine, the rope, the glass */
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--bi-ochre);
+  transform-origin: top; transition: transform 0.3s ease;
+}
+.bi-subject:nth-child(2)::before { background: var(--bi-green); }
+.bi-subject:nth-child(3)::before { background: var(--bi-red); }
+@media (hover: hover) {
+  .bi-subject:hover::before { transform: scaleY(2.4); }
+  .bi-subject:hover .bi-arrow { transform: translateX(6px); }
+}
+.bi-subject:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.bi-doors {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
+  margin-top: 120px; padding-top: 36px; border-top: 1px solid var(--bi-rule);
+}
+.bi-next-wrap { margin: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.bi-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ink-soft); }
+
+/* ---------- each part fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .bi-arrow, .bi-pic img, .bi-feat, .bi-pick, .bi-feat::before, .bi-pick::before, .bi-card, .bi-card::before,
+  .bi-btn, .bi-subject::before { transition: none; }
+}
+
+/* ---------- narrower windows: the draft's own steps ---------- */
+@media (max-width: 1024px) {
+  .bi-room { --bi-margin: 48px; }
+  .bi-split { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .bi-mason { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bi-tile { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+  .bi-room { --bi-margin: 24px; }
+  .bi-head { padding-top: 32px; padding-bottom: 24px; }
+  .bi-head-row { margin-top: 28px; gap: 16px; }
+  .bi-title { font-size: 42px; line-height: 1.04; }
+  .bi-desc { margin-left: 0; max-width: none; }
+  .bi-feat .bi-name { font-size: 24px; }
+  .bi-blend { margin-top: 80px; height: 64px; }
+  .bi-callout-in { padding-top: 80px; padding-bottom: 72px; }
+  .bi-gray { height: 64px; }
+  .bi-passage p { font-size: 27px; line-height: 1.22; }
+  .bi-from { margin-top: 32px; }
+  .bi-from a { font-size: 18px; }
+  .bi-cards { padding-top: 72px; }
+  .bi-mason { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
+  .bi-card { padding: 20px 4px 24px; }
+  .bi-card .bi-name { font-size: 22px; }
+  .bi-tile { grid-column: auto; margin: 16px 0 24px; }
+  .bi-found { padding-top: 96px; padding-bottom: 80px; }
+  .bi-subjects { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .bi-subject { font-size: 26px; }
+  .bi-doors { flex-direction: column; align-items: flex-start; margin-top: 80px; }
+  .bi-next-wrap { align-items: flex-start; }
+}

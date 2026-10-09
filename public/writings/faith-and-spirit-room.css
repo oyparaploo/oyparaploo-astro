@@ -1,0 +1,237 @@
+/* Faith and Spirit: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\WRITINGS-INDEX_3.html (the Writings Index): four featured rows, each a band edge to edge,
+   its words centred on the left over the draft's full rule and short rule, a picture on the right with its number
+   under it, a tag chip hanging half off the band's lower edge; then a field of entries in four columns; then the
+   paging's seat and three pills, centred.
+   Lit bands in the dark, the same in Light, Dark and Auto: the room sits on the dark ground, the night the offerings
+   in Hot Evening Prayers were lit in; each of the four rows is a pale band of its own picture's colour, the dark
+   ground showing between them, as the draft's white shows between its grey rows.
+   Words use only the named colours: on the dark, Ink's dark value #e8e0d6, Soft ink's #b3aa9f and Accent's #d4a574;
+   on the four pale bands and their chips, Ink's light value #111 at 13 to 1 or better. The bands, the chips and the
+   rules take the work's own colours; they are grounds and marks, not words. */
+
+:root {
+  /* the four bands, each the pale of its own picture's colour (Placings, Hot Evening Prayers) */
+  --fs-band-1: #EADCC6;          /* 04080: the candle-gold where the ember light falls on the stone */
+  --fs-band-2: #F0D3C3;          /* 04086: the orange cloth in the ember light */
+  --fs-band-3: #D3E2DA;          /* 04092: the green silk over the heap */
+  --fs-band-4: #EDD3DA;          /* 04097: the crimson and magenta cloth */
+  --fs-chip-1: #DDC9AA;          /* each chip a step deeper than its band */
+  --fs-chip-2: #E6BCA6;
+  --fs-chip-3: #BCD3C7;
+  --fs-chip-4: #E0BAC5;
+  --fs-ember: #C4552E;           /* the ember glow: the marks on the dark (a mark, not words) */
+  --fs-margin: 80px;
+}
+
+/* the whole room: the named colours' dark values, whatever the mode */
+.fs-room {
+  --ink: #e8e0d6; --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --fs-rule: rgba(232, 224, 214, 0.22);
+  --fs-rule-strong: rgba(232, 224, 214, 0.7);
+  --fs-hover: #1C1511;            /* the faintest ember on the dark */
+  background: var(--ground); color: var(--ink); overflow-x: clip;
+}
+/* each band: the named colours' light values */
+.fs-row {
+  --ink: #111; --ink-soft: #111; --accent: #111;
+  --fs-rule: rgba(17, 17, 17, 0.38);
+  --fs-rule-strong: #111;
+}
+.fs-wrap { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: var(--fs-margin); padding-right: var(--fs-margin); }
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.fs-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+.fs-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .fs-back:hover .fs-arrow { transform: translateX(-6px); } }
+.fs-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- the header: the title centred, where the draft centres its mark ---------- */
+.fs-head { padding-top: 40px; padding-bottom: 72px; text-align: center; }
+.fs-head .fs-back { display: flex; width: max-content; }
+.fs-title {
+  margin: 48px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.2vw, 76px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+}
+.fs-desc {
+  margin: 22px auto 0; max-width: 32em;
+  font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ---------- the four featured rows ---------- */
+.fs-rows { display: flex; flex-direction: column; gap: 76px; padding-bottom: 104px; }
+.fs-row {
+  position: relative; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: stretch;
+  background: var(--fs-band); color: var(--ink);
+}
+.fs-band-1 { --fs-band: var(--fs-band-1); --fs-chip: var(--fs-chip-1); }
+.fs-band-2 { --fs-band: var(--fs-band-2); --fs-chip: var(--fs-chip-2); }
+.fs-band-3 { --fs-band: var(--fs-band-3); --fs-chip: var(--fs-chip-3); }
+.fs-band-4 { --fs-band: var(--fs-band-4); --fs-chip: var(--fs-chip-4); }
+
+/* the words, centred, over the draft's rules */
+.fs-words {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 88px 72px 96px; color: var(--ink); text-decoration: none; transition: background-color 0.3s ease;
+}
+.fs-rule-full { display: block; width: 100%; max-width: 760px; height: 2px; background: var(--fs-rule); margin: 28px 0; }
+.fs-rule-short { display: block; width: 50px; height: 2px; background: var(--fs-rule-strong); margin: 28px auto; }
+.fs-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.fs-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
+.fs-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--accent); }
+
+.fs-feat .fs-name { font-size: clamp(30px, 2.9vw, 44px); line-height: 1.1; max-width: 16em; }
+.fs-feat .fs-first { font-size: 20px; line-height: 1.55; max-width: 34em; }
+.fs-feat .fs-rule-short { margin: 30px auto 0; }
+/* a writing pointed at: its band deepens to the chip's colour behind the words, and an arrow slides in */
+.fs-name .fs-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }   /* takes no room, so it never wraps alone */
+/* and its chip turns solid: Ink's light value as the ground, Ink's dark value as the words */
+@media (hover: hover) {
+  .fs-feat:hover { background: var(--fs-chip); }
+  .fs-feat:hover .fs-name .fs-arrow { opacity: 1; transform: translateX(0); }
+  .fs-feat:hover .fs-chip { background: #111; color: #e8e0d6; }
+}
+.fs-feat:active { background: var(--fs-chip); }
+.fs-feat:active .fs-chip { background: #111; color: #e8e0d6; }
+.fs-feat:focus-visible { outline: 2px solid var(--ink); outline-offset: -6px; background: var(--fs-chip); }
+.fs-feat:focus-visible .fs-name .fs-arrow { opacity: 1; transform: none; }
+.fs-feat:focus-visible .fs-chip { background: #111; color: #e8e0d6; }
+
+/* the draft's tag chip, hanging half off the band's lower edge: the writing's kind and reading time */
+.fs-chip {
+  position: absolute; left: 0; bottom: 0; transform: translateY(50%); z-index: 2;
+  display: block; padding: 15px 26px; background: var(--fs-chip); color: #111;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* the passage: the one large thing on the page */
+.fs-passage { margin: 0; }
+.fs-passage p {
+  margin: 0; max-width: 19em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(30px, 3.1vw, 48px); line-height: 1.2; letter-spacing: -0.015em; color: #111;
+}
+.fs-words-passage { padding-top: 112px; padding-bottom: 112px; }
+.fs-words-passage .fs-rule-short { margin: 40px auto 30px; }
+.fs-from { margin: 0; }
+.fs-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111; text-decoration: none; }
+@media (hover: hover) { .fs-from a:hover .fs-arrow { transform: translateX(6px); } }
+.fs-from a:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+
+/* the picture on the right, whole, flush to the window's edge, its number under it */
+.fs-band-pic { margin: 0; display: flex; flex-direction: column; justify-content: center; padding: 56px 0 44px; }
+.fs-pic { display: block; }
+.fs-pic img { display: block; width: 100%; height: auto; transition: opacity 0.4s ease; }   /* whole, never cropped */
+@media (hover: hover) { .fs-pic:hover img { opacity: 0.88; } }
+.fs-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.fs-room figcaption { display: flex; justify-content: flex-start; margin-top: 12px; }
+.fs-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink); text-decoration: none;
+}
+.fs-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the draft's field of columns: every other writing, row by row, newest first. Three columns, not the
+   draft's four: 21 entries show before Show more and 24 more come with each press, so three columns always end on
+   a full row, and each entry's lines read at a comfortable width. ---------- */
+.fs-field { padding-top: 24px; padding-bottom: 40px; }
+.fs-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 56px; align-items: start; margin: 0 -18px; }
+.fs-entry {
+  display: block; padding: 26px 18px 30px; color: var(--ink); text-decoration: none;
+  border-top: 1px solid var(--fs-rule); transition: background-color 0.3s ease;
+}
+.fs-entry.later { display: none; }
+.fs-entry .fs-name { font-size: 23px; line-height: 1.22; margin-bottom: 12px; }
+.fs-entry .fs-first { font-size: 17px; line-height: 1.6; max-width: 34em; }
+.fs-entry .fs-rule-short { margin: 20px 0 14px; background: var(--fs-ember); }
+.fs-entry .fs-meta { color: var(--accent); }
+.fs-entry .fs-name .fs-arrow { color: var(--accent); }
+@media (hover: hover) {
+  .fs-entry:hover { background: var(--fs-hover); }
+  .fs-entry:hover .fs-name .fs-arrow { opacity: 1; transform: translateX(0); }
+}
+.fs-entry:active { background: var(--fs-hover); }
+.fs-entry:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; background: var(--fs-hover); }
+.fs-entry:focus-visible .fs-name .fs-arrow { opacity: 1; transform: none; }
+
+/* ---------- the button: solid, turning to its outline when pointed at ---------- */
+.fs-more { padding-top: 56px; text-align: center; }
+.fs-more[hidden] { display: none; }
+.fs-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  background: var(--ink); color: var(--ground); border: 2px solid var(--ink); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+@media (hover: hover) { .fs-btn:hover { background: transparent; color: var(--ink); } .fs-next:hover .fs-arrow { transform: translateX(6px); } }
+.fs-btn:active { background: transparent; color: var(--ink); }
+.fs-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the way on, centred: the draft's paging seat and its three pills ---------- */
+.fs-way { padding-top: 96px; padding-bottom: 128px; text-align: center; }
+.fs-way-head {
+  margin: 0 auto; padding-top: 40px; border-top: 2px solid var(--fs-rule-strong); max-width: 760px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink);
+}
+.fs-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px; margin-top: 30px; }
+.fs-pill {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px;
+  border: 2px solid var(--fs-band-1); color: var(--ink); text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; line-height: 1.2;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.fs-pill:nth-child(2) { border-color: var(--fs-band-3); }
+.fs-pill:nth-child(3) { border-color: var(--fs-band-4); }
+@media (hover: hover) {
+  .fs-pill:hover { background: var(--fs-band-1); color: #111; }
+  .fs-pill:nth-child(2):hover { background: var(--fs-band-3); }
+  .fs-pill:nth-child(3):hover { background: var(--fs-band-4); }
+  .fs-pill:hover .fs-arrow { transform: translateX(5px); }
+}
+.fs-pill:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.fs-doors { margin-top: 72px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.fs-next-wrap { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.fs-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ink-soft); }
+
+/* ---------- each band fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .fs-arrow, .fs-pic img, .fs-words, .fs-chip, .fs-entry, .fs-btn, .fs-pill { transition: none; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1024px) {
+  .fs-room { --fs-margin: 48px; }
+  .fs-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .fs-words { padding: 72px 44px 84px; }
+  .fs-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* on a phone the draft's own step: one column, the words, then the picture, the chip in the row's flow */
+@media (max-width: 767px) {
+  .fs-room { --fs-margin: 24px; }
+  .fs-head { padding-top: 28px; padding-bottom: 48px; }
+  .fs-title { margin-top: 36px; font-size: 42px; line-height: 1.04; }
+  .fs-desc { font-size: 18px; }
+  .fs-rows { gap: 48px; padding-bottom: 72px; }
+  .fs-row { grid-template-columns: minmax(0, 1fr); }
+  .fs-words { padding: 56px 24px 40px; }
+  .fs-words-passage { padding-top: 64px; padding-bottom: 40px; }
+  .fs-feat .fs-name { font-size: 28px; }
+  .fs-feat .fs-first { font-size: 18px; }
+  .fs-passage p { font-size: 27px; line-height: 1.24; }
+  .fs-from a { font-size: 18px; }
+  .fs-chip { position: static; transform: none; align-self: flex-start; margin-top: 28px; }
+  .fs-band-pic { padding: 0 0 28px; }
+  .fs-room figcaption { padding: 0 24px; }
+  .fs-field { padding-top: 0; }
+  .fs-index { grid-template-columns: minmax(0, 1fr); gap: 0; margin: 0; }
+  .fs-entry { padding: 22px 4px 26px; }
+  .fs-entry .fs-name { font-size: 22px; }
+  .fs-way { padding-top: 72px; padding-bottom: 96px; }
+  .fs-pills { flex-direction: column; align-items: center; }
+}

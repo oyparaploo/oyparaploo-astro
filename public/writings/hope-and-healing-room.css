@@ -1,0 +1,254 @@
+/* Hope and Healing: the room's own look (October 9, 2026, Claude, Opus, High).
+   Dressed in HTML DOCS\VR-season-landing_2.html (Season): the near-black ground; the line across the top of the
+   window that fills as the page is read; the faint line under the header; the hero of three columns (one large
+   story with its picture, two smaller pictures, a ruled list); the promo band of words beside a picture; the story
+   rows; the sticky sidebar of ruled lists.
+   Dark into light, the same in Light, Dark and Auto (the mirror of Belonging and Identity's light into dark): the
+   top (the title, the healing picture, the newest writings) sits on the dark ground, its words in the named colours'
+   dark values; then a short flat band of medium gray-green, the sheet under the forelight in 04530 (#809D99), edge to
+   edge, no words; the passage band, the pale light of the lit sheet in 04530 (#CFDCD4); a band halfway between that
+   light and the white (#E7EEEA); then white to the room's foot, its words in the named colours' light values.
+   Words use only the named colours: on the dark, Ink's dark value #e8e0d6 (15.2 to 1), Soft ink's #b3aa9f (8.7) and
+   Accent's #d4a574 (8.8); on the passage band, Ink's light value #111 (13.3 to 1); on the white, Ink #111 (18.9),
+   Soft ink #555 (7.5) and Accent #8a5a24 (5.9; 5.4 on a row pointed at). The line, the rules and the marks take the
+   work's own colours; they are marks, not words. */
+
+:root {
+  /* The line under the header: the page's own tones, read from its four pictures (Placings, Light for Marine Hues). */
+  --work-1: #11272F;                            /* the deep water-shadow of the sheet */
+  --work-2: #1E5963;                            /* the teal under the forelight */
+  --work-3: #809D99;                            /* the sheet in the middle light */
+  --work-4: #4F8A2A;                            /* the shoots */
+  --work-5: #CFDCD4;                            /* the lit sheet */
+  --hh-gray: #809D99;
+  --hh-light: #CFDCD4;
+  --hh-light-ink: #111111;
+  --hh-blend: #E7EEEA;                          /* halfway between the lit sheet and the white */
+  --hh-shoot: #5E9E3A;                          /* the green of the shoots, lifted to show on both grounds */
+  --hh-teal: #1E5963;
+  --hh-pink: #C2245E;                           /* the pink of the glove and the cloth */
+  --hh-margin: 80px;
+}
+
+/* the light part (from the gray band to the foot): the named colours' light values, whatever the mode */
+.hh-room {
+  --ink: #111; --ink-soft: #555; --ink-faint: #666; --accent: #8a5a24; --ground: #fff;
+  --hh-rule: #DCE3DF;                           /* the draft's hairline, cooled toward the sheet */
+  --hh-rule-strong: #2A2320;
+  --hh-hover: #F2F6F3;                          /* the faintest tint of the lit sheet */
+  background: var(--ground); color: var(--ink); overflow-x: clip;
+}
+/* the dark part (the top): the named colours' dark values, whatever the mode */
+.hh-dark {
+  --ink: #e8e0d6; --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --hh-rule: rgba(232, 224, 214, 0.22);
+  --hh-rule-strong: rgba(232, 224, 214, 0.62);
+  --hh-hover: #1A1612;
+  background: var(--ground); color: var(--ink);
+}
+.hh-wrap { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: var(--hh-margin); padding-right: var(--hh-margin); }
+
+/* ---------- the draft's line across the top of the window, filling as the page is read: the green of the shoots ---------- */
+.hh-progress {
+  position: fixed; top: 0; left: 0; z-index: 400; height: 3px; width: 100%;
+  background: var(--hh-shoot); transform-origin: left; transform: scaleX(0); pointer-events: none;
+}
+
+/* the arrow links: the arrow slides a few pixels when pointed at */
+.hh-arrow { display: inline-block; transition: transform 0.2s ease; }
+.hh-back {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--ink); text-decoration: none;
+}
+@media (hover: hover) { .hh-back:hover .hh-arrow { transform: translateX(-6px); } }
+.hh-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- the header: the filter row's seat, the title, the sentence ---------- */
+.hh-head { padding-top: 40px; padding-bottom: 44px; }
+.hh-title {
+  margin: 56px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 4.6vw, 66px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+}
+.hh-desc {
+  margin: 20px 0 0; max-width: 34em;
+  font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--ink-soft);
+}
+/* the draft's faint line under the header, in the work's own tones */
+.hh-rule {
+  height: 1px; margin: 0 var(--hh-margin);
+  background: linear-gradient(90deg, transparent 0%, var(--work-2) 18%, var(--work-4) 50%, var(--work-3) 82%, transparent 100%);
+}
+
+/* ---------- the hero of three columns ---------- */
+.hh-hero {
+  display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.8fr) minmax(0, 1.15fr);
+  gap: 44px; align-items: start; padding-top: 48px; padding-bottom: 120px;
+}
+.hh-lead, .hh-small, .hh-promo-pic { margin: 0; }
+.hh-pic { display: block; }
+.hh-pic img { display: block; width: 100%; height: auto; transition: opacity 0.4s ease; }   /* whole, never cropped */
+@media (hover: hover) { .hh-pic:hover img { opacity: 0.86; } }
+.hh-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.hh-room figcaption { display: flex; justify-content: flex-end; margin-top: 10px; }
+.hh-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-soft); text-decoration: none;
+}
+@media (hover: hover) { .hh-num:hover { color: var(--ink); } }
+.hh-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.hh-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.hh-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--accent); }
+.hh-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
+
+/* the large story: the draft's label, title and description under the picture */
+.hh-feat {
+  display: block; margin: 18px -16px 0; padding: 14px 16px 18px; text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease;
+}
+.hh-feat .hh-meta { margin-bottom: 12px; }
+.hh-feat .hh-name { font-size: clamp(28px, 2.4vw, 36px); line-height: 1.15; margin-bottom: 14px; }
+.hh-feat .hh-first { font-size: 18px; max-width: 36em; }
+/* the middle column: the two smaller pictures, stacked whole */
+.hh-sec { display: grid; gap: 34px; }
+/* the ruled list on the right */
+.hh-side { margin: 0 -12px; border-top: 2px solid var(--hh-rule-strong); }
+.hh-item {
+  display: block; padding: 18px 12px 20px; border-bottom: 1px solid var(--hh-rule);
+  text-decoration: none; color: var(--ink); transition: background-color 0.3s ease;
+}
+.hh-item .hh-name { font-size: 21px; line-height: 1.25; margin-bottom: 8px; }
+.hh-item .hh-meta { font-size: 16px; margin-bottom: 8px; }
+.hh-item .hh-first { font-size: 16px; line-height: 1.55; }
+@media (hover: hover) { .hh-feat:hover, .hh-item:hover { background: var(--hh-hover); } }
+.hh-feat:active, .hh-item:active { background: var(--hh-hover); }
+.hh-feat:focus-visible, .hh-item:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; background: var(--hh-hover); }
+
+/* ---------- dark into light ---------- */
+.hh-gray { height: 96px; background: var(--hh-gray); }
+/* the passage as the draft's promo band, on the light of the lit sheet, edge to edge: the one large thing */
+.hh-promo { background: var(--hh-light); color: var(--hh-light-ink); }
+.hh-promo-in {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr); gap: 72px; align-items: center;
+  padding-top: 128px; padding-bottom: 128px;
+}
+.hh-passage { margin: 0; }
+.hh-passage p {
+  margin: 0; max-width: 20em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: clamp(30px, 3.2vw, 48px); line-height: 1.18; letter-spacing: -0.015em; color: var(--hh-light-ink);
+}
+.hh-from { margin: 44px 0 0; }
+.hh-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--hh-light-ink); text-decoration: none; }
+@media (hover: hover) { .hh-from a:hover .hh-arrow { transform: translateX(6px); } }
+.hh-from a:focus-visible { outline: 2px solid var(--hh-light-ink); outline-offset: 4px; }
+.hh-promo .hh-num { color: var(--hh-light-ink); }
+.hh-promo .hh-pic:focus-visible, .hh-promo .hh-num:focus-visible { outline-color: var(--hh-light-ink); }
+.hh-blend { height: 96px; background: var(--hh-blend); }
+
+/* ---------- the story rows beside the sticky sidebar ---------- */
+.hh-body {
+  display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 72px; align-items: start;
+  padding-top: 120px; padding-bottom: 140px;
+}
+.hh-list { margin: 0 -16px; border-top: 2px solid var(--hh-rule-strong); }
+.hh-story {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start;
+  padding: 26px 16px 30px; border-bottom: 1px solid var(--hh-rule);
+  text-decoration: none; color: var(--ink); transition: background-color 0.3s ease;
+}
+.hh-story.later { display: none; }
+.hh-story .hh-meta { padding-top: 6px; }
+.hh-story .hh-name { font-size: 25px; line-height: 1.22; margin-bottom: 10px; max-width: 30em; }
+.hh-story .hh-first { max-width: 40em; }
+.hh-story .hh-name .hh-arrow { opacity: 0; transform: translateX(-10px); transition: transform 0.25s ease, opacity 0.25s ease; color: var(--hh-teal); }
+@media (hover: hover) {
+  .hh-story:hover { background: var(--hh-hover); }
+  .hh-story:hover .hh-name .hh-arrow { opacity: 1; transform: translateX(0); }
+}
+.hh-story:active { background: var(--hh-hover); }
+.hh-story:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; background: var(--hh-hover); }
+.hh-story:focus-visible .hh-name .hh-arrow { opacity: 1; transform: none; }
+
+/* ---------- the button: solid, turning to its outline when pointed at ---------- */
+.hh-more { padding-top: 44px; }
+.hh-more[hidden] { display: none; }
+.hh-btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 24px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  background: var(--ink); color: var(--ground); border: 2px solid var(--ink); cursor: pointer; text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+@media (hover: hover) { .hh-btn:hover { background: transparent; color: var(--ink); } .hh-next:hover .hh-arrow { transform: translateX(6px); } }
+.hh-btn:active { background: transparent; color: var(--ink); }
+.hh-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the sticky sidebar: "Often found with" over its rule, the three subjects, the doors ---------- */
+.hh-aside { align-self: stretch; }               /* the column runs the whole height, so the sidebar can travel */
+.hh-sticky { position: sticky; top: 120px; }
+.hh-side-head {
+  margin: 0; padding-bottom: 14px; border-bottom: 2px solid var(--hh-rule-strong);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; color: var(--ink);
+}
+.hh-subjects { display: block; }
+.hh-subject {
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 18px 0 18px 18px; border-bottom: 1px solid var(--hh-rule); text-decoration: none; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.25;
+}
+.hh-subject::before {   /* each marked in one of the work's colours: the teal, the shoots, the pink of the glove */
+  content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; background: var(--hh-teal);
+  transform-origin: bottom; transition: transform 0.3s ease;
+}
+.hh-subject:nth-child(2)::before { background: var(--hh-shoot); }
+.hh-subject:nth-child(3)::before { background: var(--hh-pink); }
+@media (hover: hover) {
+  .hh-subject:hover::before { transform: scaleY(1.5); }
+  .hh-subject:hover .hh-arrow { transform: translateX(6px); }
+}
+.hh-subject:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.hh-doors { margin-top: 56px; display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+.hh-next-wrap { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.hh-next-label { font-family: 'Inter', sans-serif; font-size: 18px; color: var(--ink-soft); }
+
+/* ---------- each part fades in as it is reached, under a second ---------- */
+.js-reveal .reveal { opacity: 0; transition: opacity 0.9s ease; }
+.js-reveal .reveal.visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transition: none; }
+  .hh-progress { display: none; }
+  .hh-arrow, .hh-pic img, .hh-feat, .hh-item, .hh-story, .hh-story .hh-name .hh-arrow, .hh-btn, .hh-subject::before { transition: none; }
+}
+
+/* ---------- narrower windows: the draft's own steps ---------- */
+@media (max-width: 1024px) {
+  .hh-room { --hh-margin: 48px; }
+  .hh-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px 34px; }
+  .hh-main { grid-column: 1 / -1; }
+  .hh-sec { gap: 34px; }
+  .hh-body { grid-template-columns: minmax(0, 1fr); gap: 96px; }
+  .hh-sticky { position: static; }
+  .hh-aside { max-width: 560px; }
+  .hh-promo-in { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .hh-promo-pic { max-width: 560px; }
+}
+@media (max-width: 767px) {
+  .hh-room { --hh-margin: 24px; }
+  .hh-head { padding-top: 28px; padding-bottom: 32px; }
+  .hh-title { margin-top: 36px; font-size: 42px; line-height: 1.04; }
+  .hh-desc { font-size: 18px; }
+  .hh-hero { grid-template-columns: minmax(0, 1fr); padding-top: 32px; padding-bottom: 80px; }
+  .hh-feat .hh-name { font-size: 26px; }
+  .hh-gray, .hh-blend { height: 64px; }
+  .hh-promo-in { padding-top: 80px; padding-bottom: 72px; gap: 44px; }
+  .hh-passage p { font-size: 27px; line-height: 1.22; }
+  .hh-from { margin-top: 32px; }
+  .hh-from a { font-size: 18px; }
+  .hh-body { padding-top: 72px; padding-bottom: 96px; gap: 80px; }
+  .hh-list { margin: 0; }
+  .hh-side { margin: 0; }
+  .hh-item { padding-left: 4px; padding-right: 4px; }
+  .hh-story { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 22px 4px 26px; }
+  .hh-story .hh-meta { padding-top: 0; }
+  .hh-story .hh-name { font-size: 22px; }
+  .hh-subject { font-size: 22px; }
+}
