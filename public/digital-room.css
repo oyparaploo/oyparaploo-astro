@@ -1,0 +1,247 @@
+/* ==========================================================================
+   The Collage page, a design room.
+   Its one effect is the rotating cylinder from HTML DOCS\BRANDING_1.html, the
+   cylinder version only (the charter, section 2): one huge word across the top
+   over a hairline, two small captions under it, and eighteen pictures in three
+   rings of six on a tilted cylinder that turns, the near ones larger and fully
+   there, the far ones smaller and paler; a dot and a number under the one in
+   front; a picture chosen comes forward large while the rest step back.
+   Left out of the draft: the ring, flower and sphere, the plain and pastel
+   switch, the shape squares, the sound button, the clock, Bebas Neue and its
+   capitals, the grey seat boxes, and the wheel that held the page still.
+   Under the band the page keeps Kanal's crispness: one plain sentence, the six
+   headings as a row of choices, then each heading with its own words and its
+   doors as rows beside one picture that changes as you point or read.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; words on
+   the band dark at 7 to 1 or better; a row pointed at turns solid and an
+   arrow slides in, nothing grows and nothing below moves; touch gets its own
+   version; less motion gets none.
+   ========================================================================== */
+
+:root {
+  --c-band-ink: #111111;                       /* Ink's light value: 7.4 to 1 on the band */
+  --c-air: 144px;
+}
+
+.collage-room { color: var(--ink); overflow-x: clip; }
+.collage-room a { color: inherit; }
+
+/* ---------- 1. The band: the cylinder turning in front of one huge word ----------
+   The band is the dusty lilac of the flat panels in Reach's own collages, edge to edge, the same in Light, Dark
+   and Auto. PLAY: the cylinder turns slowly by itself, turns further as the page is scrolled, and turns under a
+   finger or a dragging hand; the one in front shows its number; choosing one brings it forward whole. */
+.c-turn {
+  position: relative; overflow: hidden;
+  height: clamp(600px, calc(100svh - 112px), 1000px);
+  background: var(--band); color: var(--c-band-ink);
+  touch-action: pan-y;                        /* a sideways finger turns it; up and down still scrolls the page */
+  -webkit-user-select: none; user-select: none;
+}
+.c-head {
+  position: absolute; left: 0; right: 0; top: clamp(28px, 4vh, 48px);
+  padding: 0 var(--edge); text-align: center;
+}
+.c-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 16.5vw, 300px); line-height: 0.86; letter-spacing: -0.035em;
+  margin: 0; padding-bottom: 0.05em;
+  border-bottom: 1px solid var(--c-band-ink);
+}
+.c-caps {                                     /* the draft's two corner words, at the foot of the band, clear of the pictures */
+  position: absolute; left: var(--edge); right: var(--edge); bottom: 10px; z-index: 4500;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  margin: 0; font-size: 18px; font-weight: 600; line-height: 1.3;
+}
+.c-cap-left { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+.c-cap-right { text-align: right; }
+.c-arr { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
+@media (hover: hover) { .c-cap-left:hover .c-arr { transform: translateX(4px); } }
+.c-cap-left:focus-visible { outline: 2px solid var(--c-band-ink); outline-offset: 2px; }
+
+.c-cyl { position: absolute; inset: 0; z-index: 2; }
+.c-seat {
+  position: absolute; top: 0; left: 0; display: block; line-height: 0;
+  transform-origin: center center; will-change: transform, opacity;
+  cursor: pointer; -webkit-touch-callout: none;
+}
+.c-seat img { width: 100%; height: 100%; object-fit: contain; -webkit-user-drag: none; }
+.c-seat:focus-visible { outline: 2px solid var(--c-band-ink); outline-offset: 4px; }
+.c-turn.is-dragging, .c-turn.is-dragging .c-seat { cursor: grabbing; }
+
+.c-marker {
+  position: absolute; top: 0; left: 0; z-index: 4000; pointer-events: none;
+  display: none; align-items: center; gap: 8px;
+  font-size: 16px; font-weight: 600; line-height: 1;
+}
+.c-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.c-js .c-marker.is-on { display: flex; }
+
+.c-open-cap {
+  position: absolute; z-index: 5001; margin: 0;
+  display: none; flex-direction: column; gap: 2px;
+  font-size: 18px; font-weight: 600; line-height: 1.35;
+}
+.c-open-cap.is-on { display: flex; }
+.c-open-cap a { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 36px; }
+.c-open-num { font-weight: 500; }
+@media (hover: hover) { .c-open-gallery:hover .c-arr { transform: translateX(4px); } }
+.c-open-cap a:focus-visible { outline: 2px solid var(--c-band-ink); outline-offset: 2px; }
+
+.c-close {
+  position: absolute; z-index: 5002; display: none;
+  width: 48px; height: 48px; align-items: center; justify-content: center;
+  background: transparent; border: 0; color: var(--c-band-ink); cursor: pointer;
+}
+.c-close.is-on { display: flex; }
+.c-x { width: 26px; height: 26px; }
+.c-x line { stroke: currentColor; stroke-width: 2; stroke-linecap: square; }
+.c-close:focus-visible { outline: 2px solid var(--c-band-ink); outline-offset: -4px; }
+
+/* Without the script the eighteen stand in a plain row across the band, whole, under the word. */
+.collage-room:not(.c-js) .c-turn { height: auto; padding-bottom: 48px; }
+.collage-room:not(.c-js) .c-head { position: relative; top: 0; padding-top: 40px; }
+.collage-room:not(.c-js) .c-caps { position: relative; left: 0; right: 0; bottom: 0; padding: 32px var(--edge) 0; }
+.collage-room:not(.c-js) .c-cyl {
+  position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 24px; padding: 40px var(--edge) 0;
+}
+.collage-room:not(.c-js) .c-seat { position: static; width: 180px; height: auto; }
+.collage-room:not(.c-js) .c-seat img { height: auto; }
+
+/* ---------- 2. One plain sentence, and the six headings as a row of choices ---------- */
+.c-words { padding: 112px var(--edge) 0; }
+.c-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 3.2vw, 48px); line-height: 1.12; letter-spacing: -0.01em;
+  max-width: 21em; margin: 0;
+}
+.c-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+/* PLAY: the true reversal, on a pill. Pointed at, it turns solid; the page glides to the heading. */
+.c-chip {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 10px 22px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2;
+  color: var(--ink); text-decoration: none;
+  border: 1px solid var(--ink); border-radius: 999px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media (hover: hover) { .c-chip:hover { background: var(--ink); color: var(--ground); } }
+.c-chip:active, .c-chip:focus-visible { background: var(--ink); color: var(--ground); }
+
+/* ---------- 3. Each heading: its name, its own words, its doors beside one picture ---------- */
+.c-kind { margin-top: var(--c-air); padding: 32px var(--edge) 0; border-top: 1px solid var(--rule); scroll-margin-top: 24px; }
+.c-kind-tight { margin-top: 96px; }
+.c-kind-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -0.015em;
+  margin: 0; scroll-margin-top: 96px;
+}
+.c-kind-line { font-size: 21px; line-height: 1.55; max-width: 36em; margin: 20px 0 0; }
+.c-kind-body { margin-top: 48px; }
+
+.c-rows { display: flex; flex-direction: column; }
+.c-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name count";
+  align-items: center; column-gap: 20px;
+  min-height: 64px; padding: 10px var(--gap-4) 10px var(--edge); margin-left: calc(-1 * var(--edge));
+  border-top: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.c-rows .c-row:last-child { border-bottom: 1px solid var(--rule); }
+.c-pic { grid-area: pic; display: none; }
+.c-name {
+  grid-area: name;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 24px; line-height: 1.2;
+}
+.c-count { grid-area: count; font-size: 18px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+.c-rows .c-arr { opacity: 0; transform: translateX(-8px); }
+.c-row.is-current .c-arr { opacity: 1; transform: none; }
+@media (hover: hover) {
+  .c-row:hover { background: var(--ink); color: var(--ground); }
+  .c-row:hover .c-arr { opacity: 1; transform: none; }
+}
+.c-row:focus-visible { background: var(--ink); color: var(--ground); outline: none; }
+.c-row:focus-visible .c-arr { opacity: 1; transform: none; }
+.c-row:active { background: var(--ink); color: var(--ground); }
+
+/* Saved Pieces, first: a taller row with its own sentence under its name. */
+.c-row-lead { grid-template-areas: "name count" "line line"; padding-top: 20px; padding-bottom: 22px; }
+.c-row-lead .c-name { font-size: clamp(30px, 2.6vw, 40px); line-height: 1.1; }
+.c-lead-line { grid-area: line; font-size: 18px; line-height: 1.5; max-width: 30em; margin-top: 8px; }
+
+/* The picture beside the rows. PLAY: it changes as you point at a row, and as you read down the rows it follows
+   the one at the middle of the window. It holds still beside them while they pass. */
+.c-show { display: none; margin: 0; }
+.c-show-pic { display: flex; align-items: flex-start; justify-content: flex-start; line-height: 0; }
+.c-show-pic img { width: auto; height: auto; max-width: 100%; max-height: min(62vh, 600px); opacity: 0; transition: opacity 0.25s ease; }
+.c-show-pic img.is-in { opacity: 1; }
+.c-show-cap { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 24px; row-gap: 4px; margin-top: 18px; min-height: 64px; }
+.c-show-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.15; }
+.c-show-count { font-size: 18px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+
+@media (min-width: 1000px) {
+  .c-js .c-kind-body {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: calc(2 * var(--column-gap)); align-items: start;
+  }
+  .c-js .c-show {
+    display: flex; flex-direction: column;
+    position: sticky; top: 112px;
+  }
+}
+
+/* Touch, phones and narrow windows, and the page without the script: each row carries its own picture. */
+@media (max-width: 999px) {
+  .c-row { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .c-row { grid-template-columns: 112px minmax(0, 1fr); grid-template-areas: "pic name" "pic count"; row-gap: 4px; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+  .c-pic { display: flex; align-items: center; justify-content: center; width: 112px; height: 84px; }
+  .c-pic img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+  .c-name { align-self: end; font-size: 22px; }
+  .c-count { align-self: start; }
+  .c-rows .c-arr { opacity: 1; transform: none; }
+  .c-row-lead { grid-template-columns: minmax(0, 1fr); grid-template-areas: "pic" "name" "line" "count"; padding-top: 24px; padding-bottom: 24px; }
+  .c-row-lead .c-pic { width: 100%; height: auto; margin-bottom: 16px; justify-content: flex-start; }
+  .c-row-lead .c-pic img { max-height: 60vh; }
+  .c-row-lead .c-count { margin-top: 12px; }
+}
+.collage-room:not(.c-js) .c-row { grid-template-columns: 112px minmax(0, 1fr) auto; grid-template-areas: "pic name count"; }
+.collage-room:not(.c-js) .c-pic { display: flex; align-items: center; justify-content: center; width: 112px; height: 84px; }
+.collage-room:not(.c-js) .c-pic img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.collage-room:not(.c-js) .c-row-lead { grid-template-areas: "pic name count" "pic line line"; }
+
+/* ---------- 4. The breathing section: one passage from the About, alone ---------- */
+.c-breathe { padding: 168px var(--edge) 176px; text-align: center; }
+.c-passage { margin: 0; }
+.c-passage p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 3vw, 46px); line-height: 1.18;
+  max-width: 18em; margin: 0 auto;
+}
+.c-from { margin: 32px 0 0; }
+.collage-room .c-from .go-link { color: var(--ink); font-size: 20px; }
+
+/* ---------- widths ---------- */
+@media (max-width: 600px) {
+  :root { --c-air: 104px; }
+  .c-turn { height: clamp(540px, 76svh, 680px); }
+  .c-caps { font-size: 16px; }
+  .c-words { padding-top: 72px; }
+  .c-chips { gap: 10px; margin-top: 36px; }
+  .c-chip { font-size: 16px; padding: 10px 18px; }
+  .c-kind-line { font-size: 19px; }
+  .c-kind-body { margin-top: 32px; }
+  .c-row { grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; }
+  .c-pic { width: 96px; height: 72px; }
+  .c-row-lead { grid-template-columns: minmax(0, 1fr); }
+  .c-row-lead .c-pic { width: 100%; height: auto; }
+  .c-name { font-size: 20px; }
+  .c-row-lead .c-name { font-size: 30px; }
+  .c-breathe { padding: 120px var(--edge) 128px; }
+}
+
+/* ---------- less motion: none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .c-arr, .c-chip, .c-row, .c-show-pic img { transition: none; }
+}

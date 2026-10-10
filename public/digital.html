@@ -3,26 +3,635 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Screen & Print Collage Mosaic · Paraploo</title>
+<title>Collage · Paraploo</title>
 <meta name="description" content="Screen and Print — the image galleries of Otto Paraploo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome. -->
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
-<script src="/theme.js"></script>
-<style>
-  * { box-sizing: border-box; }
-  body { margin: 0; background: #0d0907; color: rgba(232, 224, 214, 0.9); font-family: 'Inter', sans-serif; }
-  .gallery-title-block { max-width: 1400px; margin: 0 auto; padding: 64px 32px 0; }
-  .gallery-title-block h1 { font-family: 'Lora', serif; font-weight: 600; font-size: 38px; letter-spacing: -0.02em; line-height: 1.3; margin: 0; color: rgba(232, 224, 214, 0.95); position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-  .gallery-grid { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
-  .gallery-item { display: block; text-decoration: none; }
-  .gallery-item img { width: 100%; aspect-ratio: 4/3; object-fit: contain; object-position: center; display: block; background: transparent; }
-  .gallery-caption { margin: 10px 2px 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.35; text-wrap: balance; color: rgba(232, 224, 214, 0.9); }
-  .section-heading { max-width: 1400px; margin: 0 auto; padding: 48px 32px 16px; font-size: 1rem; letter-spacing: 0.03em; text-transform: uppercase; color: rgba(232, 224, 214, 0.6); font-weight: 400; }
-</style>
 <link rel="stylesheet" href="/nav.css">
-<script src="/nav.js" defer></script>
+<script src="/theme.js"></script>
+<style id="mock-styles">
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<link rel="stylesheet" href="/digital-room.css">
+<style>:root { --tones: linear-gradient(to right, #663443 0.00% 20.00%, #6B7C4B 20.00% 40.00%, #4C75AB 40.00% 60.00%, #A1849D 60.00% 80.00%, #6EAB7C 80.00% 100.00%); }</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,402 +674,591 @@
 }
 </script>
 </head>
-<body>
+
+<body class="room-page collage-page">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header dark"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html" class="current">Collage</a><a href="/search.html">Search</a></nav></header>
-<div class="gallery-title-block"><h1>Screen &amp; Print Collage Mosaic</h1></div>
-<h2 class="section-heading" id="collage-work">Collage Work</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/saved-pieces/">
-  <img src="https://media.paraploo.com/site/images/lines/bright-colors/20964-600.webp" alt="Saved Pieces" loading="lazy">
-  <p class="gallery-caption">Saved Pieces</p>
-  <p class="gallery-door-count">7 galleries →</p>
-</a><a class="gallery-item" href="/digital/ah-ah-ah-ah/">
-  <img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah/thumbs/Ah%20Ah%20Ah%20Ah%201.webp" alt="Ah Ah Ah Ah" loading="lazy">
-  <p class="gallery-caption">Ah Ah Ah Ah</p>
-  <p class="gallery-door-count">57 pictures →</p>
-</a><a class="gallery-item" href="/digital/at-lac-clouse/">
-  <img src="https://media.paraploo.com/site/images/lines/at-lac-clouse/thumbs/Guesswerg-1-2.webp" alt="At Lac Clouse" loading="lazy">
-  <p class="gallery-caption">At Lac Clouse</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/blame-it-on-the-weather/">
-  <img src="https://media.paraploo.com/site/images/lines/blame-it-on-the-weather/thumbs/Blame%20It%20On%208.webp" alt="Blame It On The Weather" loading="lazy">
-  <p class="gallery-caption">Blame It On The Weather</p>
-  <p class="gallery-door-count">13 pictures →</p>
-</a><a class="gallery-item" href="/digital/chaud-schwea-couleurs/">
-  <img src="https://media.paraploo.com/site/images/lines/chaud-schwea-couleurs/thumbs/773.webp" alt="Chaud Schwea Couleurs" loading="lazy">
-  <p class="gallery-caption">Chaud Schwea Couleurs</p>
-  <p class="gallery-door-count">24 pictures →</p>
-</a><a class="gallery-item" href="/digital/conflict-zone-fragments-pages/">
-  <img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/thumbs/Untitled-61.00_00_02_17.Still001.webp" alt="Conflict Zone Fragments Pages" loading="lazy">
-  <p class="gallery-caption">Conflict Zone Fragments Pages</p>
-  <p class="gallery-door-count">32 pictures →</p>
-</a><a class="gallery-item" href="/digital/lemon-yellow-accents/">
-  <img src="https://media.paraploo.com/site/images/lines/lemon-yellow-accents/thumbs/333.webp" alt="Lemon Yellow Accents" loading="lazy">
-  <p class="gallery-caption">Lemon Yellow Accents</p>
-  <p class="gallery-door-count">22 pictures →</p>
-</a><a class="gallery-item" href="/digital/wild-beyond-burning-ember-go/">
-  <img src="https://media.paraploo.com/site/images/lines/wild-beyond-burning-ember-go/thumbs/111.webp" alt="Wild Beyond Burning Ember Go" loading="lazy">
-  <p class="gallery-caption">Wild Beyond Burning Ember Go</p>
-  <p class="gallery-door-count">54 pictures →</p>
-</a><a class="gallery-item" href="/digital/work-mon-aye-bahta/">
-  <img src="https://media.paraploo.com/site/images/lines/work-mon-aye-bahta/thumbs/A%20Kind%20Of%20Pushed%20Kin%20Visual%20Story.webp" alt="Work Mon Aye Bahta" loading="lazy">
-  <p class="gallery-caption">Work Mon Aye Bahta</p>
-  <p class="gallery-door-count">45 pictures →</p>
-</a><a class="gallery-item" href="/digital/to-worship-what-we-dig/">
-  <img src="https://media.paraploo.com/site/images/lines/to-worship-what-we-dig/thumbs/Always%20A%20Witness%20I.webp" alt="To Worship What We Dig" loading="lazy">
-  <p class="gallery-caption">To Worship What We Dig</p>
-  <p class="gallery-door-count">20 pictures →</p>
-</a><a class="gallery-item" href="/digital/vivid-memories-of-choice/">
-  <img src="https://media.paraploo.com/site/images/lines/vivid-memories-of-choice/thumbs/Freedom%20Of%20Memories%20001.webp" alt="Vivid Memories Of Choice" loading="lazy">
-  <p class="gallery-caption">Vivid Memories Of Choice</p>
-  <p class="gallery-door-count">23 pictures →</p>
-</a><a class="gallery-item" href="/digital/watch-this-not-get-carried-away/">
-  <img src="https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs.webp" alt="Watch This Not Get Carried Away" loading="lazy">
-  <p class="gallery-caption">Watch This Not Get Carried Away</p>
-  <p class="gallery-door-count">56 pictures →</p>
-</a><a class="gallery-item" href="/digital/babel-fascinated-with-shiny-things/">
-  <img src="https://media.paraploo.com/site/images/lines/babel-fascinated-with-shiny-things/8K%20When%20We%20Say%20Alive%20Matters%20001.webp" alt="Babel Fascinated With Shiny Things" loading="lazy">
-  <p class="gallery-caption">Babel Fascinated With Shiny Things</p>
-  <p class="gallery-door-count">5 pictures →</p>
-</a><a class="gallery-item" href="/digital/drooles-lucid-pah-sahge/">
-  <img src="https://media.paraploo.com/site/images/lines/drooles-lucid-pah-sahge/Alive%20Spirit%20Of%20Pretty%20Gritty%20Heady%20Stuff%20I.webp" alt="Drooles Lucid Pah Sahge" loading="lazy">
-  <p class="gallery-caption">Drooles Lucid Pah Sahge</p>
-  <p class="gallery-door-count">33 pictures →</p>
-</a><a class="gallery-item" href="/digital/far-malaye-medley/">
-  <img src="https://media.paraploo.com/site/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder.webp" alt="Far Malaye Medley" loading="lazy">
-  <p class="gallery-caption">Far Malaye Medley</p>
-  <p class="gallery-door-count">4 pictures →</p>
-</a><a class="gallery-item" href="/digital/too-kameres-not-broken-mirror/">
-  <img src="https://media.paraploo.com/site/images/lines/too-kameres-not-broken-mirror/Human%20Wired%20Electricity%20Insanity%20Of%20Violence.webp" alt="Too Kameres Not Broken Mirror" loading="lazy">
-  <p class="gallery-caption">Too Kameres Not Broken Mirror</p>
-  <p class="gallery-door-count">4 pictures →</p>
-</a><a class="gallery-item" href="/digital/vo-lah-foe-uncertainty-anniversary/">
-  <img src="https://media.paraploo.com/site/images/lines/vo-lah-foe-uncertainty-anniversary/Glom%20Com%201.webp" alt="Vo Lah Foe Uncertainty Anniversary" loading="lazy">
-  <p class="gallery-caption">Vo Lah Foe Uncertainty Anniversary</p>
-  <p class="gallery-door-count">6 pictures →</p>
-</a><a class="gallery-item" href="/digital/fois-aho-zahg/">
-  <img src="https://media.paraploo.com/site/images/lines/fois-aho-zahg/13.webp" alt="Fois Aho Zahg" loading="lazy">
-  <p class="gallery-caption">Fois Aho Zahg</p>
-  <p class="gallery-door-count">79 pictures →</p>
-</a><a class="gallery-item" href="/digital/heavy-smog-mea-aveh/">
-  <img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202.webp" alt="Heavy Smog Mea Aveh" loading="lazy">
-  <p class="gallery-caption">Heavy Smog Mea Aveh</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/horse-moochi-warmth/">
-  <img src="https://media.paraploo.com/site/images/lines/horse-moochi-warmth/931.webp" alt="Horse Moochi Warmth" loading="lazy">
-  <p class="gallery-caption">Horse Moochi Warmth</p>
-  <p class="gallery-door-count">7 pictures →</p>
-</a><a class="gallery-item" href="/digital/pop-eh-doe-meal-maybe/">
-  <img src="https://media.paraploo.com/site/images/lines/pop-eh-doe-meal-maybe/Bending%20Rebar.00_22_45_03.Still089.webp" alt="Pop-Eh Doe Meal Maybe" loading="lazy">
-  <p class="gallery-caption">Pop-Eh Doe Meal Maybe</p>
-  <p class="gallery-door-count">7 pictures →</p>
-</a><a class="gallery-item" href="/digital/north-john-ah-sue-via-winter/">
-  <img src="https://media.paraploo.com/site/images/lines/north-john-ah-sue-via-winter/collage-blossom-025.webp" alt="North John Ah Sue Via Winter" loading="lazy">
-  <p class="gallery-caption">North John Ah Sue Via Winter</p>
-  <p class="gallery-door-count">10 pictures →</p>
-</a><a class="gallery-item" href="/digital/earthy-mushroom-cloud-test/">
-  <img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp" alt="Earthy Mushroom Cloud Test" loading="lazy">
-  <p class="gallery-caption">Earthy Mushroom Cloud Test</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/feeling-the-stills/">
-  <img src="https://media.paraploo.com/site/images/lines/feeling-the-stills/Work%20Operation%20Transposed%20II-600.webp" alt="Feeling The Stills" loading="lazy">
-  <p class="gallery-caption">Feeling The Stills</p>
-  <p class="gallery-door-count">6 pictures →</p>
-</a><a class="gallery-item" href="/digital/kow-kwo-poe/">
-  <img src="https://media.paraploo.com/site/images/lines/kow-kwo-poe/116-600.webp" alt="Kow Kwo Poe" loading="lazy">
-  <p class="gallery-caption">Kow Kwo Poe</p>
-  <p class="gallery-door-count">18 pictures →</p>
-</a><a class="gallery-item" href="/digital/like-a-dying-monopoly-wish/">
-  <img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp" alt="Like A Dying Monopoly Wish" loading="lazy">
-  <p class="gallery-caption">Like A Dying Monopoly Wish</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/more-understanding-than-the-lot/">
-  <img src="https://media.paraploo.com/site/images/lines/more-understanding-than-the-lot/collage-blossom-018-600.webp" alt="More Understanding Than The Lot" loading="lazy">
-  <p class="gallery-caption">More Understanding Than The Lot</p>
-  <p class="gallery-door-count">10 pictures →</p>
-</a><a class="gallery-item" href="/digital/sacun-territory-and-passage/">
-  <img src="https://media.paraploo.com/site/images/lines/sacun-territory-and-passage/Bending%20Rebar.00_02_59_13.Still011-600.webp" alt="Sacun Territory and Passage" loading="lazy">
-  <p class="gallery-caption">Sacun Territory and Passage</p>
-  <p class="gallery-door-count">26 pictures →</p>
-</a><a class="gallery-item" href="/digital/inspiration-boards-dept/">
-  <img src="https://media.paraploo.com/site/images/lines/inspiration-boards-dept-black-and-white-portraits/gray%20portraits%2013-600.webp" alt="Inspiration Boards Dept" loading="lazy">
-  <p class="gallery-caption">Inspiration Boards Dept</p>
-  <p class="gallery-door-count">13 galleries →</p>
-</a><a class="gallery-item" href="/digital/cold-clouds-scorched-ground/">
-  <img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp" alt="Cold Clouds Scorched Ground" loading="lazy">
-  <p class="gallery-caption">Cold Clouds Scorched Ground</p>
-  <p class="gallery-door-count">10 pictures →</p>
-</a><a class="gallery-item" href="/digital/cook-graphique-collage-series/">
-  <img src="https://media.paraploo.com/site/images/lines/cook-graphique-collage-series/We%20Would%20Cook%20Only%20Tears%20And%20Mercy%201-600.webp" alt="Cook Graphique Collage Series" loading="lazy">
-  <p class="gallery-caption">Cook Graphique Collage Series</p>
-  <p class="gallery-door-count">40 pictures →</p>
-</a><a class="gallery-item" href="/digital/dancer-tiny-stamps/">
-  <img src="https://media.paraploo.com/site/images/lines/dancer-tiny-stamps/8K%20Body%20Movement%20Stamps%20II-600.webp" alt="Dancer Tiny Stamps" loading="lazy">
-  <p class="gallery-caption">Dancer Tiny Stamps</p>
-  <p class="gallery-door-count">77 pictures →</p>
-</a><a class="gallery-item" href="/digital/existential-effects-dance/">
-  <img src="https://media.paraploo.com/site/images/lines/existential-effects-dance/Sequence%2001.00_04_06_28.Still015-600.webp" alt="Existential Effects Dance" loading="lazy">
-  <p class="gallery-caption">Existential Effects Dance</p>
-  <p class="gallery-door-count">20 pictures →</p>
-</a><a class="gallery-item" href="/digital/fire-damage-prison-and-escape/">
-  <img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp" alt="Fire Damage Prison and Escape" loading="lazy">
-  <p class="gallery-caption">Fire Damage Prison and Escape</p>
-  <p class="gallery-door-count">19 pictures →</p>
-</a><a class="gallery-item" href="/digital/grief-blossoming/">
-  <img src="https://media.paraploo.com/site/images/lines/grief-blossoming/Bending%20Rebar.00_08_51_15.Still033-600.webp" alt="Grief Blossoming" loading="lazy">
-  <p class="gallery-caption">Grief Blossoming</p>
-  <p class="gallery-door-count">4 pictures →</p>
-</a><a class="gallery-item" href="/digital/harp-bilay-electrifying-colors/">
-  <img src="https://media.paraploo.com/site/images/lines/harp-bilay-electrifying-colors/Harp%20Bzhez%20Electric%20Virtual%20Association%20II-600.webp" alt="Harp Bilay Electrifying Colors" loading="lazy">
-  <p class="gallery-caption">Harp Bilay Electrifying Colors</p>
-  <p class="gallery-door-count">15 pictures →</p>
-</a><a class="gallery-item" href="/digital/hear-us-cry-and-flow/">
-  <img src="https://media.paraploo.com/site/images/lines/hear-us-cry-and-flow/Hear%20Us%20Crying%20I-600.webp" alt="Hear Us Cry and Flow" loading="lazy">
-  <p class="gallery-caption">Hear Us Cry and Flow</p>
-  <p class="gallery-door-count">18 pictures →</p>
-</a><a class="gallery-item" href="/digital/hot-frame-stain/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-frame-stain/Stained%20Words%200027-600.webp" alt="Hot Frame Stain" loading="lazy">
-  <p class="gallery-caption">Hot Frame Stain</p>
-  <p class="gallery-door-count">20 pictures →</p>
-</a><a class="gallery-item" href="/digital/nine-types-of-cream/">
-  <img src="https://media.paraploo.com/site/images/lines/nine-types-of-cream/24%20Inch%20Bolt%20Cutter%20Details%20Plus-600.webp" alt="Nine Types of Cream" loading="lazy">
-  <p class="gallery-caption">Nine Types of Cream</p>
-  <p class="gallery-door-count">9 pictures →</p>
-</a><a class="gallery-item" href="/digital/say-zone-doanna-gray-matter/">
-  <img src="https://media.paraploo.com/site/images/lines/say-zone-doanna-gray-matter/8K%20Xhosa%20Fog%20I-600.webp" alt="Say Zone Doanna Gray Matter" loading="lazy">
-  <p class="gallery-caption">Say Zone Doanna Gray Matter</p>
-  <p class="gallery-door-count">7 pictures →</p>
-</a><a class="gallery-item" href="/digital/alogte-koda/">
-  <img src="https://media.paraploo.com/site/images/lines/alogte-koda/Alogte%20Koda%20Thumbs%20Composition%20I-600.webp" alt="Alogte Koda" loading="lazy">
-  <p class="gallery-caption">Alogte Koda</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/grand-assortment/">
-  <img src="https://media.paraploo.com/site/images/lines/biggest/32k%20ah%20ah%20ah%20ah%20amended%20dream%20I-600.webp" alt="Grand Assortment" loading="lazy">
-  <p class="gallery-caption">Grand Assortment</p>
-  <p class="gallery-door-count">4 galleries →</p>
-</a><a class="gallery-item" href="/digital/colors-fresh-snow-chair/">
-  <img src="https://media.paraploo.com/site/images/lines/colors-fresh-snow-chair/Heavy%20Snowfall%20On%20Old%20Wood%20Chairs%20Visual%20Effect%20Features%20I-600.webp" alt="Colors Fresh Snow Chair" loading="lazy">
-  <p class="gallery-caption">Colors Fresh Snow Chair</p>
-  <p class="gallery-door-count">46 pictures →</p>
-</a><a class="gallery-item" href="/digital/extra-extra/">
-  <img src="https://media.paraploo.com/site/images/lines/volume-one/Parted%20Lucid%20Dig%20Items%20and%20Narative-600.webp" alt="Extra Extra" loading="lazy">
-  <p class="gallery-caption">Extra Extra</p>
-  <p class="gallery-door-count">23 galleries →</p>
-</a><a class="gallery-item" href="/digital/eye-trois-medley/">
-  <img src="https://media.paraploo.com/site/images/lines/eye-trois-medley/Ano%20Dust%20Six-600.webp" alt="Eye Trois Medley" loading="lazy">
-  <p class="gallery-caption">Eye Trois Medley</p>
-  <p class="gallery-door-count">4 pictures →</p>
-</a><a class="gallery-item" href="/digital/for-what-its-worth/">
-  <img src="https://media.paraploo.com/site/images/lines/for-what-its-worth/For%20What%20It%20Is%20Worth%20II-600.webp" alt="For What Its Worth" loading="lazy">
-  <p class="gallery-caption">For What Its Worth</p>
-  <p class="gallery-door-count">22 pictures →</p>
-</a><a class="gallery-item" href="/digital/fp/">
-  <img src="https://media.paraploo.com/site/images/lines/fp/FP%206A-600.webp" alt="Fp" loading="lazy">
-  <p class="gallery-caption">Fp</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/expressions-of-grief/">
-  <img src="https://media.paraploo.com/site/images/lines/grief/Grief043-600.webp" alt="Expressions of Grief" loading="lazy">
-  <p class="gallery-caption">Expressions of Grief</p>
-  <p class="gallery-door-count">1 gallery →</p>
-</a><a class="gallery-item" href="/digital/hot-koda-stranger/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-koda-stranger/Hot%20Koda%20And%20A%20Stranger%20I-600.webp" alt="Hot Koda Stranger" loading="lazy">
-  <p class="gallery-caption">Hot Koda Stranger</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/hot-to-warming-things/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-to-warming-things/Hot%20To%20Warm%20Climate%20Pictures%20Of%20Numerous%20Things%20I-600.webp" alt="Hot To Warming Things" loading="lazy">
-  <p class="gallery-caption">Hot To Warming Things</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/lot-cluster/">
-  <img src="https://media.paraploo.com/site/images/lines/lot-cluster/Amens%2028-600.webp" alt="Lot Cluster" loading="lazy">
-  <p class="gallery-caption">Lot Cluster</p>
-  <p class="gallery-door-count">4 pictures →</p>
-</a><a class="gallery-item" href="/digital/no-time-to-think-properly/">
-  <img src="https://media.paraploo.com/site/images/lines/no-time-to-think-properly/No%20Time%20To%20Think%20Properly%201C-600.webp" alt="No Time To Think Properly" loading="lazy">
-  <p class="gallery-caption">No Time To Think Properly</p>
-  <p class="gallery-door-count">46 pictures →</p>
-</a><a class="gallery-item" href="/digital/shadow-of-our-light/">
-  <img src="https://media.paraploo.com/site/images/lines/shadow-of-our-light/Shadow%20Of%20Our%20Light%20I-600.webp" alt="Shadow Of Our Light" loading="lazy">
-  <p class="gallery-caption">Shadow Of Our Light</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/tsegue/">
-  <img src="https://media.paraploo.com/site/images/lines/tsegue/Tsegue-001-600.webp" alt="Tsegue" loading="lazy">
-  <p class="gallery-caption">Tsegue</p>
-  <p class="gallery-door-count">31 pictures →</p>
-</a><a class="gallery-item" href="/digital/tsegue-firey/">
-  <img src="https://media.paraploo.com/site/images/lines/tsegue-firey/Tsegue%20Firey%20Solo%20and%20English%20Texts%20I-600.webp" alt="Tsegue Firey" loading="lazy">
-  <p class="gallery-caption">Tsegue Firey</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/vivid-koda-grain/">
-  <img src="https://media.paraploo.com/site/images/lines/vivid-koda-grain/Vivid%20Koda%20and%20Grain%20Plus%20Texts%20I-600.webp" alt="Vivid Koda Grain" loading="lazy">
-  <p class="gallery-caption">Vivid Koda Grain</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/when-we-say-alive-matters/">
-  <img src="https://media.paraploo.com/site/images/lines/when-we-say-alive-matters/8K%20When%20We%20Say%20Alive%20Matters%20007-600.webp" alt="When We Say Alive Matters" loading="lazy">
-  <p class="gallery-caption">When We Say Alive Matters</p>
-  <p class="gallery-door-count">30 pictures →</p>
-</a></div>
-<h2 class="section-heading" id="symmetrical-and-kaleidoscopic">Symmetrical and Kaleidoscopic</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/mint-plaje-symmet/">
-  <img src="https://media.paraploo.com/site/images/lines/mint-plaje-symmet/thumbs/aMD%20379.webp" alt="Mint Plaje Symmet" loading="lazy">
-  <p class="gallery-caption">Mint Plaje Symmet</p>
-  <p class="gallery-door-count">69 pictures →</p>
-</a><a class="gallery-item" href="/digital/red-stain/">
-  <img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Art%20Garage%20Mess%20And%20Perfect%20Composition-600.webp" alt="Red Stain" loading="lazy">
-  <p class="gallery-caption">Red Stain</p>
-  <p class="gallery-door-count">2 galleries →</p>
-</a><a class="gallery-item" href="/digital/shur-shee-symmetrical/">
-  <img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Ashes%20Smoke%20To%20Rust%20And%20Blood%20Stains%20Sideways%20Alien%20Mantis%20Absolute%20Symmetrical-600.webp" alt="Shur Shee Symmetrical" loading="lazy">
-  <p class="gallery-caption">Shur Shee Symmetrical</p>
-  <p class="gallery-door-count">8 galleries →</p>
-</a><a class="gallery-item" href="/digital/climate-hand-smoke-voice/">
-  <img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp" alt="Climate Hand Smoke Voice" loading="lazy">
-  <p class="gallery-caption">Climate Hand Smoke Voice</p>
-  <p class="gallery-door-count">139 pictures →</p>
-</a><a class="gallery-item" href="/digital/rainbow-coe-shaye-bar/">
-  <img src="https://media.paraploo.com/site/images/lines/rainbow-coe-shaye-bar/596.webp" alt="Rainbow Coe Shaye Bar" loading="lazy">
-  <p class="gallery-caption">Rainbow Coe Shaye Bar</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/rough-dark-change-mystery/">
-  <img src="https://media.paraploo.com/site/images/lines/rough-dark-change-mystery/Sequence%2001.00_00_07_02.Still001.webp" alt="Rough Dark Change Mystery" loading="lazy">
-  <p class="gallery-caption">Rough Dark Change Mystery</p>
-  <p class="gallery-door-count">205 pictures →</p>
-</a><a class="gallery-item" href="/digital/great-conscious-middle-eye-no-cracking/">
-  <img src="https://media.paraploo.com/site/images/lines/great-conscious-middle-eye-no-cracking/Contemporary%20Cinema%20Eye.webp" alt="Great Conscious Middle Eye No Cracking" loading="lazy">
-  <p class="gallery-caption">Great Conscious Middle Eye No Cracking</p>
-  <p class="gallery-door-count">40 pictures →</p>
-</a><a class="gallery-item" href="/digital/tramete-ring-ring-quitah-in-pieces/">
-  <img src="https://media.paraploo.com/site/images/lines/tramete-ring-ring-quitah-in-pieces/Hot%20Climate%2046B.webp" alt="Tramete Ring Ring Quitah In Pieces" loading="lazy">
-  <p class="gallery-caption">Tramete Ring Ring Quitah In Pieces</p>
-  <p class="gallery-door-count">30 pictures →</p>
-</a><a class="gallery-item" href="/digital/hot-and-warming-eyes/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-and-warming-eyes/9945-600.webp" alt="Hot And Warming Eyes" loading="lazy">
-  <p class="gallery-caption">Hot And Warming Eyes</p>
-  <p class="gallery-door-count">2 pictures →</p>
-</a><a class="gallery-item" href="/digital/hot-climate/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp" alt="Hot Climate" loading="lazy">
-  <p class="gallery-caption">Hot Climate</p>
-  <p class="gallery-door-count">100 pictures →</p>
-</a><a class="gallery-item" href="/digital/rahms-intense-unfamiliar-gaze/">
-  <img src="https://media.paraploo.com/site/images/lines/rahms-intense-unfamiliar-gaze/Please%20Wake%20Up%20Mael%20and%20Lord%20Have%20Mercy%20I-600.webp" alt="Rahms Intense Unfamiliar Gaze" loading="lazy">
-  <p class="gallery-caption">Rahms Intense Unfamiliar Gaze</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/sista-ro-extreme-heat/">
-  <img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp" alt="Sista Ro Extreme Heat" loading="lazy">
-  <p class="gallery-caption">Sista Ro Extreme Heat</p>
-  <p class="gallery-door-count">7 galleries →</p>
-</a><a class="gallery-item" href="/digital/ah-ah-ah-ah-volumes/">
-  <img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah-digital/Ah%20Ah%20Ah%20Ah%205-600.webp" alt="Ah Ah Ah Ah" loading="lazy">
-  <p class="gallery-caption">Ah Ah Ah Ah</p>
-  <p class="gallery-door-count">138 pictures →</p>
-</a><a class="gallery-item" href="/digital/hot-climate-volumes/">
-  <img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp" alt="Hot Climate" loading="lazy">
-  <p class="gallery-caption">Hot Climate</p>
-  <p class="gallery-door-count">139 pictures →</p>
-</a></div>
-<h2 class="section-heading" id="photomosaics">Photomosaics</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/say-zone-doanna-heato/">
-  <img src="https://media.paraploo.com/site/images/lines/say-zone-doanna-heato/8K%20Window%20001-600.webp" alt="Say Zone Doanna Heato" loading="lazy">
-  <p class="gallery-caption">Say Zone Doanna Heato</p>
-  <p class="gallery-door-count">60 pictures →</p>
-</a><a class="gallery-item" href="/digital/biggest-mosaic-ever/">
-  <img src="https://media.paraploo.com/site/images/lines/longest-assortment-ever/Viullard-600.webp" alt="Biggest Mosaic Ever" loading="lazy">
-  <p class="gallery-caption">Biggest Mosaic Ever</p>
-  <p class="gallery-door-count">9 galleries →</p>
-</a></div>
-<h2 class="section-heading" id="photographs-of-places-and-things">Photographs of Places and Things</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/workspace-incidences-no-people/">
-  <img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/a_7-600.webp" alt="Workspace Incidences No People" loading="lazy">
-  <p class="gallery-caption">Workspace Incidences No People</p>
-  <p class="gallery-door-count">44 pictures →</p>
-</a><a class="gallery-item" href="/digital/photo-realism/">
-  <img src="https://media.paraploo.com/site/images/lines/photo-realism-amarah/A%26E%20As%20Gools%2027B-600.webp" alt="Photo Realism" loading="lazy">
-  <p class="gallery-caption">Photo Realism</p>
-  <p class="gallery-door-count">31 galleries →</p>
-</a><a class="gallery-item" href="/digital/boots-dom-maye-waste/">
-  <img src="https://media.paraploo.com/site/images/lines/boots-dom-maye-waste/Boots%20I-600.webp" alt="Boots Dom Maye Waste" loading="lazy">
-  <p class="gallery-caption">Boots Dom Maye Waste</p>
-  <p class="gallery-door-count">5 pictures →</p>
-</a><a class="gallery-item" href="/digital/bending-rebar/">
-  <img src="https://media.paraploo.com/site/images/lines/bending-rebar/Bending%20Rebar.00_00_02_06.Still001-600.webp" alt="Bending Rebar" loading="lazy">
-  <p class="gallery-caption">Bending Rebar</p>
-  <p class="gallery-door-count">38 pictures →</p>
-</a><a class="gallery-item" href="/digital/grit-and-grain-theater/">
-  <img src="https://media.paraploo.com/site/images/lines/grit-and-grain-theater/Grit%20and%20Grain%20Garage%20Theater%20Wall%20I-600.webp" alt="Grit And Grain Theater" loading="lazy">
-  <p class="gallery-caption">Grit And Grain Theater</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a></div>
-<h2 class="section-heading" id="photographs-of-people">Photographs of People</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/they-won-the-biggest-contest-question/">
-  <img src="https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5.webp" alt="They Won the Biggest Contest Question" loading="lazy">
-  <p class="gallery-caption">They Won the Biggest Contest Question</p>
-  <p class="gallery-door-count">6 pictures →</p>
-</a><a class="gallery-item" href="/digital/collage-blossom/">
-  <img src="https://media.paraploo.com/site/images/lines/collage-blossom/collage-blossom-001-600.webp" alt="Collage Blossom" loading="lazy">
-  <p class="gallery-caption">Collage Blossom</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/read-the-red-words-freedom/">
-  <img src="https://media.paraploo.com/site/images/lines/read-the-red-words-freedom/Read%20The%20Red%20Texts%20and%20Seeking%20Freedom%20I-600.webp" alt="Read The Red Words Freedom" loading="lazy">
-  <p class="gallery-caption">Read The Red Words Freedom</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/a-family/">
-  <img src="https://media.paraploo.com/site/images/lines/a-family/91-600.webp" alt="A Family" loading="lazy">
-  <p class="gallery-caption">A Family</p>
-  <p class="gallery-door-count">78 pictures →</p>
-</a></div>
-<h2 class="section-heading" id="text-and-typographic-pieces">Text and Typographic Pieces</h2>
-<div class="gallery-grid"><a class="gallery-item" href="/digital/text-based-visual-works/">
-  <img src="https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020.webp" alt="Text Based Visual Works" loading="lazy">
-  <p class="gallery-caption">Text Based Visual Works</p>
-  <p class="gallery-door-count">5 galleries →</p>
-</a><a class="gallery-item" href="/digital/lights-camera-freeze/">
-  <img src="https://media.paraploo.com/site/images/lines/lights-camera-freeze/Light%20Camera%20No%20Action%202-600.webp" alt="Lights Camera Freeze" loading="lazy">
-  <p class="gallery-caption">Lights Camera Freeze</p>
-  <p class="gallery-door-count">12 pictures →</p>
-</a><a class="gallery-item" href="/digital/numbers/volume-two/">
-  <img src="https://media.paraploo.com/site/images/lines/numbers/7-600.webp" alt="Numbers" loading="lazy">
-  <p class="gallery-caption">Numbers</p>
-  <p class="gallery-door-count">1 gallery →</p>
-</a><a class="gallery-item" href="/digital/rock-rebar-hammer-theater/">
-  <img src="https://media.paraploo.com/site/images/lines/rock-rebar-hammer-theater/Rock%20Rebar%20Hammer%20001-600.webp" alt="Rock Rebar Hammer Theater" loading="lazy">
-  <p class="gallery-caption">Rock Rebar Hammer Theater</p>
-  <p class="gallery-door-count">16 pictures →</p>
-</a><a class="gallery-item" href="/digital/stained-message/">
-  <img src="https://media.paraploo.com/site/images/lines/stained-message/Stained%20Message%20001-600.webp" alt="Stained Message" loading="lazy">
-  <p class="gallery-caption">Stained Message</p>
-  <p class="gallery-door-count">26 pictures →</p>
-</a><a class="gallery-item" href="/digital/this-looks-like-branding/">
-  <img src="https://media.paraploo.com/site/images/lines/bomayka-identity/1%20bo%20logo%20sens-600.webp" alt="This Looks Like Branding" loading="lazy">
-  <p class="gallery-caption">This Looks Like Branding</p>
-  <p class="gallery-door-count">2 galleries →</p>
-</a><a class="gallery-item" href="/digital/bad-beautiful-good/">
-  <img src="https://media.paraploo.com/site/images/lines/a-bit-dazed/Art%20Mess%20And%20Carved%20Pole-600.webp" alt="Bad Beautiful Good" loading="lazy">
-  <p class="gallery-caption">Bad Beautiful Good</p>
-  <p class="gallery-door-count">13 galleries →</p>
-</a><a class="gallery-item" href="/digital/grey-to-gray-zone/">
-  <img src="https://media.paraploo.com/site/images/lines/grey-to-gray-zone-volume-one/A%20Starnger%20And%20Pole%20Of%20Aftermath%20Stuff-600.webp" alt="Grey To Gray Zone" loading="lazy">
-  <p class="gallery-caption">Grey To Gray Zone</p>
-  <p class="gallery-door-count">4 galleries →</p>
-</a><a class="gallery-item" href="/digital/oversized-meaning/">
-  <img src="https://media.paraploo.com/site/images/lines/oversized-meaning/Alien-600.webp" alt="Oversized Meaning" loading="lazy">
-  <p class="gallery-caption">Oversized Meaning</p>
-  <p class="gallery-door-count">55 pictures →</p>
-</a><a class="gallery-item" href="/digital/sizable-sepia-series/">
-  <img src="https://media.paraploo.com/site/images/lines/sizable-sepia-series-volume-one/2000-Photo-Art-Sliced-In-Half-Plastic-Skull-And-Shredded-Canvas-600.webp" alt="Sizable Sepia Series" loading="lazy">
-  <p class="gallery-caption">Sizable Sepia Series</p>
-  <p class="gallery-door-count">4 galleries →</p>
-</a></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html" class="current">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+<div class="collage-room">
+
+<section class="c-turn" aria-label="Collage" style="--band: #B49BB0;">
+  <div class="c-head">
+    <h1 class="c-title">Collage</h1>
+  </div>
+  <div class="c-cyl" role="group" aria-label="Eighteen collages from Saved Pieces">
+    <a class="c-seat" href="/digital/saved-pieces/bright-colors/0007.html" aria-label="20964, Bright Colors" data-n="20964" data-gallery="Bright Colors" data-gallery-href="/digital/saved-pieces/bright-colors/" data-full="https://media.paraploo.com/site/images/lines/bright-colors/20964.webp" data-w="2000" data-h="1052"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20964-600.webp" width="600" height="316" alt="20964" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/masks-and-performances/0018.html" aria-label="20963, Masks and Performances" data-n="20963" data-gallery="Masks and Performances" data-gallery-href="/digital/saved-pieces/masks-and-performances/" data-full="https://media.paraploo.com/site/images/lines/masks-and-performances/20963.webp" data-w="2000" data-h="867"><img src="https://media.paraploo.com/site/images/lines/masks-and-performances/20963-600.webp" width="600" height="260" alt="20963" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/made-and-found-things/0008.html" aria-label="20962, Made and Found Things" data-n="20962" data-gallery="Made and Found Things" data-gallery-href="/digital/saved-pieces/made-and-found-things/" data-full="https://media.paraploo.com/site/images/lines/made-and-found-things/20962.webp" data-w="1544" data-h="2000"><img src="https://media.paraploo.com/site/images/lines/made-and-found-things/20962-600.webp" width="463" height="600" alt="20962" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/out-and-about/0011.html" aria-label="20961, Out and About" data-n="20961" data-gallery="Out and About" data-gallery-href="/digital/saved-pieces/out-and-about/" data-full="https://media.paraploo.com/site/images/lines/out-and-about/20961.webp" data-w="2000" data-h="1245"><img src="https://media.paraploo.com/site/images/lines/out-and-about/20961-600.webp" width="600" height="374" alt="20961" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/black-and-white/0013.html" aria-label="20959, Black and White" data-n="20959" data-gallery="Black and White" data-gallery-href="/digital/saved-pieces/black-and-white/" data-full="https://media.paraploo.com/site/images/lines/black-and-white/20959.webp" data-w="1531" data-h="1591"><img src="https://media.paraploo.com/site/images/lines/black-and-white/20959-600.webp" width="577" height="600" alt="20959" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/ink-pages/0029.html" aria-label="20957, Ink Pages" data-n="20957" data-gallery="Ink Pages" data-gallery-href="/digital/saved-pieces/ink-pages/" data-full="https://media.paraploo.com/site/images/lines/ink-pages/20957.webp" data-w="2000" data-h="1320"><img src="https://media.paraploo.com/site/images/lines/ink-pages/20957-600.webp" width="600" height="396" alt="20957" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/out-and-about/0009.html" aria-label="20955, Out and About" data-n="20955" data-gallery="Out and About" data-gallery-href="/digital/saved-pieces/out-and-about/" data-full="https://media.paraploo.com/site/images/lines/out-and-about/20955.webp" data-w="2000" data-h="1801"><img src="https://media.paraploo.com/site/images/lines/out-and-about/20955-600.webp" width="600" height="540" alt="20955" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/masks-and-performances/0014.html" aria-label="20948, Masks and Performances" data-n="20948" data-gallery="Masks and Performances" data-gallery-href="/digital/saved-pieces/masks-and-performances/" data-full="https://media.paraploo.com/site/images/lines/masks-and-performances/20948.webp" data-w="1876" data-h="1605"><img src="https://media.paraploo.com/site/images/lines/masks-and-performances/20948-600.webp" width="600" height="513" alt="20948" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/masks-and-performances/0010.html" aria-label="20944, Masks and Performances" data-n="20944" data-gallery="Masks and Performances" data-gallery-href="/digital/saved-pieces/masks-and-performances/" data-full="https://media.paraploo.com/site/images/lines/masks-and-performances/20944.webp" data-w="2000" data-h="1680"><img src="https://media.paraploo.com/site/images/lines/masks-and-performances/20944-600.webp" width="600" height="504" alt="20944" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/at-home/0013.html" aria-label="20939, At Home" data-n="20939" data-gallery="At Home" data-gallery-href="/digital/saved-pieces/at-home/" data-full="https://media.paraploo.com/site/images/lines/at-home/20939.webp" data-w="2000" data-h="1363"><img src="https://media.paraploo.com/site/images/lines/at-home/20939-600.webp" width="600" height="409" alt="20939" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/made-and-found-things/0004.html" aria-label="20936, Made and Found Things" data-n="20936" data-gallery="Made and Found Things" data-gallery-href="/digital/saved-pieces/made-and-found-things/" data-full="https://media.paraploo.com/site/images/lines/made-and-found-things/20936.webp" data-w="2000" data-h="1360"><img src="https://media.paraploo.com/site/images/lines/made-and-found-things/20936-600.webp" width="600" height="408" alt="20936" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/at-home/0007.html" aria-label="20930, At Home" data-n="20930" data-gallery="At Home" data-gallery-href="/digital/saved-pieces/at-home/" data-full="https://media.paraploo.com/site/images/lines/at-home/20930.webp" data-w="2000" data-h="1518"><img src="https://media.paraploo.com/site/images/lines/at-home/20930-600.webp" width="600" height="455" alt="20930" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/out-and-about/0004.html" aria-label="20922, Out and About" data-n="20922" data-gallery="Out and About" data-gallery-href="/digital/saved-pieces/out-and-about/" data-full="https://media.paraploo.com/site/images/lines/out-and-about/20922.webp" data-w="2000" data-h="1331"><img src="https://media.paraploo.com/site/images/lines/out-and-about/20922-600.webp" width="600" height="399" alt="20922" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/black-and-white/0004.html" aria-label="20910, Black and White" data-n="20910" data-gallery="Black and White" data-gallery-href="/digital/saved-pieces/black-and-white/" data-full="https://media.paraploo.com/site/images/lines/black-and-white/20910.webp" data-w="2000" data-h="1345"><img src="https://media.paraploo.com/site/images/lines/black-and-white/20910-600.webp" width="600" height="404" alt="20910" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/ink-pages/0028.html" aria-label="20904, Ink Pages" data-n="20904" data-gallery="Ink Pages" data-gallery-href="/digital/saved-pieces/ink-pages/" data-full="https://media.paraploo.com/site/images/lines/ink-pages/20904.webp" data-w="1505" data-h="2000"><img src="https://media.paraploo.com/site/images/lines/ink-pages/20904-600.webp" width="452" height="600" alt="20904" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/ink-pages/0008.html" aria-label="20884, Ink Pages" data-n="20884" data-gallery="Ink Pages" data-gallery-href="/digital/saved-pieces/ink-pages/" data-full="https://media.paraploo.com/site/images/lines/ink-pages/20884.webp" data-w="2000" data-h="1046"><img src="https://media.paraploo.com/site/images/lines/ink-pages/20884-600.webp" width="600" height="314" alt="20884" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/bright-colors/0004.html" aria-label="20873, Bright Colors" data-n="20873" data-gallery="Bright Colors" data-gallery-href="/digital/saved-pieces/bright-colors/" data-full="https://media.paraploo.com/site/images/lines/bright-colors/20873.webp" data-w="2000" data-h="1495"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20873-600.webp" width="600" height="448" alt="20873" decoding="async" draggable="false"></a>
+    <a class="c-seat" href="/digital/saved-pieces/bright-colors/0002.html" aria-label="20871, Bright Colors" data-n="20871" data-gallery="Bright Colors" data-gallery-href="/digital/saved-pieces/bright-colors/" data-full="https://media.paraploo.com/site/images/lines/bright-colors/20871.webp" data-w="2000" data-h="1141"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20871-600.webp" width="600" height="342" alt="20871" decoding="async" draggable="false"></a>
+  </div>
+  <p class="c-caps"><a class="c-cap c-cap-left" href="/digital/saved-pieces/">Saved Pieces <span class="c-arr" aria-hidden="true">&rarr;</span></a><span class="c-cap c-cap-right">Turn it, or choose one.</span></p>
+  <p class="c-marker" aria-hidden="true"><span class="c-dot"></span><span class="c-marker-num"></span></p>
+  <p class="c-open-cap" aria-live="polite"><a class="c-open-num" href="#"></a><a class="c-open-gallery" href="#"></a></p>
+  <button type="button" class="c-close" aria-label="Close"><svg class="c-x" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>
+</section>
+
+<section class="c-words" aria-label="What Collage is">
+  <p class="c-sentence">Every Collage picture is made in Adobe Photoshop, from photographs we took ourselves. No AI program made any of them.</p>
+  <nav class="c-chips" aria-label="The six kinds"><a class="c-chip" href="#collage-work">Collage Work</a><a class="c-chip" href="#symmetrical-and-kaleidoscopic">Symmetrical and Kaleidoscopic</a><a class="c-chip" href="#photomosaics">Photomosaics</a><a class="c-chip" href="#photographs-of-places-and-things">Photographs of Places and Things</a><a class="c-chip" href="#photographs-of-people">Photographs of People</a><a class="c-chip" href="#text-and-typographic-pieces">Text and Typographic Pieces</a></nav>
+</section>
+
+<section class="c-kind" aria-labelledby="collage-work">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="collage-work">Collage Work</h2>
+    <p class="c-kind-line">The pictures under Collage Work join pieces of several photographs into one. It is close to how remembering goes.</p>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Collage Work">
+      <a class="c-row c-row-lead" href="/digital/saved-pieces/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20964-600.webp" width="600" height="316" alt="Saved Pieces" loading="lazy" decoding="async"></span>
+        <span class="c-name">Saved Pieces</span>
+        <span class="c-lead-line">Collages made in 2026 from pieces of our own photographs and ink drawings.</span>
+        <span class="c-count">7 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/ah-ah-ah-ah/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah/thumbs/Ah%20Ah%20Ah%20Ah%201.webp" width="600" height="338" alt="Ah Ah Ah Ah" loading="lazy" decoding="async"></span>
+        <span class="c-name">Ah Ah Ah Ah</span>
+        <span class="c-count">57 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/at-lac-clouse/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/at-lac-clouse/thumbs/Guesswerg-1-2.webp" width="600" height="338" alt="At Lac Clouse" loading="lazy" decoding="async"></span>
+        <span class="c-name">At Lac Clouse</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/blame-it-on-the-weather/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/blame-it-on-the-weather/thumbs/Blame%20It%20On%208.webp" width="600" height="400" alt="Blame It On The Weather" loading="lazy" decoding="async"></span>
+        <span class="c-name">Blame It On The Weather</span>
+        <span class="c-count">13 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/chaud-schwea-couleurs/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/chaud-schwea-couleurs/thumbs/773.webp" width="600" height="338" alt="Chaud Schwea Couleurs" loading="lazy" decoding="async"></span>
+        <span class="c-name">Chaud Schwea Couleurs</span>
+        <span class="c-count">24 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/conflict-zone-fragments-pages/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/thumbs/Untitled-61.00_00_02_17.Still001.webp" width="464" height="600" alt="Conflict Zone Fragments Pages" loading="lazy" decoding="async"></span>
+        <span class="c-name">Conflict Zone Fragments Pages</span>
+        <span class="c-count">32 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/lemon-yellow-accents/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/lemon-yellow-accents/thumbs/333.webp" width="600" height="338" alt="Lemon Yellow Accents" loading="lazy" decoding="async"></span>
+        <span class="c-name">Lemon Yellow Accents</span>
+        <span class="c-count">22 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/wild-beyond-burning-ember-go/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/wild-beyond-burning-ember-go/thumbs/111.webp" width="600" height="338" alt="Wild Beyond Burning Ember Go" loading="lazy" decoding="async"></span>
+        <span class="c-name">Wild Beyond Burning Ember Go</span>
+        <span class="c-count">54 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/work-mon-aye-bahta/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/work-mon-aye-bahta/thumbs/A%20Kind%20Of%20Pushed%20Kin%20Visual%20Story.webp" width="600" height="338" alt="Work Mon Aye Bahta" loading="lazy" decoding="async"></span>
+        <span class="c-name">Work Mon Aye Bahta</span>
+        <span class="c-count">45 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/to-worship-what-we-dig/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/to-worship-what-we-dig/thumbs/Always%20A%20Witness%20I.webp" width="600" height="338" alt="To Worship What We Dig" loading="lazy" decoding="async"></span>
+        <span class="c-name">To Worship What We Dig</span>
+        <span class="c-count">20 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/vivid-memories-of-choice/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/vivid-memories-of-choice/thumbs/Freedom%20Of%20Memories%20001.webp" width="600" height="338" alt="Vivid Memories Of Choice" loading="lazy" decoding="async"></span>
+        <span class="c-name">Vivid Memories Of Choice</span>
+        <span class="c-count">23 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/watch-this-not-get-carried-away/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs-600.webp" srcset="https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs-600.webp 600w, https://media.paraploo.com/site/images/lines/watch-this-not-get-carried-away/Act%20Ual%20Crutch%20Phar%20Give%20Us%20More%20Heartful%20Organs.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Watch This Not Get Carried Away" loading="lazy" decoding="async"></span>
+        <span class="c-name">Watch This Not Get Carried Away</span>
+        <span class="c-count">56 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/babel-fascinated-with-shiny-things/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/babel-fascinated-with-shiny-things/8K%20When%20We%20Say%20Alive%20Matters%20001-600.webp" srcset="https://media.paraploo.com/site/images/lines/babel-fascinated-with-shiny-things/8K%20When%20We%20Say%20Alive%20Matters%20001-600.webp 600w, https://media.paraploo.com/site/images/lines/babel-fascinated-with-shiny-things/8K%20When%20We%20Say%20Alive%20Matters%20001.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Babel Fascinated With Shiny Things" loading="lazy" decoding="async"></span>
+        <span class="c-name">Babel Fascinated With Shiny Things</span>
+        <span class="c-count">5 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/drooles-lucid-pah-sahge/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/drooles-lucid-pah-sahge/Alive%20Spirit%20Of%20Pretty%20Gritty%20Heady%20Stuff%20I-600.webp" srcset="https://media.paraploo.com/site/images/lines/drooles-lucid-pah-sahge/Alive%20Spirit%20Of%20Pretty%20Gritty%20Heady%20Stuff%20I-600.webp 600w, https://media.paraploo.com/site/images/lines/drooles-lucid-pah-sahge/Alive%20Spirit%20Of%20Pretty%20Gritty%20Heady%20Stuff%20I.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Drooles Lucid Pah Sahge" loading="lazy" decoding="async"></span>
+        <span class="c-name">Drooles Lucid Pah Sahge</span>
+        <span class="c-count">33 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/far-malaye-medley/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder-600.webp" srcset="https://media.paraploo.com/site/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder-600.webp 600w, https://media.paraploo.com/site/images/lines/far-malaye-medley/Amarah%20Disfigured%20Face%20Experiment%20And%20Soder.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1658" alt="Far Malaye Medley" loading="lazy" decoding="async"></span>
+        <span class="c-name">Far Malaye Medley</span>
+        <span class="c-count">4 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/too-kameres-not-broken-mirror/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/too-kameres-not-broken-mirror/Human%20Wired%20Electricity%20Insanity%20Of%20Violence-600.webp" srcset="https://media.paraploo.com/site/images/lines/too-kameres-not-broken-mirror/Human%20Wired%20Electricity%20Insanity%20Of%20Violence-600.webp 600w, https://media.paraploo.com/site/images/lines/too-kameres-not-broken-mirror/Human%20Wired%20Electricity%20Insanity%20Of%20Violence.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Too Kameres Not Broken Mirror" loading="lazy" decoding="async"></span>
+        <span class="c-name">Too Kameres Not Broken Mirror</span>
+        <span class="c-count">4 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/vo-lah-foe-uncertainty-anniversary/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/vo-lah-foe-uncertainty-anniversary/Glom%20Com%201-600.webp" srcset="https://media.paraploo.com/site/images/lines/vo-lah-foe-uncertainty-anniversary/Glom%20Com%201-600.webp 600w, https://media.paraploo.com/site/images/lines/vo-lah-foe-uncertainty-anniversary/Glom%20Com%201.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1564" alt="Vo Lah Foe Uncertainty Anniversary" loading="lazy" decoding="async"></span>
+        <span class="c-name">Vo Lah Foe Uncertainty Anniversary</span>
+        <span class="c-count">6 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/fois-aho-zahg/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/fois-aho-zahg/13-600.webp" srcset="https://media.paraploo.com/site/images/lines/fois-aho-zahg/13-600.webp 600w, https://media.paraploo.com/site/images/lines/fois-aho-zahg/13.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Fois Aho Zahg" loading="lazy" decoding="async"></span>
+        <span class="c-name">Fois Aho Zahg</span>
+        <span class="c-count">79 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/heavy-smog-mea-aveh/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1545" alt="Heavy Smog Mea Aveh" loading="lazy" decoding="async"></span>
+        <span class="c-name">Heavy Smog Mea Aveh</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/horse-moochi-warmth/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/horse-moochi-warmth/931-600.webp" srcset="https://media.paraploo.com/site/images/lines/horse-moochi-warmth/931-600.webp 600w, https://media.paraploo.com/site/images/lines/horse-moochi-warmth/931.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Horse Moochi Warmth" loading="lazy" decoding="async"></span>
+        <span class="c-name">Horse Moochi Warmth</span>
+        <span class="c-count">7 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/pop-eh-doe-meal-maybe/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/pop-eh-doe-meal-maybe/Bending%20Rebar.00_22_45_03.Still089-600.webp" srcset="https://media.paraploo.com/site/images/lines/pop-eh-doe-meal-maybe/Bending%20Rebar.00_22_45_03.Still089-600.webp 600w, https://media.paraploo.com/site/images/lines/pop-eh-doe-meal-maybe/Bending%20Rebar.00_22_45_03.Still089.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Pop-Eh Doe Meal Maybe" loading="lazy" decoding="async"></span>
+        <span class="c-name">Pop-Eh Doe Meal Maybe</span>
+        <span class="c-count">7 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/north-john-ah-sue-via-winter/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/north-john-ah-sue-via-winter/collage-blossom-025-600.webp" srcset="https://media.paraploo.com/site/images/lines/north-john-ah-sue-via-winter/collage-blossom-025-600.webp 600w, https://media.paraploo.com/site/images/lines/north-john-ah-sue-via-winter/collage-blossom-025.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1050" alt="North John Ah Sue Via Winter" loading="lazy" decoding="async"></span>
+        <span class="c-name">North John Ah Sue Via Winter</span>
+        <span class="c-count">10 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/earthy-mushroom-cloud-test/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp" width="508" height="600" alt="Earthy Mushroom Cloud Test" loading="lazy" decoding="async"></span>
+        <span class="c-name">Earthy Mushroom Cloud Test</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/feeling-the-stills/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/feeling-the-stills/Work%20Operation%20Transposed%20II-600.webp" width="600" height="338" alt="Feeling The Stills" loading="lazy" decoding="async"></span>
+        <span class="c-name">Feeling The Stills</span>
+        <span class="c-count">6 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/kow-kwo-poe/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/kow-kwo-poe/116-600.webp" width="600" height="338" alt="Kow Kwo Poe" loading="lazy" decoding="async"></span>
+        <span class="c-name">Kow Kwo Poe</span>
+        <span class="c-count">18 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/like-a-dying-monopoly-wish/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp" width="600" height="338" alt="Like A Dying Monopoly Wish" loading="lazy" decoding="async"></span>
+        <span class="c-name">Like A Dying Monopoly Wish</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/more-understanding-than-the-lot/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/more-understanding-than-the-lot/collage-blossom-018-600.webp" width="600" height="338" alt="More Understanding Than The Lot" loading="lazy" decoding="async"></span>
+        <span class="c-name">More Understanding Than The Lot</span>
+        <span class="c-count">10 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/sacun-territory-and-passage/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/sacun-territory-and-passage/Bending%20Rebar.00_02_59_13.Still011-600.webp" width="600" height="338" alt="Sacun Territory and Passage" loading="lazy" decoding="async"></span>
+        <span class="c-name">Sacun Territory and Passage</span>
+        <span class="c-count">26 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/inspiration-boards-dept/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/inspiration-boards-dept-black-and-white-portraits/gray%20portraits%2013-600.webp" width="464" height="600" alt="Inspiration Boards Dept" loading="lazy" decoding="async"></span>
+        <span class="c-name">Inspiration Boards Dept</span>
+        <span class="c-count">13 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/cold-clouds-scorched-ground/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp" width="600" height="338" alt="Cold Clouds Scorched Ground" loading="lazy" decoding="async"></span>
+        <span class="c-name">Cold Clouds Scorched Ground</span>
+        <span class="c-count">10 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/cook-graphique-collage-series/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/cook-graphique-collage-series/We%20Would%20Cook%20Only%20Tears%20And%20Mercy%201-600.webp" width="600" height="600" alt="Cook Graphique Collage Series" loading="lazy" decoding="async"></span>
+        <span class="c-name">Cook Graphique Collage Series</span>
+        <span class="c-count">40 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/dancer-tiny-stamps/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/dancer-tiny-stamps/8K%20Body%20Movement%20Stamps%20II-600.webp" width="600" height="338" alt="Dancer Tiny Stamps" loading="lazy" decoding="async"></span>
+        <span class="c-name">Dancer Tiny Stamps</span>
+        <span class="c-count">77 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/existential-effects-dance/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/existential-effects-dance/Sequence%2001.00_04_06_28.Still015-600.webp" width="600" height="338" alt="Existential Effects Dance" loading="lazy" decoding="async"></span>
+        <span class="c-name">Existential Effects Dance</span>
+        <span class="c-count">20 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/fire-damage-prison-and-escape/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp" width="600" height="361" alt="Fire Damage Prison and Escape" loading="lazy" decoding="async"></span>
+        <span class="c-name">Fire Damage Prison and Escape</span>
+        <span class="c-count">19 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/grief-blossoming/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/grief-blossoming/Bending%20Rebar.00_08_51_15.Still033-600.webp" width="600" height="338" alt="Grief Blossoming" loading="lazy" decoding="async"></span>
+        <span class="c-name">Grief Blossoming</span>
+        <span class="c-count">4 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/harp-bilay-electrifying-colors/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/harp-bilay-electrifying-colors/Harp%20Bzhez%20Electric%20Virtual%20Association%20II-600.webp" width="600" height="338" alt="Harp Bilay Electrifying Colors" loading="lazy" decoding="async"></span>
+        <span class="c-name">Harp Bilay Electrifying Colors</span>
+        <span class="c-count">15 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hear-us-cry-and-flow/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hear-us-cry-and-flow/Hear%20Us%20Crying%20I-600.webp" width="600" height="338" alt="Hear Us Cry and Flow" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hear Us Cry and Flow</span>
+        <span class="c-count">18 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-frame-stain/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-frame-stain/Stained%20Words%200027-600.webp" width="600" height="420" alt="Hot Frame Stain" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot Frame Stain</span>
+        <span class="c-count">20 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/nine-types-of-cream/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/nine-types-of-cream/24%20Inch%20Bolt%20Cutter%20Details%20Plus-600.webp" width="600" height="397" alt="Nine Types of Cream" loading="lazy" decoding="async"></span>
+        <span class="c-name">Nine Types of Cream</span>
+        <span class="c-count">9 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/say-zone-doanna-gray-matter/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/say-zone-doanna-gray-matter/8K%20Xhosa%20Fog%20I-600.webp" width="600" height="338" alt="Say Zone Doanna Gray Matter" loading="lazy" decoding="async"></span>
+        <span class="c-name">Say Zone Doanna Gray Matter</span>
+        <span class="c-count">7 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/alogte-koda/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/alogte-koda/Alogte%20Koda%20Thumbs%20Composition%20I-600.webp" width="600" height="338" alt="Alogte Koda" loading="lazy" decoding="async"></span>
+        <span class="c-name">Alogte Koda</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/grand-assortment/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/biggest/32k%20ah%20ah%20ah%20ah%20amended%20dream%20I-600.webp" width="600" height="338" alt="Grand Assortment" loading="lazy" decoding="async"></span>
+        <span class="c-name">Grand Assortment</span>
+        <span class="c-count">4 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/colors-fresh-snow-chair/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/colors-fresh-snow-chair/Heavy%20Snowfall%20On%20Old%20Wood%20Chairs%20Visual%20Effect%20Features%20I-600.webp" width="600" height="400" alt="Colors Fresh Snow Chair" loading="lazy" decoding="async"></span>
+        <span class="c-name">Colors Fresh Snow Chair</span>
+        <span class="c-count">46 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/extra-extra/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/volume-one/Parted%20Lucid%20Dig%20Items%20and%20Narative-600.webp" width="600" height="438" alt="Extra Extra" loading="lazy" decoding="async"></span>
+        <span class="c-name">Extra Extra</span>
+        <span class="c-count">23 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/eye-trois-medley/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/eye-trois-medley/Ano%20Dust%20Six-600.webp" width="600" height="358" alt="Eye Trois Medley" loading="lazy" decoding="async"></span>
+        <span class="c-name">Eye Trois Medley</span>
+        <span class="c-count">4 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/for-what-its-worth/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/for-what-its-worth/For%20What%20It%20Is%20Worth%20II-600.webp" width="600" height="338" alt="For What Its Worth" loading="lazy" decoding="async"></span>
+        <span class="c-name">For What Its Worth</span>
+        <span class="c-count">22 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/fp/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/fp/FP%206A-600.webp" width="600" height="338" alt="Fp" loading="lazy" decoding="async"></span>
+        <span class="c-name">Fp</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/expressions-of-grief/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/grief/Grief043-600.webp" width="436" height="600" alt="Expressions of Grief" loading="lazy" decoding="async"></span>
+        <span class="c-name">Expressions of Grief</span>
+        <span class="c-count">1 gallery <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-koda-stranger/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-koda-stranger/Hot%20Koda%20And%20A%20Stranger%20I-600.webp" width="600" height="338" alt="Hot Koda Stranger" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot Koda Stranger</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-to-warming-things/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-to-warming-things/Hot%20To%20Warm%20Climate%20Pictures%20Of%20Numerous%20Things%20I-600.webp" width="600" height="338" alt="Hot To Warming Things" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot To Warming Things</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/lot-cluster/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/lot-cluster/Amens%2028-600.webp" width="600" height="400" alt="Lot Cluster" loading="lazy" decoding="async"></span>
+        <span class="c-name">Lot Cluster</span>
+        <span class="c-count">4 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/no-time-to-think-properly/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/no-time-to-think-properly/No%20Time%20To%20Think%20Properly%201C-600.webp" width="600" height="338" alt="No Time To Think Properly" loading="lazy" decoding="async"></span>
+        <span class="c-name">No Time To Think Properly</span>
+        <span class="c-count">46 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/shadow-of-our-light/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/shadow-of-our-light/Shadow%20Of%20Our%20Light%20I-600.webp" width="600" height="338" alt="Shadow Of Our Light" loading="lazy" decoding="async"></span>
+        <span class="c-name">Shadow Of Our Light</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/tsegue/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/tsegue/Tsegue-001-600.webp" width="600" height="420" alt="Tsegue" loading="lazy" decoding="async"></span>
+        <span class="c-name">Tsegue</span>
+        <span class="c-count">31 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/tsegue-firey/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/tsegue-firey/Tsegue%20Firey%20Solo%20and%20English%20Texts%20I-600.webp" width="600" height="338" alt="Tsegue Firey" loading="lazy" decoding="async"></span>
+        <span class="c-name">Tsegue Firey</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/vivid-koda-grain/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/vivid-koda-grain/Vivid%20Koda%20and%20Grain%20Plus%20Texts%20I-600.webp" width="600" height="338" alt="Vivid Koda Grain" loading="lazy" decoding="async"></span>
+        <span class="c-name">Vivid Koda Grain</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/when-we-say-alive-matters/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/when-we-say-alive-matters/8K%20When%20We%20Say%20Alive%20Matters%20007-600.webp" width="600" height="338" alt="When We Say Alive Matters" loading="lazy" decoding="async"></span>
+        <span class="c-name">When We Say Alive Matters</span>
+        <span class="c-count">30 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/saved-pieces/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+<section class="c-kind" aria-labelledby="symmetrical-and-kaleidoscopic">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="symmetrical-and-kaleidoscopic">Symmetrical and Kaleidoscopic</h2>
+    <p class="c-kind-line">A mirrored picture goes another way. It usually starts from a single photograph. Part of it is copied and flipped, and the copy is laid against the original so the halves answer each other across a middle line, the way an inkblot does when the paper is folded.</p>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Symmetrical and Kaleidoscopic">
+      <a class="c-row" href="/digital/mint-plaje-symmet/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/mint-plaje-symmet/thumbs/aMD%20379.webp" width="600" height="397" alt="Mint Plaje Symmet" loading="lazy" decoding="async"></span>
+        <span class="c-name">Mint Plaje Symmet</span>
+        <span class="c-count">69 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/red-stain/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Art%20Garage%20Mess%20And%20Perfect%20Composition-600.webp" width="600" height="750" alt="Red Stain" loading="lazy" decoding="async"></span>
+        <span class="c-name">Red Stain</span>
+        <span class="c-count">2 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/shur-shee-symmetrical/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/saw-shur-shee-symmet/Ashes%20Smoke%20To%20Rust%20And%20Blood%20Stains%20Sideways%20Alien%20Mantis%20Absolute%20Symmetrical-600.webp" width="600" height="398" alt="Shur Shee Symmetrical" loading="lazy" decoding="async"></span>
+        <span class="c-name">Shur Shee Symmetrical</span>
+        <span class="c-count">8 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/climate-hand-smoke-voice/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Climate Hand Smoke Voice" loading="lazy" decoding="async"></span>
+        <span class="c-name">Climate Hand Smoke Voice</span>
+        <span class="c-count">139 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/rainbow-coe-shaye-bar/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/rainbow-coe-shaye-bar/596-600.webp" srcset="https://media.paraploo.com/site/images/lines/rainbow-coe-shaye-bar/596-600.webp 600w, https://media.paraploo.com/site/images/lines/rainbow-coe-shaye-bar/596.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Rainbow Coe Shaye Bar" loading="lazy" decoding="async"></span>
+        <span class="c-name">Rainbow Coe Shaye Bar</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/rough-dark-change-mystery/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/rough-dark-change-mystery/Sequence%2001.00_00_07_02.Still001-600.webp" srcset="https://media.paraploo.com/site/images/lines/rough-dark-change-mystery/Sequence%2001.00_00_07_02.Still001-600.webp 600w, https://media.paraploo.com/site/images/lines/rough-dark-change-mystery/Sequence%2001.00_00_07_02.Still001.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Rough Dark Change Mystery" loading="lazy" decoding="async"></span>
+        <span class="c-name">Rough Dark Change Mystery</span>
+        <span class="c-count">205 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/great-conscious-middle-eye-no-cracking/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/great-conscious-middle-eye-no-cracking/Contemporary%20Cinema%20Eye-600.webp" srcset="https://media.paraploo.com/site/images/lines/great-conscious-middle-eye-no-cracking/Contemporary%20Cinema%20Eye-600.webp 600w, https://media.paraploo.com/site/images/lines/great-conscious-middle-eye-no-cracking/Contemporary%20Cinema%20Eye.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1545" alt="Great Conscious Middle Eye No Cracking" loading="lazy" decoding="async"></span>
+        <span class="c-name">Great Conscious Middle Eye No Cracking</span>
+        <span class="c-count">40 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/tramete-ring-ring-quitah-in-pieces/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/tramete-ring-ring-quitah-in-pieces/Hot%20Climate%2046B-600.webp" srcset="https://media.paraploo.com/site/images/lines/tramete-ring-ring-quitah-in-pieces/Hot%20Climate%2046B-600.webp 600w, https://media.paraploo.com/site/images/lines/tramete-ring-ring-quitah-in-pieces/Hot%20Climate%2046B.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="Tramete Ring Ring Quitah In Pieces" loading="lazy" decoding="async"></span>
+        <span class="c-name">Tramete Ring Ring Quitah In Pieces</span>
+        <span class="c-count">30 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-and-warming-eyes/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-and-warming-eyes/9945-600.webp" width="600" height="338" alt="Hot And Warming Eyes" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot And Warming Eyes</span>
+        <span class="c-count">2 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-climate/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp" width="600" height="338" alt="Hot Climate" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot Climate</span>
+        <span class="c-count">100 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/rahms-intense-unfamiliar-gaze/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/rahms-intense-unfamiliar-gaze/Please%20Wake%20Up%20Mael%20and%20Lord%20Have%20Mercy%20I-600.webp" width="600" height="338" alt="Rahms Intense Unfamiliar Gaze" loading="lazy" decoding="async"></span>
+        <span class="c-name">Rahms Intense Unfamiliar Gaze</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/sista-ro-extreme-heat/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp" width="600" height="338" alt="Sista Ro Extreme Heat" loading="lazy" decoding="async"></span>
+        <span class="c-name">Sista Ro Extreme Heat</span>
+        <span class="c-count">7 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/ah-ah-ah-ah-volumes/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/ah-ah-ah-ah-digital/Ah%20Ah%20Ah%20Ah%205-600.webp" width="600" height="338" alt="Ah Ah Ah Ah" loading="lazy" decoding="async"></span>
+        <span class="c-name">Ah Ah Ah Ah</span>
+        <span class="c-count">138 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/hot-climate-volumes/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp" width="600" height="338" alt="Hot Climate" loading="lazy" decoding="async"></span>
+        <span class="c-name">Hot Climate</span>
+        <span class="c-count">139 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/mint-plaje-symmet/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+<section class="c-kind" aria-labelledby="photomosaics">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="photomosaics">Photomosaics</h2>
+    <p class="c-kind-line">A photomosaic runs the other direction. Small photographs are set edge to edge, and from far enough back they add up to a single large picture. It is the best way we know to show how much of something there is.</p>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Photomosaics">
+      <a class="c-row" href="/digital/say-zone-doanna-heato/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/say-zone-doanna-heato/8K%20Window%20001-600.webp" width="600" height="338" alt="Say Zone Doanna Heato" loading="lazy" decoding="async"></span>
+        <span class="c-name">Say Zone Doanna Heato</span>
+        <span class="c-count">60 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/biggest-mosaic-ever/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/longest-assortment-ever/Viullard-600.webp" width="600" height="435" alt="Biggest Mosaic Ever" loading="lazy" decoding="async"></span>
+        <span class="c-name">Biggest Mosaic Ever</span>
+        <span class="c-count">9 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/say-zone-doanna-heato/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+<section class="c-kind" aria-labelledby="photographs-of-places-and-things">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="photographs-of-places-and-things">Photographs of Places and Things</h2>
+    <p class="c-kind-line">The rest is plainer. The photographs of places and things, and the photographs of people, are shown much as they were taken, with only the light and the color adjusted.</p>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Photographs of Places and Things">
+      <a class="c-row" href="/digital/workspace-incidences-no-people/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/workspace-incidences-no-people/a_7-600.webp" width="600" height="396" alt="Workspace Incidences No People" loading="lazy" decoding="async"></span>
+        <span class="c-name">Workspace Incidences No People</span>
+        <span class="c-count">44 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/photo-realism/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/photo-realism-amarah/A%26E%20As%20Gools%2027B-600.webp" width="600" height="413" alt="Photo Realism" loading="lazy" decoding="async"></span>
+        <span class="c-name">Photo Realism</span>
+        <span class="c-count">31 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/boots-dom-maye-waste/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/boots-dom-maye-waste/Boots%20I-600.webp" width="600" height="338" alt="Boots Dom Maye Waste" loading="lazy" decoding="async"></span>
+        <span class="c-name">Boots Dom Maye Waste</span>
+        <span class="c-count">5 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/bending-rebar/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/bending-rebar/Bending%20Rebar.00_00_02_06.Still001-600.webp" width="600" height="338" alt="Bending Rebar" loading="lazy" decoding="async"></span>
+        <span class="c-name">Bending Rebar</span>
+        <span class="c-count">38 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/grit-and-grain-theater/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/grit-and-grain-theater/Grit%20and%20Grain%20Garage%20Theater%20Wall%20I-600.webp" width="600" height="338" alt="Grit And Grain Theater" loading="lazy" decoding="async"></span>
+        <span class="c-name">Grit And Grain Theater</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/workspace-incidences-no-people/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+<section class="c-kind c-kind-tight" aria-labelledby="photographs-of-people">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="photographs-of-people">Photographs of People</h2>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Photographs of People">
+      <a class="c-row" href="/digital/they-won-the-biggest-contest-question/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5-600.webp" srcset="https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5-600.webp 600w, https://media.paraploo.com/site/images/lines/they-won-the-biggest-contest-question/FP%20III%20O5.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1125" alt="They Won the Biggest Contest Question" loading="lazy" decoding="async"></span>
+        <span class="c-name">They Won the Biggest Contest Question</span>
+        <span class="c-count">6 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/collage-blossom/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/collage-blossom/collage-blossom-001-600.webp" width="600" height="393" alt="Collage Blossom" loading="lazy" decoding="async"></span>
+        <span class="c-name">Collage Blossom</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/read-the-red-words-freedom/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/read-the-red-words-freedom/Read%20The%20Red%20Texts%20and%20Seeking%20Freedom%20I-600.webp" width="600" height="338" alt="Read The Red Words Freedom" loading="lazy" decoding="async"></span>
+        <span class="c-name">Read The Red Words Freedom</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/a-family/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/a-family/91-600.webp" width="600" height="450" alt="A Family" loading="lazy" decoding="async"></span>
+        <span class="c-name">A Family</span>
+        <span class="c-count">78 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/they-won-the-biggest-contest-question/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+<section class="c-kind" aria-labelledby="text-and-typographic-pieces">
+  <div class="c-kind-head">
+    <h2 class="c-kind-name" id="text-and-typographic-pieces">Text and Typographic Pieces</h2>
+    <p class="c-kind-line">The pieces made only of type are built in Photoshop too.</p>
+  </div>
+  <div class="c-kind-body">
+    <nav class="c-rows" aria-label="Text and Typographic Pieces">
+      <a class="c-row" href="/digital/text-based-visual-works/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/are-you-game-messages/afton%2020.webp 2000w" sizes="(max-width: 999px) 112px, 600px" width="2000" height="1437" alt="Text Based Visual Works" loading="lazy" decoding="async"></span>
+        <span class="c-name">Text Based Visual Works</span>
+        <span class="c-count">5 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/lights-camera-freeze/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/lights-camera-freeze/Light%20Camera%20No%20Action%202-600.webp" width="600" height="400" alt="Lights Camera Freeze" loading="lazy" decoding="async"></span>
+        <span class="c-name">Lights Camera Freeze</span>
+        <span class="c-count">12 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/numbers/volume-two/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/numbers/7-600.webp" width="600" height="338" alt="Numbers" loading="lazy" decoding="async"></span>
+        <span class="c-name">Numbers</span>
+        <span class="c-count">1 gallery <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/rock-rebar-hammer-theater/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/rock-rebar-hammer-theater/Rock%20Rebar%20Hammer%20001-600.webp" width="600" height="420" alt="Rock Rebar Hammer Theater" loading="lazy" decoding="async"></span>
+        <span class="c-name">Rock Rebar Hammer Theater</span>
+        <span class="c-count">16 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/stained-message/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/stained-message/Stained%20Message%20001-600.webp" width="600" height="420" alt="Stained Message" loading="lazy" decoding="async"></span>
+        <span class="c-name">Stained Message</span>
+        <span class="c-count">26 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/this-looks-like-branding/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/bomayka-identity/1%20bo%20logo%20sens-600.webp" width="600" height="338" alt="This Looks Like Branding" loading="lazy" decoding="async"></span>
+        <span class="c-name">This Looks Like Branding</span>
+        <span class="c-count">2 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/bad-beautiful-good/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/a-bit-dazed/Art%20Mess%20And%20Carved%20Pole-600.webp" width="475" height="600" alt="Bad Beautiful Good" loading="lazy" decoding="async"></span>
+        <span class="c-name">Bad Beautiful Good</span>
+        <span class="c-count">13 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/grey-to-gray-zone/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/grey-to-gray-zone-volume-one/aliens%201-600.webp" width="600" height="396" alt="Grey To Gray Zone" loading="lazy" decoding="async"></span>
+        <span class="c-name">Grey To Gray Zone</span>
+        <span class="c-count">4 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/oversized-meaning/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/oversized-meaning/Alien-600.webp" width="600" height="464" alt="Oversized Meaning" loading="lazy" decoding="async"></span>
+        <span class="c-name">Oversized Meaning</span>
+        <span class="c-count">55 pictures <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+      <a class="c-row" href="/digital/sizable-sepia-series/">
+        <span class="c-pic"><img src="https://media.paraploo.com/site/images/lines/sizable-sepia-series-volume-one/2000-Photo-Art-Sliced-In-Half-Plastic-Skull-And-Shredded-Canvas-600.webp" width="600" height="412" alt="Sizable Sepia Series" loading="lazy" decoding="async"></span>
+        <span class="c-name">Sizable Sepia Series</span>
+        <span class="c-count">4 galleries <span class="c-arr" aria-hidden="true">&rarr;</span></span>
+      </a>
+    </nav>
+    <figure class="c-show" aria-hidden="true"><a class="c-show-pic" href="/digital/text-based-visual-works/" tabindex="-1"><img alt="" loading="lazy" decoding="async"></a><figcaption class="c-show-cap"><span class="c-show-name"></span><span class="c-show-count"></span></figcaption></figure>
+  </div>
+</section>
+
+<section class="c-breathe" aria-label="From the About">
+  <blockquote class="c-passage"><p>We hang them close together and leave the sorting to whoever comes.</p></blockquote>
+  <p class="c-from"><a class="go-link" href="/about/collage.html">From Collage, in About <span aria-hidden="true">&rarr;</span></a></p>
+</section>
+
+</div>
+</main>
+
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
-  <nav>
-    <a href="/writings.html">Writings</a>
-    <a href="/marks.html">Marks</a>
-    <a href="/physical.html">Placings</a>
-    <a href="/digital.html" class="current">Collage</a>
-    <a href="/musicology.html">Song</a>
-    <a href="/search.html">Search</a>
-  </nav>
   <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
   <p>&copy; 2026 Paraploo</p>
 </footer>
+
+<script src="/nav.js"></script>
+<script src="/digital-room.js"></script>
 </body>
 </html>
