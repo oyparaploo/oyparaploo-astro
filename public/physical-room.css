@@ -1,0 +1,186 @@
+/* ==========================================================================
+   The Placings page, a design room.
+   Dressed in the design draft HTML DOCS\oyparaploo-thyssen_2.html (the
+   Thyssen-Bornemisza collection page), as the charter names it: "the fading
+   vertical line between sections and sections fading in, for Placings."
+   Kept from the draft, whole: the ground that runs from black at the top to
+   night blue at the foot; the collection's title and its paragraph, the first
+   words brighter; the collection as cards four across, each a picture on a
+   faint blue seat with its name under it; the notice in a box with a blue rule
+   on its left; the fading vertical line between sections; the featured card,
+   picture on one half and words on the other; the "Also see" card on its own
+   ground, here a flat band edge to edge in a colour from the work; the centred
+   line at the foot; and every section fading in as it is reached.
+   Left out of the draft: the utility bar and its own header and footer (the
+   site's chrome stands), Advanced search, the nine About cards, the sponsors,
+   Lora, the capitals and the spaced-out labels.
+   The room is dark in Light, Dark and Auto alike, as the draft is; the header,
+   the date strip and the footer follow the mode, as on every room.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; words in
+   the named colours' dark values on the ground, and Ink's light value on the
+   band (10.0 to 1); a card pointed at answers, nothing grows and nothing below
+   moves; touch gets its own version; less motion gets none; nothing waits more
+   than about a second.
+   ========================================================================== */
+
+:root {
+  --p-ink: #e8e0d6;            /* Ink's dark value: 13.9 to 1 on the night blue, more on the black */
+  --p-soft: #b3aa9f;           /* Soft ink's dark value: 7.9 to 1 on the night blue */
+  --p-accent: #d4a574;         /* Accent's dark value: 8.2 to 1 on the night blue */
+  --p-band-ink: #111111;       /* Ink's light value: 10.0 to 1 on the band */
+  --p-blue: #AFBFCC;           /* the pale of 03972's slate-blue ground; only as marks and as the band, never words */
+  --p-seat: rgba(168, 200, 224, 0.045);   /* the draft's own faint blue seat */
+  --p-hair: rgba(232, 224, 214, 0.12);    /* the draft's hairlines, a little stronger */
+  --p-air: 120px;
+}
+
+/* ---------- the ground: the draft's black running to night blue, dark in every mode ---------- */
+.placings-room {
+  color: var(--p-ink); overflow-x: clip;
+  background: linear-gradient(to bottom, #000000 0%, #020203 6%, #040507 14%, #060810 26%, #080a13 38%,
+              #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+}
+.placings-room a { color: inherit; }
+.placings-room :focus-visible { outline: 2px solid var(--p-ink); outline-offset: 4px; }
+
+/* ---------- 1. the collection's title and its paragraph (the draft's hero, the first words brighter) ---------- */
+.p-hero { padding: 72px var(--edge) 56px; }
+.p-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 28px;
+}
+.p-lead {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2.25vw, 36px); line-height: 1.18; max-width: 25em;
+  color: var(--p-soft);
+}
+.p-lead-first { color: var(--p-ink); }
+
+/* ---------- 2. the collection: every Placing as a card, four across ---------- */
+.p-discover { padding: 48px var(--edge) 0; border-top: 1px solid var(--p-hair); }
+.p-section-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15;
+  margin: 0 0 36px;
+}
+.p-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; row-gap: 56px; }
+.p-card { display: block; text-decoration: none; }
+.p-seat {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 3 / 2; background: var(--p-seat);
+  transition: background-color 0.4s ease;
+}
+.p-seat img { width: auto; height: auto; max-width: 100%; max-height: 100%; }   /* whole, never cropped */
+.p-name {
+  display: block; margin-top: 16px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3;
+  color: var(--p-ink); transition: color 0.3s ease;
+}
+.p-count {
+  display: block; margin-top: 4px;
+  font-size: 17px; line-height: 1.4; color: var(--p-accent);
+}
+.p-arr { display: inline-block; transition: transform 0.25s ease; }
+/* A card pointed at: the seat lights a little in the draft's blue, the name takes the accent, the arrow slides in.
+   Nothing grows and nothing below moves. */
+@media (hover: hover) {
+  .p-card:hover .p-seat { background-color: rgba(168, 200, 224, 0.12); }
+  .p-card:hover .p-name { color: var(--p-accent); }
+  .p-card:hover .p-arr { transform: translateX(5px); }
+}
+.p-card:focus-visible .p-seat, .p-card:active .p-seat { background-color: rgba(168, 200, 224, 0.12); }
+.p-card:focus-visible .p-arr, .p-card:active .p-arr { transform: translateX(5px); }
+
+/* the draft's notice, its blue rule on the left */
+.p-notice {
+  max-width: 750px; margin: 96px 0 0; padding: 22px 28px;
+  background: rgba(168, 200, 224, 0.05); border-left: 2px solid var(--p-blue);
+}
+.p-notice p { font-size: 18px; line-height: 1.65; color: var(--p-soft); }
+.p-notice strong { font-weight: 600; color: var(--p-ink); }
+
+/* ---------- PLAY: the fading vertical line between sections (the draft's river line) ----------
+   It draws itself downward as it is reached, then rests, faded at both ends. */
+.p-river {
+  width: 1px; height: var(--p-air); margin: 72px auto;
+  background: linear-gradient(to bottom, rgba(232, 224, 214, 0) 0%, rgba(232, 224, 214, 0.6) 50%, rgba(232, 224, 214, 0) 100%);
+  transform-origin: top center;
+}
+
+/* ---------- 3. the featured card: 05385 whole on one half, the About's words on the other ---------- */
+.p-about { padding: 0 var(--edge); }
+.p-featured { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--p-hair); }
+.p-featured-pic { margin: 0; padding-top: 40px; }
+.p-pic { display: block; line-height: 0; }
+.p-featured-pic img, .p-band-pic img { width: 100%; height: auto; }                /* whole, at its own shape */
+.p-num { margin-top: 12px; font-size: 16px; line-height: 1.4; }
+.p-num a { text-decoration: none; }
+@media (hover: hover) { .p-num a:hover { text-decoration: underline; text-underline-offset: 4px; } }
+.p-featured-body { padding: 40px 0 40px 48px; display: flex; flex-direction: column; justify-content: center; }
+.p-featured-head {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(28px, 2.6vw, 42px); line-height: 1.12; margin: 0 0 24px; max-width: 16em;
+}
+.p-featured-words { font-size: 19px; line-height: 1.65; color: var(--p-soft); max-width: 36em; margin: 0 0 32px; }
+.p-from { margin: 0; }
+.placings-room .p-from .go-link { color: var(--p-ink); font-size: 20px; }
+
+/* ---------- 4. the band: the draft's "Also see" card on its own ground, here edge to edge ----------
+   The pale of 03972's slate-blue ground, the same in every mode; the one large thing on the page. */
+.p-band { background: var(--band); color: var(--p-band-ink); }
+.p-band-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.p-band-pic { margin: 0; padding: 72px 24px 64px var(--edge); }
+.p-band .p-num a { color: var(--p-band-ink); }
+.p-passage { margin: 0; padding: 72px var(--edge) 72px 48px; }
+.p-passage blockquote { margin: 0; }
+.p-passage blockquote p {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 92px); line-height: 1.0; letter-spacing: -0.015em;
+}
+.p-passage-from { margin-top: 32px; font-size: 20px; line-height: 1.4; }
+.p-passage-from a { text-decoration: none; font-weight: 600; }
+@media (hover: hover) { .p-passage-from a:hover .p-arr { transform: translateX(5px); } }
+.p-band :focus-visible { outline-color: var(--p-band-ink); }
+
+/* ---------- 5. the centred line at the foot (the draft's acknowledgement bar) ---------- */
+.p-close { padding: 128px var(--edge) 144px; text-align: center; }
+.p-close p { max-width: 750px; margin: 0 auto; font-size: 21px; line-height: 1.65; color: var(--p-soft); }
+
+/* ---------- PLAY: sections fading in as they are reached, cards one by one along their row ----------
+   Only when the room's script runs, and only for visitors who have not asked for less motion. Each is in place
+   within a second. */
+@media (prefers-reduced-motion: no-preference) {
+  .p-js .p-reveal { opacity: 0; transition: opacity 0.9s ease; }
+  .p-js .p-reveal.is-in { opacity: 1; }
+  .p-js .p-card { opacity: 0; transition: opacity 0.8s ease; transition-delay: var(--p-d, 0s); }
+  .p-js .p-card.is-in { opacity: 1; }
+  .p-js .p-river { transform: scaleY(0); opacity: 0; transition: transform 0.9s cubic-bezier(0.4, 0, 0.1, 1), opacity 0.6s ease; }
+  .p-js .p-river.is-in { transform: none; opacity: 1; }
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1099px) {
+  .p-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 899px) {
+  .p-featured, .p-band-inner { grid-template-columns: 1fr; }
+  .p-featured-body { padding: 32px 0 8px; }
+  .p-band-pic { padding: 56px var(--edge) 0; }
+  .p-passage { padding: 40px var(--edge) 64px; }
+}
+@media (max-width: 759px) {
+  .p-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; }
+  .p-hero { padding: 64px var(--edge) 56px; }
+  .p-river { margin: 56px auto; height: 96px; }
+}
+@media (max-width: 519px) {
+  .p-grid { grid-template-columns: 1fr; row-gap: 40px; }
+  .p-name { font-size: 19px; }
+  .p-discover { padding-top: 48px; }
+  .p-section-title { margin-bottom: 32px; }
+  .p-notice { margin-top: 64px; padding: 20px 20px; }
+  .p-close { padding: 96px var(--edge) 112px; }
+  .p-close p { font-size: 19px; }
+}
