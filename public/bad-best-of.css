@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Bad Best Of: the second of the five footer rooms. The best-of scroll that
+   was taken off the front door on September 23, 2026: writings and pictures.
+   Dressed in the design draft HTML DOCS\PRINTS_1.html (Print Iterations, a
+   print room's catalogue page), which no live page wears.
+   Kept from the draft: the full-width dark hero, 80 per cent of the window
+   tall, with the room's name large and centred in Inter 400; the two tabs
+   under it with their 2-pixel line (Browse and About become Writings and
+   Pictures); the rows of three square seats, each with its lines under it
+   (a plain line, an italic title, a short line) and an outline button beside
+   them that turns solid under the hand; the wide feature block, words on one
+   side and a large seat on the other, turning sides as it comes back; the
+   last row of two with an empty place beside it; the draft's air between
+   rows.
+   Left out: its own header and footer (the site's chrome stands), the
+   artist and sort fields, the currency, the cart, the prices, the About
+   view's paragraph, the capitals and the spaced-out letters. No sentence
+   explains the room: Reach, September 25, 2026, "I just want the work to
+   speak for itself."
+   The seats: in Writings, each square is a print of the writing's first
+   lines, its colour the pale of one of the room's pictures; in Pictures,
+   each picture stands whole on its own pale. The seats are the same in
+   Light, Dark and Auto, with Ink's light value on them (14.7 to 1 or
+   better). The hero (--bb-hero, set by the page) is the deep of the dark
+   red in 14314, the room's newest picture.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): every picture whole, never
+   cropped; nothing under 16 pixels; words in the four named colours; the
+   button's solid and outline swap under the hand; arrows slide; touch gets
+   its own version; less motion gets none; nothing waits more than about a
+   second.
+   ========================================================================== */
+
+:root {
+  --bb-hero-ink: #e8e0d6;       /* Ink's dark value; on the hero 12.3 to 1 */
+  --bb-seat-ink: #111111;       /* Ink's light value; on every seat 14.7 to 1 or better, in every mode */
+  --bb-hair: #dddddd;           /* the draft's own rule */
+}
+html[data-theme="dark"] { --bb-hair: rgba(232, 224, 214, 0.2); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --bb-hair: rgba(232, 224, 214, 0.2); }
+}
+
+.bb-room { color: var(--ink); overflow-x: clip; }
+.bb-room a { color: inherit; text-decoration: none; }
+.bb-room :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.bb-arr, .bb-arr-back { display: inline-block; transition: transform 0.2s ease; }
+
+/* ---------- 1. the hero: the draft's dark seat, edge to edge, dark in every mode ---------- */
+.bb-hero {
+  position: relative; background: var(--bb-hero); color: var(--bb-hero-ink);
+  min-height: 80vh; min-height: 80svh; display: flex; align-items: center; justify-content: center;
+  padding: 96px var(--edge) 176px; text-align: center;
+}
+.bb-title {
+  margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(56px, 8.4vw, 136px); line-height: 1; letter-spacing: -0.02em; color: var(--bb-hero-ink);
+}
+.bb-tabs { position: absolute; left: 0; right: 0; bottom: 72px; display: flex; justify-content: center; gap: 62px; }
+.bb-tab {
+  position: relative; display: inline-flex; align-items: center; min-height: 48px; padding: 0 2px;
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.2; color: var(--bb-hero-ink);
+}
+.bb-tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--bb-hero-ink); transform: scaleX(0); transition: transform 0.25s ease; }
+.bb-tab[aria-selected="true"]::after, .bb-tab:hover::after, .bb-tab:focus-visible::after { transform: scaleX(1); }
+.bb-hero :focus-visible { outline-color: var(--bb-hero-ink); }
+
+/* ---------- 2. the two views ---------- */
+.bb-view { padding: 104px var(--edge) 0; scroll-margin-top: 0; }
+.bb-js .bb-view[hidden] { display: none; }
+.bb-view + .bb-view { padding-top: 160px; }
+.bb-js .bb-view + .bb-view { padding-top: 104px; }
+
+/* ---------- the draft's rows of three square seats ---------- */
+.bb-row { list-style: none; margin: 0 0 104px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--column-gap); }
+.bb-cell { display: flex; flex-direction: column; min-width: 0; }
+.bb-tile { display: block; position: relative; aspect-ratio: 1 / 1; background: var(--seat); color: var(--bb-seat-ink); overflow: hidden; }
+
+/* a writing's print: its first lines, set large on its seat */
+.bb-print-words {
+  position: absolute; inset: 32px 32px 0; display: block; overflow: hidden;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 1.75vw, 30px); line-height: 1.16; letter-spacing: -0.01em; color: var(--bb-seat-ink);
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 96%); mask-image: linear-gradient(to bottom, #000 72%, transparent 96%);
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+.bb-print { transition: background-color 0.3s ease; }
+/* PLAY: the print reverses under the hand: its ink becomes the seat, its seat the ink */
+@media (hover: hover) {
+  .bb-cell:hover .bb-print, .bb-feature:hover .bb-print { background: var(--bb-seat-ink); }
+  .bb-cell:hover .bb-print-words, .bb-feature:hover .bb-print-words { color: var(--seat); }
+}
+
+/* a picture whole on its own pale, never cropped */
+.bb-pic { display: flex; align-items: center; justify-content: center; padding: 8%; }
+.bb-pic img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform 0.4s ease; }
+@media (hover: hover) {
+  .bb-cell:hover .bb-pic img, .bb-feature:hover .bb-pic img { transform: scale(1.025); }
+}
+
+/* the lines under each seat, and the button beside them */
+.bb-cap { margin-top: 28px; display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.bb-lines { margin: 0; min-width: 0; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.4; }
+.bb-l1 { color: var(--ink); }
+.bb-numl { font-weight: 600; }
+.bb-l2 { font-style: italic; font-weight: 400; color: var(--ink); overflow-wrap: anywhere; }
+a.bb-l2 { font-size: 20px; line-height: 1.3; margin-top: 2px; }
+.bb-l3 { color: var(--ink-soft); margin-top: 2px; }
+a.bb-l2:hover, a.bb-l3:hover, a.bb-numl:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.bb-btn {
+  flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-width: 103px; min-height: 52px; padding: 8px 22px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.2; white-space: nowrap;
+  border: 1px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* PLAY: the draft's own reversal: the outline fills under the hand ... */
+.bb-room .bb-btn:hover, .bb-room .bb-btn:active, .bb-cell:hover .bb-btn { background: var(--ink); color: var(--ground); }
+/* ... and the one solid button lets go of its fill */
+.bb-room .bb-solid { background: var(--ink); color: var(--ground); }
+.bb-room .bb-solid:hover, .bb-room .bb-solid:active { background: transparent; color: var(--ink); }
+.bb-btn:hover .bb-arr, .bb-btn:focus-visible .bb-arr { transform: translateX(4px); }
+@media (hover: none) { .bb-cell:hover .bb-btn { background: transparent; color: var(--ink); } }
+
+/* ---------- the draft's feature block: words on one side, the large seat on the other ---------- */
+.bb-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: var(--column-gap); margin: 0 0 104px; align-items: stretch; }
+.bb-feature.bb-mirror { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); }
+.bb-feature.bb-mirror .bb-ftile { order: -1; }
+.bb-ftile { display: block; position: relative; aspect-ratio: 16 / 9; background: var(--seat); color: var(--bb-seat-ink); overflow: hidden; }
+.bb-ftile.bb-pic { display: flex; padding: 6%; }
+.bb-ftile .bb-print-words { inset: 48px 56px 0; font-size: clamp(30px, 3vw, 50px); line-height: 1.1; letter-spacing: -0.015em; }
+.bb-ftext { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-width: 0; padding: 4px 0 0; }
+.bb-flabel { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.4; color: var(--ink); }
+.bb-fname { margin: 20px 0 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(36px, 3.5vw, 56px); line-height: 1.06; letter-spacing: -0.015em; overflow-wrap: anywhere; }
+.bb-fname a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.bb-ftitle { margin: 12px 0 0; font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(24px, 2vw, 32px); line-height: 1.2; color: var(--ink); }
+.bb-fpara { margin: 0 0 20px; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.4; color: var(--ink-soft); }
+
+/* ---------- the turn to the pictures, and the way on ---------- */
+.bb-turn { margin: 0; padding: 16px 0 24px; display: flex; justify-content: center; }
+.bb-nav { padding: 56px var(--edge) 128px; border-top: 1px solid var(--bb-hair); margin: 56px var(--edge) 0; padding-left: 0; padding-right: 0; }
+.bb-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; }
+.bb-link:hover .bb-arr-back, .bb-link:focus-visible .bb-arr-back, .bb-link:active .bb-arr-back { transform: translateX(-4px); }
+
+/* ---------- PLAY: the seats arrive as they are reached (only once the script is running) ---------- */
+.bb-js .bb-will { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.bb-js .bb-will.bb-in { opacity: 1; transform: none; }
+
+/* ---------- narrower windows and phones ---------- */
+@media (max-width: 1100px) {
+  .bb-feature, .bb-feature.bb-mirror { grid-template-columns: minmax(0, 1fr); }
+  .bb-feature.bb-mirror .bb-ftile, .bb-feature .bb-ftile { order: -1; }
+  .bb-ftext { gap: 28px; }
+}
+@media (max-width: 900px) {
+  .bb-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 72px; }
+  .bb-cap { flex-direction: column; gap: 16px; }
+}
+@media (max-width: 600px) {
+  .bb-hero { min-height: 72vh; min-height: 72svh; padding: 72px var(--edge) 152px; }
+  .bb-title { font-size: 56px; }
+  .bb-tabs { gap: 40px; bottom: 56px; }
+  .bb-tab { font-size: 22px; }
+  .bb-view { padding-top: 64px; }
+  .bb-row { grid-template-columns: minmax(0, 1fr); row-gap: 64px; margin-bottom: 64px; }
+  .bb-cap { flex-direction: row; }
+  .bb-print-words { inset: 24px 24px 0; font-size: 26px; }
+  .bb-feature { margin-bottom: 72px; }
+  .bb-ftile { aspect-ratio: 1 / 1; }
+  .bb-ftile .bb-print-words { inset: 24px 24px 0; font-size: 28px; }
+  .bb-nav { padding: 40px 0 96px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .bb-js .bb-will { opacity: 1; transform: none; transition: none; }
+  .bb-arr, .bb-arr-back, .bb-btn, .bb-tab::after, .bb-print, .bb-print-words, .bb-pic img { transition: none !important; }
+  .bb-cell:hover .bb-pic img, .bb-feature:hover .bb-pic img { transform: none; }
+  .bb-room a:hover .bb-arr, .bb-room a:focus-visible .bb-arr, .bb-room a:active .bb-arr,
+  .bb-room a:hover .bb-arr-back, .bb-room a:focus-visible .bb-arr-back, .bb-room a:active .bb-arr-back { transform: none; }
+}
+html.rm .bb-will { opacity: 1; transform: none; transition: none; }

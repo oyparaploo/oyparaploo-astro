@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Worst Of · Paraploo</title>
+<meta name="description" content="Good Worst Of. Paraploo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome. -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/theme.js"></script>
+<style id="mock-styles">
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<link rel="stylesheet" href="/good-worst-of.css">
+<style>:root { --tones: linear-gradient(to right, #1A1815 0% 20%, #C3D32C 20% 40%, #8A4A2A 40% 60%, #2EA3D3 60% 80%, #D3EAF3 80% 100%); }</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="room-page good-worst-of-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+<div class="gw-room">
+<section class="gw-hero" aria-labelledby="gw-title">
+  <div class="gw-haze" style="background-image:url('https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp')" aria-hidden="true"></div>
+  <div class="gw-hero-in">
+    <h1 class="gw-title" id="gw-title">Good Worst Of</h1>
+    <figure class="gw-hero-pic"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201.webp 2000w" sizes="(max-width: 900px) 100vw, 58vw" alt="03716" width="2000" height="1333" decoding="async"><figcaption><p class="gw-num"><a href="/physical/curious-first-every-time/0001.html">03716<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  </div>
+</section>
+<button type="button" class="gw-tab" tabindex="-1" aria-label="Back to the top"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 16V2M3 8l6-6 6 6"/></svg></button>
+<section class="gw-writings" aria-label="Writings">
+<ul class="gw-grid">
+<li class="gw-entry gw-will"><a href="/words/2025-variety/message-character-script-7/"><p class="gw-kind">Conversation</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Message &amp; Character Script <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">(7) /// Tranche ( pronounced tranche ) definition ‑ 1. Portion of a pool. 2. Catalytic redemption regarding pooling of rate of return obligations. /// Ben: That makes me kind of sad. …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/message-character-script-12/"><p class="gw-kind">Conversation</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Message &amp; Character Script (5) <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">(12) /// HUMANS ... YOU WILL GET THROUGH YOUR HOVERING CLIMATE CHANGE REALITIES /// EVENTUALLY /// Boto: Thank you ... I needed someone to say that. Doris: Educate me further regarding what …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/message-and-character-script-4/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Message &amp; Character Script (11) <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">(4) /// THREE CHILDREN EATING GIANT PRETZELS HALF WRAPPED WITH FOIL ... ONE BOY AND TWO GIRLS ... ON THE VAST GRANITE STEPS OF THE MET ... METROPOLITAN MUSEUM OF ART ...</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/message-and-character-script-1/"><p class="gw-kind">Conversation</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Message &amp; Character Script (8) <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">(1) /// IT IS(Z) POLAR FLEECE SCARF SEASON AGAIN IN THE QUEENDOM AND KINGDOM /// Bim: W TH F! …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/a-beach-read-falls-by-the-bay-v1/"><p class="gw-kind">Play</p><p class="gw-time">3 minutes</p><h2 class="gw-wtitle">A Beach Read Falls by the Bay <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">A Puppet Show in Fragments Scene opens with six puppets arranged on a beach made of crumpled blue fabric. Sound of waves. A large clock ticks somewhere offstage. Act I: We Are …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2026-variety/blue-ball-mess-and-mix/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Blue Ball Mess And Mix <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">this is who we are ... no axe to grind ... no drama ... we are easy ... we are easy content ... sometimes important content ... funny ... more upside down …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2026-variety/careful-children/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Careful Children <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">SAfeTy First. Keep THIS ARt worK da La La ba La AWAy From THE Scalding Hot WATER ~- You Will Suffer third degree Burns if exposed to 150 degree Water for two …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/poem-for-improv-1/"><p class="gw-kind">Poem</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Poem For Improv <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Glorious Yesss, Improv! Where grown children of the world ascend— A stage, a platform, whatever holds. No lines etched, no maps drawn, Just the electric hum of now . Up they rise …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2025-variety/silent-harmony-rough/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Silent Harmony ... Intricate Composition of Intentionally Simplified and Distorted Pieces and Elements ... Letter Symbols (English, Latin, Greek, Phoenician) mingle with Abstract Marks and Shapes ... there are Dots and Carefully Composed Directive Lines that Suspend with Linear Tight Curves ... Earth Portions ... Areas ... and Regions are Densely Packed with Shapes that Form to convey Reaching ... Extending ... and Visually Connecting, Joining Lines communicate that the different size Forms ... Shapes ... Words ... and Letter Symbols are Locked In as an Overall Unit ... There are often also some Linear Swirling Effects Embedded ... Continuous Flowing Texture creates a Mentally Invigorating Sense of Light Energy Movement throughout the picture ... Sound Languages ... Words are a Tool ... Brrd Roots emphasis of Linear Works imply a System Fully Intact (including sudden shocks) then Evolving towards Potential Collapse ... Materials Degrade ... Failure to Adapt can lead to a Fall ... Disasters can Outpace the ability of Infrastructure to Withstand More Extreme New Conditions ... to Complete The Picture on a Positive Note ... we offer plenty of Produced Visual Concepts having to with Environmental and Wild Life Restoration <span class="gw-arr" aria-hidden="true">&rarr;</span></h2></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/laud-mahzor/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Laud Mahzor <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Mahzorim. Fainting bird spirit. Blank animal heads and tails. A volume of figures bound in the wrong order. Opening to and for a hanging Chad tree roots prayer. Ten daughters of apparent …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/bomayka-sens/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Bomayka Sens <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Writing and Art Projects That Involve All Of The Senses. Creative and Noncreative Descriptive Writing, Visual Concepting, Physical Art Production, Performance Art, Virtual Reality Development, Multi-Sensory Experiences and Exhibits.</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/lym-fat-ick/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Lym Fat Ick ~ <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Ick Thin Bones Lym Both Good God Good</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/bomayka-nuts/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Bomayka Nuts? <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Bomayka Sens ... disciplined words ... disturbance definitions ... wind ... rain ... thunder ... lightning ... shit show. Bomayka Sens ... violence and nonviolence ... creative and artistic interpretations or expressions …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/maud-s-wall/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Maud&#x27;s Wall <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">There are visually fragmented meanings and rectangles positioned like brick walls. The mortar between is instead bright light and dark shadows. Letterform fills express lots of snow-white shapes. Pieces of information are …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/b-s-daily-log/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">B.s. Daily Log <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">The &quot;Common Sens DAILY LOG&quot; is Bomayka Sens&#x27; Document that Shares New, Helpful, Inspiring Text Articles, Creative Workshop 3Dot Prose ( Writings ), and Media ( Art Project Pictures, Movies, Stills, Personal …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/life-prose/"><p class="gw-kind">Essay</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Life Prose <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">A major daily ordinary to magnificent language is prose speaking and writing. It’s distinguished from poetry by its lack of structured meter or rhyme and is often more straightforward, reflecting natural patterns. …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2024-variety/vivienne/"><p class="gw-kind">Short Piece</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Vivienne <span class="gw-arr" aria-hidden="true">&rarr;</span></h2><p class="gw-first">Colored Funk. Meals Port Charlotte Wawa. Millsboro Charlevoix. Muse pressure Les Schwa. Niels Bohr shall I try? Neos Ali Trois + videos of Mios L.A. auditions + Kocteau Kockatiel played by The …</p></a></li>
+<li class="gw-entry gw-will"><a href="/words/2022-23-variety/dee-see-ehh/"><p class="gw-kind">Story</p><p class="gw-time">1 minute</p><h2 class="gw-wtitle">Dimensional Created Exhibits. A+ Placemaking. Above Land Stones Directed Influence. Ache And Aqua Fore-light Play. Gold Marine Energy. After Their Hate. Anger. Rage. Place Settings. Amens And Tarapoto. Just Be Attitude. Dark Colonial Fence And Other Stuff. Organic Artifacts. Rich Colored. Anthro <span class="gw-arr" aria-hidden="true">&rarr;</span></h2></a></li>
+</ul>
+</section>
+<section class="gw-band" aria-label="From Poem For Improv">
+<div class="gw-band-in">
+  <figure class="gw-will"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="03202" width="2000" height="1333" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/physical/attempts-to-provoke/0002.html">03202<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  <blockquote class="gw-passage gw-will"><p class="gw-lines">This is the glory,<br>The sacred art of trusting the unknown,<br>Of letting go and stepping forward,<br>Not for perfection,<br>But for connection.</p>
+  <p class="gw-from">&mdash; from <a href="/words/2025-variety/poem-for-improv-1/">Poem For Improv <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></blockquote>
+</div>
+</section>
+<section class="gw-rows" aria-label="Pictures">
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%209.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%209-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%209.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="04115" width="2000" height="1333" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/physical/it-is-good-to-not-always-know/0008.html">04115<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">It Is Good To Not Always Know</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/physical/it-is-good-to-not-always-know/0007.html" aria-label="04114"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%208-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%208-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%208.webp 2000w" sizes="140px" alt="04114" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04114</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0006.html" aria-label="04113"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%205-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%205-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%205.webp 2000w" sizes="140px" alt="04113" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04113</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0005.html" aria-label="04112"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%204-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%204-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%204.webp 2000w" sizes="140px" alt="04112" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04112</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0004.html" aria-label="04111"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2015-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2015-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2015.webp 2000w" sizes="140px" alt="04111" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04111</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0003.html" aria-label="04110"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2014-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2014-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2014.webp 2000w" sizes="140px" alt="04110" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04110</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0002.html" aria-label="04109"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2013-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2013-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%2013.webp 2000w" sizes="140px" alt="04109" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04109</p></li>
+    <li><a href="/physical/it-is-good-to-not-always-know/0001.html" aria-label="04108"><img src="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%201-600.webp 600w, https://media.paraploo.com/site/images/physical/it-is-good-to-not-always-know/Good%20You%20Have%201.webp 2000w" sizes="140px" alt="04108" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">04108</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/physical/it-is-good-to-not-always-know/" aria-label="The whole gallery, It Is Good To Not Always Know">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%208.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%208-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%208.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="03903" width="2000" height="1333" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/physical/free-attempt/0011.html">03903<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Free Attempt</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/physical/free-attempt/0010.html" aria-label="03902"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%206-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%206-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%206.webp 2000w" sizes="140px" alt="03902" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03902</p></li>
+    <li><a href="/physical/free-attempt/0009.html" aria-label="03901"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2026-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2026-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2026.webp 2000w" sizes="140px" alt="03901" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03901</p></li>
+    <li><a href="/physical/free-attempt/0008.html" aria-label="03900"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2025-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2025-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2025.webp 2000w" sizes="140px" alt="03900" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03900</p></li>
+    <li><a href="/physical/free-attempt/0007.html" aria-label="03899"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2023-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2023-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2023.webp 2000w" sizes="140px" alt="03899" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03899</p></li>
+    <li><a href="/physical/free-attempt/0006.html" aria-label="03898"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2020-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2020-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2020.webp 2000w" sizes="140px" alt="03898" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03898</p></li>
+    <li><a href="/physical/free-attempt/0005.html" aria-label="03897"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%202-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%202-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%202.webp 2000w" sizes="140px" alt="03897" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03897</p></li>
+    <li><a href="/physical/free-attempt/0004.html" aria-label="03896"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2018-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2018-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2018.webp 2000w" sizes="140px" alt="03896" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03896</p></li>
+    <li><a href="/physical/free-attempt/0003.html" aria-label="03895"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2017-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2017-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2017.webp 2000w" sizes="140px" alt="03895" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03895</p></li>
+    <li><a href="/physical/free-attempt/0002.html" aria-label="03894"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2015-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2015-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2015.webp 2000w" sizes="140px" alt="03894" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03894</p></li>
+    <li><a href="/physical/free-attempt/0001.html" aria-label="03893"><img src="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2014-600.webp" srcset="https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2014-600.webp 600w, https://media.paraploo.com/site/images/physical/free-attempt/Free%20Attempt%2014.webp 2000w" sizes="140px" alt="03893" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03893</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/physical/free-attempt/" aria-label="The whole gallery, Free Attempt">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2019.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2019-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2019.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="03721" width="2000" height="1333" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/physical/curious-first-every-time/0006.html">03721<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Curious First Every Time</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/physical/curious-first-every-time/0005.html" aria-label="03720"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2018-600.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2018-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2018.webp 2000w" sizes="140px" alt="03720" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03720</p></li>
+    <li><a href="/physical/curious-first-every-time/0004.html" aria-label="03719"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2017-600.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2017-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2017.webp 2000w" sizes="140px" alt="03719" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03719</p></li>
+    <li><a href="/physical/curious-first-every-time/0003.html" aria-label="03718"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2016-600.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2016-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2016.webp 2000w" sizes="140px" alt="03718" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03718</p></li>
+    <li><a href="/physical/curious-first-every-time/0002.html" aria-label="03717"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2013-600.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2013-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%2013.webp 2000w" sizes="140px" alt="03717" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03717</p></li>
+    <li><a href="/physical/curious-first-every-time/0001.html" aria-label="03716"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201-600.webp 600w, https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%201.webp 2000w" sizes="140px" alt="03716" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03716</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/physical/curious-first-every-time/" aria-label="The whole gallery, Curious First Every Time">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2020.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2020-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2020.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="03208" width="2000" height="1333" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/physical/attempts-to-provoke/0008.html">03208<span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Attempts To Provoke</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/physical/attempts-to-provoke/0007.html" aria-label="03207"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%202-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%202-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%202.webp 2000w" sizes="140px" alt="03207" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03207</p></li>
+    <li><a href="/physical/attempts-to-provoke/0006.html" aria-label="03206"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2019-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2019-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2019.webp 2000w" sizes="140px" alt="03206" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03206</p></li>
+    <li><a href="/physical/attempts-to-provoke/0005.html" aria-label="03205"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2018-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2018-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2018.webp 2000w" sizes="140px" alt="03205" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03205</p></li>
+    <li><a href="/physical/attempts-to-provoke/0004.html" aria-label="03204"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2017-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2017-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2017.webp 2000w" sizes="140px" alt="03204" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03204</p></li>
+    <li><a href="/physical/attempts-to-provoke/0003.html" aria-label="03203"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2012-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2012-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2012.webp 2000w" sizes="140px" alt="03203" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03203</p></li>
+    <li><a href="/physical/attempts-to-provoke/0002.html" aria-label="03202"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%2011.webp 2000w" sizes="140px" alt="03202" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03202</p></li>
+    <li><a href="/physical/attempts-to-provoke/0001.html" aria-label="03201"><img src="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%201-600.webp 600w, https://media.paraploo.com/site/images/physical/attempts-to-provoke/Attempt%20To%20Provoke%201.webp 2000w" sizes="140px" alt="03201" width="600" height="400" loading="lazy" decoding="async"></a><p class="gw-num">03201</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/physical/attempts-to-provoke/" aria-label="The whole gallery, Attempts To Provoke">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Work%20It%20Out%20For%20Yourselves.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Work%20It%20Out%20For%20Yourselves-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Work%20It%20Out%20For%20Yourselves.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="02815" width="2000" height="1546" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/marks/student-phase/0021.html">02815<span class="gw-arr" aria-hidden="true">&rarr;</span></a><span class="gw-words">Work It Out For Yourselves</span></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Student Phase</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/marks/student-phase/0020.html" aria-label="02814, Tol Falika U Think You Know Conflict"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Tol%20Falika%20U%20Think%20You%20Know%20Conflict-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Tol%20Falika%20U%20Think%20You%20Know%20Conflict-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Tol%20Falika%20U%20Think%20You%20Know%20Conflict.webp 2000w" sizes="140px" alt="02814" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02814</p></li>
+    <li><a href="/marks/student-phase/0019.html" aria-label="02813, Sun Sadness Wild Activity And Teardrops"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Sun%20Sadness%20Wild%20Activity%20And%20Teardrops-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Sun%20Sadness%20Wild%20Activity%20And%20Teardrops-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Sun%20Sadness%20Wild%20Activity%20And%20Teardrops.webp 2000w" sizes="140px" alt="02813" width="600" height="457" loading="lazy" decoding="async"></a><p class="gw-num">02813</p></li>
+    <li><a href="/marks/student-phase/0018.html" aria-label="02812, Enter At One Of The Corners"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Enter%20At%20One%20Of%20The%20Corners-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Enter%20At%20One%20Of%20The%20Corners-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Enter%20At%20One%20Of%20The%20Corners.webp 2000w" sizes="140px" alt="02812" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02812</p></li>
+    <li><a href="/marks/student-phase/0017.html" aria-label="02811, Dos Enter In From All Corners Pathways Experiment"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Dos%20Enter%20In%20From%20All%20Corners%20Pathways%20Experiment-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Dos%20Enter%20In%20From%20All%20Corners%20Pathways%20Experiment-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Dos%20Enter%20In%20From%20All%20Corners%20Pathways%20Experiment.webp 2000w" sizes="140px" alt="02811" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02811</p></li>
+    <li><a href="/marks/student-phase/0016.html" aria-label="02810, Disaster IV"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Disaster%20IV-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Disaster%20IV-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Disaster%20IV.webp 2000w" sizes="140px" alt="02810" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02810</p></li>
+    <li><a href="/marks/student-phase/0015.html" aria-label="02809, All of Space and Everything in It, Fighting Over the Naming Rights"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Complex%20Circular%20Arrangement%20Of%20Pieces%20And%20Symbols%205G-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Complex%20Circular%20Arrangement%20Of%20Pieces%20And%20Symbols%205G-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Complex%20Circular%20Arrangement%20Of%20Pieces%20And%20Symbols%205G.webp 2000w" sizes="140px" alt="02809" width="600" height="457" loading="lazy" decoding="async"></a><p class="gw-num">02809</p></li>
+    <li><a href="/marks/student-phase/0014.html" aria-label="02808, Lefe Says"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-9-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-9-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-9.webp 2000w" sizes="140px" alt="02808" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02808</p></li>
+    <li><a href="/marks/student-phase/0013.html" aria-label="02807, 006 Animal En Vivo Spiral"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-8-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-8-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-8.webp 2000w" sizes="140px" alt="02807" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02807</p></li>
+    <li><a href="/marks/student-phase/0012.html" aria-label="02806, Elbow And Signs"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-5-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-5-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-5.webp 2000w" sizes="140px" alt="02806" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02806</p></li>
+    <li><a href="/marks/student-phase/0011.html" aria-label="02805, Rare Stinkers Bedded Down in Straw, Take Your Pick"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-19-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-19-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-19.webp 2000w" sizes="140px" alt="02805" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02805</p></li>
+    <li><a href="/marks/student-phase/0010.html" aria-label="02804, Bricks and Loaves of Common Sense, Oddly Enough"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-17-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-17-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-17.webp 2000w" sizes="140px" alt="02804" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02804</p></li>
+    <li><a href="/marks/student-phase/0009.html" aria-label="02803, Punch Drunk Happy, Rooted and Grounded, Ha Ha"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-15-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-15-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-15.webp 2000w" sizes="140px" alt="02803" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02803</p></li>
+    <li><a href="/marks/student-phase/0008.html" aria-label="02802, The Snake Talked All the Way Around the Band-Aid and Still Wouldn&#x27;t Say Sorry"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-12-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-12-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-12.webp 2000w" sizes="140px" alt="02802" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02802</p></li>
+    <li><a href="/marks/student-phase/0007.html" aria-label="02801, New Outback Plant"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-11-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-11-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/CP-11.webp 2000w" sizes="140px" alt="02801" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02801</p></li>
+    <li><a href="/marks/student-phase/0006.html" aria-label="02800, Baby Divine 48"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Baby%20Divine048-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Baby%20Divine048-600.webp 457w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Baby%20Divine048.webp 1522w" sizes="140px" alt="02800" width="457" height="600" loading="lazy" decoding="async"></a><p class="gw-num">02800</p></li>
+    <li><a href="/marks/student-phase/0005.html" aria-label="02799, ALOWOC V"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20V-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20V-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20V.webp 2000w" sizes="140px" alt="02799" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02799</p></li>
+    <li><a href="/marks/student-phase/0004.html" aria-label="02798, ALOWOC IV"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20IV-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20IV-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20IV.webp 2000w" sizes="140px" alt="02798" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02798</p></li>
+    <li><a href="/marks/student-phase/0003.html" aria-label="02797, ALOWOC III"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20III-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20III-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20III.webp 2000w" sizes="140px" alt="02797" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02797</p></li>
+    <li><a href="/marks/student-phase/0002.html" aria-label="02796, ALOWOC II"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20II-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20II-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20II.webp 2000w" sizes="140px" alt="02796" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02796</p></li>
+    <li><a href="/marks/student-phase/0001.html" aria-label="02795, ALOWOC I"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20I.webp 2000w" sizes="140px" alt="02795" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02795</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/marks/smooth-beh-laye/student-phase/" aria-label="The whole gallery, Student Phase">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Simple%20Grid%20063.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Simple%20Grid%20063-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Simple%20Grid%20063.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="02695" width="2000" height="1522" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/marks/minimal-impact/0004.html">02695<span class="gw-arr" aria-hidden="true">&rarr;</span></a><span class="gw-words">The Grid Was Doing Just Fine Until Somebody Took a Shortcut</span></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Minimal Impact</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/marks/minimal-impact/0003.html" aria-label="02694, Peeking at the Big Bang Through the Kitchen Blinds"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Radiance%20Illusion-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Radiance%20Illusion-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Radiance%20Illusion.webp 2000w" sizes="140px" alt="02694" width="600" height="463" loading="lazy" decoding="async"></a><p class="gw-num">02694</p></li>
+    <li><a href="/marks/minimal-impact/0002.html" aria-label="02693, Lemon Skin Letterforms Visual Meditation 2"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Lemon%20Skin%20Letterforms%20Visual%20Meditation%202-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Lemon%20Skin%20Letterforms%20Visual%20Meditation%202-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Lemon%20Skin%20Letterforms%20Visual%20Meditation%202.webp 2000w" sizes="140px" alt="02693" width="600" height="458" loading="lazy" decoding="async"></a><p class="gw-num">02693</p></li>
+    <li><a href="/marks/minimal-impact/0001.html" aria-label="02692, Valley Birds Raiding the Wheat Before the Combine Gets Here"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/CP-10.webp 2000w" sizes="140px" alt="02692" width="600" height="464" loading="lazy" decoding="async"></a><p class="gw-num">02692</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/marks/smooth-beh-laye/minimal-impact/" aria-label="The whole gallery, Minimal Impact">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img162.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img162-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img162.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="02192" width="2000" height="1539" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/marks/slap-maps/0002.html">02192<span class="gw-arr" aria-hidden="true">&rarr;</span></a><span class="gw-words">Small Conflict Zones Keeping An Eye Out, Capital</span></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Slap Maps</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/marks/slap-maps/0001.html" aria-label="02191, Every Trail Taken, and a Few Never Tried or Tested"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img161-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img161-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img161.webp 2000w" sizes="140px" alt="02191" width="600" height="462" loading="lazy" decoding="async"></a><p class="gw-num">02191</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/marks/fast-thin-dues/slap-maps/" aria-label="The whole gallery, Slap Maps">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img190.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img190-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img190.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="02152" width="2000" height="1539" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/marks/how-to-remain-a-modern-artist/0004.html">02152<span class="gw-arr" aria-hidden="true">&rarr;</span></a><span class="gw-words">Children Go Ahead and Try to Find the Crack in the Haystack, Get Ready, Get Set, Go</span></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">How To Remain A Modern Artist</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/marks/how-to-remain-a-modern-artist/0003.html" aria-label="02151, Intuitive Rendition of Three Plump Elder Humans Asleep in One Bed"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img175-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img175-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img175.webp 2000w" sizes="140px" alt="02151" width="600" height="462" loading="lazy" decoding="async"></a><p class="gw-num">02151</p></li>
+    <li><a href="/marks/how-to-remain-a-modern-artist/0002.html" aria-label="02150, Oddest Tornado Behavior, and in Some Ways Not Unusual, Quick Go of It"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img166-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img166-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img166.webp 2000w" sizes="140px" alt="02150" width="600" height="462" loading="lazy" decoding="async"></a><p class="gw-num">02150</p></li>
+    <li><a href="/marks/how-to-remain-a-modern-artist/0001.html" aria-label="02149, In Your Imagination, Who Did This? It Was Either Our Helper Julie or Miles Davis"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img148-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img148-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/HOW%20TO%20REMAIN%20A%20MODERN%20ARTIST%20%284%29/img148.webp 2000w" sizes="140px" alt="02149" width="600" height="462" loading="lazy" decoding="async"></a><p class="gw-num">02149</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/marks/fast-thin-dues/how-to-remain-a-modern-artist/" aria-label="The whole gallery, How To Remain A Modern Artist">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+<article class="gw-row">
+  <figure class="gw-lead gw-will"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/We%20Would%20Love%20To%20Know%20How%20You%20Construct%20These%20Chaotic%20And%20Well%20Established%20Foreign%20Settlements.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/We%20Would%20Love%20To%20Know%20How%20You%20Construct%20These%20Chaotic%20And%20Well%20Established%20Foreign%20Settlements-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/We%20Would%20Love%20To%20Know%20How%20You%20Construct%20These%20Chaotic%20And%20Well%20Established%20Foreign%20Settlements.webp 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="02131" width="2000" height="1448" loading="lazy" decoding="async"><figcaption><p class="gw-num"><a href="/marks/agitation-exercise/0007.html">02131<span class="gw-arr" aria-hidden="true">&rarr;</span></a><span class="gw-words">We Would Love To Know How You Construct These Chaotic And Well Established Foreign Settlements</span></p></figcaption></figure>
+  <div class="gw-side gw-will"><h2 class="gw-gname">Agitation Exercise</h2>
+  <ul class="gw-thumbs">
+    <li><a href="/marks/agitation-exercise/0006.html" aria-label="02130, Someday We Will All Be Covered With The Energy Of Funny Looking Characters And Marks"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Someday%20We%20Will%20All%20Be%20Covered%20With%20The%20Energy%20Of%20Funny%20Looking%20Characters%20And%20Marks.webp 2000w" sizes="140px" alt="02130" width="600" height="433" loading="lazy" decoding="async"></a><p class="gw-num">02130</p></li>
+    <li><a href="/marks/agitation-exercise/0005.html" aria-label="02129, Remem Em Mem Ember"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Remem%20Em%20Mem%20Emner-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Remem%20Em%20Mem%20Emner-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Remem%20Em%20Mem%20Emner.webp 2000w" sizes="140px" alt="02129" width="600" height="432" loading="lazy" decoding="async"></a><p class="gw-num">02129</p></li>
+    <li><a href="/marks/agitation-exercise/0004.html" aria-label="02128, Black Equals Authentic, Says the Key, and the Rest of the Named Colors Are Running Late"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Named%20Colors%20Energy-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Named%20Colors%20Energy-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Named%20Colors%20Energy.webp 2000w" sizes="140px" alt="02128" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02128</p></li>
+    <li><a href="/marks/agitation-exercise/0003.html" aria-label="02127, Good Energy Personality Of Handwritten Signatures As A Tall Flower Garden"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Good%20Energy%20Personality%20Of%20Handwritten%20Signatures%20As%20A%20Tall%20Flower%20Garden.webp 2000w" sizes="140px" alt="02127" width="600" height="436" loading="lazy" decoding="async"></a><p class="gw-num">02127</p></li>
+    <li><a href="/marks/agitation-exercise/0002.html" aria-label="02126, Completely Obliterated Garden Of Countless Handwritten English Letter Forms"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Completely%20Obliterated%20Garden%20Of%20Countless%20Handwritten%20English%20Letter%20Forms-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Completely%20Obliterated%20Garden%20Of%20Countless%20Handwritten%20English%20Letter%20Forms-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Completely%20Obliterated%20Garden%20Of%20Countless%20Handwritten%20English%20Letter%20Forms.webp 2000w" sizes="140px" alt="02126" width="600" height="431" loading="lazy" decoding="async"></a><p class="gw-num">02126</p></li>
+    <li><a href="/marks/agitation-exercise/0001.html" aria-label="02125, Coete Fover Overec 2"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp" srcset="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202-600.webp 600w, https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/AGITATION%20EXERCISE%20%287%29/Coete%20Fover%20Overec%202.webp 2000w" sizes="140px" alt="02125" width="600" height="438" loading="lazy" decoding="async"></a><p class="gw-num">02125</p></li>
+  </ul>
+  <p class="gw-go"><a class="gw-btn" href="/marks/fast-thin-dues/agitation-exercise/" aria-label="The whole gallery, Agitation Exercise">The whole gallery <span class="gw-arr" aria-hidden="true">&rarr;</span></a></p></div>
+</article>
+</section>
+<section class="gw-history" aria-label="Early Years, 1959 to 1982">
+  <div class="gw-haze" style="background-image:url('https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/Baby%20Divine048-600.webp')" aria-hidden="true"></div>
+  <div class="gw-history-in gw-will"><a href="/early-years.html">Early Years, 1959 to 1982 <span class="gw-arr" aria-hidden="true">&rarr;</span></a></div>
+</section>
+<nav class="gw-nav" aria-label="The way on"><a class="gw-link" href="/"><span class="gw-arr-back" aria-hidden="true">&larr;</span> The front page</a></nav>
+</div>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+
+<script src="/nav.js"></script>
+<script src="/good-worst-of.js"></script>
+</body>
+</html>

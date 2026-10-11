@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelter of Tomorrow’s Pathetic Overconfidence · Paraploo</title>
+<meta name="description" content="Shelter of Tomorrow’s Pathetic Overconfidence. Paraploo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@112,600&display=swap" rel="stylesheet">
+<!-- The live chrome. -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/theme.js"></script>
+<style id="mock-styles">
+/* ==========================================================================
+   The mock's own styles
+   ========================================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --band: #FF4A1C;
+  --rule: var(--ink);
+
+  /* The work's own tones, read from Stained Message 005. The same in every mode. */
+  --work-1: #362b25;
+  --work-2: #717669;
+  --work-3: #993453;
+  --work-4: #c08399;
+  --work-5: #ebd8dc;
+
+  /* The whole-window frame. */
+  --edge: 24px;
+  --column-gap: 32px;
+  --reading: 750px;
+  --indent: 48px;
+
+  /* The small gaps inside every component, taken from met-oyparaploo.html. */
+  --gap-1: 6px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 32px;
+
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+  --tones: linear-gradient(to right,
+    var(--work-1) 0 29.2%,
+    var(--work-2) 29.2% 51.7%,
+    var(--work-3) 51.7% 71.1%,
+    var(--work-4) 71.1% 90.4%,
+    var(--work-5) 90.4% 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ground);
+  overflow-x: clip;
+}
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- PLAY: the ground that deepens, and the faint grain ----------
+   Dark only. Light stays crisp white. The ground runs from the site's own
+   dark ground at the top to night blue at the foot of the page. The grain
+   lies on the ground only, never over a picture or a colour band. */
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+}
+html[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body {
+    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
+  }
+  html:not([data-theme="light"]) body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- the three changes this mock makes to the live header ----------
+   1. The wordmark tried at 32 pixels, 26 on phones.
+   2. The header and the date strip start at the page's own 24-pixel edge.
+   3. The header's bottom edge is the work's own tones (as on the prototype),
+      so the line travels with the header when it slides back in. */
+html:root body .site-header {
+  padding: 20px var(--edge);
+  border-style: solid; border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+html:root body .site-header .wordmark { font-size: 32px; }
+@media (max-width: 600px) {
+  html:root body .site-header .wordmark { font-size: 26px; }
+}
+
+/* ---------- the date strip, with the three buttons from the prototype ---------- */
+html:root body .theme-strip {
+  height: auto; padding: 6px var(--edge);
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px; color: var(--ink);
+}
+html:root body .theme-controls { gap: var(--gap-2); }
+html:root body .theme-choice {
+  display: inline-block;
+  background: transparent; color: var(--ink);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
+  border: 1px solid var(--ink); border-radius: 5px;
+  padding: 4px 12px; opacity: 1; cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
+  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root body .theme-choice[data-active="true"]:hover,
+  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root body .theme-strip .theme-date-full { display: none; }
+  html:root body .theme-strip .theme-date-short { display: inline; }
+}
+
+.inner { width: 100%; padding: 0 var(--edge); }
+
+/* ---------- PLAY: the button that turns into its opposite ----------
+   Solid and outline, 5-pixel corners. Fill and words change together
+   over a third of a second. */
+.btn {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  display: inline-flex; align-items: center; gap: 14px;
+  min-height: 54px; padding: 8px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
+  border: 1px solid var(--btn-ink); border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-solid { background: var(--btn-ink); color: var(--btn-ground); }
+.btn-outline { background: transparent; color: var(--btn-ink); }
+
+/* A pair: point at either one and the two trade places. */
+.pair { display: inline-flex; flex-wrap: wrap; gap: var(--gap-3); }
+@media (hover: hover) {
+  .pair:hover .btn-solid { background: transparent; color: var(--btn-ink); }
+  .pair:hover .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+}
+.pair:has(.btn:focus-visible) .btn-solid, .pair.swapped .btn-solid { background: transparent; color: var(--btn-ink); }
+.pair:has(.btn:focus-visible) .btn-outline, .pair.swapped .btn-outline { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* One alone: it turns into its own opposite. */
+@media (hover: hover) {
+  .btn-solid.solo:hover { background: transparent; color: var(--btn-ink); }
+}
+.btn-solid.solo:active, .btn-solid.solo[aria-expanded="true"] { background: transparent; color: var(--btn-ink); }
+
+/* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
+.opening { position: relative; }
+.opening-words { background: var(--band); color: #111111; }
+.opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
+.opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
+
+.stage-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  margin: 0 0 var(--gap-5) var(--indent);
+}
+.stage-sentence {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 36px; line-height: 1.2; max-width: var(--reading);
+  text-indent: var(--indent);
+}
+.opening .pair { margin-top: var(--gap-6); }
+.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening :focus-visible { outline-color: #111111; }
+
+.stage-pic { width: 100%; height: auto; }
+.stage-cat {
+  display: inline-block; margin-top: var(--gap-3);
+  font-size: 16px; color: #111111; text-decoration: none;
+}
+
+/* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
+@keyframes arrive { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.arrive { animation: arrive 0.6s var(--ease) both; animation-delay: var(--d, 0s); }
+
+@media (max-width: 999px) {
+  .opening-words { position: sticky; top: 0; z-index: 2; }
+}
+@media (min-width: 1000px) {
+  .opening { display: grid; grid-template-columns: 44% 56%; align-items: stretch; min-height: 100vh; }
+  .opening-words-in { position: sticky; top: var(--edge); }
+}
+
+/* ---------- the sections ---------- */
+main .rooms { padding: 0 0 72px; }
+.band { padding: 72px 0; border-top: 1px solid var(--rule); }
+.rooms .band:first-of-type { border-top: none; padding-top: 128px; }
+.label {
+  font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 var(--gap-5);
+}
+
+/* A row that reverses: shared by the doors, the types and the subjects.
+   Every name starts at the page's one left edge; the fill runs out to the window's edge. */
+.row-arrow {
+  flex: none; font-family: 'Inter', sans-serif; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: none) { .row-arrow { opacity: 1; transform: none; } }
+
+/* ---------- PLAY: the widening strip, turned on its side: the six doors ----------
+   The six rows share one fixed height. The row under the hand takes more of
+   it and turns solid, its name steps forward, and an arrow slides in. */
+.doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.doors a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding: 28px var(--edge);
+  overflow: hidden;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+}
+.doors a:last-child { border-bottom: 1px solid var(--rule); }
+.door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
+.doors a:active { background-color: var(--ink); color: var(--ground); }
+.doors a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 701px) {
+  .doors a:hover, .doors a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow, .doors a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (max-width: 700px) {
+  .doors a:hover { background-color: var(--ink); color: var(--ground); }
+  .doors a:hover .row-arrow { opacity: 1; transform: none; }
+}
+
+/* ---------- PLAY: the selector: the eight types run one panel ----------
+   The eight names down the left; the one chosen is solid. Its one line and
+   its shelf headings stand to the right. On a phone the two parts stack:
+   the panel opens under the name that was tapped. */
+.kind-name { font-size: clamp(26px, 2.2vw, 32px); }
+.kind-name a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
+.kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
+.kind.is-active .row-arrow { opacity: 1; transform: none; }
+.kind-name a:active { background-color: var(--ink); color: var(--ground); }
+.kind-line {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: var(--ink); max-width: 30em; margin: 0 0 var(--gap-5);
+}
+.headings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); }
+.headings a {
+  justify-self: start; position: relative; display: inline-block;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35;
+  color: var(--ink); text-decoration: none; padding: 12px 0;
+}
+/* PLAY: the line that draws itself under a word. A quarter second, left to right.
+   It answers the mouse and the keyboard; a finger sees it only while it is pressing. */
+.headings a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 9px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) { .headings a:hover::after { transform: scaleX(1); } }
+.headings a:focus-visible::after, .headings a:active::after { transform: scaleX(1); }
+
+@media (min-width: 1000px) {
+  .kinds { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--column-gap); align-items: start; }
+  .kind { display: contents; }
+  .kind-name { grid-column: 1; }
+  .kind-panel {
+    grid-column: 2; grid-row: 1 / span 8; align-self: start;
+    padding: 18px 0 0 var(--column-gap);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .kind.is-active .kind-panel { opacity: 1; visibility: visible; transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 999px) {
+  .kind-name a { padding-right: var(--edge); margin-right: calc(-1 * var(--edge)); }
+  .kind-panel { display: none; padding: var(--gap-5) 0 var(--gap-6); }
+  .kind.is-active .kind-panel { display: block; }
+  .kind.is-active .row-arrow { transform: rotate(90deg); }
+  .kind:last-child .kind-name a { border-bottom: 0; }
+  .kinds { border-bottom: 1px solid var(--rule); }
+  .headings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Subjects: sixteen open rows, a thin line between them ---------- */
+.subjects { display: flex; flex-direction: column; }
+.subjects a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 72px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink);
+  margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.subjects a:last-child { border-bottom: 1px solid var(--rule); }
+.subjects a:active { background-color: var(--ink); color: var(--ground); }
+.subjects a:active .row-arrow { transform: translateX(4px); }
+@media (hover: hover) {
+  .subjects a:hover, .subjects a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .subjects a:hover .row-arrow, .subjects a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+
+/* PLAY: the picture that changes as you read. It holds still beside the
+   sixteen rows and changes four times on the way down. On a phone it lets
+   go and sits under the rows; the four numbers change it by hand. */
+.pic-stack { display: grid; }
+.pic-seat {
+  grid-area: 1 / 1; display: block;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.pic-seat.is-on { opacity: 1; visibility: visible; transition: opacity 0.4s ease, visibility 0s; }
+.pic-seat img { width: 100%; height: auto; }
+.pic-tabs { display: flex; flex-wrap: wrap; gap: var(--gap-5); margin-top: var(--gap-3); }
+.pic-tab {
+  background: none; border: 0; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5;
+  color: var(--ink-soft); padding: 8px 0; min-height: 44px;
+}
+.pic-tab[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+@media (hover: hover) { .pic-tab:hover { color: var(--ink); } }
+
+@media (min-width: 1000px) {
+  .subjects-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: stretch; }
+  .reading-pic { padding-left: 64px; }
+  .pic-pin { position: sticky; top: 96px; }
+}
+@media (max-width: 999px) {
+  .subjects a { margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); }
+  .reading-pic { margin-top: 48px; }
+}
+
+/* ---------- the year line ---------- */
+/* PLAY: the hairline that fades out at both ends, in the work's own rose, pink and sage.
+   Used once: it sets the year line apart as an aside. */
+.fade-rule {
+  display: block; height: 2px; border: 0; margin: 72px 0 40px;
+  background: linear-gradient(90deg, transparent 0%, var(--work-3) 16%, var(--work-4) 42%, var(--work-2) 78%, transparent 100%);
+}
+.year-host { position: relative; display: inline-block; max-width: 100%; transition: margin-bottom 0.5s var(--ease); }
+/* PLAY: three lines that fold into an X. */
+.lines { flex: none; width: 24px; height: 24px; overflow: visible; }
+.lines line {
+  stroke: currentColor; stroke-width: 2; stroke-linecap: square;
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.35s var(--ease), opacity 0.2s ease;
+}
+[aria-expanded="true"] > .lines line:nth-child(1), .year-panel.is-open .year-close line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] > .lines line:nth-child(2), .year-panel.is-open .year-close line:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] > .lines line:nth-child(3), .year-panel.is-open .year-close line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.year-panel.is-open .year-close line { transition-delay: 0.25s; }
+
+/* PLAY: the menu that unfurls from its button. The panel opens out of a small
+   rounded shape at the button, over half a second. */
+.year-panel {
+  position: absolute; left: 0; top: calc(100% + 8px); z-index: 40;
+  width: min(460px, calc(100vw - 2 * var(--edge)));
+  background: var(--ground); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 5px;
+  clip-path: inset(var(--ct, 0px) var(--cr, 50%) var(--cb, 95%) var(--cl, 0px) round 5px);
+  opacity: 0; visibility: hidden;
+  transition: clip-path 0.5s var(--ease), opacity 0.2s ease 0.3s, visibility 0s linear 0.5s;
+}
+.year-panel.is-open {
+  clip-path: inset(0 0 0 0 round 5px);
+  opacity: 1; visibility: visible;
+  transition: clip-path 0.5s var(--ease), opacity 0.15s ease, visibility 0s;
+}
+.year-head { display: none; }
+.year-list { list-style: none; }
+.year-list a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
+  min-height: 56px; padding: 10px 20px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  text-decoration: none; color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.year-list li + li a { border-top: 1px solid var(--rule); }
+.year-list a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .year-list a:hover, .year-list a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .year-list a:hover .row-arrow, .year-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.year-list a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+@media (max-width: 700px) {
+  /* The phone partner: the unfurled panel covers the whole screen. */
+  .year-panel {
+    position: fixed; inset: 0; top: 0; width: auto; z-index: 3000;
+    border: 0; border-radius: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 0 var(--gap-6);
+  }
+  .year-panel.is-open { clip-path: inset(0 0 0 0 round 0px); }
+  .year-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
+    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+  }
+  .year-close {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 54px; height: 54px; margin-right: -15px;
+    background: none; border: 0; color: var(--ink); cursor: pointer;
+  }
+  .year-list a { min-height: 64px; padding: 12px var(--edge); font-size: 20px; }
+  .year-list li:last-child a { border-bottom: 1px solid var(--rule); }
+  .btn { font-size: 18px; }
+}
+
+/* ---------- the picture band at the foot: the room the opening picture came from ---------- */
+.shelf {
+  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: #111111;
+  padding: 96px 0 120px;
+}
+/* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
+   were: on this pale band each of them stands at 7.5 to 1 or better. */
+.ink-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 56px -0.04em;
+}
+.ink-title a {
+  text-decoration: none; color: #573228;
+  background: linear-gradient(100deg, #662a1e 0%, #573228 45%, #44403f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+/* PLAY: the field of little pictures that swell when touched, and
+   PLAY: the picture that wakes from dim to full colour. Every picture whole. */
+.field { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 10px; }
+.speck {
+  position: relative; display: block;
+  filter: saturate(0.82) brightness(0.84);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+  --swell: 2.4;
+}
+.speck img { width: 100%; height: auto; }
+/* The standing rule: words over a photograph get a darkened band behind them. */
+.speck-num {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .speck:hover, .speck:focus-visible { transform: scale(var(--swell)); filter: none; z-index: 5; }
+  .speck:hover .speck-num, .speck:focus-visible .speck-num { opacity: 1; transition-delay: 0.3s; }
+}
+@media (hover: none) {
+  .speck { filter: saturate(0.95) brightness(0.95); --swell: 1.8; }
+}
+.speck.is-awake { transform: scale(var(--swell)); filter: none; z-index: 5; }
+.speck.is-awake .speck-num { opacity: 1; transition-delay: 0.3s; }
+.speck:focus-visible { outline: none; }
+@media (min-width: 1000px) {
+  .speck:nth-child(13n + 1) { transform-origin: left center; }
+  .speck:nth-child(13n) { transform-origin: right center; }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .field { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .speck:nth-child(9n + 1) { transform-origin: left center; }
+  .speck:nth-child(9n) { transform-origin: right center; }
+}
+@media (max-width: 599px) {
+  .field { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .speck { --swell: 3; }
+  .speck:nth-child(6n + 1) { transform-origin: left center; }
+  .speck:nth-child(6n) { transform-origin: right center; }
+}
+.shelf-more { margin-top: 56px; }
+.go-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.go-link span { display: inline-block; transition: transform 0.2s ease; }
+.go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
+
+/* ---------- the work's own tones, once more, as the last thing on the page ---------- */
+.tone-line { height: 3px; width: 100%; border: 0; display: block; background: var(--tones); }
+
+/* ---------- PLAY: rows that rise as you read ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.will-rise { opacity: 0; }
+.will-rise.risen { animation: rise 0.6s ease both; }
+
+/* ---------- phone ---------- */
+@media (max-width: 700px) {
+  :root { --indent: 24px; }
+  .opening-words-in { padding: 40px var(--edge); }
+  .opening-pic { padding: 40px var(--edge); }
+  .stage-title { font-size: 52px; }
+  .stage-sentence { font-size: 26px; }
+  .opening .pair { margin-top: var(--gap-5); }
+
+  .band { padding: 60px 0; }
+  .rooms .band:first-of-type { padding-top: 60px; }
+  .doors a { font-size: 30px; padding: 22px var(--edge); }
+  .subjects a { font-size: 22px; min-height: 64px; }
+  .kind-line { font-size: 20px; }
+  .fade-rule { margin: 56px 0 32px; }
+  .shelf { padding: 64px 0 72px; }
+  .ink-title { margin-bottom: 36px; }
+  .shelf-more { margin-top: 36px; }
+}
+
+/* ---------- visitors who ask for less motion get none ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .opening-words, .opening-words-in, .pic-pin { position: static; }
+  .will-rise { opacity: 1; }
+  .doors a:hover, .doors a:focus-visible, .doors a:active { flex-grow: 1; }
+  .doors a:hover .door-name, .doors a:focus-visible .door-name { transform: none; }
+  .row-arrow, .go-link span { transform: none !important; }
+  .speck:hover, .speck:focus-visible, .speck.is-awake { transform: none; outline: 2px solid #111111; outline-offset: 2px; }
+  .speck-num { font-size: 16px; }
+  .year-panel, .year-panel.is-open { clip-path: none; }
+  .lines line { transform: none !important; opacity: 1 !important; }
+}
+
+/* ==========================================================================
+   The pages behind the Writings page: a type page and a shelf page.
+   Everything above is the Writings page's own look, unchanged.
+   ========================================================================== */
+/* The opening band is as tall as its words, so the rows a visitor clicks show without scrolling. */
+.behind .opening { min-height: 0; }
+.behind .opening-words { position: static; }
+.behind .opening-words-in { position: static; padding-top: 48px; padding-bottom: 64px; }
+.behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
+/* The name is one clear step above the sentence, and no louder than the rows below it. */
+.behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
+  color: #111111; text-decoration: none;
+}
+.back-link span { display: inline-block; transition: transform 0.2s ease; }
+.back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
+
+/* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
+.passage { max-width: 34em; color: #111111; }
+.passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
+.passage p + p { margin-top: 0.5em; }
+.passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
+.passage-from { margin-top: var(--gap-6); }
+.opening-pic :focus-visible { outline-color: #111111; }
+
+/* The rows. One height at rest and under the hand: the row turns solid and its arrow slides in, nothing more. */
+.behind .rooms .band:first-of-type { padding-top: 72px; }
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+/* The shelf's rows: the title leads, its kind and reading time sit at the right. */
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+
+/* The foot: where to go next, its name written above the arrow. */
+.foot-next { padding: 72px 0 96px; border-top: 0; }
+.foot-grid { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--gap-6); }
+.next-label { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.3; margin: 0 0 var(--gap-3); }
+.foot-next .go-link, .foot-next .back-link { color: var(--ink); margin: 0; }
+
+@media (max-width: 999px) {
+  .behind .opening-pic { padding-top: 40px; }
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .behind .opening-words-in { padding: 28px var(--edge) 40px; }
+  .behind .opening-pic { padding: 36px var(--edge) 44px; }
+  .back-link { margin-bottom: 24px; }
+  .behind .stage-title { font-size: 38px; }
+  .behind .stage-sentence { font-size: 22px; }
+  .passage p { font-size: 20px; }
+  .behind .rooms .band:first-of-type { padding-top: 48px; }
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .back-link span { transform: none !important; } }
+</style>
+<link rel="stylesheet" href="/shelter-of-tomorrows-pathetic-overconfidence.css">
+<style>:root { --tones: linear-gradient(to right, #E3C923 0.00% 7.69%, #A64315 7.69% 15.38%, #987865 15.38% 23.08%, #E8C920 23.08% 30.77%, #94664A 30.77% 38.46%, #D46F32 38.46% 46.15%, #BB8760 46.15% 53.85%, #693F3A 53.85% 61.54%, #B46327 61.54% 69.23%, #6E5749 69.23% 76.92%, #533C3E 76.92% 84.62%, #625E59 84.62% 92.31%, #846E64 92.31% 100.00%); }</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="room-page shelter-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+
+<main>
+<div class="sh-room">
+<h1 class="sh-name">Shelter of Tomorrow’s Pathetic Overconfidence</h1>
+<section class="sh-part" id="writings" aria-labelledby="sh-h-writings">
+<h2 class="sh-label" id="sh-h-writings">Writings</h2>
+<ul class="sh-rows">
+<li><a class="sh-row" href="/words/2025-variety/earth-matters-ottootto-life-slow-down-warming/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Earth Matters (4)</span></span><span class="sh-kind">Essay · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/earth-matters-ottootto-life-climate-money/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Earth Matters</span></span><span class="sh-kind">Essay · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/earth-matters-ottootto-life-climate-adoptions/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Earth Matters (2)</span></span><span class="sh-kind">Essay · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2026-variety/their-hand-is-a-mess/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Their Hand is a Mess</span></span><span class="sh-kind">Poem · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2026-variety/cc-innocent-to-insidious-controlled-burn-13-segments-revised/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">CC Innocent to Insidious Controlled Burn</span></span><span class="sh-kind">Essay · 9 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2026-variety/before-the-orange-sky-changed-to-fire-red/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Before the Orange Sky Changed to Fire Red</span></span><span class="sh-kind">Short Piece · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2026-variety/conflict-zone-air-type/"><span class="sh-left"><span class="sh-year">2026</span><span class="sh-title">Conflict zone air type</span></span><span class="sh-kind">Prayer · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/standing-in-the-shrinking-circle-while-systems-that-never-deserved-to-exist-begin-to-collapse/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Standing in the Shrinking Circle While Systems That Never Deserved to Exist Begin to Collapse</span></span><span class="sh-kind">Essay · 3 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-murmuration/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Murmuration</span></span><span class="sh-kind">Story · 5 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/american-streets-american-soldiers-why-trump-s-military-deployment-plan-threatens-everything/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">American Streets American Soldiers</span></span><span class="sh-kind">Essay · 7 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/listen-or-perish-the-survival-imperative-we-keep-ignoring/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Listen or Perish</span></span><span class="sh-kind">Essay · 5 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/intentional-listening-may-be-our-most-endangered-human-capability/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Intentional Listening May Be Our Most Endangered Human Capability</span></span><span class="sh-kind">Essay · 3 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/breathing-lessons-what-the-air-remembers-about-innocence/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Breathing Lessons</span></span><span class="sh-kind">Story · 8 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-last-executive/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Last Executive</span></span><span class="sh-kind">Story · 8 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-gardens-of-entropy-when-french-formality-meets-climate-chaos/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Gardens of Entropy</span></span><span class="sh-kind">Story · 13 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-mortal-bird-artist-dancing-through-conflict-zones/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Mortal Bird Artist</span></span><span class="sh-kind">Story · 5 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-language-of-olive-trees/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Language of Olive Trees</span></span><span class="sh-kind">Story · 8 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/brrd-roots-it-s-sunset-for-petrol/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">It&#x27;s Sunset for Petrol</span></span><span class="sh-kind">Essay · 7 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/brrd-roots-poor-air-breathless-horizon-and-more/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Poor Air</span></span><span class="sh-kind">Story · 11 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/soft-apocalypse-in-three-movements-a-documentary-of-consensual-dissolution/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Soft Apocalypse in Three Movements</span></span><span class="sh-kind">Story · 11 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/sweet-salt-water-rising-dream-the-bandorai-variations/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Sweet Salt Water Rising Dream (2)</span></span><span class="sh-kind">Story · 7 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/fragments-of-the-quiet-extinction/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Fragments of the Quiet Extinction</span></span><span class="sh-kind">Story · 5 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/the-mercy-ward-chronicle-of-the-soft-apocalypse-a-play-in-five-acts/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">The Mercy Ward</span></span><span class="sh-kind">Play · 18 minutes</span></a></li>
+<li><a class="sh-row" href="/musicology/stories-and-essays/sea-of-displaced-music-the-last-song-before-the-next-bomb-and-melodies-that-swim-through-bombed-skies.html"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Sea of Displaced Music ~ The Last Song Before the Next Bomb</span></span><span class="sh-kind">Story · 19 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/when-the-air-learned-our-names-a-chorus-of-breath-in-the-ash-light-iii/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">When the Air Learned Our Names</span></span><span class="sh-kind">Story · 20 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/brrd-roots-moderate-air-ether-and-the-atmosphere-between-warnings/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">Moderate Air Ether</span></span><span class="sh-kind">Story · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2025-variety/brrd-roots-when-the-sky-remembers-the-breaths-we-tried-to-hide/"><span class="sh-left"><span class="sh-year">2025</span><span class="sh-title">When the Sky Remembers the Breaths We Tried to Hide</span></span><span class="sh-kind">Story · 10 minutes</span></a></li>
+<li><a class="sh-row" href="/words/2024-variety/climate-change-is-a-big-threat-to/"><span class="sh-left"><span class="sh-year">2024</span><span class="sh-title">Climate Change Is A Big Threat To Ocean Shore&#x27;s Modest Old Ways Of Life</span></span><span class="sh-kind">Essay · 1 minute</span></a></li>
+<li><a class="sh-row" href="/words/2024-variety/how-climate-change-scrambles-season/"><span class="sh-left"><span class="sh-year">2024</span><span class="sh-title">How Climate Change Scrambles Seasonal Weathering Patterns</span></span><span class="sh-kind">Essay · 1 minute</span></a></li>
+</ul>
+</section>
+<section class="sh-part sh-pictures" id="pictures" aria-labelledby="sh-h-pictures">
+<h2 class="sh-label" id="sh-h-pictures">Pictures</h2>
+</section>
+<section class="sh-gallery" id="hot-climate-digital" style="--pale:#DDD6A6;--deep:#483F09" aria-label="Hot Climate Digital">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/hot-climate-volumes/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Hot Climate Digital</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0008.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14141" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0008.html" tabindex="-1">14141</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0007.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2037-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2037-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2037.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14140" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0007.html" tabindex="-1">14140</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0006.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2018-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2018-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2018.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14139" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0006.html" tabindex="-1">14139</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0005.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2017-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2017-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2017.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14138" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0005.html" tabindex="-1">14138</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0004.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%209-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%209-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%209.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14137" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0004.html" tabindex="-1">14137</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0003.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%203-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%203-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%203.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14136" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0003.html" tabindex="-1">14136</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0002.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%202-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14135" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0002.html" tabindex="-1">14135</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0001.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14134" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0001.html" tabindex="-1">14134</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="fire-damage-prison-and-escape" style="--pale:#E9D0C4;--deep:#6B2B0E" aria-label="Fire Damage Prison And Escape">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/fire-damage-prison-and-escape/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Fire Damage Prison And Escape</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/fire-damage-prison-and-escape/0008.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10759" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0008.html" tabindex="-1">10759</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/fire-damage-prison-and-escape/0007.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20380-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20380-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20380.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10758" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0007.html" tabindex="-1">10758</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/fire-damage-prison-and-escape/0006.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%2075-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%2075-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%2075.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10757" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0006.html" tabindex="-1">10757</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.8018"><a href="/digital/fire-damage-prison-and-escape/0005.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Organic%20Abstract-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Organic%20Abstract-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Organic%20Abstract.webp 1809w" sizes="(max-width: 700px) 40vw, 280px" alt="10756" width="600" height="333" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0005.html" tabindex="-1">10756</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.0274"><a href="/digital/fire-damage-prison-and-escape/0004.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Lore%20Arrangement-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Lore%20Arrangement-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Firey%20Lore%20Arrangement.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10755" width="600" height="584" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0004.html" tabindex="-1">10755</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/digital/fire-damage-prison-and-escape/0003.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Brrd%20and%20Birds%20IX-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Brrd%20and%20Birds%20IX-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Brrd%20and%20Birds%20IX.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10754" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0003.html" tabindex="-1">10754</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:2.6087"><a href="/digital/fire-damage-prison-and-escape/0002.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20IV-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20IV-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20IV.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10753" width="600" height="230" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0002.html" tabindex="-1">10753</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.6620"><a href="/digital/fire-damage-prison-and-escape/0001.html"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10752" width="600" height="361" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0001.html" tabindex="-1">10752</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="cold-clouds-scorched-ground" style="--pale:#DED3CD;--deep:#4B3C32" aria-label="Cold Clouds Scorched Ground">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/cold-clouds-scorched-ground/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Cold Clouds Scorched Ground</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0010.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10614" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0010.html" tabindex="-1">10614</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0009.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Warm%20Observant%20Perspective%20Within%20Soft%20Rectangles-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Warm%20Observant%20Perspective%20Within%20Soft%20Rectangles-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Warm%20Observant%20Perspective%20Within%20Soft%20Rectangles.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10613" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0009.html" tabindex="-1">10613</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0008.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Visual%20Environmental%20Science%20Orange%20Unicorn%20Plus%20II-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Visual%20Environmental%20Science%20Orange%20Unicorn%20Plus%20II-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Visual%20Environmental%20Science%20Orange%20Unicorn%20Plus%20II.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10612" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0008.html" tabindex="-1">10612</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/digital/cold-clouds-scorched-ground/0007.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Spectra%20Spectacle%20Nature%20Conflict%20and%20Agitation-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Spectra%20Spectacle%20Nature%20Conflict%20and%20Agitation-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Spectra%20Spectacle%20Nature%20Conflict%20and%20Agitation.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10611" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0007.html" tabindex="-1">10611</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0006.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_57_03.Still048-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_57_03.Still048-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_57_03.Still048.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10610" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0006.html" tabindex="-1">10610</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0005.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_51_00.Still047-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_51_00.Still047-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_12_51_00.Still047.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10609" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0005.html" tabindex="-1">10609</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0004.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_06_15_11.Still028-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_06_15_11.Still028-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Bending%20Rebar.00_06_15_11.Still028.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10608" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0004.html" tabindex="-1">10608</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0003.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Agitation%20Leader-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Agitation%20Leader-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/Agitation%20Leader.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10607" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0003.html" tabindex="-1">10607</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0002.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Lot%20Has%20Happened%20To%20Say%20The%20Least-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Lot%20Has%20Happened%20To%20Say%20The%20Least-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Lot%20Has%20Happened%20To%20Say%20The%20Least.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10606" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0002.html" tabindex="-1">10606</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0001.html"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10605" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0001.html" tabindex="-1">10605</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="sista-ro-spirit-extreme-heat" style="--pale:#DED6A9;--deep:#493F08" aria-label="Sista Ro Spirit Extreme Heat">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/sista-ro-spirit-extreme-heat/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Sista Ro Spirit Extreme Heat</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0008.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09352" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0008.html" tabindex="-1">09352</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0007.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20206-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20206-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20206.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09351" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0007.html" tabindex="-1">09351</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0006.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20205-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20205-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20205.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09350" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0006.html" tabindex="-1">09350</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0005.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20204-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20204-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20204.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09349" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0005.html" tabindex="-1">09349</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0004.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20203-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20203-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20203.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09348" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0004.html" tabindex="-1">09348</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0003.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20202-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20202-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09347" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0003.html" tabindex="-1">09347</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0002.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20201-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20201-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09346" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0002.html" tabindex="-1">09346</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0001.html"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09345" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0001.html" tabindex="-1">09345</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="like-a-dying-monopoly-wish" style="--pale:#E3D2C7;--deep:#53392A" aria-label="Like A Dying Monopoly Wish">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/like-a-dying-monopoly-wish/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Like A Dying Monopoly Wish</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0012.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09292" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0012.html" tabindex="-1">09292</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0011.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20II-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20II-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20II.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09291" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0011.html" tabindex="-1">09291</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0010.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209C-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209C-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209C.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09290" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0010.html" tabindex="-1">09290</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0009.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209A-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209A-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/FP%209A.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09289" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0009.html" tabindex="-1">09289</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0008.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Forward%20Stokes%20Wild%20Aheeez%20Life-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Forward%20Stokes%20Wild%20Aheeez%20Life-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Forward%20Stokes%20Wild%20Aheeez%20Life.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09288" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0008.html" tabindex="-1">09288</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0007.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Cloro%20Feye-Nite%20Iscoteca%20II-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Cloro%20Feye-Nite%20Iscoteca%20II-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Cloro%20Feye-Nite%20Iscoteca%20II.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09287" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0007.html" tabindex="-1">09287</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0006.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Childz%20Play%20Art%20Dance%20Fire%20II-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Childz%20Play%20Art%20Dance%20Fire%20II-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Childz%20Play%20Art%20Dance%20Fire%20II.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09286" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0006.html" tabindex="-1">09286</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0005.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Bending%20Rebar.00_14_55_27.Still054-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Bending%20Rebar.00_14_55_27.Still054-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/Bending%20Rebar.00_14_55_27.Still054.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09285" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0005.html" tabindex="-1">09285</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0004.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/A%20Soldier%20An%20Elder%20and%20Extra%20Additives%20Mix-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/A%20Soldier%20An%20Elder%20and%20Extra%20Additives%20Mix-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/A%20Soldier%20An%20Elder%20and%20Extra%20Additives%20Mix.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09284" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0004.html" tabindex="-1">09284</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0003.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/3944-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/3944-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/3944.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09283" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0003.html" tabindex="-1">09283</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0002.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/1831-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/1831-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/1831.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09282" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0002.html" tabindex="-1">09282</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0001.html"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09281" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0001.html" tabindex="-1">09281</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="hot-climate" style="--pale:#E8D0C2;--deep:#633215" aria-label="Hot Climate">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/hot-climate/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Hot Climate</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0012.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09117" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0012.html" tabindex="-1">09117</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0011.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2022-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2022-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2022.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09116" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0011.html" tabindex="-1">09116</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0010.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2021-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2021-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2021.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09115" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0010.html" tabindex="-1">09115</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0009.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2020.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09114" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0009.html" tabindex="-1">09114</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0008.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2012-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2012-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2012.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09113" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0008.html" tabindex="-1">09113</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0007.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2011-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2011-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2011.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09112" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0007.html" tabindex="-1">09112</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0006.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2010-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2010-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09111" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0006.html" tabindex="-1">09111</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0005.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%208-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%208-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%208.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09110" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0005.html" tabindex="-1">09110</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0004.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%207-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%207-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%207.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09109" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0004.html" tabindex="-1">09109</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0003.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%206-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%206-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%206.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09108" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0003.html" tabindex="-1">09108</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0002.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%205-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%205-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%205.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09107" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0002.html" tabindex="-1">09107</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0001.html"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09106" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0001.html" tabindex="-1">09106</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="earthy-mushroom-cloud-test" style="--pale:#E5D1C2;--deep:#543824" aria-label="Earthy Mushroom Cloud Test">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/earthy-mushroom-cloud-test/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Earthy Mushroom Cloud Test</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.3304"><a href="/digital/earthy-mushroom-cloud-test/0012.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09097" width="600" height="451" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0012.html" tabindex="-1">09097</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7517"><a href="/digital/earthy-mushroom-cloud-test/0011.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2019-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2019-600.webp 451w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2019.webp 1502w" sizes="(max-width: 700px) 40vw, 280px" alt="09096" width="451" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0011.html" tabindex="-1">09096</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.6883"><a href="/digital/earthy-mushroom-cloud-test/0010.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2017-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2017-600.webp 413w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2017.webp 1376w" sizes="(max-width: 700px) 40vw, 280px" alt="09095" width="413" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0010.html" tabindex="-1">09095</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7367"><a href="/digital/earthy-mushroom-cloud-test/0009.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2015-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2015-600.webp 442w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2015.webp 1473w" sizes="(max-width: 700px) 40vw, 280px" alt="09094" width="442" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0009.html" tabindex="-1">09094</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.8350"><a href="/digital/earthy-mushroom-cloud-test/0008.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2012-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2012-600.webp 501w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2012.webp 1669w" sizes="(max-width: 700px) 40vw, 280px" alt="09093" width="501" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0008.html" tabindex="-1">09093</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.8600"><a href="/digital/earthy-mushroom-cloud-test/0007.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2010-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2010-600.webp 516w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2010.webp 1720w" sizes="(max-width: 700px) 40vw, 280px" alt="09092" width="516" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0007.html" tabindex="-1">09092</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7533"><a href="/digital/earthy-mushroom-cloud-test/0006.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%209-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%209-600.webp 452w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%209.webp 1507w" sizes="(max-width: 700px) 40vw, 280px" alt="09091" width="452" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0006.html" tabindex="-1">09091</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7200"><a href="/digital/earthy-mushroom-cloud-test/0005.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%207-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%207-600.webp 432w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%207.webp 1440w" sizes="(max-width: 700px) 40vw, 280px" alt="09090" width="432" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0005.html" tabindex="-1">09090</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.8750"><a href="/digital/earthy-mushroom-cloud-test/0004.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%205-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%205-600.webp 525w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%205.webp 1751w" sizes="(max-width: 700px) 40vw, 280px" alt="09089" width="525" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0004.html" tabindex="-1">09089</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.8683"><a href="/digital/earthy-mushroom-cloud-test/0003.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%204-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%204-600.webp 521w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%204.webp 1736w" sizes="(max-width: 700px) 40vw, 280px" alt="09088" width="521" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0003.html" tabindex="-1">09088</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7667"><a href="/digital/earthy-mushroom-cloud-test/0002.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%203-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%203-600.webp 460w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%203.webp 1533w" sizes="(max-width: 700px) 40vw, 280px" alt="09087" width="460" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0002.html" tabindex="-1">09087</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.8467"><a href="/digital/earthy-mushroom-cloud-test/0001.html"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp 508w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201.webp 1692w" sizes="(max-width: 700px) 40vw, 280px" alt="09086" width="508" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0001.html" tabindex="-1">09086</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="heavy-smog-mea-aveh" style="--pale:#E4D0CE;--deep:#593531" aria-label="Heavy Smog Mea Aveh">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/heavy-smog-mea-aveh/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Heavy Smog Mea Aveh</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0016.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08774" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0016.html" tabindex="-1">08774</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0015.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2020.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08773" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0015.html" tabindex="-1">08773</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0014.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2018-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2018-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2018.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08772" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0014.html" tabindex="-1">08772</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0013.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2017-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2017-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2017.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08771" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0013.html" tabindex="-1">08771</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0012.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2015-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2015-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2015.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08770" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0012.html" tabindex="-1">08770</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0011.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2014-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2014-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2014.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08769" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0011.html" tabindex="-1">08769</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0010.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2013-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2013-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2013.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08768" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0010.html" tabindex="-1">08768</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0009.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2012-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2012-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2012.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08767" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0009.html" tabindex="-1">08767</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0008.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2010-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2010-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08766" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0008.html" tabindex="-1">08766</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0007.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%208-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%208-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%208.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08765" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0007.html" tabindex="-1">08765</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0006.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%207-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%207-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%207.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08764" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0006.html" tabindex="-1">08764</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0005.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%206-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%206-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%206.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08763" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0005.html" tabindex="-1">08763</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0004.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%205-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%205-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%205.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08762" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0004.html" tabindex="-1">08762</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0003.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%204-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%204-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%204.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08761" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0003.html" tabindex="-1">08761</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0002.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%203-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%203-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%203.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08760" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0002.html" tabindex="-1">08760</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0001.html"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08759" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0001.html" tabindex="-1">08759</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="climate-hand-smoke-voice" style="--pale:#E7D1C0;--deep:#5E3414" aria-label="Climate Hand Smoke Voice">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/climate-hand-smoke-voice/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Climate Hand Smoke Voice</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0010.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08010" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0010.html" tabindex="-1">08010</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0009.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2023-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2023-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2023.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08009" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0009.html" tabindex="-1">08009</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0008.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2022-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2022-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2022.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08008" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0008.html" tabindex="-1">08008</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0007.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2021-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2021-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2021.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08007" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0007.html" tabindex="-1">08007</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0006.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2020.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08006" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0006.html" tabindex="-1">08006</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0005.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2019-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2019-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2019.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08005" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0005.html" tabindex="-1">08005</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0004.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2018-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2018-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2018.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08004" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0004.html" tabindex="-1">08004</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0003.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%204-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%204-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%204.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08003" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0003.html" tabindex="-1">08003</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0002.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%203-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%203-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%203.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08002" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0002.html" tabindex="-1">08002</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0001.html"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08001" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0001.html" tabindex="-1">08001</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="conflict-zone-fragments-pages" style="--pale:#DDD3CC;--deep:#4B3B32" aria-label="Conflict Zone Fragments Pages">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/conflict-zone-fragments-pages/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Conflict Zone Fragments Pages</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0032.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07442" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0032.html" tabindex="-1">07442</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0031.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_31_19.Still031-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_31_19.Still031-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_31_19.Still031.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07441" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0031.html" tabindex="-1">07441</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0030.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_26_20.Still030-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_26_20.Still030-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_26_20.Still030.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07440" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0030.html" tabindex="-1">07440</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0029.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_21_19.Still029-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_21_19.Still029-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_21_19.Still029.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07439" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0029.html" tabindex="-1">07439</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0028.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_16_17.Still028-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_16_17.Still028-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_16_17.Still028.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07438" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0028.html" tabindex="-1">07438</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0027.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_11_21.Still027-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_11_21.Still027-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_11_21.Still027.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07437" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0027.html" tabindex="-1">07437</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0026.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_06_21.Still026-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_06_21.Still026-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_06_21.Still026.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07436" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0026.html" tabindex="-1">07436</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0025.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_01_23.Still025-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_01_23.Still025-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_01_23.Still025.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07435" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0025.html" tabindex="-1">07435</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0024.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_56_22.Still024-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_56_22.Still024-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_56_22.Still024.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07434" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0024.html" tabindex="-1">07434</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0023.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_51_26.Still023-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_51_26.Still023-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_51_26.Still023.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07433" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0023.html" tabindex="-1">07433</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0022.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_46_26.Still022-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_46_26.Still022-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_46_26.Still022.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07432" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0022.html" tabindex="-1">07432</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0021.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_42_00.Still021-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_42_00.Still021-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_42_00.Still021.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07431" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0021.html" tabindex="-1">07431</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0020.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_36_25.Still020-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_36_25.Still020-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_36_25.Still020.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07430" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0020.html" tabindex="-1">07430</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0019.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_32_01.Still019-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_32_01.Still019-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_32_01.Still019.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07429" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0019.html" tabindex="-1">07429</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0018.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_27_00.Still018-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_27_00.Still018-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_27_00.Still018.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07428" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0018.html" tabindex="-1">07428</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0017.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_22_01.Still017-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_22_01.Still017-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_22_01.Still017.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07427" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0017.html" tabindex="-1">07427</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0016.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_17_00.Still016-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_17_00.Still016-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_17_00.Still016.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07426" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0016.html" tabindex="-1">07426</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0015.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_12_03.Still015-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_12_03.Still015-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_12_03.Still015.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07425" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0015.html" tabindex="-1">07425</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0014.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_06_29.Still014-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_06_29.Still014-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_06_29.Still014.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07424" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0014.html" tabindex="-1">07424</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0013.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_02_05.Still013-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_02_05.Still013-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_01_02_05.Still013.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07423" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0013.html" tabindex="-1">07423</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0012.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_57_04.Still012-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_57_04.Still012-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_57_04.Still012.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07422" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0012.html" tabindex="-1">07422</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0011.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_52_04.Still011-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_52_04.Still011-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_52_04.Still011.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07421" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0011.html" tabindex="-1">07421</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0010.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_47_04.Still010-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_47_04.Still010-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_47_04.Still010.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07420" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0010.html" tabindex="-1">07420</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0009.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_42_05.Still009-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_42_05.Still009-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_42_05.Still009.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07419" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0009.html" tabindex="-1">07419</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0008.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_37_03.Still008-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_37_03.Still008-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_37_03.Still008.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07418" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0008.html" tabindex="-1">07418</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0007.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_32_15.Still007-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_32_15.Still007-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_32_15.Still007.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07417" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0007.html" tabindex="-1">07417</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0006.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_27_05.Still006-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_27_05.Still006-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_27_05.Still006.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07416" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0006.html" tabindex="-1">07416</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0005.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_22_12.Still005-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_22_12.Still005-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_22_12.Still005.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07415" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0005.html" tabindex="-1">07415</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0004.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_17_08.Still004-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_17_08.Still004-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_17_08.Still004.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07414" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0004.html" tabindex="-1">07414</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0003.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_12_17.Still003-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_12_17.Still003-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_12_17.Still003.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07413" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0003.html" tabindex="-1">07413</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0002.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_07_12.Still002-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_07_12.Still002-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_07_12.Still002.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07412" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0002.html" tabindex="-1">07412</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0001.html"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07411" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0001.html" tabindex="-1">07411</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="we-did-not-want-to-become-this" style="--pale:#DFD3D4;--deep:#4F393B" aria-label="We Did Not Want To Become This">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/we-did-not-want-to-become-this/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">We Did Not Want To Become This</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0008.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06739" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0008.html" tabindex="-1">06739</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0007.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20104-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20104-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20104.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06738" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0007.html" tabindex="-1">06738</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0006.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20103-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20103-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20103.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06737" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0006.html" tabindex="-1">06737</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0005.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20102-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20102-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20102.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06736" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0005.html" tabindex="-1">06736</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0004.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20101-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20101-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20101.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06735" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0004.html" tabindex="-1">06735</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0003.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20100-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20100-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20100.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06734" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0003.html" tabindex="-1">06734</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0002.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%2010-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%2010-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06733" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0002.html" tabindex="-1">06733</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0001.html"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06732" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0001.html" tabindex="-1">06732</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="signs-of-damage" style="--pale:#D6D4D2;--deep:#413E3B" aria-label="Signs Of Damage">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/signs-of-damage/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">Signs Of Damage</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0008.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06000" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0008.html" tabindex="-1">06000</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0007.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2012-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2012-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2012.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05999" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0007.html" tabindex="-1">05999</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0006.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2011-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2011-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2011.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05998" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0006.html" tabindex="-1">05998</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0005.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20103-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20103-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20103.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05997" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0005.html" tabindex="-1">05997</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0004.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20102-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20102-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20102.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05996" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0004.html" tabindex="-1">05996</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0003.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20101-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20101-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20101.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05995" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0003.html" tabindex="-1">05995</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0002.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20100-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20100-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%20100.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05994" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0002.html" tabindex="-1">05994</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0001.html"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05993" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0001.html" tabindex="-1">05993</a></figcaption></figure>
+</div></div>
+</section>
+<section class="sh-gallery" id="boiling-point" style="--pale:#DBD3CF;--deep:#493C37" aria-label="Boiling Point">
+<div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/boiling-point/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">Boiling Point</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
+<div class="sh-wall">
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0008.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03277" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0008.html" tabindex="-1">03277</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0007.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20104-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20104-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20104.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03276" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0007.html" tabindex="-1">03276</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0006.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20103-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20103-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20103.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03275" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0006.html" tabindex="-1">03275</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0005.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20102-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20102-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20102.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03274" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0005.html" tabindex="-1">03274</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0004.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20101-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20101-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20101.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03273" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0004.html" tabindex="-1">03273</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0003.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20100-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20100-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20100.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03272" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0003.html" tabindex="-1">03272</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0002.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%2010-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%2010-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03271" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0002.html" tabindex="-1">03271</a></figcaption></figure>
+<figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0001.html"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%201-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03270" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0001.html" tabindex="-1">03270</a></figcaption></figure>
+</div></div>
+</section>
+<nav class="sh-way" aria-label="The way on"><a class="sh-link" href="/"><span class="sh-arr-back" aria-hidden="true">&larr;</span> The front page</a></nav>
+</div>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+
+<script src="/nav.js"></script>
+<script src="/shelter-of-tomorrows-pathetic-overconfidence.js"></script>
+</body>
+</html>

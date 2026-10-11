@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Hollow Cheek: the fourth of the five footer rooms. The grief work.
+   Dressed in the design draft HTML DOCS\INDEX-FRONT-DOOR-SAVED.html (the
+   saved dark front door: on the warm near-black, one picture at the centre
+   of the window, and under it the words stacked down the middle, each a way
+   in, turning gold under the hand), which no live page wears.
+   Kept from the draft: its ground, #14100c; the centre line, everything on
+   it and nothing to either side; the picture at the centre, at most 520
+   pixels wide (60 per cent of the window, and wider on a phone); the 56
+   pixels between the picture and the words; the words stacked, 32 pixels
+   (24 on a phone), 22 pixels apart, bare at rest, turning to the draft's
+   gold under the hand, which is the site's Accent in its dark value.
+   The room carries the draft's one screen down the page: the arrival is the
+   draft's screen itself (one picture, the name, two words);
+   then the writings, their titles stacked down the centre; then each
+   gallery, its name stacked above and its pictures one under another down
+   the centre, each whole, its number under it.
+   Left out: its own header and footer (the site's chrome stands), the
+   letter spacing and the Lora (Lora is only the wordmark: Archivo 600 in
+   its place). No sentence explains the room: Reach, September 25, 2026,
+   "I just want the work to speak for itself."
+   The grounds: the draft's near-black for the arrival, the writings and the
+   way on; each gallery on its own deep, read from its own pictures, a flat
+   band edge to edge. The room is dark in Light, Dark and Auto alike; its
+   words are Ink's dark value, 7 to 1 or better on every ground.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): every picture whole, never
+   cropped; nothing under 16 pixels; words in the four named colours; the
+   arrows slide; touch gets its own version; less motion gets none; nothing
+   waits more than about a second.
+   ========================================================================== */
+
+:root {
+  --hc-ink: #e8e0d6;      /* Ink's dark value */
+  --hc-soft: #b3aa9f;     /* Soft ink's dark value; only on the draft's near-black, 8.3 to 1 */
+  --hc-gold: #d4a574;     /* Accent's dark value: the draft's own gold */
+  --hc-pic: min(60vw, 520px);
+  --hc-gap: 56px;         /* the draft's, between the picture and the words */
+  --hc-air: 144px;        /* between one station and the next */
+}
+
+.hc-room { background: var(--hc-ground); color: var(--hc-ink); overflow-x: clip; }
+.hc-room a { color: inherit; text-decoration: none; }
+.hc-room :focus-visible { outline: 2px solid var(--hc-ink); outline-offset: 6px; }
+.hc-arr, .hc-arr-back { display: inline-block; transition: transform 0.2s ease; }
+
+/* ---------- the draft's screen: everything on the centre line ---------- */
+.hc-station {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: var(--hc-air) 24px; scroll-margin-top: 0;
+}
+.hc-pic { display: block; line-height: 0; }
+/* each picture whole at its own shape: as wide as the draft allows, never taller than most of the window */
+.hc-pic img { display: block; width: min(var(--hc-pic), calc(70vh * var(--ar))); height: auto; object-fit: contain; }
+
+/* 1. the arrival: the draft's screen itself, the height of the window under the header */
+.hc-arrival {
+  min-height: calc(100vh - var(--hc-top, 122px)); min-height: calc(100svh - var(--hc-top, 122px));
+  justify-content: center; gap: 40px; padding-top: 56px; padding-bottom: 56px;
+}
+.hc-arrival .hc-pic img { width: min(var(--hc-pic), calc(52vh * var(--ar))); width: min(var(--hc-pic), calc(52svh * var(--ar))); }
+.hc-name {
+  margin: 16px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(48px, 6.6vw, 104px); line-height: 1; letter-spacing: -0.01em; color: var(--hc-ink);
+}
+.hc-stack { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.hc-stack a, .hc-gal a, .hc-link {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 32px; line-height: 1.2; transition: color 0.15s ease;
+}
+.hc-stack a:hover, .hc-stack a:focus-visible, .hc-gal a:hover, .hc-gal a:focus-visible,
+.hc-link:hover, .hc-link:focus-visible { color: var(--hc-gold); }
+
+/* 2. the writings: their titles stacked down the centre, newest first */
+.hc-head {
+  margin: 0 0 var(--hc-gap); font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 64px); line-height: 1.05; color: var(--hc-ink);
+}
+.hc-list { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 940px; display: flex; flex-direction: column; gap: 22px; }
+.hc-word { display: inline-flex; flex-direction: column; align-items: center; padding: 6px 0; }
+.hc-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.2;
+  text-wrap: balance; transition: color 0.15s ease;
+}
+.hc-sub { margin-top: 6px; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.5; color: var(--hc-soft); }
+.hc-word:hover .hc-title, .hc-word:focus-visible .hc-title { color: var(--hc-gold); }
+
+/* 3. the pictures: each gallery on its own deep, a band edge to edge */
+.hc-pictures-head { display: block; text-align: center; padding: 0 24px 96px; margin: 0; }
+.hc-gallery { background: var(--seat); gap: var(--hc-gap); }
+.hc-gal { margin: 0; }
+.hc-gal a:hover .hc-arr, .hc-gal a:focus-visible .hc-arr { transform: translateX(4px); }
+.hc-fig { margin: 0; display: flex; flex-direction: column; align-items: center; }
+.hc-fig figcaption { margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.4; transition: color 0.15s ease; }
+.hc-fig:hover figcaption, .hc-fig:focus-within figcaption { color: var(--hc-gold); }
+
+/* 4. the way on */
+.hc-way { padding-top: var(--hc-air); padding-bottom: 160px; }
+.hc-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(232, 224, 214, 0.4); min-width: min(100%, 320px); }
+.hc-link:hover .hc-arr-back, .hc-link:focus-visible .hc-arr-back { transform: translateX(-4px); }
+
+/* the stations arrive as they are reached, within a second */
+.hc-js .hc-will { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.hc-js .hc-will.is-in { opacity: 1; transform: none; }
+
+/* ---------- a phone: the draft's own sizes for a narrow window ---------- */
+@media (max-width: 700px) {
+  :root { --hc-pic: 80vw; --hc-gap: 40px; --hc-air: 96px; }
+  .hc-station { padding-left: 16px; padding-right: 16px; }
+  .hc-arrival { gap: 28px; }
+  .hc-stack { gap: 18px; }
+  .hc-stack a, .hc-gal a, .hc-link { font-size: 24px; }
+  .hc-title { font-size: 22px; }
+  .hc-pic img { width: min(var(--hc-pic), calc(76vh * var(--ar))); }
+  .hc-way { padding-bottom: 112px; }
+}
+
+/* ---------- less motion: everything stands still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hc-js .hc-will { opacity: 1; transform: none; transition: none; }
+  .hc-arr, .hc-arr-back, .hc-title, .hc-stack a, .hc-gal a, .hc-link, .hc-fig figcaption { transition: none; }
+}

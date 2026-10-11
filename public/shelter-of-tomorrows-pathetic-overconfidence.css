@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Shelter of Tomorrow's Pathetic Overconfidence: the fifth of the five
+   footer rooms. The warning pieces.
+   Dressed in the design draft HTML DOCS\WRITINGS-CATALOGUE-2026-09-24.html
+   (the plain catalogue: one column 768 pixels wide, a heading, then ruled
+   rows, each with a small year on the left, the name, and a small detail
+   on the right, a hairline above each row and under the last, the whole
+   row tinted under the hand, the rows stacking on a phone), which no live
+   page wears.
+   Kept from the draft: the column and its padding (64 above, 24 at the
+   sides, 96 below; 48, 16 and 64 on a phone); the heading at 44 pixels (32
+   on a phone); the rows, 20 pixels above and below, the name at 20 pixels,
+   the year and the detail beside it; the hairline at 12 per cent of the
+   ink; the tint at 6 per cent under the hand, and on touch while pressed.
+   The room carries the catalogue down the page: the writings, one row
+   each, newest first (the year, the title, its kind and reading time);
+   then each gallery, a flat band edge to edge in its own tone read from its
+   own pictures, its ruled row (Collage or Placings, its name, an arrow),
+   and under it its pictures whole in rows of one height, each with its
+   number under it.
+   Left out: its own header and footer (the site's chrome stands), DM Sans
+   (Archivo 600 for the heading and the two labels, Inter for the rows), the
+   intro line and the counts. No sentence explains the room: Reach,
+   September 25, 2026, "I just want the work to speak for itself."
+   The room follows Light, Dark and Auto: the ground and the words are the
+   site's own named colours; each band is its pale in Light and its deep in
+   Dark; the words on a band are Ink (12 to 1 or better on the pale, 7 to 1
+   or better on the deep).
+   Made to the charter (SITE-ORDER\THE-LOOK.md): every picture whole, never
+   cropped; nothing under 16 pixels; words in the four named colours; the
+   arrows slide; touch gets its own version; less motion gets none; nothing
+   waits more than about a second.
+   ========================================================================== */
+
+:root {
+  --sh-rule: color-mix(in srgb, var(--ink) 12%, transparent);   /* the draft's hairline */
+  --sh-tint: color-mix(in srgb, var(--ink) 6%, transparent);    /* the draft's tint under the hand */
+  --sh-h: 112px;                                                /* the height of a row of pictures */
+}
+
+.sh-room { background: var(--ground); color: var(--ink); overflow-x: clip; }
+.sh-room a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.sh-room :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- the draft's column ---------- */
+.sh-name, .sh-part, .sh-in, .sh-way {
+  box-sizing: border-box; width: 100%; max-width: 768px; margin-left: auto; margin-right: auto;
+  padding-left: 24px; padding-right: 24px;
+}
+.sh-name {
+  margin-top: 0; margin-bottom: 0; padding-top: 64px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 44px; line-height: 1.15;
+  color: var(--ink); text-wrap: balance;
+}
+.sh-label {
+  margin: 64px 0 16px; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--ink);
+}
+
+/* ---------- the ruled rows ---------- */
+.sh-rows { list-style: none; margin: 0; padding: 0; }
+.sh-rows li { border-top: 1px solid var(--sh-rule); }
+.sh-rows li:last-child { border-bottom: 1px solid var(--sh-rule); }
+.sh-row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 20px 0; font-family: 'Inter', sans-serif;
+}
+.sh-left { display: flex; align-items: baseline; gap: 16px; min-width: 0; }
+.sh-year { flex: 0 0 auto; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.sh-title { font-size: 20px; font-weight: 500; line-height: 1.4; color: var(--ink); }
+.sh-kind { flex: 0 0 auto; font-size: 16px; line-height: 1.5; color: var(--ink-soft); white-space: nowrap; }
+@media (hover: hover) and (min-width: 701px) {
+  .sh-row:hover { background: var(--sh-tint); }
+}
+@media (hover: none) {
+  .sh-row:active { background: var(--sh-tint); }
+}
+.sh-arr, .sh-arr-back { display: inline-block; transition: transform 0.2s ease; }
+
+/* ---------- the pictures: each gallery a band edge to edge in its own tone ---------- */
+.sh-pictures { padding-bottom: 8px; }
+.sh-pictures .sh-label { margin-bottom: 24px; }
+.sh-gallery { background: var(--pale); }
+html[data-theme="dark"] .sh-gallery { background: var(--deep); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sh-gallery { background: var(--deep); }
+}
+.sh-in { padding-top: 40px; padding-bottom: 48px; }
+/* on a band every word is Ink, never the soft one: words on a band stay at 7 to 1 or better */
+.sh-gallery .sh-year, .sh-gallery .sh-kind { color: var(--ink); }
+.sh-gal-row { border-top: 1px solid var(--sh-rule); border-bottom: 1px solid var(--sh-rule); }
+.sh-gal-row .sh-title { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.25; }
+.sh-gal-row .sh-kind { font-size: 20px; }
+.sh-gal-row:hover .sh-arr, .sh-gal-row:focus-visible .sh-arr { transform: translateX(4px); }
+
+/* each picture whole at its own shape, in rows of one height; a row never stretches one picture past 1.6 times */
+.sh-wall { display: flex; flex-wrap: wrap; gap: 20px 14px; margin-top: 28px; }
+.sh-wall::after { content: ""; flex: 1000 1 0; }
+.sh-fig {
+  margin: 0; min-width: 0;
+  flex: var(--ar) 1 calc(var(--ar) * var(--sh-h)); max-width: calc(var(--ar) * var(--sh-h) * 1.6);
+}
+.sh-fig > a { display: block; line-height: 0; }
+.sh-fig img { display: block; width: 100%; height: auto; }
+.sh-fig figcaption { margin-top: 8px; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; color: var(--ink); }
+.sh-fig figcaption a { text-underline-offset: 3px; }
+.sh-fig:hover figcaption a, .sh-fig:focus-within figcaption a { text-decoration: underline; }
+
+/* ---------- the way on ---------- */
+.sh-way { padding-top: 64px; padding-bottom: 96px; }
+.sh-link {
+  display: inline-block; padding-top: 24px; border-top: 1px solid var(--sh-rule); min-width: min(100%, 320px);
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px; line-height: 1.4;
+}
+.sh-link:hover .sh-arr-back, .sh-link:focus-visible .sh-arr-back { transform: translateX(-4px); }
+
+/* the rows and the walls arrive as they are reached, within a second */
+.sh-js .sh-will { opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.sh-js .sh-will.is-in { opacity: 1; transform: none; }
+
+/* ---------- a phone: the draft's own narrow shape ---------- */
+@media (max-width: 700px) {
+  :root { --sh-h: 84px; }
+  .sh-name, .sh-part, .sh-in, .sh-way { padding-left: 16px; padding-right: 16px; }
+  .sh-name { padding-top: 48px; font-size: 32px; }
+  .sh-label { margin-top: 48px; }
+  .sh-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .sh-left { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .sh-gal-row { flex-direction: row; align-items: baseline; }
+  .sh-gal-row .sh-left { gap: 2px; }
+  .sh-wall { gap: 16px 10px; }
+  .sh-in { padding-top: 32px; padding-bottom: 40px; }
+  .sh-way { padding-top: 48px; padding-bottom: 64px; }
+}
+
+/* ---------- less motion: everything stands still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sh-js .sh-will { opacity: 1; transform: none; transition: none; }
+  .sh-arr, .sh-arr-back { transition: none; }
+}

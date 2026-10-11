@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Tongue-Filled: the third of the five footer rooms. The writings made of
+   sound, and the pictures whose names are sounds.
+   Dressed in the design draft HTML DOCS\TYPE_A.html ("Stories, Layout
+   Draft": a museum's stories hub, one layout tried in three pairs of faces
+   as TYPE_A, TYPE_B and TYPE_C), which no live page wears.
+   Kept from the draft: the hero the height of the window, a seat edge to
+   edge with a dark shade rising from its foot and the name very large at
+   the foot on the left; the round pause button at the foot on the right;
+   the slate band under it with its row of words, one bar between each,
+   each underlined under the hand; the section bands, each opened by its name;
+   the tiles edge to edge with no gap between them, in rows of two (3 to 2)
+   and rows of three (4 to 3), a whole-width tile the height of the window
+   opening a section; each tile's words at its foot on the left, a title
+   line and a short line under it; the round disc with its glyph (three
+   lines for reading, a plus for a picture) that turns white under the hand.
+   Left out: its own header and footer (the site's chrome stands), the
+   intro paragraph, the "NEW!" heading, the chips, the capitals, and the
+   underline on a title under the hand. No sentence explains the room:
+   Reach, September 25, 2026, "I just want the work to speak for itself."
+   The disc sits in the tile's words at the foot, not over the picture, so
+   no picture is ever covered; touch sees it at rest.
+   The seats: each writing's tile carries its first lines, set large, the
+   sound of it; its seat is the deep of one of the room's pictures, in the
+   room's order. Each picture stands whole on its own deep; the four
+   logotypes drawn dark stand on a pale. The room is dark in Light, Dark
+   and Auto alike; its words are Ink's dark value (Ink's light value on the
+   pale), 7.2 to 1 or better everywhere.
+   Made to the charter (SITE-ORDER\THE-LOOK.md): every picture whole, never
+   cropped; nothing under 16 pixels; words in the four named colours; the
+   arrows slide; touch gets its own version; less motion gets none; nothing
+   waits more than about a second.
+   ========================================================================== */
+
+:root {
+  --tf-ink: #e8e0d6;            /* Ink's dark value; on the band 7.3 to 1, on every deep 7.2 to 1 or better */
+  --tf-ink-on-pale: #111111;    /* Ink's light value; on the pale 16.1 to 1 */
+  --tf-margin: clamp(24px, 7.36vw, 106px);   /* the draft's 106 pixels at its width, the charter's 24 on a phone */
+  --tf-inset: clamp(24px, 3.4vw, 48px);      /* inside a tile */
+  --tf-cap: 132px;                            /* the room for a tile's words at its foot */
+}
+
+.tf-room { background: var(--tf-band); color: var(--tf-ink); overflow-x: clip; }
+.tf-room a { color: inherit; text-decoration: none; }
+.tf-room :focus-visible { outline: 2px solid var(--tf-ink); outline-offset: -4px; }
+.tf-arr, .tf-arr-back { display: inline-block; transition: transform 0.2s ease; }
+
+/* ---------- 1. the hero: the draft's seat, the height of the window ---------- */
+.tf-hero { position: relative; height: calc(100vh - var(--tf-top, 122px)); height: calc(100svh - var(--tf-top, 122px)); min-height: 480px; overflow: hidden; }
+.tf-hero-pics { position: absolute; inset: 0; }
+.tf-hero-pic {
+  position: absolute; inset: 0; margin: 0; background: var(--seat);
+  display: flex; align-items: center; justify-content: center;
+  padding: 12vh var(--tf-margin) calc(clamp(64px, 8.4vw, 120px) + 140px);
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.tf-hero-pic.is-on { opacity: 1; }
+.tf-hero-pic img { width: auto; height: auto; max-width: min(100%, 900px); max-height: 100%; object-fit: contain; }
+.tf-hero-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.6) 100%); }
+.tf-hero-cap { position: absolute; left: var(--tf-margin); right: calc(var(--tf-margin) + 96px); bottom: 62px; }
+.tf-name {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 8.4vw, 120px); line-height: 1; letter-spacing: -0.01em; color: var(--tf-ink);
+}
+.tf-pause {
+  position: absolute; right: var(--tf-margin); bottom: 62px; width: 65px; height: 65px; border: 0; border-radius: 50%;
+  background: rgba(232, 224, 214, 0.25); color: var(--tf-ink); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: background 0.15s ease;
+}
+.tf-pause:hover { background: var(--tf-ink); }
+.tf-pause-bars { display: flex; gap: 5px; }
+.tf-pause-bars span { display: block; width: 4px; height: 16px; background: #000; }
+.tf-pause.is-paused .tf-pause-bars { gap: 0; }
+.tf-pause.is-paused .tf-pause-bars span:first-child { width: 0; height: 0; background: none; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 16px solid #000; margin-left: 4px; }
+.tf-pause.is-paused .tf-pause-bars span:last-child { display: none; }
+.tf-pause:focus-visible { outline-offset: 4px; }
+
+/* ---------- 2. the bands: the room's sections, the section names, the way on ---------- */
+.tf-band { background: var(--tf-band); padding-left: var(--tf-margin); padding-right: var(--tf-margin); }
+.tf-filters {
+  display: flex; flex-wrap: wrap; align-items: center; row-gap: 12px;
+  padding-top: 60px; padding-bottom: 32px;
+  font-family: 'Inter', sans-serif; font-size: 21px; line-height: 25px;
+}
+.tf-filters a { position: relative; display: inline-flex; align-items: center; min-height: 44px; }
+.tf-filters a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.2s ease; }
+.tf-filters a:hover::after, .tf-filters a:focus-visible::after { transform: scaleX(1); }
+.tf-bar { width: 1px; height: 20px; background: var(--tf-ink); margin: 0 18px; flex: none; }
+.tf-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-top: 92px; padding-bottom: 32px; }
+.tf-head h2 { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.15; color: var(--tf-ink); }
+.tf-gal, .tf-link { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; white-space: nowrap; }
+.tf-gal:hover .tf-arr, .tf-gal:focus-visible .tf-arr { transform: translateX(4px); }
+.tf-section { scroll-margin-top: 0; }
+.tf-way { padding-top: 92px; padding-bottom: 120px; }
+.tf-way .tf-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(232, 224, 214, 0.4); min-width: min(100%, 320px); }
+.tf-link:hover .tf-arr-back, .tf-link:focus-visible .tf-arr-back { transform: translateX(-4px); }
+
+/* ---------- 3. the tiles: edge to edge, no gap, in rows of two and three ---------- */
+.tf-row { display: grid; gap: 0; }
+.tf-row-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tf-row-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tf-row-one { grid-template-columns: minmax(0, 1fr); }
+.tf-tile, .tf-full {
+  position: relative; display: block; overflow: hidden; background: var(--seat); color: var(--tf-ink);
+}
+.tf-row-two .tf-tile { aspect-ratio: 3 / 2; }
+.tf-row-three .tf-tile, .tf-row-one .tf-tile { aspect-ratio: 4 / 3; }
+.tf-full { height: 100vh; height: 100svh; min-height: 520px; }
+.tf-tile::before, .tf-full::before {   /* the draft's shade rising from the foot, under the words only */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--tf-cap) + 40px); pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.35));
+}
+.tf-room .tf-light { color: var(--tf-ink-on-pale); }
+.tf-light::before { background: none; }
+
+/* a picture: whole, in the room above its words */
+.tf-frame { position: absolute; left: var(--tf-inset); right: var(--tf-inset); top: var(--tf-inset); bottom: var(--tf-cap); display: flex; align-items: center; justify-content: center; }
+.tf-full .tf-frame { top: 72px; left: var(--tf-margin); right: var(--tf-margin); bottom: calc(var(--tf-cap) + 24px); }
+.tf-frame img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* a writing: its first lines, set large, the sound of it */
+.tf-sound {
+  position: absolute; left: var(--tf-inset); right: var(--tf-inset); top: var(--tf-inset);
+  display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--tf-ink);
+  font-size: clamp(20px, 2.2vw, 32px); line-height: 1.18; letter-spacing: -0.005em;
+  -webkit-line-clamp: 6;
+}
+.tf-row-three .tf-sound { font-size: clamp(19px, 1.65vw, 25px); -webkit-line-clamp: 6; }
+.tf-full .tf-sound { left: var(--tf-margin); right: var(--tf-margin); top: 72px; max-width: 1180px; font-size: clamp(30px, 4.4vw, 64px); line-height: 1.1; -webkit-line-clamp: 7; }
+
+/* the words at the foot: title, a short line; the disc beside them */
+.tf-cap {
+  position: absolute; left: var(--tf-inset); right: var(--tf-inset); bottom: 0; min-height: var(--tf-cap);
+  padding-bottom: 32px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+}
+.tf-full .tf-cap { left: var(--tf-margin); right: var(--tf-margin); padding-bottom: 58px; }
+.tf-cap-words { display: flex; flex-direction: column; min-width: 0; }
+.tf-label { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin-bottom: 10px; }
+.tf-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 21px; line-height: 1.3;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.tf-full .tf-title { font-size: clamp(24px, 2.2vw, 32px); }
+.tf-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 26px; margin-top: 4px; }
+.tf-disc {
+  flex: none; width: 56px; height: 56px; border-radius: 50%; background: rgba(232, 224, 214, 0.5);
+  display: flex; align-items: center; justify-content: center; transition: background 0.15s ease;
+}
+.tf-light .tf-disc { background: rgba(17, 17, 17, 0.12); }
+.tf-tile:hover .tf-disc, .tf-full:hover .tf-disc, .tf-tile:focus-visible .tf-disc, .tf-full:focus-visible .tf-disc { background: #fff; }
+.tf-light:hover .tf-disc, .tf-light:focus-visible .tf-disc { background: var(--tf-ink-on-pale); }
+.tf-glyph-lines { width: 18px; height: 18px; display: flex; flex-direction: column; justify-content: space-between; }
+.tf-glyph-lines span { display: block; height: 2px; background: #000; }
+.tf-glyph-lines span:nth-child(1) { width: 18px; }
+.tf-glyph-lines span:nth-child(2) { width: 12px; }
+.tf-glyph-lines span:nth-child(3) { width: 15px; }
+.tf-glyph-plus { position: relative; width: 18px; height: 18px; }
+.tf-glyph-plus::before, .tf-glyph-plus::after { content: ""; position: absolute; background: #000; }
+.tf-glyph-plus::before { left: 0; top: 8px; width: 18px; height: 2px; }
+.tf-glyph-plus::after { left: 8px; top: 0; width: 2px; height: 18px; }
+.tf-light:hover .tf-glyph-plus::before, .tf-light:hover .tf-glyph-plus::after,
+.tf-light:focus-visible .tf-glyph-plus::before, .tf-light:focus-visible .tf-glyph-plus::after { background: #fff; }
+.tf-light :focus-visible, .tf-light:focus-visible { outline-color: var(--tf-ink-on-pale); }
+
+/* the seats arrive as they are reached, within a second */
+.tf-js .tf-will { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s var(--ease, ease); }
+.tf-js .tf-will.is-in { opacity: 1; transform: none; }
+
+/* ---------- 4. narrower windows ---------- */
+@media (max-width: 1100px) {
+  .tf-row-three .tf-sound { -webkit-line-clamp: 5; }
+}
+@media (max-width: 900px) {
+  .tf-row-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tf-row-three .tf-tile { aspect-ratio: 3 / 2; }
+  .tf-row-three .tf-tile:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+}
+@media (max-width: 700px) {
+  :root { --tf-cap: 124px; }
+  .tf-row-two, .tf-row-three { grid-template-columns: minmax(0, 1fr); }
+  .tf-row-two .tf-tile, .tf-row-three .tf-tile, .tf-row-three .tf-tile:nth-child(3) { aspect-ratio: auto; }
+  /* on a phone a picture stands whole at the width of the window, its words under it */
+  .tf-pic { display: flex; flex-direction: column; }
+  .tf-pic .tf-frame { position: static; padding: 24px 24px 0; }
+  .tf-pic .tf-frame img { max-height: 70vh; }
+  .tf-pic .tf-cap { position: static; min-height: 0; padding: 20px 24px 28px; }
+  .tf-pic::before { display: none; }
+  .tf-full.tf-pic { height: auto; min-height: 0; }
+  .tf-full.tf-pic .tf-frame { padding-top: 32px; }
+  /* a writing keeps its seat: the first lines, then its words */
+  .tf-word { display: flex; flex-direction: column; min-height: 0; height: auto; }
+  .tf-word .tf-sound { position: static; padding: 28px 24px 0; font-size: 24px; -webkit-line-clamp: 5; }
+  .tf-row-three .tf-word .tf-sound { font-size: 24px; }
+  .tf-full.tf-word .tf-sound { font-size: 30px; -webkit-line-clamp: 7; padding-top: 40px; }
+  .tf-word .tf-cap { position: static; min-height: 0; padding: 24px 24px 28px; }
+  .tf-word::before { display: none; }
+  .tf-hero-pic { padding-bottom: 200px; }
+  .tf-hero-cap { bottom: 36px; right: calc(var(--tf-margin) + 80px); }
+  .tf-pause { bottom: 36px; }
+  .tf-filters { position: static; font-size: 19px; padding-top: 40px; }
+  .tf-bar { margin: 0 14px; }
+  .tf-head { flex-direction: column; gap: 12px; padding-top: 64px; }
+  .tf-head h2 { font-size: 28px; }
+  .tf-way { padding-top: 64px; padding-bottom: 88px; }
+}
+
+/* ---------- 5. less motion: everything stands still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .tf-hero-pic { transition: none; }
+  .tf-js .tf-will { opacity: 1; transform: none; transition: none; }
+  .tf-arr, .tf-arr-back, .tf-disc, .tf-filters a::after { transition: none; }
+  .tf-pause { display: none; }
+}
