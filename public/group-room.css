@@ -1,0 +1,59 @@
+/* The group pages of Collage, Placings and Marks: one band of colour taken from the group's own pictures,
+   edge to edge, carrying the way back, the name and the line under it; every word in the named colours,
+   ordinary words, no capitals, no spaced-out letters, no grey (the sixth cleanup, October 11, 2026).
+   Each page sets its two band colours on the band itself (--band-light, --band-dark); Ink reads on both
+   at 7 to 1 or better. The colours are kept in BUILD\group-band-tones.csv. */
+
+.group-band {
+  --band: var(--band-light, #e6e1da);
+  max-width: none;
+  margin: 0 0 56px;
+  padding: 72px max(24px, calc((100% - 1400px) / 2 + 24px)) 56px;
+  background: var(--band);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .group-band { --band: var(--band-dark, #2b2622); }
+}
+html[data-theme="dark"] .group-band { --band: var(--band-dark, #2b2622); }
+
+.group-band h1,
+.group-band .gallery-subhead,
+.group-band .gallery-eyebrow,
+.group-band .gallery-eyebrow a {
+  color: var(--ink);
+}
+.group-band h1 { margin: 0; }
+.group-band .gallery-subhead { font-size: 18px; line-height: 1.5; margin: 12px 0 0; }
+
+.group-band .gallery-eyebrow,
+.group-foot {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 1;
+}
+.group-band .gallery-eyebrow { margin: 0 0 16px; }
+.group-band .gallery-eyebrow a:hover,
+.group-foot a:hover { opacity: 1; }
+
+.group-foot {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  color: var(--ink);
+}
+.group-foot a { color: var(--ink); }
+
+/* The grid below the band: names in Ink, counts in Faint ink at full strength, letterboxes clear. */
+.group-band ~ .gallery-grid .gallery-caption { color: var(--ink); }
+.group-band ~ .gallery-grid .gallery-door-count { color: var(--ink-faint); opacity: 1; }
+.group-band ~ .gallery-grid .gallery-item:hover .gallery-door-count { color: var(--ink); }
+.group-band ~ .gallery-grid .gallery-item img { background: transparent; }
+
+@media (max-width: 700px) {
+  .group-band { padding: 48px 16px 36px; margin-bottom: 36px; }
+  .group-band h1 { font-size: 30px; }
+  .group-foot { padding: 0 16px 56px; }
+}
