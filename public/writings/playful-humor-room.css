@@ -53,6 +53,8 @@
 .ph-stage {
   display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: stretch;
   background: var(--ph-stage);
+  /* the fifth cleanup, October 10, 2026: on a window wider than the 1,440-pixel column, the passage lines up under the title */
+  padding-left: max(0px, calc((100% - 1440px) / 2));
 }
 .ph-stage-words {
   display: flex; flex-direction: column; justify-content: flex-end;

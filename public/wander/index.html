@@ -222,7 +222,8 @@
       .then(function(res) { return res.text(); })
       .then(function(html) {
         var doc = new DOMParser().parseFromString(html, 'text/html');
-        var main = doc.querySelector('main.core-main');
+        // The fifth cleanup, October 10, 2026: a writing's words sit in .wp-body on the writing pages; the phone texts keep main.core-main.
+        var main = doc.querySelector('.wp-body') || doc.querySelector('main.core-main');
         if (!main) return;
         var paras = main.querySelectorAll('p:not(.core-locked):not(.core-foot-label)');
         paras.forEach(function(p) {
