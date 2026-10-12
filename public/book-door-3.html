@@ -195,6 +195,24 @@
       color: #fff;
     }
   }
+
+  /* The eighth cleanup, October 12, 2026: the thin line above the foot links is the site's 1-pixel line in Faint ink,
+     showing in Light and quiet in Dark. Where the foot links begin with "Next" and its arrow (the phone texts), the
+     other foot links take the same 44-pixel box for touch, and the links and the dots between them line up on one
+     line with "Next". */
+  .core-main .core-nav { border-top-color: var(--ink-faint); }
+  .core-main .core-nav:has(> a.arrow-link) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.275em;
+  }
+  .core-main .core-nav:has(> a.arrow-link) a:not(.arrow-link) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    line-height: 1.2;
+  }
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>
