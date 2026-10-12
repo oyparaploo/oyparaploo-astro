@@ -53,7 +53,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
 <script src="/theme.js"></script>
 <style>
@@ -80,7 +80,7 @@
     padding: 56px 24px 0;
   }
   .home-tagline {
-    font-family: 'Lora', serif;
+    font-family: 'Archivo', sans-serif; font-stretch: 112%;
     font-weight: 600;
     font-size: 36px;
     line-height: 1.5;
@@ -113,7 +113,7 @@
     margin: 0 0 6px;
   }
   .home-title {
-    font-family: 'Lora', serif;
+    font-family: 'Archivo', sans-serif; font-stretch: 112%;
     font-weight: 600;
     font-size: 34px;
     letter-spacing: -0.02em;
@@ -191,7 +191,7 @@
     margin: 48px 0 40px;
   }
   .home-door {
-    font-family: 'Lora', serif;
+    font-family: 'Archivo', sans-serif; font-stretch: 112%;
     font-weight: 600;
     font-size: 24px;
     color: var(--ink);
@@ -216,6 +216,29 @@
     .home-figures { padding: 0 16px 56px; }
     .thumb-row-wrap { padding-left: 16px; }
   }
+
+/* ==========================================================================
+   THE FACES (charter section 5; the previews Reach called perfect, October 12, 2026)
+   The front door: Archivo 600, width 112, for the opening sentence, the titles
+   and "Wander through more". Lora stays only for the wordmark.
+   ========================================================================== */
+:root { --face-head: 'Archivo', 'Inter', sans-serif; }
+.home-tagline {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 46px; line-height: 1.08; letter-spacing: -0.018em;
+  max-width: 980px; margin: 0 0 32px; text-wrap: balance;
+}
+.home-title {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 30px; line-height: 1.14; letter-spacing: -0.012em;
+  margin: 0 0 18px; text-wrap: balance;
+}
+.home-door {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 24px; letter-spacing: -0.005em;
+}
+@media (max-width: 700px) { .home-tagline { font-size: 32px; line-height: 1.1; } }
+@media (max-width: 600px) { .home-title { font-size: 25px; line-height: 1.16; } .home-door { font-size: 22px; } }
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>
