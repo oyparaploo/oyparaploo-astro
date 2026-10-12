@@ -145,6 +145,56 @@
     color: rgba(168, 153, 138, 0.6);
     margin: 24px 0 0;
   }
+
+  /* The seventh cleanup, October 11, 2026: the links here follow the site's link rules (the charter, section 3).
+     The way back and "Next" with its arrow stand bare in Ink, with normal letter spacing, and the arrow slides on
+     hover as chrome.css makes it; the plain links at the foot ("All writings", "The Book", "Next") are bare in Ink
+     and take an underline when pointed at; a link inside the text is underlined in Accent, and the underline
+     vanishes when pointed at. */
+  .core-main a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a:hover { color: var(--accent); text-decoration: none; }
+  .core-locked { letter-spacing: normal; }
+  .core-main .core-nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .core-main .core-nav a:hover,
+  .core-main .core-nav a:focus-visible {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .core-main a.arrow-link,
+  .core-main .core-nav a.arrow-link {
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: normal;
+  }
+  .core-main a.arrow-link:hover,
+  .core-main a.arrow-link:focus-visible,
+  .core-main .core-nav a.arrow-link:hover,
+  .core-main .core-nav a.arrow-link:focus-visible {
+    color: #000;
+    text-decoration: none;
+  }
+  html[data-theme="dark"] .core-main a.arrow-link:hover,
+  html[data-theme="dark"] .core-main a.arrow-link:focus-visible,
+  html[data-theme="dark"] .core-main .core-nav a.arrow-link:hover,
+  html[data-theme="dark"] .core-main .core-nav a.arrow-link:focus-visible {
+    color: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .core-main a.arrow-link:hover,
+    html:not([data-theme="light"]) .core-main a.arrow-link:focus-visible,
+    html:not([data-theme="light"]) .core-main .core-nav a.arrow-link:hover,
+    html:not([data-theme="light"]) .core-main .core-nav a.arrow-link:focus-visible {
+      color: #fff;
+    }
+  }
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>

@@ -319,9 +319,13 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 .wp-also a:hover { color: var(--ink); }
 
 /* A row of five pictures */
-.wp-foot-label { margin: 56px 0 14px; font-size: 16px; letter-spacing: 0.06em; }
-.wp-foot-label a { color: var(--ink-soft); text-decoration: none; }
-.wp-foot-label a:hover { color: var(--ink); }
+/* The seventh cleanup, October 11, 2026: the "From ..." label in ordinary words at 18 pixels, no spaced letters;
+   its link in Ink, bare, with an underline when pointed at. This file now lives in the build source,
+   BUILD\TEMPLATES\literal\stage.css, and the build copies it to the site. */
+.wp-foot-label { margin: 56px 0 14px; font-size: 18px; letter-spacing: normal; }
+.wp-foot-label a { color: var(--ink); text-decoration: none; }
+.wp-foot-label a:hover,
+.wp-foot-label a:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 .wp-after .thumb-row-wrap {
   width: 100vw; position: relative; left: 50%; margin-left: -50vw;
   padding-left: max(40px, calc(50vw - 310px));
