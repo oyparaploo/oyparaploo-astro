@@ -1337,7 +1337,7 @@ window.PARAPLOO_WALKS = {
      "href": "/words/2021-25-immediate-family/my-29th-anniversary-message-to-lori/?walk=family",
      "time": "1 minute",
      "kind": "writing",
-     "name": "Dear Honey -",
+     "name": "Dear Honey",
      "half": "Thank you for saying \"Yes\"",
      "pic": {
       "n": "02207",
@@ -1581,7 +1581,7 @@ window.PARAPLOO_WALKS = {
      "words": "Small Conflict Zones Keeping An Eye Out, Capital",
      "where": null,
      "family": false,
-     "page": "/marks/slap-maps/0002.html",
+     "page": "/marks/most-complexy-asemities/0008.html",
      "pic": {
       "n": "02192",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img162.webp",
