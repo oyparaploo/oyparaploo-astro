@@ -1,0 +1,248 @@
+/* A Placings set page's opening band, wearing the Perrotin Media feature (October 16, 2026), carried over
+   unchanged from the Marks colour sets preview Reach called perfect (PERROTIN-MARKS-COLOUR-WHOLE-2026-10-16).
+   One drawing whole in the middle, on a blurred enlargement of itself filling the band; the band's
+   lower part a blurred, darkened glass panel holding three sets. Pointing at a set swaps the drawing,
+   turns its line bright white and brightens its words, and fades the others. Nothing turns by itself.
+   Text colours: the dark values of the four named colours in chrome.css (Ink #e8e0d6, Soft ink #b3aa9f,
+   Faint ink #8f877d), and Ink's light value #111 on the pills and the foot band. Nothing under 16 pixels. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body.set-page {
+  margin: 0;
+  font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.5;
+  color: var(--ink); background: var(--ground);
+  overflow-x: clip;
+}
+.set-page main { display: block; }
+
+.pm-band {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: clamp(660px, calc(100svh - 112px), 1060px);
+  overflow: hidden;
+  background: #0d0907;
+  color: #e8e0d6;
+}
+
+/* The blurred enlargement of the drawing, filling the band (as on the writing stage). */
+.pm-haze {
+  position: absolute;
+  top: -90px; right: -90px; bottom: -90px; left: -90px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: blur(46px) brightness(0.6) saturate(1.15);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.pm-haze.is-on { opacity: 1; }
+
+/* The drawing, whole, in the middle of the space above the glass. */
+.pm-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  padding: clamp(28px, 4.5vh, 56px) 24px clamp(24px, 3.5vh, 40px);
+}
+.pm-pic {
+  grid-area: 1 / 1;
+  place-self: center;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  width: auto;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+.pm-pic.is-on { opacity: 1; pointer-events: auto; }
+.pm-pic-link { display: contents; }
+.pm-num {
+  position: absolute;
+  left: 24px; bottom: clamp(24px, 3.5vh, 40px);
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 3px;
+  background: rgba(13, 9, 7, 0.82);
+  font: 500 16px/1.4 'Inter', sans-serif;
+  color: #e8e0d6;
+  /* Changed for the colour sets (second try): long drawing titles wrap rather than run across the drawing. */
+  max-width: min(calc(100% - 48px), 400px);
+}
+.pm-num a { color: inherit; text-decoration: none; }
+.pm-num a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The glass. */
+.pm-glass {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 28px 24px 36px;
+  background: rgba(13, 9, 7, 0.84);
+}
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .pm-glass {
+    background: rgba(13, 9, 7, 0.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.15);
+    backdrop-filter: blur(28px) saturate(1.15);
+  }
+}
+.pm-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 32px;
+  margin: 0 0 24px;
+}
+.pm-title {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.5vw, 44px);
+  line-height: 1.05;
+  color: #e8e0d6;
+}
+.pm-sentence {
+  margin: 0;
+  font: 400 18px/1.5 'Inter', sans-serif;
+  color: #b3aa9f;
+  max-width: 750px;
+}
+.pm-say-touch { display: none; }
+
+.pm-choices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.pm-choice {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding-top: 20px;
+  border-top: 2px solid rgba(232, 224, 214, 0.26);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.35s ease;
+}
+.pm-thumb {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 112px;
+  transition: opacity 0.35s ease;
+}
+.pm-thumb img {
+  display: block;
+  max-width: 112px;
+  max-height: 112px;
+  width: auto;
+  height: auto;
+}
+.pm-text { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+.pm-pill {
+  display: inline-block;
+  padding: 2px 11px 3px;
+  border-radius: 999px;
+  /* Changed for the colour sets (second try, Reach, October 16, 2026): an outline only, never filled,
+     1 pixel, its line and words the same colour as the set's title (Ink #e8e0d6 lit, Faint ink #8f877d
+     faded), changing with the title and nothing more. */
+  border: 1px solid #e8e0d6;
+  background: transparent;
+  color: #e8e0d6;
+  /* Weight 450 (Reach, October 16, 2026); the page loads Inter's full weight range for it. */
+  font: 450 16px/1.3 'Inter', sans-serif;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.pm-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 1.7vw, 28px);
+  line-height: 1.12;
+  color: #e8e0d6;
+  transition: color 0.35s ease;
+}
+.pm-line {
+  font: 400 18px/1.45 'Inter', sans-serif;
+  color: #b3aa9f;
+  transition: color 0.35s ease;
+}
+
+/* Pointed at: the line bright white, the words bright; the others fade. */
+.pm-band.is-pointing .pm-choice { border-top-color: rgba(232, 224, 214, 0.26); }
+.pm-band.is-pointing .pm-choice .pm-name,
+.pm-band.is-pointing .pm-choice .pm-line { color: #8f877d; }
+.pm-band.is-pointing .pm-choice .pm-thumb { opacity: 0.5; }
+.pm-band.is-pointing .pm-choice.is-on { border-top-color: #fff; }
+.pm-band.is-pointing .pm-choice.is-on .pm-name { color: #e8e0d6; }
+.pm-band.is-pointing .pm-choice.is-on .pm-line { color: #b3aa9f; }
+.pm-band.is-pointing .pm-choice.is-on .pm-thumb { opacity: 1; }
+/* Second try: the pill follows its title's colour; it is never filled. */
+.pm-band.is-pointing .pm-choice .pm-pill { border-color: #8f877d; color: #8f877d; }
+.pm-band.is-pointing .pm-choice.is-on .pm-pill { border-color: #e8e0d6; color: #e8e0d6; }
+.pm-choice:focus-visible { outline: 2px solid #fff; outline-offset: 6px; border-radius: 3px; }
+
+/* The foot: one flat band in the pink paper of 02624, Ond Of Hope (from Feast Of Sikkot). */
+.pm-foot {
+  background: #F1C2BD;
+  color: #111;
+  padding: 72px 24px 80px;
+}
+.pm-foot p { margin: 0; font: 600 18px/1.6 'Inter', sans-serif; }
+/* Second try (Reach, October 16, 2026): the way back is sized to hold its band, Archivo 600 at 32 pixels
+   (26 on phones), full Ink, no underline; the arrow still slides when pointed at. */
+.pm-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; }
+/* The arrow comes from a system face (the site's faces leave it out), so it is sized up to sit with the word. */
+.pm-foot .arrow-link .arrow-glyph { font-size: 1.25em; font-weight: 600; line-height: 1; }
+.pm-foot .arrow-link, .pm-foot .arrow-link .arrow-glyph { color: #111; opacity: 1; }
+/* Second try: the site's arrow link turns white when pointed at in Dark mode; on this pink band it stays Ink. */
+.pm-foot .arrow-link:is(:hover, :focus-visible), .pm-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #111 !important; }
+
+/* Narrower windows: the choices stand closer. */
+@media (max-width: 1100px) and (min-width: 701px) {
+  .pm-choice { grid-template-columns: 84px minmax(0, 1fr); gap: 16px; }
+  .pm-thumb { height: 84px; }
+  .pm-thumb img { max-width: 84px; max-height: 84px; }
+  .pm-choices { gap: 24px; }
+  /* Changed for the colour sets (second try): the long set names make the glass taller, so the band grows
+     with it and the drawing keeps a fair height. */
+  .pm-band { height: auto; }
+  .pm-stage { flex: 0 0 auto; height: clamp(340px, 56vh, 560px); }
+  .pm-name { font-size: 22px; }
+  .pm-num { max-width: 230px; }
+}
+
+/* Touch: no pointing, so no swap; every set stands bright, and a tap opens it. */
+@media (hover: none) {
+  .pm-say-point { display: none; }
+  .pm-say-touch { display: inline; }
+}
+
+/* Phones: the choices stack, each with its drawing whole; a tap opens it. */
+@media (max-width: 700px) {
+  .pm-band { height: auto; }
+  .pm-stage { display: none; }
+  .pm-glass { padding: 40px 16px 48px; }
+  .pm-head { margin-bottom: 32px; }
+  .pm-say-point { display: none; }
+  .pm-say-touch { display: inline; }
+  .pm-choices { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .pm-choice { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-top: 24px; min-height: 44px; }
+  .pm-thumb { height: auto; justify-content: flex-start; }
+  .pm-thumb img { max-width: 100%; max-height: none; width: 100%; }
+  .pm-foot { padding: 56px 16px 64px; }
+  .pm-foot .arrow-link { font-size: 26px; }
+}
+
+/* Less motion: a plain swap. */
+@media (prefers-reduced-motion: reduce) {
+  .pm-haze, .pm-pic, .pm-choice, .pm-thumb, .pm-name, .pm-line, .pm-pill { transition: none; }
+}

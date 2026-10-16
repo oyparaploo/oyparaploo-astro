@@ -1,0 +1,136 @@
+/* The Placings picture sets preview (October 16, 2026): what the picture-sets page and the set pages
+   share beyond the Hofesh and Perrotin files. The Kavi Gupta rule line, the scroll-in, the set pages'
+   wall of photographs, and the foot. Text colours only from chrome.css's named colours. */
+
+/* ---------- The rule line (from the Kavi Gupta Journal's opening paragraph) ----------
+   One plain sentence in Inter, about 30 pixels, in Soft ink, with a thin line in Faint ink down its left. */
+.rule-line {
+  margin: 0;
+  max-width: 860px;
+  padding: 2px 0 4px 24px;
+  border-left: 1px solid var(--ink-faint);
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(22px, 1.1vw + 14px, 30px);
+  line-height: 1.32; letter-spacing: -0.012em;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---------- The picture-sets page: each set is its band, then its sentence under it ---------- */
+.sets-page .sets-bands { gap: 0; padding-top: 56px; }
+.set-block { margin: 0 0 40px; }
+.set-block:last-child { margin-bottom: 40px; }
+.set-block .rule-line { margin: 32px 24px 0; }
+
+/* ---------- The scroll-in (Kavi Gupta), on trial ----------
+   Each band and each sentence starts 20 pixels lower and see-through, then rises and settles as it comes
+   into view: six-tenths of a second, once. Switched on by rise.js only, so without it everything simply
+   shows; less motion gets none. Never used on the corridors. */
+html.rise-on .rise {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html.rise-on .rise.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.rise-on .rise { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- A set page ---------- */
+.set-page .pm-kicker { flex-basis: 100%; margin: 0 0 4px; font: 600 18px/1.4 'Inter', sans-serif; }
+/* On the dark glass the way back is in Ink's dark value; the site's arrow link would turn it black when pointed at. */
+.set-page .pm-kicker a, .set-page .pm-kicker a .arrow-glyph { color: #e8e0d6; text-decoration: none; font-size: 18px; }
+.set-page .pm-kicker a:is(:hover, :focus-visible), .set-page .pm-kicker a:is(:hover, :focus-visible) .arrow-glyph { color: #fff !important; }
+/* The arrow comes from a system face, so it is sized up to sit with the word. */
+.set-page .pm-kicker a .arrow-glyph { font-size: 1.3em; line-height: 1; }
+.set-page .pm-head { gap: 4px 32px; }
+/* The choices name their photograph by its catalogue number, in the site's figures. */
+.set-page .pm-text { align-self: center; }
+.set-page .pm-choice { min-height: 44px; }
+
+.set-say { padding: 104px 24px 0; }
+.set-wall { padding: 96px 24px 0; }
+.wall-label { margin: 0 0 32px; font: 400 18px/1.4 'Inter', sans-serif; color: var(--ink); }
+/* Every photograph whole, at one size, two to a row; newest first. */
+.wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; align-items: start; }
+.wall-item { margin: 0; }
+.wall-item img { display: block; width: 100%; height: auto; transition: opacity 0.25s ease; }
+.wall-item a:hover img { opacity: 0.88; }
+.wall-item figcaption { margin-top: 10px; font: 500 16px/1.4 'Inter', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink-faint); }
+.wall-item figcaption a { color: inherit; text-decoration: none; }
+.wall-item figcaption a:hover { color: var(--ink); }
+.set-page .sets-foot { margin-top: 120px; }
+.sets-foot .arrow-next:hover .arrow-glyph { transform: translateX(4px); }
+/* The way back and on, sized to hold their band (as on the Perrotin preview Reach called perfect). */
+.sets-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; }
+.sets-foot .arrow-link .arrow-glyph { font-size: 1.25em; font-weight: 600; line-height: 1; }
+.sets-foot .arrow-link:is(:hover, :focus-visible), .sets-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #111 !important; }
+
+@media (max-width: 700px) {
+  .sets-page .sets-bands { padding-top: 36px; }
+  .set-block { margin-bottom: 28px; }
+  .set-block .rule-line { margin: 24px 16px 0; padding-left: 18px; }
+  .set-say { padding: 72px 16px 0; }
+  .set-wall { padding: 64px 16px 0; }
+  .wall { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .set-page .sets-foot { margin-top: 88px; }
+  .sets-foot .arrow-link { font-size: 26px; }
+}
+
+/* ---------- Reach's four rulings, October 16, 2026 ---------- */
+
+/* 1. The band labels: pointed at, a label stays black with white words, as on Hofesh. Only the arrow slides
+   in; nothing reverses and the photograph does not lift. */
+@media (hover: hover) {
+  .band:hover .band-label { background: #000; color: #fff; }
+  .band:hover .band-pic { filter: none; }
+}
+.band:focus-visible .band-label { background: #000; color: #fff; }
+
+/* 2. The opening menu, as on Saved Again ... (live October 16, 2026): the names up to 36 pixels, and each
+   triangle opening a row of that set's five newest photographs, small and whole, then "Open the set →". */
+@media (min-width: 701px) { .sets-open .om-name { font-size: clamp(24px, min(1.9vw, 3.8vh), 36px); } }
+.sets-open .om-item + .om-item { margin-top: 2px; }
+.sets-open .om-sub { gap: 8px; margin: 10px 0 16px; max-width: none; align-items: flex-end; }
+.sets-open .om-sub .om-pic a { display: block; border-radius: 3px; outline: 2px solid transparent; outline-offset: 3px; transition: outline-color 0.25s ease; }
+.sets-open .om-sub .om-pic img { display: block; height: 64px; width: auto; border-radius: 3px; }
+@media (hover: hover) { .sets-open .om-sub .om-pic a:hover { outline-color: var(--c); } }
+.sets-open .om-sub .om-pic a:focus-visible { outline-color: var(--c); }
+.sets-open .om-sub .om-all { margin-top: 6px; }
+@media (max-width: 700px) { .sets-open .om-sub .om-pic img { height: 60px; } }
+
+/* 3. The rule line carries one plain fact: how many photographs, and when. */
+.set-page .wall-fact { margin: 0 0 40px; }
+
+/* 4. The writing, whole, in a reading column under the Perrotin band. Inter for reading, in the four named
+   colours only; the column stops at about 700 pixels. */
+.set-writing { padding: 112px 24px 0; max-width: calc(700px + 48px); }
+.sw-kind { margin: 0 0 14px; font: 400 18px/1.4 'Inter', sans-serif; color: var(--ink); }
+.sw-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(30px, 2.6vw, 42px); line-height: 1.1; color: var(--ink); text-wrap: balance; }
+.sw-sub { margin: 10px 0 0; font: 400 22px/1.35 'Inter', sans-serif; color: var(--ink-soft); }
+.sw-body { margin-top: 36px; font: 400 20px/1.65 'Inter', sans-serif; color: var(--ink); }
+.sw-body p { margin: 0 0 1.05em; }
+.sw-body h2 { margin: 1.4em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.3; color: var(--ink); }
+.sw-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.sw-body a:hover { text-decoration: none; }
+.sw-kind + .sw-body { margin-top: 18px; }
+.sw-own { margin: 28px 0 0; }
+.sw-own .arrow-link { font: 600 18px/1.3 'Inter', sans-serif; }
+.set-page .set-wall { padding-top: 120px; }
+
+@media (max-width: 700px) {
+  .set-writing { padding: 72px 16px 0; }
+  .sw-body { font-size: 19px; }
+  .set-page .set-wall { padding-top: 88px; }
+}
+
+/* Reach, October 16, 2026, on seeing the white air between the bands: the picture-sets page takes the
+   dark ground in all three modes, as the Placings page it sits under does. The set pages keep following
+   Light and Dark. The bands' black labels stay as they are. */
+body.sets-page:not(.set-page) main { background: #0d0907; color: #e8e0d6; }
+body.sets-page:not(.set-page) .sets-bands { background: #0d0907; }
+/* Reach, October 16, 2026: the gaps between the bands were too wide on the dark; 24 pixels, the site's edge measure. */
+body.sets-page:not(.set-page) .set-block { margin-bottom: 24px; }
+body.sets-page:not(.set-page) .sets-bands { padding-top: 24px; }
+body.sets-page:not(.set-page) .sets-foot { margin-top: 0; }
+@media (max-width: 700px) { body.sets-page:not(.set-page) .set-block { margin-bottom: 16px; } body.sets-page:not(.set-page) .sets-bands { padding-top: 16px; } }
