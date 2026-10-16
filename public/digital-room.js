@@ -116,7 +116,7 @@
   function frame(t) {
     var dt = last ? Math.min(64, t - last) : 16; last = t;
     if (openIndex === null && !morphing) {
-      if (!still && !pointerIn && !dragging) target += AUTO * dt;
+      if (!still && hoverIndex === -1 && !dragging) target += AUTO * dt;
       angle += (target - angle) * (still ? 1 : 0.08);
       draw();
     }
