@@ -29,7 +29,7 @@
       shut(this);
       this.setAttribute('aria-expanded', open ? 'false' : 'true');
       document.getElementById(this.getAttribute('aria-controls')).hidden = open;
-      this.setAttribute('aria-label', (open ? 'Show' : 'Hide') + ' the photographs in ' + this.getAttribute('data-name'));
+      this.setAttribute('aria-label', (open ? 'Show' : 'Hide') + ' the ' + (this.getAttribute('data-kind') || 'photographs') + ' in ' + this.getAttribute('data-name'));
     });
   }
   document.addEventListener('keydown', function (e) {
