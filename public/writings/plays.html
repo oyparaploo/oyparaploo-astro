@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plays · Plays and Scripts · Paraploo</title>
-<meta name="description" content="Plays and Scripts, newest first.">
+<meta name="description" content="Plays and Scripts, descending from most current.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
@@ -732,6 +732,48 @@ main .rooms { padding: 0 0 72px; }
 </style>
 
 <link rel="stylesheet" href="/drawing.css">
+<style id="shelf-ways">
+/* The shelf's ways, made much more obvious (Reach, October 16, 2026, evening:
+   "Stories and Next needs to be a lot more obvious"). The site's own button: Archivo, 5-pixel corners,
+   outline at rest and solid when pointed at; at the foot the two sit together as a pair and trade places. */
+.way {
+  --btn-ink: var(--ink); --btn-ground: var(--ground);
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 22px; line-height: 1.2; letter-spacing: 0;
+  min-height: 56px; padding: 12px 24px; gap: 12px;
+}
+.way .way-arrow { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .way.back:hover .way-arrow { transform: translateX(-4px); }
+  .way.on:hover .way-arrow { transform: translateX(4px); }
+}
+.way:focus-visible .way-arrow { transform: none; }
+
+/* At the top, on the band: one outlined button, solid when pointed at. */
+.opening .way.back { --btn-ink: #111111; --btn-ground: var(--band); margin: 0 0 40px; }
+@media (hover: hover) { .opening .way.back:hover { background: var(--btn-ink); color: var(--btn-ground); } }
+.opening .way.back:active, .opening .way.back:focus-visible { background: var(--btn-ink); color: var(--btn-ground); }
+
+/* At the foot: a full-width line, then the pair together at the left, under the list. */
+.foot-next { padding: 64px 0 96px; }
+.foot-ways { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; }
+.foot-ways .way { color: var(--btn-ink); }
+.foot-ways .way.btn-solid { color: var(--btn-ground); }
+@media (hover: hover) {
+  .foot-ways.pair:hover .btn-solid { color: var(--btn-ink); }
+  .foot-ways.pair:hover .btn-outline { color: var(--btn-ground); }
+}
+
+@media (max-width: 700px) {
+  .way { font-size: 20px; min-height: 52px; padding: 10px 18px; }
+  .opening .way.back { margin-bottom: 24px; }
+  .foot-ways { flex-direction: column; align-items: stretch; }
+  .foot-ways .way { justify-content: space-between; }
+  .foot-ways .way.on { order: -1; }
+  .foot-next { padding: 48px 0 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -784,9 +826,9 @@ main .rooms { padding: 0 0 72px; }
 
     <div class="opening-words">
       <div class="opening-words-in">
-        <a class="back-link arrive" href="/writings/plays-and-scripts.html"><span aria-hidden="true">&larr;</span> Plays and Scripts</a>
+        <a class="btn btn-outline way back arrive" href="/writings/plays-and-scripts.html"><span class="way-arrow" aria-hidden="true">&larr;</span> Plays and Scripts</a>
         <h1 class="stage-title arrive" style="--d:0.1s">Plays</h1>
-        <p class="stage-sentence arrive" style="--d:0.2s">Plays and Scripts, newest first. Choose one to read.</p>
+        <p class="stage-sentence arrive" style="--d:0.2s">Plays and Scripts, descending from most current.</p>
       </div>
     </div>
 
@@ -888,13 +930,7 @@ UV reveals for hidden elements (scars, trails)</p>
 
     <section class="band foot-next" aria-label="Where next">
       <div class="inner">
-        <div class="foot-grid">
-          <a class="back-link" href="/writings/plays-and-scripts.html"><span aria-hidden="true">&larr;</span> Plays and Scripts</a>
-          <div>
-            <p class="next-label">Puppet Plays</p>
-            <a class="go-link" href="/writings/puppet-plays.html">Next <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
+        <div class="foot-ways pair"><a class="btn btn-outline way back" href="/writings/plays-and-scripts.html"><span class="way-arrow" aria-hidden="true">&larr;</span> Plays and Scripts</a><a class="btn btn-solid way on" href="/writings/puppet-plays.html">Next: Puppet Plays <span class="way-arrow" aria-hidden="true">&rarr;</span></a></div>
       </div>
     </section>
   </div>
@@ -925,7 +961,7 @@ UV reveals for hidden elements (scars, trails)</p>
         en.target.classList.add('risen');
       });
     }, { rootMargin: '0px 0px -6% 0px' });
-    all('.label, .rows a, .foot-grid').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
+    all('.label, .rows a, .foot-ways').forEach(function (t) { t.classList.add('will-rise'); io.observe(t); });
     doc.addEventListener('animationend', function (e) {
       if (e.animationName === 'rise') e.target.classList.remove('will-rise', 'risen');
     });

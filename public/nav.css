@@ -212,6 +212,61 @@ html.rm .wob-arrow, html.rm .wob-go { transition: none; }
 }
 
 /* ==========================================================================
+   THE WRITINGS MENU, REWORKED (preview, October 16, 2026)
+   Added after the first preview's menu-additions.css.
+   ========================================================================== */
+/* The rail: each type's name with its one line under it, so the rail itself says
+   what each type is. Subjects and The Book stand as names alone. */
+.wob-books { grid-template-columns: 360px 1px minmax(0, 1fr); }  /* wide enough that no line wraps */
+.wob-panel a.wob-kind { display: block; padding: 5px 0; }
+.wob-kindname { display: flex; align-items: baseline; gap: 10px; }
+.wob-kindline {
+  display: block; margin-top: 1px; max-width: 350px;
+  font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 400; letter-spacing: 0;
+  font-size: 16px; line-height: 1.35; color: var(--ink-soft);
+}
+.wob-panel a.wob-kind.is-active .wob-kindline { color: var(--ink); }
+
+/* The right side: the shelves start level with the first name in the rail */
+.wob-kindset { padding-top: 5px; }
+
+/* Every type: its shelves, names only, each the door to that shelf. Three columns, as the
+   Writings page lists them; Essays in its four groups across. */
+.wob-list.wob-names { margin: 0; }
+.wob-names li { font-size: 17px; line-height: 1.75; }
+.wob-list.wob-names-cols { columns: 3; column-gap: 32px; }
+.wob-names-cols li { break-inside: avoid; }
+/* Essays' four groups in two columns and two rows: four across ran wider than the panel */
+.wob-groups { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 72px; row-gap: 22px; }
+.wob-group li, .wob-group .wob-groupname { white-space: nowrap; }
+.wob-groupname { margin: 0 0 6px; font-size: 17px; line-height: 1.4; font-weight: 600; color: var(--ink); }
+
+/* Subjects and The Book: their lists start level with the rail too */
+.wob-kindset[data-kind="Subjects"] .wob-subjectcols,
+.wob-kindset[data-kind="The Book"] .wob-bookcols { margin-top: 0; }
+
+/* A type with three shelves or fewer (Reach, October 16, 2026, evening: "How do we deal with these having
+   so few to choose from?"): each shelf stands larger, one under another, with one plain line under it,
+   as the types do in the rail. The name in Archivo, the line in Inter, Soft ink; the arrow slides in. */
+.wob-shelfstack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 26px; }
+.wob-shelfstack a { display: block; text-decoration: none; color: var(--ink); padding: 2px 0; }
+.wob-shelfname {
+  display: flex; align-items: baseline; gap: 12px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.15;
+}
+.wob-shelfline {
+  display: block; margin-top: 6px; max-width: 34em;
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.4; color: var(--ink-soft);
+}
+.wob-shelfstack .wob-arrow { opacity: 0; transform: translateX(-6px); transition: opacity 0.2s ease, transform 0.2s ease; }
+@media (hover: hover) {
+  .wob-shelfstack a:hover .wob-arrow { opacity: 1; transform: none; }
+  .wob-shelfstack a:hover .wob-shelfline { color: var(--ink); }
+}
+.wob-shelfstack a:focus-visible .wob-arrow { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .wob-shelfstack .wob-arrow { transition: none; } }
+
+/* ==========================================================================
    DIRECTORY FOOTER (the shared footer file carries this part)
    Every room in the house, never a single picture or writing.
    Ground one step above the page: cream #faf6f0 / dark #1a1511.
