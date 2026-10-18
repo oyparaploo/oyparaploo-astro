@@ -1,0 +1,212 @@
+/* ==========================================================================
+   The Everything page, made whole as a preview (October 17, 2026).
+   Its held design is HTML DOCS\oyparaploo-reina.html (the Reina Sofia page):
+   kept from it are the noir ground running from black at the top to night
+   blue at the foot, dark in Light, Dark and Auto alike; the section frames,
+   each a name with a "see all" link on its right over a hairline, then one
+   paragraph, then the way in; the pill choices. Left out: its cards, its
+   radio, tickets and newsletter, Lora, the dimmed words.
+   Worn on it: BOMB Magazine's slow wall (bombmagazine.org, measured in the
+   project file claude/BOMB-NOTES-2026-10-17.md): columns 240 pixels wide and
+   50 apart, 96 between the pictures in a column, each column starting at a
+   different height, running off both edges, drifting left by itself at about
+   8 pixels a second, forever, which a hand can drag.
+   To the charter (SITE-ORDER\THE-LOOK.md): pictures whole, never cropped;
+   Archivo for headings, Inter for reading; nothing under 16 pixels; words in
+   the named colours' dark values on the ground and Ink's light value on a
+   colour (7 to 1 or better); a row pointed at turns solid and an arrow slides
+   in, nothing grows and nothing below moves; touch gets its own version
+   (the name under each picture); less motion gets a still wall.
+   The header, the date strip and the footer follow the mode, as on every room.
+   ========================================================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+:root {
+  --e-ink: #e8e0d6;      /* Ink's dark value: 13.9 to 1 on the night blue */
+  --e-soft: #b3aa9f;     /* Soft ink's dark value: 7.9 to 1 on the night blue */
+  --e-faint: #8f877d;    /* Faint ink's dark value: lines only */
+  --e-band-ink: #111111; /* Ink's light value, for words on a colour */
+  --e-hair: rgba(232, 224, 214, 0.16);
+  --edge: 24px;
+  --air: 120px;          /* the one even space between sections */
+  --col: 240px;          /* BOMB: columns 240 wide */
+  --col-gap: 50px;       /* 50 apart */
+  --pic-gap: 96px;       /* 96 between pictures in a column */
+  --drop-unit: 1px;      /* columns start up to 170 pixels apart */
+}
+
+.everything-room {
+  color: var(--e-ink);
+  overflow-x: clip;
+  background: linear-gradient(to bottom, #000000 0%, #020203 6%, #040507 14%, #060810 26%, #080a13 38%,
+              #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  padding-bottom: var(--air);
+}
+.everything-room a { color: inherit; text-decoration: none; }
+.everything-room :focus-visible { outline: 2px solid var(--e-ink); outline-offset: 4px; }
+
+/* ---------- the opening: one plain sentence, one line ---------- */
+.opening { padding: 64px var(--edge) 56px; }
+.opening-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.015em; color: var(--e-ink);
+}
+.opening-line {
+  margin: 16px 0 0; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--e-soft);
+}
+
+/* ---------- the wall ---------- */
+.wall {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;            /* the page still scrolls up and down; sideways belongs to the wall */
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+  padding: 0 0 8px;
+}
+.wall.is-dragging { cursor: grabbing; }
+.wall-track { display: flex; width: max-content; will-change: transform; }
+.wall-set { display: flex; align-items: flex-start; gap: var(--col-gap); padding-right: var(--col-gap); }
+.wall-col {
+  width: var(--col); flex: 0 0 var(--col);
+  display: flex; flex-direction: column; gap: var(--pic-gap);
+  margin-top: calc(var(--drop) * var(--drop-unit));
+}
+
+.door { position: relative; display: block; width: 100%; color: inherit; -webkit-tap-highlight-color: transparent; }
+.door-pic, .door-block { display: block; width: 100%; aspect-ratio: var(--ar); }
+.door-pic img {
+  display: block; width: 100%; height: 100%; object-fit: contain;   /* always whole, never cropped */
+  -webkit-user-drag: none; pointer-events: none;
+}
+/* pointed at: the picture becomes a flat block of its own colour, carrying its kind and name */
+.door-block {
+  position: absolute; left: 0; top: 0;
+  background: var(--c); color: var(--e-band-ink);
+  padding: 14px 16px; overflow: hidden;
+  opacity: 0; transition: opacity 0.18s ease;
+}
+.door-words {
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: var(--fs, 26px); line-height: 1.08; letter-spacing: -0.01em;
+  overflow-wrap: anywhere; hyphens: auto;
+}
+@media (hover: hover) {
+  .door:hover .door-block { opacity: 1; }
+  .door:hover .door-pic { visibility: hidden; }
+}
+.door:focus-visible .door-block { opacity: 1; }
+.door:focus-visible .door-pic { visibility: hidden; }
+.door:focus-visible { outline-offset: 6px; }
+
+/* at rest no words; touch shows the name under each picture */
+.door-name { display: none; }
+@media (hover: none) {
+  .door-name {
+    display: block; margin-top: 10px;
+    font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.35; font-weight: 500; color: var(--e-ink);
+  }
+  .door-block { display: none; }
+}
+
+/* ---------- the sections below: one even space between them ---------- */
+.stack > * + * { margin-top: var(--air); }
+.stack { margin-top: var(--air); }
+
+.hundred { background: #F9C806; color: var(--e-band-ink); padding: 96px var(--edge); }   /* Ink On Yellow's yellow, 12.0 to 1 with Ink */
+.hundred-words {
+  margin: 0; max-width: 32em;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(22px, 2.15vw, 32px); line-height: 1.28; letter-spacing: -0.005em;
+}
+
+.sec { padding: 0 var(--edge); }
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding-bottom: 18px; border-bottom: 1px solid var(--e-hair);
+}
+.sec-name {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(32px, 3.6vw, 52px); line-height: 1; letter-spacing: -0.015em;
+}
+.sec-all { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--e-ink); white-space: nowrap; }
+.sec-arrow { display: inline-block; transition: transform 0.2s ease; }
+.sec-all:hover .sec-arrow, .sec-all:focus-visible .sec-arrow { transform: translateX(5px); }
+.sec-sentence {
+  margin: 28px 0 0; max-width: 40em;
+  font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.55; color: var(--e-soft);
+}
+.sec-label { margin: 40px 0 14px; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--e-ink); }
+.sec-sentence + .rows, .sec-head + .rows { margin-top: 32px; }
+
+/* pills: fully round, solid and outline swap when pointed at */
+.pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.pill {
+  display: inline-block; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid var(--e-ink); font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pill:hover, .pill:focus-visible { background: var(--e-ink); color: #0b0f18; }
+
+/* rows: Kanal's rows, about 75 pixels; pointed at, the row turns solid and an arrow slides in */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--e-hair); }
+.rows-two { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; border-top: 0; }
+.rows-two > li { border-top: 1px solid var(--e-hair); }
+.rows li { border-bottom: 1px solid var(--e-hair); }
+.rows-two > li { border-bottom: 0; }
+.rows-two > li:nth-last-child(-n+2) { border-bottom: 1px solid var(--e-hair); }
+.rows-two > li:nth-last-child(2):nth-child(even) { border-bottom: 0; }
+.row {
+  position: relative; display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  min-height: 75px; padding: 14px 52px 14px 12px; margin: 0 -12px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.row-line { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.45; color: var(--e-soft); }
+.row-arrow {
+  position: absolute; right: 16px; top: 50%; font-size: 22px; line-height: 1;
+  transform: translate(-10px, -50%); opacity: 0; transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.row:hover, .row:focus-visible { background: var(--e-ink); color: #0b0f18; }
+.row:hover .row-line, .row:focus-visible .row-line { color: #2e2a26; }
+.row:hover .row-arrow, .row:focus-visible .row-arrow { opacity: 1; transform: translate(0, -50%); }
+
+/* the Placings galleries, by name, in columns */
+.names {
+  list-style: none; margin: 28px 0 0; padding: 0;
+  columns: 4 220px; column-gap: 32px;
+}
+.names li { break-inside: avoid; }
+.names a {
+  display: block; padding: 8px 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.4; color: var(--e-ink);
+}
+.names a:hover, .names a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+#placings .rows { margin-top: 32px; }
+
+/* the five rooms, as the footer row names them */
+.five-list { list-style: none; margin: 0; padding: 32px 0 0; border-top: 1px solid var(--e-hair); display: flex; flex-wrap: wrap; gap: 14px 40px; }
+.five-list a {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.15;
+}
+.five-list a:hover, .five-list a:focus-visible { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+/* ---------- phones ---------- */
+@media (max-width: 700px) {
+  :root { --air: 96px; --col: 168px; --col-gap: 32px; --pic-gap: 56px; --drop-unit: 0.6px; }
+  .opening { padding: 40px var(--edge) 36px; }
+  .opening-line { font-size: 18px; }
+  .hundred { padding: 64px var(--edge); }
+  .rows-two { grid-template-columns: 1fr; }
+  .rows-two > li:nth-last-child(2):nth-child(even), .rows-two > li:nth-last-child(-n+2) { border-bottom: 0; }
+  .rows-two > li:last-child { border-bottom: 1px solid var(--e-hair); }
+  .row-name { font-size: 22px; }
+  .sec-sentence { font-size: 18px; }
+}
+
+/* less motion: the wall stands still; nothing fades */
+@media (prefers-reduced-motion: reduce) {
+  .door-block, .row, .row-arrow, .pill, .sec-arrow { transition: none; }
+}
