@@ -1,0 +1,209 @@
+/* ==========================================================================
+   The Art menu: one flat colour across the whole window, the words large
+   and centred with a full-width line between each. Opened from the header
+   word "Art" (after Collage, before Search). Model: BOMB Magazine's
+   full-screen menu (bombmagazine.org), named by Reach, October 17, 2026.
+   The colour comes from the work: each word's own colour is taken from one
+   picture behind it (NOTES.md names each); at rest the ground is the blend
+   of them all. Words on the band in Ink, 7 to 1 or better in both modes.
+   ========================================================================== */
+
+:root {
+  --art-rest: #E4CFC4;
+  --art-humor: #D4D0F1;
+  --art-visual-art: #D4D3C4;
+  --art-drawing: #F5DAA3;
+  --art-photography: #CCDCC1;
+  --art-installation: #EABEAE;
+  --art-textile-art: #EDC9DC;
+  --art-music: #F9C8B6;
+  --art-ink: #111;
+  --art-soft: #555;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --art-rest: #362928;
+    --art-humor: #252046;
+    --art-visual-art: #313125;
+    --art-drawing: #3D3014;
+    --art-photography: #273220;
+    --art-installation: #442418;
+    --art-textile-art: #431E32;
+    --art-music: #3A2B2E;
+    --art-ink: #e8e0d6;
+    --art-soft: #b3aa9f;
+  }
+}
+html[data-theme="dark"] {
+  --art-rest: #362928;
+  --art-humor: #252046;
+  --art-visual-art: #313125;
+  --art-drawing: #3D3014;
+  --art-photography: #273220;
+  --art-installation: #442418;
+  --art-textile-art: #431E32;
+  --art-music: #3A2B2E;
+  --art-ink: #e8e0d6;
+  --art-soft: #b3aa9f;
+}
+
+.art-menu {
+  --art-now: var(--art-rest);
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: none;
+  flex-direction: column;
+  background: var(--art-now);
+  color: var(--art-ink);
+  transition: background-color 0.45s ease;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: none;
+}
+.art-menu.is-open { display: flex; animation: art-in 0.25s ease both; }
+@keyframes art-in { from { opacity: 0; } to { opacity: 1; } }
+html.art-locked, html.art-locked body { overflow: hidden; }
+
+/* The top: search at the left, Close at the right, on the site's 24-pixel edge */
+.art-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 73px;
+  padding: 12px 24px;
+}
+.art-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  width: min(300px, 55vw);
+  border-bottom: 1px solid var(--art-ink);
+}
+.art-search svg { flex: 0 0 auto; width: 18px; height: 18px; }
+.art-search input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--art-ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 0;
+  outline: none;
+}
+.art-search input::placeholder { color: var(--art-ink); opacity: 1; }
+.art-search:focus-within { border-bottom-width: 2px; margin-bottom: -1px; }
+.art-close {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--art-ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.art-close:hover { font-weight: 700; }
+.art-close:focus-visible,
+.art-search input:focus-visible { outline: none; }
+.art-close:focus-visible { outline: 2px solid var(--art-ink); outline-offset: 4px; }
+
+/* The words: large, centred, a full-width line between each */
+.art-list {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 clamp(24px, 5vh, 56px);
+}
+.art-list li { border-top: 1px solid var(--art-ink); }
+.art-list li:last-child { border-bottom: 1px solid var(--art-ink); }
+.art-list a,
+.art-list .art-empty {
+  position: relative;
+  display: block;
+  padding: clamp(6px, 1.05vh, 14px) 24px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--art-ink);
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 112%;
+  font-weight: 600;
+  font-size: clamp(30px, min(5vh, 6.2vw), 60px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.art-word-text { position: relative; display: inline-block; }
+/* The arrow follows the site's arrow-link rule: it slides a few pixels in after the word.
+   It sits outside the word's box, so the word stays centred and nothing below moves. */
+.art-arrow {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-left: 0.28em;
+  font-style: normal;
+  opacity: 0;
+  transform: translateX(-0.3em);
+  transition: opacity 0.2s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.art-list a:hover .art-word-text,
+.art-list a:focus-visible .art-word-text,
+.art-list a.is-pressed .art-word-text { font-style: italic; }
+.art-list a:hover .art-arrow,
+.art-list a:focus-visible .art-arrow,
+.art-list a.is-pressed .art-arrow { opacity: 1; transform: translateX(0); }
+.art-list a:focus-visible { outline: none; }
+.art-list a:focus-visible .art-word-text { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.14em; }
+
+/* A word with no live work behind it yet (preview only: shown so Reach sees all ten in his order) */
+.art-list .art-empty { color: var(--art-soft); cursor: default; }
+.art-empty-note {
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-stretch: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.art-list .art-empty:hover .art-empty-note { opacity: 1; }
+.art-menu.only-live .art-list li.is-empty { display: none; }
+
+/* Touch gets its own version: every door shows its arrow at rest, the rows are tall
+   enough for a finger, and a press turns the word italic and the ground to its colour. */
+@media (hover: none) {
+  .art-arrow { opacity: 1; transform: none; font-size: 0.7em; top: 0.18em; }
+  .art-list a, .art-list .art-empty { min-height: 56px; display: flex; align-items: center; justify-content: center; }
+  .art-empty-note { opacity: 1; position: static; transform: none; display: block; }
+  .art-list .art-empty { flex-direction: column; }
+}
+
+/* Phones: the same, a little smaller, the list scrolls if the window is short */
+@media (max-width: 600px) {
+  .art-list a, .art-list .art-empty { font-size: clamp(28px, 4.6vh, 40px); padding: 8px 24px; }
+  .art-search { width: min(240px, 58vw); }
+}
+
+/* Visitors who ask for less motion get none */
+@media (prefers-reduced-motion: reduce) {
+  .art-menu, .art-arrow, .art-empty-note { transition: none; }
+  .art-menu.is-open { animation: none; }
+  .art-arrow { transform: none; }
+}
