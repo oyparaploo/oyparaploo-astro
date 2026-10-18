@@ -90,51 +90,8 @@ html[data-theme="dark"] body::before {
   }
 }
 
-/* ---------- the three changes this mock makes to the live header ----------
-   1. The wordmark tried at 32 pixels, 26 on phones.
-   2. The header and the date strip start at the page's own 24-pixel edge.
-   3. The header's bottom edge is the work's own tones (as on the prototype),
-      so the line travels with the header when it slides back in. */
-html:root body .site-header {
-  padding: 20px var(--edge);
-  border-style: solid; border-width: 0 0 3px;
-  border-image: var(--tones) 1;
-}
-html:root body .site-header .wordmark { font-size: 32px; }
-@media (max-width: 600px) {
-  html:root body .site-header .wordmark { font-size: 26px; }
-}
-
-/* ---------- the date strip, with the three buttons from the prototype ---------- */
-html:root body .theme-strip {
-  height: auto; padding: 6px var(--edge);
-  border-bottom: 1px solid var(--rule);
-  font-size: 16px; color: var(--ink);
-}
-html:root body .theme-controls { gap: var(--gap-2); }
-html:root body .theme-choice {
-  display: inline-block;
-  background: transparent; color: var(--ink);
-  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5;
-  border: 1px solid var(--ink); border-radius: 5px;
-  padding: 4px 12px; opacity: 1; cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-html:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
-@media (hover: hover) {
-  /* PLAY: the true reversal, on three. The solid goes to the hand; the chosen one lets go of it. */
-  html:root body .theme-choice:hover { background: var(--ink); color: var(--ground); }
-  html:root body .theme-choice[data-active="true"]:hover,
-  html:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
-    background: transparent; color: var(--ink);
-  }
-}
-html:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
-html:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
-@media (max-width: 700px) {
-  html:root body .theme-strip .theme-date-full { display: none; }
-  html:root body .theme-strip .theme-date-short { display: inline; }
-}
+/* ---------- the date strip and the header ----------
+   One chrome on every page, in chrome.css (the one-chrome build, October 2026). */
 
 .inner { width: 100%; padding: 0 var(--edge); }
 
@@ -680,7 +637,7 @@ main .rooms { padding: 0 0 72px; }
 
 <body class="room-page about-page about-landing">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
-<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
+<header class="site-header own-line"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="/search.html">Search</a></nav></header>
 
 <main>
 <div class="about-room ab-landing" style="--tone: #25746D; --band: #D3E6E3; --band-d: #11302D;">

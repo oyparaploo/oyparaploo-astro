@@ -771,3 +771,144 @@ html[data-theme="dark"] .arrow-link:focus-visible {
     transform: none;
   }
 }
+
+/* ==========================================================================
+   ONE CHROME ON EVERY PAGE (preview, October 17, 2026)
+   Group two of the whole-site audit (SITE-ORDER\SITE-AUDIT-2026-10-16.md).
+   This one file is the whole change. A build would put it into chrome.css
+   and take the copied strip and header blocks out of the 182 pages that
+   carry them, so every page reads the same chrome from one place.
+
+   1. One strip, on the same ground as the header (white in Light, the page's
+      own ground in Dark): the boxed Light / Dark / Auto buttons (Kanal's buttons, with
+      the solid-and-outline reversal), exactly as the Writings page wears them.
+   2. One edge: 24 pixels, Kanal's measure, for the strip, the header and the
+      way back, at every width; and one header height (the page's own line
+      spacing no longer leaks into the header, so it stands 73 pixels tall on
+      a desktop on every page, 75 where the coloured line is).
+   3. One line under the header: the thin line. A page whose own work makes
+      a coloured line keeps it by carrying the class "own-line" on its header
+      (the Writings page: its line is Stained Message 005's tones).
+   4. One way back: 18 pixels, Inter semibold, full ink, at the top of every
+      page that has one.
+   Nothing else on any page changes.
+   ========================================================================== */
+
+:root { --chrome-edge: 24px; --chrome-ground: #fff; }
+html[data-theme="dark"] { --chrome-ground: var(--ground); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --chrome-ground: var(--ground); }
+}
+
+/* ---------- 1. The strip ---------- */
+html:root:root body .theme-strip {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 6px var(--chrome-edge);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink);
+  background: var(--chrome-ground);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+html:root:root body .theme-strip .theme-date { color: var(--ink); }
+html:root:root body .theme-controls { display: flex; align-items: center; gap: 8px; }
+html:root:root body .theme-dot { display: none; }
+html:root:root body .theme-choice {
+  display: inline-block;
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  padding: 4px 12px;
+  opacity: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root:root body .theme-choice[data-active="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* The reversal: the solid goes to the hand; the chosen one lets go of it. */
+  html:root:root body .theme-choice:hover { background: var(--ink); color: var(--ground); opacity: 1; }
+  html:root:root body .theme-choice[data-active="true"]:hover,
+  html:root:root body .theme-controls:has(.theme-choice:not([data-active="true"]):hover) .theme-choice[data-active="true"] {
+    background: transparent; color: var(--ink);
+  }
+}
+/* Touch gets its own version: the press shows the reversal. */
+html:root:root body .theme-choice:active { background: var(--ink); color: var(--ground); }
+html:root:root body .theme-choice[data-active="true"]:active { background: transparent; color: var(--ink); }
+@media (max-width: 700px) {
+  html:root:root body .theme-strip .theme-date-full { display: none; }
+  html:root:root body .theme-strip .theme-date-short { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root:root body .theme-choice { transition: none; }
+}
+
+/* ---------- 2 and 3. The header: one edge, one thin line ---------- */
+html:root:root body .site-header {
+  padding: 20px var(--chrome-edge);
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-image: none;
+  line-height: 1.6;
+}
+html:root:root body .site-header nav a { line-height: 1.6; }
+html:root:root body .site-header .wordmark { line-height: 1; }
+html:root:root[data-theme="dark"] body .site-header { border-color: rgba(255, 255, 255, 0.18); }
+@media (prefers-color-scheme: dark) {
+  html:root:root:not([data-theme="light"]) body .site-header { border-color: rgba(255, 255, 255, 0.18); }
+}
+/* A coloured line only where the page's own work makes it. */
+html:root:root body .site-header.own-line {
+  border-width: 0 0 3px;
+  border-image: var(--tones) 1;
+}
+
+/* ---------- 4. One way back ---------- */
+html:root:root body .way-back,
+html:root:root body .wp-back,
+html:root:root body.hung-body .gallery-eyebrow.gallery-back {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 1;
+}
+html:root:root body .way-back .arrow-link,
+html:root:root body .way-back .arrow-link .arrow-glyph,
+html:root:root body .wp-back .arrow-link,
+html:root:root body .wp-back .arrow-link .arrow-glyph,
+html:root:root body.hung-body .gallery-eyebrow .arrow-link,
+html:root:root body.hung-body .gallery-eyebrow .arrow-link .arrow-glyph {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: normal;
+  text-transform: none;
+}
+/* The gallery's way back at the top, above the first picture, on the 24-pixel edge. */
+html:root:root body.hung-body .way-back {
+  max-width: none;
+  margin: 0 auto;
+  padding: 20px var(--chrome-edge) 0;
+}
+/* The picture page's way back at the top, above the catalogue number. */
+html:root:root body.work-body .way-back { margin: 0 0 8px; }
+/* The gallery's foot links on the same 24-pixel edge as the wordmark. */
+html:root:root body.hung-body .gallery-eyebrow { max-width: none; padding-left: var(--chrome-edge); padding-right: var(--chrome-edge); }
