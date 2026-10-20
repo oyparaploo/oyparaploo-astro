@@ -912,3 +912,6 @@ html:root:root body.hung-body .way-back {
 html:root:root body.work-body .way-back { margin: 0 0 8px; }
 /* The gallery's foot links on the same 24-pixel edge as the wordmark. */
 html:root:root body.hung-body .gallery-eyebrow { max-width: none; padding-left: var(--chrome-edge); padding-right: var(--chrome-edge); }
+
+/* The thirteenth cleanup: the rows of five pictures (thumb-row-wrap) are sized to the window width, scrollbar included; where a standing scrollbar makes them 7 pixels too wide, the page clips that sideways overflow instead of scrolling sideways. Phones and screens with no standing scrollbar are unchanged. */
+html:has(.thumb-row-wrap) { overflow-x: clip; }
