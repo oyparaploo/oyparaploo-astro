@@ -203,3 +203,20 @@ html[data-theme="dark"] .gw-room { background: transparent; }
   .gw-room a:hover .gw-arr-back, .gw-room a:focus-visible .gw-arr-back, .gw-room a:active .gw-arr-back { transform: none; }
 }
 html.rm .gw-will { opacity: 1; transform: none; transition: none; }
+
+/* The shelf lines build, October 21, 2026: the room's one plain sentence under its name. */
+.gw-hero-in { row-gap: 24px; }
+.gw-hero-in > .gw-title { grid-column: 1; grid-row: 1; }
+.gw-line {
+  grid-column: 1; grid-row: 2; align-self: start; margin: 0; max-width: 20em;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 26px; line-height: 1.25; color: var(--gw-hero-ink);
+}
+.gw-hero-in > .gw-hero-pic { grid-column: 2; grid-row: 1 / span 2; }
+@media (max-width: 900px) {
+  .gw-hero-in { row-gap: 24px; }
+  .gw-hero-in > .gw-title, .gw-line, .gw-hero-in > .gw-hero-pic { grid-column: auto; grid-row: auto; }
+  .gw-line { order: 1; }
+  .gw-hero-in > .gw-hero-pic { margin-top: 16px; }
+}
+@media (max-width: 600px) { .gw-line { font-size: 22px; } }
