@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome · Paraploo</title>
+<meta name="description" content="Most everything here was made by hand or mouse, in the base of a house, garage, yard, in Saint Paul, Minnesota.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/theme.js"></script>
+<style id="welcome-styles">
+/* The Welcome page (made October 22, 2026). A quiet page, not a design room: the one chrome, one flat
+   band from the work on it, the first paragraph in the Kavi Gupta rule line, the rest in the reading
+   column. Text colours only from chrome.css's named colours. */
+body.welcome-page { margin: 0; background: var(--ground); color: var(--ink); }
+.site-header { box-sizing: border-box; }  /* as on the legal notice page: the header stays inside the window */
+.wl { --wl-band: #cdbaa2; --edge: 24px; --indent: 48px; }
+html[data-theme="dark"] .wl { --wl-band: #473a2a; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .wl { --wl-band: #473a2a; } }
+
+/* The band: edge to edge, from the picture's dry ground. The heading is the page's one huge thing. */
+.wl-band { background: var(--wl-band); padding: 72px var(--edge) 64px; }
+.wl-band-in { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: start; }
+.wl-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); }
+.wl-fig { margin: 0; }
+.wl-pic { display: block; }
+.wl-pic img { display: block; width: 100%; height: auto; aspect-ratio: 2000 / 1333; }
+.wl-num { display: inline-flex; align-items: center; min-height: 44px; margin-top: 2px;
+  font: 400 16px/1.2 'Inter', sans-serif; color: var(--ink); text-decoration: none; }
+.wl-num:hover, .wl-num:focus-visible { text-decoration: none; }
+
+/* The first paragraph: the rule line (Kavi Gupta), Inter in large type with a thin line down its left, set
+   on the band under the heading. Words on a band stay dark at 7 to 1 or better, so it takes full Ink
+   (13.7 to 1 in Light, 8.4 to 1 in Dark) where the live rule line uses Soft ink on the ground. */
+.wl-words { display: flex; flex-direction: column; gap: 40px; }
+.wl-rule { margin: 0; max-width: 860px; padding: 2px 0 4px 24px; border-left: 1px solid var(--ink-faint);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(20px, 0.9vw + 12px, 28px);
+  line-height: 1.36; letter-spacing: -0.012em; color: var(--ink); text-wrap: pretty; }
+
+/* The reading column: the other eight paragraphs, lined up with the rule line's words. */
+.wl-read { margin: 112px 0 0; padding: 0 var(--edge) 0 var(--indent); max-width: calc(700px + var(--indent)); }
+.wl-read p { margin: 0 0 1.1em; font: 400 20px/1.65 'Inter', sans-serif; color: var(--ink); text-wrap: pretty; }
+.wl-read p:last-child { margin-bottom: 0; }
+.wl-read a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.wl-read a:hover, .wl-read a:focus-visible { text-decoration: none; }
+
+/* The way on: a full-width line, then one door. */
+.wl-foot { margin: 128px var(--edge) 0; padding: 36px 0 104px; border-top: 1px solid var(--ink-faint); }
+.wl-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; }
+.wl-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
+
+@media (max-width: 1100px) and (min-width: 761px) { .wl-band-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .wl { --edge: 16px; --indent: 34px; }
+  .wl-band { padding: 40px var(--edge) 24px; }
+  .wl-band-in { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .wl-title { font-size: 64px; }
+  .wl-words { gap: 28px; }
+  .wl-rule { padding-left: 18px; font-size: 21px; }
+  .wl-read { margin-top: 64px; }
+  .wl-read p { font-size: 19px; line-height: 1.6; }
+  .wl-foot { margin-top: 88px; padding: 28px 0 72px; }
+  .wl-foot .arrow-link { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .wl-foot .arrow-link .arrow-glyph { transition: none; transform: none !important; } }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://paraploo.com/welcome">
+</head>
+<body class="welcome-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings.html">Writings</a><a href="/marks.html">Marks</a><a href="/physical.html">Placings</a><a href="/digital.html">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search.html">Search</a></nav></header>
+
+<main class="wl">
+<section class="wl-band" aria-labelledby="wl-title">
+  <div class="wl-band-in">
+    <div class="wl-words">
+      <h1 class="wl-title" id="wl-title">Welcome</h1>
+      <p class="wl-rule">Most everything here was made by hand or mouse, in the base of a house, garage, yard, in Saint Paul, Minnesota. Writings come first, then pictures of physical things and what we visualize in the mind's eye. Nothing is for sale. Nothing is hidden behind expensive doors. When you leave, take whatever stays with you.</p>
+    </div>
+    <figure class="wl-fig">
+      <a class="wl-pic" href="/physical/get-the-stuff-out/0003.html" aria-label="03906"><img src="https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2018.webp" srcset="https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2018-600.webp 600w, https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2018.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), 58vw" width="2000" height="1333" alt="Photograph of an assemblage, catalogue 03906, from Get The Stuff Out, Placings" loading="eager" fetchpriority="high" decoding="async"></a>
+      <figcaption><a class="wl-num" href="/physical/get-the-stuff-out/0003.html">03906</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="wl-read">
+  <p>We call the work Wonderful Garbage, and sometimes child's garbage, and it's another way to praise what is at best greater than ourselves. Degradable and non-degradable things of this world that are thrown away by ourselves and others, bent rusty nails and four seasons weathered and worn boards of the Midwest. Half-heard phrases that try to reach or go further. We pick up, turn over and set conscious stones. Place them where they can most easily be seen. Beside it runs a quieter mark called Noir Chanson, a coupled name and song sung in low to high shadows of light. Most of what you will find within our territory lives under those two names, conjured in dreams and made with tough calloused to soft fresh hands.</p>
+  <p>Our words come as poems, stories, plays and scripts, essays, prayers, letters and texts, conversations, short pieces. All of them began spoken out loud first ... Into air, water, soil, great indoor rooms, and then played with on the surface of legal size paper until they became more still. That's why the writings have a different sound to them. Three forward slashes represent opening and closing lines, the way a message board moves. Invented syllables are read out loud second. Many attempt and succeed at hiding plain English, at each moment the mouth knows by saying.</p>
+  <p>Paraploo Marks are drawings made with a metal-tipped 0.7 millimeter ballpoint, black permanent gel ink, on semi-smooth 100% cotton paper, carefully one at a time. The color, fog and negative versions are made afterwards: sometimes a conventional color stain goes on first, then additional enhancements in Photoshop. They are writings from a language no one actually speaks, and every drawing has a title that matters, to us. Each and every composed drawing begins as a felt thought. Over and over, read the title, then look again. The patterns and maps imply movement, the way complex and hyper-complex things in Mother Nature do. Beside the drawings are the handwritten pages, words circled and joined by loops: thought and wild improvisation, written straight out of the mind, and saved as the physical pages that they are.</p>
+  <p>The Placings, or placemaking projects, are photographs of countless materials, objects, items, made and affected with hand tools. Whatever was given up, arranged until it could stand on its own, could be touched by spirits grounded and lifted above grounds and floors. In a space with heat ticking, with the doors and windows up for light. On dry grass before a machine visits. A bench shows its edge. Drained and exhausted. A plant place is often part of a piece. Early works were created to be examined by hospital staff and patients.</p>
+  <p>Collages start from our documentary photographs and are usually constructed in Photoshop. Each one cut, copied, flipped until it opens to a pattern that was hiding in it the whole time. Stitched from fragments while two types of coneflowers grew, in the yard. Within the mosaics are faces of people we loosely and technically know, left exactly as the camera discovered or caught them.</p>
+  <p>There is a bubbling river room named Musicology, where our favorite songs hang out, each with a piece of our writing set beside it, because a song that has been with us deserves the world. There is a book of distinctive doors, with open space behind each. Come In, Come Through, Come Sit, Come Look, Come Stand, Come Down, and break bread with us. So to speak. There are walks, each a path through the site with stops along the way, for anyone who would rather be led than left to wander. There is a page called Everything, where this whole place is said in a hundred words while a wall of pictures drifts slowly past. What caught your fancy? A search box for souls who know why they're visiting us.</p>
+  <p>This work and play was gathered, sorted and shelved with the help of a loose plan and a model. Out of great storage rooms comes the shape of this site, level for level. The help was real. And the arguments were mostly brief.</p>
+  <p>So this is Paraploo. Play is what makes serious material receivable. We tested that on ourselves. The essay <a href="/words/2026-variety/why-the-three-dots-everywhere/">Why The Three Dots Everywhere</a> says more. Light, dark or whatever you prefer, it's all here for the choosing. There is no right first step or shoe left behind.</p>
+</div>
+
+<nav class="wl-foot" aria-label="Where next">
+  <a class="arrow-link arrow-next" href="/writings.html">Writings <span class="arrow-glyph" aria-hidden="true">&rarr;</span></a>
+</nav>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+
+<script src="/nav.js"></script>
+</body>
+</html>
