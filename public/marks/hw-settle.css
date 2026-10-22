@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Handwritten Every Which Way: the one sentence that settles.
+   Made fresh for Paraploo, October 22, 2026, after the foot band of
+   pitchfork.com/best/, which Reach named himself. No code and no font
+   taken from Pitchfork.
+
+   On arrival, the sentence's letters stand as broken pen marks (pieces of
+   loops, strokes, hooks and dots, tall where the letter is tall and low where
+   it hangs) and settle into the words from left to right, in under a second,
+   once. Then the sentence stays still.
+
+   - The real words never leave the page: they hold their own place and line
+     breaks the whole time, unseen for that moment, and a screen reader reads
+     them from the start. The marks sit over them and are hidden from screen
+     readers.
+   - Visitors who ask for less motion see the sentence plain (the line in the
+     page's head adds hw-settling only when motion is welcome).
+   - The marks take the colour of the words on the band, so Light, Dark and
+     Auto are the same.
+   ========================================================================== */
+
+.hw-settle { position: relative; }
+
+/* While it settles, the real words hold their place unseen. */
+html.hw-settling .hw-settle { color: transparent; }
+
+/* A safety: if the script never runs, the words show by themselves after a
+   second and a fifth. Once the script starts, the safety stands down. */
+html.hw-settling .hw-settle { animation: hw-safety 0s linear 1.2s forwards; }
+html.hw-settling.hw-run .hw-settle { animation: none; }
+@keyframes hw-safety { to { color: var(--band-ink, #111111); } }
+
+/* The layer of marks over the words; never read aloud, never selected. */
+.hw-marks {
+  position: absolute; inset: 0;
+  pointer-events: none; user-select: none; -webkit-user-select: none;
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.hw-marks.on { opacity: 1; }
+
+/* One letter's place: exactly where the real letter stands. */
+.hw-ch { position: absolute; display: block; white-space: pre; }
+.hw-ch .lt { opacity: 0; transition: opacity 0.14s ease; }
+.hw-ch.set .lt { opacity: 1; }
+
+/* The mark: a piece of a pen line, centred on the letter's place. */
+.hw-ch .mk {
+  position: absolute; left: 50%; top: var(--top, 57%);
+  transform: translate(-50%, -50%) translateY(var(--y, 0em)) rotate(var(--r, 0deg));
+  opacity: 0.58; transition: opacity 0.14s ease;
+  box-sizing: border-box;
+}
+.hw-ch.set .mk { opacity: 0; }
+
+/* Marks the height of a small letter (a, c, e, m, n, o, r, s, u, v, w, x, z) */
+.mk.s1 { width: 0.5em; height: 0.5em; border: 0.085em solid currentColor; border-radius: 50%;
+         border-right-color: transparent; border-bottom-color: transparent; }          /* a piece of a loop */
+.mk.s2 { width: 0.42em; height: 0.27em; border: 0.08em solid currentColor; border-radius: 50%; }  /* a small loop */
+.mk.s3 { width: 0.085em; height: 0.48em; background: currentColor; border-radius: 0.05em; }     /* a short stroke */
+.mk.s4 { width: 0.28em; height: 0.42em; border-left: 0.085em solid currentColor;
+         border-bottom: 0.085em solid currentColor; border-bottom-left-radius: 0.3em; }        /* a hook */
+.mk.s5 { width: 0.4em; height: 0.085em; background: currentColor; border-radius: 0.05em; }      /* a dash */
+.mk.s6 { width: 0.46em; height: 0.46em; border: 0.085em solid currentColor; border-radius: 50%;
+         border-top-color: transparent; }                                                       /* an open loop */
+
+/* Marks the height of a tall letter (b, d, f, h, k, l, t, capitals) or one that hangs (g, j, p, q, y) */
+.mk.t1 { width: 0.085em; height: 0.74em; background: currentColor; border-radius: 0.05em; }     /* a tall stroke */
+.mk.t2 { width: 0.26em; height: 0.7em; border-left: 0.085em solid currentColor;
+         border-bottom: 0.085em solid currentColor; border-bottom-left-radius: 0.28em; }       /* a tall hook */
+.mk.t3 { width: 0.3em; height: 0.74em; border: 0.08em solid currentColor; border-radius: 50%;
+         border-right-color: transparent; }                                                     /* a lean loop */
+
+/* Marks for the comma and the full stop */
+.mk.p1 { width: 0.15em; height: 0.15em; background: currentColor; border-radius: 50%; }         /* a dot */
+.mk.p2 { width: 0.085em; height: 0.28em; background: currentColor; border-radius: 0.05em; }     /* a tick */
+
+/* Less motion: nothing moves, the sentence stands plain. */
+@media (prefers-reduced-motion: reduce) {
+  html.hw-settling .hw-settle { color: inherit; animation: none; }
+  .hw-marks { display: none; }
+}
