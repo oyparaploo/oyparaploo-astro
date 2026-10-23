@@ -13,7 +13,8 @@
     { key: 'photography',  word: 'Photography',  href: '/digital/photo-realism/' },
     { key: 'installation', word: 'Installation', href: '/physical' },
     { key: 'textile-art',  word: 'Textile Art',  href: '/physical/placed-outside-day-stage-textile-space' },
-    { key: 'music',        word: 'Music',        href: '/musicology' }
+    { key: 'music',        word: 'Music',        href: '/musicology' },
+    { key: 'by-color',     word: 'By color',     href: '/by-color' }
   ];
   var SEARCH = '/search.html';
 

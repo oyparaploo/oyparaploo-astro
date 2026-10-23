@@ -1,0 +1,174 @@
+/* ==========================================================================
+   By colour (preview, October 23, 2026). A page of its own under Art: one bar
+   of flat swatches drawn from the site's own pictures; choosing one hangs every
+   picture that carries that colour in the hung room below, newest first.
+   After the Barnes Collection Online's colour bar; its card grid and its other
+   tools are left. Text colours only from chrome.css's named colours.
+   The band and the room take the chosen colour's own tones (by-colour.js sets
+   the four values on <html>); words on the band read at 7.5 to 1 or better,
+   the catalogue numbers on the room at 4.6 to 1 or better.
+   ========================================================================== */
+
+/* The band behind the swatches is a plain neutral gray, the same for every color (Reach, October 23, 2026: a colored
+   band "influences what the colors look like"), so each swatch is seen true. The chosen color lives in the room below. */
+html.bc-page {
+  --bc-band: #949494;
+  --ground: var(--bc-ground-l, #efe4e3);
+}
+@media (prefers-color-scheme: dark) {
+  html.bc-page:not([data-theme="light"]) {
+    --bc-band: #949494;
+    --ground: var(--bc-ground-d, #3c120e);
+  }
+}
+html.bc-page[data-theme="dark"] {
+  --bc-band: #949494;
+  --ground: var(--bc-ground-d, #3c120e);
+}
+
+.bc-page body { transition: background-color 0.5s ease; }
+.site-header { box-sizing: border-box; }
+
+/* The band: edge to edge, in the chosen colour. Its title is the page's one huge thing. */
+/* The whole band is the 50 per cent gray, as Photoshop shows 50 per cent black ink (K 50 at the usual 20 per cent dot gain), #949494 (Reach, October 23, 2026: "lighter") (Reach, October 23, 2026: "Fill the whole area with that, medium gray"),
+   in Light and Dark alike; its words are pure black in every mode (6.9 to 1 on #949494, Reach's ruling over the
+   charter's 7 to 1 for words on a band). */
+.bc-band {
+  --ink: #000;
+  background: var(--bc-band);
+  padding: 64px 24px 40px;
+  transition: background-color 0.5s ease;
+}
+.bc-title {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 8.4vw, 144px); line-height: 0.9; letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.bc-line {
+  margin: 28px 0 0; max-width: 750px;
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(21px, 0.9vw + 12px, 28px); line-height: 1.36; letter-spacing: -0.012em;
+  color: var(--ink); text-wrap: pretty;
+}
+
+/* The bar: one row of flat swatches, touching, across the whole width. */
+.bc-bar {
+  display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); column-gap: 0;
+  margin: 56px 0 0; padding: 0; list-style: none;
+}
+.bc-bar li { margin: 0; }
+.bc-swatch {
+  display: flex; flex-direction: column; align-items: stretch; width: 100%;
+  margin: 0; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--ink); text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Every swatch is a circle (Reach, October 23, 2026: squares first, then "Should these swatches circles or dots the
+   same size as this square so that the yin-yang works better?"), in one row with a little air between them. The chosen
+   one wears a ring in Ink, set off from it by a sliver of the band, and its name turns bold; pointing at another lifts it a little. */
+/* The circles sit on a strip of 50 per cent gray, halfway between warm and cool (#949494), the same in Light and Dark
+   (Reach, October 23, 2026: "Let's go with a 50% of black between warm and cool gray hue"), so every color is judged
+   against the same neutral. The strip is the wells of the swatches touching; the names sit under it, on the band. */
+.bc-well { display: block; background: #949494; padding: 18px 9px; }
+.bc-swatch { --rise: 0px; }
+.bc-chip {
+  display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%;
+  background: var(--sw);
+  /* A radial blend so each circle rounds out from the gray (Reach, October 23, 2026), lit from the upper left. It stays
+     inside its own color: the lightest point is the color with a fifth of white mixed in, the deepest the color with a
+     third of black (a touch darker, Reach, the same day), so Yellow stays yellow and Violet stays violet. B & W keeps its flat yin-yang. */
+  background-image: radial-gradient(circle at 34% 30%, color-mix(in oklab, var(--sw) 80%, #fff) 0%, var(--sw) 52%, color-mix(in oklab, var(--sw) 65%, #000) 100%);
+  transform: translateY(calc(0px - var(--rise)));
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+/* B & W: the yin-yang, black and white meeting in its S-curve, with its two small dots and no outline (Reach, October 23, 2026). */
+.bc-swatch[data-key="bw"] .bc-chip {
+  /* Shaded like the colored balls (Reach, October 23, 2026): a soft light at the upper left and a shadow toward the
+     lower right, laid over the flat yin-yang. The yin-yang is drawn edge to edge in a square and the circle's own rounding
+     trims it, so there is one clean edge and no light fringe inside the ring (Reach, October 23, 2026). */
+  background: radial-gradient(circle at 34% 30%, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0) 46%, rgba(0,0,0,0) 54%, rgba(0,0,0,0.38) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23fff'/%3E%3Cpath d='M50 0H0V100H50A25 25 0 0 0 50 50A25 25 0 0 1 50 0Z' fill='%23111'/%3E%3Ccircle cx='50' cy='25' r='7' fill='%23111'/%3E%3Ccircle cx='50' cy='75' r='7' fill='%23fff'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+/* Grays: its radial blend runs between the lighter and the darker grays of the gray pictures themselves (their middle tones a quarter and three quarters of the way up: #a5a5a5
+   over #333333), measured by work/2b-measure-tones.py. */
+.bc-swatch[data-key="grays"] .bc-chip { background: #6c6c6c radial-gradient(circle at 34% 30%, #a5a5a5 0%, #6c6c6c 52%, #262626 100%); }
+.bc-swatch:hover { --rise: 4px; }
+.bc-swatch[aria-pressed="true"] { --rise: 0px; }
+/* The ring is the circle's own black border, part of the same round shape, so no light sliver shows between the ring and
+   the color (Reach, October 23, 2026). The circle keeps its size; the color fills the inside of the ring. */
+.bc-chip { box-sizing: border-box; border: 0 solid #000; }
+.bc-swatch[aria-pressed="true"] .bc-chip { border-width: 3px; }  /* the black ring sits right against the color, no gray between (Reach, October 23, 2026) */
+.bc-name {
+  display: block; padding: 14px 0 0; min-height: 44px; box-sizing: border-box;
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.25;
+  color: var(--ink); overflow-wrap: normal; hyphens: none;  /* 18 pixels, the site's size for labels (October 23, 2026); 16 on phones */
+}
+.bc-swatch[aria-pressed="true"] .bc-name { font-weight: 700; }
+.bc-swatch:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* The room: the hung room (hung-room.css), on the chosen colour's room tone. */
+.bc-room { min-height: 60vh; }
+.bc-room .hung-arrival { margin-top: 48px; }
+.bc-room .hung-band h2 {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 34px; letter-spacing: -0.02em; line-height: 1.12; color: #fff;
+}
+.bc-room .hung-item figcaption a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Show more: the site's button, solid and outline swapping when pointed at. */
+.bc-more { max-width: 1400px; margin: 0 auto; padding: 24px 32px 0; text-align: center; }
+.bc-more[hidden] { display: none; }
+.bc-more-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: var(--ink); color: var(--ground);
+  font: 600 18px/1 'Inter', sans-serif; cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.bc-more-btn:hover, .bc-more-btn:focus-visible { background: transparent; color: var(--ink); }
+
+/* The way on: a full-width line, then the colours either side. */
+.bc-foot {
+  display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  margin: 112px 24px 0; padding: 32px 0 96px; border-top: 1px solid var(--ink-faint);
+}
+.bc-foot .arrow-link {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; color: var(--ink); text-decoration: none;
+}
+.bc-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
+
+/* The arrival's band says only how many (the color's name is heard by a screen reader, not shown). */
+.bc-room .hung-band .bc-count { margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; }
+@media (max-width: 700px) { .bc-room .hung-band .bc-count { font-size: 22px; } }
+.bc-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Narrower windows: thirteen circles in a row down to 880 pixels, then two rows (seven and six), then three rows of five on phones. */
+@media (max-width: 880px) {
+  .bc-bar { grid-template-columns: repeat(7, minmax(0, 1fr)); row-gap: 28px; }
+}
+@media (max-width: 760px) {
+  .bc-band { padding: 40px 16px 36px; }
+  .bc-title { font-size: 64px; }
+  .bc-line { margin-top: 20px; font-size: 21px; }
+  .bc-bar { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 32px; row-gap: 18px; }
+  .bc-well { padding: 12px 6px; }
+  .bc-name { font-size: 16px; }
+  .bc-swatch:hover { --rise: 0px; }
+  .bc-room .hung-arrival { margin-top: 24px; }
+  .bc-room .hung-band h2 { font-size: 25px; }
+  .bc-more { padding: 16px 16px 0; }
+  .bc-foot { margin: 72px 16px 0; padding: 24px 0 72px; }
+  .bc-foot .arrow-link { font-size: 26px; }
+}
+/* Touch: no lift under the finger; the chosen swatch grows when tapped. */
+@media (hover: none) {
+  .bc-swatch:hover:not([aria-pressed="true"]) { --rise: 0px; }
+}
+/* Less motion: nothing slides or fades; the chosen swatch simply stands taller and the colours change. */
+@media (prefers-reduced-motion: reduce) {
+  .bc-page body, .bc-band, .bc-chip, .bc-more-btn { transition: none; }
+  .bc-swatch:hover:not([aria-pressed="true"]) { --rise: 0px; }
+  .bc-foot .arrow-link .arrow-glyph { transition: none; transform: none !important; }
+}
