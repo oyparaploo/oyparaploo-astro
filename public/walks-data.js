@@ -8,7 +8,7 @@
    The phone texts cleanup (SITE-ORDER\CLEANUP-3, October 2026): Childhood Years' gift takes the heading
    that now opens its phone text, as the page shows it; the other eight phone gifts already match their pages. */
 window.PARAPLOO_WALKS = {
- "walksHref": "/walks.html",
+ "walksHref": "/walks",
  "order": [
   "running-jokes",
   "the-senses",
@@ -26,7 +26,7 @@ window.PARAPLOO_WALKS = {
  "walks": {
   "running-jokes": {
    "name": "Running Jokes",
-   "href": "/walks/running-jokes.html",
+   "href": "/walks/running-jokes",
    "shades": [
     "#524628",
     "#4D4226",
@@ -48,16 +48,16 @@ window.PARAPLOO_WALKS = {
    },
    "stops": [
     {
-     "href": "/room-three.html?walk=running-jokes",
+     "href": "/room-three?walk=running-jokes",
      "time": "4 minutes",
      "kind": "writing",
      "name": "Come Sit",
      "half": "a bench, wherever the bench happens to be",
      "pic": null,
-     "at": "/room-three.html"
+     "at": "/room-three"
     },
     {
-     "href": "/walks/running-jokes/02-02148.html",
+     "href": "/walks/running-jokes/02-02148",
      "time": "1 minute",
      "kind": "picture",
      "n": "02148",
@@ -65,7 +65,7 @@ window.PARAPLOO_WALKS = {
      "words": "We Have Always Loved Dry Grass and Dry Humor, Together, That's Just Us",
      "where": null,
      "family": false,
-     "page": "/marks/dry-grass-and-tears/0009.html",
+     "page": "/marks/dry-grass-and-tears/0009",
      "pic": {
       "n": "02148",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img195.webp",
@@ -102,7 +102,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/why-the-three-dots-everywhere/"
     },
     {
-     "href": "/walks/running-jokes/05-09988.html",
+     "href": "/walks/running-jokes/05-09988",
      "time": "1 minute",
      "kind": "picture",
      "n": "09988",
@@ -113,7 +113,7 @@ window.PARAPLOO_WALKS = {
       "/digital/photo-realism/"
      ],
      "family": false,
-     "page": "/digital/photo-realism/photo-realism-returning-the-joke/0013.html",
+     "page": "/digital/photo-realism/photo-realism-returning-the-joke/0013",
      "pic": {
       "n": "09988",
       "src": "https://media.paraploo.com/site/images/lines/photo-realism-returning-the-joke/Rich%20Bold%20Color%20Toy%20Skull%20Head%20Photograph.webp",
@@ -136,7 +136,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/when-a-million-teeny-feathers-get-blown-up/"
     },
     {
-     "href": "/walks/running-jokes/07-02188.html",
+     "href": "/walks/running-jokes/07-02188",
      "time": "1 minute",
      "kind": "picture",
      "n": "02188",
@@ -144,7 +144,7 @@ window.PARAPLOO_WALKS = {
      "words": "Laughing At Us Guestbook Page, Feels Good, Says and Saves Better",
      "where": null,
      "family": false,
-     "page": "/marks/slanted-character/0004.html",
+     "page": "/marks/slanted-character/0004",
      "pic": {
       "n": "02188",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLANTED%20CHARACTER%20%286%29/img157.webp",
@@ -167,7 +167,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/dissecting-didiers-cooling-eccentricity/"
     },
     {
-     "href": "/walks/running-jokes/09-09981.html",
+     "href": "/walks/running-jokes/09-09981",
      "time": "1 minute",
      "kind": "picture",
      "n": "09981",
@@ -178,7 +178,7 @@ window.PARAPLOO_WALKS = {
       "/digital/photo-realism/"
      ],
      "family": false,
-     "page": "/digital/photo-realism/photo-realism-returning-the-joke/0006.html",
+     "page": "/digital/photo-realism/photo-realism-returning-the-joke/0006",
      "pic": {
       "n": "09981",
       "src": "https://media.paraploo.com/site/images/lines/photo-realism-returning-the-joke/gv%206.webp",
@@ -204,7 +204,7 @@ window.PARAPLOO_WALKS = {
   },
   "the-senses": {
    "name": "The Senses",
-   "href": "/walks/the-senses.html",
+   "href": "/walks/the-senses",
    "shades": [
     "#4D342D",
     "#49312B",
@@ -240,7 +240,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/deepening-rooted-connection-to-timeless-art/"
     },
     {
-     "href": "/walks/the-senses/02-13979.html",
+     "href": "/walks/the-senses/02-13979",
      "time": "1 minute",
      "kind": "picture",
      "n": "13979",
@@ -251,7 +251,7 @@ window.PARAPLOO_WALKS = {
       "/digital/eye-trois-medley/"
      ],
      "family": false,
-     "page": "/digital/eye-trois-medley/0004.html",
+     "page": "/digital/eye-trois-medley/0004",
      "pic": {
       "n": "13979",
       "src": "https://media.paraploo.com/site/images/lines/eye-trois-medley/Soft%20Eyes%20638.webp",
@@ -288,7 +288,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2024-variety/exploring-with-touch/"
     },
     {
-     "href": "/walks/the-senses/05-00072.html",
+     "href": "/walks/the-senses/05-00072",
      "time": "1 minute",
      "kind": "picture",
      "n": "00072",
@@ -299,7 +299,7 @@ window.PARAPLOO_WALKS = {
       "/digital/ga-assortment/"
      ],
      "family": false,
-     "page": "/sumi/ga-assortment/0021.html",
+     "page": "/sumi/ga-assortment/0021",
      "pic": {
       "n": "00072",
       "src": "https://media.paraploo.com/site/images/lines/ga-assortment/Eyes%20And%20Hot%20Cells.webp",
@@ -322,7 +322,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/smells-not-right/"
     },
     {
-     "href": "/walks/the-senses/07-02535.html",
+     "href": "/walks/the-senses/07-02535",
      "time": "1 minute",
      "kind": "picture",
      "n": "02535",
@@ -330,7 +330,7 @@ window.PARAPLOO_WALKS = {
      "words": "Most Things That Begin With A Touch Or Tap",
      "where": null,
      "family": false,
-     "page": "/marks/another-booklet/0042.html",
+     "page": "/marks/another-booklet/0042",
      "pic": {
       "n": "02535",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/Most%20Things%20That%20Begin%20With%20A%20Touch%20Or%20Tap.webp",
@@ -353,7 +353,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/becoming-more-engaged-with-pareidolia/"
     },
     {
-     "href": "/walks/the-senses/09-02653.html",
+     "href": "/walks/the-senses/09-02653",
      "time": "1 minute",
      "kind": "picture",
      "n": "02653",
@@ -361,7 +361,7 @@ window.PARAPLOO_WALKS = {
      "words": "Did You Hear Those Sounds? Half of Us Woke Up and Half of Us Didn't",
      "where": null,
      "family": false,
-     "page": "/marks/lightly-tinted/0021.html",
+     "page": "/marks/lightly-tinted/0021",
      "pic": {
       "n": "02653",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/Did%20you%20hear%20those%20sounds%20composition%20as%20mostly%20lines%20and%20wireframe%20for%20letter%20size%20printing.webp",
@@ -387,7 +387,7 @@ window.PARAPLOO_WALKS = {
   },
   "wonderful-garbage": {
    "name": "Wonderful Garbage",
-   "href": "/walks/wonderful-garbage.html",
+   "href": "/walks/wonderful-garbage",
    "shades": [
     "#3B4931",
     "#38452E",
@@ -425,7 +425,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/brrd-roots-second-act-redemption-in-bottles-benches-and-being-human/"
     },
     {
-     "href": "/walks/wonderful-garbage/02-04557.html",
+     "href": "/walks/wonderful-garbage/02-04557",
      "time": "1 minute",
      "kind": "picture",
      "n": "04557",
@@ -436,7 +436,7 @@ window.PARAPLOO_WALKS = {
       "/physical/materials-for-tinkering/"
      ],
      "family": false,
-     "page": "/physical/materials-for-tinkering/0001.html",
+     "page": "/physical/materials-for-tinkering/0001",
      "pic": {
       "n": "04557",
       "src": "https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%201.webp",
@@ -473,7 +473,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/brrd-roots-ladder-that-found-its-voice-belief-in-the-beauty-of-renewal/"
     },
     {
-     "href": "/walks/wonderful-garbage/05-02746.html",
+     "href": "/walks/wonderful-garbage/05-02746",
      "time": "1 minute",
      "kind": "picture",
      "n": "02746",
@@ -481,7 +481,7 @@ window.PARAPLOO_WALKS = {
      "words": "Portrait Of Harmonious Posh Landfill Garbage Linear Emphasis",
      "where": null,
      "family": false,
-     "page": "/marks/other-worldly/0050.html",
+     "page": "/marks/other-worldly/0050",
      "pic": {
       "n": "02746",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Portrait%20Of%20Harmonious%20Posh%20Landfill%20Garbage%20Linear%20Emphasis.webp",
@@ -504,7 +504,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/this-and-that-brrd-roots-solid-waste-decomposition-verse/"
     },
     {
-     "href": "/walks/wonderful-garbage/07-03909.html",
+     "href": "/walks/wonderful-garbage/07-03909",
      "time": "1 minute",
      "kind": "picture",
      "n": "03909",
@@ -515,7 +515,7 @@ window.PARAPLOO_WALKS = {
       "/physical/get-the-stuff-out/"
      ],
      "family": false,
-     "page": "/physical/get-the-stuff-out/0006.html",
+     "page": "/physical/get-the-stuff-out/0006",
      "pic": {
       "n": "03909",
       "src": "https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%2021.webp",
@@ -538,7 +538,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/white-tape-locked/"
     },
     {
-     "href": "/walks/wonderful-garbage/09-04735.html",
+     "href": "/walks/wonderful-garbage/09-04735",
      "time": "1 minute",
      "kind": "picture",
      "n": "04735",
@@ -549,7 +549,7 @@ window.PARAPLOO_WALKS = {
       "/physical/mister-sandman-garbage/"
      ],
      "family": false,
-     "page": "/physical/mister-sandman-garbage/0002.html",
+     "page": "/physical/mister-sandman-garbage/0002",
      "pic": {
       "n": "04735",
       "src": "https://media.paraploo.com/site/images/physical/mister-sandman-garbage/Holy%20Sand%20Boatman%2010.webp",
@@ -575,7 +575,7 @@ window.PARAPLOO_WALKS = {
   },
   "marks": {
    "name": "Marks",
-   "href": "/walks/marks.html",
+   "href": "/walks/marks",
    "shades": [
     "#464235",
     "#423F32",
@@ -611,7 +611,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/who-ate-the-last-8/"
     },
     {
-     "href": "/walks/marks/02-02328.html",
+     "href": "/walks/marks/02-02328",
      "time": "1 minute",
      "kind": "picture",
      "n": "02328",
@@ -619,7 +619,7 @@ window.PARAPLOO_WALKS = {
      "words": "Oh Meebahz Being Drawn To The Language Of Marks",
      "where": null,
      "family": false,
-     "page": "/marks/most-recent/0156.html",
+     "page": "/marks/most-recent/0156",
      "pic": {
       "n": "02328",
       "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Oh%20Meebahz%20Being%20Drawn%20To%20The%20Language%20Of%20Marks.webp",
@@ -656,7 +656,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/could-of-should-of-sentence/"
     },
     {
-     "href": "/walks/marks/05-00223.html",
+     "href": "/walks/marks/05-00223",
      "time": "1 minute",
      "kind": "picture",
      "n": "00223",
@@ -667,7 +667,7 @@ window.PARAPLOO_WALKS = {
       "/mind-mapping/eclipse/"
      ],
      "family": false,
-     "page": "/words/hand-writings/eclipse-mind-mapping/0001.html",
+     "page": "/words/hand-writings/eclipse-mind-mapping/0001",
      "pic": {
       "n": "00223",
       "src": "https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/AAOB167.webp",
@@ -690,7 +690,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/deh-jureh-doo-calls/"
     },
     {
-     "href": "/walks/marks/07-00001.html",
+     "href": "/walks/marks/07-00001",
      "time": "1 minute",
      "kind": "picture",
      "n": "00001",
@@ -701,7 +701,7 @@ window.PARAPLOO_WALKS = {
       "/digital/fluid-ink-instrumental/"
      ],
      "family": false,
-     "page": "/sumi/fluid-ink-instrumental/0001.html",
+     "page": "/sumi/fluid-ink-instrumental/0001",
      "pic": {
       "n": "00001",
       "src": "https://media.paraploo.com/site/images/lines/fluid-ink-instrumental/And%20Frooh%20Nothing%20To%20Fear%20Legs.webp",
@@ -724,7 +724,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/o-phooey-nonsense/"
     },
     {
-     "href": "/walks/marks/09-19756.html",
+     "href": "/walks/marks/09-19756",
      "time": "1 minute",
      "kind": "picture",
      "n": "19756",
@@ -735,7 +735,7 @@ window.PARAPLOO_WALKS = {
       "/digital/red-stain/volume-one/"
      ],
      "family": false,
-     "page": "/writings/nicely-displayed-text/volume-one/0001.html",
+     "page": "/writings/nicely-displayed-text/volume-one/0001",
      "pic": {
       "n": "19756",
       "src": "https://media.paraploo.com/site/images/lines/volume-one-100/01A%20brrd%20roots%20About.webp",
@@ -761,7 +761,7 @@ window.PARAPLOO_WALKS = {
   },
   "the-thing": {
    "name": "The Thing",
-   "href": "/walks/the-thing.html",
+   "href": "/walks/the-thing",
    "shades": [
     "#502B30",
     "#4B282D",
@@ -797,7 +797,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/underground-electric-charge-network/"
     },
     {
-     "href": "/walks/the-thing/02-03260.html",
+     "href": "/walks/the-thing/02-03260",
      "time": "1 minute",
      "kind": "picture",
      "n": "03260",
@@ -808,7 +808,7 @@ window.PARAPLOO_WALKS = {
       "/physical/blue-glass-ball-and-more/"
      ],
      "family": false,
-     "page": "/physical/blue-glass-ball-and-more/0001.html",
+     "page": "/physical/blue-glass-ball-and-more/0001",
      "pic": {
       "n": "03260",
       "src": "https://media.paraploo.com/site/images/physical/blue-glass-ball-and-more/Blue%20Glass%20Ball%201.webp",
@@ -845,7 +845,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/the-puppet-burial/"
     },
     {
-     "href": "/walks/the-thing/05-02506.html",
+     "href": "/walks/the-thing/05-02506",
      "time": "1 minute",
      "kind": "picture",
      "n": "02506",
@@ -853,7 +853,7 @@ window.PARAPLOO_WALKS = {
      "words": "Emerge As A Worded Thing And Or Physical Substance II",
      "where": null,
      "family": false,
-     "page": "/marks/another-booklet/0013.html",
+     "page": "/marks/another-booklet/0013",
      "pic": {
       "n": "02506",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/Emerge%20As%20A%20Worded%20Thing%20And%20Or%20Physical%20Substance%20II.webp",
@@ -876,7 +876,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/disco-balls-for-fish/"
     },
     {
-     "href": "/walks/the-thing/07-06688.html",
+     "href": "/walks/the-thing/07-06688",
      "time": "1 minute",
      "kind": "picture",
      "n": "06688",
@@ -887,7 +887,7 @@ window.PARAPLOO_WALKS = {
       "/physical/unlabeled-package/"
      ],
      "family": false,
-     "page": "/physical/unlabeled-package/0001.html",
+     "page": "/physical/unlabeled-package/0001",
      "pic": {
       "n": "06688",
       "src": "https://media.paraploo.com/site/images/physical/unlabeled-package/two%20unlabeled%20packages%201.webp",
@@ -910,7 +910,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/never-on-such-a-pile-or-bag/"
     },
     {
-     "href": "/walks/the-thing/09-03949.html",
+     "href": "/walks/the-thing/09-03949",
      "time": "1 minute",
      "kind": "picture",
      "n": "03949",
@@ -921,7 +921,7 @@ window.PARAPLOO_WALKS = {
       "/physical/handin-pocket-still-life/"
      ],
      "family": false,
-     "page": "/physical/handin-pocket-still-life/0004.html",
+     "page": "/physical/handin-pocket-still-life/0004",
      "pic": {
       "n": "03949",
       "src": "https://media.paraploo.com/site/images/physical/handin-pocket-still-life/handin%2016.webp",
@@ -947,7 +947,7 @@ window.PARAPLOO_WALKS = {
   },
   "decades-of-umbrellas": {
    "name": "Decades of Umbrellas",
-   "href": "/walks/decades-of-umbrellas.html",
+   "href": "/walks/decades-of-umbrellas",
    "shades": [
     "#2A3551",
     "#27324C",
@@ -970,7 +970,7 @@ window.PARAPLOO_WALKS = {
      "w": 1192,
      "h": 1800
     },
-    "page": "/physical/night-red-cross-tent/0019.html"
+    "page": "/physical/night-red-cross-tent/0019"
    },
    "stops": [
     {
@@ -988,7 +988,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/spirits-storied-shelter-and-other-tops-for-heads/"
     },
     {
-     "href": "/walks/decades-of-umbrellas/02-02169.html",
+     "href": "/walks/decades-of-umbrellas/02-02169",
      "time": "1 minute",
      "kind": "picture",
      "n": "02169",
@@ -996,7 +996,7 @@ window.PARAPLOO_WALKS = {
      "words": "Every Ocean Has Its Own Paraploo Horizontal Frequency",
      "where": null,
      "family": false,
-     "page": "/marks/loops-hopes/0017.html",
+     "page": "/marks/loops-hopes/0017",
      "pic": {
       "n": "02169",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/LOOPS%20HOPES%20%2826%29/img169.webp",
@@ -1033,7 +1033,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/the-ploo-of-it-all/"
     },
     {
-     "href": "/walks/decades-of-umbrellas/05-05065.html",
+     "href": "/walks/decades-of-umbrellas/05-05065",
      "time": "1 minute",
      "kind": "picture",
      "n": "05065",
@@ -1044,7 +1044,7 @@ window.PARAPLOO_WALKS = {
       "/physical/night-red-cross-tent/"
      ],
      "family": false,
-     "page": "/physical/night-red-cross-tent/0013.html",
+     "page": "/physical/night-red-cross-tent/0013",
      "pic": {
       "n": "05065",
       "src": "https://media.paraploo.com/site/images/physical/night-red-cross-tent/Temporary%20Studio%205.webp",
@@ -1067,7 +1067,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/fun-with-a-severed-half-that-reads-as-ploo/"
     },
     {
-     "href": "/walks/decades-of-umbrellas/07-02291.html",
+     "href": "/walks/decades-of-umbrellas/07-02291",
      "time": "1 minute",
      "kind": "picture",
      "n": "02291",
@@ -1075,7 +1075,7 @@ window.PARAPLOO_WALKS = {
      "words": "Home Is Wherever Your Head Is At Any Given Present Moment",
      "where": null,
      "family": false,
-     "page": "/marks/most-recent/0002.html",
+     "page": "/marks/most-recent/0002",
      "pic": {
       "n": "02291",
       "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Home%20Is%20Wherever%20Your%20Head%20Is%20At%20Any%20Given%20Present%20Moment.webp",
@@ -1098,7 +1098,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/oyparaploo-definitions/"
     },
     {
-     "href": "/walks/decades-of-umbrellas/09-04906.html",
+     "href": "/walks/decades-of-umbrellas/09-04906",
      "time": "1 minute",
      "kind": "picture",
      "n": "04906",
@@ -1109,7 +1109,7 @@ window.PARAPLOO_WALKS = {
       "/physical/night-home/"
      ],
      "family": false,
-     "page": "/physical/night-home/0001.html",
+     "page": "/physical/night-home/0001",
      "pic": {
       "n": "04906",
       "src": "https://media.paraploo.com/site/images/physical/night-home/Night%20Home%201.webp",
@@ -1135,7 +1135,7 @@ window.PARAPLOO_WALKS = {
   },
   "childhood-years": {
    "name": "Childhood Years",
-   "href": "/walks/childhood-years.html",
+   "href": "/walks/childhood-years",
    "shades": [
     "#38433F",
     "#353F3B",
@@ -1171,7 +1171,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/show-and-tell-for-adults-finding-your-inner-child-s-voice/"
     },
     {
-     "href": "/walks/childhood-years/02-15667.html",
+     "href": "/walks/childhood-years/02-15667",
      "time": "1 minute",
      "kind": "picture",
      "n": "03775",
@@ -1182,7 +1182,7 @@ window.PARAPLOO_WALKS = {
       "/physical/dug-ity-dig-wonders/"
      ],
      "family": false,
-     "page": "/physical/dug-ity-dig-wonders/0012.html",
+     "page": "/physical/dug-ity-dig-wonders/0012",
      "pic": {
       "n": "03775",
       "src": "https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Dead%20Seaside%20Items%20Arranged%20And%20Documented%20I.webp",
@@ -1219,7 +1219,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/season-of-happenings-nursery-rhyme/"
     },
     {
-     "href": "/walks/childhood-years/05-16012.html",
+     "href": "/walks/childhood-years/05-16012",
      "time": "1 minute",
      "kind": "picture",
      "n": "02817",
@@ -1227,7 +1227,7 @@ window.PARAPLOO_WALKS = {
      "words": "Grandma's Paisley Scarf Got Left Out in the Rain Again",
      "where": null,
      "family": false,
-     "page": "/marks/tears-and-raindrops/0002.html",
+     "page": "/marks/tears-and-raindrops/0002",
      "pic": {
       "n": "02817",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Flower.webp",
@@ -1250,7 +1250,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/different-animal/"
     },
     {
-     "href": "/walks/childhood-years/07-16015.html",
+     "href": "/walks/childhood-years/07-16015",
      "time": "1 minute",
      "kind": "picture",
      "n": "03784",
@@ -1261,7 +1261,7 @@ window.PARAPLOO_WALKS = {
       "/physical/dug-ity-dig-wonders/"
      ],
      "family": false,
-     "page": "/physical/dug-ity-dig-wonders/0021.html",
+     "page": "/physical/dug-ity-dig-wonders/0021",
      "pic": {
       "n": "03784",
       "src": "https://media.paraploo.com/site/images/physical/dug-ity-dig-wonders/Wonderful%20Dig%20I.webp",
@@ -1284,7 +1284,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/placement/"
     },
     {
-     "href": "/walks/childhood-years/09-15773.html",
+     "href": "/walks/childhood-years/09-15773",
      "time": "1 minute",
      "kind": "picture",
      "n": "03231",
@@ -1295,7 +1295,7 @@ window.PARAPLOO_WALKS = {
       "/physical/beauty-sleeps-here/"
      ],
      "family": false,
-     "page": "/physical/beauty-sleeps-here/0013.html",
+     "page": "/physical/beauty-sleeps-here/0013",
      "pic": {
       "n": "03231",
       "src": "https://media.paraploo.com/site/images/physical/beauty-sleeps-here/Beauty%20Sleep%205.webp",
@@ -1321,7 +1321,7 @@ window.PARAPLOO_WALKS = {
   },
   "family": {
    "name": "Family",
-   "href": "/walks/family.html",
+   "href": "/walks/family",
    "shades": [
     "#4C3E2F",
     "#483B2C",
@@ -1357,7 +1357,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2021-25-immediate-family/my-29th-anniversary-message-to-lori/"
     },
     {
-     "href": "/walks/family/02-16444.html",
+     "href": "/walks/family/02-16444",
      "time": "1 minute",
      "kind": "picture",
      "n": "02132",
@@ -1365,7 +1365,7 @@ window.PARAPLOO_WALKS = {
      "words": "Our Roughly to Gracefully Tuned Briar Patch Feature",
      "where": null,
      "family": false,
-     "page": "/marks/blossom-petal-garden/0001.html",
+     "page": "/marks/blossom-petal-garden/0001",
      "pic": {
       "n": "02132",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/BLOSSOM%20PETAL%20GARDEN%20%284%29/img147.webp",
@@ -1402,7 +1402,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/ella-s-23rd-birthday/"
     },
     {
-     "href": "/walks/family/05-15849.html",
+     "href": "/walks/family/05-15849",
      "time": "1 minute",
      "kind": "picture",
      "n": "05364",
@@ -1413,7 +1413,7 @@ window.PARAPLOO_WALKS = {
       "/physical/orange-fur-project/"
      ],
      "family": false,
-     "page": "/physical/orange-fur-project/0009.html",
+     "page": "/physical/orange-fur-project/0009",
      "pic": {
       "n": "05364",
       "src": "https://media.paraploo.com/site/images/physical/orange-fur-project/Yellow%20Orange%205.webp",
@@ -1436,7 +1436,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/sturdy-pockets/"
     },
     {
-     "href": "/walks/family/07-15847.html",
+     "href": "/walks/family/07-15847",
      "time": "1 minute",
      "kind": "picture",
      "n": "02196",
@@ -1444,7 +1444,7 @@ window.PARAPLOO_WALKS = {
      "words": "That Which Remains During A Simmer and Boil",
      "where": null,
      "family": false,
-     "page": "/marks/water-surfaces/0004.html",
+     "page": "/marks/water-surfaces/0004",
      "pic": {
       "n": "02196",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/WATER%20SURFACES%20%284%29/img199.webp",
@@ -1467,7 +1467,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/fourteen-frequencies-of-were-going-to-shine/"
     },
     {
-     "href": "/walks/family/09-16903.html",
+     "href": "/walks/family/09-16903",
      "time": "1 minute",
      "kind": "picture",
      "n": "04033",
@@ -1478,7 +1478,7 @@ window.PARAPLOO_WALKS = {
       "/physical/host-the-most/"
      ],
      "family": false,
-     "page": "/physical/host-the-most/0012.html",
+     "page": "/physical/host-the-most/0012",
      "pic": {
       "n": "04033",
       "src": "https://media.paraploo.com/site/images/physical/host-the-most/Host%20Most%2027.webp",
@@ -1504,7 +1504,7 @@ window.PARAPLOO_WALKS = {
   },
   "the-witnesses": {
    "name": "The Witnesses",
-   "href": "/walks/the-witnesses.html",
+   "href": "/walks/the-witnesses",
    "shades": [
     "#453A36",
     "#413733",
@@ -1540,7 +1540,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/the-looker-a-repetition-and-exercises-in-seeing/"
     },
     {
-     "href": "/walks/the-witnesses/02-14774.html",
+     "href": "/walks/the-witnesses/02-14774",
      "time": "1 minute",
      "kind": "picture",
      "n": "14774",
@@ -1551,7 +1551,7 @@ window.PARAPLOO_WALKS = {
       "/digital/longest-assortment-ever/"
      ],
      "family": false,
-     "page": "/digital/longest-assortment-ever/0462.html",
+     "page": "/digital/longest-assortment-ever/0462",
      "pic": {
       "n": "14774",
       "src": "https://media.paraploo.com/site/images/lines/longest-assortment-ever/Witness%20Eye%20Over%20Warming%20Blends.webp",
@@ -1588,7 +1588,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/for-now-swallowed-whole/"
     },
     {
-     "href": "/walks/the-witnesses/05-02192.html",
+     "href": "/walks/the-witnesses/05-02192",
      "time": "1 minute",
      "kind": "picture",
      "n": "02192",
@@ -1596,7 +1596,7 @@ window.PARAPLOO_WALKS = {
      "words": "Small Conflict Zones Keeping An Eye Out, Capital",
      "where": null,
      "family": false,
-     "page": "/marks/most-complexy-asemities/0008.html",
+     "page": "/marks/most-complexy-asemities/0008",
      "pic": {
       "n": "02192",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/SLAP%20MAPS%20%282%29/img162.webp",
@@ -1619,7 +1619,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/another-minneapolis-urgency-entering-a-new-frame/"
     },
     {
-     "href": "/walks/the-witnesses/07-04354.html",
+     "href": "/walks/the-witnesses/07-04354",
      "time": "1 minute",
      "kind": "picture",
      "n": "04354",
@@ -1630,7 +1630,7 @@ window.PARAPLOO_WALKS = {
       "/physical/kiwanuk-questions/"
      ],
      "family": false,
-     "page": "/physical/kiwanuk-questions/0007.html",
+     "page": "/physical/kiwanuk-questions/0007",
      "pic": {
       "n": "04354",
       "src": "https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%2024.webp",
@@ -1653,7 +1653,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/standing-through/"
     },
     {
-     "href": "/walks/the-witnesses/09-14715.html",
+     "href": "/walks/the-witnesses/09-14715",
      "time": "1 minute",
      "kind": "picture",
      "n": "14715",
@@ -1664,7 +1664,7 @@ window.PARAPLOO_WALKS = {
       "/digital/longest-assortment-ever/"
      ],
      "family": false,
-     "page": "/digital/longest-assortment-ever/0403.html",
+     "page": "/digital/longest-assortment-ever/0403",
      "pic": {
       "n": "14715",
       "src": "https://media.paraploo.com/site/images/lines/longest-assortment-ever/The%20Witness%20Evidence%20Is%20Too%20Complex%20And%20Oblique.webp",
@@ -1690,7 +1690,7 @@ window.PARAPLOO_WALKS = {
   },
   "outside-world-inside": {
    "name": "Outside World Inside",
-   "href": "/walks/outside-world-inside.html",
+   "href": "/walks/outside-world-inside",
    "shades": [
     "#573623",
     "#523321",
@@ -1726,7 +1726,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/size-of-a-nations-relative-swallow/"
     },
     {
-     "href": "/walks/outside-world-inside/02-02705.html",
+     "href": "/walks/outside-world-inside/02-02705",
      "time": "1 minute",
      "kind": "picture",
      "n": "02705",
@@ -1734,7 +1734,7 @@ window.PARAPLOO_WALKS = {
      "words": "Crow Disaster Dictator F5 320 mph Winds",
      "where": null,
      "family": false,
-     "page": "/marks/other-worldly/0009.html",
+     "page": "/marks/other-worldly/0009",
      "pic": {
       "n": "02705",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Crow%20Disaster%20Dictator%20F5%20320%20mph%20Winds.webp",
@@ -1771,7 +1771,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2024-variety/military-toys-disaster-and-hope/"
     },
     {
-     "href": "/walks/outside-world-inside/05-10760.html",
+     "href": "/walks/outside-world-inside/05-10760",
      "time": "1 minute",
      "kind": "picture",
      "n": "10760",
@@ -1782,7 +1782,7 @@ window.PARAPLOO_WALKS = {
       "/digital/fire-damage-prison-and-escape/"
      ],
      "family": false,
-     "page": "/digital/fire-damage-prison-and-escape/0009.html",
+     "page": "/digital/fire-damage-prison-and-escape/0009",
      "pic": {
       "n": "10760",
       "src": "https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20447.webp",
@@ -1805,7 +1805,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/struggle-ottootto-life-list-of-uncertainties/"
     },
     {
-     "href": "/walks/outside-world-inside/07-02263.html",
+     "href": "/walks/outside-world-inside/07-02263",
      "time": "1 minute",
      "kind": "picture",
      "n": "02263",
@@ -1813,7 +1813,7 @@ window.PARAPLOO_WALKS = {
      "words": "Dear Sir The World Does Not Want To Start A War",
      "where": null,
      "family": false,
-     "page": "/marks/most-recent/0042.html",
+     "page": "/marks/most-recent/0042",
      "pic": {
       "n": "02263",
       "src": "https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Dear%20Sir%20The%20World%20Does%20Not%20Want%20To%20Start%20A%20War.webp",
@@ -1836,7 +1836,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/exposing-this-kind-of-neglect-source/"
     },
     {
-     "href": "/walks/outside-world-inside/09-02931.html",
+     "href": "/walks/outside-world-inside/09-02931",
      "time": "1 minute",
      "kind": "picture",
      "n": "02931",
@@ -1847,7 +1847,7 @@ window.PARAPLOO_WALKS = {
       "/physical/after-a-storm-interpretations/"
      ],
      "family": false,
-     "page": "/physical/after-a-storm-interpretations/0010.html",
+     "page": "/physical/after-a-storm-interpretations/0010",
      "pic": {
       "n": "02931",
       "src": "https://media.paraploo.com/site/images/physical/after-a-storm-interpretations/After%20The%20Storm%20Interpretation-10.webp",
@@ -1873,7 +1873,7 @@ window.PARAPLOO_WALKS = {
   },
   "so-much-loss-and-news-of-healing": {
    "name": "So Much Loss and News of Healing",
-   "href": "/walks/so-much-loss-and-news-of-healing.html",
+   "href": "/walks/so-much-loss-and-news-of-healing",
    "shades": [
     "#423F38",
     "#3E3B35",
@@ -1909,7 +1909,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/beginning-again-and-again-revised/"
     },
     {
-     "href": "/walks/so-much-loss-and-news-of-healing/02-05609.html",
+     "href": "/walks/so-much-loss-and-news-of-healing/02-05609",
      "time": "1 minute",
      "kind": "picture",
      "n": "05609",
@@ -1920,7 +1920,7 @@ window.PARAPLOO_WALKS = {
       "/physical/pray-for-destroyed-mirrors/"
      ],
      "family": false,
-     "page": "/physical/pray-for-destroyed-mirrors/0001.html",
+     "page": "/physical/pray-for-destroyed-mirrors/0001",
      "pic": {
       "n": "05609",
       "src": "https://media.paraploo.com/site/images/physical/pray-for-destroyed-mirrors/pray%20for%20less%20violence%201.webp",
@@ -1957,7 +1957,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/clothing-and-perfumes-1/"
     },
     {
-     "href": "/walks/so-much-loss-and-news-of-healing/05-02142.html",
+     "href": "/walks/so-much-loss-and-news-of-healing/05-02142",
      "time": "1 minute",
      "kind": "picture",
      "n": "02142",
@@ -1965,7 +1965,7 @@ window.PARAPLOO_WALKS = {
      "words": "The Marsh Had a Good Tearful Weep, Minimal",
      "where": null,
      "family": false,
-     "page": "/marks/dry-grass-and-tears/0003.html",
+     "page": "/marks/dry-grass-and-tears/0003",
      "pic": {
       "n": "02142",
       "src": "https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/DRY%20GRASS%20and%20TEARS%20%289%29/img165.webp",
@@ -1988,7 +1988,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/sandhill-crane-was-never-supposed-to-be-here/"
     },
     {
-     "href": "/walks/so-much-loss-and-news-of-healing/07-10793.html",
+     "href": "/walks/so-much-loss-and-news-of-healing/07-10793",
      "time": "1 minute",
      "kind": "picture",
      "n": "10793",
@@ -1999,7 +1999,7 @@ window.PARAPLOO_WALKS = {
       "/digital/hear-us-cry-and-flow/"
      ],
      "family": false,
-     "page": "/digital/hear-us-cry-and-flow/0004.html",
+     "page": "/digital/hear-us-cry-and-flow/0004",
      "pic": {
       "n": "10793",
       "src": "https://media.paraploo.com/site/images/lines/hear-us-cry-and-flow/Hear%20Us%20Crying%20IV.webp",
@@ -2022,7 +2022,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2025-variety/field-notes-from-the-territory-of-mending-revised/"
     },
     {
-     "href": "/walks/so-much-loss-and-news-of-healing/09-02714.html",
+     "href": "/walks/so-much-loss-and-news-of-healing/09-02714",
      "time": "1 minute",
      "kind": "picture",
      "n": "02714",
@@ -2030,7 +2030,7 @@ window.PARAPLOO_WALKS = {
      "words": "You Wanted To Give Us Courage But Instead You Caused Unimaginable Carnage",
      "where": null,
      "family": false,
-     "page": "/marks/other-worldly/0018.html",
+     "page": "/marks/other-worldly/0018",
      "pic": {
       "n": "02714",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Healthy%20Courage.webp",
@@ -2056,7 +2056,7 @@ window.PARAPLOO_WALKS = {
   },
   "machine-that-doesnt-eat-ties": {
    "name": "Machine That Doesn't Eat Ties",
-   "href": "/walks/machine-that-doesnt-eat-ties.html",
+   "href": "/walks/machine-that-doesnt-eat-ties",
    "shades": [
     "#413C3A",
     "#3D3936",
@@ -2094,7 +2094,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/a-day-beginning-final/"
     },
     {
-     "href": "/walks/machine-that-doesnt-eat-ties/02-02568.html",
+     "href": "/walks/machine-that-doesnt-eat-ties/02-02568",
      "time": "1 minute",
      "kind": "picture",
      "n": "02568",
@@ -2102,7 +2102,7 @@ window.PARAPLOO_WALKS = {
      "words": "Speechless And No Text Words Earth Life To Monitor Control II",
      "where": null,
      "family": false,
-     "page": "/marks/another-booklet/0075.html",
+     "page": "/marks/another-booklet/0075",
      "pic": {
       "n": "02568",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/Speechless%20And%20No%20Text%20Words%20Earth%20Life%20To%20Monitor%20Control%20II.webp",
@@ -2139,7 +2139,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2024-variety/inspiration-board-zero-zero-one/"
     },
     {
-     "href": "/walks/machine-that-doesnt-eat-ties/05-20168.html",
+     "href": "/walks/machine-that-doesnt-eat-ties/05-20168",
      "time": "1 minute",
      "kind": "picture",
      "n": "20168",
@@ -2150,7 +2150,7 @@ window.PARAPLOO_WALKS = {
       "/writings/words-as-pictures/capitalized-statements/"
      ],
      "family": false,
-     "page": "/writings/words-as-pictures/capitalized-statements/0121.html",
+     "page": "/writings/words-as-pictures/capitalized-statements/0121",
      "pic": {
       "n": "20168",
       "src": "https://media.paraploo.com/site/images/words-as-pictures/2012-14-words-capitalized-statements/Brian%20Otto%20Thoughts%20235.webp",
@@ -2173,7 +2173,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/nursing-a-cold/"
     },
     {
-     "href": "/walks/machine-that-doesnt-eat-ties/07-08230.html",
+     "href": "/walks/machine-that-doesnt-eat-ties/07-08230",
      "time": "1 minute",
      "kind": "picture",
      "n": "08230",
@@ -2184,7 +2184,7 @@ window.PARAPLOO_WALKS = {
       "/digital/text-based-visual-works/are-you-game-messages/"
      ],
      "family": false,
-     "page": "/digital/are-you-game-messages/0029.html",
+     "page": "/digital/are-you-game-messages/0029",
      "pic": {
       "n": "08230",
       "src": "https://media.paraploo.com/site/images/lines/are-you-game-messages/motor%202.webp",
@@ -2207,7 +2207,7 @@ window.PARAPLOO_WALKS = {
      "at": "/words/2026-variety/no-need-for-missile-power-locked/"
     },
     {
-     "href": "/walks/machine-that-doesnt-eat-ties/09-02689.html",
+     "href": "/walks/machine-that-doesnt-eat-ties/09-02689",
      "time": "1 minute",
      "kind": "picture",
      "n": "02689",
@@ -2215,7 +2215,7 @@ window.PARAPLOO_WALKS = {
      "words": "You Are More Than What You Do (Partial I)",
      "where": null,
      "family": false,
-     "page": "/marks/lightly-tinted/0057.html",
+     "page": "/marks/lightly-tinted/0057",
      "pic": {
       "n": "02689",
       "src": "https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/You%20Are%20More%20Than%20What%20You%20Do%20%28Partial%20I%29.webp",

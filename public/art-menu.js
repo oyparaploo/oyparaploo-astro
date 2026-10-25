@@ -16,7 +16,7 @@
     { key: 'music',        word: 'Music',        href: '/musicology' },
     { key: 'by-color',     word: 'By color',     href: '/by-color' }
   ];
-  var SEARCH = '/search.html';
+  var SEARCH = '/search';
 
   var trigger = document.querySelector('.site-header nav a.art-word');
   if (!trigger) return;
