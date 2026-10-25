@@ -285,3 +285,8 @@
 
 /* The gallery made whole, label fix (Reach, October 25, 2026: "yes"): a long name stops at its picture's edge with "…", so the label never runs past its picture or makes the page scroll sideways. Short names look as before. */
 .gi-label { max-width: 100%; box-sizing: border-box; overflow: hidden; text-overflow: ellipsis; }
+
+/* The gallery made whole, phone labels (Reach, October 25, 2026: "yes to the phone label fix"): on phones each label has 6 pixels of room each side instead of 10, so a short name like "Woa Mun 41" shows whole. The text stays 16 pixels; desktop is unchanged; a long name still stops at its picture's edge with "…". */
+@media (max-width: 700px) {
+  .gi-label { padding-left: 6px; padding-right: 6px; }
+}
