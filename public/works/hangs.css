@@ -1,0 +1,22 @@
+/* The picture page, October 25, 2026 (SITE-ORDER\PICTURE-PAGE-BUILD): the two changes Reach called perfect on the
+   preview HTML DOCS\PREVIEWS\PICTURE-PAGE-WHOLE-2026-10-25, and nothing else. The heading's margin closes up only
+   where the gallery's line follows it. */
+.work-wrap > h1:has(+ .work-hang-line) { margin-bottom: 12px; }
+.work-hang-line {
+  margin: 0 0 32px; max-width: 40em;
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 20px; line-height: 1.45; color: var(--ink-soft); text-wrap: pretty;
+}
+@media (max-width: 800px) { .work-wrap > h1:has(+ .work-hang-line) { margin-bottom: 8px; } .work-hang-line { font-size: 17px; margin-bottom: 20px; } }
+.work-hangs .work-tile-pic { position: relative; }
+.work-hangs .work-tile img { background: transparent; }
+.work-hangs .work-tile-here { cursor: default; scroll-snap-align: center; }
+.work-hangs .work-tile-here img { opacity: 1 !important; }
+.work-hangs .work-tile-bar { display: block; height: 4px; margin-top: 8px; background: transparent; }
+.work-hangs .work-tile-here .work-tile-bar { background: var(--ink); }
+.work-hangs .work-tile .work-tile-catnum { margin-top: 8px; }
+.work-hangs .work-tile-here .work-tile-catnum { color: var(--ink); font-weight: 600; }
+.work-hangs .work-hangs-all { flex: 0 0 auto; align-self: flex-start; display: flex; align-items: flex-end;
+  height: 280px; padding: 0 8px 0 16px; scroll-snap-align: end;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+@media (max-width: 700px) { .work-hangs .work-hangs-all { height: 180px; } }
