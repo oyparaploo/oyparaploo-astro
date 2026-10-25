@@ -915,3 +915,51 @@ html:root:root body.hung-body .gallery-eyebrow { max-width: none; padding-left: 
 
 /* The thirteenth cleanup: the rows of five pictures (thumb-row-wrap) are sized to the window width, scrollbar included; where a standing scrollbar makes them 7 pixels too wide, the page clips that sideways overflow instead of scrolling sideways. Phones and screens with no standing scrollbar are unchanged. */
 html:has(.thumb-row-wrap) { overflow-x: clip; }
+
+/* Smooth page changes (preview, PAGE-CHANGE-WHOLE-2026-10-25).
+   Every page fades into the next in 0.3 seconds instead of going blank; the header holds still;
+   a small picture that leads to its own picture page grows into it (page-change.js names it).
+   Picture pages keep their own fade between pictures (works.css). Less motion: no change at all. */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-group(site-header) {
+  animation-duration: 0.3s;
+}
+
+/* The growing picture: always whole, never squashed or cropped. */
+::view-transition-group(pp-picture) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+::view-transition-old(pp-picture),
+::view-transition-new(pp-picture) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation-duration: 0.35s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

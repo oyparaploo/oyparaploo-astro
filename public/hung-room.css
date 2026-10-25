@@ -155,3 +155,133 @@
     background: #111;
   }
 }
+
+/* The gallery made whole (preview, GALLERY-WHOLE-2026-10-25): the index first, then one at a time.
+   Under the arrival (unchanged), the gallery's one fact, said once, and a button to see the pictures one at a time;
+   then every picture at once, small and whole, in even rows like a contact sheet. Each picture is the link to its
+   own page. Pointed at, a picture shows its name on a small black label at its lower left (as the Hofesh bands do).
+   Coming back by the way back, the picture you left is marked with the ink bar of "Where this picture hangs". */
+
+/* The arrival keeps its own column; the index uses the whole window, on the 24-pixel edge. */
+.gi-body .gi-main { padding-bottom: 0; }
+
+.gi-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+  flex-wrap: wrap;
+  margin: 88px 0 40px;
+  padding: 0 var(--chrome-edge, 24px);
+}
+
+/* The rule line, as Placed Outside wears it: Inter about 30 pixels in Soft ink, a thin Faint ink line down its left. */
+.gi-fact {
+  margin: 0;
+  max-width: 860px;
+  padding: 2px 0 4px 24px;
+  border-left: 1px solid var(--ink-faint);
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(22px, 1.1vw + 14px, 30px);
+  line-height: 1.32; letter-spacing: -0.012em;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* The site's button: outline at rest, solid when pointed at (the playful reversal), 5-pixel corners. */
+.gi-one {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px 13px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: 18px; line-height: 1.2;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.gi-one .arrow-glyph { display: inline-block; transition: transform 0.15s ease; }
+@media (hover: hover) {
+  .gi-one:hover { background: var(--ink); color: var(--ground); }
+  .gi-one:hover .arrow-glyph { transform: translateX(4px); }
+}
+.gi-one:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* The index: even rows of whole pictures. Each picture's share of its row follows its own shape, so nothing is
+   ever cropped. A short last row keeps its natural size instead of stretching; a full one fills the width. */
+.gi-index {
+  --row: clamp(120px, 10vw, 220px);
+  --gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding: 0 var(--chrome-edge, 24px);
+  margin: 0 0 96px;
+}
+.gi-index::after { content: ""; flex: 1000000 1 calc(var(--row) * 1.5); }
+
+.gi-tile {
+  position: relative;
+  display: block;
+  flex: var(--r) 1 calc(var(--row) * var(--r));
+  line-height: 0;
+  scroll-margin-top: 160px;
+  cursor: pointer;
+}
+.gi-tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* The name on a small black label, lower left: shown when pointed at or reached by the keyboard. */
+.gi-label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 6px 10px 7px;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 16px; line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .gi-tile:hover .gi-label { opacity: 1; }
+}
+.gi-tile:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.gi-tile:focus-visible .gi-label { opacity: 1; }
+
+/* The picture you came back from: its name stays, and the 4-pixel ink bar sits under it. */
+.gi-tile:target { outline: none; }
+.gi-tile:target .gi-label { opacity: 1; }
+.gi-tile:target::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: calc(var(--gap) / -2 - 2px);
+  height: 4px;
+  background: var(--ink);
+}
+
+/* Phones: the fact and the button stack; three pictures across. */
+@media (max-width: 700px) {
+  .gi-head { margin: 40px 0 28px; gap: 20px; }
+  .gi-fact { padding-left: 18px; }
+  .gi-one { font-size: 17px; }
+  .gi-index { --row: 72px; --gap: 6px; margin-bottom: 64px; }
+  .gi-tile { scroll-margin-top: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gi-one, .gi-one .arrow-glyph, .gi-label { transition: none; }
+}
+
+/* The gallery made whole, label fix (Reach, October 25, 2026: "yes"): a long name stops at its picture's edge with "…", so the label never runs past its picture or makes the page scroll sideways. Short names look as before. */
+.gi-label { max-width: 100%; box-sizing: border-box; overflow: hidden; text-overflow: ellipsis; }
