@@ -1,7 +1,7 @@
 /* ==========================================================================
    The whole Marks section: the preview's own script. October 3, 2026;
    the slideshow added October 4, 2026, and Every Title's rows the same day.
-   On the site (step 7, October 4, 2026): the uneven wall and the slideshow. The
+   On the site (step 7, October 4, 2026): the wall and the slideshow; the wall in straight rows since October 25, 2026. The
    header, menu and footer run from the site's own /theme.js and /nav.js.
    ========================================================================== */
 (function () {
@@ -10,44 +10,17 @@
   /* 1. (Left out on the site, October 4, 2026: in the preview this pointed the live header, menu and
         footer links back into the preview folder. On the site they are the site's own links.) */
 
-  /* 2. The uneven wall (kept from the Maps preview). Every drawing is whole and at
-        one width; each goes to the shortest column, so a tall drawing never leaves a
-        hole beside it, and the newest stay at the top. Three or four columns on a wide
-        window, three on a middle one, two on a small tablet, one on a phone. The words
-        under each drawing are measured at the column's width, so a long title counts
-        for its real height. Without this script the wall is a plain grid, still whole
-        and in order. */
+  /* 2. The wall in straight rows (October 25, 2026; Reach: every Marks page lined up like Marks set one).
+        Every drawing is whole and at one width, in rows, the tops of each row level, newest first
+        reading left to right. The rows are the page's own grid (marks.css): three or four columns on a
+        wide window, three on a middle one, two on a small tablet, one on a phone. Nothing is dealt into
+        columns any more; the old class name "uneven" is left on the pages and means nothing now.
+        The slideshow below takes its drawings from every wall, in page order. */
   var walls = [];
-  Array.prototype.forEach.call(doc.querySelectorAll('.uneven'), function (wall) {
+  Array.prototype.forEach.call(doc.querySelectorAll('.wall'), function (wall) {
     var figs = Array.prototype.slice.call(wall.querySelectorAll('figure'));
     figs.sort(function (a, b) { return (+a.getAttribute('data-i')) - (+b.getAttribute('data-i')); });
     walls.push({ el: wall, figs: figs });
-    var wide = parseInt(wall.getAttribute('data-cols'), 10) || 3, lastN = 0, lastW = 0;
-    function lay() {
-      var w = window.innerWidth, n = w >= 1100 ? wide : (w >= 800 ? 3 : (w >= 600 ? 2 : 1));
-      if (n === lastN && Math.abs(w - lastW) < 40) return;
-      lastN = n; lastW = w;
-      wall.innerHTML = '';
-      wall.classList.add('laid');
-      var cols = [], hs = [];
-      for (var i = 0; i < n; i++) { var c = doc.createElement('div'); c.className = 'col'; wall.appendChild(c); cols.push(c); hs.push(0); }
-      /* measure: every figure in the first column, at the column's own width */
-      figs.forEach(function (f) { cols[0].appendChild(f); });
-      var cw = cols[0].getBoundingClientRect().width || 300;
-      var gap = parseFloat(getComputedStyle(cols[0]).rowGap) || 0;
-      var h = figs.map(function (f) {
-        var cap = f.querySelector('figcaption');
-        return cw * parseFloat(f.getAttribute('data-r')) + (cap ? cap.getBoundingClientRect().height + 12 : 0) + gap;
-      });
-      figs.forEach(function (f, i) {
-        var k = 0;
-        for (var j = 1; j < n; j++) if (hs[j] < hs[k] - 2) k = j;
-        cols[k].appendChild(f);
-        hs[k] += h[i];
-      });
-    }
-    lay();
-    window.addEventListener('resize', lay);
   });
 
   /* 3. The slideshow (ruled October 3, 2026). Choosing a drawing opens it whole and

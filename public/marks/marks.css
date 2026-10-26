@@ -128,16 +128,16 @@ html:root body .site-header {
 
 /* ---------- The wall: every drawing whole, at one size, each with its word and number ---------- */
 .wall {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 64px; align-items: end;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 64px; align-items: start;
   padding: 72px var(--edge) 104px;
 }
 .wall.tall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .tile { display: block; cursor: zoom-in; }
 .tile img { width: 100%; transition: transform 0.3s var(--ease); }
 
-/* The uneven wall (kept from the Maps preview): marks.js deals the drawings into columns. */
-.wall.laid { display: flex; gap: var(--gap); align-items: flex-start; }
-.wall.laid .col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+/* Straight rows (October 25, 2026): the drawings stand in rows, the tops of each row level, each title
+   under its drawing, newest first reading left to right. The staggered wall that marks.js dealt into
+   columns is gone. */
 
 /* ---------- Every Title (October 4, 2026): every drawing as one row, newest first ---------- */
 /* Each row: the drawing whole inside a box 72 pixels tall (never cropped), set against the page's left
@@ -224,7 +224,6 @@ html:root body .site-header {
   .row-plain { grid-template-areas: "name go"; }
   /* On a phone every drawing runs the full width of the screen. */
   .wall, .wall.tall { grid-template-columns: minmax(0, 1fr); row-gap: 40px; padding: 48px var(--edge) 72px; }
-  .wall.laid .col { gap: 40px; }
   .stamps { margin-top: 44px; }
   .stamp { grid-template-columns: 104px minmax(0, 1fr); grid-template-areas: "pic w" "pic n"; column-gap: 16px; row-gap: 2px; padding: 12px var(--edge); }
   .st-pic { width: 104px; }
@@ -233,6 +232,10 @@ html:root body .site-header {
   .stamp .n { grid-area: n; align-self: start; }
   .foot { flex-direction: column-reverse; align-items: stretch; gap: 28px; padding: 32px var(--edge) 64px; }
   .next { align-items: flex-start; text-align: left; max-width: none; }
+}
+/* On a small tablet, two drawings to a row, as the wall had before (October 25, 2026). */
+@media (min-width: 600px) and (max-width: 799px) {
+  .wall, .wall.tall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- The slideshow (ruled October 3, 2026): one drawing whole and large on the page's own ground ---------- */
