@@ -16,10 +16,16 @@
 
   /* A triangle opens its set's list in place; one list open at a time. */
   var tris = document.querySelectorAll('.om-tri');
+  /* A triangle's spoken label: "Show ..." while its list is shut, "Hide ..." while it is open; the rest of
+     the words are the page's own. A triangle shut by another says "Show ..." again (the fifteenth cleanup). */
+  function say(t, open) {
+    t.setAttribute('aria-label', (t.getAttribute('aria-label') || '').replace(/^(Show|Hide)\b/, open ? 'Hide' : 'Show'));
+  }
   function shut(except) {
     for (var i = 0; i < tris.length; i++) {
       if (tris[i] === except) continue;
       tris[i].setAttribute('aria-expanded', 'false');
+      say(tris[i], false);
       document.getElementById(tris[i].getAttribute('aria-controls')).hidden = true;
     }
   }
@@ -29,7 +35,7 @@
       shut(this);
       this.setAttribute('aria-expanded', open ? 'false' : 'true');
       document.getElementById(this.getAttribute('aria-controls')).hidden = open;
-      this.setAttribute('aria-label', (open ? 'Show' : 'Hide') + ' the ' + (this.getAttribute('data-kind') || 'photographs') + ' in ' + this.getAttribute('data-name'));
+      say(this, !open);
     });
   }
   document.addEventListener('keydown', function (e) {

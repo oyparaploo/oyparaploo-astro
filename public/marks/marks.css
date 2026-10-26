@@ -299,3 +299,12 @@ html.show-open, html.show-open body { overflow: hidden; }
   .way-band:hover .wb-pic img, .tile:hover img, .tile:active img { transform: none; }
   .arr { transform: none !important; }
 }
+
+/* Dark mode (the fifteenth cleanup; Reach's yes, October 26, 2026): each band on the Marks page takes its dark
+   partner, written on the band as --band-dark: the same hue, made the way the group pages' deep bands are made
+   (build-site.py, group_band_tones_from_rgb), and its words take Ink's dark value, at 7 to 1 or better.
+   Light keeps every band as it was. */
+html[data-theme="dark"] .way-band[style*="--band-dark"] { background: var(--band-dark); --band-ink: var(--ink); color: var(--ink); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .way-band[style*="--band-dark"] { background: var(--band-dark); --band-ink: var(--ink); color: var(--ink); }
+}

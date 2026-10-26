@@ -545,3 +545,54 @@ html.rm .df-more a span { transition: none; }
   font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
   font-size: 21px; line-height: 1.3; letter-spacing: -0.005em;
 }
+
+/* ==========================================================================
+   THE MENU WORDS WHEN POINTED AT, AFTER KANAL (the fifteenth cleanup; Reach's yes, October 26, 2026)
+   Looked at on kanal.brussels, October 26, 2026: Kanal's menu words never change weight or colour when
+   pointed at. A word in an open menu draws a thin line under itself, 1.5 pixels in its own colour, from left
+   to right in a third of a second, and the line slides away to the right when the pointer leaves. Here every
+   menu word does that: the header words and the words in the panels. The header words no longer turn bold,
+   so nothing beside them moves. Links with a sliding arrow keep the arrow and take no line, and the Writings
+   rail keeps its arrow and its chosen word. Less motion: the line shows at once. Touch: while pressed.
+   ========================================================================== */
+html:root body .site-header nav a,
+html:root body .site-header nav a:hover,
+html:root body .site-header nav a.wob-open { font-weight: 600; }
+.wob-panel a.wob-h { width: fit-content; }
+html:root body .site-header nav a,
+.wob-panel a:not(.wob-kind):not(:has(.wob-go)):not(:has(.wob-arrow)) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: right 0 bottom 0;
+  background-size: 0 1.5px;
+  transition: background-size 0.33s ease-out;
+}
+html:root body .site-header nav a { background-position: right 0 bottom 4px; }
+html:root body .site-header nav a:focus-visible,
+.wob-panel a:not(.wob-kind):not(:has(.wob-go)):not(:has(.wob-arrow)):focus-visible {
+  background-position: left 0 bottom 0; background-size: 100% 1.5px;
+}
+html:root body .site-header nav a:focus-visible { background-position: left 0 bottom 4px; }
+@media (hover: hover) {
+  html:root body .site-header nav a:hover { background-position: left 0 bottom 4px; background-size: 100% 1.5px; }
+  .wob-panel a:not(.wob-kind):not(:has(.wob-go)):not(:has(.wob-arrow)):hover {
+    background-position: left 0 bottom 0; background-size: 100% 1.5px;
+  }
+}
+@media (hover: none) {
+  html:root body .site-header nav a:active { background-position: left 0 bottom 4px; background-size: 100% 1.5px; }
+  .wob-panel a:not(.wob-kind):not(:has(.wob-go)):not(:has(.wob-arrow)):active {
+    background-position: left 0 bottom 0; background-size: 100% 1.5px;
+  }
+}
+/* No word changes colour when pointed at: each keeps its own. */
+.wob-panel a.wob-h:hover { color: var(--ink); }
+.wob-panel .wob-list a:hover { color: var(--ink-soft); }
+.wob-panel .wob-doors a:hover { color: var(--ink); }
+.wob-panel a.wob-shelfname:hover { color: var(--ink); }
+.wob-panel a.wob-all:hover, .wob-panel .wob-list .wob-more a:hover { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  html:root body .site-header nav a, .wob-panel a { transition: none; }
+}
+html.rm body .site-header nav a, html.rm .wob-panel a { transition: none; }
