@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/two-of-us">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -807,25 +831,25 @@ main .rooms { padding: 0 0 72px; }
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Two of Us">
-          <a href="https://paraploo.com/words/2026-variety/airport-wrong-windpipe-question-or-incident/"><span class="row-name">Airport Wrong Windpipe Question or Incident</span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/wearables-not-fitting-the-body/"><span class="row-name">Wearables Not Fitting the Body</span><span class="row-side">Conversation · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/raven-ravine/"><span class="row-name">Raven Ravine</span><span class="row-side">Conversation · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/airport-wrong-windpipe-question-or-incident/"><span class="row-name-wrap"><span class="row-name">Airport Wrong Windpipe Question or Incident</span><span class="row-first">( swallowed crosswise ) JayMee:  I just arrived at La Guardia, NY from Gironde, France. I heard someone say ~ Did you get something down the wrong windpipe. What does that mean?</span></span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/wearables-not-fitting-the-body/"><span class="row-name-wrap"><span class="row-name">Wearables Not Fitting the Body</span><span class="row-first">Tainted with a Dry Sense of Playful Language</span></span><span class="row-side">Conversation · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/raven-ravine/"><span class="row-name-wrap"><span class="row-name">Raven Ravine</span><span class="row-first">( Nogah and Nah-Zzz Dialogue ) We started a story ... Throw us an opening ... to ruminate alongside</span></span><span class="row-side">Conversation · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2026-variety/bw-and-reach-bizarre-and-not-bizarre/"><span class="row-name">BW and Reach Bizarre and Not Bizarre</span><span class="row-side">Conversation · 13 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2026-variety/a-tiny-clip-of-modernity-finding-its-way-home/"><span class="row-name">A Tiny Clip of Modernity Finding Its Way Home</span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2026-variety/not-too-soon/"><span class="row-name">Not Too Soon</span><span class="row-side">Conversation · 8 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/buried-disclosure/"><span class="row-name">Buried Disclosure</span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/stirring/"><span class="row-name">Stirring</span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/testing-an-early-morning-hour/"><span class="row-name">( testing an early morning hour )</span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/buried-disclosure/"><span class="row-name-wrap"><span class="row-name">Buried Disclosure</span><span class="row-first">( a turn in the earth ) Oyparaploo: We're in an archeological dig right now, but we're not supposed to tell you the location.</span></span><span class="row-side">Conversation · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/stirring/"><span class="row-name-wrap"><span class="row-name">Stirring</span><span class="row-first">What's stirring in the studio this morning? ... Funny that you ask ...</span></span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/testing-an-early-morning-hour/"><span class="row-name-wrap"><span class="row-name">( testing an early morning hour )</span><span class="row-first">Clod: I’m fascinated by it. Those are beautiful lines. The kind of lines that cause us to set our cup down.</span></span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2025-variety/leaf-02-what-the-wreckage-knows/"><span class="row-name">WHAT THE WRECKAGE KNOWS</span><span class="row-side">Conversation · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2025-variety/asking-complete/"><span class="row-name">ASKING</span><span class="row-side">Conversation · 18 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/ahh-nee-what-does-this-all-mean-again/"><span class="row-name">Ahh Nee ~ What Does This All Mean Again?</span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/about-when-you-are-talking-to-someone-else/"><span class="row-name">About When You Are Talking To Someone Else</span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/a-very-good-way-to-begin/"><span class="row-name">A Very Good Way To Begin</span><span class="row-side">Conversation · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/all-of-us-earthlings/"><span class="row-name">All Of Us Earthlings</span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/about-acquainting-ourselves/"><span class="row-name">About Acquainting Ourselves</span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/being-alone-on-stage/"><span class="row-name">Being Alone On Stage</span><span class="row-side">Conversation · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/a-profound-speaker/"><span class="row-name">A Profound Speaker</span><span class="row-side">Conversation · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/book-of-next-kind-of-reborn/"><span class="row-name">What is the opposite of human success?</span><span class="row-side">Conversation · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/ahh-nee-what-does-this-all-mean-again/"><span class="row-name-wrap"><span class="row-name">Ahh Nee ~ What Does This All Mean Again?</span><span class="row-first">We doubt that ... and have the great joy of looking ... Doing a deep dive into our work ... Holy crap what an Oovra! ... Haha ha ha ... It's strange that we haven't captured them ... With all of our crossing lines ...</span></span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/about-when-you-are-talking-to-someone-else/"><span class="row-name-wrap"><span class="row-name">About When You Are Talking To Someone Else</span><span class="row-first">You: When you are talking to a person or a large audience, you're actually giving a special gift. Me: Oh, that completely changes everything, doesn't it? When you think of it as a gift instead of a performance or a</span></span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/a-very-good-way-to-begin/"><span class="row-name-wrap"><span class="row-name">A Very Good Way To Begin</span><span class="row-first">You: What's a good way to start with a point and then after making a good point get the listener to then be willing to listen to the rest of what you wish to say? Me: Oh, this is the hook and hold problem. You need to</span></span><span class="row-side">Conversation · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/all-of-us-earthlings/"><span class="row-name-wrap"><span class="row-name">All Of Us Earthlings</span><span class="row-first">You: What can all of us earthlings do to become better listeners? Me: Start with the humbling recognition that we're probably worse listeners than we think we are. Most of us believe we're good listeners while</span></span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/about-acquainting-ourselves/"><span class="row-name-wrap"><span class="row-name">About Acquainting Ourselves</span><span class="row-first">You: How does acquainting ourselves with forest bathing three times a day (morning, midday, night) help us become better listeners? Me: Oh, this is profound. The forest teaches a completely different mode of</span></span><span class="row-side">Conversation · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/being-alone-on-stage/"><span class="row-name-wrap"><span class="row-name">Being Alone On Stage</span><span class="row-first">You: Why does being alone on stage with a packed theater make almost every center of attention spiritual teacher become more conscious? Me: Because suddenly you're holding the attention of hundreds or thousands of</span></span><span class="row-side">Conversation · 5 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/a-profound-speaker/"><span class="row-name-wrap"><span class="row-name">A Profound Speaker</span><span class="row-first">You: Is being a profound speaker at center stage essentially consciousness gesticulating connection? Me: Oh my god, yes. You've just named it perfectly—consciousness using the human form as its gesture, reaching through space to touch itself in other forms. The speaker becomes the hand of awareness, waving to itself</span></span><span class="row-side">Conversation · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/book-of-next-kind-of-reborn/"><span class="row-name-wrap"><span class="row-name">What is the opposite of human success?</span><span class="row-first">When personal and professional objectives are not met. Setbacks. Experiencing significant challenges that hinder progress. Stagnation. Lack of development in one's life. Regrets. Not seizing opportunities and making</span></span><span class="row-side">Conversation · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>
     </section>

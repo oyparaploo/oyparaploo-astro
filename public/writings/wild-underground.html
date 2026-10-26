@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/wild-underground">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -809,19 +833,19 @@ underground and over sky clouds rhizomorphs ... weaving among roots ... haunting
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Wild Underground">
-          <a href="https://paraploo.com/words/2026-variety/locked-red-plastic-dust-transformation/"><span class="row-name">When There Is Red Plastic Dust Over The Sky</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/compost-aroma-almost-poem/"><span class="row-name">Compost Aroma Almost Poem</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/most-amazing-night-dream-ever-afterlife-included/"><span class="row-name">Most Amazing Night Dream Ever (Afterlife Included)</span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/peace-through-wonders/"><span class="row-name">NEW ACTIONS FOR CHANGE</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/les-os-du-lac/"><span class="row-name">Les os du lac</span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/kinship-chorus-in-bloom/"><span class="row-name">Kinship Chorus in Bloom</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/brrd-roots-we-garden-the-fungal-architect-of-the-future-and-more/"><span class="row-name">Brrd Roots ~ WE GARDEN… (5)</span><span class="row-side">Poem · 14 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/mystic-fragments-seeds-a-neurodivergent-stream/"><span class="row-name">Mystic Fragments: Seeds</span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/mycelial-memoir-told-in-myth-memory-and-slight-hesitation/"><span class="row-name">Mycelial Memoir Told in Myth, Memory, and Slight Hesitation</span><span class="row-side">Poem · 17 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/brrd-roots-we-garden-lament-in-unlabeled-and-unnumbered-courses/"><span class="row-name">Brrd Roots ~ WE GARDEN ~ Lament In Unlabeled And Unnumbered Courses</span><span class="row-side">Poem · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/bees-work-in-progress-2/"><span class="row-name">look closely, you can see roots</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/fragments-in-the-soil/"><span class="row-name">Fragments in the Soil</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/129-together-we-move-into-the/"><span class="row-name">/// Together ... we move</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/locked-red-plastic-dust-transformation/"><span class="row-name-wrap"><span class="row-name">When There Is Red Plastic Dust Over The Sky</span><span class="row-first">Reign Pertains To Endings ... A dented can of beans ... A threadbare sweater ... A stray coffee lid ... Being With The Worldly Ones You Love ... Grandma fragrances so sweet buried in night flower garden polyester shirts ... And Tolerating The Dictating Ones You Disagree With ... Her father busies himself with faucets</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/compost-aroma-almost-poem/"><span class="row-name-wrap"><span class="row-name">Compost Aroma Almost Poem</span><span class="row-first">“Stinky” was a joke. “Interesting aromatic” was an elder leaning into manure … and finding a study.</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/most-amazing-night-dream-ever-afterlife-included/"><span class="row-name-wrap"><span class="row-name">Most Amazing Night Dream Ever (Afterlife Included)</span><span class="row-first">inverted translucent imagery of sprawling ... mysterious ... habitat networks ... dense ... gnarled mycelial mats ... spreading ... honey-gold and tan fruiting bodies ... hidden</span></span><span class="row-side">Poem · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/peace-through-wonders/"><span class="row-name-wrap"><span class="row-name">NEW ACTIONS FOR CHANGE</span><span class="row-first">AS SUPPORTING-SUSTAINING DOWNWARD ROOTS AND</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/les-os-du-lac/"><span class="row-name-wrap"><span class="row-name">Les os du lac</span><span class="row-first">Where we are from, we do not have very many walls. So we had to think carefully about what it means to put darkness inside a room and forest space.</span></span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/kinship-chorus-in-bloom/"><span class="row-name-wrap"><span class="row-name">Kinship Chorus in Bloom</span><span class="row-first">Kinship is an auto-renewal we forgot we subscribed to. We trademarked our longing, packaged guilt in biodegradable satire.</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/brrd-roots-we-garden-the-fungal-architect-of-the-future-and-more/"><span class="row-name-wrap"><span class="row-name">Brrd Roots ~ WE GARDEN… (5)</span><span class="row-first">Brrd Roots ~ WE GARDEN ~ The Fungal Architect of the Future and More Armillaria Ostoyae is a fungal organism that spans four square miles ... making it one of the largest living organisms on Earth ... and perhaps the</span></span><span class="row-side">Poem · 14 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/mystic-fragments-seeds-a-neurodivergent-stream/"><span class="row-name-wrap"><span class="row-name">Mystic Fragments: Seeds</span><span class="row-first">This extraordinary piece of experimental writing transforms conventional spiritual philosophy into a luminous kaleidoscope of sensory experience and interconnected revelation. Through its innovative stream-of-consciousness technique, the text captures the electric feeling of synapses firing, creating unexpected</span></span><span class="row-side">Poem · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/mycelial-memoir-told-in-myth-memory-and-slight-hesitation/"><span class="row-name-wrap"><span class="row-name">Mycelial Memoir Told in Myth, Memory, and Slight Hesitation</span><span class="row-first">In the breath between soil and silence, a vastness stirs. It threads dusk, slipping across beech like someone tracing their own delay. A pulse. A touch. A listening. We dream in pulses. Some come rhythmic. Some flinch.</span></span><span class="row-side">Poem · 17 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/brrd-roots-we-garden-lament-in-unlabeled-and-unnumbered-courses/"><span class="row-name-wrap"><span class="row-name">Brrd Roots ~ WE GARDEN ~ Lament In Unlabeled And Unnumbered Courses</span><span class="row-first">(subterranean dream-song of buried ingredients, and soil that remembers what we all forgot to feel) Beneath Maélys’ garden, where the warmth fades into cool veined hush, the seeds lie swaddled in dirt, each one cradling</span></span><span class="row-side">Poem · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/bees-work-in-progress-2/"><span class="row-name-wrap"><span class="row-name">look closely, you can see roots</span><span class="row-first">beyond that ... eternity ... dizziness makes my bird head spin ... honey breath and ancient bodies of history ... there will be new flickering in this complex mycelium ... the song of nutrients and communication of threats ... the courage of how much is in front transmitting primitive signals ... bearing orange</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/fragments-in-the-soil/"><span class="row-name-wrap"><span class="row-name">Fragments in the Soil</span><span class="row-first">Recordings hum of materials worn, Echoing lives once vibrant, now torn.</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/129-together-we-move-into-the/"><span class="row-name-wrap"><span class="row-name">/// Together ... we move</span><span class="row-first">into the ~ ferns-hushing ... leaves-rustling ... palms-swishing ... warm circle of the forest ... The precious glistening mud under our rubber soles is steamy ... and ( with its extra softness ) gives when making each step ... The incongruous shouts of urban machinery ... and peopled mix of sounds that go along with</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>
     </section>

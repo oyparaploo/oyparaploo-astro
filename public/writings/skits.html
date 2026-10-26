@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/skits">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -807,18 +831,18 @@ main .rooms { padding: 0 0 72px; }
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Skits">
-          <a href="https://paraploo.com/words/2025-variety/oyparaploo-diagnosis-and-symptoms/"><span class="row-name">OyParaploo Diagnosis and Symptoms</span><span class="row-side">Play · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/the-joy-infrastructure-broadcasts/"><span class="row-name">THE JOY INFRASTRUCTURE BROADCASTS</span><span class="row-side">Play · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/vocal-symbiosis-inside-sun-moons-intricate-grace-version-one/"><span class="row-name">Vocal Symbiosis: Inside Sun Moon's Intricate Grace</span><span class="row-side">Play · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/vocal-symbiosis-inside-sun-moon-s-intricate-grace-version-two/"><span class="row-name">Vocal Symbiosis: Inside Sun Moon's Intricate Grace</span><span class="row-side">Play · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/oyparaploo-diagnosis-and-symptoms/"><span class="row-name-wrap"><span class="row-name">OyParaploo Diagnosis and Symptoms</span><span class="row-first">Capturing a recursive quality ... Examining the condition and manifesting it ... Identifying the spell of class while casting it ... We become infected through engagement with translations ... Subverting medical</span></span><span class="row-side">Play · 6 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/the-joy-infrastructure-broadcasts/"><span class="row-name-wrap"><span class="row-name">THE JOY INFRASTRUCTURE BROADCASTS</span><span class="row-first">A 12-Episode Series in the Spirit of Gentle Revolutionary Teaching Episode 1: "Your Cells Are Having a Party Without You" [GARY's garden shed, converted into a broadcasting space. Mismatched furniture, badly-made clay</span></span><span class="row-side">Play · 10 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/vocal-symbiosis-inside-sun-moons-intricate-grace-version-one/"><span class="row-name-wrap"><span class="row-name">Vocal Symbiosis: Inside Sun Moon's Intricate Grace</span><span class="row-first">(Begin by humming off-key then finding harmony while speaking) Sun Moon isn't singing—she's hosting. A phenomenon. Of sounds that migrate</span></span><span class="row-side">Play · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/vocal-symbiosis-inside-sun-moon-s-intricate-grace-version-two/"><span class="row-name-wrap"><span class="row-name">Vocal Symbiosis: Inside Sun Moon's Intricate Grace</span><span class="row-first">Listen close, I'll tell you how she learned to disappear, Sun Moon's voice—a haunting that you taste more than you hear,</span></span><span class="row-side">Play · 4 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/804-mms-sent-on-162023-at-1230-pm/"><span class="row-name">Dancer: How was your day?</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/803-mms-sent-on-162023-at-1232-pm/"><span class="row-name">Writer: Like the weather, some of it was good …</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/803-mms-sent-on-162023-at-1232-pm/"><span class="row-name-wrap"><span class="row-name">Writer: Like the weather, some of it was good …</span><span class="row-first">and some of it was not so good.</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/802-mms-sent-on-162023-at-1242-pm/"><span class="row-name">What kind of writer?</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/801-mms-sent-on-162023-at-1243-pm/"><span class="row-name">Writer: Journalist.</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/635-mms-sent-on-552023-at-925-am/"><span class="row-name">Karen: I'm drowning!!!</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/633-mms-sent-on-552023-at-927-am/"><span class="row-name">Veronica: I'm drowning!!!</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/464-mms-sent-on-7132023-at-701-am/"><span class="row-name">Tinzen: Gawf haha.</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/462-mms-sent-on-7132023-at-709-am/"><span class="row-name">Linsey: What should I do if I lose my …</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/462-mms-sent-on-7132023-at-709-am/"><span class="row-name-wrap"><span class="row-name">Linsey: What should I do if I lose my …</span><span class="row-first">phone?</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2023-25-phone-texts/461-mms-sent-on-7132023-at-714-am/"><span class="row-name">Tinzen: Your phone should have a tracker app installed.</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>

@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/two-francises">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -810,15 +834,15 @@ In simplicity, the true self will be.</p>
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Two Francises">
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-a-legacy-of-light-love-through-the-ages/"><span class="row-name">Song Lyrics: A Legacy of Light</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-the-invisible-seen-a-legacy-of-compassion/"><span class="row-name">Song Lyrics: The Invisible Seen</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-let-love-grow-the-freedom-of-letting-go/"><span class="row-name">Song Lyrics: Let Love Grow</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-echoes-of-change-a-call-to-action/"><span class="row-name">Song Lyrics: Echoes of Change</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-enduring-light-a-hymn-of-hope/"><span class="row-name">Song Lyrics: Enduring Light</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-flames-of-faith-a-path-awake/"><span class="row-name">Song Lyrics: Flames of Faith</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-sacred-earth-a-symphony-of-stewardship/"><span class="row-name">Song Lyrics: Sacred Earth</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-in-the-shadows-grace-awakens/"><span class="row-name">Song Lyrics: In the Shadows, Grace Awakens</span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/song-lyrics-unbound-the-freedom-in-letting-go/"><span class="row-name">Song Lyrics: Unbound</span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-a-legacy-of-light-love-through-the-ages/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: A Legacy of Light</span><span class="row-first">(Verse 1) Across the centuries, their voices rise,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-the-invisible-seen-a-legacy-of-compassion/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: The Invisible Seen</span><span class="row-first">(Verse 1) The morning breaks, quiet and cold,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-let-love-grow-the-freedom-of-letting-go/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Let Love Grow</span><span class="row-first">(Verse 1) In the square, beneath the sun’s fierce glare,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-echoes-of-change-a-call-to-action/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Echoes of Change</span><span class="row-first">(Verse 1) In the rustle of leaves, in the morning air,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-enduring-light-a-hymn-of-hope/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Enduring Light</span><span class="row-first">(Verse 1) The candle flickers, its glow is faint,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-flames-of-faith-a-path-awake/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Flames of Faith</span><span class="row-first">(Verse 1) Faith is not a gentle breeze,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-sacred-earth-a-symphony-of-stewardship/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Sacred Earth</span><span class="row-first">(Verse 1) Under the stars in Assisi’s embrace,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-in-the-shadows-grace-awakens/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: In the Shadows, Grace Awakens</span><span class="row-first">(Verse 1) The morning breaks with a quiet sigh,</span></span><span class="row-side">Poem · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/song-lyrics-unbound-the-freedom-in-letting-go/"><span class="row-name-wrap"><span class="row-name">Song Lyrics: Unbound</span><span class="row-first">(Verse 1) Beneath the weight of worldly chains,</span></span><span class="row-side">Poem · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>
     </section>

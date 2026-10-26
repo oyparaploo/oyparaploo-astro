@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/twin-cities">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -807,14 +831,14 @@ main .rooms { padding: 0 0 72px; }
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Twin Cities">
-          <a href="https://paraploo.com/words/2026-variety/local-elder-women-on-creating-a-flower-garden-that-blooms-mostly-locked/"><span class="row-name">Local Elder Women On Creating a Flower Garden That Blooms Mostly</span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/the-making-of-a-place-locked/"><span class="row-name">The Making of a Place</span><span class="row-side">Essay · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/thirty-seconds-final/"><span class="row-name">Thirty Seconds</span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/the-phone-videos-will-outlast-them-final/"><span class="row-name">The Phone Videos Will Outlast Them</span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/standing-through/"><span class="row-name">Standing Through</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/we-examine-you-arrived-before-the-bullet-final/"><span class="row-name">We Examine You Arrived Before The Bullet</span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/land-acknowledgment/"><span class="row-name">We acknowledge the land on which Brrd Roots Organization</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/symphony-of-echoes/"><span class="row-name">Symphony of Echoes</span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/local-elder-women-on-creating-a-flower-garden-that-blooms-mostly-locked/"><span class="row-name-wrap"><span class="row-name">Local Elder Women On Creating a Flower Garden That Blooms Mostly</span><span class="row-first">The soil had been placing bets in our yard longer than deeds existed ... Mint and other winning territories in the northeast corner ... through a campaign so slow it made every extreme conflict seem like a tantrum ... A moody Monday in March decided to be a Minnesota early January snowfall festival ... Inside ...</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/the-making-of-a-place-locked/"><span class="row-name-wrap"><span class="row-name">The Making of a Place</span><span class="row-first">Honesty dodging too much self dignity ... "the lightness of being harmlessly wrong" sounds like a pamphlet offered at a community center ... wonderful garbage doctrine starts with what seems to be by far the most</span></span><span class="row-side">Essay · 11 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/thirty-seconds-final/"><span class="row-name-wrap"><span class="row-name">Thirty Seconds</span><span class="row-first">Phone in hand. Pushed toward the sidewalk. Stepped between a falling protester and the officer who shoved her. Arms reaching out. Pepper spray. Surrounded. Wrestled down. Hit. Gun removed from his waist by an officer backing away. Then shot anyway.</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/the-phone-videos-will-outlast-them-final/"><span class="row-name-wrap"><span class="row-name">The Phone Videos Will Outlast Them</span><span class="row-first">The videos and statements exist. Gaps between them are crimes happening in broad daylight. Someone was alive, then murdered. People held phones and recorded. The footage circulates while federal officials describe something else entirely — their words unable to match the realities occurring. The wounds. This is not</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/standing-through/"><span class="row-name-wrap"><span class="row-name">Standing Through</span><span class="row-first">How's the day shaping up in Minneapolis? Extremely cold. But we have seen thousands of candle flames and people all bundled up standing on street corners and sidewalks at night everywhere, holding signs. Bodies of all types standing through, in our frigid north January air. Eight below and breath turning visible the</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/we-examine-you-arrived-before-the-bullet-final/"><span class="row-name-wrap"><span class="row-name">We Examine You Arrived Before The Bullet</span><span class="row-first">01.15.2026 ... Minneapolis ... Saint Paul We are looking at the words that came before the violence.</span></span><span class="row-side">Essay · 3 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/land-acknowledgment/"><span class="row-name-wrap"><span class="row-name">We acknowledge the land on which Brrd Roots Organization</span><span class="row-first">and its workspaces stand is the original homeland of the Dakota people. Learn More LAND ACKNOWLEDGMENT</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/symphony-of-echoes/"><span class="row-name-wrap"><span class="row-name">Symphony of Echoes</span><span class="row-first">The Twin Cities cradles a developer of distinctive experiences where the Magnificent Mississippi River sings its eternal melody. Here, whispers of intuition are transfigured into radiant creations, and the land, more than mere scenery, becomes an orchestra—its currents flowing as a symphony, its soil beating as a</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
           <a href="https://paraploo.com/words/2024-variety/welcome-to-bomayka-sens-official-we/"><span class="row-name">Physical To Virtual Projects About History</span><span class="row-side">Essay · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>

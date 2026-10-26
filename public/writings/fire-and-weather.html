@@ -731,6 +731,30 @@ main .rooms { padding: 0 0 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .way .way-arrow { transform: none !important; transition: none; } }
 </style>
+<style id="shelf-first-lines">
+/* Each writing's own first line under its title (October 22, 2026; after Pitchfork's Best, named by Reach):
+   Inter, Soft ink, one line on a desktop and two on a phone, the same words the door pages show. The row grows
+   from one line to two and keeps one height at rest and under the hand: pointed at, it turns to the dark bar
+   with light words and the drawing showing through, and nothing grows and nothing below moves. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) {
+  .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; }
+}
+/* Every row on the page keeps one height on a desktop, with or without its line, so the list keeps one even step. */
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) {
+  .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; }
+}
+
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -778,7 +802,7 @@ main .rooms { padding: 0 0 72px; }
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/writings/fire-and-weather">
 </head>
-<body class="behind">
+<body class="behind has-first-lines">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 
@@ -807,16 +831,16 @@ main .rooms { padding: 0 0 72px; }
     <section class="band" aria-label="The writings on this shelf">
       <div class="inner">
         <nav class="rows rows-writings" aria-label="Fire and Weather">
-          <a href="https://paraploo.com/words/2026-variety/size-of-a-nations-relative-swallow/"><span class="row-name">Size of a Nation's Relative Swallow</span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2026-variety/cc-innocent-to-insidious-controlled-burn-13-segments-revised/"><span class="row-name">CC Innocent to Insidious Controlled Burn</span><span class="row-side">Essay · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-slow-down-warming/"><span class="row-name">Earth Matters: ottootto Life ( Slow Down Warming )</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-climate-adoptions/"><span class="row-name">Earth Matters: ottootto Life ( Climate Adoptions )</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-climate-money/"><span class="row-name">Earth Matters: ottootto Life ( Climate &amp; Money )</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/010-what-is-a-true-home/"><span class="row-name">What is a true home?</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2023-25-phone-texts/009-during-a-special-moment/"><span class="row-name">During a special moment</span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2024-variety/how-climate-change-scrambles-season/"><span class="row-name">How Climate Change Scrambles Seasonal Weathering Patterns</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2024-variety/climate-change-is-a-big-threat-to/"><span class="row-name">Climate Change Is A Big Threat To Ocean Shore's</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
-          <a href="https://paraploo.com/words/2024-variety/sea-ice-is-melting-a-little-bit-fas/"><span class="row-name">Sea Ice Is Melting A Little Bit Faster Every Day</span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/size-of-a-nations-relative-swallow/"><span class="row-name-wrap"><span class="row-name">Size of a Nation's Relative Swallow</span><span class="row-first">( featuring an unmentioned incident where saltwater is transported with two hands ) We are going to hold this ... the way someone would hold a grandchild's toy that broke in an unusual way ...</span></span><span class="row-side">Essay · 2 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2026-variety/cc-innocent-to-insidious-controlled-burn-13-segments-revised/"><span class="row-name-wrap"><span class="row-name">CC Innocent to Insidious Controlled Burn</span><span class="row-first">( elder stretch ) itta melay ee ahh build towards decarbonization Build a world that doesn't run on burning ...</span></span><span class="row-side">Essay · 9 minutes</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-slow-down-warming/"><span class="row-name-wrap"><span class="row-name">Earth Matters: ottootto Life ( Slow Down Warming )</span><span class="row-first">How  a  warming  planet  can  change  life  as  we  presently know  it.  More  human  urgency  is  required  now.  More</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-climate-adoptions/"><span class="row-name-wrap"><span class="row-name">Earth Matters: ottootto Life ( Climate Adoptions )</span><span class="row-first">Accelerate  adoptions  of  climate  solutions.  Do  you  feel sad,  gloomy,  miserable,  and  melancholy ?  Or  perhaps  you  feel  immobilized  and  numb.  Climate  Change  reality  can  cause  these  six  human  emotions  above  +  plus  guilt  and</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2025-variety/earth-matters-ottootto-life-climate-money/"><span class="row-name-wrap"><span class="row-name">Earth Matters: ottootto Life ( Climate &amp; Money )</span><span class="row-first">Climate  change  collisions,  crashes,  whacks,  slams,  are very  expensive  for  everyone.  They  take  a  toll  on  our</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/010-what-is-a-true-home/"><span class="row-name-wrap"><span class="row-name">What is a true home?</span><span class="row-first">A comfort and familiarity ... found in more than one place. A refuge where you feel safe ... loved ... and protected. A True Home is associated with memories from childhood extending to when you have left the place. It can where you feel welcome and are a part of a community. A True Home is a place where peace of mind</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2023-25-phone-texts/009-during-a-special-moment/"><span class="row-name-wrap"><span class="row-name">During a special moment</span><span class="row-first">we vividly see or sense the Holy Spirit when we are out for a walk alone. A thousand or so people have lost close to all of their possessions but it is obvious ... after glancing at the scenes ... their new mutual kindness has not been lost. All the advances and retreats have added up to something different than</span></span><span class="row-side">Text · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2024-variety/how-climate-change-scrambles-season/"><span class="row-name-wrap"><span class="row-name">How Climate Change Scrambles Seasonal Weathering Patterns</span><span class="row-first">Climate change affects weather patterns worldwide. The rise in temperatures due to greenhouse gas emissions is the primary factor driving this change. One of the more noticeable effects of climate change is the change in humidity and rainfall patterns. This increase in moisture has led to extreme weather events that</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2024-variety/climate-change-is-a-big-threat-to/"><span class="row-name-wrap"><span class="row-name">Climate Change Is A Big Threat To Ocean Shore's</span><span class="row-first">Modest Old Ways Of Life. This highlights the impact of climate change on coastal communities. It's alarming to think that the pace of climate change has been steady in the past but has increased due to human activities such as deforestation, burning fossil fuels, and industrialization. Our activities have caused</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://paraploo.com/words/2024-variety/sea-ice-is-melting-a-little-bit-fas/"><span class="row-name-wrap"><span class="row-name">Sea Ice Is Melting A Little Bit Faster Every Day</span><span class="row-first">We smell ice melt. Earth is currently facing a critical situation that demands action. We are on thin ice, and poor actions and inaction have dire consequences. Scientists have warned that we are on the brink of a critical situation. We have a chance to prevent the worst effects of climate change, but we must act.</span></span><span class="row-side">Essay · 1 minute</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a>
         </nav>
       </div>
     </section>
