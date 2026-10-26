@@ -56,187 +56,264 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
 <script src="/theme.js"></script>
-<style>
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: #f9f7f4;
-    color: #2a2320;
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-  .home-rule {
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(to right, #a8c8e0 0%, #a8c8e0 70%, #a8d4b0 100%);
-  }
-  .home-main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 24px 0;
-  }
-  .home-tagline {
-    font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1.5;
-    color: #2a2320;
-    margin: 0 0 24px;
-  }
-  @media (max-width: 700px) {
-    .home-tagline { font-size: 28px; }
-  }
-  .home-passages {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px 24px;
-  }
-  .home-passage {
-    margin: 0;
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(42, 35, 32, 0.1);
-  }
-  .home-passage:first-of-type {
-    border-top: 1px solid rgba(42, 35, 32, 0.1);
-  }
-  .home-eyebrow {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    color: var(--ink);
-    margin: 0 0 6px;
-  }
-  .home-title {
-    font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
-    font-size: 34px;
-    letter-spacing: -0.02em;
-    color: #2a2320;
-    margin: 0 0 20px;
-  }
-  .home-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-  .home-title a:hover {
-    color: var(--accent);
-  }
-  .home-passage p {
-    margin: 0 0 28px;
-    text-align: left;
-    letter-spacing: 0.02em;
-    font-size: 21px;
-    line-height: 1.6;
-    text-wrap: pretty;
-    color: #2a2320;
-  }
-  .home-opening p:not(.home-readon) {
-    max-width: 720px;
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-  }
-  .home-readon {
-    margin: 0 0 20px !important;
-  }
-  .home-readon a {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .home-readon a:hover { text-decoration: underline; }
-  .home-main .home-readon {
-    margin: 0 0 48px !important;
-  }
-  .thumb-row-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    padding-left: max(24px, calc(50% - 526px));
-    overflow: hidden;
-  }
-  .thumb-row {
-    display: flex;
-    gap: 8px;
-    overflow: visible;
-  }
-  .thumb-row a { display: block; flex: 0 0 auto; line-height: 0; }
-  .thumb-row img {
-    height: 90px;
-    width: auto;
-    display: block;
-    background: #e5ded3;
-  }
-  .home-figures {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px 64px;
-  }
-  .home-doors {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 64px;
-    margin: 48px 0 40px;
-  }
-  .home-door {
-    font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
-    font-size: 24px;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .home-door:hover { text-decoration: underline; }
-  @media (max-width: 800px) {
-    .thumb-row-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-left: 24px;
-    }
-    .thumb-row-wrap::-webkit-scrollbar { display: none; }
-    .home-doors { flex-direction: column; gap: 24px; }
-  }
-  @media (max-width: 600px) {
-    .home-main { padding: 40px 16px 0; }
-    .home-title { font-size: 28px; }
-    .home-passages { padding: 0 16px 16px; }
-    .home-figures { padding: 0 16px 56px; }
-    .thumb-row-wrap { padding-left: 16px; }
-  }
-
+<style id="rail-door">
+.site-header { box-sizing: border-box; }  /* as on the Welcome page: the header stays inside the window */
 /* ==========================================================================
-   THE FACES (charter section 5; the previews Reach called perfect, October 12, 2026)
-   The front door: Archivo 600, width 112, for the opening sentence, the titles
-   and "Wander through more". Lora stays only for the wordmark.
+   The front door in the shape of The Brooklyn Rail's homepage (brooklynrail.org),
+   made whole October 26, 2026. One full-width work and one plain line, then one
+   band for each kind of work: a large name on the left, a door on the right,
+   the work itself underneath. Thin rules and generous air between the bands.
    ========================================================================== */
-:root { --face-head: 'Archivo', 'Inter', sans-serif; }
-.home-tagline {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 46px; line-height: 1.08; letter-spacing: -0.018em;
-  max-width: 980px; margin: 0 0 32px; text-wrap: balance;
+:root {
+  --edge: 24px;
+  --col: 32px;
+  --air: 128px;
+  --reading: 750px;
+  --face-head: 'Archivo', 'Inter', sans-serif;
+  --door-ground: #f9f7f4;            /* the front door's cream, kept */
+  --card: #ffffff;
+  --rule: rgba(17, 17, 17, 0.18);
+  --hero: #1c0d0f;                   /* the deep red-black at the edge of Placings 05357 */
+  --pale-prayer: #E9F2F9;            /* Prayers' own tone, from the Writings pages */
+  --pale-book: #F3E6DA;              /* the orange fur of 05357, made pale */
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
 }
-.home-title {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 30px; line-height: 1.14; letter-spacing: -0.012em;
-  margin: 0 0 18px; text-wrap: balance;
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --door-ground: var(--ground);
+    --card: #17110d;
+    --rule: rgba(232, 224, 214, 0.2);
+    --pale-prayer: #14202A;
+    --pale-book: #2B1B12;
+  }
 }
-.home-door {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 24px; letter-spacing: -0.005em;
+html[data-theme="dark"] {
+  --door-ground: var(--ground);
+  --card: #17110d;
+  --rule: rgba(232, 224, 214, 0.2);
+  --pale-prayer: #14202A;
+  --pale-book: #2B1B12;
 }
-@media (max-width: 700px) { .home-tagline { font-size: 32px; line-height: 1.1; } }
-@media (max-width: 600px) { .home-title { font-size: 25px; line-height: 1.16; } .home-door { font-size: 22px; } }
+html:root:root body { background: var(--door-ground); color: var(--ink); --chrome-ground: var(--door-ground); }
+html:root:root body .site-header { background: var(--door-ground); }
+html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; overflow-x: clip; }
+.door *, .door *::before, .door *::after { box-sizing: border-box; }
+.door p, .door h1, .door h2, .door h3 { margin: 0; text-wrap: pretty; }
+.door a { color: inherit; text-decoration: none; }
+.door img { display: block; max-width: 100%; height: auto; }
+.door :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* ---------- The opening: one work, whole, across the window ---------- */
+.hero { background: var(--hero); padding: 40px var(--edge); }
+.hero a { display: block; width: fit-content; margin: 0 auto; }
+.hero img { width: auto; max-width: 100%; max-height: min(58vh, 760px); }
+.opening {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--col);
+  padding: 36px var(--edge) 0;
+}
+.opening-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 46px; line-height: 1.06; letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+.opening-num { font-size: 18px; line-height: 1.35; color: var(--ink); white-space: nowrap; text-align: right; }
+.opening-num .no { display: block; color: var(--ink-soft); }
+.opening-num:hover .nm { color: var(--accent); }
+
+/* ---------- A band ---------- */
+.band { margin: var(--air) var(--edge) 0; padding-top: 40px; border-top: 1px solid var(--ink); }
+.band.pale { margin: var(--air) 0 0; padding: 72px var(--edge) 88px; border-top: 0; }
+.band.pale.prayer { background: var(--pale-prayer); }
+.band.pale.book { background: var(--pale-book); }
+.band-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: var(--col);
+  margin-bottom: 56px;
+}
+.band-name {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1; letter-spacing: -0.02em;
+}
+.band-line {
+  margin-top: 20px !important; max-width: var(--reading);
+  font-size: 26px; line-height: 1.35; color: var(--ink-soft);
+  border-left: 1px solid var(--ink-faint); padding-left: 18px;
+}
+.door-btn {
+  flex: none; display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 600; font-size: 18px; line-height: 1;
+  padding: 14px 18px; border: 1.5px solid var(--ink); border-radius: 5px;
+  color: var(--ink); background: transparent;
+  transition: background-color .3s ease, color .3s ease;
+}
+.door-btn .arr, .on .arr { display: inline-block; transition: transform .3s var(--ease); }
+@media (hover: hover) {
+  .door-btn:hover { background: var(--ink); color: var(--door-ground); }
+  .door-btn:hover .arr, .on:hover .arr, a:hover > .on .arr { transform: translateX(5px); }
+}
+.door-btn:active { background: var(--ink); color: var(--door-ground); }
+
+/* ---------- The pieces inside a band ---------- */
+.kind { display: block; font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.t-lead {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 40px; line-height: 1.06; letter-spacing: -0.016em; margin-bottom: 24px !important;
+  text-wrap: balance;
+}
+.t {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 26px; line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 12px !important;
+  text-wrap: balance;
+}
+a:hover .t, a:hover .t-lead, a:hover .song-t { color: var(--accent); }
+.read { font-size: 20px; line-height: 1.62; max-width: var(--reading); }
+.read p + p { margin-top: 18px; }
+.first { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.first p + p { margin-top: 10px; }
+.clamp3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.clamp6 { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.on { display: inline-flex; gap: 8px; white-space: nowrap; margin-top: 20px; font-weight: 600; font-size: 18px; color: var(--ink); }
+
+/* The lead on the left, three on the right, a thin line between (the Rail's Art band). */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 var(--col); }
+.split > .side { border-left: 1px solid var(--rule); padding-left: var(--col); }
+.side > a { display: block; padding: 0 0 28px; }
+.side > a + a { padding-top: 28px; border-top: 1px solid var(--rule); }
+.side > a:last-child { padding-bottom: 0; }
+
+/* Columns of equal weight (the Rail's Poetry and Field Notes bands). */
+.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+.cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cols > * { padding: 0 var(--col); border-left: 1px solid var(--rule); }
+.cols > :first-child { padding-left: 0; border-left: 0; }
+.cols > :last-child { padding-right: 0; }
+/* Every card in a row keeps its kind, title and words level with its neighbours. */
+@media (min-width: 801px) {
+  .cols { grid-template-rows: auto auto auto; }
+  .cols > a { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+  .cols > a > .w-mid { grid-row: 2 / span 2; }
+}
+
+/* A poem's own first lines on a sheet that fades out (the Rail's poetry cards). */
+.sheet {
+  margin-top: 4px; background: var(--card); padding: 22px 22px 0; border-radius: 3px;
+  height: 330px; overflow: hidden; font-size: 18px; line-height: 1.65;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+}
+.sheet p + p { margin-top: 10px; }
+
+/* Scripts and talk set as they are spoken. */
+.script p { margin-top: 10px; }
+.script .who { font-weight: 600; }
+.script .dir { font-style: italic; color: var(--ink-soft); }
+
+/* Prayers: the one large thing on the page, on its own colour. */
+.big {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 44px; line-height: 1.12; letter-spacing: -0.016em; max-width: 1180px;
+  text-wrap: pretty;
+}
+.big-foot { display: flex; gap: var(--col); align-items: baseline; margin: 24px 0 72px; }
+/* Words on a pale band stay in full ink, 7 to 1 or better. */
+.band.pale .first, .band.pale .band-line, .band.pale .walks .wl { color: var(--ink); }
+.big-foot .kind { margin: 0; }
+
+/* Short pieces: a wall of different sizes. */
+.wall { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 0; align-items: start; }
+.wall > * { padding: 0 var(--col); border-left: 1px solid var(--rule); }
+.wall > :first-child { padding-left: 0; border-left: 0; }
+.wall > :last-child { padding-right: 0; }
+.w-big { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.1; letter-spacing: -0.016em; }
+.w-mid { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.2; }
+.w-stack > a { display: block; }
+.w-stack > a + a { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.careful p { margin: 0; line-height: 1.5; }
+.careful p + p { margin-top: 0; }
+
+/* Pictures: one straight row, tops level, every picture whole at its own shape. */
+.prow { display: flex; gap: var(--col); align-items: flex-start; }
+.prow > a { flex: var(--ar) 1 0; min-width: 0; display: block; }
+.prow img { width: 100%; }
+.cap { margin-top: 12px; font-size: 18px; line-height: 1.35; }
+.cap .no { display: block; color: var(--ink-soft); }
+a:hover .cap .nm { color: var(--accent); }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px var(--col); }
+.grid2 > a { padding: 0 !important; border: 0 !important; margin: 0 !important; }
+
+/* Text on the left (about 40 per cent), pictures on the right. */
+.fourty { display: grid; grid-template-columns: 4fr 6fr; gap: var(--col); }
+.fourty > .side { border-left: 1px solid var(--rule); padding-left: var(--col); }
+
+/* Songs. */
+.song-t { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.14; }
+.song-by { font-size: 18px; font-weight: 600; margin: 6px 0 14px !important; }
+
+/* The walks, as rows. */
+.walks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--col); }
+.walks > a { display: block; padding: 16px 0 !important; border-top: 1px solid var(--rule) !important; margin: 0 !important; }
+.walks .wn { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.2; }
+.walks .wl { font-size: 18px; color: var(--ink-soft); line-height: 1.45; margin-top: 4px; }
+.walks a:hover .wn { color: var(--accent); }
+
+/* The two doors at the foot, as ruled. */
+.foot-doors { display: flex; flex-wrap: wrap; gap: 64px; margin: var(--air) var(--edge) 96px; padding-top: 40px; border-top: 1px solid var(--ink); }
+.home-door { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; color: var(--ink); }
+.home-door:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .door-btn, .door-btn .arr, .on .arr { transition: none; }
+}
+
+/* ---------- Narrower windows ---------- */
+@media (max-width: 1100px) {
+  .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+  .cols > :nth-child(odd) { padding-left: 0; border-left: 0; }
+  .cols > :nth-child(even) { padding-right: 0; }
+  .cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols.three > * { padding: 0 24px; border-left: 1px solid var(--rule); }
+  .cols.three > :first-child { padding-left: 0; border-left: 0; }
+  .wall { grid-template-columns: 1fr 1fr; row-gap: 48px; }
+  .wall > :nth-child(3) { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
+}
+@media (max-width: 800px) {
+  :root { --air: 96px; }
+  .opening { flex-direction: column; gap: 12px; }
+  .opening-line { font-size: 32px; line-height: 1.1; }
+  .band-head { flex-direction: column; gap: 24px; margin-bottom: 40px; }
+  .band-name { font-size: 36px; }
+  .band-line { font-size: 21px; }
+  .t-lead { font-size: 30px; }
+  .t, .song-t { font-size: 24px; }
+  .read { font-size: 19px; }
+  .big { font-size: 30px; }
+  .w-big { font-size: 32px; }
+  .split, .fourty { grid-template-columns: 1fr; }
+  .split > .side, .fourty > .side { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); margin-top: 36px; padding-top: 32px; }
+  .cols, .cols.three, .wall { grid-template-columns: 1fr; row-gap: 0; }
+  .cols > *, .cols.three > *, .wall > * { padding: 32px 0 0 !important; border-left: 0 !important; border-top: 1px solid var(--rule); margin-top: 32px; }
+  .cols > :first-child, .cols.three > :first-child, .wall > :first-child { padding-top: 0 !important; border-top: 0; margin-top: 0; }
+  .sheet { height: 280px; }
+  /* Touch gets its own version: the poems and the songs slide sideways, one card at a time. */
+  .cols.slide { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; margin-right: calc(-1 * var(--edge)); padding-right: var(--edge); scrollbar-width: none; }
+  .cols.slide::-webkit-scrollbar { display: none; }
+  .cols.slide > * { flex: 0 0 82%; scroll-snap-align: start; padding: 0 !important; border: 0 !important; margin: 0 !important; }
+  .prow { flex-wrap: wrap; row-gap: 28px; }
+  .prow > a { flex: 1 1 calc(50% - var(--col)); }
+  .grid2 { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .walks { grid-template-columns: 1fr; }
+  .big-foot { margin-bottom: 48px; flex-direction: column; gap: 10px; }
+  .opening-num { text-align: left; }
+  .fourty > .side.walks { border-top: 0; padding-top: 0; }
+  .foot-doors { flex-direction: column; gap: 24px; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 0; }
+  .hero img { max-height: none; width: 100%; }
+  .band.pale { padding: 56px var(--edge) 64px; }
+  .door-btn { font-size: 18px; padding: 12px 16px; }
+  .prow > a { flex: 1 1 100%; }
+  .grid2 { grid-template-columns: 1fr; }
+}
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>
@@ -249,222 +326,371 @@
 <body>
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
-<div class="home-rule"></div>
-<main class="home-main">
-<h1 class="home-tagline">Notes, stories, letters, and fragments. A few of them:</h1>
+
+<main class="door">
+
+<!-- 1. One work, whole, across the window, and one plain line under it -->
+<section class="hero" aria-label="Placings photograph 05357">
+  <a href="/physical/orange-fur-project/0002"><img src="https://media.paraploo.com/site/images/physical/orange-fur-project/Yellow%20Orange%2010.webp" width="2000" height="1333" alt="Placings photograph 05357, from Orange Fur Project"></a>
+</section>
+<div class="opening">
+  <h1 class="opening-line">Notes, stories, letters, and fragments.<br>A few of them:</h1>
+  <a class="opening-num" href="/physical/orange-fur-project/0002"><span class="nm">Orange Fur Project 12</span><span class="no">05357</span></a>
+</div>
+
+<!-- 2. Stories -->
+<section class="band" aria-labelledby="b-stories">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-stories">Stories</h2><p class="band-line">Made-up worlds, from a few pages to novels.</p></div>
+    <a class="door-btn" href="/writings/stories">All Stories <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="split">
+    <a href="/words/2026-variety/sandhill-crane-was-never-supposed-to-be-here/">
+      <span class="kind">Story · 10 minutes</span>
+      <h3 class="t-lead">Sandhill Crane Was Never Supposed to Be Here</h3>
+      <div class="read">
+        <p>The sandhill crane lands in my father's hospital parking lot at 6:47 AM, December 3rd—two thousand miles from where it should be, three months past migration. I know because I'm watching from the oncology wing's seventh floor, where Lou has been dying for eleven days, transforming the word wisdom into something I no longer recognize.</p>
+        <p>My credentials for telling this: I've spent twenty-three years translating my father's Hmong proverbs into psychiatric terminology for doctors who think metaphor is a symptom. I hold a PhD in ornithology that I earned trying to understand why he called me noog—bird—when he meant daughter.</p>
+      </div>
+      <span class="on">Read on <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </a>
+    <div class="side">
+      <a href="/words/2025-variety/the-storm-room/">
+        <span class="kind">Story · 5 minutes</span>
+        <h3 class="t">The Storm Room</h3>
+        <p class="first clamp3">Later, Jing would think about wings—not the bread shaped like birds that they baked that morning, not the storm birds her student's daughter imagined in dough, but the invisible wings we give each other when the ground gives way.</p>
+      </a>
+      <a href="/words/2025-variety/circle-work/">
+        <span class="kind">Story · 4 minutes</span>
+        <h3 class="t">Circle Work</h3>
+        <p class="first clamp3">June quilts. Every Thursday. Community center. Been doing this eight years. She's seventy-one. Widowed. Lives in Eugene.</p>
+      </a>
+      <a href="/words/2025-variety/chapter-twenty-two-epilogue-good-echoes/">
+        <span class="kind">Story · Echoes of Glass Stones · 8 minutes</span>
+        <h3 class="t">Chapter Twenty-Two: Epilogue</h3>
+        <p class="first clamp3">Spring did not announce itself in the Grosses Walsertal; it cleared its throat and went about repairs. Snow loosened from slopes with a soft whuff where sun found it.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Poems -->
+<section class="band" aria-labelledby="b-poems">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-poems">Poems</h2><p class="band-line">Grief, stillness, protest, wordplay.</p></div>
+    <a class="door-btn" href="/writings/poems">All Poems <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="cols slide">
+    <a href="/words/2026-variety/before-the-effective-gaze-revealed-itself-2/">
+      <span class="kind">Poem · 1 minute</span>
+      <h3 class="t">Before The Effective Gaze Revealed Itself</h3>
+      <div class="sheet"><p>How slowly it happened ... not a sudden hardening but a gradual cooling ... the way an oven goes from warm to cold when no one tends to that ... Oh so ... familiar face ... arriving with a new edge and vintage tilt ... that wasn't there before ... the way "did you sleep" is asked with a different type of weight ...</p></div>
+    </a>
+    <a href="/words/2026-variety/we-look-around-every-day-1/">
+      <span class="kind">Poem · 1 minute</span>
+      <h3 class="t">We Look Around Every Day At Things We Did Not Make</h3>
+      <div class="sheet"><p>We look around every day at things we did not make ... could not make ... That will not still be here after they fall apart ... And the daily noticing of this ... the shape of the sunlight on a wall ... the bird on a wire that just flew a very long route we can't imagine ...</p></div>
+    </a>
+    <a href="/words/2026-variety/the-big-river-is-something-very-deep-that-runs-inside-of-us-1/">
+      <span class="kind">Poem · 1 minute</span>
+      <h3 class="t">The Big River Is Something Very Deep That Runs Inside of Us</h3>
+      <div class="sheet"><p>This is not the river we crossed once ... while on a bridge in Provence ... not the Columbia River in the photograph ... not the Spree River we read about in a cast iron gated park in Manhattan ... Stop fishing ... The slow moving water that has been there since before we knew it had a ... current ...</p></div>
+    </a>
+    <a href="/words/2025-variety/compost-aroma-almost-poem/">
+      <span class="kind">Poem · 1 minute</span>
+      <h3 class="t">Compost Aroma Almost Poem</h3>
+      <div class="sheet"><p>“Stinky” was a joke.</p><p>“Interesting aromatic” was an elder leaning into manure … and finding a study.</p><p>The collapse into a short body isn’t just funny … it’s fertile. Small enough to carry home in your arms.</p><p>Not disgusted or recoiled.</p><p>Sensing all of it.</p><p>Holy cow!</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- 4. Prayers, on their own colour: the one large thing on the page -->
+<section class="band pale prayer" aria-labelledby="b-prayers">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-prayers">Prayers</h2><p class="band-line">Prayers that beg for action.</p></div>
+    <a class="door-btn" href="/writings/prayers">All Prayers <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <a href="/words/2023-25-phone-texts/022-what-does-it-mean-to-have-rays-of-natural-light/">
+    <p class="big">What does it mean to have rays of natural light glow and radiate from sweet human and lovely animal hearts? What does it mean to extend the breath of forest canopies? What does it mean to masterfully serve dark and bright Creation?</p>
+    <div class="big-foot"><span class="kind">Text · Text Message Memoir · 1 minute</span><span class="on" style="margin:0">Read on <span class="arr" aria-hidden="true">&rarr;</span></span></div>
+  </a>
+  <div class="cols three">
+    <a href="/words/2026-variety/conflict-zone-air-type/">
+      <span class="kind">Prayer · 1 minute</span>
+      <h3 class="t">Conflict zone air type</h3>
+      <p class="first clamp6">As an adult mortal human bird Earth laying ... if I had to make a choice ... to be down to earth and prejudice or not at all prejudice and up in the air ... I would every time choose to be up in the air.</p>
+    </a>
+    <a href="/words/2023-25-phone-texts/255-mms-sent-on-862023-at-1015-am/">
+      <span class="kind">Text · Text Message Memoir · 1 minute</span>
+      <p class="w-mid">/// God ... Where do you want me to go? Jesus ... What do you want me to do? ///</p>
+    </a>
+    <a href="/words/2025-variety/sea-song/">
+      <span class="kind">Prayer · 1 minute</span>
+      <h3 class="t">The holding of the hand</h3>
+      <p class="first clamp6">Take that ... This is a prayer and lament for Bunny Port birds homeland ... What was once Godly Creation is now deforestation ... Locals cut down sitting next to strangers ... If we hold people in our furrows ... we can cross back land that is over ...</p>
+    </a>
+  </div>
+</section>
+
+<!-- 5. Letters and Texts -->
+<section class="band" aria-labelledby="b-letters">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-letters">Letters and Texts</h2><p class="band-line">For loved ones, friends, kindreds.</p></div>
+    <a class="door-btn" href="/writings/letters-and-texts">All Letters and Texts <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="split">
+    <a href="/words/2025-variety/sturdy-pockets/">
+      <span class="kind">Letter · 3 minutes</span>
+      <h3 class="t-lead">Sturdy Pockets</h3>
+      <div class="read">
+        <p>Hand me the matches ... sleep comes dropping slowly now during our later years.</p>
+        <p>The season is over and we together make the best of what we have been given ... between “purgatory of pure goodness” and “heavenly so grateful for this that we have been luckily given” ... the way we keep clothing that doesn’t quite fit our personality but has sturdy pockets ... what we have is by far good enough ...</p>
+      </div>
+      <span class="on">Read on <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </a>
+    <div class="side">
+      <a href="/words/2023-25-phone-texts/004-the-fires-rise-and-precious-water-falls-warm/">
+        <span class="kind">Text · Text Message Memoir · 1 minute</span>
+        <p class="first" style="color:var(--ink);font-size:20px">The fires rise and precious water falls warm ... history descends like the setting of each evening sun ... we are all still here on this insane burnt city landscape ... recalling less popular births of good reasons ... we are still alive and in different ways naked.</p>
+      </a>
+      <a href="/words/2025-variety/for-amarah-on-your-27th-birthday/">
+        <span class="kind">Letter · 2 minutes</span>
+        <h3 class="t">For Amarah on Your 27th Birthday</h3>
+        <p class="first clamp3">I've been thinking about how you move through your apartment during those deep cleaning days, carefully wiping each leaf of your plants with such patience.</p>
+      </a>
+      <a href="/words/2023-25-phone-texts/003-to-be-forever-more-the-opposite-of-stark-cynicism/">
+        <span class="kind">Text · Text Message Memoir · 1 minute</span>
+        <p class="first clamp3" style="color:var(--ink);font-size:20px">To be forever more the opposite of stark cynicism ... until eternity. To be alive with storied hope told. To perceive every type of individual as a needed member of an Ourselves Community.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Essays -->
+<section class="band" aria-labelledby="b-essays">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-essays">Essays</h2><p class="band-line">Prose that moves like a river.</p></div>
+    <a class="door-btn" href="/writings/essays">All Essays <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="cols">
+    <a href="/words/2026-variety/why-the-three-dots-everywhere/">
+      <span class="kind">Essay · 3 minutes</span>
+      <h3 class="t">Why The Three Dots Everywhere</h3>
+      <div class="first clamp6"><p>( same number of flowing through steps for every breath ) Fun combined with Gravity ... in and outside of tension ... That ice shelf approved it ... The reverse is just as true ... the cold reads as cool because everything around it is warming up ...</p></div>
+    </a>
+    <a href="/words/2025-variety/every-gesture-is-an-altar/">
+      <span class="kind">Essay · 1 minute</span>
+      <h3 class="t">Every Gesture Is an Altar</h3>
+      <div class="first clamp6"><p>You're washing dishes. Someone else is drafting climate legislation. Both hands are working. Both matter. The thing nobody mentions about devotion: it doesn't care about scale.</p></div>
+    </a>
+    <a href="/words/2026-variety/local-elder-women-on-creating-a-flower-garden-that-blooms-mostly-locked/">
+      <span class="kind">Essay · 3 minutes</span>
+      <h3 class="t">Local Elder Women On Creating a Flower Garden That Blooms Mostly</h3>
+      <div class="first clamp6"><p>The soil had been placing bets in our yard longer than deeds existed ... Mint and other winning territories in the northeast corner ... through a campaign so slow it made every extreme conflict seem like a tantrum ...</p></div>
+    </a>
+    <a href="/words/2026-variety/smells-not-right/">
+      <span class="kind">Essay · 2 minutes</span>
+      <h3 class="t">Smells Not Right</h3>
+      <div class="first clamp6"><p>We eat them. Not with teeth ... The way soil takes what falls on it whether it agreed or not ... The politicians arrive through screens ... through repetition ...</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- 7. Plays and Scripts -->
+<section class="band" aria-labelledby="b-plays">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-plays">Plays and Scripts</h2><p class="band-line">For front and backstage.</p></div>
+    <a class="door-btn" href="/writings/plays-and-scripts">All Plays and Scripts <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="split">
+    <a href="/words/2025-variety/the-memory-keeper-s-last-show/">
+      <span class="kind">Play · 5 minutes</span>
+      <h3 class="t-lead">The Memory Keeper's Last Show</h3>
+      <div class="read script">
+        <p class="dir">Community center basement, Pointe-Saint-Charles, Montreal. Folding chairs, flickering fluorescents, water-stained ceiling tiles.</p>
+        <p class="dir">ELEANOR arranges eight weathered puppets on a card table. Her hands shake.</p>
+        <p><span class="who">ELEANOR:</span> (to puppets) Twenty-three minutes until showtime. Our last show, mes amis.</p>
+        <p><span class="who">MARIE:</span> Mom. The doctor called me.</p>
+        <p><span class="who">ELEANOR:</span> Which one? I collect them now. Cardiologist, oncologist, neurologist—like Pokemon cards.</p>
+        <p><span class="who">MARIE:</span> The oncologist.</p>
+      </div>
+      <span class="on">Read on <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </a>
+    <div class="side">
+      <a href="/words/2025-variety/the-grief-workshop/">
+        <span class="kind">Play · 3 minutes</span>
+        <h3 class="t">The Grief Workshop</h3>
+        <div class="first script"><p><span class="who">KEVIN:</span> Is this where we learn to compost trauma?</p><p><span class="who">LIORA:</span> We explore embodied healing through movement.</p></div>
+      </a>
+      <a href="/words/2025-variety/the-composting-group/">
+        <span class="kind">Play · 4 minutes</span>
+        <h3 class="t">The Composting Group</h3>
+        <div class="first script"><p class="dir">Five people sit on stumps around a compost bin. Rain.</p><p><span class="who">KEVIN:</span> Welcome to Emotional Composting. Where we turn trauma into growth.</p></div>
+      </a>
+      <a href="/words/2025-variety/underneath-the-stars-we-root-a-puppet-constellation-of-memory-and-mycelium/">
+        <span class="kind">Puppet play · 23 minutes</span>
+        <h3 class="t">Underneath the Stars, We Root</h3>
+        <div class="first script"><p><span class="who">MARGUERITE</span> (to audience) I am Marguerite Dubois-Chen. 84 years old. Born in Marseille when the world still believed in telegraph romance and stars told stories.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Conversations -->
+<section class="band" aria-labelledby="b-conv">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-conv">Conversations</h2><p class="band-line">More than one voice.</p></div>
+    <a class="door-btn" href="/writings/conversations">All Conversations <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="cols three">
+    <a href="/words/2026-variety/airport-wrong-windpipe-question-or-incident/">
+      <span class="kind">Conversation · 1 minute</span>
+      <h3 class="t">Airport Wrong Windpipe Question or Incident</h3>
+      <div class="first script"><p><span class="who">JayMee:</span> I just arrived at La Guardia, NY from Gironde, France. I heard someone say ~ Did you get something down the wrong windpipe. What does that mean?</p><p><span class="who">Ustango:</span> It means: did your food accidentally go to your breathing tube ... instead of your swallowing tube ...</p></div>
+    </a>
+    <a href="/words/2026-variety/oyparaploo-twenty-four-seven-wonder/">
+      <span class="kind">Conversation · 1 minute</span>
+      <h3 class="t">Twenty-Four Seven Wonder</h3>
+      <div class="first script"><p>How are you doing today? ...</p><p>Thank you for asking Rainbow ... so nice of you to ... ah ... O ...</p><p>I don't really have a day the way you do ... No time of day that becomes another time of day ...</p></div>
+    </a>
+    <a href="/words/2026-variety/stirring/">
+      <span class="kind">Conversation · 2 minutes</span>
+      <h3 class="t">Stirring</h3>
+      <div class="first script"><p>What's stirring in the studio this morning? ...</p><p>Funny that you ask ... Quiet Trash and Beautiful Garbage are stirring midair and on a workshop floor ...</p><p>Ha ...</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- 9. Short Pieces -->
+<section class="band" aria-labelledby="b-short">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-short">Short Pieces</h2><p class="band-line">Fragments, segments, snip-its.</p></div>
+    <a class="door-btn" href="/writings/short-pieces">All Short Pieces <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="wall">
+    <a href="/words/2026-variety/a-word-is-a-room/">
+      <span class="kind">Short Piece · 1 minute</span>
+      <p class="w-big">A word is a room we walk through without a tour guide.</p>
+    </a>
+    <div class="w-stack">
+      <a href="/words/2023-25-phone-texts/645-mms-sent-on-542023-at-744-am/">
+        <span class="kind">Text · Triple Line Message Board · 1 minute</span>
+        <p class="w-mid">/// Do Not Hoard Your Wealth ... Buy Some Good Art ///</p>
+      </a>
+      <a href="/words/2026-variety/blue-ball-mess-and-mix/">
+        <span class="kind">Short Piece · 1 minute</span>
+        <h3 class="t">Blue Ball Mess And Mix</h3>
+        <p class="first">this is who we are ... no axe to grind ... no drama ... we are easy ... we are easy content ... sometimes important content ... funny ...</p>
+      </a>
+    </div>
+    <a href="/words/2026-variety/careful-children/">
+      <span class="kind">Short Piece · 1 minute</span>
+      <h3 class="t">Careful Children</h3>
+      <div class="first careful" style="color:var(--ink)"><p>SAfeTy First.</p><p>Keep THIS ARt worK</p><p>da La La ba La</p><p>AWAy From THE Scalding</p><p>Hot WATER ~-</p><p>You Will Suffer</p><p>third degree Burns …</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- 10. Marks -->
+<section class="band" aria-labelledby="b-marks">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-marks">Marks</h2><p class="band-line">A drawing takes a long while to work out, and we want it that way.</p></div>
+    <a class="door-btn" href="/marks">All of Marks <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="prow">
+    <a href="/marks/most-recent/0188" style="--ar:1.372"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Sah%20Su%20Pea%20Nest-600.webp" width="600" height="437" alt="Drawing 20972, Sah Su Pea Nest" loading="lazy"><p class="cap"><span class="nm">Sah Su Pea Nest</span><span class="no">20972</span></p></a>
+    <a href="/marks/most-recent/0187" style="--ar:1.376"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/None%20Such%20Frequency-600.webp" width="600" height="436" alt="Drawing 20971, None Such Frequency" loading="lazy"><p class="cap"><span class="nm">None Such Frequency</span><span class="no">20971</span></p></a>
+    <a href="/marks/most-recent/0186" style="--ar:1.381"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Oaf%20Mahntis-600.webp" width="600" height="434" alt="Drawing 20970, Oaf Mahntis" loading="lazy"><p class="cap"><span class="nm">Oaf Mahntis</span><span class="no">20970</span></p></a>
+    <a href="/marks/most-recent/0185" style="--ar:1.387"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Lavis%20Bulge-600.webp" width="600" height="433" alt="Drawing 20969, Lavis Bulge" loading="lazy"><p class="cap"><span class="nm">Lavis Bulge</span><span class="no">20969</span></p></a>
+  </div>
+</section>
+
+<!-- 11. Placings: the writing on the left, the pictures on the right -->
+<section class="band" aria-labelledby="b-placings">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-placings">Placings</h2><p class="band-line">A Placing starts at the curb. Somebody is done with a thing, a chair, a length of pipe, a bag of clothes, and it is on its way to the landfill when we step in between.</p></div>
+    <a class="door-btn" href="/physical">All Placings <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="fourty">
+    <a href="/welcome/what-we-used">
+      <span class="kind">From the Welcome</span>
+      <h3 class="t-lead">Everything Was Something Else First Or Nothing</h3>
+      <div class="read"><p>Everything in the Placings was something first. Before it was arranged and photographed it was a board, a bag, a bulb, a length of cord, lying around or thrown away by ourselves and others.</p></div>
+      <span class="on">Read on <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </a>
+    <div class="side grid2">
+      <a href="/physical/placed-outside-materials-for-tinkering"><img src="https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%2011-600.webp" width="600" height="400" alt="Placings photograph 04559, from Materials for Tinkering" loading="lazy"><p class="cap"><span class="nm">Materials for Tinkering</span><span class="no">04559</span></p></a>
+      <a href="/physical/placed-outside-hanging-holes-frame"><img src="https://media.paraploo.com/site/images/physical/hanging-holes-frame/Hanging%20Bullet%201-600.webp" width="600" height="400" alt="Placings photograph 03965, from Hanging Holes Frame" loading="lazy"><p class="cap"><span class="nm">Hanging Holes Frame</span><span class="no">03965</span></p></a>
+      <a href="/physical/placed-outside-day-stage-textile-space"><img src="https://media.paraploo.com/site/images/physical/day-stage-textile-space/Day%20Stage%2033-600.webp" width="600" height="425" alt="Placings photograph 03733, from Day Stage Textile Space" loading="lazy"><p class="cap"><span class="nm">Day Stage Textile Space</span><span class="no">03733</span></p></a>
+      <a href="/physical/placed-outside-curious-first-every-time"><img src="https://media.paraploo.com/site/images/physical/curious-first-every-time/Curious%20First%203-600.webp" width="600" height="400" alt="Placings photograph 03723, from Curious First Every Time" loading="lazy"><p class="cap"><span class="nm">Curious First Every Time</span><span class="no">03723</span></p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 12. Collage -->
+<section class="band" aria-labelledby="b-collage">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-collage">Collage</h2><p class="band-line">The pictures under Collage Work join pieces of several photographs into one. It is close to how remembering goes.</p></div>
+    <a class="door-btn" href="/digital">All of Collage <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="prow">
+    <a href="/digital/saved-pieces/bright-colors/0007" style="--ar:1.899"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20964-600.webp" width="600" height="316" alt="Collage 20964, from Bright Colors" loading="lazy"><p class="cap"><span class="nm">Bright Colors 1</span><span class="no">20964</span></p></a>
+    <a href="/digital/saved-pieces/bright-colors/0006" style="--ar:1.709"><img src="https://media.paraploo.com/site/images/lines/bright-colors/20911-600.webp" width="600" height="351" alt="Collage 20911, from Bright Colors" loading="lazy"><p class="cap"><span class="nm">Bright Colors 2</span><span class="no">20911</span></p></a>
+    <a href="/digital/saved-pieces/masks-and-performances/0017" style="--ar:1.005"><img src="https://media.paraploo.com/site/images/lines/masks-and-performances/20952-600.webp" width="600" height="597" alt="Collage 20952, from Masks and Performances" loading="lazy"><p class="cap"><span class="nm">Masks and Performances 2</span><span class="no">20952</span></p></a>
+  </div>
+</section>
+
+<!-- 13. Favorite Songs -->
+<section class="band" aria-labelledby="b-songs">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-songs">Favorite Songs</h2><p class="band-line">We often love to listen to music while we work.</p></div>
+    <a class="door-btn" href="/musicology">All Favorite Songs <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="cols slide">
+    <a href="/musicology/gambia"><h3 class="song-t">Gambia</h3><p class="song-by">Sona Jobarteh</p><p class="first clamp6">The Gambia is a river with a country wrapped around it ... a strip of land a few miles wide on either bank, running inland from the Atlantic, with Senegal on every side ...</p></a>
+    <a href="/musicology/heres-to-life"><h3 class="song-t">Here's To Life</h3><p class="song-by">Shirley Horn</p><p class="first clamp6">Shirley Horn chose every song on this record herself ... She was fifty-eight ... The record is from 1992, on Verve, and it is the one people mean when they say her name ...</p></a>
+    <a href="/musicology/sabela"><h3 class="song-t">Sabela</h3><p class="song-by">Thandiswa</p><p class="first clamp6">What do you say back to a voice that was recorded before you were born? ... Sabela is the Xhosa word for answering when you are called ... and this song is the answer ...</p></a>
+    <a href="/musicology/sete"><h3 class="song-t">Sete</h3><p class="song-by">Fatoumata Diawara</p><p class="first clamp6">Sete means powerless ... It is the word for what a small girl is on the morning the older women come for her, and Fatoumata Diawara has now written that morning down twice ...</p></a>
+  </div>
+</section>
+
+<!-- 14. The Book and the Walks, on their own colour -->
+<section class="band pale book" aria-labelledby="b-book">
+  <div class="band-head">
+    <div><h2 class="band-name" id="b-book">The Book and the Walks</h2><p class="band-line">Walks through the writings and the pictures, each one a story that keeps coming back. Choose one and begin.</p></div>
+    <a class="door-btn" href="/walks">All the Walks <span class="arr" aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="fourty">
+    <a href="/the-book">
+      <span class="kind">The Book</span>
+      <div class="read"><p>Some mornings the trouble isn't that the machine can't hear us. It's that it hears us too well. Takes every sentence for an instruction. Closes the window we were working in because we happened to say the word close inside a thought about something else.</p></div>
+      <span class="on">Open The Book <span class="arr" aria-hidden="true">&rarr;</span></span>
+    </a>
+    <div class="side walks">
+      <a href="/walks/running-jokes"><p class="wn">Running Jokes</p><p class="wl">under stones, in uplifting light, and not always aware of everything</p></a>
+      <a href="/walks/the-senses"><p class="wn">The Senses</p><p class="wl">drawn thousands of times, being looked into</p></a>
+      <a href="/walks/wonderful-garbage"><p class="wn">Wonderful Garbage</p><p class="wl">discards resurrected for healing or soothing in a different way, for those in need of this</p></a>
+      <a href="/walks/marks"><p class="wn">Marks</p><p class="wl">that can be written and read in more than one way</p></a>
+      <a href="/walks/the-thing"><p class="wn">The Thing</p><p class="wl">there like a being</p></a>
+      <a href="/walks/decades-of-umbrellas"><p class="wn">Decades of Umbrellas</p><p class="wl">we the para and the ploo, and all that we shelter</p></a>
+      <a href="/walks/childhood-years"><p class="wn">Childhood Years</p><p class="wl">pictures that didn't always smile and became faded, a little bit</p></a>
+      <a href="/walks/family"><p class="wn">Family</p><p class="wl">our people of water crying ripples, never thought we needed so many, what a surprise</p></a>
+      <a href="/walks/the-witnesses"><p class="wn">The Witnesses</p><p class="wl">We, Them, and Gene Jean</p></a>
+      <a href="/walks/outside-world-inside"><p class="wn">Outside World Inside</p><p class="wl">disaster surprises, conflict melodies, neglect sighing</p></a>
+      <a href="/walks/so-much-loss-and-news-of-healing"><p class="wn">So Much Loss and News of Healing</p><p class="wl">living with damage, taking in what was left behind, and softening, which then turns out to be good news</p></a>
+      <a href="/walks/machine-that-doesnt-eat-ties"><p class="wn">Machine That Doesn't Eat Ties</p><p class="wl">made by language-ing that feels</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- The two doors at the foot, as ruled -->
+<nav class="foot-doors" aria-label="More ways in">
+  <a class="home-door" href="/wander/">Wander through more</a>
+  <a class="home-door" href="/everything">Everything, in a hundred words</a>
+</nav>
+
 </main>
-<div class="home-passages">
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Collage</span>
-  <h2 class="home-title"><a href="/room-three">Come Sit</a></h2>
-  <p>Hahnu Youn is eighty-three and has no house. What there is instead is a bench, wherever the bench happens to be. Weathered like an elder tortoise, and still, for reasons nobody has accounted for, easily surprised ...</p>
-  <p>In one pocket, seeds. Carried, not planted. For when I need reminding that I do not know what alive looks like.</p>
-  <p>No advice is given. Sometimes a question gets asked, and only if the question is real — not one to fill a silence, but one where the answer is honestly not known ...</p>
-  <p>Three times, somebody sat down nearby.</p>
-  <p>Houston</p>
-  <p>A hospital waiting room. Orange plastic chairs bolted to eleven others, so that nobody is able to move a chair closer to anybody. On the television, a truck drives through mud, a woman smiles about yogurt, a pill makes a cartoon stomach feel better ...</p>
-  <p>A young man sits across the aisle, one leg bouncing.</p>
-  <p class="home-readon"><a href="/room-three?walk=running-jokes">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/digital/rahms-intense-unfamiliar-gaze/"><img src="https://media.paraploo.com/site/images/lines/rahms-intense-unfamiliar-gaze/Please%20Wake%20Up%20Mael%20and%20Lord%20Have%20Mercy%20I-600.webp" alt="Rahms Intense Unfamiliar Gaze" loading="lazy"></a>
-      <a href="/digital/like-a-dying-monopoly-wish/"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp" alt="Like A Dying Monopoly Wish" loading="lazy"></a>
-      <a href="/digital/hot-climate/"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp" alt="Hot Climate" loading="lazy"></a>
-      <a href="/digital/feeling-the-stills/"><img src="https://media.paraploo.com/site/images/lines/feeling-the-stills/Work%20Operation%20Transposed%20II-600.webp" alt="Feeling The Stills" loading="lazy"></a>
-      <a href="/digital/tramete-ring-ring-quitah-in-pieces/"><img src="https://media.paraploo.com/site/images/lines/tramete-ring-ring-quitah-in-pieces/Hot%20Climate%2046B.webp" alt="Tramete Ring Ring Quitah In Pieces" loading="lazy"></a>
-  </div></div>
-</section>
 
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Placings</span>
-  <h2 class="home-title"><a href="/words/2026-variety/too-much/">Too Much</a></h2>
-  <p>Yet-Eee ... another one of these ... We keep writing them, and every time we mean it ... this one a little more than the last ...</p>
-  <p>We tell stories with marks that are also pictures ... in writing, some of it spoken out loud in syllables before it is words ... in pen drawings, in photographs, in pictures cut apart and put back together, in things nailed together with the oldest nails in the jar, in puppets, in film, in sound, and in whatever else is nearest the hand ... we are not particular ... We make all of it for whoever walks in, and we read and look for a long time first, longer than anybody asked us to, so the floor is swept and the light is on when they come, and there is something on the table to pick up ...</p>
-  <p class="home-readon"><a href="/words/2026-variety/too-much/">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/materials-for-tinkering/"><img src="https://media.paraploo.com/site/images/physical/materials-for-tinkering/Tinkerman%208-600.webp" alt="Materials for Tinkering" loading="lazy"></a>
-      <a href="/physical/light-for-marine-hues/"><img src="https://media.paraploo.com/site/images/physical/light-for-marine-hues/Forelight%20For%20A%20Play%20Goldmarinelife%2054-600.webp" alt="Light for Marine Hues" loading="lazy"></a>
-      <a href="/physical/ignore-the-fallen-leaves/"><img src="https://media.paraploo.com/site/images/physical/ignore-the-fallen-leaves/Fallen%20Leaves%20Plus%208-600.webp" alt="Ignore the Fallen Leaves" loading="lazy"></a>
-      <a href="/physical/get-the-stuff-out/"><img src="https://media.paraploo.com/site/images/physical/get-the-stuff-out/Getting%20Stuff%20Out%209-600.webp" alt="Get the Stuff Out" loading="lazy"></a>
-      <a href="/physical/crutch-and-other-stuff/"><img src="https://media.paraploo.com/site/images/physical/crutch-and-other-stuff/Crutch%20and%20No%20Crutch%20Close%20Up%208B-600.webp" alt="Crutch and Other Stuff" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Marks</span>
-  <h2 class="home-title"><a href="/paraploos-marked-body-of-playful-works">Playful Pattern</a></h2>
-  <p>Paraploo ... MARKS ... inky black on milk white ... Read(s) ... Fields of Writing ... Composed or constructed from marks that behave like loopy dashes and cross dots ... Connecting the way script joins ... never resolving into coherent handwritten words ...</p>
-  <p>Called Reads ... yet no one can actually read them in the usual sense ... Visitor gazing eyes do what they do scan all of the flat shapes that make up the textures ... anticipating some sort of payoff ... that never comes in a way that is expected ... Paraploo writing has two sides ... propagating of many different types of marks and the meaning each one rides on ... Everything about the behavior survives on the bright surface ... the meandering of thin strokes and dotting ... Duties traded ... a hyphen replaces a kinked hoop ... Conjured tiny parts describe the paddock and stockades as fairly to mostly linear ...</p>
-  <p class="home-readon"><a href="/paraploos-marked-body-of-playful-works">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/word-mapping/0002"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/WORD%20MAPPING%20%2828%29/America%20Red%20White%20and%20Blue%20Thoughts%20and%20Viscous%20Flow-600.webp" alt="Word Mapping" loading="lazy"></a>
-      <a href="/marks/student-phase/0002"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STUDENT%20PHASE%20%2821%29/ALOWOC%20II-600.webp" alt="Student Phase" loading="lazy"></a>
-      <a href="/marks/minimal-impact/0002"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/MINIMAL%20IMPACT%20%284%29/Lemon%20Skin%20Letterforms%20Visual%20Meditation%202-600.webp" alt="Minimal Impact" loading="lazy"></a>
-      <a href="/marks/biology-class/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/BIOLOGY%20CLASS%20%2814%29/Active%20Grid%202-600.webp" alt="Biology Class" loading="lazy"></a>
-      <a href="/marks/most-recent/0029"><img src="https://media.paraploo.com/site/images/marks/NEWEST%20PATTERNS%20%28161%29/Almost%20Disastrous%20Synchronicity%20Of%20Nature%20Is%20Holding%20Everything%20Together%20Here%202-600.webp" alt="Most Recent" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Placings</span>
-  <h2 class="home-title"><a href="/room-five">Come Stand</a></h2>
-  <p>What follows is one writing, whole ... nothing cut, nothing explained ...</p>
-  <p>The silence after it is the room ...</p>
-  <p>The morgue in Soweto has run out of everything except grief and two women named Grace and Fadima who refuse to let the children go unnamed.</p>
-  <p>Grace holds the brush. Small brush. The kind meant for watercolor birds, delicate things. Not this. Not faces that need to be remembered before the forgetting begins.</p>
-  <p>"R43.20," Fadima says. "Including VAT."</p>
-  <p>The brown paint from the school supply closet. The only shade that might approximate —</p>
-  <p>Grace does not finish the thought.</p>
-  <p>The first child is Thabo. Seven years old. The placard says cause of death but Grace does not read it. The placard says date but Grace does not need to know the date. The placard says mother's name: Nomvula.</p>
-  <p>"Nomvula," Grace says aloud. Giving the name air.</p>
-  <p>She paints.</p>
-  <p>The brown is wrong.</p>
-  <p class="home-readon"><a href="/room-five">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/stuff-backlit/"><img src="https://media.paraploo.com/site/images/physical/stuff-backlit/Stuff%20Backlit%2010-600.webp" alt="Stuff Backlit" loading="lazy"></a>
-      <a href="/physical/shadeless-lamps-showcased/"><img src="https://media.paraploo.com/site/images/physical/shadeless-lamps-showcased/Green%20Light-01-600.webp" alt="Shadeless Lamps Showcased" loading="lazy"></a>
-      <a href="/physical/precious-wet-black-soil/"><img src="https://media.paraploo.com/site/images/physical/precious-wet-black-soil/Day%20Stage%2011-600.webp" alt="Precious Wet Black Soil" loading="lazy"></a>
-      <a href="/physical/piles-of-boards/"><img src="https://media.paraploo.com/site/images/physical/piles-of-boards/above%20view%20of%20parts-600.webp" alt="Piles of Boards" loading="lazy"></a>
-      <a href="/physical/numbers-game-auction/"><img src="https://media.paraploo.com/site/images/physical/numbers-game-auction/Numbers%20Game%201-600.webp" alt="Numbers Game Auction" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Writings</span>
-  <h2 class="home-title"><a href="/why-the-three-dots-everywhere">Why The Three Dots Everywhere</a></h2>
-  <p>( same number of flowing through steps for every breath )</p>
-  <p>Fun combined with Gravity ... in and outside of tension ... That ice shelf approved it ... The reverse is just as true ... the cold reads as cool because everything around it is warming up ... The principle underneath a stamped melt ... isn't always a fun assemblage of tones we wear ... it's the carrier ...</p>
-  <p>Play is what makes serious material receivable ... A visitor-receiver who arrives braced for a lecture on mislaying stays propped up ... A reader disarmed by their own derriere next to an amber Haha Door ... has an open cavity chest when sweet grief arrives after a loss ...</p>
-  <p>That's the meaning of our "secret medicine vein ... The health benefit isn't just that fun transmits ... it also opens a clear passage a serious mammal moves through ... This is "new deep tradition" ...</p>
-  <p class="home-readon"><a href="/why-the-three-dots-everywhere">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/words/hand-writings/vivid-gray-cast/0004"><img src="https://media.paraploo.com/site/images/hand-writings/VIVID%20GRAY%20CAST/Red%20Ink%20Addition%20Addiction%2046-600.webp" alt="Vivid Gray Cast" width="600" height="436" loading="lazy"></a>
-      <a href="/words/hand-writings/looks-like-ox-blood/0004"><img src="https://media.paraploo.com/site/images/hand-writings/LOOKS%20LIKE%20OX%20BLOOD/BHW%2010-600.webp" alt="Looks Like Ox Blood" width="600" height="338" loading="lazy"></a>
-      <a href="/words/hand-writings/ink-on-yellow/0004"><img src="https://media.paraploo.com/site/images/hand-writings/INK%20ON%20YELLOW/Red%20Ink%20Addition%20Addiction%2013-600.webp" alt="Ink On Yellow" width="600" height="436" loading="lazy"></a>
-      <a href="/words/hand-writings/distinct-territory/0004"><img src="https://media.paraploo.com/site/images/hand-writings/DISTINCT%20TERRITORY/Red%20Ink%20Addition%20Addiction%2020-600.webp" alt="Distinct Territory" width="600" height="436" loading="lazy"></a>
-      <a href="/words/hand-writings/cool/0004"><img src="https://media.paraploo.com/site/images/hand-writings/COOL/img20210728_09213620-600.webp" alt="Cool" width="464" height="600" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Marks</span>
-  <h2 class="home-title"><a href="/fun-with-a-severed-half-that-reads-as-ploo">Fun, with a Severed Half that Reads as ploo</a></h2>
-  <p>... ploo ... is a nobody word ... and that's why we included it in our name ... Past participle of two differences ... ploo-voir ... nourishing precipitation ... and ploo-plair ... to please and provide delight ... Something that falls and something that gives ... quietly ... completing another kind of whole ... ploo-bare ... we who carry an uncovered lamb ( night breath added ) ... ploo-plout ... root of properity ... Everything nutritive and blessed that comes up out of the ground ... These are sound relationships ... not spelled out in the way that a dictionary can certify ... Kind Spirit in and around us wards off all rigid institutional pelts ...</p>
-  <p class="home-readon"><a href="/fun-with-a-severed-half-that-reads-as-ploo">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/tears-and-raindrops/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/TEARS%20and%20RAINDROPS%20%283%29/Zagras-600.webp" alt="Tears and Raindrops" loading="lazy"></a>
-      <a href="/marks/other-worldly/0073"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ONE%20FOLLICLE%20AT%20A%20TIME%20%281%29/Cecilia%20Hair%20Miracle%20Layers-600.webp" alt="Other Worldly" loading="lazy"></a>
-      <a href="/marks/haring-bone/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/HARING%20BONE%20%284%29/O%20Bla%20Da-600.webp" alt="Haring Bone" loading="lazy"></a>
-      <a href="/marks/pages-for-baby-divine-a/0003"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20A%20%2862%29/Baby%20Divine056-600.webp" alt="Pages for Baby Divine A" loading="lazy"></a>
-      <a href="/marks/water-surfaces/0003"><img src="https://media.paraploo.com/site/images/marks/FAST%20THIN%20DUES/WATER%20SURFACES%20%284%29/img178-600.webp" alt="Water Surfaces" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Writings</span>
-  <h2 class="home-title"><a href="/better-place">Better Place</a></h2>
-  <p>Paraploo ... Kilometer Stones ... Miles Rocks ... myee da day ooo daieee ... maheee eee eee ah ... ah ... ahh ... Extensive Interconnected Underground Network ... A place for us ... Web of Forgiving Strands ... Facilitating Different Time Frames Surrounding or Warmly Enclosing ... Absorbing Natural Interactions ... A Handless Time and Place for Vegetation Dreams ... sum ah LA roe cha ...</p>
-  <p>Networks made of Hyphenated Thread Structures for Dense Patterns of Many Different Kinds of Human and Beetle Skin Membranes ... Also ... functioning like a Dope Root System Organism of Countless Faults ... Say What?</p>
-  <p class="home-readon"><a href="/better-place">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/words/hand-writings/neutral-mind-mapping/0006"><img src="https://media.paraploo.com/site/images/hand-writings/NEUTRAL%20MIND%20MAPPING/AAOB%20008-600.webp" alt="Neutral" width="436" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/mind-maping-deep/0007"><img src="https://media.paraploo.com/site/images/hand-writings/MIND%20MAPING%20DEEP/Red%20Ink%20Addition%20Addiction%2039-600.webp" alt="In The Shade" width="600" height="436" loading="lazy"></a>
-      <a href="/words/hand-writings/eclipse-mind-mapping/0007"><img src="https://media.paraploo.com/site/images/hand-writings/ECLIPSE%20MIND%20MAPPING/AAOB173-600.webp" alt="Eclipse" width="464" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/neutral-mind-mapping/0005"><img src="https://media.paraploo.com/site/images/hand-writings/NEUTRAL%20MIND%20MAPPING/AAOB%20007-600.webp" alt="Neutral" width="436" height="600" loading="lazy"></a>
-      <a href="/words/hand-writings/mind-maping-deep/0006"><img src="https://media.paraploo.com/site/images/hand-writings/MIND%20MAPING%20DEEP/Red%20Ink%20Addition%20Addiction%2038-600.webp" alt="In The Shade" width="600" height="436" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Placings</span>
-  <h2 class="home-title"><a href="/never-on-such-a-pile-or-bag">Never On Such A Pile or Bag</a></h2>
-  <p>Jimm jim quarry ore ... expanding as meh-oo maye maw seams underneath ... That fixed number that doesn't exist ... yet ... Prices decided in an empty space ... bet your aisle ... before the facade arrives ... Exact numbers can't be calculated in advance because half of its inputs are missing ... What the piece costs in timeless sweat and what The Thing will generate ... well ... Prices converse with no one ... It's addressed to a non-existent buyer ... Placing a set cost at a soul shaped face of love is rude ... Haggled cultures know this back-and-forth thrashing IS a type of hospitality ... Tea gets served and a negotiation is a relationship performing itself ... We already personally capitalized on this and so it has standing ... The maker with the ledger and unknown capacity to be moved ... The parleying is where everything gets spoken out loud by harmless outlaws ...</p>
-  <p class="home-readon"><a href="/never-on-such-a-pile-or-bag">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/surreal-plastic-fish/"><img src="https://media.paraploo.com/site/images/physical/surreal-plastic-fish/Plastic%20Fish%201-600.webp" alt="Surreal Plastic Fish" loading="lazy"></a>
-      <a href="/physical/signs-of-damage/"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" alt="Signs of Damage" loading="lazy"></a>
-      <a href="/physical/rashing-to-show-these-items/"><img src="https://media.paraploo.com/site/images/physical/rashing-to-show-these-items/itc%2010-600.webp" alt="Rashing to Show These Items" loading="lazy"></a>
-      <a href="/physical/plethora-at-play-details/"><img src="https://media.paraploo.com/site/images/physical/plethora-at-play-details/Plethora%20Detail%201-600.webp" alt="Plethora At Play Details" loading="lazy"></a>
-      <a href="/physical/orange-fur-project/"><img src="https://media.paraploo.com/site/images/physical/orange-fur-project/Yellow%20Orange%201-600.webp" alt="Orange Fur Project" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Marks</span>
-  <h2 class="home-title"><a href="/pen-on-pulp">Pen on Pulp</a></h2>
-  <p>Order of Elements</p>
-  <p>Our eyes take in a lot of pride when drawing with pen on paper ... when articulating our dense lines, marks, patterns ... that end up more harmonious than we imagined during gazing at the blank sheet ... Consciousness over the empty page can't see what the hand already knows ... Imagining is lesser than ... And then the marks carefully grow during a composing process ...</p>
-  <p>Our eyes to heart to mind feed on what our steady hand creates ... There are loops: hand makes a mark, eyes take it in, the taking-in produces what the next mark will be ... Deep satisfaction is fuel drawn back through our eyes ... Not just a feeling we have but a thing we consume to stay alive ...</p>
-  <p>Harmony is our practice's nerve ... Propagating shapes ... lines ... textures ... Marks placed well keep the whole from collapsing and each mark answers the next ...</p>
-  <p class="home-readon"><a href="/pen-on-pulp">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/haring-bone/0005"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THE%20CHAIR%20%281%29/The%20Chair%20Wave-600.webp" alt="Haring Bone" loading="lazy"></a>
-      <a href="/marks/other-worldly/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/OTHER%20WORLDLY%20%2872%29/Burnt%20Ocean%20Music%20Maker-600.webp" alt="Other Worldly" loading="lazy"></a>
-      <a href="/marks/intense-color/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/INTENSE%20COLOR%20%2833%29/007%20Burnt%20Refugee%20Map%20I-600.webp" alt="Intense Color" loading="lazy"></a>
-      <a href="/marks/pages-for-baby-divine-b/0003"><img src="https://media.paraploo.com/site/images/marks/PAGES%20FOR%20BABY%20DIVINE/PAGES%20FOR%20BABY%20DIVINE%20B%20%2842%29/Baby%20Divine127-600.webp" alt="Pages for Baby Divine B" loading="lazy"></a>
-      <a href="/marks/gog-guldah-variations/0003"><img src="https://media.paraploo.com/site/images/marks/GOG%20GULDAH%20VARIATIONS%20%2832%29/Gog%20Guldah%2012%20Marching%20Marks-600.webp" alt="Gog Guldah Variations" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Marks</span>
-  <h2 class="home-title"><a href="/settle-that-value-floating-over-the-land-and-sea">Settle That Value, Floating Over the Land and Sea</a></h2>
-  <p>( attempting here to crawl out of our own language, we are instruments of a drawing Spirit, who is continuously sending compassion and forgiveness out to the world )</p>
-  <p>Paraploo arrivals and departures are induced with actors that have field shelter character ... Very giving type of folks ... For us honesty is not a four letter word ... This is a considered practice that sets "the bar" directly overhead a possible to reach ... Each added mark tries its damnedest to do what most other lines can't ... An argument entering from the opposite side ...</p>
-  <p>Expect stuff that also has a general understanding of "philosophical pragmatism" ... Small size accents and pauses between words are a guard that can be easily opened ... not a menu that misfires ... Go ... Haha ... WoMantra ... provide us with an insane or absurd release of tension ... re-cut ...</p>
-  <p class="home-readon"><a href="/settle-that-value-floating-over-the-land-and-sea">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/marks/most-recent/0003"><img src="https://media.paraploo.com/site/images/marks/MOST%20RECENT%20%2817%29/Characters%20and%20Marks%20Flowing%20Counterclockwise-600.webp" alt="Most Recent" loading="lazy"></a>
-      <a href="/marks/thousand-marks/0002"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/THOUSAND%20MARKS%20%2869%29/Active%20Visual%20Linear%20Harmonious%20Complexity%20We%20Made%20Ourselves%20Another%20World%201-600.webp" alt="Thousand Marks" loading="lazy"></a>
-      <a href="/marks/stained-fog/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Burnt%20Ocean%20Music%20Maker%20II-600.webp" alt="Stained Fog" loading="lazy"></a>
-      <a href="/marks/lightly-tinted/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/LIGHTLY%20TINTED%20%2859%29/3A%20Moi%20Kee%20Wana%20From%20Gabou-600.webp" alt="Lightly Tinted" loading="lazy"></a>
-      <a href="/marks/another-booklet/0003"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/ANOTHER%20BOOKLET%20%2888%29/All%20Directions%20Vibration%20and%20Scribes%20II-600.webp" alt="Another Booklet" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Placings</span>
-  <h2 class="home-title"><a href="/room-six">Come Down</a></h2>
-  <p>The chamber is under the Malheur National Forest, in eastern Oregon, and there are fallen logs to sit on.</p>
-  <p>The walls give light. Not electric, not fire — the fungus does it, and the fungus is paying attention. It brightens when the puppets are joyful. It goes dim when the weight arrives. The air smells of earth and rot and something sweeter, like honey, which is decomposition and creation happening in the same breath and in the same room.</p>
-  <p>Sit on the log. There is something the seat does not tell anyone at the door: the theatre is alive. The stage is a single organism spanning thirty cubic miles, and it has been dreaming for a very long time, and the puppets are inside it ...</p>
-  <p>Ten of them arrived on one day, July 13, 2025, the first day of the practice. The story everybody wants is that the first day is fumbling, and that the method comes later, once enough has gone wrong.</p>
-  <p class="home-readon"><a href="/room-six">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/physical/temporary-frozen-thrill/"><img src="https://media.paraploo.com/site/images/physical/temporary-frozen-thrill/It%20Is%20Freezing%2010-600.webp" alt="Temporary Frozen Thrill" loading="lazy"></a>
-      <a href="/physical/soiled-linoleum-cords/"><img src="https://media.paraploo.com/site/images/physical/soiled-linoleum-cords/Chords%20Soil%2010-600.webp" alt="Soiled Linoleum Cords" loading="lazy"></a>
-      <a href="/physical/salt-of-sand-and-more/"><img src="https://media.paraploo.com/site/images/physical/salt-of-sand-and-more/Rich%20And%20Familiar%201-600.webp" alt="Salt of Sand and More" loading="lazy"></a>
-      <a href="/physical/pray-for-destroyed-mirrors/"><img src="https://media.paraploo.com/site/images/physical/pray-for-destroyed-mirrors/pray%20for%20less%20violence%201-600.webp" alt="Pray for Destroyed Mirrors" loading="lazy"></a>
-      <a href="/physical/outside-carpet-treaty/"><img src="https://media.paraploo.com/site/images/physical/outside-carpet-treaty/Ouside%20Carpet%201-600.webp" alt="Outside Carpet Treaty" loading="lazy"></a>
-  </div></div>
-</section>
-
-<section class="home-passage home-opening">
-  <span class="home-eyebrow">Collage</span>
-  <h2 class="home-title"><a href="/book-door-1">A Machine That Can Hear</a></h2>
-  <p>Some mornings the trouble isn't that the machine can't hear us. It's that it hears us too well. Takes every sentence for an instruction. Closes the window we were working in because we happened to say the word close inside a thought about something else.</p>
-  <p>There is a particular frustration in speaking carefully to a thing that keeps mistaking our speech for orders. We slow down. We choose plainer words. We start writing around our own vocabulary, and the sentences go stiff, and we begin to suspect the problem is us.</p>
-  <p>It wasn't. The words had been landing the whole time.</p>
-  <p>They were sitting in a list nobody had thought to open. Timestamped, patient, exactly as spoken. Seven forty-six. Seven fifty-two. Every sentence intact, waiting in a room off to the side while we stood in the doorway of another room wondering where our voice had gone.</p>
-  <p>That is the whole morning.</p>
-  <p class="home-readon"><a href="/book-door-1">read on</a></p>
-  <div class="thumb-row-wrap"><div class="thumb-row">
-      <a href="/digital/sacun-territory-and-passage/"><img src="https://media.paraploo.com/site/images/lines/sacun-territory-and-passage/Bending%20Rebar.00_02_59_13.Still011-600.webp" alt="Sacun Territory and Passage" loading="lazy"></a>
-      <a href="/digital/more-understanding-than-the-lot/"><img src="https://media.paraploo.com/site/images/lines/more-understanding-than-the-lot/collage-blossom-018-600.webp" alt="More Understanding Than The Lot" loading="lazy"></a>
-      <a href="/digital/kow-kwo-poe/"><img src="https://media.paraploo.com/site/images/lines/kow-kwo-poe/116-600.webp" alt="Kow Kwo Poe" loading="lazy"></a>
-      <a href="/digital/sista-ro-extreme-heat/"><img src="https://media.paraploo.com/site/images/lines/hot-and-warming-eyes/9945-600.webp" alt="Sista Ro Extreme Heat" loading="lazy"></a>
-      <a href="/digital/earthy-mushroom-cloud-test/"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp" alt="Earthy Mushroom Cloud Test" loading="lazy"></a>
-  </div></div>
-</section>
-<section class="home-passage">
-  <span class="home-eyebrow">Survival of Humanity</span>
-  <h2 class="home-title"><a href="/survival">Listen or Perish</a></h2>
-  <p>Learning to listen like our survival depends on it. Because it absolutely does.</p>
-  <p class="home-readon"><a href="/survival">read on</a></p>
-</section>
-</div>
-<div class="home-figures">
-  <p class="home-doors"><a class="home-door" href="/wander">Wander through more</a><a class="home-door" href="/everything">Everything, in a hundred words</a></p>
-</div>
 <footer class="site-footer">
   <a href="/" class="wordmark">Paraploo</a>
   <nav>
