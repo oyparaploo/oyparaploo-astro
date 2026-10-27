@@ -3,7 +3,7 @@
    - Builds the bar from window.BY_COLOUR (data/colours.js, made by script).
    - Choosing a swatch (click, tap, Enter or Space; the arrow keys move along
      the bar) loads that colour's pictures (data/colour-<key>.js), turns the
-     band and the room to the colour's own tones, and hangs the pictures in
+     room to the colour's own tone (the band stays neutral grey), and hangs the pictures in
      the hung room, newest first: the newest one large under the colour's
      name, then wide, medium, small, repeating, 24 at a time ("Show more").
    - The address carries the colour (#blue), so a link can open on it.
@@ -75,8 +75,6 @@
     }
   }
   function setTones(c) {
-    root.style.setProperty('--bc-band-l', c.bandLight);
-    root.style.setProperty('--bc-band-d', c.bandDark);
     root.style.setProperty('--bc-ground-l', c.groundLight);
     root.style.setProperty('--bc-ground-d', c.groundDark);
   }
