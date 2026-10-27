@@ -70,7 +70,7 @@
   });
 
   function el(tag, cls, text) { var x = doc.createElement(tag); if (cls) x.className = cls; if (text) x.textContent = text; return x; }
-  var box, stage, layers, capW, capN, capBox, measure, bPrev, bPause, bNext, bClose;
+  var box, stage, layers, capW, capN, capBox, measure, bPrev, bPause, bNext, bClose, count;
   var cur = 0, want = 0, front = 0, playing = false, timer = null, token = 0, opener = null, lastFocus = null;
 
   function build() {
@@ -82,7 +82,9 @@
     box.tabIndex = -1;
     var top = el('div', 'show-top');
     bClose = el('button', 'show-btn show-close', 'Close'); bClose.type = 'button';
-    top.appendChild(bClose);
+    /* where the visitor is: "6 of 14" (preview, October 26, 2026) */
+    count = el('p', 'show-count');
+    top.appendChild(count); top.appendChild(bClose);
     stage = el('div', 'show-stage');
     layers = [el('img', 'show-img'), el('img', 'show-img')];
     layers.forEach(function (im) { im.decoding = 'async'; im.alt = ''; stage.appendChild(im); });
@@ -167,6 +169,7 @@
       layers[front].setAttribute('aria-hidden', 'true');
       front = back; cur = i;
       capW.textContent = it.w; capN.textContent = it.n;
+      count.textContent = (i + 1) + ' of ' + items.length;
       if (playing) schedule();
       /* fetch the next drawing ahead, so the dissolve never waits */
       var nx = items[(i + 1) % items.length], pre = new Image();
