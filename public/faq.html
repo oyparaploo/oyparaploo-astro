@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ · Paraploo</title>
+<meta name="description" content="What will I find here? Where should I start? How do I find a writing or picture again if I need to? What do the numbers under the pictures mean? How do I get in touch?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/theme.js"></script>
+<style id="faq-styles">
+/* The FAQ page (made October 26, 2026), from the held design bm-membership-oyparaploo_2.html: a page of
+   questions with each answer folded under its question on the browser's own fold, a plus that turns to a
+   minus, and the page framed by a line of its own two tones under the header and at the very foot. A quiet
+   page in Paraploo's one chrome: one flat band from the picture on it, the title the page's one huge thing,
+   the five questions beside the picture. Text colours only from chrome.css's named colours. */
+body.faq-page { margin: 0; background: var(--ground); color: var(--ink); }
+.site-header { box-sizing: border-box; }  /* as on the Welcome page: the header stays inside the window */
+body.faq-page .site-header { --tones: linear-gradient(90deg, #ba9478, #607ea9); }
+.fq { --fq-band: #dbcabd; --edge: 24px; }
+html[data-theme="dark"] .fq { --fq-band: #382a1e; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .fq { --fq-band: #382a1e; } }
+
+/* The band: edge to edge, from the picture's gravel. Halves, Kanal's grid: the words left, the picture right. */
+.fq-band { background: var(--fq-band); padding: 72px var(--edge) 80px; }
+.fq-band-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.fq-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); }
+
+/* The picture, whole, with its name and number under it; both open its own page. */
+.fq-fig { margin: 0; }
+.fq-pic { display: block; }
+.fq-pic img { display: block; width: 100%; height: auto; aspect-ratio: 2000 / 1333; }
+.fq-num { display: inline-block; margin-top: 10px; min-height: 44px; font-family: 'Inter', sans-serif;
+  color: var(--ink); text-decoration: none; line-height: 1.35; }
+.fq-num .nm { display: block; font-size: 18px; font-weight: 500; }
+.fq-num .no { display: block; font-size: 16px; font-weight: 400; }
+.fq-num:hover .nm, .fq-num:focus-visible .nm { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The questions: one list of rows under the title, each row a fold. The question is the row; the answer
+   opens under it. Rows about 75 pixels tall, Kanal's measure, with the site's 1-pixel line between them. */
+.fq-list { margin-top: 56px; border-top: 1px solid var(--ink-faint); }
+.faq-q { border-bottom: 1px solid var(--ink-faint); }
+.faq-q summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+  padding: 22px 0; cursor: pointer; list-style: none; color: var(--ink); }
+.faq-q summary::-webkit-details-marker { display: none; }
+.faq-q summary::marker { content: ""; }
+.faq-q summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.faq-qt { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px;
+  line-height: 1.15; letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; transition: color .3s ease; }
+.faq-plus { flex: none; width: 44px; height: 44px; margin: -6px -10px 0 0; display: inline-flex;
+  align-items: center; justify-content: center; }
+.faq-plus::before { content: "+"; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 32px;
+  line-height: 1; color: var(--ink); transition: color .3s ease; }
+.faq-q[open] .faq-plus::before { content: "\2212"; }
+@media (hover: hover) {
+  .faq-q summary:hover .faq-qt, .faq-q summary:hover .faq-plus::before { color: var(--accent); }
+}
+/* The answer: Inter in reading type, on the band, so its links take full Ink with the underline, which goes
+   when pointed at. */
+.faq-a { max-width: 640px; padding: 2px 68px 32px 0; animation: faq-in .3s ease; }
+.faq-a p { margin: 0 0 1em; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px;
+  line-height: 1.6; color: var(--ink); text-wrap: pretty; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-a a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.faq-a a:hover, .faq-a a:focus-visible { text-decoration: none; }
+@keyframes faq-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* The way on: one door, on the ground under the band. */
+.fq-foot { padding: 48px var(--edge) 112px; }
+.fq-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; }
+.fq-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
+
+/* The frame closes: the page's two tones as the very last thing, under the footer. */
+.fq-frame { height: 3px; background: linear-gradient(90deg, #ba9478, #607ea9); }
+
+/* A small tablet: the words take three fifths, the picture two, so the answers keep a reading width. */
+@media (max-width: 1000px) and (min-width: 761px) { .fq-band-in { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+@media (max-width: 760px) {
+  .fq { --edge: 16px; }
+  .fq-band { padding: 40px var(--edge) 40px; }
+  .fq-band-in { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .fq-title { font-size: 64px; }
+  .fq-list { margin-top: 32px; }
+  .faq-q summary { padding: 18px 0; gap: 16px; }
+  .faq-qt { font-size: 23px; }
+  .faq-plus { width: 40px; height: 40px; margin: -6px -8px 0 0; }
+  .faq-plus::before { font-size: 28px; }
+  .faq-a { padding: 0 0 26px; }
+  .faq-a p { font-size: 19px; line-height: 1.6; }
+  .fq-foot { padding: 36px var(--edge) 80px; }
+  .fq-foot .arrow-link { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-qt, .faq-plus::before { transition: none; }
+  .faq-a { animation: none; }
+  .fq-foot .arrow-link .arrow-glyph { transition: none; transform: none !important; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What will I find here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Writings first: poems, stories, plays and scripts, essays, prayers, letters and texts, conversations, short pieces. Then the Marks, drawings in a language no one actually speaks. Then the Placings, photographs of objects and materials arranged by hand. Then the Collages, built on a computer from our own photographs. There is also Musicology, our favorite songs with a piece of our writing beside each, and the walks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where should I start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Welcome page says what this place is in a few paragraphs. The front door lists every kind of work, one after another, with a few words about each and a door into it. If you would rather be led, take a walk: each one is a path through the site with stops along the way. If you already know what you want, use Search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find a writing or picture again if I need to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every writing has its own address, and every picture has a catalogue number. Type a word from a title, a gallery name, or a catalogue number into Search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the numbers under the pictures mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Catalogue numbers. Each picture has one, and it never changes. It is the surest way to find a picture again, and it leads back to the original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get in touch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email > hello@paraploo.com"
+      }
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://paraploo.com/faq">
+<script src="/page-change.js"></script>
+</head>
+<body class="faq-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<header class="site-header own-line"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+
+<main class="fq">
+<section class="fq-band" aria-labelledby="fq-title">
+  <div class="fq-band-in">
+    <div class="fq-words">
+      <h1 class="fq-title" id="fq-title">FAQ</h1>
+      <div class="fq-list">
+<details class="faq-q" id="what-is-here">
+  <summary><span class="faq-qt">What will I find here?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+  <div class="faq-a"><p>Writings first: poems, stories, plays and scripts, essays, prayers, letters and texts, conversations, short pieces. Then the Marks, drawings in a language no one actually speaks. Then the Placings, photographs of objects and materials arranged by hand. Then the Collages, built on a computer from our own photographs. There is also Musicology, our favorite songs with a piece of our writing beside each, and the walks.</p></div>
+</details>
+<details class="faq-q" id="where-to-start">
+  <summary><span class="faq-qt">Where should I start?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+  <div class="faq-a"><p><a href="/welcome">The Welcome page</a> says what this place is in a few paragraphs. The <a href="/">front door</a> lists every kind of work, one after another, with a few words about each and a door into it. If you would rather be led, <a href="/walks">take a walk</a>: each one is a path through the site with stops along the way. If you already know what you want, use <a href="/search">Search</a>.</p></div>
+</details>
+<details class="faq-q" id="find-it-again">
+  <summary><span class="faq-qt">How do I find a writing or picture again if I need to?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+  <div class="faq-a"><p>Every writing has its own address, and every picture has a catalogue number. Type a word from a title, a gallery name, or a catalogue number into <a href="/search">Search</a>.</p></div>
+</details>
+<details class="faq-q" id="the-numbers">
+  <summary><span class="faq-qt">What do the numbers under the pictures mean?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+  <div class="faq-a"><p>Catalogue numbers. Each picture has one, and it never changes. It is the surest way to find a picture again, and it leads back to the original.</p></div>
+</details>
+<details class="faq-q" id="get-in-touch">
+  <summary><span class="faq-qt">How do I get in touch?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+  <div class="faq-a"><p>Email &gt; <a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p></div>
+</details>
+      </div>
+    </div>
+    <figure class="fq-fig">
+      <a class="fq-pic" href="/physical/kiwanuk-questions/0001" aria-label="Kiwanuk Questions 30, catalogue 04348"><img src="https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%201.webp" srcset="https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%201-600.webp 600w, https://media.paraploo.com/site/images/physical/kiwanuk-questions/Kiwanuk%201.webp 2000w" sizes="(max-width: 760px) calc(100vw - 32px), calc(50vw - 40px)" width="2000" height="1333" alt="Photograph of an assemblage, catalogue 04348, from Kiwanuk Questions, Placings" loading="eager" fetchpriority="high" decoding="async"></a>
+      <figcaption><a class="fq-num" href="/physical/kiwanuk-questions/0001"><span class="nm">Kiwanuk Questions 30</span><span class="no">04348</span></a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<nav class="fq-foot" aria-label="Where next">
+  <a class="arrow-link arrow-next" href="/welcome">Welcome <span class="arrow-glyph" aria-hidden="true">&rarr;</span></a>
+</nav>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<div class="fq-frame" aria-hidden="true"></div>
+
+<script src="/nav.js"></script>
+<script>
+/* Every question has its own address (/faq#where-to-start): a visitor who arrives at one, from Search or
+   from a link, finds it already unfolded. */
+(function () {
+  function open() {
+    var h = location.hash.replace(/^#/, "");
+    if (!h) return;
+    var d = document.getElementById(h);
+    if (d && d.tagName === "DETAILS") d.open = true;
+  }
+  open();
+  window.addEventListener("hashchange", open);
+})();
+</script>
+</body>
+</html>
