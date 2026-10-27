@@ -134,7 +134,7 @@
       results = results.concat(numberMatches(qRaw.trim()));
     }
     var w = idx.writings.filter(function(item){
-      return fold(item.t).indexOf(q) !== -1 || fold(item.d).indexOf(q) !== -1 || (item.a && fold(item.a).indexOf(q) !== -1);
+      return fold(item.t).indexOf(q) !== -1 || fold(item.d).indexOf(q) !== -1 || (item.a && fold(item.a).indexOf(q) !== -1) || (item.x && fold(item.x).indexOf(q) !== -1);
     });
     var g = idx.galleries.filter(function(item){
       return fold(item.t).indexOf(q) !== -1;
@@ -151,7 +151,7 @@
     var rows = slice.map(function(r){
       var meta = r.k;
       if (r.k === 'Song' && r.a) meta += ', ' + escapeHtml(r.a);
-      if ((r.k === 'Writing' || r.k === 'Song') && r.d) {
+      if ((r.k === 'Writing' || r.k === 'Song' || r.k === 'Question') && r.d) {
         meta += ' &middot; ' + escapeHtml(r.d);
       }
       return '<a class="search-row" href="' + r.h + '"><span class="search-row-title">' + escapeHtml(r.t) + '</span><span class="search-row-meta">' + meta + '</span></a>';
