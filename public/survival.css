@@ -20,10 +20,10 @@ body.sv-body { margin: 0; background: var(--ground); color: var(--ink); }
 
 /* The room keeps the named colours' dark values in every mode. */
 .sv {
-  --ink: #e8e0d6; --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574;
+  --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574;
   --soil: #14100c; --night: #111a2b;
   --edge: 24px; --col: 700px;
-  --line: rgba(232, 224, 214, 0.16);   /* the draft's fine line, made from Ink */
+  --line: rgba(var(--ink-on-dark-rgb), 0.16);   /* the draft's fine line, made from Ink */
   color: var(--ink);
 }
 .sv a { color: inherit; }

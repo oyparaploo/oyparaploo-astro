@@ -30,7 +30,7 @@
    ========================================================================== */
 
 :root {
-  --hc-ink: #e8e0d6;      /* Ink's dark value */
+  --hc-ink: var(--ink-on-dark);      /* Ink's dark value */
   --hc-soft: #b3aa9f;     /* Soft ink's dark value; only on the draft's near-black, 8.3 to 1 */
   --hc-gold: #d4a574;     /* Accent's dark value: the draft's own gold */
   --hc-pic: min(60vw, 520px);
@@ -94,7 +94,7 @@
 
 /* 4. the way on */
 .hc-way { padding-top: var(--hc-air); padding-bottom: 160px; }
-.hc-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(232, 224, 214, 0.4); min-width: min(100%, 320px); }
+.hc-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.4); min-width: min(100%, 320px); }
 .hc-link:hover .hc-arr-back, .hc-link:focus-visible .hc-arr-back { transform: translateX(-4px); }
 
 /* the stations arrive as they are reached, within a second */

@@ -33,7 +33,7 @@
    ========================================================================== */
 
 :root {
-  --tf-ink: #e8e0d6;            /* Ink's dark value; on the band 7.3 to 1, on every deep 7.2 to 1 or better */
+  --tf-ink: var(--ink-on-dark);            /* Ink's dark value; on the band 7.3 to 1, on every deep 7.2 to 1 or better */
   --tf-ink-on-pale: #111111;    /* Ink's light value; on the pale 16.1 to 1 */
   --tf-margin: clamp(24px, 7.36vw, 106px);   /* the draft's 106 pixels at its width, the charter's 24 on a phone */
   --tf-inset: clamp(24px, 3.4vw, 48px);      /* inside a tile */
@@ -64,7 +64,7 @@
 }
 .tf-pause {
   position: absolute; right: var(--tf-margin); bottom: 62px; width: 65px; height: 65px; border: 0; border-radius: 50%;
-  background: rgba(232, 224, 214, 0.25); color: var(--tf-ink); cursor: pointer;
+  background: rgba(var(--ink-on-dark-rgb), 0.25); color: var(--tf-ink); cursor: pointer;
   display: flex; align-items: center; justify-content: center; transition: background 0.15s ease;
 }
 .tf-pause:hover { background: var(--tf-ink); }
@@ -92,7 +92,7 @@
 .tf-gal:hover .tf-arr, .tf-gal:focus-visible .tf-arr { transform: translateX(4px); }
 .tf-section { scroll-margin-top: 0; }
 .tf-way { padding-top: 92px; padding-bottom: 120px; }
-.tf-way .tf-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(232, 224, 214, 0.4); min-width: min(100%, 320px); }
+.tf-way .tf-link { display: inline-block; padding-top: 32px; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.4); min-width: min(100%, 320px); }
 .tf-link:hover .tf-arr-back, .tf-link:focus-visible .tf-arr-back { transform: translateX(-4px); }
 
 /* ---------- 3. the tiles: edge to edge, no gap, in rows of two and three ---------- */
@@ -144,7 +144,7 @@
 .tf-full .tf-title { font-size: clamp(24px, 2.2vw, 32px); }
 .tf-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 26px; margin-top: 4px; }
 .tf-disc {
-  flex: none; width: 56px; height: 56px; border-radius: 50%; background: rgba(232, 224, 214, 0.5);
+  flex: none; width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--ink-on-dark-rgb), 0.5);
   display: flex; align-items: center; justify-content: center; transition: background 0.15s ease;
 }
 .tf-light .tf-disc { background: rgba(17, 17, 17, 0.12); }

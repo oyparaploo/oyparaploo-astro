@@ -12,7 +12,7 @@
    ========================================================================== */
 
 :root {
-  --on-dark: #e8e0d6;          /* Ink's dark value, for words over the dark windows */
+  --on-dark: var(--ink-on-dark);          /* Ink's dark value, for words over the dark windows */
   --haze-dim: 0.5;             /* how far the haze is darkened under the words */
   --pic-top: 136px;            /* the still picture sits below the header and the date strip */
   --pic-foot: 40px;
@@ -83,8 +83,8 @@
 }
 
 /* the five makers, listed over the picture as the draft lists its works */
-.makers { list-style: none; border-top: 1px solid rgba(232, 224, 214, 0.5); }
-.makers li { border-bottom: 1px solid rgba(232, 224, 214, 0.5); }
+.makers { list-style: none; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.5); }
+.makers li { border-bottom: 1px solid rgba(var(--ink-on-dark-rgb), 0.5); }
 .makers a {
   display: flex; align-items: baseline; gap: var(--gap-4);
   min-height: 68px; padding: 16px var(--gap-4) 14px;

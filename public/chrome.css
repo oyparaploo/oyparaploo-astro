@@ -979,3 +979,12 @@ html:root[data-theme="dark"] body .site-header nav a { color: var(--ink-header);
   html:root:not([data-theme="light"]) body .site-header .wordmark,
   html:root:not([data-theme="light"]) body .site-header nav a { color: var(--ink-header); }
 }
+
+/* Ink on dark (October 27, 2026; Reach's yes on HTML DOCS\PREVIEWS\INK-DARK-ROOMS-2026-10-27): the rooms that are dark in
+   every mode, and words on dark bands, write Ink's dark value as these two names. Light keeps #e8e0d6, as before;
+   Dark takes Ink's dark value, #d9d7ce, so every word in Dark is on the same grey. */
+:root { --ink-on-dark: #e8e0d6; --ink-on-dark-rgb: 232, 224, 214; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }
+}
+html[data-theme="dark"] { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }

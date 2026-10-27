@@ -21,8 +21,8 @@
 
 :root {
   --down-air: 152px;
-  --on-dark: #e8e0d6;          /* Ink's dark value */
-  --hair: rgba(232, 224, 214, 0.26);
+  --on-dark: var(--ink-on-dark);          /* Ink's dark value */
+  --hair: rgba(var(--ink-on-dark-rgb), 0.26);
   --gold: #ED9F27;             /* the gold light through the soil, from all three pictures */
   --fox: #5FD39A;              /* foxfire: the green the honey fungus gives in the dark */
 }
@@ -145,7 +145,7 @@
 @media (hover: hover) { .cast-next:hover .arr { transform: translateX(4px); } }
 
 /* the one chosen: a bar of its own colour at the left, its row lit a little */
-html.cast-on .puppet.is-on .cast-row { box-shadow: inset 6px 0 0 var(--pc); background-color: rgba(232, 224, 214, 0.07); }
+html.cast-on .puppet.is-on .cast-row { box-shadow: inset 6px 0 0 var(--pc); background-color: rgba(var(--ink-on-dark-rgb), 0.07); }
 .cast-row:active { background-color: var(--on-dark); color: #000000; }
 @media (hover: hover) {
   .cast-row:hover, .cast-row:focus-visible { background-color: var(--on-dark); color: #000000; }

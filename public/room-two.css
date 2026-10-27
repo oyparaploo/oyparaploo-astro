@@ -14,7 +14,7 @@
    ========================================================================== */
 
 :root {
-  --on-dark: #e8e0d6;          /* Ink's dark value, for words on the dark ground */
+  --on-dark: var(--ink-on-dark);          /* Ink's dark value, for words on the dark ground */
   --night: #0d0907;            /* the site's own dark ground, where the house begins */
   --night-deep: #111521;       /* night blue, where the corridor ends (archive_2's foot) */
   --paper: #F3ECDD;            /* the porch: warm paper, the same in every mode */
@@ -58,8 +58,8 @@
 }
 
 /* the eight rooms, listed as the draft lists its entries, each with its lamp */
-.rooms-list { list-style: none; border-top: 1px solid rgba(232, 224, 214, 0.5); }
-.rooms-list li { border-bottom: 1px solid rgba(232, 224, 214, 0.5); }
+.rooms-list { list-style: none; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.5); }
+.rooms-list li { border-bottom: 1px solid rgba(var(--ink-on-dark-rgb), 0.5); }
 .rooms-list a {
   display: flex; align-items: center; gap: var(--gap-4);
   min-height: 52px; padding: 8px var(--gap-4);
@@ -100,7 +100,7 @@
   display: grid; grid-template-columns: var(--name-col) minmax(0, 0.8fr) minmax(0, 1.2fr);
   column-gap: var(--column-gap); align-items: start;
   padding: var(--room-air) var(--edge);
-  border-top: 1px solid rgba(232, 224, 214, 0.22);
+  border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.22);
   scroll-margin-top: 0;
 }
 .room > * { position: relative; z-index: 1; }
@@ -126,7 +126,7 @@
 
 /* the entries, each against archive_2's fine line; the question against a bar of the room's own light */
 .room-words { max-width: 640px; transition: opacity 0.9s var(--ease); }
-.entry { border-left: 1px solid rgba(232, 224, 214, 0.5); padding: 2px 0 2px 24px; }
+.entry { border-left: 1px solid rgba(var(--ink-on-dark-rgb), 0.5); padding: 2px 0 2px 24px; }
 .entry p { font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; }
 .entry p:last-child { margin-bottom: 0; }
 .entry-question { margin-top: 40px; border-left: 3px solid var(--lamp); padding-left: 22px; }
@@ -160,7 +160,7 @@
 .closing {
   display: grid; grid-template-columns: var(--name-col) minmax(0, 1fr); column-gap: var(--column-gap);
   padding: var(--room-air) var(--edge) 160px;
-  border-top: 1px solid rgba(232, 224, 214, 0.22);
+  border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.22);
 }
 .closing-lamps { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 18px; align-content: flex-start; }
 .lamp-link { display: block; padding: 6px; margin: -6px; border-radius: 50%; }

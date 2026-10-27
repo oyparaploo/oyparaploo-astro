@@ -5,7 +5,7 @@ window.BY_COLOUR = [
   "name": "Red",
   "swatch": "#781d18",
   "bandLight": "#c49c99",
-  "bandDark": "#781d18",
+  "bandDark": "#751c17",
   "groundLight": "#efe4e3",
   "groundDark": "#3c120e",
   "count": 2353
@@ -15,7 +15,7 @@ window.BY_COLOUR = [
   "name": "Orange",
   "swatch": "#c37639",
   "bandLight": "#d19769",
-  "bandDark": "#5f3a1d",
+  "bandDark": "#56351b",
   "groundLight": "#f3e4d7",
   "groundDark": "#2c1c10",
   "count": 3128
@@ -25,7 +25,7 @@ window.BY_COLOUR = [
   "name": "Brown",
   "swatch": "#623e1f",
   "bandLight": "#b2a091",
-  "bandDark": "#5e3b1e",
+  "bandDark": "#55361b",
   "groundLight": "#ebe6e2",
   "groundDark": "#2c1d10",
   "count": 7287
@@ -35,7 +35,7 @@ window.BY_COLOUR = [
   "name": "Yellow",
   "swatch": "#c9ad25",
   "bandLight": "#c9ad25",
-  "bandDark": "#4f4212",
+  "bandDark": "#473c10",
   "groundLight": "#efe7c0",
   "groundDark": "#251e0b",
   "count": 1133
@@ -45,7 +45,7 @@ window.BY_COLOUR = [
   "name": "Olive",
   "swatch": "#68742b",
   "bandLight": "#a1a97c",
-  "bandDark": "#41461c",
+  "bandDark": "#3b4019",
   "groundLight": "#e5e7db",
   "groundDark": "#21210f",
   "count": 184
@@ -55,7 +55,7 @@ window.BY_COLOUR = [
   "name": "Green",
   "swatch": "#84a179",
   "bandLight": "#92ab88",
-  "bandDark": "#3d4635",
+  "bandDark": "#384030",
   "groundLight": "#e1e8df",
   "groundDark": "#1f2018",
   "count": 54
@@ -65,7 +65,7 @@ window.BY_COLOUR = [
   "name": "Teal",
   "swatch": "#609596",
   "bandLight": "#81abac",
-  "bandDark": "#324746",
+  "bandDark": "#2d403f",
   "groundLight": "#dee9e9",
   "groundDark": "#1b211f",
   "count": 235
@@ -75,7 +75,7 @@ window.BY_COLOUR = [
   "name": "Blue",
   "swatch": "#546490",
   "bandLight": "#9aa4be",
-  "bandDark": "#3a425d",
+  "bandDark": "#353c54",
   "groundLight": "#e4e6ed",
   "groundDark": "#1e1f28",
   "count": 460
@@ -85,7 +85,7 @@ window.BY_COLOUR = [
   "name": "Violet",
   "swatch": "#b398c3",
   "bandLight": "#b59ac4",
-  "bandDark": "#4c3f4e",
+  "bandDark": "#443845",
   "groundLight": "#ebe4ef",
   "groundDark": "#241d21",
   "count": 52
@@ -95,7 +95,7 @@ window.BY_COLOUR = [
   "name": "Magenta",
   "swatch": "#90478b",
   "bandLight": "#c198be",
-  "bandDark": "#62315d",
+  "bandDark": "#592d54",
   "groundLight": "#eee3ee",
   "groundDark": "#2e1828",
   "count": 120
@@ -105,7 +105,7 @@ window.BY_COLOUR = [
   "name": "Pink",
   "swatch": "#b9858a",
   "bandLight": "#c4999d",
-  "bandDark": "#553d3e",
+  "bandDark": "#4d3737",
   "groundLight": "#f0e4e5",
   "groundDark": "#291d1c",
   "count": 1140
@@ -115,7 +115,7 @@ window.BY_COLOUR = [
   "name": "Grays",
   "swatch": "#747474",
   "bandLight": "#a3a3a3",
-  "bandDark": "#454342",
+  "bandDark": "#3e3c3b",
   "groundLight": "#e7e7e7",
   "groundDark": "#221e1d",
   "count": 2403

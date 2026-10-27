@@ -28,7 +28,7 @@
   --sb-night: #151B1C;                          /* the night of 03870: the dark cards */
   --sb-rose: #D98A9D;                           /* the mould's pink, lifted: the cards' rules (6.7 to 1 on the night) */
   --sb-cord: #4A86F0;                           /* the electric blue the passage names: its card's rules (4.9) */
-  --sb-ink-d: #E8E0D6;                          /* the named colours' dark values, for the dark cards */
+  --sb-ink-d: var(--ink-on-dark);                          /* the named colours' dark values, for the dark cards */
   --sb-soft-d: #B3AA9F;
   --sb-faint-d: #8F877D;
   /* what follows the mode: Light */
@@ -38,7 +38,7 @@
   --sb-chosen: #F6ECEF;                         /* a chosen fold */
   --sb-hair: rgba(17, 17, 17, 0.12);
   --sb-card-edge: rgba(17, 17, 17, 0);
-  --sb-btn: #151B1C;  --sb-btn-ink: #E8E0D6;
+  --sb-btn: #151B1C;  --sb-btn-ink: var(--ink-on-dark);
   --sb-margin: 40px;
   /* each type's colour, for its thermometer: marks only, never words */
   --k-essay: #6E8791;                           /* the stone's slate */
@@ -56,9 +56,9 @@
     --sb-card: #231C1F;
     --sb-panel: #1C2325;
     --sb-chosen: #263033;
-    --sb-hair: rgba(232, 224, 214, 0.14);
-    --sb-card-edge: rgba(232, 224, 214, 0.07);
-    --sb-btn: #E8E0D6;  --sb-btn-ink: #151B1C;
+    --sb-hair: rgba(217, 215, 206, 0.14);
+    --sb-card-edge: rgba(217, 215, 206, 0.07);
+    --sb-btn: #d9d7ce;  --sb-btn-ink: #151B1C;
   }
 }
 html[data-theme="dark"] {
@@ -66,9 +66,9 @@ html[data-theme="dark"] {
   --sb-card: #231C1F;
   --sb-panel: #1C2325;
   --sb-chosen: #263033;
-  --sb-hair: rgba(232, 224, 214, 0.14);
-  --sb-card-edge: rgba(232, 224, 214, 0.07);
-  --sb-btn: #E8E0D6;  --sb-btn-ink: #151B1C;
+  --sb-hair: rgba(217, 215, 206, 0.14);
+  --sb-card-edge: rgba(217, 215, 206, 0.07);
+  --sb-btn: #d9d7ce;  --sb-btn-ink: #151B1C;
 }
 
 .sb-room { position: relative; overflow: clip; }
@@ -263,7 +263,7 @@ html[data-theme="dark"] {
   font-size: clamp(30px, 3vw, 42px); line-height: 1.1; color: var(--sb-ink-d);
 }
 .sb-next-row { margin: 32px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; }
-.sb-next-card .sb-btn { --sb-btn: #E8E0D6; --sb-btn-ink: #151B1C; }
+.sb-next-card .sb-btn { --sb-btn: var(--ink-on-dark); --sb-btn-ink: #151B1C; }
 
 /* the rules draw in once, from the left, as their card is reached */
 .js-reveal .sb-room .sb-rule { transform: scaleX(0); transition: transform 0.9s cubic-bezier(.3, .7, .3, 1); }

@@ -26,9 +26,9 @@
 
 /* the whole room: the named colours' dark values, whatever the mode */
 .fs-room {
-  --ink: #e8e0d6; --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
-  --fs-rule: rgba(232, 224, 214, 0.22);
-  --fs-rule-strong: rgba(232, 224, 214, 0.7);
+  --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --fs-rule: rgba(var(--ink-on-dark-rgb), 0.22);
+  --fs-rule-strong: rgba(var(--ink-on-dark-rgb), 0.7);
   --fs-hover: #1C1511;            /* the faintest ember on the dark */
   background: var(--ground); color: var(--ink); overflow-x: clip;
 }
@@ -92,13 +92,13 @@
 @media (hover: hover) {
   .fs-feat:hover { background: var(--fs-chip); }
   .fs-feat:hover .fs-name .fs-arrow { opacity: 1; transform: translateX(0); }
-  .fs-feat:hover .fs-chip { background: #111; color: #e8e0d6; }
+  .fs-feat:hover .fs-chip { background: #111; color: var(--ink-on-dark); }
 }
 .fs-feat:active { background: var(--fs-chip); }
-.fs-feat:active .fs-chip { background: #111; color: #e8e0d6; }
+.fs-feat:active .fs-chip { background: #111; color: var(--ink-on-dark); }
 .fs-feat:focus-visible { outline: 2px solid var(--ink); outline-offset: -6px; background: var(--fs-chip); }
 .fs-feat:focus-visible .fs-name .fs-arrow { opacity: 1; transform: none; }
-.fs-feat:focus-visible .fs-chip { background: #111; color: #e8e0d6; }
+.fs-feat:focus-visible .fs-chip { background: #111; color: var(--ink-on-dark); }
 
 /* the draft's tag chip, hanging half off the band's lower edge: the writing's kind and reading time */
 .fs-chip {

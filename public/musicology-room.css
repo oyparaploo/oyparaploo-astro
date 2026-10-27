@@ -16,7 +16,7 @@
   --mr-panel: #3A2B2E;      /* the print's plum frame, deepened: Ink's dark value on it 10.3 to 1 */
   --mr-seat: #4D3A3E;       /* a card's seat: 8.1 to 1 */
   --mr-peach: #FAC9B6;      /* the print's shapes: Ink's light value on it 12.7 to 1 */
-  --mr-words: #e8e0d6;      /* Ink, dark value */
+  --mr-words: var(--ink-on-dark);      /* Ink, dark value */
   --mr-pad: 48px;
   --mr-card: clamp(300px, 27vw, 480px);
 }
@@ -134,7 +134,7 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
   transition: background-size 0.3s ease;
 }
 .mr-rooms a[aria-current="page"], .mr-rooms a:hover, .mr-rooms a:focus-visible { background-size: 100% 2px; }
-.mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(232, 224, 214, 0.35); }
+.mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(var(--ink-on-dark-rgb), 0.35); }
 .mr-thumb { position: absolute; top: -1px; left: 0; height: 2px; width: 20%; background: var(--mr-words); }
 
 /* ---------- the glide: wide windows, with the script ----------
