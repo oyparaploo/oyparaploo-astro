@@ -701,8 +701,10 @@ h2.label + .group-label { margin-top: 40px; }
 .rows .row-name { position: relative; display: inline-block; }
 .rows .row-name::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
 .rows .row-side { font-size: 22px; }
-.rows .row-side a { position: relative; z-index: 2; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-.rows .row-side a:hover, .rows .row-side a:focus-visible { text-decoration: none; }
+.rows .row-side a { position: relative; z-index: 2; color: inherit; text-decoration: none; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.rows .row-side a:hover, .rows .row-side a:focus-visible, .rows .row-side a:active { text-decoration: underline; }
+/* The seventeenth cleanup (Reach, October 27, 2026): the titles stand bare, as titles do across the site; the
+   underline shows only on the title pointed at, or touched on a phone. The wide space keeps them apart. */
 /* Reach, the same night: no dots between the titles; the underlines keep them apart, with a wide space between them.
    A title that does not fit on the line drops whole to the next line instead of breaking in the middle. */
 .rows .row-side { display: flex; flex-wrap: wrap; column-gap: 32px; row-gap: 6px; }
