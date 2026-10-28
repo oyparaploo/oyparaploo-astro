@@ -114,15 +114,30 @@
       var r = idx.ranges[i];
       if (n >= r.s && n <= r.e){
         var pos = String(n - r.s + r.sp).padStart(r.w, '0');
-        results.push({t: 'Catalogue ' + n, h: r.h + pos + '.html', k: 'Picture'});
+        results.push({t: String(n).padStart(5, '0'), h: r.h + pos + '.html', k: 'Picture'});
       }
     }
     for (var j=0;j<idx.explicit.length;j++){
       if (idx.explicit[j].n === String(n)){
-        results.push({t: 'Catalogue ' + n, h: idx.explicit[j].h, k: 'Picture'});
+        var ex = idx.explicit[j];
+        results.push({t: (ex.m ? ex.m + ' · ' : '') + ex.n.padStart(5, '0'), h: ex.h, k: 'Picture'});
       }
     }
     return results;
+  }
+
+  // The sixteenth cleanup: the site's own pages, first when their names hold the words (the whole name first,
+  // then a name that begins with them, then the rest, each in the footer's order).
+  function pageMatches(q){
+    var found = [];
+    var pages = idx.pages || [];
+    for (var i=0;i<pages.length;i++){
+      var f = fold(pages[i].t);
+      if (f.indexOf(q) === -1) continue;
+      found.push({rank: f === q ? 0 : (f.indexOf(q) === 0 ? 1 : 2), i: i, p: pages[i]});
+    }
+    found.sort(function(a,b){ return (a.rank - b.rank) || (a.i - b.i); });
+    return found.map(function(x){ return {t: x.p.t, h: x.p.h, k: 'Page', s: x.p.s}; });
   }
 
   function search(qRaw){
@@ -139,7 +154,7 @@
     var g = idx.galleries.filter(function(item){
       return fold(item.t).indexOf(q) !== -1;
     });
-    return results.concat(w).concat(g.map(function(item){ return {t:item.t,h:item.h,k:'Gallery'}; }));
+    return results.concat(pageMatches(q)).concat(w).concat(g.map(function(item){ return {t:item.t,h:item.h,k:'Gallery'}; }));
   }
 
   function render(results, q){
@@ -149,7 +164,7 @@
     }
     var slice = results.slice(0, shown);
     var rows = slice.map(function(r){
-      var meta = r.k;
+      var meta = r.s ? escapeHtml(r.s) : r.k;
       if (r.k === 'Song' && r.a) meta += ', ' + escapeHtml(r.a);
       if ((r.k === 'Writing' || r.k === 'Song' || r.k === 'Question') && r.d) {
         meta += ' &middot; ' + escapeHtml(r.d);
