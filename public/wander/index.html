@@ -28,6 +28,13 @@
     margin: 0 auto;
     padding: 64px 40px 96px;
   }
+  /* The eighteenth cleanup, item 45: the page's one plain sentence, in the rule-line form. */
+  .wander-line {
+    margin: 0 0 48px; padding: 0 0 0 20px; border-left: 1px solid var(--ink-faint);
+    font-family: 'Inter', sans-serif; font-size: 28px; line-height: 1.32; letter-spacing: -0.012em;
+    color: var(--ink-soft); max-width: 750px; text-wrap: pretty;
+  }
+  @media (max-width: 600px) { .wander-line { font-size: 22px; margin-bottom: 32px; } }
   .wander-wrap {
     display: grid;
     grid-template-areas: "picture" "writing";
@@ -159,9 +166,10 @@
 <link rel="canonical" href="https://paraploo.com/wander/">
 </head>
 <body>
-<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
 <main class="wander-main">
+  <p class="wander-line">A writing and a picture, chosen by chance. Press Another for a new pair.</p>
   <div class="wander-wrap">
     <div class="wander-writing">
       <h1 class="wander-title" id="wander-title"></h1>
@@ -209,7 +217,7 @@
 
   function renderPicture(pic) {
     imgEl.src = pic.img;
-    imgEl.alt = pic.cat;
+    imgEl.alt = pic.alt || pic.cat;
     captionEl.textContent = pic.cat + ' — ' + pic.series;
     seeEl.href = pic.addr;
   }

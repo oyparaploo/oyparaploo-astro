@@ -77,7 +77,7 @@
 <link rel="canonical" href="https://paraploo.com/search">
 </head>
 <body>
-<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="auto">Auto</button></span></div>
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search" class="current">Search</a></nav></header>
 <div class="search-wrap">
   <h1 class="search-h1">Search</h1>
@@ -98,19 +98,111 @@
 </footer>
 <script>
 (function(){
+  // The eighteenth cleanup (SITE-ORDER\EIGHTEENTH-CLEANUP, Part D): Search reads each writing's whole text, its subjects, kind and year,
+  // the Marks drawings' titles and every Marks group; a word matches where a word begins, in its single
+  // or plural form; several words in any order; best matches first; catalogue numbers with marks
+  // around them; both apostrophes the same; a short hand-kept list of everyday words.
   var PAGE_SIZE = 20;
   var shown = 0;
   var idx = null;
+  var text = null;
   var box = document.getElementById('search-box');
   var out = document.getElementById('search-results');
 
   function fold(s){
-    return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/['\u2018\u2019\u02bc]/g,'');
+  }
+  function wordsOf(s){
+    return fold(s).split(/[^\p{L}\p{N}]+/u).filter(function(w){ return w; });
+  }
+  function hay(s){ return ' ' + wordsOf(s).join(' '); }
+
+  // The single and plural forms of a word.
+  function variants(t){
+    var v = [t];
+    if (t.length > 3){
+      if (/ies$/.test(t)) v.push(t.slice(0,-3) + 'y');
+      else if (/(ches|shes|xes|sses)$/.test(t)) v.push(t.slice(0,-2));
+      else if (/s$/.test(t) && !/ss$/.test(t)) v.push(t.slice(0,-1));
+      if (/[^aeiou]y$/.test(t)) v.push(t.slice(0,-1) + 'ies');
+    }
+    return v;
+  }
+  function hasStart(h, v){ return h.indexOf(' ' + v) !== -1; }
+
+  function prepare(){
+    var i, r;
+    for (i=0;i<idx.pages.length;i++){
+      r = idx.pages[i];
+      r._t = hay(r.t); r._o = ''; r._k = 0; r._i = i;
+    }
+    for (i=0;i<idx.galleries.length;i++){
+      r = idx.galleries[i];
+      r._t = hay(r.t); r._o = ''; r._k = 1; r._i = i;
+    }
+    idx.drawings = [];
+    for (i=0;i<idx.explicit.length;i++){
+      var ex = idx.explicit[i];
+      if (ex.h.indexOf('/marks/') !== 0 || !ex.m) continue;
+      idx.drawings.push({t: ex.m, h: ex.h, k: 'Picture', s: 'Marks drawing · Catalogue ' + ex.n.padStart(5, '0'), _t: hay(ex.m), _o: '', _k: 4, _i: i});
+    }
+    for (i=0;i<idx.writings.length;i++){
+      r = idx.writings[i];
+      r._t = hay(r.t);
+      r._o = hay([r.d, r.x, r.a, r.s, (r.j||[]).join(' ')].join(' '));
+      r._k = 3; r._i = i; r._w = i;
+    }
+    var all = idx.pages.concat(idx.writings);
+    for (i=0;i<all.length;i++){
+      if (all[i].y) all[i]._y = all[i].y.split(' | ').map(function(p){ return wordsOf(p).join(' '); });
+    }
   }
 
-  function numberMatches(q){
-    var n = parseInt(q, 10);
-    if (isNaN(n)) return [];
+  // Writings whose whole text holds a word beginning with v (from search-words.json).
+  var textCache = {};
+  function textHolds(v){
+    if (!text) return null;
+    if (textCache[v]) return textCache[v];
+    var keys = text.k, lo = 0, hi = keys.length;
+    while (lo < hi){ var mid = (lo + hi) >> 1; if (keys[mid] < v) lo = mid + 1; else hi = mid; }
+    var set = {};
+    for (var i=lo;i<keys.length && keys[i].indexOf(v) === 0;i++){
+      var parts = text.p[i].split('.'), at = 0;
+      for (var j=0;j<parts.length;j++){ at += parseInt(parts[j], 16); set[at] = true; }
+    }
+    textCache[v] = set;
+    return set;
+  }
+
+  function tokenIn(r, t){
+    var vs = variants(t);
+    for (var i=0;i<vs.length;i++){
+      if (hasStart(r._t, vs[i]) || hasStart(r._o, vs[i])) return true;
+      if (r._w !== undefined){
+        var set = textHolds(vs[i]);
+        if (set && set[r._w]) return true;
+      }
+    }
+    return false;
+  }
+
+  function rank(r, tokens, phrase){
+    if (r._y && r._y.indexOf(phrase) !== -1) return 1;
+    var tw = r._t.slice(1);
+    var vs = tokens.length === 1 ? variants(phrase) : [phrase];
+    for (var i=0;i<vs.length;i++){ if (tw === vs[i]) return 2; }
+    for (i=0;i<vs.length;i++){ if (tw.indexOf(vs[i]) === 0) return 3; }
+    var inTitle = tokens.every(function(t){
+      return variants(t).some(function(v){ return hasStart(r._t, v); });
+    });
+    if (inTitle) return 4;
+    var inLines = tokens.every(function(t){
+      return variants(t).some(function(v){ return hasStart(r._t, v) || hasStart(r._o, v); });
+    });
+    return inLines ? 5 : 6;
+  }
+
+  function numberMatches(n){
     var results = [];
     for (var i=0;i<idx.ranges.length;i++){
       var r = idx.ranges[i];
@@ -128,35 +220,44 @@
     return results;
   }
 
-  // The sixteenth cleanup: the site's own pages, first when their names hold the words (the whole name first,
-  // then a name that begins with them, then the rest, each in the footer's order).
-  function pageMatches(q){
-    var found = [];
-    var pages = idx.pages || [];
-    for (var i=0;i<pages.length;i++){
-      var f = fold(pages[i].t);
-      if (f.indexOf(q) === -1) continue;
-      found.push({rank: f === q ? 0 : (f.indexOf(q) === 0 ? 1 : 2), i: i, p: pages[i]});
-    }
-    found.sort(function(a,b){ return (a.rank - b.rank) || (a.i - b.i); });
-    return found.map(function(x){ return {t: x.p.t, h: x.p.h, k: 'Page', s: x.p.s}; });
-  }
-
   function search(qRaw){
-    var q = fold(qRaw.trim());
-    if (q.length < 2) return [];
-    var isDigits = /^\d+$/.test(qRaw.trim());
+    var raw = qRaw.trim();
     var results = [];
-    if (isDigits){
-      results = results.concat(numberMatches(qRaw.trim()));
+    var num = raw.match(/^(?:#|no\.?|number|catalogue|catalog)?\s*#?\s*(\d+)$/i);
+    if (num) results = numberMatches(parseInt(num[1], 10));
+    var tokens = wordsOf(raw);
+    if (!tokens.length) return results;
+    var phrase = tokens.join(' ');
+    if (num && num[0] !== num[1]) return results;
+    var need = tokens.filter(function(t){ return t.length > 1; });
+    if (!need.length) need = tokens;
+    var pools = [idx.pages, idx.galleries, idx.drawings, idx.writings];
+    var found = [];
+    for (var p=0;p<pools.length;p++){
+      var pool = pools[p];
+      for (var i=0;i<pool.length;i++){
+        var r = pool[i];
+        var everyday = r._y && r._y.indexOf(phrase) !== -1;
+        if (!everyday){
+          var ok = true;
+          for (var t=0;t<need.length;t++){ if (!tokenIn(r, need[t])) { ok = false; break; } }
+          if (!ok) continue;
+        }
+        var rk = rank(r, tokens, phrase);
+        if (r._k === 4 && rk === 3) rk = 4;  // a drawing's title that only begins with the words waits for the writings
+        found.push({r: r, rank: rk});
+      }
     }
-    var w = idx.writings.filter(function(item){
-      return fold(item.t).indexOf(q) !== -1 || fold(item.d).indexOf(q) !== -1 || (item.a && fold(item.a).indexOf(q) !== -1) || (item.x && fold(item.x).indexOf(q) !== -1);
+    found.sort(function(a,b){
+      return (a.rank - b.rank) || (a.r._k - b.r._k) ||
+        (a.r._k >= 3 ? a.r.t.length - b.r.t.length : 0) || (a.r._i - b.r._i);
     });
-    var g = idx.galleries.filter(function(item){
-      return fold(item.t).indexOf(q) !== -1;
-    });
-    return results.concat(pageMatches(q)).concat(w).concat(g.map(function(item){ return {t:item.t,h:item.h,k:'Gallery'}; }));
+    return results.concat(found.map(function(x){
+      var r = x.r;
+      if (r._k === 0) return {t: r.t, h: r.h, k: 'Page', s: r.s};
+      if (r._k === 1) return {t: r.t, h: r.h, k: 'Gallery', s: r.s};
+      return r;
+    }));
   }
 
   function render(results, q){
@@ -202,8 +303,15 @@
 
   fetch('/search-index.json').then(function(r){ return r.json(); }).then(function(data){
     idx = data;
+    prepare();
     run();
-  });
+    return fetch('/search-words.json').then(function(r){ return r.json(); }).then(function(words){
+      if (words.v !== idx.v) return;
+      text = words;
+      textCache = {};
+      run();
+    });
+  }).catch(function(){});
 })();
 </script>
 </body>

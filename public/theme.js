@@ -1,4 +1,7 @@
 (function() {
+  // The eighteenth cleanup, item 48 (Reach, October 29, 2026): Light and Dark only. Until one is pressed the page
+  // follows the visitor's own screen (no data-theme), and the button that matches what shows is marked; an old saved
+  // "auto" counts as nothing pressed. Kept in BUILD\TEMPLATES\literal since then, so the build copies it.
   var saved = null;
   try {
     var v = localStorage.getItem('theme');
@@ -6,8 +9,10 @@
   } catch (e) {}
   if (saved) document.documentElement.setAttribute('data-theme', saved);
 
+  var screenDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
   function currentChoice() {
-    return saved || 'auto';
+    return saved || (screenDark && screenDark.matches ? 'dark' : 'light');
   }
 
   function markActive(choice) {
@@ -23,12 +28,9 @@
   }
 
   function applyChoice(choice) {
-    saved = choice === 'auto' ? null : choice;
-    if (saved) {
-      document.documentElement.setAttribute('data-theme', saved);
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
+    if (choice !== 'light' && choice !== 'dark') return;
+    saved = choice;
+    document.documentElement.setAttribute('data-theme', saved);
     try { localStorage.setItem('theme', choice); } catch (e) {}
     markActive(choice);
   }
@@ -48,6 +50,11 @@
   function init() {
     writeDate();
     markActive(currentChoice());
+    if (screenDark) {
+      var follow = function() { if (!saved) markActive(currentChoice()); };
+      if (screenDark.addEventListener) screenDark.addEventListener('change', follow);
+      else if (screenDark.addListener) screenDark.addListener(follow);
+    }
     var buttons = document.querySelectorAll('.theme-choice');
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', function() {

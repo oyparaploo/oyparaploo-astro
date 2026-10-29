@@ -104,12 +104,12 @@ html[data-theme="dark"] {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.35;
-  color: rgba(217, 215, 206, 0.72);
+  color: var(--ink-faint);
   text-decoration: none;
 }
 
 .gallery-item:hover .gallery-door-count {
-  color: rgba(217, 215, 206, 0.95);
+  color: var(--ink);
 }
 
 .site-footer {
@@ -203,7 +203,7 @@ html[data-theme="dark"] {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   letter-spacing: 0.03em;
-  opacity: 0.6;
+  opacity: 1;
   margin: 4px 0 0;
 }
 
@@ -988,3 +988,10 @@ html:root[data-theme="dark"] body .site-header nav a { color: var(--ink-header);
   html:not([data-theme="light"]) { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }
 }
 html[data-theme="dark"] { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }
+/* The eighteenth cleanup, item 3a (October 29, 2026): the strip on the rooms that are dark in every mode (The Book,
+   the 60 walk pages and the Spine, class always-dark): in Light the strip stands on white, so its date and its
+   Light / Dark / Auto buttons take Ink's light value, and the chosen button's words the white ground. Dark is unchanged. */
+html.always-dark[data-theme="light"] body .theme-strip { --ink: #111; --ground: #fff; }
+@media (prefers-color-scheme: light) {
+  html.always-dark:not([data-theme="dark"]) body .theme-strip { --ink: #111; --ground: #fff; }
+}

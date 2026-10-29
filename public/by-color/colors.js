@@ -98,7 +98,7 @@ window.BY_COLOUR = [
  },
  {
   "key": "bw",
-  "name": "B & W",
+  "name": "Black and white",
   "swatch": "#111111",
   "groundLight": "#f6f6f6",
   "groundDark": "#0a0a0a",

@@ -35,7 +35,7 @@
   var floats = [], W = 0, VH = 0, H = 0, readingTop = 0;
 
   function big(src) { return src.replace(/-600\.webp$/, '.webp'); }
-  function catLabel(c) { return /^\d{5}$/.test(c) ? 'Cat. ' + c : c; }
+  function catLabel(c) { return /^\d{5}$/.test(c) ? 'Catalogue ' + c : c; }
   function shuffle(a) {
     for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
     return a;
@@ -118,10 +118,10 @@
         var a = document.createElement('a');
         a.className = 'wp-float ' + order[i];
         a.href = p.h;
-        a.setAttribute('aria-label', catLabel(p.c));
+        if (!p.a) a.setAttribute('aria-label', catLabel(p.c));
         a.style.cssText = 'left:' + x.toFixed(1) + 'px;top:' + y + 'px;width:' + w + 'px';
         var img = document.createElement('img');
-        img.alt = ''; img.width = p.w; img.height = p.ht; img.decoding = 'async'; img.src = p.s;
+        img.alt = p.a || ''; img.width = p.w; img.height = p.ht; img.decoding = 'async'; img.src = p.s;
         a.appendChild(img);
         floatsBox.appendChild(a);
         floats.push({ el: a, c: y + h / 2, s: d.s });
@@ -174,6 +174,7 @@
 
     setImg(haze, chosen.bg.s);
     setImg(pic, big(chosen.bg.s), chosen.bg.s);
+    pic.alt = chosen.bg.a || '';
     var c = a.querySelector('.stage-cat');
     if (c) {
       c.href = chosen.bg.h;
@@ -183,8 +184,8 @@
     if (chosen.rest[0] && one) {
       var p1 = chosen.rest[0], oi = one.querySelector('img');
       one.href = p1.h;
-      one.setAttribute('aria-label', catLabel(p1.c));
-      oi.width = p1.w; oi.height = p1.ht; oi.src = p1.s;
+      if (p1.a) one.removeAttribute('aria-label'); else one.setAttribute('aria-label', catLabel(p1.c));
+      oi.alt = p1.a || ''; oi.width = p1.w; oi.height = p1.ht; oi.src = p1.s;
     }
 
     lastW = document.documentElement.clientWidth; lastH = window.innerHeight;

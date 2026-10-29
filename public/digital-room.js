@@ -273,6 +273,7 @@
     var img = K.show.querySelector('.c-show-pic img');
     var link = K.show.querySelector('.c-show-pic');
     link.setAttribute('href', row.getAttribute('href'));
+    img.setAttribute('alt', src.getAttribute('alt') || '');
     K.show.querySelector('.c-show-name').textContent = row.querySelector('.c-name').textContent;
     K.show.querySelector('.c-show-count').textContent = row.querySelector('.c-count').textContent.trim();
     var s = src.getAttribute('src'), ss = src.getAttribute('srcset');
