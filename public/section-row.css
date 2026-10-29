@@ -1,0 +1,66 @@
+/* ==========================================================================
+   THE PINNED SECTION ROW on the Writings page
+   (preview SECTION-ROW-WHOLE-2026-10-29; the spec Reach confirmed October 29, 2026)
+
+   One row of the page's own section names, in page order, under the opening
+   words and above the first section. Scrolled past, it stops at the top of the
+   window just under the site header and stays for the rest of the page.
+   Pressing a name slides the page to that section. The section the visitor is
+   in is underlined; the others are plain.
+   Lora, the page's body size (18 pixels), Ink on the ground, in Light and Dark.
+   A thin rule beneath, nothing else: no box, no shadow.
+   On phones the same one row; wider than the screen, it slides sideways under
+   a finger and never wraps.
+   ========================================================================== */
+
+/* Its place on the page. While the row is pinned, the place keeps its height, so nothing below moves. */
+.section-row-slot { position: relative; z-index: 4400; }
+
+.section-row {
+  position: relative; z-index: 4400;            /* above the drawing (4000), under the header (4500), as a solid sheet */
+  background: var(--ground);
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);          /* the page's own full-width line */
+}
+.section-row.is-pinned {
+  position: fixed; left: 0; right: 0; top: 0;
+  transform: translateY(var(--sr-top, 0px));    /* follows the header's foot, frame by frame (section-row.js) */
+}
+
+.section-row-in {
+  display: flex; flex-wrap: nowrap; align-items: center; gap: var(--column-gap, 32px);
+  padding: 4px var(--edge, 24px);
+  overflow-x: auto; overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;                        /* it slides under a finger; no scroll bar drawn */
+  -webkit-overflow-scrolling: touch;
+}
+.section-row-in::-webkit-scrollbar { display: none; }
+
+.section-row a {
+  flex: none; white-space: nowrap;
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 18px; line-height: 1.6;
+  color: var(--ink); text-decoration: none;
+}
+.section-row a[aria-current="location"] {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+.section-row a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.section-row a[hidden] { display: none; }
+
+/* A section reached by the row, or by the opening's Types and Subjects buttons, lands just under the row. */
+.rooms > .band, main > .shelf { scroll-margin-top: calc(var(--sr-h, 53px) - 1px); }
+
+/* The Subjects picture, held still beside the sixteen rows, stops 43 pixels under the row (with the header away,
+   at 96 pixels, exactly where it stops today), so the row never covers it. */
+@media (min-width: 1000px) {
+  .pic-pin { top: calc(var(--sr-foot, 53px) + 43px); }
+}
+
+/* On a phone the year list covers the whole screen; the row steps aside while it is open. */
+@media (max-width: 700px) {
+  html:has(.year-panel.is-open) .section-row.is-pinned { visibility: hidden; }
+}
