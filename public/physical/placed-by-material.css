@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Placed By Material ... (preview, October 29, 2026)
+   A way into the Placings by what they are made of. After the V&A's
+   "Browse by theme" (vam.ac.uk/collections): a set of tabs, pick one, the
+   doors beneath change. The tabs are the 58 words of the Placings materials
+   log in the ruled writing's own groups; the doors are the Placings page's
+   own cards, copied whole.
+   The room is dark in Light, Dark and Auto alike, as the Placings page is;
+   the date strip, the header and the footer follow the mode.
+   Words on the dark ground in the named colours' dark values (Ink on dark
+   #d9d7ce, Soft ink #b3aa9f, Accent #d4a574); on the band, Ink's light value
+   (#111, 10.0 to 1 on #AFBFCC). Nothing under 16 pixels; nothing scrolls
+   sideways; less motion gets a plain jump.
+   ========================================================================== */
+
+body.pbm-page { margin: 0; background: var(--ground); color: var(--ink); }
+.site-header { box-sizing: border-box; }  /* as on the Welcome and its offshoot: the header stays inside the window */
+.pbm *, .pbm *::before, .pbm *::after { box-sizing: border-box; }
+
+.pbm {
+  --edge: 24px;
+  --p-ink: #d9d7ce;
+  --p-soft: #b3aa9f;
+  --p-accent: #d4a574;
+  --p-dark: #0d0907;
+  --p-seat: rgba(168, 200, 224, 0.045);
+  --p-hair: rgba(217, 215, 206, 0.14);
+  overflow-x: clip;
+  font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6;
+}
+.pbm a { color: inherit; }
+.pbm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- the opening band: the Placings page's own band, from 03972, the same in every mode ---------- */
+.pbm-band { --ink: #111111; background: #AFBFCC; color: #111111; padding: 16px var(--edge) 64px; }
+.pbm-band .way-back { margin: 0; }
+html:root:root body .pbm-band .way-back .arrow-link { white-space: normal; align-items: baseline; padding: 10px 0; color: #111111; }
+html:root:root body .pbm-band .way-back .arrow-link .arrow-glyph { color: #111111; }
+.pbm-band :focus-visible { outline: 2px solid #111111; outline-offset: 4px; }
+.pbm-title {
+  margin: 40px 0 28px;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.98; letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.pbm-line {
+  margin: 0; max-width: 25em;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(24px, 2.25vw, 36px); line-height: 1.18;
+}
+
+/* ---------- the room: the Placings page's ground, black running to night blue ---------- */
+.pbm-room {
+  color: var(--p-ink);
+  background: linear-gradient(to bottom, #000000 0%, #020203 6%, #040507 14%, #060810 26%, #080a13 38%,
+              #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+}
+.pbm-room :focus-visible { outline: 2px solid var(--p-ink); outline-offset: 3px; }
+
+/* ---------- the tabs: one row per group, its words as pills, each with its count ---------- */
+.pbm-tabs { padding: 48px var(--edge) 56px; }
+.pbm-group {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); column-gap: 32px;
+  padding: 16px 0; border-top: 1px solid var(--p-hair);
+}
+.pbm-group:last-child { border-bottom: 1px solid var(--p-hair); }
+.pbm-group-name {
+  margin: 0; padding-top: 10px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--p-ink);
+}
+.pbm-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.pbm-chip {
+  display: inline-flex; align-items: baseline; gap: 9px;
+  min-height: 44px; padding: 10px 18px;
+  border: 1.25px solid var(--p-ink); border-radius: 999px;
+  background: transparent; color: var(--p-ink);
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.2;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+/* October 29, 2026 (Reach, two looks): black and white. At rest every word is an outline, no fill: a 1.25-pixel border (Reach: between the first 1 and the 2, then "just a touch thinner")
+   and the word and count in Ink on dark #d9d7ce on the room's black (about 14 to 1). The chosen word is filled:
+   #d9d7ce inside, the word and count in the room's black #0d0907. Pointed at, a word fills the same way (the reversal). */
+.pbm-chip-n { font-size: 16px; color: var(--p-ink); transition: color 0.25s ease; }
+.pbm-chip[aria-pressed="true"] { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-dark); }
+.pbm-chip[aria-pressed="true"] .pbm-chip-n { color: var(--p-dark); }
+@media (hover: hover) {
+  .pbm-chip:hover { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-dark); }
+  .pbm-chip:hover .pbm-chip-n { color: var(--p-dark); }
+}
+.pbm-chip:active { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-dark); }
+.pbm-chip:active .pbm-chip-n { color: var(--p-dark); }
+/* the keyboard's ring stands clear of the blue */
+.pbm-chips :focus-visible { outline-offset: 4px; }
+
+/* ---------- the chosen word, and its doors ---------- */
+.pbm-found { padding: 64px var(--edge) 0; border-top: 1px solid var(--p-hair); }
+.pbm-head {
+  margin: 0 0 36px; scroll-margin-top: 96px;
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 20px; row-gap: 4px;
+}
+.pbm-head:focus { outline: none; }
+.pbm-head-word { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.1; }
+.pbm-head-n { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3; color: var(--p-accent); }
+
+/* The Placings page's own cards, as it wears them. */
+.p-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; row-gap: 56px; }
+.p-card { display: block; text-decoration: none; }
+.p-card[hidden] { display: none; }
+.p-seat {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 3 / 2; background: var(--p-seat);
+  transition: background-color 0.4s ease;
+}
+.p-seat img { width: auto; height: auto; max-width: 100%; max-height: 100%; display: block; }   /* whole, never cropped */
+.p-name {
+  display: block; margin-top: 16px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3;
+  color: var(--p-ink); transition: color 0.3s ease;
+}
+.p-count { display: block; margin-top: 4px; font-size: 17px; line-height: 1.4; color: var(--p-accent); }
+.p-arr { display: inline-block; transition: transform 0.25s ease; }
+@media (hover: hover) {
+  .p-card:hover .p-seat { background-color: rgba(168, 200, 224, 0.12); }
+  .p-card:hover .p-name { color: var(--p-accent); }
+  .p-card:hover .p-arr { transform: translateX(5px); }
+}
+.p-card:focus-visible .p-seat, .p-card:active .p-seat { background-color: rgba(168, 200, 224, 0.12); }
+.p-card:focus-visible .p-arr, .p-card:active .p-arr { transform: translateX(5px); }
+
+/* The doors gather: a short fade, under a third of a second. */
+.pbm-grid { transition: opacity 0.28s ease; }
+.pbm-grid.is-changing { opacity: 0; transition: none; }
+
+/* ---------- the way on ---------- */
+.pbm-foot { margin: 120px var(--edge) 0; padding: 32px 0 120px; border-top: 1px solid var(--p-hair); }
+.pbm-foot-row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+html:root body .pbm-foot .arrow-link,
+html:root body .pbm-foot .arrow-link .arrow-glyph { color: var(--p-ink); }
+.pbm-foot-row .arrow-link {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2;
+}
+.pbm-again { margin: 40px 0 0; }
+.pbm-again .arrow-link { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; }
+.pbm-up:hover .arrow-glyph, .pbm-up:focus-visible .arrow-glyph { transform: translateY(-4px); }
+
+/* ---------- narrower windows: the Placings page's own steps ---------- */
+@media (max-width: 1099px) { .p-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 899px) { .pbm-group { grid-template-columns: 170px minmax(0, 1fr); column-gap: 24px; } }
+@media (max-width: 759px) {
+  .p-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; }
+  .pbm-group { grid-template-columns: minmax(0, 1fr); row-gap: 10px; padding: 18px 0 20px; }
+  .pbm-group-name { padding-top: 0; }
+}
+@media (max-width: 600px) {
+  .pbm-band { padding: 8px var(--edge) 40px; }
+  .pbm-title { font-size: 44px; margin: 28px 0 20px; }
+  .pbm-line { font-size: 22px; }
+  .pbm-tabs { padding: 32px var(--edge) 40px; }
+  .pbm-chips { gap: 8px; }
+  .pbm-chip { padding: 10px 16px; }
+  .pbm-found { padding-top: 48px; }
+  .pbm-head-word { font-size: 32px; }
+  .pbm-head-n { font-size: 18px; }
+  .pbm-foot { margin-top: 88px; padding: 28px 0 88px; }
+  .pbm-foot-row .arrow-link { font-size: 26px; }
+}
+@media (max-width: 519px) {
+  .p-grid { grid-template-columns: 1fr; row-gap: 40px; }
+  .p-name { font-size: 19px; }
+}
+
+/* Less motion: nothing fades and nothing glides. */
+@media (prefers-reduced-motion: reduce) {
+  .pbm-grid, .pbm-chip, .pbm-chip-n, .p-seat, .p-name, .p-arr { transition: none !important; }
+  .p-card .p-arr, .pbm .arrow-glyph { transform: none !important; }
+}
