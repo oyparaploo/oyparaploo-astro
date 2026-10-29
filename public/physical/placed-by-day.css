@@ -1,0 +1,41 @@
+/* Made the same day, Placings only (SITE-ORDER\SAME-DAY-BUILD, October 29, 2026): the day pages and the years at
+   /physical/placed-by-day/, the shelf page's quiet shape, as in the preview Reach ruled (HTML DOCS\PREVIEWS\SAME-DAY-WHOLE-2026-10-29). */
+.day-g { padding-top: 72px; }
+.day-g + .day-g { border-top: 1px solid var(--rule-faint, rgba(127,127,127,.35)); margin-top: 72px; }
+.day-g-name { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 32px; line-height: 1.15; color: var(--ink); }
+.day-g-line { margin-top: 10px; max-width: 40em; font-size: 20px; line-height: 1.45; color: var(--ink-soft); }
+.day-pics { display: flex; gap: 32px; margin-top: 32px; align-items: flex-start; }
+.day-pic { display: block; text-decoration: none; color: var(--ink); min-width: 0; flex-basis: 0; }
+.day-pic img { width: 100%; height: auto; }
+.day-pic-name { display: block; margin-top: 10px; font-size: 16px; line-height: 1.4; }
+.day-pic-cat { color: var(--ink-soft); }
+.day-rest { display: inline-block; margin-top: 28px; min-height: 44px; font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none; }
+.day-rest .arr { display: inline-block; margin-left: 8px; transition: transform .25s ease; }
+.day-rest:hover .arr, .day-rest:focus-visible .arr { transform: translateX(5px); }
+.day-sentence-list a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.day-sentence-list a:hover, .day-sentence-list a:focus-visible { text-decoration: none; }
+@media (max-width: 700px) {
+  .day-pics { flex-wrap: wrap; } .day-pic { flex-basis: 100% !important; max-width: none; }
+  .day-g { padding-top: 48px; } .day-g + .day-g { margin-top: 48px; }
+  .day-g-name { font-size: 26px; } .day-g-line { font-size: 17px; }
+  .day-pics { gap: 24px; } .day-pic { flex: 1 1 100%; } .day-pic img { height: auto; width: 100%; }
+}
+/* the year */
+.cal-years { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.cal-years a, .cal-years span { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 18px; border: 1px solid #111; border-radius: 999px; font-weight: 600; font-size: 18px; color: #111; text-decoration: none; transition: background-color .3s ease, color .3s ease; }
+.cal-years span { background: #111; color: var(--work-5); }
+.cal-years a:hover, .cal-years a:focus-visible { background: #111; color: var(--work-5); }
+.cal-label { font-size: 18px; color: #111; }
+.cal-months { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 64px 32px; padding-top: 72px; }
+.cal-month h2 { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; color: var(--ink); margin-bottom: 14px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 2px; }
+.cal-grid > * { display: flex; align-items: center; justify-content: center; height: 40px; font-size: 16px; line-height: 1; font-variant-numeric: tabular-nums; }
+.cal-wd { color: var(--ink-soft); }
+.cal-bare { color: var(--ink-faint, var(--ink-soft)); opacity: .55; }
+a.cal-door { color: var(--ink); font-weight: 700; text-decoration: none; border-radius: 999px; margin: 0 2px;
+  box-shadow: inset 0 0 0 1px var(--ink); transition: background-color .3s ease, color .3s ease; }
+a.cal-door:hover, a.cal-door:focus-visible { background: var(--ink); color: var(--ground); }
+@media (max-width: 1100px) { .cal-months { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 800px) { .cal-months { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 24px; } }
+@media (max-width: 520px) { .cal-months { grid-template-columns: 1fr; padding-top: 48px; } .cal-grid > * { height: 44px; } }
+@media (prefers-reduced-motion: reduce) { .day-rest .arr, a.cal-door, .cal-years a { transition: none; } }
