@@ -622,6 +622,98 @@ main .rooms { padding: 0 0 72px; }
 @media (max-width: 999px) { .opening-words { position: static; } }
 </style>
 <link rel="stylesheet" href="/drawing.css">
+<style id="brought-back-up-styles">
+/* Brought Back Up ... (Reach's heading, October 29, 2026; the row from kinfolk.com's Worth Revisiting, named by him the
+   same day): three writings at least five years old, below the Types band, shown exactly as the shelf pages show a
+   writing. The rows are the shelf pages' own rules, copied from BUILD\TEMPLATES\literal\writings (the rows, the dark
+   bar's patches and the first line); the only thing added is the year, under the kind and reading time. */
+.rows { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 40px; column-gap: var(--column-gap); align-items: center;
+  min-height: 88px; padding: 20px var(--edge);
+  text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--rule);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.rows a:last-child { border-bottom: 1px solid var(--rule); }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
+.rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
+.rows a:active { background-color: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  .rows a:hover, .rows a:focus-visible { background-color: var(--ink); color: var(--ground); }
+  .rows a:hover .row-arrow, .rows a:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+.rows a:focus-visible { outline-offset: -4px; outline-color: var(--ground); }
+.rows-writings a { grid-template-columns: minmax(0, 1fr) auto 40px; min-height: 76px; padding-top: 16px; padding-bottom: 16px; }
+.rows-writings .row-name { font-size: 26px; }
+.rows-writings .row-side { font-size: 18px; white-space: nowrap; }
+@media (max-width: 999px) {
+  .rows a { grid-template-columns: minmax(0, 1fr) 32px; row-gap: 6px; }
+  .rows .row-name { grid-column: 1; }
+  .rows .row-side { grid-column: 1; grid-row: 2; white-space: normal; }
+  .rows .row-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 700px) {
+  .row-name { font-size: 24px; }
+  .row-side { font-size: 17px; }
+  .rows-writings .row-name { font-size: 22px; }
+  .rows-writings .row-side { font-size: 16px; }
+  .rows .row-arrow { font-size: 24px; }
+}
+
+/* Each box hugs its own words, and each patch lies under all the words of its row (the shelf pages' dark-bar-rows). */
+.rows a > .row-name, .rows a > .row-side { justify-self: start; }
+.rows a { isolation: isolate; }
+.rows a > span { position: relative; }
+.rows a > span::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 10px; pointer-events: none; }
+.rows a > .row-arrow::before { border-radius: 8px; }
+.rows a:active > span { background-color: transparent; box-shadow: none; }
+.rows a:active > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+.rows a:active > .row-arrow { box-shadow: none; }
+.rows a:active > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+@media (hover: hover) {
+  .rows a:hover > span, .rows a:focus-visible > span { background-color: transparent; box-shadow: none; }
+  .rows a:hover > span::before, .rows a:focus-visible > span::before { background-color: var(--ink); box-shadow: 0 0 14px 20px var(--ink); }
+  .rows a:hover > .row-arrow, .rows a:focus-visible > .row-arrow { box-shadow: none; }
+  .rows a:hover > .row-arrow::before, .rows a:focus-visible > .row-arrow::before { box-shadow: 0 0 12px 6px var(--ink); }
+}
+/* The soft patch (from poems.html, called perfect): Ink at 45 per cent behind the name and the side words. */
+.rows a:active > .row-name-wrap::before, .rows a:active > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+@media (hover: hover) {
+  .rows a:hover > .row-name-wrap::before, .rows a:focus-visible > .row-name-wrap::before, .rows a:hover > .row-side::before, .rows a:focus-visible > .row-side::before { background-color: color-mix(in srgb, var(--ink) 45%, transparent); box-shadow: 0 0 10px 6px color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 8px; }
+}
+
+/* The first line (the shelf pages' own): Inter, Soft ink, one line on a desktop and two on a phone. */
+.rows a > .row-name-wrap { justify-self: start; display: block; min-width: 0; max-width: 100%; }
+.row-name-wrap .row-name { display: block; }
+.row-first {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden;
+  margin-top: 6px; max-width: var(--reading);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.rows a:active .row-first { color: inherit; }
+@media (hover: hover) { .rows a:hover .row-first, .rows a:focus-visible .row-first { color: inherit; } }
+@media (min-width: 1000px) { .rows-writings a { min-height: 96px; } }
+@media (max-width: 700px) { .row-first { -webkit-line-clamp: 2; line-clamp: 2; font-size: 17px; margin-top: 4px; } }
+
+/* The year: under the kind and reading time, in Soft ink, the same size. Pointed at, it takes the bar's light words. */
+.row-side .row-kind, .row-side .row-year { display: block; }
+.row-side .row-year { color: var(--ink-soft); }
+.rows a:active .row-year { color: inherit; }
+@media (hover: hover) { .rows a:hover .row-year, .rows a:focus-visible .row-year { color: inherit; } }
+@media (max-width: 999px) {
+  /* On a phone the side words sit under the first line on one line: the kind, then the year. */
+  .row-side .row-kind, .row-side .row-year { display: inline; }
+  .row-side .row-year::before { content: " \00b7  "; color: var(--ink-soft); }
+}
+
+/* The band itself: one of the page's bands, on the ground, opened by the page's full-width line. Its last row has no
+   line of its own: the Subjects band's line closes it, so no two lines stand one above the other. */
+.again .label { margin: 0 0 16px; }
+.again .rows a:last-child { border-bottom: 0; }
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -779,6 +871,60 @@ main .rooms { padding: 0 0 72px; }
         </div>
       </div>
     </section>
+
+    <section class="band again" id="brought-back-up" aria-labelledby="l-again">
+      <div class="inner">
+        <h2 class="label" id="l-again">Brought Back Up ...</h2>
+        <nav class="rows rows-writings rows-again" aria-labelledby="l-again"></nav>
+      </div>
+    </section>
+<script id="brought-back-up-data" src="/writings/brought-back-up-data.js"></script>
+<script id="brought-back-up-script">
+/* Three writings at least five years old, the same three for every visitor on one day and three others the next.
+   The day is the day in the Twin Cities. The pool is every writing on the site dated five years or more before that
+   day; each day the row moves three places along it, so the three change every day and come round again only once
+   the whole pool has been shown. */
+(function () {
+  var all = window.BROUGHT_BACK_UP || [];
+  var nav = document.querySelector('#brought-back-up .rows-again');
+  if (!nav) return;
+  function twinCitiesDay(offset) {
+    var parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' })
+      .format(new Date()).split('-');
+    var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2] + (offset || 0)));
+    return d;
+  }
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  function draw(offset) {
+    var day = twinCitiesDay(offset);
+    var cut = new Date(Date.UTC(day.getUTCFullYear() - 5, day.getUTCMonth(), day.getUTCDate()));
+    var pool = all.filter(function (w) { return w.when <= iso(cut); });
+    nav.textContent = '';
+    if (!pool.length) { nav.closest('section').hidden = true; return; }
+    var n = pool.length, count = Math.min(3, n);
+    var dayNumber = Math.floor(day.getTime() / 86400000);
+    var start = ((dayNumber * 3) % n + n) % n;
+    for (var i = 0; i < count; i++) {
+      var w = pool[(start + i) % n];
+      var a = document.createElement('a'); a.href = w.href;
+      var wrap = document.createElement('span'); wrap.className = 'row-name-wrap';
+      var name = document.createElement('span'); name.className = 'row-name'; name.textContent = w.title;
+      var first = document.createElement('span'); first.className = 'row-first'; first.textContent = w.first;
+      wrap.appendChild(name); if (w.first) wrap.appendChild(first);
+      var side = document.createElement('span'); side.className = 'row-side';
+      var kind = document.createElement('span'); kind.className = 'row-kind'; kind.textContent = w.kind;
+      var year = document.createElement('span'); year.className = 'row-year'; year.textContent = String(w.year);
+      side.appendChild(kind); side.appendChild(year);
+      var arrow = document.createElement('span'); arrow.className = 'row-arrow'; arrow.setAttribute('aria-hidden', 'true'); arrow.textContent = '→';
+      a.appendChild(wrap); a.appendChild(side); a.appendChild(arrow);
+      nav.appendChild(a);
+    }
+    window.BROUGHT_BACK_UP_SHOWN = { day: iso(day), pool: n };
+  }
+  window.broughtBackUpDraw = draw;
+  draw(0);
+})();
+</script>
 
     <section class="band" id="subjects" aria-labelledby="l-subjects">
       <div class="inner">
