@@ -1,0 +1,181 @@
+/* ==========================================================================
+   THE SEARCH BAND (preview, SEARCH-BAND-WHOLE-2026-10-29), after Hermès (hermes.com).
+   The word Search sits in the header on a thin line. Pressed, a band opens
+   downward from the header and pushes the whole page down; it never covers
+   the page. Before anything is typed it offers five places to go; as the
+   visitor types it shows the five best matches, the typed letters in bold.
+   Search again, or Escape, closes it and the page comes back up.
+   The existing Search page stays behind it: Enter, or the line under the
+   matches, opens every match there.
+   ========================================================================== */
+
+/* ---------- The word in the header, on its thin line ---------- */
+html:root body .site-header nav a.sb-word {
+  min-width: 150px;
+  padding-right: 8px;
+  text-align: left;
+  justify-content: flex-start;
+  /* layer one: Kanal's drawn line in the word's own colour (as every menu word);
+     layer two: the thin line the word sits on, always there */
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(var(--ink-faint), var(--ink-faint));
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 0 bottom 4px, left 0 bottom 4px;
+  background-size: 0 1.5px, 100% 1px;
+}
+@media (hover: hover) {
+  html:root body .site-header nav a.sb-word:hover { background-position: left 0 bottom 4px, left 0 bottom 4px; background-size: 100% 1.5px, 100% 1px; }
+}
+html:root body .site-header nav a.sb-word:focus-visible,
+html:root body .site-header nav a.sb-word.is-open { background-position: left 0 bottom 4px, left 0 bottom 4px; background-size: 100% 1.5px, 100% 1px; }
+@media (max-width: 800px) {
+  html:root body .site-header nav a.sb-word { min-width: 112px; }
+}
+
+/* ---------- The band ---------- */
+.sb {
+  --sb-ground: var(--chrome-ground, var(--ground));
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background: var(--sb-ground);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+.sb[hidden] { display: none; }
+.sb.is-shown { height: auto; }
+.sb.is-moving { transition: height 0.32s cubic-bezier(0.4, 0, 0.1, 1); }
+/* Opened under the header after it has slid back in: the band rides with it */
+.sb.sb-pinned { position: fixed; left: 0; z-index: 999; }
+.site-header-spacer.sb-moving { transition: height 0.32s cubic-bezier(0.4, 0, 0.1, 1); }
+html.sb-open { overflow-anchor: none; }
+
+.sb *, .sb *::before, .sb *::after { box-sizing: border-box; }
+.sb-in {
+  padding: 40px 24px 48px;
+  border-bottom: 1px solid var(--rule, color-mix(in srgb, var(--ink) 18%, transparent));
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  column-gap: 32px;
+}
+
+/* the field: a big plain sentence's size, on a line of full ink */
+.sb-form { grid-column: 1 / -1; margin: 0 0 40px; position: relative; }
+.sb-label {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.sb-q {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 14px;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-stretch: 112%;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+.sb-q::placeholder { color: var(--ink-soft); opacity: 1; }
+.sb-q::-webkit-search-cancel-button { display: none; }
+.sb-q:focus-visible { border-bottom-width: 2px; padding-bottom: 13px; }
+
+/* the label on the left: ordinary words, 18 pixels, full ink */
+.sb-head {
+  margin: 0;
+  padding-top: 19px;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* the five rows on the right */
+.sb-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule, color-mix(in srgb, var(--ink) 18%, transparent)); }
+.sb-list li { border-bottom: 1px solid var(--rule, color-mix(in srgb, var(--ink) 18%, transparent)); }
+.sb-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  min-height: 64px;
+  padding: 17px 12px;
+  border-radius: 5px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.sb-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 400;
+}
+.sb-name b { font-weight: 700; }
+.sb-kind {
+  flex: 0 0 auto;
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.sb-arrow {
+  flex: 0 0 auto;
+  width: 22px;
+  font-size: 20px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+/* A row pointed at turns solid and an arrow slides in; nothing grows, nothing below moves */
+.sb-row:hover, .sb-row.is-active, .sb-row:focus-visible { background: var(--ink); color: var(--sb-ground); outline: none; }
+.sb-row:hover .sb-kind, .sb-row.is-active .sb-kind, .sb-row:focus-visible .sb-kind { color: var(--sb-ground); }
+.sb-row:hover .sb-arrow, .sb-row.is-active .sb-arrow, .sb-row:focus-visible .sb-arrow { opacity: 1; transform: none; }
+
+.sb-none { margin: 0; padding: 18px 0; font-size: 18px; color: var(--ink); }
+
+/* the Search page behind it */
+.sb-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin: 16px 0 0 12px;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.sb-all .arr { display: inline-block; transition: transform 0.2s ease-out; }
+.sb-all:hover .arr, .sb-all:focus-visible .arr { transform: translateX(4px); }
+.sb-all[hidden] { display: none; }
+
+/* ---------- On a phone: the band fills the width ---------- */
+@media (max-width: 800px) {
+  .sb-in { display: block; padding: 24px 16px 28px; }
+  .sb-form { margin-bottom: 24px; }
+  .sb-q { font-size: 28px; padding-bottom: 10px; }
+  .sb-q:focus-visible { padding-bottom: 9px; }
+  .sb-head { padding: 0 10px 10px; }
+  .sb-all { margin-left: 10px; }
+  .sb-none { padding: 14px 10px; }
+  .sb-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; row-gap: 2px; min-height: 56px; padding: 12px 10px; }
+  .sb-name { grid-column: 1; font-size: 19px; }
+  .sb-kind { grid-column: 1; grid-row: 2; font-size: 16px; white-space: normal; }
+  .sb-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+}
+
+/* ---------- Less motion: nothing slides ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sb.is-moving, .site-header-spacer.sb-moving { transition: none; }
+  .sb-arrow, .sb-all .arr { transition: none; }
+  .sb-row:hover .sb-arrow, .sb-row.is-active .sb-arrow { transform: none; }
+}
