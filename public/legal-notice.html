@@ -10,17 +10,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
 <script src="/theme.js"></script>
-<style>
-  body{background:var(--ground);color:var(--ink);margin:0;}
-  .site-header{box-sizing:border-box;}
-  .legal-content{width:100%;box-sizing:border-box;padding:64px 72px 96px;max-width:640px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;}
-  .legal-back{margin:0 0 32px;}
-  .legal-h1{margin:0 0 32px;font-family:'Archivo', sans-serif; font-stretch: 112%;font-weight:600;font-size:34px;letter-spacing:-0.02em;line-height:1.12;color:var(--ink);}
-  .legal-h2{margin:40px 0 12px;font-family:'Archivo', sans-serif; font-stretch: 112%;font-weight:600;font-size:24px;letter-spacing:-0.02em;line-height:1.3;color:var(--ink);}
-  .legal-content p{margin:0 0 16px;font-size:17px;line-height:1.75;color:var(--ink);}
-  .legal-content a{color:var(--accent);}
-  .legal-closing{margin-top:48px;padding-top:24px;border-top:1px solid rgba(128,128,128,0.25);color:var(--ink-soft);font-size:16px;}
-  @media (max-width:800px){.legal-content{padding:48px 20px 64px;}.legal-h1{font-size:25px;}}
+<style id="notice-styles">
+/* The two notice pages (Your privacy, Legal notice), reshaped October 30, 2026: a narrow column on the
+   left that stays put while you scroll (back link, page name, date, the section headings as links, the
+   current one marked), the text on the right at 700 pixels. Under 900 pixels the left column folds to the
+   top as a plain list and the text runs full width. Colours only from chrome.css's named colours. */
+body.notice-page { margin: 0; background: var(--ground); color: var(--ink); font-family: 'Inter', sans-serif; }
+.site-header { box-sizing: border-box; }
+.nt { box-sizing: border-box; max-width: 1052px; margin: 0 auto; padding: 64px 24px 112px;
+  display: grid; grid-template-columns: 240px minmax(0, 700px); column-gap: 64px; align-items: start; }
+
+/* The left column */
+.nt-side { position: sticky; top: 24px; }
+.nt-back { margin: 0 0 40px; }
+.nt-name { margin: 0 0 4px; font-size: 15px; font-weight: 500; color: var(--ink); }
+.nt-date { margin: 0 0 28px; font-size: 15px; color: var(--ink-soft); }
+.nt-index { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--ink-faint); }
+.nt-index li { margin: 0; }
+.nt-index a { display: block; padding: 5px 0 5px 14px; margin-left: -1px; border-left: 2px solid transparent;
+  font-size: 15px; line-height: 1.4; color: var(--ink-soft); text-decoration: none; }
+.nt-index a:hover, .nt-index a:focus-visible { color: var(--ink); }
+.nt-index a[aria-current="true"] { color: var(--ink); border-left-color: var(--accent); }
+
+/* The text */
+.nt-body { min-width: 0; }
+.nt-h1 { margin: 0 0 24px; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 34px; letter-spacing: -0.02em; line-height: 1.12; color: var(--ink); text-wrap: balance; }
+.nt-body h2 { margin: 48px 0 10px; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 21px; letter-spacing: -0.015em; line-height: 1.3; color: var(--ink); scroll-margin-top: 24px; }
+.nt-body p { margin: 0 0 16px; font-size: 18px; line-height: 1.7; color: var(--ink); text-wrap: pretty; }
+.nt-body a { color: var(--accent); }
+.nt-intro { margin-bottom: 40px; }
+.nt-closing { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--ink-faint); color: var(--ink-soft); font-size: 16px; }
+
+@media (max-width: 900px) {
+  .nt { grid-template-columns: minmax(0, 1fr); padding: 40px 20px 80px; row-gap: 40px; }
+  .nt-side { position: static; }
+  .nt-index a[aria-current="true"] { color: var(--ink-soft); border-left-color: transparent; }  /* a plain list on phones: nothing is marked */
+  .nt-back { margin-bottom: 28px; }
+  .nt-h1 { font-size: 26px; }
+  .nt-body h2 { font-size: 20px; margin-top: 40px; }
+  .nt-body p { font-size: 17px; }
+}
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>
@@ -73,41 +104,87 @@
 <script src="/page-change.js"></script>
 <link rel="canonical" href="https://paraploo.com/legal-notice">
 </head>
-<body>
+<body class="notice-page">
 <div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
-<div class="legal-content">
-  <p class="legal-back"><a class="arrow-link arrow-back" href="/"><span class="arrow-glyph">&larr;</span> The front page</a></p>
-  <h1 class="legal-h1">Legal notice</h1>
-  <p>Paraploo is a multidisciplinary practice in the Twin Cities, Minnesota. paraploo.com is its online archive: writing, pen drawings, placed objects, collage, film and sound made over thirty years.</p>
-  <h2 class="legal-h2">Who runs this site</h2>
+<main class="nt">
+  <aside class="nt-side" aria-label="On this page">
+    <p class="nt-back"><a class="arrow-link arrow-back" href="/"><span class="arrow-glyph">&larr;</span> The front page</a></p>
+    <p class="nt-name">Legal notice</p>
+    <p class="nt-date">Last updated October 30, 2026</p>
+    <ul class="nt-index">
+      <li><a href="#who-runs-this-site">Who runs this site</a></li>
+      <li><a href="#copyright">Copyright</a></li>
+      <li><a href="#what-you-may-do">What you may do</a></li>
+      <li><a href="#what-you-may-not-do-without-asking">What you may not do without asking</a></li>
+      <li><a href="#outside-works">Outside works</a></li>
+      <li><a href="#if-your-work-is-here">If your work is here</a></li>
+      <li><a href="#found-materials">Found materials</a></li>
+      <li><a href="#the-name">The name</a></li>
+      <li><a href="#no-promises">No promises</a></li>
+      <li><a href="#outside-links">Outside links</a></li>
+      <li><a href="#law">Law</a></li>
+      <li><a href="#concerns">Concerns</a></li>
+    </ul>
+  </aside>
+  <article class="nt-body">
+    <h1 class="nt-h1">Legal notice</h1>
+  <p class="nt-intro">Paraploo is a multidisciplinary practice in the Twin Cities, Minnesota. paraploo.com is its online archive: writing, pen drawings, placed objects, collage, film and sound made over thirty years.</p>
+  <h2 id="who-runs-this-site">Who runs this site</h2>
   <p>Paraploo<br>Twin Cities, Minnesota<br><a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
-  <h2 class="legal-h2">Copyright</h2>
+  <h2 id="copyright">Copyright</h2>
   <p>Everything on this site that we made &mdash; the writing, the drawings, the photographs, the collages, the films, the sound, and the site itself &mdash; is &copy; 2026 Paraploo. All rights reserved.</p>
-  <h2 class="legal-h2">What you may do</h2>
+  <h2 id="what-you-may-do">What you may do</h2>
   <p>You may read, look, listen, and link to any page here. You may quote a short passage or show a single picture for review, comment, teaching or study, with a credit to Paraploo and a link back to the page it came from.</p>
-  <h2 class="legal-h2">What you may not do without asking</h2>
+  <h2 id="what-you-may-not-do-without-asking">What you may not do without asking</h2>
   <p>You may not copy, reprint, sell, or publish our work in any medium, in whole or in part. You may not use it to train, tune or test machine-learning or AI systems, and you may not gather it in bulk by any means. Permission for anything beyond the short uses above is ours to give, and we are easy to ask: <a href="mailto:hello@paraploo.com">hello@paraploo.com</a>.</p>
-  <h2 class="legal-h2">Outside works</h2>
+  <h2 id="outside-works">Outside works</h2>
   <p>The site refers to works by other artists, writers and musicians. Some of it is interpretive &mdash; ideas, methods and forms taken up in our own way, in found text, fiction and mixed-voice pieces. Some of it is shown outright, with the maker named, in the rooms where we keep the work we love. Songs on the Favorite Songs pages play through Spotify under Spotify's own terms; we host no recordings. These uses are made in good faith, for commentary, study and appreciation, and nothing of anyone else's is offered for sale here.</p>
-  <h2 class="legal-h2">If your work is here</h2>
+  <h2 id="if-your-work-is-here">If your work is here</h2>
   <p>If you made something shown on this site and want it credited differently, linked differently, or taken down, write to <a href="mailto:hello@paraploo.com">hello@paraploo.com</a>. Tell us where it is and what you want done. We will answer, and we will act on it.</p>
-  <h2 class="legal-h2">Found materials</h2>
+  <h2 id="found-materials">Found materials</h2>
   <p>Some pieces are built from found things &mdash; printed matter, objects, scraps of text, pictures that came to us without a name. Where a maker cannot be found, none is named. If one of them is you, the paragraph above applies.</p>
-  <h2 class="legal-h2">The name</h2>
+  <h2 id="the-name">The name</h2>
   <p>Paraploo is the name of this practice and this site. Please do not use it in a way that suggests we made, approved or are connected with something we are not.</p>
-  <h2 class="legal-h2">No promises</h2>
+  <h2 id="no-promises">No promises</h2>
   <p>The site is offered as it is. We try to keep it working and accurate, but we make no guarantee that a page, a link or a file will always be there or be right, and we are not responsible for what you do with what you find here.</p>
-  <h2 class="legal-h2">Outside links</h2>
+  <h2 id="outside-links">Outside links</h2>
   <p>Links to other sites are given because we think they are worth your time. We do not control those sites and are not responsible for what is on them.</p>
-  <h2 class="legal-h2">Law</h2>
+  <h2 id="law">Law</h2>
   <p>This notice and your use of the site are governed by the laws of the State of Minnesota and the United States.</p>
-  <h2 class="legal-h2">Concerns</h2>
+  <h2 id="concerns">Concerns</h2>
   <p>If anything on this site concerns you, for any reason, write to <a href="mailto:hello@paraploo.com">hello@paraploo.com</a>. A person reads every message.</p>
-  <p class="legal-closing">Paraploo &middot; Twin Cities, Minnesota &middot; Last updated October 30, 2026</p>
-</div>
+    <p class="nt-closing">Paraploo &middot; Twin Cities, Minnesota &middot; Last updated October 30, 2026</p>
+  </article>
+</main>
 <footer class="site-footer">
   <p>&copy; 2026 Paraploo &middot; <a href="/privacy">Your privacy</a> &middot; <a href="/legal-notice">Legal notice</a></p>
 </footer>
+<script>
+/* The index marks the section nearest the top of the window as you scroll. */
+(function () {
+  var links = document.querySelectorAll('.nt-index a');
+  var heads = [];
+  for (var i = 0; i < links.length; i++) {
+    var h = document.getElementById(links[i].getAttribute('href').slice(1));
+    if (h) heads.push([h, links[i]]);
+  }
+  if (!heads.length) return;
+  function mark() {
+    var line = 120, cur = heads[0];
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i][0].getBoundingClientRect().top <= line) cur = heads[i];
+    }
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) cur = heads[heads.length - 1];
+    for (var j = 0; j < heads.length; j++) {
+      if (heads[j] === cur) heads[j][1].setAttribute('aria-current', 'true');
+      else heads[j][1].removeAttribute('aria-current');
+    }
+  }
+  mark();
+  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark);
+})();
+</script>
 </body>
 </html>
