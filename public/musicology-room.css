@@ -1,58 +1,88 @@
 /* ==========================================================================
    Musicology, the room. October 8, 2026 (Claude, Opus, High).
-   It wears the Sound landing, HTML DOCS\SOUND_2.html: a dark panel set inside
-   a light frame, the room's name in the panel's corner, a row of cards that
-   glides sideways, the rooms at the panel's foot over a thin progress line,
-   and three small bars. Its colours are its print's, 07942 (Warm Floating
-   Shapes Absolute Symmetrical): the plum of the print's own frame for the
-   panel, the peach of its shapes for the card under the hand, a pale tint of
-   that peach for the frame in Light.
-   Text colours: Ink's two values only (#111111 / #e8e0d6), and the page's
-   named colours on the frame. Nothing under 16 pixels.
+   It wears the Sound landing, HTML DOCS\SOUND_2.html: a panel, the room's
+   name in the panel's corner, a row of cards that glides sideways, the rooms
+   at the panel's foot over a thin progress line, and three small bars.
+
+   Fourth colours, October 30, 2026 (Claude, Opus, High), after Bonobo
+   (bonobomusic.com), the site Reach named as the right flavour, look and
+   behaviour for Musicology. Study: claude/BONOBO-NOTES-2026-10-30.md.
+   - The room is dark in Light and Dark, on Bonobo's own warm black (#12100e);
+     the header, the date strip and the footer follow the mode as everywhere.
+   - The panel runs edge to edge. Its light is the work: the print (07942,
+     Warm Floating Shapes Absolute Symmetrical) blurred until only its warm
+     greys and peach remain, with a still film grain over it, and a fade into
+     the room's black at its foot. Bonobo's own layers: picture, grain in
+     soft-light, fade.
+   - Billboard's punch over the earth (Reach, October 30, 2026: "the specific
+     purple, white and black ... contrasted with this beautiful, earthy,
+     colorful background"): every card a white box with black words and an
+     8-pixel purple bar along its top, as Billboard's Trending box; under the
+     hand the card turns solid purple (#44007E), its words light. The plus in
+     the title on a purple block; the room you are in a purple pill; on a song
+     page the artist on a purple label, as TOP STORY. Short rules, underlines
+     and the progress line white.
+   - Arrival, once: the title comes out of a blur into focus, the line after
+     it, and the first cards rise 20 pixels and settle, all inside about a
+     second. Less motion sees everything still and in place.
+   Text colours: Ink on dark on the room and the panel, Ink (#111111) on the
+   peach. Every word on the panel at 7 to 1 or better, measured against the
+   brightest point of the blurred print (7.8 to 1). Nothing under 16 pixels.
    ========================================================================== */
 
 :root {
-  --mr-inset: 22px;
-  --mr-panel: #3A2B2E;      /* the print's plum frame, deepened: Ink's dark value on it 10.3 to 1 */
-  --mr-seat: #4D3A3E;       /* a card's seat: 8.1 to 1 */
-  --mr-peach: #FAC9B6;      /* the print's shapes: Ink's light value on it 12.7 to 1 */
-  --mr-words: var(--ink-on-dark);      /* Ink, dark value */
+  --mr-inset: 0px;
+  --mr-room: #12100e;       /* Bonobo's ground: Ink on dark 13.2 to 1 (Dark), 14.5 (Light) */
+  --mr-panel: #0b0a09;      /* the panel under the print */
+  --mr-peach: #F0B4A6;      /* the print's own peach: on the panel 11.1 to 1; Ink (#111111) on it 10.6 */
+  --mr-purple: #44007E;     /* Billboard's purple: Ink on dark on it 10.4 to 1 (Light), 9.4 (Dark) */
+  --mr-white: #FFFFFF;      /* Billboard's white box: Ink (#111111) on it 18.9 to 1 */
+  --mr-words: var(--ink-on-dark);      /* Ink, dark value, in every mode */
+  --mr-soft: rgba(var(--ink-on-dark-rgb), 0.82);
   --mr-pad: 48px;
   --mr-card: clamp(300px, 27vw, 480px);
+  --mr-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* The frame. In Light, a pale tint of the print's peach (Ink 15.6 to 1); in Dark
-   the shared look's own ground, deepening to night blue, stays. */
-html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]):not([data-theme="dark"]) body.mus-room {
-    background: linear-gradient(180deg, #0d0907 0%, #0d0b0e 35%, #0f1019 70%, #111521 100%);
-  }
-}
-
-.mr-main { display: block; }
+/* The room: dark in every mode. */
+body.mus-room { background: var(--mr-room); }
+.mr-main { display: block; background: var(--mr-room); color: var(--mr-words); }
 
 /* ---------- the panel (both kinds of page) ---------- */
 .mr-hall, .mr-stage { padding: var(--mr-inset); }
 .mr-panel {
-  position: relative; overflow: hidden;
+  position: relative; overflow: hidden; isolation: isolate;
   background: var(--mr-panel); color: var(--mr-words);
 }
-.mr-panel :focus-visible { outline-color: var(--mr-words); }
+.mr-panel :focus-visible { outline-color: var(--mr-white); }
 .mr-panel a { color: var(--mr-words); }
 
-/* The print, far back: felt more than seen, and gone before the cards begin. */
+/* The print as the room's light: the whole panel, blurred until only its warm
+   greys and peach remain, faint over the black. The script moves it a few
+   per cent sideways as the row moves, as live. */
 .mr-print {
-  position: absolute; top: -6%; bottom: 0; left: -5%; right: -10%;
+  position: absolute; inset: -14% -16% -14% -12%; z-index: 0;
   background-image: var(--mr-print); background-size: cover; background-position: center 40%;
-  opacity: 0.16; filter: grayscale(20%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.6) 18%, transparent 36%);
-          mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.6) 18%, transparent 36%);
+  opacity: 0.62; filter: blur(40px) saturate(1.9);
+  /* Brightest at the top right, where no words sit, falling to a faint glow
+     behind every word (about 0.24 of the print): Bonobo's lit picture going to black. */
+  -webkit-mask-image: radial-gradient(ellipse 46% 52% at 84% 16%, #000 0%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.39) 100%);
+          mask-image: radial-gradient(ellipse 46% 52% at 84% 16%, #000 0%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0.39) 100%);
   pointer-events: none; will-change: transform;
+  animation: mr-light 0.9s ease-out both;
 }
-.mr-stage .mr-print {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.55) 45%, transparent 85%);
-          mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.55) 45%, transparent 85%);
+@keyframes mr-light { from { opacity: 0; } to { opacity: 0.62; } }
+/* The grain: Bonobo's film grain, in soft-light, held still. */
+.mr-panel::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.22; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1.6 -0.3'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  background-size: 180px 180px;
+}
+/* The fade into the room's black at the panel's foot. */
+.mr-panel::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 200px; z-index: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(18,16,14,0) 0%, rgba(18,16,14,0.28) 52%, rgba(18,16,14,0.82) 88%, var(--mr-room) 100%);
 }
 
 /* The three small bars, top right. They play while the row moves. */
@@ -60,7 +90,7 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
   position: absolute; top: 40px; right: var(--mr-pad); z-index: 2;
   display: flex; align-items: flex-end; gap: 6px; height: 22px;
 }
-.mr-bars span { display: block; width: 3px; background: var(--mr-words); transform-origin: bottom; }
+.mr-bars span { display: block; width: 4px; background: var(--mr-words); transform-origin: bottom; }
 .mr-bars span:nth-child(1) { height: 10px; }
 .mr-bars span:nth-child(2) { height: 18px; }
 .mr-bars span:nth-child(3) { height: 12px; }
@@ -71,14 +101,41 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
 .mr-arrive .mr-bars span { animation-iteration-count: 6; }
 
 /* ---------- the room's name and its one sentence ---------- */
-.mr-head { position: relative; z-index: 2; padding: 36px var(--mr-pad) 0; max-width: 62rem; }
+.mr-head { position: relative; z-index: 2; padding: 56px var(--mr-pad) 0; max-width: 64rem; }
+/* When the header slides back in over the gliding hall, the title steps down by
+   the header's height at the same moment, so it is never covered. */
+.mr-glide .mr-hall .mr-head { padding-top: calc(56px + var(--mr-hh, 0px)); transition: padding-top 200ms ease; }
 .mr-title {
   font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(34px, 3.3vw, 56px); line-height: 1.02; letter-spacing: -0.01em;
+  font-size: clamp(40px, 4.4vw, 76px); line-height: 0.98; letter-spacing: -0.015em;
   color: var(--mr-words); padding-right: 64px;
 }
-.mr-plus { font-weight: 700; }
-.mr-line { margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.45; color: var(--mr-words); }
+.mr-plus {
+  display: inline-block; font-weight: 600; line-height: 0.92;
+  padding: 0.02em 0.16em 0.06em; margin: 0 0.04em;
+  background: var(--mr-purple); color: var(--mr-words);
+}
+.mr-line { margin-top: 18px; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.45; color: var(--mr-words); }
+
+/* The headline blends sideways from bone (Ink on dark, the colour it was) to white
+   (Reach, October 30, 2026). The blend spans the words themselves, not the column.
+   Both ends read on the room at 13 to 1 or better. The purple plus keeps its own colour. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .mr-title, .mr-song-title {
+    width: fit-content;
+    background-image: linear-gradient(to right, var(--mr-words), #FFFFFF);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .mr-title .mr-plus { color: var(--mr-words); }
+  .mr-title { padding-right: 0; margin-right: 64px; }
+}
+
+/* Arrival, once: out of a blur into focus (Bonobo's title). */
+@keyframes mr-focus { from { opacity: 0; filter: blur(14px); } to { opacity: 1; filter: blur(0); } }
+@keyframes mr-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.mr-title, .mr-song-title { animation: mr-focus 0.8s var(--mr-ease) both; }
+.mr-line, .mr-song-sub { animation: mr-focus 0.8s var(--mr-ease) 0.15s both; }
 
 /* ---------- the row ---------- */
 .mr-viewport {
@@ -89,16 +146,23 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
 }
 .mr-viewport::-webkit-scrollbar { display: none; }
 .mr-track {
-  list-style: none; display: flex; gap: 56px;
+  list-style: none; display: flex; gap: 40px;
   width: max-content; padding: 48px var(--mr-pad);
 }
 .mr-card { flex: 0 0 var(--mr-card); width: var(--mr-card); scroll-snap-align: start; scroll-margin-left: var(--mr-pad); }
+.mr-card { animation: mr-rise 0.7s var(--mr-ease) both; }
+.mr-card:nth-child(1) { animation-delay: 0.1s; }
+.mr-card:nth-child(2) { animation-delay: 0.16s; }
+.mr-card:nth-child(3) { animation-delay: 0.22s; }
+.mr-card:nth-child(4) { animation-delay: 0.28s; }
+.mr-card:nth-child(n+5) { animation-delay: 0.32s; }
 .mr-card a { display: flex; flex-direction: column; text-decoration: none; color: var(--mr-words); }
 .mr-card a:focus-visible { outline-offset: 6px; }
 .mr-seat {
   display: block; position: relative; aspect-ratio: 503 / 313; overflow: hidden;
-  background: var(--mr-seat); padding: 24px 26px;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  background: var(--mr-white); color: #111111; padding: 22px 26px 24px;
+  border-top: 8px solid var(--mr-purple); border-radius: 6px;
+  transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease);
 }
 .mr-seat-words {
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden;
@@ -112,30 +176,56 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
 .mr-card-sub {
   display: block; margin-top: 4px;
   font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2;
+  color: var(--mr-words);
 }
 .mr-card-rule {
-  display: block; margin-top: 18px; width: 30px; height: 2px; background: var(--mr-words);
-  transition: width 0.35s ease;
+  display: block; margin-top: 18px; width: 30px; height: 3px; background: var(--mr-white);
+  transition: width 0.45s var(--mr-ease);
 }
-/* PLAY: the reversal. The card under the hand takes the print's peach, and its words go dark. */
-.mr-card a:hover .mr-seat, .mr-card a:focus-visible .mr-seat, .mr-card a:active .mr-seat { background: var(--mr-peach); color: #111111; }
+/* Under the hand the white card turns bone, the colour of the room's title
+   (Ink on dark: #e8e0d6 in Light, #d9d7ce in Dark), its words staying black
+   (Ink #111111 on it: 14.9 to 1 in Light, 13.4 in Dark). Reach, October 30, 2026. */
+.mr-card a:hover .mr-seat, .mr-card a:focus-visible .mr-seat, .mr-card a:active .mr-seat {
+  background: var(--mr-words); color: #111111;
+}
 .mr-card a:hover .mr-card-rule, .mr-card a:focus-visible .mr-card-rule { width: 72px; }
 .mr-card-empty p { font-family: 'Inter', sans-serif; font-size: 20px; }
 
 /* ---------- the panel's foot: the four rooms, and the line that shows where the row is ---------- */
-.mr-foot { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 8px 20px 36px; }
-.mr-rooms { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 32px; row-gap: 10px; }
+.mr-foot { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 8px 20px 56px; }
+.mr-rooms { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 36px; row-gap: 10px; }
 .mr-rooms a {
   display: inline-block; min-height: 44px; padding: 10px 0 8px;
   font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3;
   text-decoration: none; color: var(--mr-words);
-  background-image: linear-gradient(var(--mr-words), var(--mr-words));
+  background-image: linear-gradient(var(--mr-white), var(--mr-white));
   background-repeat: no-repeat; background-position: left bottom; background-size: 0 2px;
-  transition: background-size 0.3s ease;
+  transition: background-size 0.35s var(--mr-ease);
 }
-.mr-rooms a[aria-current="page"], .mr-rooms a:hover, .mr-rooms a:focus-visible { background-size: 100% 2px; }
-.mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(var(--ink-on-dark-rgb), 0.35); }
-.mr-thumb { position: absolute; top: -1px; left: 0; height: 2px; width: 20%; background: var(--mr-words); }
+.mr-rooms a:hover, .mr-rooms a:focus-visible { background-size: 100% 2px; }
+/* The room you are in: a solid purple pill, as Billboard's chosen filter. */
+.mr-rooms a[aria-current="page"] {
+  padding-left: 16px; padding-right: 16px; border-radius: 999px;
+  background: var(--mr-purple); color: var(--mr-words);
+}
+.mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(var(--ink-on-dark-rgb), 0.28); }
+.mr-thumb { position: absolute; top: -1px; left: 0; height: 3px; width: 20%; background: var(--mr-white); }
+/* The line becomes a scroll bar the hand can hold (Reach, October 30, 2026), so a
+   card cut by the window's edge reads as more to come, not as a crop. A rounded
+   track, a white thumb to drag, and a press on the track jumps there. The hit area
+   is 44 pixels tall. Only when the script runs (mr-bar on the line). */
+.mr-progress.mr-bar {
+  height: 8px; border-radius: 999px; background: rgba(var(--ink-on-dark-rgb), 0.24);
+  cursor: pointer; touch-action: none;
+}
+.mr-progress.mr-bar::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; bottom: -18px; }
+.mr-progress.mr-bar .mr-thumb {
+  top: 0; height: 8px; border-radius: 999px; cursor: grab;
+  transition: background-color 0.25s var(--mr-ease), box-shadow 0.25s var(--mr-ease);
+}
+.mr-progress.mr-bar:hover .mr-thumb, .mr-progress.mr-bar.is-held .mr-thumb { box-shadow: 0 0 0 3px rgba(255,255,255,0.22); }
+.mr-progress.mr-bar.is-held .mr-thumb { cursor: grabbing; }
+.mr-progress.mr-bar.is-held { user-select: none; }
 
 /* ---------- the glide: wide windows, with the script ----------
    The panel stays in the window while the page scrolls past it, and the
@@ -158,55 +248,72 @@ html:not([data-theme="dark"]) body.mus-room { background: #F5E8E2; }
 .mr-stage-words { position: relative; z-index: 2; margin-top: auto; padding: 120px var(--mr-pad) 0; }
 .mr-song-title {
   font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 6.2vw, 104px); line-height: 0.98; letter-spacing: -0.015em;
+  font-size: clamp(48px, 6.2vw, 104px); line-height: 0.96; letter-spacing: -0.02em;
   color: var(--mr-words); max-width: 15em; overflow-wrap: anywhere;
 }
 .mr-song-sub {
-  margin-top: 14px;
+  display: inline-block; padding: 6px 14px 8px; background: var(--mr-purple);
+  margin-top: 16px;
   font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.2;
   color: var(--mr-words);
 }
-.mr-stage .mr-foot { align-items: flex-start; padding: 40px var(--mr-pad) 28px; }
+/* Stories, artist portraits and soundtracks: the title at the room title's size.
+   The purple label under it carries the kind of piece and its reading time
+   (Reach, October 30, 2026): "Our Take · 6 minutes", "Artist Portrait · 3 minutes",
+   "Soundtrack · 4 minutes". musicology-room.js sets the words from the piece itself
+   (its words / 230, rounded, never under 1). The number and its word never part.
+   Song pages keep the artist's name on its purple label. */
+body.mus-reading .mr-song-title { font-size: clamp(36px, 4.4vw, 76px); line-height: 1.02; letter-spacing: -0.015em; max-width: 22em; }
+.mr-sub-time { white-space: nowrap; }
+/* The kind and time label a step smaller than the song pages' artist label
+   (Reach, October 30, 2026: "a little bit too large"). */
+body.mus-reading .mr-song-sub { font-size: clamp(20px, 1.6vw, 26px); padding: 5px 12px 7px; }
+body.mus-reading .mr-stage-words { padding-top: 96px; }
+.mr-stage .mr-foot { align-items: flex-start; padding: 40px var(--mr-pad) 44px; }
 .mr-stage .mr-rooms { justify-content: flex-start; }
 
-/* ---------- the piece, on the frame ---------- */
-.mr-read { max-width: 760px; margin: 0 auto; padding: 88px 24px 112px; color: var(--ink); }
-.mr-piece p { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; color: var(--ink); }
-.mr-piece h2 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.15; margin: 1.8em 0 0.7em; color: var(--ink); }
-.mr-piece h3 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; margin: 1.6em 0 0.6em; color: var(--ink); }
-.mr-piece hr { border: 0; border-top: 1px solid var(--ink-faint); margin: 2.2em 0; }
-.mr-piece a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+/* ---------- the piece, in the dark room ---------- */
+.mr-read { max-width: 760px; margin: 0 auto; padding: 88px 24px 112px; color: var(--mr-words); }
+.mr-piece p { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; color: var(--mr-words); }
+.mr-piece h2 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.15; margin: 1.8em 0 0.7em; color: var(--mr-words); }
+.mr-piece h3 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; margin: 1.6em 0 0.6em; color: var(--mr-words); }
+.mr-piece hr { border: 0; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.28); margin: 2.2em 0; }
+.mr-piece a { color: var(--mr-words); text-decoration: underline; text-decoration-color: var(--mr-words); text-underline-offset: 3px; }
 .mr-piece a:hover { text-decoration: none; }
 .mr-embed { margin: 56px 0 28px; }
 .mr-embed iframe { display: block; }
 .mr-buy-line { margin: 0; }
-/* The buy button: outline at rest, solid under the hand. */
+/* The buy button: outline at rest, solid peach under the hand. */
 .mr-buy {
   display: inline-flex; align-items: center; min-height: 54px; padding: 8px 22px;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2;
-  color: var(--ink); background: transparent; text-decoration: none;
-  border: 1px solid var(--ink); border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--mr-words); background: transparent; text-decoration: none;
+  border: 1px solid var(--mr-words); border-radius: 5px;
+  transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease), border-color 0.35s var(--mr-ease);
 }
-.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--ink); color: var(--ground); }
-body.mus-room .mr-buy:hover { color: #F5E8E2; }
-html[data-theme="dark"] body.mus-room .mr-buy:hover { color: var(--ground); }
-@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) body.mus-room .mr-buy:hover { color: var(--ground); } }
+.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--mr-purple); border-color: var(--mr-purple); color: var(--mr-words); }
 
 .mr-way {
   display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
-  margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--ink-faint);
+  margin-top: 72px; padding-top: 20px; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.28);
 }
-.mr-way .back-link, .mr-way .go-link { margin: 0; font-size: 20px; color: var(--ink); }
+.mr-way .back-link, .mr-way .go-link { margin: 0; font-size: 20px; color: var(--mr-words); }
 /* The twelfth cleanup, October 17, 2026: the way back at the foot of the three room pages. */
 .mr-room-foot { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
 .mr-room-foot .mr-way { margin-top: 0; }
 
 /* ---------- phones and narrow windows ---------- */
+/* October 30, 2026: on a wide window the card's words follow the card's own width,
+   so when the script narrows the cards to fit a short window, the titles narrow
+   with them. Never under 18 pixels. */
+.mr-glide .mr-hall .mr-card-title { font-size: clamp(20px, calc(var(--mr-card) * 0.072), 34px); }
+.mr-glide .mr-hall .mr-card-sub { font-size: clamp(18px, calc(var(--mr-card) * 0.055), 26px); }
+.mr-glide .mr-hall .mr-seat-words { font-size: clamp(17px, calc(var(--mr-card) * 0.042), 20px); }
+
 @media (max-width: 899px) {
-  :root { --mr-inset: 10px; --mr-pad: 20px; --mr-card: min(80vw, 420px); }
-  .mr-head { padding-top: 28px; }
-  .mr-title { font-size: clamp(30px, 8vw, 40px); }
+  :root { --mr-pad: 20px; --mr-card: min(80vw, 420px); }
+  .mr-head { padding-top: 36px; }
+  .mr-title { font-size: clamp(34px, 9vw, 44px); }
   .mr-line { font-size: 18px; }
   .mr-bars { top: 30px; }
   .mr-track { gap: 16px; padding-top: 32px; padding-bottom: 28px; }
@@ -218,12 +325,36 @@ html[data-theme="dark"] body.mus-room .mr-buy:hover { color: var(--ground); }
   .mr-progress { width: 60%; }
   .mr-stage .mr-panel { min-height: clamp(380px, 62vh, 560px); }
   .mr-stage-words { padding-top: 96px; }
+  body.mus-reading .mr-song-title { font-size: clamp(30px, 8vw, 38px); }
+  .mr-print { opacity: 0.24; -webkit-mask-image: none; mask-image: none; animation: none; }
   .mr-read { padding-top: 56px; padding-bottom: 80px; }
   .mr-piece p { font-size: 18px; }
   .mr-way .back-link, .mr-way .go-link { font-size: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mr-print { transform: none !important; }
+  .mr-print { transform: none !important; animation: none; }
   .mr-bars span { animation: none !important; }
+  .mr-title, .mr-song-title, .mr-line, .mr-song-sub, .mr-card { animation: none !important; }
+  .mr-glide .mr-hall .mr-head { transition: none; }
 }
+
+/* October 30, 2026: while the scroll bar is held, the page jumps to the hand with no smooth glide. */
+html.mr-holding { scroll-behavior: auto !important; }
+html.mr-holding .mr-glide .mr-hall .mr-head, html.mr-holding.mr-glide .mr-hall .mr-head { transition: none; }
+
+/* October 30, 2026 (Reach): on the story, artist and soundtrack pages the kind-and-time label
+   is Billboard's lilac with black words (Ink on lilac 8.9 to 1), its corners sanded to 4 pixels.
+   Song pages keep the purple artist label. */
+body.mus-reading .mr-song-sub { background: #B89AD8; color: #111111; border-radius: 4px;
+  font-size: clamp(18px, 1.4vw, 22px); padding: 4px 11px 6px; }
+/* Ninth round (Reach): the label a step smaller and the lavender quieter, a dusty #C2B4D6 (Ink on it 9.7 to 1). */
+/* Tenth round (Reach): the lavender halfway between the lilac and the dusty one, #CAA8EA (Ink on it 9.3 to 1). */
+/* Eleventh round (Reach): the lavender a shade darker, #B89AD8, so the black words stand out less (7.8 to 1). */
+
+/* Twelfth round (Reach): like the title's bone-to-white blend, the label blends from its own
+   lavender on the left (#B89AD8) to the lighter one before it on the right (#CAA8EA). Black words 7.8 to 9.3 to 1. */
+body.mus-reading .mr-song-sub { background: #B89AD8; }
+/* Thirteenth round (Reach): the blend flipped, lighter on the left, darker on the right. */
+/* Fourteenth round: the blend widened so it can be seen, #D8BEF2 on the left to #A687C9 on the right (black words 11.3 to 6.2 to 1). */
+/* Fifteenth round (Reach): the blend taken out; the label is the flat lavender #B89AD8 again (black words 7.8 to 1). */
