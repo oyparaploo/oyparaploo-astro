@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Land Of Pictures ... (preview, October 30, 2026).
+   The ground is the Everything page's noir ground, black at the top to night blue at the foot, dark in
+   Light and Dark alike; the strip, the header and the footer follow the mode, as on every room.
+   To the charter: pictures whole, never cropped, no borders, shadows or rounded corners (one exception, Reach's
+   own, October 30, 2026: the feathered shadow round the enlarged picture, below); Archivo for the
+   heading, Lora 600 for the row of places (as the pinned section row), Inter for the number; nothing under
+   16 pixels; words in Ink's dark value on the ground; nothing moves until the visitor acts; less motion
+   gets plain jumps; touch gets its own version.
+   ========================================================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }   /* as the Everything page */
+
+.land-room {
+  --l-ink: var(--ink-on-dark, #d9d7ce);
+  --l-hair: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.18);
+  --edge: 24px;
+  color: var(--l-ink);
+  background: linear-gradient(to bottom, #000000 0%, #020203 6%, #040507 14%, #060810 26%, #080a13 38%,
+              #0a0d16 50%, #0b0f18 60%, #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
+  overflow-x: clip;
+}
+
+/* ---------- the heading and the row of places ---------- */
+.land-opening { padding: 28px var(--edge) 0; }
+.land-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.015em; color: var(--l-ink);
+}
+/* the one plain sentence: what the land is and how to use it (October 30, 2026, proposed, for Reach's word).
+   Kavi Gupta's rule line, as the charter sets it for pages still to be made: Inter at about 28 pixels in
+   Soft ink (its dark value, since the room is dark in every mode), a thin line in Faint ink down its left side.
+   A pointing hand reads "point" and "press"; touch reads "tap". */
+.land-say {
+  margin: 18px 0 0; max-width: 760px; padding-left: 18px;
+  border-left: 1px solid #8f877d;
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
+  color: #b3aa9f;
+}
+.land-say .say-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .land-say .say-hand { display: none; }
+  .land-say .say-touch { display: inline; }
+}
+@media (max-width: 600px) { .land-say { font-size: 20px; padding-left: 14px; margin-top: 14px; } }
+
+/* the row of places wraps onto as many lines as it needs: every name in view, no sliding, no fade
+   (October 30, 2026) */
+.land-places {
+  display: flex; flex-wrap: wrap; gap: 4px 24px;
+  margin: 22px calc(-1 * var(--edge)) 0; padding: 0 var(--edge) 12px;
+  border-bottom: 1px solid var(--l-hair);
+}
+.land-places button {
+  flex: 0 0 auto; appearance: none; background: none; border: 0; padding: 4px 0; margin: 0;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 18px; line-height: 1.4; color: var(--l-ink);
+  white-space: nowrap; cursor: pointer;   /* a name never breaks; the row breaks between names */
+  text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 1px; text-underline-offset: 6px;
+  transition: text-decoration-color 0.2s ease;
+}
+.land-places button:hover { text-decoration-color: var(--l-ink); }
+.land-places button[aria-pressed="true"] { text-decoration-color: var(--l-ink); text-decoration-thickness: 2px; }
+.land-places button:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 4px; }
+
+/* ---------- the land ----------
+   Contained (Reach, October 30, 2026: "the thumbnails are going to have to be contained so that they obviously
+   do not bleed off the right and left side of the page"): the land is a framed window 24 pixels in from the
+   page's left and right edges and above the footer, a thin line all round, so every picture stops inside it.
+   And it scrolls with real scroll bars, one down the right side and one along the bottom, always showing
+   ("a vertical scroll bar and horizontal scroll bar, to be able to more easily move the pictures around"). */
+.land {
+  position: relative; overflow: hidden;
+  margin: 16px var(--edge) var(--edge);
+  border: 1px solid rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.32);
+  border-radius: 5px;
+  height: 70vh;                     /* set to the rest of the window by land.js */
+  touch-action: none;               /* one finger drags; nothing pinches (one size only, October 30, 2026) */
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+  outline: none;
+}
+.land.is-dragging { cursor: grabbing; }
+.land:focus-visible { box-shadow: inset 0 0 0 2px var(--l-ink); }
+
+.land-scroll {
+  position: absolute; inset: 0;
+  overflow: scroll;                 /* both bars always show */
+  scroll-behavior: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #8f877d rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.08);   /* Faint ink's dark value on a quiet track */
+  touch-action: none;
+}
+.land-sizer { position: relative; touch-action: none; }
+.land-plane { position: absolute; left: 0; top: 0; touch-action: none; }
+
+.pic {
+  position: absolute; display: block; touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+}
+.pic img {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain;              /* whole, never cropped */
+  transition: transform 0.16s ease;
+  -webkit-user-drag: none; pointer-events: none;
+}
+.pic.is-up { z-index: 2; }
+.pic.is-up img { transform: translateY(-6%) scale(1.1); }
+.pic:focus-visible { outline: 2px solid var(--l-ink); outline-offset: 3px; z-index: 2; }
+
+/* the picture pointed at, shown at about 432 pixels on its long side right beside the clear area around the
+   pointer (October 30, 2026): whole, never cropped, no border; its larger copy; its number under it; the hand
+   passes through it.
+   Reach's own exception to the charter's no shadows on pictures, for this enlarged picture only (October 30,
+   2026: "a feathered edge shadow around at the outer edge on all four sides of the enlarged photo"): a soft
+   black edge on all four sides, about 28 pixels deep, darkening the thumbnails right around it so the picture
+   has a little isolation and does not run into them. */
+.land-grow {
+  position: absolute; left: 0; top: 0; z-index: 4;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  box-shadow: 0 0 40px 8px rgba(0, 0, 0, 0.9);
+}
+.land-grow.is-on { visibility: visible; opacity: 1; transition: opacity 0.14s ease-out; }
+.land-grow img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* the catalogue number, small and plain, under the picture pointed at */
+.land-label {
+  position: absolute; left: 0; top: 0; z-index: 5;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 1;
+  color: var(--l-ink); background: rgba(0, 0, 0, 0.86);
+  padding: 5px 8px 6px; border-radius: 3px;
+  transform: translateX(-50%);
+  pointer-events: none; white-space: nowrap;
+  opacity: 0; transition: opacity 0.12s ease;
+}
+.land-label.is-on { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pic img, .land-label, .land-places button, .land-grow.is-on { transition: none; }
+  .pic.is-up img { transform: none; }
+}
