@@ -1,0 +1,12 @@
+/* The Marks page's opening drawing draws itself (preview, October 29, 2026). The drawing keeps its place, its
+   size and its stickiness exactly as live; a frame hugs the picture so the pen's canvas lies exactly over it.
+   The pen takes the place of the drawing's rise, so the page still moves only once. */
+.open-pic .draws-frame { position: relative; display: block; width: fit-content; max-width: 100%; }
+.open-pic .draws-pic { display: block; }
+.draws-pen { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+/* The paper stays hidden until the pen begins, then fades in over three-tenths of a second as the first
+   strokes start (Reach, October 29, 2026), so no white box shows in Dark while the page waits. */
+.draws-pen { opacity: 0; transition: opacity 0.3s ease; }
+.draws-drawing .draws-pen { opacity: 1; }
+.draws-waiting .draws-pic, .draws-drawing .draws-pic { visibility: hidden; }
+@media (max-width: 799px) { .open-pic .draws-frame { width: 100%; } }
