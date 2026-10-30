@@ -1,0 +1,33 @@
+/* A Marks drawing that draws itself, placed between two bands on Placed Outside ... (preview, October 29, 2026).
+   The band is the drawing's own white paper, edge to edge, the same in Light, Dark and Auto (the room around it
+   is dark in all three). The drawing stands whole, never cropped. Its title and number sit under it on the
+   band in the bands' own black labels, at rest only: nothing here answers the pointer. */
+.draws-band {
+  background: #fff;
+  padding: 56px 24px 24px;
+  cursor: default;
+}
+.draws { margin: 0; }
+.draws-frame {
+  position: relative;
+  /* As wide as the window allows, but never taller than about seven tenths of it. */
+  width: min(100%, calc(72vh * 2000 / 1546), 1100px);
+  margin: 0 auto;
+  aspect-ratio: 2000 / 1546;
+}
+.draws-pic { display: block; width: 100%; height: auto; }
+.draws-pen { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.draws-waiting .draws-pic, .draws-drawing .draws-pic { visibility: hidden; }
+.draws figcaption {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  margin-top: 48px;
+}
+.draws-title, .draws-num { background: #000; color: #fff; border-radius: 3px; }
+.draws-title { font: 600 18px/1.3 'Inter', sans-serif; padding: 9px 14px; }
+.draws-num { flex: none; font: 500 16px/1.3 'Inter', sans-serif; font-variant-numeric: tabular-nums; padding: 6px 10px; }
+
+/* On a phone: the same, smaller. */
+@media (max-width: 700px) {
+  .draws-band { padding: 28px 16px 16px; }
+  .draws figcaption { margin-top: 24px; }
+}
