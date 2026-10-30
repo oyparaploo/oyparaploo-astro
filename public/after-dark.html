@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Dark ... · Paraploo</title>
+<meta name="description" content="After Dark ... This room opens after dark. Paraploo.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<script>(function(){var h=new Date().getHours();var open=(h>=21||h<5);document.documentElement.setAttribute('data-night',open?'open':'shut');})();</script>
+<!-- The live chrome. -->
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<link rel="stylesheet" href="/nav.css">
+<script src="/theme.js"></script>
+<style id="room">
+/* the same reset the five footer rooms carry */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+p, h1, h2, h3, li { text-wrap: pretty; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+/* ===== After Dark ... the sixth footer room (preview, October 30, 2026) ===== */
+:root { --edge: 24px; --column-gap: 32px; }
+/* Hot Evening Prayers' own two grounds, as its hung room reads them: #e9e3e0 pale, #231c19 deep. */
+.nd-shut { --nd-ground: #e9e3e0; --nd-ink: #111; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nd-shut { --nd-ground: #231c19; --nd-ink: #d9d7ce; } }
+html[data-theme="dark"] .nd-shut { --nd-ground: #231c19; --nd-ink: #d9d7ce; }
+.nd-open { --nd-ground: #231c19; --nd-ink: #d9d7ce; }   /* the open room is night in every mode */
+
+/* Which door shows: by the visitor's own clock, set once in the head. Without a clock, the door stays shut. */
+html:not([data-night="open"]) .nd-open { display: none; }
+html[data-night="open"] .nd-shut { display: none; }
+
+.nd-band { background: var(--nd-ground); color: var(--nd-ink); width: 100%; }
+.nd-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); row-gap: 24px;
+  padding: 72px var(--edge) 72px; }
+.nd-title { grid-column: 1; margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(56px, 7.4vw, 112px); line-height: 0.94; letter-spacing: -0.03em; color: var(--nd-ink); }
+
+/* the closed door */
+.nd-shut .nd-in { min-height: 58vh; align-content: end; }
+.nd-closed { grid-column: 1 / -1; margin: 24px 0 0; max-width: 22em; font-family: 'Archivo', sans-serif; font-weight: 600;
+  font-stretch: 112%; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; color: var(--nd-ink); }
+.nd-hours { grid-column: 1 / -1; margin: 0; max-width: 40em; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 18px; line-height: 1.5; color: var(--nd-ink); }
+
+/* the open room: the writing on the left, the picture whole on the right */
+.nd-open .nd-in { align-items: start; padding-top: 72px; padding-bottom: 96px; }
+.nd-writing { grid-column: 1; grid-row: 2; margin: 16px 0 0; max-width: 750px; font-family: 'Inter', sans-serif;
+  font-weight: 400; font-size: 22px; line-height: 1.6; color: var(--nd-ink); }
+.nd-pic { grid-column: 2; grid-row: 1 / span 2; margin: 0; justify-self: end; align-self: start; }
+.nd-pic img { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; }
+.nd-pic figcaption { margin-top: 10px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; }
+.nd-pic figcaption a { color: var(--nd-ink); text-decoration: none; }
+
+/* the way on, on the frame, following Light and Dark */
+.nd-nav { padding: 72px var(--edge) 128px; }
+.nd-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--ink); text-decoration: none; }
+
+/* no motion anywhere in this room, open or shut */
+.nd-band *, .nd-nav * { transition: none !important; animation: none !important; }
+
+@media (max-width: 900px) {
+  .nd-in { grid-template-columns: minmax(0, 1fr); padding: 56px var(--edge) 56px; }
+  .nd-title, .nd-closed, .nd-hours, .nd-writing, .nd-pic { grid-column: 1; grid-row: auto; }
+  .nd-pic { justify-self: start; margin-top: 24px; }
+  .nd-shut .nd-in { min-height: 52vh; }
+  .nd-nav { padding: 48px var(--edge) 96px; }
+}
+@media (max-width: 600px) { .nd-title { font-size: 56px; } .nd-closed { font-size: 28px; } .nd-writing { font-size: 20px; } }
+
+/* no page-change fade on this page, arriving or leaving: the room has no motion at all */
+@view-transition { navigation: none; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+</head>
+<body class="room-page after-dark-page">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header own-line"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+
+<main>
+<section class="nd-band nd-shut" aria-labelledby="nd-title-shut">
+  <div class="nd-in">
+    <h1 class="nd-title" id="nd-title-shut">After Dark&nbsp;...</h1>
+    <p class="nd-closed">This room opens after dark.</p>
+    <p class="nd-hours">Open from 9 in the evening to 5 in the morning, by the clock on your own computer or phone.</p>
+  </div>
+</section>
+<section class="nd-band nd-open" aria-labelledby="nd-title-open">
+  <div class="nd-in">
+    <h1 class="nd-title" id="nd-title-open">After Dark&nbsp;...</h1>
+    <p class="nd-writing">What does it mean to have rays of natural light glow and radiate from sweet human and lovely animal hearts? What does it mean to extend the breath of forest canopies? What does it mean to masterfully serve dark and bright Creation? Best God of Goodness we have and all great prophets who have passed on to another place a long time ago ... assert collected wisdom essences of human and wonderfully innocent wild animal unity. May we all now move flow and sit very settled and meditate ... in harmony ... each one of us with our slightly different to extremely different mindful and physical makeups. Let us now lucidly sense unified faithful love existing everywhere. What does it mean to strongly desire only good things for this world ~ Miriam ... Elijah ... Isaiah ... Jeremiah ... Micah ... Zechariah?</p>
+    <figure class="nd-pic"><img src="https://media.paraploo.com/site/images/physical/hot-evening-prayers/Hot%20Prayers-09.webp" srcset="https://media.paraploo.com/site/images/physical/hot-evening-prayers/Hot%20Prayers-09-600.webp 600w, https://media.paraploo.com/site/images/physical/hot-evening-prayers/Hot%20Prayers-09.webp 2000w" sizes="(max-width: 900px) 100vw, 56vw" alt="Photograph of an assemblage, catalogue 04088, from Hot Evening Prayers, Placings" width="2000" height="1333" decoding="async"><figcaption><a href="/physical/hot-evening-prayers/0009">04088</a></figcaption></figure>
+  </div>
+</section>
+<nav class="nd-nav" aria-label="The way on"><a class="nd-link" href="/"><span aria-hidden="true">&larr;</span> The front page</a></nav>
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+
+<script src="/nav.js"></script>
+</body>
+</html>
