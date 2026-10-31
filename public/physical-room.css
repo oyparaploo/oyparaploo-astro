@@ -184,3 +184,67 @@
   .p-close { padding: 96px var(--edge) 112px; }
   .p-close p { font-size: 19px; }
 }
+
+/* ==========================================================================
+   The chosen few (the navigation review's first change, October 31, 2026).
+   The page opens on Placed Outside ..., the sets Reach chose: each set one picture
+   shown whole, its name, its catalogue number and its one ruled line, two across,
+   one across on phones. Under them one line, "Every gallery, A to Z", opens the
+   full list in place on the same page (a details fold, so it opens without the
+   script too, and the browser's find-in-page reaches inside it). The gallery rows
+   carry no counts; the arrow sits beside the name.
+   ========================================================================== */
+.p-chosen-head { margin: 0 0 48px; }
+.p-chosen-head .p-section-title { margin: 0 0 12px; }
+.p-chosen-link { text-decoration: none; transition: color 0.3s ease; }
+.p-chosen-line { font-size: 20px; line-height: 1.5; color: var(--p-soft); max-width: 750px; }
+
+.p-sets { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; row-gap: 72px; }
+.p-set > a { display: block; text-decoration: none; }
+.p-set-pic { display: block; line-height: 0; }
+.p-set-pic img { width: 100%; height: auto; }                 /* whole, at its own shape */
+.p-set-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-top: 18px; }
+.p-set-name {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.3;
+  color: var(--p-ink); transition: color 0.3s ease;
+}
+.p-set-num { flex: none; font-size: 16px; line-height: 1.4; color: var(--p-soft); }
+.p-set-line { display: block; margin-top: 8px; font-size: 18px; line-height: 1.55; color: var(--p-soft); max-width: 36em; }
+/* A set pointed at answers as a gallery card does: the name takes the accent, the arrow slides in.
+   Nothing grows and nothing below moves. */
+@media (hover: hover) {
+  .p-chosen-link:hover { color: var(--p-accent); }
+  .p-chosen-link:hover .p-arr { transform: translateX(5px); }
+  .p-set > a:hover .p-set-name { color: var(--p-accent); }
+  .p-set > a:hover .p-arr { transform: translateX(5px); }
+}
+.p-set > a:focus-visible .p-set-name, .p-set > a:active .p-set-name { color: var(--p-accent); }
+.p-set > a:focus-visible .p-arr, .p-set > a:active .p-arr { transform: translateX(5px); }
+
+/* Every gallery, A to Z: one accordion row between two full-width lines; the triangle turns as it opens. */
+.p-every { margin-top: 120px; border-top: 1px solid var(--p-hair); border-bottom: 1px solid var(--p-hair); }
+.p-every > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 18px;
+  min-height: 88px; padding: 20px 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; color: var(--p-ink);
+  transition: color 0.3s ease;
+}
+.p-every > summary::-webkit-details-marker { display: none; }
+.p-every > summary::marker { content: ""; }
+.p-every-tri { display: inline-flex; flex: none; width: 20px; height: 20px; }
+.p-every-tri svg { width: 100%; height: 100%; transition: transform 0.25s ease; }
+.p-every[open] .p-every-tri svg { transform: rotate(90deg); }
+@media (hover: hover) { .p-every > summary:hover { color: var(--p-accent); } }
+.p-every > summary:focus-visible { outline: 2px solid var(--p-ink); outline-offset: 4px; }
+.p-every .p-grid { padding: 32px 0 72px; }
+@media (prefers-reduced-motion: reduce) { .p-every-tri svg { transition: none; } }
+
+@media (max-width: 759px) {
+  .p-sets { grid-template-columns: 1fr; row-gap: 48px; }
+  .p-set-name { font-size: 20px; }
+  .p-set-row { margin-top: 14px; }
+  .p-chosen-line { font-size: 19px; }
+  .p-every { margin-top: 88px; }
+  .p-every > summary { min-height: 76px; }
+}

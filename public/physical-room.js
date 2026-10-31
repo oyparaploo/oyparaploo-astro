@@ -41,3 +41,24 @@
   }
   window.addEventListener('load', settle);
 })();
+
+/* The chosen few (October 31, 2026): "Every gallery, A to Z" is a details fold, so it opens and closes without this
+   script. This only (1) opens it when the address points into it (#every-gallery), (2) keeps it open for a visitor
+   who comes back with the back button after opening it, and (3) lets the cards arrive one by one along their row
+   once the list is open. */
+(function () {
+  var every = document.getElementById('every-gallery');
+  if (!every) return;
+  var KEY = 'paraploo-placings-every';
+  var back = false;
+  try {
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    back = !!(nav && nav.type === 'back_forward');
+  } catch (e) {}
+  try { if (back && sessionStorage.getItem(KEY) === '1') every.open = true; } catch (e) {}
+  if (location.hash === '#every-gallery') every.open = true;
+  every.addEventListener('toggle', function () {
+    try { sessionStorage.setItem(KEY, every.open ? '1' : '0'); } catch (e) {}
+    if (every.open) window.dispatchEvent(new Event('resize'));   // the room's script counts the rows again
+  });
+})();
