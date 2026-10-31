@@ -1676,7 +1676,7 @@ window.PARAPLOO_WALKS = {
      "href": "/words/2025-variety/the-quiet-courage-of-naming-sorrow/?walk=the-witnesses",
      "time": "2 minutes",
      "kind": "writing",
-     "name": "Good Grief (11)",
+     "name": "The Quiet Courage of Naming Sorrow",
      "half": "watching you dare to speak sorrow aloud",
      "pic": {
       "n": "02306",
@@ -1898,7 +1898,7 @@ window.PARAPLOO_WALKS = {
      "href": "/words/2025-variety/beginning-again-and-again-revised/?walk=so-much-loss-and-news-of-healing",
      "time": "2 minutes",
      "kind": "writing",
-     "name": "Good Grief",
+     "name": "Beginning Again, and Again",
      "half": "This is what beginning again looks like",
      "pic": {
       "n": "02262",
@@ -2011,7 +2011,7 @@ window.PARAPLOO_WALKS = {
      "href": "/words/2025-variety/field-notes-from-the-territory-of-mending-revised/?walk=so-much-loss-and-news-of-healing",
      "time": "2 minutes",
      "kind": "writing",
-     "name": "Good Grief (2)",
+     "name": "Field Notes from the Territory of Mending",
      "half": "living with damage rather than fixing it",
      "pic": {
       "n": "02816",
