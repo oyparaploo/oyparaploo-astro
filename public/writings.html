@@ -716,6 +716,8 @@ main .rooms { padding: 0 0 72px; }
 </style>
 <!-- THE PINNED SECTION ROW (preview SECTION-ROW-WHOLE-2026-10-29) -->
 <link rel="stylesheet" href="/section-row.css">
+<!-- THE SHELF RAIL (preview WRITINGS-SHELF-RAIL-WHOLE-2026-11-02) -->
+<link rel="stylesheet" href="/shelf-rail.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
 <script src="/art-menu.js" defer></script>
@@ -794,6 +796,7 @@ main .rooms { padding: 0 0 72px; }
         <a href="#types">Types</a>
         <a href="#brought-back-up">Brought Back Up ...</a>
         <a href="#subjects">Subjects</a>
+        <a href="#every-writing">Every writing</a>
         <a href="#text-and-typographic-pieces">Text and Typographic Pieces</a>
       </div>
     </nav>
@@ -992,6 +995,24 @@ main .rooms { padding: 0 0 72px; }
               <li><a href="/words/2023-25-phone-texts/"><span>2023&ndash;25 Phone Texts</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a></li>
               <li><a href="/words/2021-25-immediate-family/"><span>2021&ndash;25 Immediate Family</span><span class="row-arrow" aria-hidden="true">&rarr;</span></a></li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="every-writing" aria-labelledby="l-every">
+      <div class="inner">
+        <h2 class="label" id="l-every">Every writing</h2>
+        <p class="rail-sentence">Every writing on the shelves, newest first. Choose a shelf to narrow the list.</p>
+        <div class="rail-wrap">
+          <aside class="rail" aria-label="Shelves">
+            <button type="button" class="rail-fold" aria-expanded="false" aria-controls="rail-in"><span>Shelves <span class="rail-fold-chosen"></span></span><span class="rail-sign" aria-hidden="true">+</span></button>
+            <div class="rail-in" id="rail-in"></div>
+          </aside>
+          <div class="rail-list">
+            <p class="rail-status" role="status"></p>
+            <nav class="rows rows-writings rail-rows" aria-label="Every writing"></nav>
+            <div class="rail-more"><button type="button" class="btn btn-solid solo">Show more</button></div>
           </div>
         </div>
       </div>
@@ -1247,6 +1268,8 @@ main .rooms { padding: 0 0 72px; }
 })();
 </script>
 
+<script src="/writings/shelf-rail-data.js"></script>
+<script src="/shelf-rail.js"></script>
 <script src="/section-row.js"></script>
 <script src="/drawing.js"></script>
 </body>
