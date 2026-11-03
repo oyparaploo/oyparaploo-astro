@@ -60,3 +60,14 @@ html[data-theme="dark"] .group-band { --band: var(--band-dark, #2b2622); }
 
 /* The group lines build, October 21, 2026: the group's one plain sentence under its name stops at a reading width. */
 .group-band .gallery-subhead { max-width: 42em; text-wrap: pretty; }
+
+/* The volume names build, November 2, 2026: on a hand-made volume page the small line above the name reads the gallery and
+   the volume ("Biggest Mosaic Ever, Volume One"), in Ink on the band; 18 pixels, 17 on a phone. */
+.group-band .volume-kicker {
+  margin: 0 0 8px;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 18px; line-height: 1.3; color: var(--ink);
+}
+@media (max-width: 700px) {
+  .group-band .volume-kicker { margin-bottom: 6px; font-size: 17px; }
+}
