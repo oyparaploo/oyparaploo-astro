@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Encouragement for Dark Times · Text Message Memoir · Paraploo</title>
+<meta name="description" content="My Encouragement for Dark Times, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/my-encouragement-for-dark-times/">
+</head>
+<body class="pt-page" style="--pt-ground:#1b1d29;--pt-ground-ink:var(--ink-on-dark, #e8e0d6);--pt-sent:#f2d77c;--pt-sent-ink:#111;--pt-reply:#e9e4d8;--pt-reply-ink:#111;--pt-board:#0b0c12;--pt-glow:#f2d77c;" data-stops="#1b1d29,#2a2a31,#3a3120,#183039,#0f2b3b">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">My Encouragement for Dark Times</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of My Encouragement for Dark Times">
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="46"><div class="pt-bubble">
+  <p>June:  Isn&#x27;t every thought an "Inner Thought."</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="483"><div class="pt-bubble">
+  <p>Every human brain has valleys and ridges that fold over each other. The deep grooves are called Sulci and the raised areas are called Gyri. All of our body&#x27;s important information is stored in the grooves. Our brain&#x27;s countless number of curved folds can pack in more neurons enabling an increased amount of cognitive abilities. The Amygdala part of our brain is responsible for inner dialogue. Every time you have an inner thought ... your amygdala moves around and becomes juicier.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="587"><div class="pt-bubble">
+  <p>Having good character in life frequently prompts and leads to not realized before self-revelations. To ... on another path ... develop a wicked character one has to completely leave behind what was intended for them by The Creator. This is subjective and requires a lot of ongoing discussion. To become an infinite representative of Goodness a person has to accomplish what was initially perceived as impossible ... then becoming something else. Something much better. What about all the humans on earth who were not lucky enough to live very long? Do they come back and get another try?</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="270"><div class="pt-bubble">
+  <p>A question is an open window that occasionally shows some soothing contemplative activity ... An answer is a sheer curtain that if one is not careful while looking at it can become a completely opaque curtain ... blocking out all nicely brightened up good possibilities. </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="272"><div class="pt-bubble">
+  <p>Jesus has that parable where he talks about the servant who invested his talents rather than bearing the talents. I like interpreting that as investing gifts. And I feel like our most notable jazz artists and poets are exemplars of righteousness according to that parable.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="173"><div class="pt-bubble">
+  <p>For myself ~ Jesus, Yahweh, Allah, Buddha, The Great Spirit, and Ancestor Spirits spiritually provide everything if I do some lifting or put some necessary effort in myself.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="205"><div class="pt-bubble">
+  <p>My encouragement for dark times:<br>
+  Jesus claims to be the Way, the Truth and the Life. <br>
+  Therefore, whether you are looking for direction, understanding or hope, Jesus is more than capable of providing. 💛</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="244"><div class="pt-bubble">
+  <p>Thank you for your beautifully written gratitude list. I have taken on a practice each night of writing down my daily GRACE (gratitude, realizations, actions, challenges, enjoyment). It has been a great way to end the day and rest into slumber.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="148"><div class="pt-bubble">
+  <p>Celebrate every small achievement ... to maintain your motivation. Find things that help you rest and relax ... especially during your busiest days.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="166"><div class="pt-bubble">
+  <p>Challenge mental demons or negative thoughts, feelings, and beliefs that cause distress and can disrupt your peace of mind with an abundance of positive affirmations. </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="417"><div class="pt-bubble">
+  <p>In several ways it may seem like dark ( unpleasant, frightening ) times right now. Our nation might be in a phase of stagnation or period of decline. To navigate out of dark times, focus on seeking added support. Engage in activities like ~ exercise and meditation, identify the small moments of joy, actively seek experiences that foster a sense of hope, be kind to yourself, and acknowledge the challenges you face.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="210"><div class="pt-bubble">
+  <p>Autonomous sensory meridian response ( MSMR ) is a tingling sensation combined with subjective euphoria usually starting at the neck and then spreading to the rest of the body ... triggered by auditory stimuli.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="84"><div class="pt-bubble">
+  <p>Goosebumps are powerful emotions affecting human skin causing infectious excitement.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="55"><div class="pt-bubble">
+  <p>Seeing awe and grace in others makes life worth living.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="58"><div class="pt-bubble">
+  <p>Celebration of deep love is important in times like these. </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="306"><div class="pt-bubble">
+  <p>Absolutely beautiful! Made me tear up. I love how you put words to the gifts of human spirit and existence as a whole and at the same time weaving in the realities of struggle and perseverance of our brothers, sisters, children, elders, and those in between across continents that always live in our minds.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="227"><div class="pt-bubble">
+  <p>We walked a thick and meandering path to the top of the mountain and I asked myself What is the full chalice in life? The answer I heard was Be light. Be true to yourself. Peacefully share with all of God&#x27;s creation your Loves.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="190"><div class="pt-bubble">
+  <p>( back in the writing space )</p>
+  <p>I furthered this larger than life message by asking myself How can I begin now to not take myself so seriously? How can I lighten up a lot more going forward? </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="394"><div class="pt-bubble">
+  <p>A good wolf replied Smile in the midst of all types of misery. Will to yourself a cheerful nature during every self trial you enter. You do not always have to know what you are doing or find the answer to every question after you have effectively lightened up. Love your journey&#x27;s rising experiences to weighted down phases. Try your best to also see the humor as part of each and every moment.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="49"><div class="pt-bubble">
+  <p>I&#x27;m so grateful for the advice of this Good Wolf!</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="128"><div class="pt-bubble">
+  <p>Mother shares with us the exceptional Grace of grampus swimming free. Narwal cousins playing bonding underneath each ocean wave.</p>
+</div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/i-love-my-daughters/">Next chapter: I Love My Daughters <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>

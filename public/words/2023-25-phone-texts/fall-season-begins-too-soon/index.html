@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fall Season Begins Too Soon · Text Message Memoir · Paraploo</title>
+<meta name="description" content="Fall Season Begins Too Soon, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/fall-season-begins-too-soon/">
+</head>
+<body class="pt-page pt-light" style="--pt-ground:#dbebf0;--pt-ground-ink:#111;--pt-sent:#5a2a4e;--pt-sent-ink:var(--ink-on-dark, #e8e0d6);--pt-reply:#ffffff;--pt-reply-ink:#111;--pt-board:#22151c;--pt-glow:#c8962c;" data-stops="#dbebf0,#ebdae5,#f3e0c0,#efd4c2,#e2d5c9">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">Fall Season Begins Too Soon</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of Fall Season Begins Too Soon">
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="57"><div class="pt-bubble">
+  <p>Hien:  In harmony with others and earth&#x27;s natural places. </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="44"><div class="pt-bubble">
+  <p>Brian:  A journey that includes all seasons.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="287"><p class="pt-sr">/// When we have the Aspiration to ~ Conceive - Create - Share ~ Good and Different Art Works ... we shouldn&#x27;t be Unnaturally Enthusiastic /// Choices made [ during this Journey ] are about You in Relationship to Your Community or World ... and a Genuine Commitment of The Heart ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// When we have the Aspiration to ~ Conceive - Create - Share ~ Good and Different Art Works ... we shouldn&#x27;t be Unnaturally Enthusiastic /// Choices made [ during this Journey ] are about You in Relationship to Your Community or World ... and a Genuine Commitment of The Heart ///"><div class="pt-track"><span class="pt-unit">/// When we have the Aspiration to ~ Conceive - Create - Share ~ Good and Different Art Works ... we shouldn&#x27;t be Unnaturally Enthusiastic /// Choices made [ during this Journey ] are about You in Relationship to Your Community or World ... and a Genuine Commitment of The Heart ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="244"><p class="pt-sr">/// In every Soul there&#x27;s a Sanctuary...that has moments of Silence /// And so with a Clear and Present Mind go there. Go to that sometimes Cool and sometimes Warm Place...that you Personally Envision...with your Kind and Glowing Heart ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// In every Soul there&#x27;s a Sanctuary...that has moments of Silence /// And so with a Clear and Present Mind go there. Go to that sometimes Cool and sometimes Warm Place...that you Personally Envision...with your Kind and Glowing Heart ///"><div class="pt-track"><span class="pt-unit">/// In every Soul there&#x27;s a Sanctuary...that has moments of Silence /// And so with a Clear and Present Mind go there. Go to that sometimes Cool and sometimes Warm Place...that you Personally Envision...with your Kind and Glowing Heart ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="116"><p class="pt-sr">/// I MET WITH MY WEIGHT LOSS THERAPIST WHO HAS A DISTORTED MOCHA PITBULL IN HIS OFFICE ...ON A LONG-FRAIL LEASH ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// I MET WITH MY WEIGHT LOSS THERAPIST WHO HAS A DISTORTED MOCHA PITBULL IN HIS OFFICE ...ON A LONG-FRAIL LEASH ///"><div class="pt-track"><span class="pt-unit">/// I MET WITH MY WEIGHT LOSS THERAPIST WHO HAS A DISTORTED MOCHA PITBULL IN HIS OFFICE ...ON A LONG-FRAIL LEASH ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="81"><p class="pt-sr">/// MY WITNESSING OF DETAILS ... MORE PECULIAR THAN THE FULL SUM OF ITS PARTS ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// MY WITNESSING OF DETAILS ... MORE PECULIAR THAN THE FULL SUM OF ITS PARTS ///"><div class="pt-track"><span class="pt-unit">/// MY WITNESSING OF DETAILS ... MORE PECULIAR THAN THE FULL SUM OF ITS PARTS ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="35"><p class="pt-sr">/// FALL SEASON BEGINS TOO SOON ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// FALL SEASON BEGINS TOO SOON ///"><div class="pt-track"><span class="pt-unit">/// FALL SEASON BEGINS TOO SOON ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="279"><p class="pt-sr">/// FOLLOW THE GREAT SPIRIT AND THE GREAT SPIRIT IS US AS A WHOLE ... BEST GOODNESS OF HUMANITY AND ITS DEEP RESPECT AND CARE FOR ALL OF THE DIFFERENT TYPES OF HARMONIES OR WONDERFUL INTERCONNECTEDNESS ... COMPLEX ... INTRICATE ... VULNERABLE COMPOSITIONS OF LOVE FOR OUR PLANET.</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// FOLLOW THE GREAT SPIRIT AND THE GREAT SPIRIT IS US AS A WHOLE ... BEST GOODNESS OF HUMANITY AND ITS DEEP RESPECT AND CARE FOR ALL OF THE DIFFERENT TYPES OF HARMONIES OR WONDERFUL INTERCONNECTEDNESS ... COMPLEX ... INTRICATE ... VULNERABLE COMPOSITIONS OF LOVE FOR OUR PLANET."><div class="pt-track"><span class="pt-unit">/// FOLLOW THE GREAT SPIRIT AND THE GREAT SPIRIT IS US AS A WHOLE ... BEST GOODNESS OF HUMANITY AND ITS DEEP RESPECT AND CARE FOR ALL OF THE DIFFERENT TYPES OF HARMONIES OR WONDERFUL INTERCONNECTEDNESS ... COMPLEX ... INTRICATE ... VULNERABLE COMPOSITIONS OF LOVE FOR OUR PLANET.</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="88"><p class="pt-sr">/// before summer officially ends...make another batch of plum jam...and go swimming ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// before summer officially ends...make another batch of plum jam...and go swimming ///"><div class="pt-track"><span class="pt-unit">/// before summer officially ends...make another batch of plum jam...and go swimming ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="141"><p class="pt-sr">/// Where we choose to move how can we make a go of it? /// Dog up in the tree...Pahk Shaka...Foe McKoe...Saint Dona Ducol...Boogy Chiloo ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Where we choose to move how can we make a go of it? /// Dog up in the tree...Pahk Shaka...Foe McKoe...Saint Dona Ducol...Boogy Chiloo ///"><div class="pt-track"><span class="pt-unit">/// Where we choose to move how can we make a go of it? /// Dog up in the tree...Pahk Shaka...Foe McKoe...Saint Dona Ducol...Boogy Chiloo ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="330"><p class="pt-sr">/// YOU ARE MUCH MORE THAN ANY FUTURE INDIVIDUAL ACHIEVEMENT /// YOU HAVE A DEVELOPED SOUL FROM MIND TO IN AND AROUND THE AREA OF YOUR RIB CAGE...THAT YOU WILL CONTINUE TO NURTURE /// EXTENDED TO LOVED ONES... ACQUAINTANCES AND STRANGERS /// DO NOT BE ALONE WITH YOUR WORRIES /// SHARE THEM WITH SOMEONE ELSE OR A CARING GROUP ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// YOU ARE MUCH MORE THAN ANY FUTURE INDIVIDUAL ACHIEVEMENT /// YOU HAVE A DEVELOPED SOUL FROM MIND TO IN AND AROUND THE AREA OF YOUR RIB CAGE...THAT YOU WILL CONTINUE TO NURTURE /// EXTENDED TO LOVED ONES... ACQUAINTANCES AND STRANGERS /// DO NOT BE ALONE WITH YOUR WORRIES /// SHARE THEM WITH SOMEONE ELSE OR A CARING GROUP ///"><div class="pt-track"><span class="pt-unit">/// YOU ARE MUCH MORE THAN ANY FUTURE INDIVIDUAL ACHIEVEMENT /// YOU HAVE A DEVELOPED SOUL FROM MIND TO IN AND AROUND THE AREA OF YOUR RIB CAGE...THAT YOU WILL CONTINUE TO NURTURE /// EXTENDED TO LOVED ONES... ACQUAINTANCES AND STRANGERS /// DO NOT BE ALONE WITH YOUR WORRIES /// SHARE THEM WITH SOMEONE ELSE OR A CARING GROUP ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="222"><p class="pt-sr">/// ADULT CHILD /// WE&#x27;RE ENTERING A BRAND NEW DAY TOGETHER /// LET ONE SPECIAL OCCURRENCE INVOLVE SPRINKLING GOLD DUST ON YOUR OWN PRECIOUS-RICH BLOOD /// MINUS WRESTLING...VIOLENCE...DANGER /// AS NEW VISUAL ART ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// ADULT CHILD /// WE&#x27;RE ENTERING A BRAND NEW DAY TOGETHER /// LET ONE SPECIAL OCCURRENCE INVOLVE SPRINKLING GOLD DUST ON YOUR OWN PRECIOUS-RICH BLOOD /// MINUS WRESTLING...VIOLENCE...DANGER /// AS NEW VISUAL ART ///"><div class="pt-track"><span class="pt-unit">/// ADULT CHILD /// WE&#x27;RE ENTERING A BRAND NEW DAY TOGETHER /// LET ONE SPECIAL OCCURRENCE INVOLVE SPRINKLING GOLD DUST ON YOUR OWN PRECIOUS-RICH BLOOD /// MINUS WRESTLING...VIOLENCE...DANGER /// AS NEW VISUAL ART ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="208"><p class="pt-sr">/// AS A MERE MORTAL OUT IN SOCIETY THE METHODS AND ACTIONS YOU TEACH WITH CAN BE SURPRISING IN A GOOD OR UNSETTLING WAY FOR SOME /// 99.7% OR SO ARE ONLY GIVEN THE OPTION BY GOD TO BE MORTAL HUMAN BEINGS ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// AS A MERE MORTAL OUT IN SOCIETY THE METHODS AND ACTIONS YOU TEACH WITH CAN BE SURPRISING IN A GOOD OR UNSETTLING WAY FOR SOME /// 99.7% OR SO ARE ONLY GIVEN THE OPTION BY GOD TO BE MORTAL HUMAN BEINGS ///"><div class="pt-track"><span class="pt-unit">/// AS A MERE MORTAL OUT IN SOCIETY THE METHODS AND ACTIONS YOU TEACH WITH CAN BE SURPRISING IN A GOOD OR UNSETTLING WAY FOR SOME /// 99.7% OR SO ARE ONLY GIVEN THE OPTION BY GOD TO BE MORTAL HUMAN BEINGS ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="215"><p class="pt-sr">/// Our Body has now been Renamed  [ De Bowdy ]  because of its Ability to Flex and Not Snap /// We want very few or no theories and A Lot More Flex Pose Practice for all earth human and alien ... moving forward ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Our Body has now been Renamed  [ De Bowdy ]  because of its Ability to Flex and Not Snap /// We want very few or no theories and A Lot More Flex Pose Practice for all earth human and alien ... moving forward ///"><div class="pt-track"><span class="pt-unit">/// Our Body has now been Renamed  [ De Bowdy ]  because of its Ability to Flex and Not Snap /// We want very few or no theories and A Lot More Flex Pose Practice for all earth human and alien ... moving forward ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="114"><p class="pt-sr">/// THIS MESSAGE IS TO INFORM YOU ABOUT YOUR ENDOSCOPY RESULTS /// BIOPSIES FROM YOUR STOMACH ARE UNREMARKABLE ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// THIS MESSAGE IS TO INFORM YOU ABOUT YOUR ENDOSCOPY RESULTS /// BIOPSIES FROM YOUR STOMACH ARE UNREMARKABLE ///"><div class="pt-track"><span class="pt-unit">/// THIS MESSAGE IS TO INFORM YOU ABOUT YOUR ENDOSCOPY RESULTS /// BIOPSIES FROM YOUR STOMACH ARE UNREMARKABLE ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="79"><div class="pt-bubble">
+  <p>* more than one of you in the same room or at the same place that have a cough.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="38"><div class="pt-bubble">
+  <p>Dia:  I don&#x27;t think it works that way.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="84"><div class="pt-bubble">
+  <p>John:  You must be They pronoun or there are more than one of you that have a cough.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="25"><div class="pt-bubble">
+  <p>Gorlaz:  That&#x27;s specific.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="173"><p class="pt-sr">/// WE&#x27;RE TRYING TO FIGURE OUT WHY WE DON&#x27;T HAVE A COUGH DURING WHEN WE&#x27;RE DEEPLY IMMMERSED INTO THE FLOW PROCESS OF DRAWING A DETAILED PICTURE WITH A PEN ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// WE&#x27;RE TRYING TO FIGURE OUT WHY WE DON&#x27;T HAVE A COUGH DURING WHEN WE&#x27;RE DEEPLY IMMMERSED INTO THE FLOW PROCESS OF DRAWING A DETAILED PICTURE WITH A PEN ///"><div class="pt-track"><span class="pt-unit">/// WE&#x27;RE TRYING TO FIGURE OUT WHY WE DON&#x27;T HAVE A COUGH DURING WHEN WE&#x27;RE DEEPLY IMMMERSED INTO THE FLOW PROCESS OF DRAWING A DETAILED PICTURE WITH A PEN ///</span></div></div></div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/hearted-and-soulful-resilience/">Next chapter: Hearted and Soulful Resilience <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>

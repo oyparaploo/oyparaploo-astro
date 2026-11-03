@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Give Life Your All · Text Message Memoir · Paraploo</title>
+<meta name="description" content="Give Life Your All, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/give-life-your-all/">
+</head>
+<body class="pt-page" style="--pt-ground:#1a1d2a;--pt-ground-ink:var(--ink-on-dark, #e8e0d6);--pt-sent:#f08d52;--pt-sent-ink:#111;--pt-reply:#ece4d4;--pt-reply-ink:#111;--pt-board:#0b0d12;--pt-glow:#b98ddb;" data-stops="#1a1d2a,#10281f,#2a2238,#1b2a44,#3a2318">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">Give Life Your All</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of Give Life Your All">
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="987"><p class="pt-sr">/// Take your flashbacks ( and emotions connected to them ) with you on the journey ... Try to mix in pleasurable ... familiar ... and soothing recollections ... To stream a flood of glimpses or feed a few comforting symbols is your plan ... Your decision alone ... If a phase of equilibrium occurs don&#x27;t judge it like some over energetic or over enthusiastic person ... Just advance ... keep going ... and what naturally is meant to be will happen ... unfold ... if it seems ( within the core of your value system ) to be the right thing to do ... and no one gets hurt ... Sudden changes and rude substitutes are taking place more often today ... We can mold any change to suit how we want the outcome to be ... We can apply tweaks to make them more helpful ... Turn them into human universal healing mechanisms that can move ( even if only the slightest bit ) two big needles ... The almost everywhere on planet earth needle ... or The within our kindred spirit circles needle ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Take your flashbacks ( and emotions connected to them ) with you on the journey ... Try to mix in pleasurable ... familiar ... and soothing recollections ... To stream a flood of glimpses or feed a few comforting symbols is your plan ... Your decision alone ... If a phase of equilibrium occurs don&#x27;t judge it like some over energetic or over enthusiastic person ... Just advance ... keep going ... and what naturally is meant to be will happen ... unfold ... if it seems ( within the core of your value system ) to be the right thing to do ... and no one gets hurt ... Sudden changes and rude substitutes are taking place more often today ... We can mold any change to suit how we want the outcome to be ... We can apply tweaks to make them more helpful ... Turn them into human universal healing mechanisms that can move ( even if only the slightest bit ) two big needles ... The almost everywhere on planet earth needle ... or The within our kindred spirit circles needle ///"><div class="pt-track"><span class="pt-unit">/// Take your flashbacks ( and emotions connected to them ) with you on the journey ... Try to mix in pleasurable ... familiar ... and soothing recollections ... To stream a flood of glimpses or feed a few comforting symbols is your plan ... Your decision alone ... If a phase of equilibrium occurs don&#x27;t judge it like some over energetic or over enthusiastic person ... Just advance ... keep going ... and what naturally is meant to be will happen ... unfold ... if it seems ( within the core of your value system ) to be the right thing to do ... and no one gets hurt ... Sudden changes and rude substitutes are taking place more often today ... We can mold any change to suit how we want the outcome to be ... We can apply tweaks to make them more helpful ... Turn them into human universal healing mechanisms that can move ( even if only the slightest bit ) two big needles ... The almost everywhere on planet earth needle ... or The within our kindred spirit circles needle ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="737"><p class="pt-sr">/// For Lewis Easy ... Ga shish gay moday ina ma da ... Lewis Easy ... give it back to the village ... Ena wada sahda ... Isn&#x27;t it a pity that you&#x27;re too young to get a crib ... Be dah no me en na ... Every cat in Baiana knows you took a Cinderella pumpkin coach to Hoochie Coo ... getmenow getmenow getmenow ... You drank too little ... and worked the flesh of your hands down to the bones too much ... eh scoota esheen pa fingaz ... Comfortable toddlers screamed and screeched at the top of their lungs when hearing that you were back in town ... Easy ee bow debo eaba cay ... It&#x27;s so sad every minute passes by and becomes the forever forgotten past ... Key shoi shoi odz nee ... except for All Saints&#x27; Eve day ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// For Lewis Easy ... Ga shish gay moday ina ma da ... Lewis Easy ... give it back to the village ... Ena wada sahda ... Isn&#x27;t it a pity that you&#x27;re too young to get a crib ... Be dah no me en na ... Every cat in Baiana knows you took a Cinderella pumpkin coach to Hoochie Coo ... getmenow getmenow getmenow ... You drank too little ... and worked the flesh of your hands down to the bones too much ... eh scoota esheen pa fingaz ... Comfortable toddlers screamed and screeched at the top of their lungs when hearing that you were back in town ... Easy ee bow debo eaba cay ... It&#x27;s so sad every minute passes by and becomes the forever forgotten past ... Key shoi shoi odz nee ... except for All Saints&#x27; Eve day ///"><div class="pt-track"><span class="pt-unit">/// For Lewis Easy ... Ga shish gay moday ina ma da ... Lewis Easy ... give it back to the village ... Ena wada sahda ... Isn&#x27;t it a pity that you&#x27;re too young to get a crib ... Be dah no me en na ... Every cat in Baiana knows you took a Cinderella pumpkin coach to Hoochie Coo ... getmenow getmenow getmenow ... You drank too little ... and worked the flesh of your hands down to the bones too much ... eh scoota esheen pa fingaz ... Comfortable toddlers screamed and screeched at the top of their lungs when hearing that you were back in town ... Easy ee bow debo eaba cay ... It&#x27;s so sad every minute passes by and becomes the forever forgotten past ... Key shoi shoi odz nee ... except for All Saints&#x27; Eve day ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1128"><p class="pt-sr">/// The all in commitment to anything considered very important is joined to ( during the journey of life ) an unmeasurable amount of joy ... It&#x27;s also an invisible memorial ( of hang in there through all difficulties and every hardship ) that lives inside us ... and goes with us ... Cased commitments are master plans of action that add immense value to our world ... They possess the capability to reach and extend to holy places and realms ... Sacred held ... as sensible routines and palpable and physical-real rituals filled with infinite goodness ... We are devoted to a couple of big commitments during a single lifetime ... Ongoing awe of a two directions give and receive marriage .. or union... to a soul partner ... respected mate ... That other love we fully commit ourselves to can ( instead or additionally ) be a wholehearted loyalty and faithfulness to a service put into action ... producing countless examples of physical evidence that works for the cause of healing ... Sometimes there is zero material-tangible proof that goes with a committed devotion to something that is much bigger than ourself ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// The all in commitment to anything considered very important is joined to ( during the journey of life ) an unmeasurable amount of joy ... It&#x27;s also an invisible memorial ( of hang in there through all difficulties and every hardship ) that lives inside us ... and goes with us ... Cased commitments are master plans of action that add immense value to our world ... They possess the capability to reach and extend to holy places and realms ... Sacred held ... as sensible routines and palpable and physical-real rituals filled with infinite goodness ... We are devoted to a couple of big commitments during a single lifetime ... Ongoing awe of a two directions give and receive marriage .. or union... to a soul partner ... respected mate ... That other love we fully commit ourselves to can ( instead or additionally ) be a wholehearted loyalty and faithfulness to a service put into action ... producing countless examples of physical evidence that works for the cause of healing ... Sometimes there is zero material-tangible proof that goes with a committed devotion to something that is much bigger than ourself ///"><div class="pt-track"><span class="pt-unit">/// The all in commitment to anything considered very important is joined to ( during the journey of life ) an unmeasurable amount of joy ... It&#x27;s also an invisible memorial ( of hang in there through all difficulties and every hardship ) that lives inside us ... and goes with us ... Cased commitments are master plans of action that add immense value to our world ... They possess the capability to reach and extend to holy places and realms ... Sacred held ... as sensible routines and palpable and physical-real rituals filled with infinite goodness ... We are devoted to a couple of big commitments during a single lifetime ... Ongoing awe of a two directions give and receive marriage .. or union... to a soul partner ... respected mate ... That other love we fully commit ourselves to can ( instead or additionally ) be a wholehearted loyalty and faithfulness to a service put into action ... producing countless examples of physical evidence that works for the cause of healing ... Sometimes there is zero material-tangible proof that goes with a committed devotion to something that is much bigger than ourself ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1634"><p class="pt-sr">///  Gift and Possibilities Of Play ... The Thought Of Being Distinctive ... The Thought Of Having The Public Gaze At Us And Examine Our Style Or Look Is Frightening ... But On The Other Hand Sitting Still And Speaking In A Second Language Is A Project That Can Free Us From A Certain Confinement ... We Can Each Realize An Aspect Of Our Self That We Didn&#x27;t Know Was There ... To Cook Like A Confident Styler ... To Put Something Out There That Is Puzzling Increases Curiosity And Makes For A Host Of Forever Memorable Experiences ... We Can Also Figure Out Important Things As A Unified Troupe ... See Our Various Character Identities Shown Back To Us As Movies ... Photographs ... and Paintings That Utilize A Photograph As The Beginning Point To Depart To Somewhere Else ... Affecting Others Inner Soulfulness or Aliveness ... We Lay On The Floor On Our Frontside For A Minute ... Then Jump Up Quick And Are Kooky Cut Up Performers ... Each Doing Our Own Improv ... On A Stage or In A Big Gallery Room ... Juley Underarm Throws A Very Large Smile Face Ball Up High In The Air ... It Gently Falls ... We Like To Shine And Make Our Audience Smile ... Now An Elbow Joint Becomes A Thumb That For Fifteen Seconds Hops Like A Kangaroo ... When All Of Us Are Working Hard To Try To Look Like We Are Asleep Our Minds Are Still ( middle eye intensely wide open ) Very Alert ... Does Having Visitors Eyes All Over You Feel Oddly Soothing Or Feel Like A Way Too Strong Spiked Punch Swishing Around In Your Stomach? ... Does Having The Eyes Of A Theater Full Of People On You Cause You To Cry ... Whisper-Laugh ... Or Something Else? ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="///  Gift and Possibilities Of Play ... The Thought Of Being Distinctive ... The Thought Of Having The Public Gaze At Us And Examine Our Style Or Look Is Frightening ... But On The Other Hand Sitting Still And Speaking In A Second Language Is A Project That Can Free Us From A Certain Confinement ... We Can Each Realize An Aspect Of Our Self That We Didn&#x27;t Know Was There ... To Cook Like A Confident Styler ... To Put Something Out There That Is Puzzling Increases Curiosity And Makes For A Host Of Forever Memorable Experiences ... We Can Also Figure Out Important Things As A Unified Troupe ... See Our Various Character Identities Shown Back To Us As Movies ... Photographs ... and Paintings That Utilize A Photograph As The Beginning Point To Depart To Somewhere Else ... Affecting Others Inner Soulfulness or Aliveness ... We Lay On The Floor On Our Frontside For A Minute ... Then Jump Up Quick And Are Kooky Cut Up Performers ... Each Doing Our Own Improv ... On A Stage or In A Big Gallery Room ... Juley Underarm Throws A Very Large Smile Face Ball Up High In The Air ... It Gently Falls ... We Like To Shine And Make Our Audience Smile ... Now An Elbow Joint Becomes A Thumb That For Fifteen Seconds Hops Like A Kangaroo ... When All Of Us Are Working Hard To Try To Look Like We Are Asleep Our Minds Are Still ( middle eye intensely wide open ) Very Alert ... Does Having Visitors Eyes All Over You Feel Oddly Soothing Or Feel Like A Way Too Strong Spiked Punch Swishing Around In Your Stomach? ... Does Having The Eyes Of A Theater Full Of People On You Cause You To Cry ... Whisper-Laugh ... Or Something Else? ///"><div class="pt-track"><span class="pt-unit">///  Gift and Possibilities Of Play ... The Thought Of Being Distinctive ... The Thought Of Having The Public Gaze At Us And Examine Our Style Or Look Is Frightening ... But On The Other Hand Sitting Still And Speaking In A Second Language Is A Project That Can Free Us From A Certain Confinement ... We Can Each Realize An Aspect Of Our Self That We Didn&#x27;t Know Was There ... To Cook Like A Confident Styler ... To Put Something Out There That Is Puzzling Increases Curiosity And Makes For A Host Of Forever Memorable Experiences ... We Can Also Figure Out Important Things As A Unified Troupe ... See Our Various Character Identities Shown Back To Us As Movies ... Photographs ... and Paintings That Utilize A Photograph As The Beginning Point To Depart To Somewhere Else ... Affecting Others Inner Soulfulness or Aliveness ... We Lay On The Floor On Our Frontside For A Minute ... Then Jump Up Quick And Are Kooky Cut Up Performers ... Each Doing Our Own Improv ... On A Stage or In A Big Gallery Room ... Juley Underarm Throws A Very Large Smile Face Ball Up High In The Air ... It Gently Falls ... We Like To Shine And Make Our Audience Smile ... Now An Elbow Joint Becomes A Thumb That For Fifteen Seconds Hops Like A Kangaroo ... When All Of Us Are Working Hard To Try To Look Like We Are Asleep Our Minds Are Still ( middle eye intensely wide open ) Very Alert ... Does Having Visitors Eyes All Over You Feel Oddly Soothing Or Feel Like A Way Too Strong Spiked Punch Swishing Around In Your Stomach? ... Does Having The Eyes Of A Theater Full Of People On You Cause You To Cry ... Whisper-Laugh ... Or Something Else? ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="789"><p class="pt-sr">/// Diatoms ... Brown Water Giant Seaweed ... Plants first colonized Earth land not from our oceans but from freshwater sources ... lakes and rivers ... What was the first flowering plant? ... The Cream-Colored Amborella? Good guess  ... Because plants give off Oxygen they also create an Oxygen-Rich Atmosphere ... enabling oxygen breathing humans and animals to evolve ... Deep Green ... Angiosperm&#x27;s seeds are protected by the fleshy bodies of their fruits ... Sycamore trees graced Earth&#x27;s landscapes as early as the era of the dinosaurs ... and big head sunflowers were non-existent during that time ... Human are more closely related to Mushrooms than E. Coli bacteria ... ( bits and pieces from William K. Steven&#x27;s ~ Rearranging The Branches on a New Tree of Life ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Diatoms ... Brown Water Giant Seaweed ... Plants first colonized Earth land not from our oceans but from freshwater sources ... lakes and rivers ... What was the first flowering plant? ... The Cream-Colored Amborella? Good guess  ... Because plants give off Oxygen they also create an Oxygen-Rich Atmosphere ... enabling oxygen breathing humans and animals to evolve ... Deep Green ... Angiosperm&#x27;s seeds are protected by the fleshy bodies of their fruits ... Sycamore trees graced Earth&#x27;s landscapes as early as the era of the dinosaurs ... and big head sunflowers were non-existent during that time ... Human are more closely related to Mushrooms than E. Coli bacteria ... ( bits and pieces from William K. Steven&#x27;s ~ Rearranging The Branches on a New Tree of Life ///"><div class="pt-track"><span class="pt-unit">/// Diatoms ... Brown Water Giant Seaweed ... Plants first colonized Earth land not from our oceans but from freshwater sources ... lakes and rivers ... What was the first flowering plant? ... The Cream-Colored Amborella? Good guess  ... Because plants give off Oxygen they also create an Oxygen-Rich Atmosphere ... enabling oxygen breathing humans and animals to evolve ... Deep Green ... Angiosperm&#x27;s seeds are protected by the fleshy bodies of their fruits ... Sycamore trees graced Earth&#x27;s landscapes as early as the era of the dinosaurs ... and big head sunflowers were non-existent during that time ... Human are more closely related to Mushrooms than E. Coli bacteria ... ( bits and pieces from William K. Steven&#x27;s ~ Rearranging The Branches on a New Tree of Life ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="185"><p class="pt-sr">/// Check Low ... Chic High ... Trippy Cheek Far ( who&#x27;s a bit too distant ) ... and Fixit Flavio will be appearing at The Sycamore next weekend ... Tickets are still available ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Check Low ... Chic High ... Trippy Cheek Far ( who&#x27;s a bit too distant ) ... and Fixit Flavio will be appearing at The Sycamore next weekend ... Tickets are still available ///"><div class="pt-track"><span class="pt-unit">/// Check Low ... Chic High ... Trippy Cheek Far ( who&#x27;s a bit too distant ) ... and Fixit Flavio will be appearing at The Sycamore next weekend ... Tickets are still available ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1003"><p class="pt-sr">/// Talking to ... and humming a sweet melody within this art exhibit is like holding an interview with a lifeblood brand new planet ... and having a meeting with tinted sunlight scattering amongst a million tiny pieces and particles ... It&#x27;s difficult to know what energy signature or interaction of molecules to bring to this most unusual half science half art recollective ... The fact that there are so many stagnant pale ashes color lumps ... chunks ... glistening light gray parts and amputated portions as curious forms ... leads us to Who Really Can Tell For Sure? Most of the colors are crisp ... It does feel like a viable and comprehensive story expressed in different ways ... There is the overall sense of [ what something can potentially be ] ... Widespread throughout the exhibit is Utilizing New Styling Combined With Ancient Classic Design ... Customary eminence put to common natural and artificial materials ... including human eye grabbing and bird attracting embellishments ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Talking to ... and humming a sweet melody within this art exhibit is like holding an interview with a lifeblood brand new planet ... and having a meeting with tinted sunlight scattering amongst a million tiny pieces and particles ... It&#x27;s difficult to know what energy signature or interaction of molecules to bring to this most unusual half science half art recollective ... The fact that there are so many stagnant pale ashes color lumps ... chunks ... glistening light gray parts and amputated portions as curious forms ... leads us to Who Really Can Tell For Sure? Most of the colors are crisp ... It does feel like a viable and comprehensive story expressed in different ways ... There is the overall sense of [ what something can potentially be ] ... Widespread throughout the exhibit is Utilizing New Styling Combined With Ancient Classic Design ... Customary eminence put to common natural and artificial materials ... including human eye grabbing and bird attracting embellishments ///"><div class="pt-track"><span class="pt-unit">/// Talking to ... and humming a sweet melody within this art exhibit is like holding an interview with a lifeblood brand new planet ... and having a meeting with tinted sunlight scattering amongst a million tiny pieces and particles ... It&#x27;s difficult to know what energy signature or interaction of molecules to bring to this most unusual half science half art recollective ... The fact that there are so many stagnant pale ashes color lumps ... chunks ... glistening light gray parts and amputated portions as curious forms ... leads us to Who Really Can Tell For Sure? Most of the colors are crisp ... It does feel like a viable and comprehensive story expressed in different ways ... There is the overall sense of [ what something can potentially be ] ... Widespread throughout the exhibit is Utilizing New Styling Combined With Ancient Classic Design ... Customary eminence put to common natural and artificial materials ... including human eye grabbing and bird attracting embellishments ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1798"><p class="pt-sr">/// Have you experienced a fall while wearing a big wig? ... Has your voice become lower during a migration? ... During walking from a previous residence to an undetermined new place? ... We are just floating a couple quick examples to lead into a vision of adult rawlife human beings ... Each showing a divergent light radiating outward from the head and rays sent out in all directions from the chest ... ( now about all of us as a whole ) ... Everyone has their own identity that is similar to many others and boldly unique as compared to others ... We also own a slowly gradually evolving or changing quality of character within our awareness ... And spiritual faculty of consciousness that is when at its best is highly perceptive ... With reasoning is able to make good assessments and sensible conclusions of things that predictably or randomly occur ... Additionally every place on Earth can be pictured as the epitome of a collective and international source of light ... Humanity reveals more often than we like as failings ... including harsh negative emotional episodes ... too much domestic abuse ... too many human on human killings ... but it also manifests as kind and helpful actions ... nurturing and sustaining solutions ... wonderful gifts of life ... The genuineness of each of us and the originality of all of the different cultures that have existed ... exist ... through abrasive actions brightens mental physical states of being ... Is a beacon ... We cautiously-meanderingly to fast-swiftly flow and fortunately or unfortunately there is the reality of some erosion ... and loss of close face to face contact with loved ones who are very dear to us ... from this earthling or mortal-life world ... and or loss of a pet that had needs and offered companionship everyday ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Have you experienced a fall while wearing a big wig? ... Has your voice become lower during a migration? ... During walking from a previous residence to an undetermined new place? ... We are just floating a couple quick examples to lead into a vision of adult rawlife human beings ... Each showing a divergent light radiating outward from the head and rays sent out in all directions from the chest ... ( now about all of us as a whole ) ... Everyone has their own identity that is similar to many others and boldly unique as compared to others ... We also own a slowly gradually evolving or changing quality of character within our awareness ... And spiritual faculty of consciousness that is when at its best is highly perceptive ... With reasoning is able to make good assessments and sensible conclusions of things that predictably or randomly occur ... Additionally every place on Earth can be pictured as the epitome of a collective and international source of light ... Humanity reveals more often than we like as failings ... including harsh negative emotional episodes ... too much domestic abuse ... too many human on human killings ... but it also manifests as kind and helpful actions ... nurturing and sustaining solutions ... wonderful gifts of life ... The genuineness of each of us and the originality of all of the different cultures that have existed ... exist ... through abrasive actions brightens mental physical states of being ... Is a beacon ... We cautiously-meanderingly to fast-swiftly flow and fortunately or unfortunately there is the reality of some erosion ... and loss of close face to face contact with loved ones who are very dear to us ... from this earthling or mortal-life world ... and or loss of a pet that had needs and offered companionship everyday ///"><div class="pt-track"><span class="pt-unit">/// Have you experienced a fall while wearing a big wig? ... Has your voice become lower during a migration? ... During walking from a previous residence to an undetermined new place? ... We are just floating a couple quick examples to lead into a vision of adult rawlife human beings ... Each showing a divergent light radiating outward from the head and rays sent out in all directions from the chest ... ( now about all of us as a whole ) ... Everyone has their own identity that is similar to many others and boldly unique as compared to others ... We also own a slowly gradually evolving or changing quality of character within our awareness ... And spiritual faculty of consciousness that is when at its best is highly perceptive ... With reasoning is able to make good assessments and sensible conclusions of things that predictably or randomly occur ... Additionally every place on Earth can be pictured as the epitome of a collective and international source of light ... Humanity reveals more often than we like as failings ... including harsh negative emotional episodes ... too much domestic abuse ... too many human on human killings ... but it also manifests as kind and helpful actions ... nurturing and sustaining solutions ... wonderful gifts of life ... The genuineness of each of us and the originality of all of the different cultures that have existed ... exist ... through abrasive actions brightens mental physical states of being ... Is a beacon ... We cautiously-meanderingly to fast-swiftly flow and fortunately or unfortunately there is the reality of some erosion ... and loss of close face to face contact with loved ones who are very dear to us ... from this earthling or mortal-life world ... and or loss of a pet that had needs and offered companionship everyday ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1151"><p class="pt-sr">/// Having something that is Not Physically-Actually-Literally Grounded ... Having something that is Not Bound To Go Anywhere In Particular ... Having something that is Not Held Together In A Customary Way ... Introducing Bribery Thank her ... Okay that&#x27;s a weird name ... A remarkable and strange thing happened during one of Bribery&#x27;s art exhibits ... A Hanging Assemblage Was Stolen ... Pulled Up And Out Through A Gallery Space Sunroof ( vast set of windows that are most of the ceiling of the gallery space ) ... It was this incident of a Night Burglar Or Thief ... Snatching ... Kidnapping ... the artist&#x27;s Largest Centerpiece Work titled ... Red orange Sun Belongings ... that Slightly Altered Him since it happened ... And by the way This ( admired in prominent contemporary art industry circles ) Sculptural Assemblage Work Has Not Yet Been Found Or Returned ... The Theft wasn&#x27;t a shocking public incident recorded with anyone&#x27;s phone because it Took Place During After Museum Hours ... Have You Ever Had An Event Of Your Life Reflected Back To You In A Mirror-Like Window ... As Part Of A Nightmare Or Daydream? ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Having something that is Not Physically-Actually-Literally Grounded ... Having something that is Not Bound To Go Anywhere In Particular ... Having something that is Not Held Together In A Customary Way ... Introducing Bribery Thank her ... Okay that&#x27;s a weird name ... A remarkable and strange thing happened during one of Bribery&#x27;s art exhibits ... A Hanging Assemblage Was Stolen ... Pulled Up And Out Through A Gallery Space Sunroof ( vast set of windows that are most of the ceiling of the gallery space ) ... It was this incident of a Night Burglar Or Thief ... Snatching ... Kidnapping ... the artist&#x27;s Largest Centerpiece Work titled ... Red orange Sun Belongings ... that Slightly Altered Him since it happened ... And by the way This ( admired in prominent contemporary art industry circles ) Sculptural Assemblage Work Has Not Yet Been Found Or Returned ... The Theft wasn&#x27;t a shocking public incident recorded with anyone&#x27;s phone because it Took Place During After Museum Hours ... Have You Ever Had An Event Of Your Life Reflected Back To You In A Mirror-Like Window ... As Part Of A Nightmare Or Daydream? ///"><div class="pt-track"><span class="pt-unit">/// Having something that is Not Physically-Actually-Literally Grounded ... Having something that is Not Bound To Go Anywhere In Particular ... Having something that is Not Held Together In A Customary Way ... Introducing Bribery Thank her ... Okay that&#x27;s a weird name ... A remarkable and strange thing happened during one of Bribery&#x27;s art exhibits ... A Hanging Assemblage Was Stolen ... Pulled Up And Out Through A Gallery Space Sunroof ( vast set of windows that are most of the ceiling of the gallery space ) ... It was this incident of a Night Burglar Or Thief ... Snatching ... Kidnapping ... the artist&#x27;s Largest Centerpiece Work titled ... Red orange Sun Belongings ... that Slightly Altered Him since it happened ... And by the way This ( admired in prominent contemporary art industry circles ) Sculptural Assemblage Work Has Not Yet Been Found Or Returned ... The Theft wasn&#x27;t a shocking public incident recorded with anyone&#x27;s phone because it Took Place During After Museum Hours ... Have You Ever Had An Event Of Your Life Reflected Back To You In A Mirror-Like Window ... As Part Of A Nightmare Or Daydream? ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="137"><div class="pt-bubble">
+  <p>Joe:  I don&#x27;t want to quit my online social Monkey Business but I would like to Volunteer as a Bird Watching Guide for Audubon Minnesota.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="106"><div class="pt-bubble">
+  <p>Tona:  I&#x27;m going to quit my Facebook Business Page and become a Park Ranger in Saskatchewan. Just kidding.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1165"><div class="pt-bubble">
+  <p>Artificial Intelligence Operatives always begin a No-Emotions-Meltdown-Episode with that Glorious Generic Sans Serif 0 ( zero ) in the Non-Subjective ... Synthetic Digital ... Mind&#x27;s Eye ... Zero&#x27;s other half or other partner of course is 1 ... No need to include an additional number or digit ... Someone suggested the capital letter Y because of its also perfect symmetry ... Do you work on developing New Cyber Security Solutions in a Small Dimly Lit Room? ... Slumped Forward with a Desktop Computer in a Partially Finished Basement? ... Are you Setting Panacea Or Adding Key Remedies for the growing problem of Social Media Account Hacking? ... Emotionally Rattling Massive Disruption of Good Things Shared And Sold Out There ... Thank You for your Service ...  Teens Hacking Accounts That Have Good Security In Place Is Not A Game ... It&#x27;s a kind of Intrusion that can Stop The Flow Of A Lot Of Good Happening In The World ... and cause us to ask the question ~ Why are we investing ourselves in this Two-Way Online Social Mission if it all can be Permanently Ruined in a matter of Seconds? /// If We Have To Start Over We Will Because It&#x27;s Still Worth It ///</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1604"><p class="pt-sr">/// Sure it makes sense for us to Celebrate our Wins but it&#x27;s the Bad And Awful Experiences that Stimulate and Jolt our Mental Capacities the most ... and help us Learn What Our Strengths Are To Be Resilient ... Surviving A Car Crash ... Fracturing A Bone And It Healing ... Going Through A Really Bad Case Of Acne ... Overcoming A Persistent Drug Or Alcohol Addiction ... Witnessing The Results Of Some Sort Of Animal Abuse That Causes You To Do Something About It ... Experiencing The Extinction Of A Job That You Thoroughly Loved Then Beginning A Different Job ... Coming Out On The Brightside Or Good Side After A Period Of Intense Depression ... Going On A Humanitarian Mission And Living Through A Plague Of Grasshoppers Devouring All Of The Crops In The Area Where You Were ... Enduring A Boom Of Excessive Materialism Leading To A Bust And Coming Out Of It With More Sustainable Ways And Means... Living Through Damage To The Environment Where You Are And Where Your Ancestors Have Lived ... Caused By Intentional Dumping And Or Careless Incapable Handling Of A Type Of Harmful To Health Pollution ... Waking Up And Fully Recovering After A Prolonged Coma ... Enduring The Death Of A Loved One Or Pet ... Filing For Bankruptcy And Then Taking On The Responsibility To Pay Off All The Debts ... Surviving Almost Drowning As A Result Of Falling Through Ice That Was Too Thin To Carry Your Weight ... Coming Face To Face With A Flash Flood ... Tornado ... Drought ... Wildfire ... Deadly Heat Wave ... Earthquake ... Tsunami ... Or Massive Mudslide ... And Surviving Through Any One Of Them ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Sure it makes sense for us to Celebrate our Wins but it&#x27;s the Bad And Awful Experiences that Stimulate and Jolt our Mental Capacities the most ... and help us Learn What Our Strengths Are To Be Resilient ... Surviving A Car Crash ... Fracturing A Bone And It Healing ... Going Through A Really Bad Case Of Acne ... Overcoming A Persistent Drug Or Alcohol Addiction ... Witnessing The Results Of Some Sort Of Animal Abuse That Causes You To Do Something About It ... Experiencing The Extinction Of A Job That You Thoroughly Loved Then Beginning A Different Job ... Coming Out On The Brightside Or Good Side After A Period Of Intense Depression ... Going On A Humanitarian Mission And Living Through A Plague Of Grasshoppers Devouring All Of The Crops In The Area Where You Were ... Enduring A Boom Of Excessive Materialism Leading To A Bust And Coming Out Of It With More Sustainable Ways And Means... Living Through Damage To The Environment Where You Are And Where Your Ancestors Have Lived ... Caused By Intentional Dumping And Or Careless Incapable Handling Of A Type Of Harmful To Health Pollution ... Waking Up And Fully Recovering After A Prolonged Coma ... Enduring The Death Of A Loved One Or Pet ... Filing For Bankruptcy And Then Taking On The Responsibility To Pay Off All The Debts ... Surviving Almost Drowning As A Result Of Falling Through Ice That Was Too Thin To Carry Your Weight ... Coming Face To Face With A Flash Flood ... Tornado ... Drought ... Wildfire ... Deadly Heat Wave ... Earthquake ... Tsunami ... Or Massive Mudslide ... And Surviving Through Any One Of Them ///"><div class="pt-track"><span class="pt-unit">/// Sure it makes sense for us to Celebrate our Wins but it&#x27;s the Bad And Awful Experiences that Stimulate and Jolt our Mental Capacities the most ... and help us Learn What Our Strengths Are To Be Resilient ... Surviving A Car Crash ... Fracturing A Bone And It Healing ... Going Through A Really Bad Case Of Acne ... Overcoming A Persistent Drug Or Alcohol Addiction ... Witnessing The Results Of Some Sort Of Animal Abuse That Causes You To Do Something About It ... Experiencing The Extinction Of A Job That You Thoroughly Loved Then Beginning A Different Job ... Coming Out On The Brightside Or Good Side After A Period Of Intense Depression ... Going On A Humanitarian Mission And Living Through A Plague Of Grasshoppers Devouring All Of The Crops In The Area Where You Were ... Enduring A Boom Of Excessive Materialism Leading To A Bust And Coming Out Of It With More Sustainable Ways And Means... Living Through Damage To The Environment Where You Are And Where Your Ancestors Have Lived ... Caused By Intentional Dumping And Or Careless Incapable Handling Of A Type Of Harmful To Health Pollution ... Waking Up And Fully Recovering After A Prolonged Coma ... Enduring The Death Of A Loved One Or Pet ... Filing For Bankruptcy And Then Taking On The Responsibility To Pay Off All The Debts ... Surviving Almost Drowning As A Result Of Falling Through Ice That Was Too Thin To Carry Your Weight ... Coming Face To Face With A Flash Flood ... Tornado ... Drought ... Wildfire ... Deadly Heat Wave ... Earthquake ... Tsunami ... Or Massive Mudslide ... And Surviving Through Any One Of Them ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1358"><p class="pt-sr">/// Late And Very Much Still Alive In Our Mind And Soul ~ Jesus ( also Joshua, Yeshua ) and The Great Spirit ... they both know that We Are Not Able To Fully Understand Ourselves Without Frequently Seeing All The Important Parts Of Ourselves In Others ... This doesn&#x27;t have anything to do with boosting self-esteem or enhancing self-importance ... Living As Mortals Or Living On Earth With Fallen Angels ... Caca Maniac Demons ... Maestros ... Imposters ... Inside Of All Of Us ... These Mild To Strong Forces Are Pulling Portions Of Who We Are ... Because We Are Broken And ( in other ways ) Imperfect Earthlings At The Base-Level Of Ashes Gray Floods Of Mud ... Precious To Lame Dirt ... so to speak ... During Every Process Of Receiving The Useful And Delightful Qualities Of Other Human Being&#x27;s Reflectors ... We Are Lifted Up And Have Good Enough Reason To Carry On ... Thrive ... Bloom ... Exist  ... Radiate Valuable Wisdoms ... Cope With Day-To-Day Life ... Help Others With Simple Good Deeds ... and so in closing we would like to add this special statement ~ You Have The Potential To Be An Ultimate Viable To These Times Chameleon ... Follow What You Are ( Gut Feeling ) Sold By ... Move On Your Developed Spiritual Instincts ... Sense Everything About The Surprises To Indifferences Of Life ... Live Fully In The Moment And Go Forth ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Late And Very Much Still Alive In Our Mind And Soul ~ Jesus ( also Joshua, Yeshua ) and The Great Spirit ... they both know that We Are Not Able To Fully Understand Ourselves Without Frequently Seeing All The Important Parts Of Ourselves In Others ... This doesn&#x27;t have anything to do with boosting self-esteem or enhancing self-importance ... Living As Mortals Or Living On Earth With Fallen Angels ... Caca Maniac Demons ... Maestros ... Imposters ... Inside Of All Of Us ... These Mild To Strong Forces Are Pulling Portions Of Who We Are ... Because We Are Broken And ( in other ways ) Imperfect Earthlings At The Base-Level Of Ashes Gray Floods Of Mud ... Precious To Lame Dirt ... so to speak ... During Every Process Of Receiving The Useful And Delightful Qualities Of Other Human Being&#x27;s Reflectors ... We Are Lifted Up And Have Good Enough Reason To Carry On ... Thrive ... Bloom ... Exist  ... Radiate Valuable Wisdoms ... Cope With Day-To-Day Life ... Help Others With Simple Good Deeds ... and so in closing we would like to add this special statement ~ You Have The Potential To Be An Ultimate Viable To These Times Chameleon ... Follow What You Are ( Gut Feeling ) Sold By ... Move On Your Developed Spiritual Instincts ... Sense Everything About The Surprises To Indifferences Of Life ... Live Fully In The Moment And Go Forth ///"><div class="pt-track"><span class="pt-unit">/// Late And Very Much Still Alive In Our Mind And Soul ~ Jesus ( also Joshua, Yeshua ) and The Great Spirit ... they both know that We Are Not Able To Fully Understand Ourselves Without Frequently Seeing All The Important Parts Of Ourselves In Others ... This doesn&#x27;t have anything to do with boosting self-esteem or enhancing self-importance ... Living As Mortals Or Living On Earth With Fallen Angels ... Caca Maniac Demons ... Maestros ... Imposters ... Inside Of All Of Us ... These Mild To Strong Forces Are Pulling Portions Of Who We Are ... Because We Are Broken And ( in other ways ) Imperfect Earthlings At The Base-Level Of Ashes Gray Floods Of Mud ... Precious To Lame Dirt ... so to speak ... During Every Process Of Receiving The Useful And Delightful Qualities Of Other Human Being&#x27;s Reflectors ... We Are Lifted Up And Have Good Enough Reason To Carry On ... Thrive ... Bloom ... Exist  ... Radiate Valuable Wisdoms ... Cope With Day-To-Day Life ... Help Others With Simple Good Deeds ... and so in closing we would like to add this special statement ~ You Have The Potential To Be An Ultimate Viable To These Times Chameleon ... Follow What You Are ( Gut Feeling ) Sold By ... Move On Your Developed Spiritual Instincts ... Sense Everything About The Surprises To Indifferences Of Life ... Live Fully In The Moment And Go Forth ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1179"><p class="pt-sr">/// Say Her Tell She ... We Are Common And Cannot Predict The Future ... We Do Have The Capability Of Being Covered Head To Toe In One Color Helpers ... Or Prism(s) Adorned Healers ... Our Shared Misfortunes And Rejections Can Teach Us Many Things ... And All The Different Serene ... Well Blended ... Soothing Skies Viewed From Earth Are Fortunes That No One Can Put Money On ... Look Up Mea Saye ... On The Other Palm ... She She High And Sailing Into A Brand New Space ... Don&#x27;t Lose Faith ... Stoneface He Hymn ... Tell Us What You Are Thinking ... We Cannot Read Your Mind ... All Receivers ~ Know Here And Now That Every Grandmother In The Village Or City Where You Are At To The Other Side Of The World Would Drop What They&#x27;re Doing And Hug You And Protect You ... If They Are Able To ... Good Immortal Holy Spirit(s) ... Hovering Near To Beyond Stars ... Do Not Allow Any More Serious-Deliberate Lies And Intervene And Stop Desperate Drug Addicted Individuals From Attacking And Or Robbing The Weakest And In Other Ways Most Vulnerable ... Who Are Walking To And From Grocery Stores In Our Communities ... Signed Registered Her Him They Twist Of Fate Teller ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Say Her Tell She ... We Are Common And Cannot Predict The Future ... We Do Have The Capability Of Being Covered Head To Toe In One Color Helpers ... Or Prism(s) Adorned Healers ... Our Shared Misfortunes And Rejections Can Teach Us Many Things ... And All The Different Serene ... Well Blended ... Soothing Skies Viewed From Earth Are Fortunes That No One Can Put Money On ... Look Up Mea Saye ... On The Other Palm ... She She High And Sailing Into A Brand New Space ... Don&#x27;t Lose Faith ... Stoneface He Hymn ... Tell Us What You Are Thinking ... We Cannot Read Your Mind ... All Receivers ~ Know Here And Now That Every Grandmother In The Village Or City Where You Are At To The Other Side Of The World Would Drop What They&#x27;re Doing And Hug You And Protect You ... If They Are Able To ... Good Immortal Holy Spirit(s) ... Hovering Near To Beyond Stars ... Do Not Allow Any More Serious-Deliberate Lies And Intervene And Stop Desperate Drug Addicted Individuals From Attacking And Or Robbing The Weakest And In Other Ways Most Vulnerable ... Who Are Walking To And From Grocery Stores In Our Communities ... Signed Registered Her Him They Twist Of Fate Teller ///"><div class="pt-track"><span class="pt-unit">/// Say Her Tell She ... We Are Common And Cannot Predict The Future ... We Do Have The Capability Of Being Covered Head To Toe In One Color Helpers ... Or Prism(s) Adorned Healers ... Our Shared Misfortunes And Rejections Can Teach Us Many Things ... And All The Different Serene ... Well Blended ... Soothing Skies Viewed From Earth Are Fortunes That No One Can Put Money On ... Look Up Mea Saye ... On The Other Palm ... She She High And Sailing Into A Brand New Space ... Don&#x27;t Lose Faith ... Stoneface He Hymn ... Tell Us What You Are Thinking ... We Cannot Read Your Mind ... All Receivers ~ Know Here And Now That Every Grandmother In The Village Or City Where You Are At To The Other Side Of The World Would Drop What They&#x27;re Doing And Hug You And Protect You ... If They Are Able To ... Good Immortal Holy Spirit(s) ... Hovering Near To Beyond Stars ... Do Not Allow Any More Serious-Deliberate Lies And Intervene And Stop Desperate Drug Addicted Individuals From Attacking And Or Robbing The Weakest And In Other Ways Most Vulnerable ... Who Are Walking To And From Grocery Stores In Our Communities ... Signed Registered Her Him They Twist Of Fate Teller ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1208"><p class="pt-sr">/// What&#x27;s going on in your life? ... Have you experienced any fall? ... Do you have some nerve pain somewhere in your body? ... How is your physical endurance? ... Are you able to walk up a steep incline for a half hour or so without becoming so tired that you have to stop and sit down? ... When you feel nauseous do you also feel guilty that you might not be in tip top shape physically? ... Do you have moments when you surrender your identity or let go of the awesome strong rigid image you have of yourself for a sweet easy flexible self image? ... Are you interested in things having to do with love? ... Do you listen attentively and patiently to your closest loved ones ... friends ... new people you meet ... for the wisdoms and beneficial short stories they offer? ... Do you judge yourself often and or harshly most days? ... A few thorough scientific studies have concluded that chronic selfishness can shorten a human lifespan 10 to 15 years ... Also, would you be open to or willing to let go of the ego if it would greatly reduce your physical pain and mental suffering? ... The sun is slowly coming up ... darkness is gradually transforming to light of this new day ... we can do it ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// What&#x27;s going on in your life? ... Have you experienced any fall? ... Do you have some nerve pain somewhere in your body? ... How is your physical endurance? ... Are you able to walk up a steep incline for a half hour or so without becoming so tired that you have to stop and sit down? ... When you feel nauseous do you also feel guilty that you might not be in tip top shape physically? ... Do you have moments when you surrender your identity or let go of the awesome strong rigid image you have of yourself for a sweet easy flexible self image? ... Are you interested in things having to do with love? ... Do you listen attentively and patiently to your closest loved ones ... friends ... new people you meet ... for the wisdoms and beneficial short stories they offer? ... Do you judge yourself often and or harshly most days? ... A few thorough scientific studies have concluded that chronic selfishness can shorten a human lifespan 10 to 15 years ... Also, would you be open to or willing to let go of the ego if it would greatly reduce your physical pain and mental suffering? ... The sun is slowly coming up ... darkness is gradually transforming to light of this new day ... we can do it ///"><div class="pt-track"><span class="pt-unit">/// What&#x27;s going on in your life? ... Have you experienced any fall? ... Do you have some nerve pain somewhere in your body? ... How is your physical endurance? ... Are you able to walk up a steep incline for a half hour or so without becoming so tired that you have to stop and sit down? ... When you feel nauseous do you also feel guilty that you might not be in tip top shape physically? ... Do you have moments when you surrender your identity or let go of the awesome strong rigid image you have of yourself for a sweet easy flexible self image? ... Are you interested in things having to do with love? ... Do you listen attentively and patiently to your closest loved ones ... friends ... new people you meet ... for the wisdoms and beneficial short stories they offer? ... Do you judge yourself often and or harshly most days? ... A few thorough scientific studies have concluded that chronic selfishness can shorten a human lifespan 10 to 15 years ... Also, would you be open to or willing to let go of the ego if it would greatly reduce your physical pain and mental suffering? ... The sun is slowly coming up ... darkness is gradually transforming to light of this new day ... we can do it ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="88"><div class="pt-bubble">
+  <p>Brian:  While you&#x27;re still alive give life your all, in your own unique and special way.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="17"><div class="pt-bubble">
+  <p>Ebo:  Absolutely!</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1022"><p class="pt-sr">/// We are sometimes Sturdy Basket Cases and sometimes The Horn Of Our Small Village ... We Think That We Are Wasting Our Time Then Some Masterful Set Of Clues Appears Within Our Range Of Vision ... And Those Few Non Useful Thoughts Fade And Are Gone ... We are Back To Being Bright Stars Orbiting Earth ... Guiding Many Different Kinds Of Places ... Collective Felt Locations ... Situations ... A Percentage Of Them Obviously More Peaceful Than Others ... We are Forward or Onto The Next One ... We are Humble And Near A Host And Collection Of Important Jottings ... We are All About Right Now And Concerning ... Regarding A Long Time Ago ... We have Warm Sidewalk And Hot House Minor Conflicts And Converse For Hours ... These are Stories That Engage Memory And Allow Our Mind To Get Extra Healthy Activity ... Stimulus ... Sometimes a conversation consists of Numerous Thin Slices Of Different Times And Happenings Injected ... Mosaic Of Random Small Pieces Spoken In English Or Another Native Tongue First Language ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// We are sometimes Sturdy Basket Cases and sometimes The Horn Of Our Small Village ... We Think That We Are Wasting Our Time Then Some Masterful Set Of Clues Appears Within Our Range Of Vision ... And Those Few Non Useful Thoughts Fade And Are Gone ... We are Back To Being Bright Stars Orbiting Earth ... Guiding Many Different Kinds Of Places ... Collective Felt Locations ... Situations ... A Percentage Of Them Obviously More Peaceful Than Others ... We are Forward or Onto The Next One ... We are Humble And Near A Host And Collection Of Important Jottings ... We are All About Right Now And Concerning ... Regarding A Long Time Ago ... We have Warm Sidewalk And Hot House Minor Conflicts And Converse For Hours ... These are Stories That Engage Memory And Allow Our Mind To Get Extra Healthy Activity ... Stimulus ... Sometimes a conversation consists of Numerous Thin Slices Of Different Times And Happenings Injected ... Mosaic Of Random Small Pieces Spoken In English Or Another Native Tongue First Language ///"><div class="pt-track"><span class="pt-unit">/// We are sometimes Sturdy Basket Cases and sometimes The Horn Of Our Small Village ... We Think That We Are Wasting Our Time Then Some Masterful Set Of Clues Appears Within Our Range Of Vision ... And Those Few Non Useful Thoughts Fade And Are Gone ... We are Back To Being Bright Stars Orbiting Earth ... Guiding Many Different Kinds Of Places ... Collective Felt Locations ... Situations ... A Percentage Of Them Obviously More Peaceful Than Others ... We are Forward or Onto The Next One ... We are Humble And Near A Host And Collection Of Important Jottings ... We are All About Right Now And Concerning ... Regarding A Long Time Ago ... We have Warm Sidewalk And Hot House Minor Conflicts And Converse For Hours ... These are Stories That Engage Memory And Allow Our Mind To Get Extra Healthy Activity ... Stimulus ... Sometimes a conversation consists of Numerous Thin Slices Of Different Times And Happenings Injected ... Mosaic Of Random Small Pieces Spoken In English Or Another Native Tongue First Language ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1236"><p class="pt-sr">/// In The Sacred Mood Of Evening Acts ... In The Spirit Of Few Actions ... All we want is A Well Rooted Well Secured Room ... On The West Facing Side Of A Leafy Jagged Rocks Mountain ... Million Or More Big Deep Quiet Green Leaves .... koa ka ka koa koa koa ... A Whole Lot Of Subtle Sacred Mysterious Texture Surrounding And Spreading Out To Infinity ... All Physical Features Gradually Shrinking As They Flow To The Balanced Horizon ... also The Sweet Sound of Ma Si Tu Light Mad Gas Jazz ... Streaming Out Of A Friendly Go Go Jacaranda Tree Stump ( all edges smoothed and softened ) ... Slowly Breathe All This Shit In ... Sitting And So Lovely Ting And Teenk Of Notes ... Sister Melody ... Mountain Heart Peace and Mild Fascination ... During Most Spans Nothing Wild Could See Us ... Nothing Could Steadily Without A Blink See Our Soleroamy Buttocks ... Our Monkey Ass Photograph On The Bedside Table... That Orange And Hairy Tarantula Keister ... or Macaw Small Pools That Reflect Like New Mirrors ... Dear Scarred Mountainside Napping Blue ... Dear Not Fully Comprehendable Lyrics ... Drastically Shortened Libretto ... Dear Existential Capsule ... Love ... Can You Feel To The Essence Of Your Core This Fifteen Minute Movie? ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// In The Sacred Mood Of Evening Acts ... In The Spirit Of Few Actions ... All we want is A Well Rooted Well Secured Room ... On The West Facing Side Of A Leafy Jagged Rocks Mountain ... Million Or More Big Deep Quiet Green Leaves .... koa ka ka koa koa koa ... A Whole Lot Of Subtle Sacred Mysterious Texture Surrounding And Spreading Out To Infinity ... All Physical Features Gradually Shrinking As They Flow To The Balanced Horizon ... also The Sweet Sound of Ma Si Tu Light Mad Gas Jazz ... Streaming Out Of A Friendly Go Go Jacaranda Tree Stump ( all edges smoothed and softened ) ... Slowly Breathe All This Shit In ... Sitting And So Lovely Ting And Teenk Of Notes ... Sister Melody ... Mountain Heart Peace and Mild Fascination ... During Most Spans Nothing Wild Could See Us ... Nothing Could Steadily Without A Blink See Our Soleroamy Buttocks ... Our Monkey Ass Photograph On The Bedside Table... That Orange And Hairy Tarantula Keister ... or Macaw Small Pools That Reflect Like New Mirrors ... Dear Scarred Mountainside Napping Blue ... Dear Not Fully Comprehendable Lyrics ... Drastically Shortened Libretto ... Dear Existential Capsule ... Love ... Can You Feel To The Essence Of Your Core This Fifteen Minute Movie? ///"><div class="pt-track"><span class="pt-unit">/// In The Sacred Mood Of Evening Acts ... In The Spirit Of Few Actions ... All we want is A Well Rooted Well Secured Room ... On The West Facing Side Of A Leafy Jagged Rocks Mountain ... Million Or More Big Deep Quiet Green Leaves .... koa ka ka koa koa koa ... A Whole Lot Of Subtle Sacred Mysterious Texture Surrounding And Spreading Out To Infinity ... All Physical Features Gradually Shrinking As They Flow To The Balanced Horizon ... also The Sweet Sound of Ma Si Tu Light Mad Gas Jazz ... Streaming Out Of A Friendly Go Go Jacaranda Tree Stump ( all edges smoothed and softened ) ... Slowly Breathe All This Shit In ... Sitting And So Lovely Ting And Teenk Of Notes ... Sister Melody ... Mountain Heart Peace and Mild Fascination ... During Most Spans Nothing Wild Could See Us ... Nothing Could Steadily Without A Blink See Our Soleroamy Buttocks ... Our Monkey Ass Photograph On The Bedside Table... That Orange And Hairy Tarantula Keister ... or Macaw Small Pools That Reflect Like New Mirrors ... Dear Scarred Mountainside Napping Blue ... Dear Not Fully Comprehendable Lyrics ... Drastically Shortened Libretto ... Dear Existential Capsule ... Love ... Can You Feel To The Essence Of Your Core This Fifteen Minute Movie? ///</span></div></div></div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/here-is-to-you/">Next chapter: Here Is to You <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>

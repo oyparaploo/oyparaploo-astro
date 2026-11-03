@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dear Heart Joyful Hues · Text Message Memoir · Paraploo</title>
+<meta name="description" content="Dear Heart Joyful Hues, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/june-2023/">
+</head>
+<body class="pt-page pt-light" style="--pt-ground:#f8dfe4;--pt-ground-ink:#111;--pt-sent:#2d296a;--pt-sent-ink:var(--ink-on-dark, #e8e0d6);--pt-reply:#ffffff;--pt-reply-ink:#111;--pt-board:#14122d;--pt-glow:#4b3fa0;" data-stops="#f8dfe4,#f9dfc8,#f6efc3,#e4f0ce,#d8eaf4,#e5def1">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">Dear Heart Joyful Hues</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of Dear Heart Joyful Hues">
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="17"><div class="pt-bubble">
+  <p>* FUN WITH TITLES</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="10"><div class="pt-bubble">
+  <p>Love it🤍🌊🌀</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="15"><div class="pt-bubble">
+  <p>Great titles✨🙌🏻</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="354"><p class="pt-sr">/// NEW TITLES /// 1. Moving In Melting Polar Saltwater /// 2. Close To Invisible Cay Pasa El Paris /// 3. Landfill Block And Interceptions /// 4. Immersed Into A Dream With Concerns /// 5. Objects That Also Swirl /// 6. Green And Blue Re- Prize /// 7. This Journey Across The Sea Floor (Inspections) /// 8. Romance Of Land Maps And Prayer Labyrinths ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// NEW TITLES /// 1. Moving In Melting Polar Saltwater /// 2. Close To Invisible Cay Pasa El Paris /// 3. Landfill Block And Interceptions /// 4. Immersed Into A Dream With Concerns /// 5. Objects That Also Swirl /// 6. Green And Blue Re- Prize /// 7. This Journey Across The Sea Floor (Inspections) /// 8. Romance Of Land Maps And Prayer Labyrinths ///"><div class="pt-track"><span class="pt-unit">/// NEW TITLES /// 1. Moving In Melting Polar Saltwater /// 2. Close To Invisible Cay Pasa El Paris /// 3. Landfill Block And Interceptions /// 4. Immersed Into A Dream With Concerns /// 5. Objects That Also Swirl /// 6. Green And Blue Re- Prize /// 7. This Journey Across The Sea Floor (Inspections) /// 8. Romance Of Land Maps And Prayer Labyrinths ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="14"><div class="pt-bubble">
+  <p>Thanks much. 👌</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="61"><p class="pt-sr">/// WE ARE GOING TO DIE SOONER THAN WE ORIGINALLY THOUGHT ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// WE ARE GOING TO DIE SOONER THAN WE ORIGINALLY THOUGHT ///"><div class="pt-track"><span class="pt-unit">/// WE ARE GOING TO DIE SOONER THAN WE ORIGINALLY THOUGHT ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="56"><div class="pt-bubble">
+  <p>Sunshine Sofa:  Is that a good way to start a Monday. !?</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="55"><div class="pt-bubble">
+  <p>Brian:  Don&#x27;t look at me. I didn&#x27;t create that message.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="42"><div class="pt-bubble">
+  <p>Kika:  DIE most likely actually means FADE </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="99"><div class="pt-bubble">
+  <p>Hope you all are feeling ok with this crazy weather!! It literally looks like a campfire outside :/</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="11"><div class="pt-bubble">
+  <p>For sure!🤪🏕</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="35"><div class="pt-bubble">
+  <p>Hope you are wearing an N95 mask. 💜</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="100"><div class="pt-bubble">
+  <p>My AirVisual phone app is showing the air is Unhealthy in St Paul and Very Unhealthy in Minneapolis.</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="1"><div class="pt-bubble">
+  <p>🏙</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="112"><div class="pt-bubble">
+  <p>I love the title of this song!</p>
+  <p><a href="https://open.spotify.com/track/3ejqlgVNAYr7PWuBSXl4K2?si=i4CiuQpfStOFiQE6AflnDg">https://open.spotify.com/track/3ejqlgVNAYr7PWuBSXl4K2?si=i4CiuQpfStOFiQE6AflnDg</a></p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="2"><div class="pt-bubble">
+  <p>🎺👍</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="1"><div class="pt-bubble">
+  <p>😆</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="19"><div class="pt-bubble">
+  <p>Lol! Love that Dad😆</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="23"><div class="pt-bubble">
+  <p>Made it to the airport!</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="25"><div class="pt-bubble">
+  <p>🎶☀️💜🙏Enjoy the adventure!</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="24"><div class="pt-bubble">
+  <p>Ollo must be good to go.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="65"><div class="pt-bubble">
+  <p>❤️<br>
+  If you squint your eyes cover art kind of looks like you 🧐😁💙</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="1"><div class="pt-bubble">
+  <p>🥰</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="16"><div class="pt-bubble">
+  <p>Haha yes indeed! </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="74"><div class="pt-bubble">
+  <p>Just landed! The ear popping over the mountains is brutal 🏔️ but beautiful </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="22"><div class="pt-bubble">
+  <p>How are your ears now?</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="17"><div class="pt-bubble">
+  <p>Interesting photo</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="543"><p class="pt-sr">/// MESSAGE ALERT/// What are The 6 Official Human Heart Joy Colors of Pride? ///  1. (Leaning Towards Warm) Light Pink  2. Cantelope Orange  3. Calm Lemon Yellow  4. Fully Alive Light Yellowish Green  5. Besty Ocean And Sky Light Blue  6. Wonderful In-between Measure Of Light Violet And Lavender /// Carlton:  How dare you send this ... Spirit! You forgot to add Great And Timeless Indigo?! Ha ha. Studio Shoe:  I love it! Get ready for the Sunday Parade peops. Ibarra:  I got my New Agorean Cat Tail securely sewn on. It&#x27;s ready to go.</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// MESSAGE ALERT/// What are The 6 Official Human Heart Joy Colors of Pride? ///  1. (Leaning Towards Warm) Light Pink  2. Cantelope Orange  3. Calm Lemon Yellow  4. Fully Alive Light Yellowish Green  5. Besty Ocean And Sky Light Blue  6. Wonderful In-between Measure Of Light Violet And Lavender ///"><div class="pt-track"><span class="pt-unit">/// MESSAGE ALERT/// What are The 6 Official Human Heart Joy Colors of Pride? ///  1. (Leaning Towards Warm) Light Pink  2. Cantelope Orange  3. Calm Lemon Yellow  4. Fully Alive Light Yellowish Green  5. Besty Ocean And Sky Light Blue  6. Wonderful In-between Measure Of Light Violet And Lavender ///</span></div></div><div class="pt-row" data-line="Carlton:  How dare you send this ... Spirit! You forgot to add Great And Timeless Indigo?! Ha ha."><div class="pt-track"><span class="pt-unit">Carlton:  How dare you send this ... Spirit! You forgot to add Great And Timeless Indigo?! Ha ha.</span></div></div><div class="pt-row" data-line="Studio Shoe:  I love it! Get ready for the Sunday Parade peops."><div class="pt-track"><span class="pt-unit">Studio Shoe:  I love it! Get ready for the Sunday Parade peops.</span></div></div><div class="pt-row" data-line="Ibarra:  I got my New Agorean Cat Tail securely sewn on. It&#x27;s ready to go."><div class="pt-track"><span class="pt-unit">Ibarra:  I got my New Agorean Cat Tail securely sewn on. It&#x27;s ready to go.</span></div></div></div></div>
+<div class="pt-beat pt-reply" data-len="28"><div class="pt-bubble">
+  <p>😊😆🏳️‍🌈🏳️‍⚧️ love it! 💜❤️🧡💛💚💙</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="20"><div class="pt-bubble">
+  <p>Ears are doing well👍</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="73"><div class="pt-bubble">
+  <p>I guess all Pride parades are on Sunday...whether Mpls, Seattle, or NYC.🌈</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="60"><div class="pt-bubble">
+  <p>Yess!! It&#x27;s a whole weekend affair here, I&#x27;m excited🏳️‍🌈🏳️‍🌈</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="2"><div class="pt-bubble">
+  <p>🌈👍</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="164"><div class="pt-bubble">
+  <p>Ollo and I went to the museum of museums yesterday which is run by artists! I really loved the exhibits they had going on, specifically an otherworldly ceramics one </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="70"><div class="pt-bubble">
+  <p>Crazy exhibits!<br>
+  Very interesting figurations and details!<br>
+  Fun! 🩷❤️</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="16"><div class="pt-bubble">
+  <p>Wow! Very cool.🫶</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="2"><div class="pt-bubble">
+  <p>😊😊</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="31"><div class="pt-bubble">
+  <p>At pike place market right now! </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="37"><div class="pt-bubble">
+  <p>Cute!🐠Did you see guys throwing fish?</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="80"><div class="pt-bubble">
+  <p>It looks like you have been seeing lots of fun things🧡 very cool museum pictures</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="31"><div class="pt-bubble">
+  <p>I wish I saw the throwing fish!</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="101"><div class="pt-bubble">
+  <p>Ollo and I went to this awesome cafe that&#x27;s also a bike shop, right across from where we&#x27;re staying!🚴 </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="12"><div class="pt-bubble">
+  <p>pic please 😁</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="12"><div class="pt-bubble">
+  <p>Just kidding</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="62"><div class="pt-bubble">
+  <p>👍<br>
+  Did you see lots of people on bikes in and around Seattle?</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="23"><div class="pt-bubble">
+  <p>More than you see here?</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="21"><div class="pt-bubble">
+  <p>Very cool vibe.🚴‍♀️☕️</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="132"><div class="pt-bubble">
+  <p>Honestly it&#x27;s hard to tell! I think there were definitely more than we expected, specifically in the neighborhood we were staying in </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="30"><div class="pt-bubble">
+  <p>At the conservatory right now! </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="1"><div class="pt-bubble">
+  <p>😘</p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="54"><div class="pt-bubble">
+  <p>Also we went to a mushroom coffee shop today! Very fun </p>
+</div></div>
+<div class="pt-beat pt-reply" data-len="10"><div class="pt-bubble">
+  <p>So sweet!🍄</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="29"><div class="pt-bubble">
+  <p>Did you have mycelium coffee?</p>
+</div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/may-2023/">Next chapter: Don’t Freak Out or Become Paralyzed <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>

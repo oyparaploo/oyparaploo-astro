@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Since the Age of Six · Text Message Memoir · Paraploo</title>
+<meta name="description" content="Since the Age of Six, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/since-the-age-of-six/">
+</head>
+<body class="pt-page" style="--pt-ground:#1b3036;--pt-ground-ink:var(--ink-on-dark, #e8e0d6);--pt-sent:#f2b45a;--pt-sent-ink:#111;--pt-reply:#e6e2da;--pt-reply-ink:#111;--pt-board:#0b0f0e;--pt-glow:#f2b45a;" data-stops="#1b3036,#3a2715,#1f2731,#10201c,#3a2e24">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">Since the Age of Six</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of Since the Age of Six">
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="291"><div class="pt-bubble">
+  <p>Motifs Of A Wonderful Person Named Tholinet</p>
+  <p>As this child grew old, their world became more rested and less restricted. They were not yet a label or number. When at a loved one&#x27;s funeral, they inherited a special Maine shag cat born into this world in a vintage seaside Palermo hotel room.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="489"><div class="pt-bubble">
+  <p>Tholinet visited treasured museums all over Europe and Northern Africa. After years of these accumulated experiences, which meant a great deal, they didn&#x27;t change the rhythm of simple life and confined themselves even more to the intriguing nearby surroundings—excluding any provincial inhabitants who were also part of any of the examined scenes. A large stone on a river bank is sometimes a weak and pale loaner. Every type of local tree has joyful blossoms and tops for familiar worlds.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="325"><div class="pt-bubble">
+  <p>Since the age of six or earlier, they have never been bored with blends of colors and dancing lit shapes of all kinds. They sojourned at Talloires, and Tholinet painted, with an intuitive spirit and good energy, ideas for valuable future stories. The exacted allowances were considered to be tender psyche or mentality cures.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="546"><div class="pt-bubble">
+  <p>Now that we are here, there is no need to be somewhere else, physically or in mind. There is no need to be distracted by any missings. Beginning again with something expressive, so be subdued assertions more often—fully present and fascinating-comfortable monotony. We purge nothing amusing to divert. A big river is very nice. Any river is not worth the harmful actions and dormancy of its government or other wrong story law-making results. Souls Hope River Surface Sparkles with Thousands Of Bright Shapes, and Vistas are Healing and Soothing.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="292"><div class="pt-bubble">
+  <p>With the Tools available today, we slightly more privileged souls can turn our organized interests and gathered loves into enough money-in-hand to survive in moderately expensive locations ... and then with Grace and Patience flourish in a host of other ways ... like free children grown ups.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="24"><div class="pt-bubble">
+  <p>WHAT ARE DREAMS MADE OF? </p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="71"><div class="pt-bubble">
+  <p>Professor Raja:  We will discuss this during our next class or session.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="48"><div class="pt-bubble">
+  <p>Taking Inventory - It&#x27;s the thought that counts.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1725"><div class="pt-bubble">
+  <p>Find out what&#x27;s going on in your area ... Make and have something to eat that comforts you ... At your place do something that is calming and soothing ... Allow yourself some time to give yourself a break from your grief ... In other words ... permit yourself to be joyful ... Permission to feel within yourself a sense of peace ... Know you are grieving but it doesn&#x27;t have to be so raw ... In your living space ... you can also display memories of loved ones as a still life arrangement or go further and create an elaborate ofrendas to honor all your loved ones ... This loved one is no longer physically present but our love for them never dies ... The love continues ... It is about remembering and connecting ... When we are in the throes of a mild to intense heart-wrenching experience ... when we feel our body centre is hollow ... we need ways of being that can give us reinforcement ... Being creative helps a lot ... being creative with ways to still connect with a deceased loved one in special ways like ~ Repurposing personal items into a special invented craft ... Material representation made to lift spirits and frequently recall the passed on loved one as a belonging in your domestic environment ... Also ... Articles collected and saved in a trunk can be revisited to make a sensory connection when you feel that you need to ... We miss the hugs and a lot of the other stuff we once experienced with our loved ones ... concrete-real items can help ... They can be the next best thing ... Going for walks and one very long walk once a week ... moving your body ... getting your heart rate up ... can help ... The mind and body experienced as a whole can help you take the first steps to address your grief.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1502"><div class="pt-bubble">
+  <p>Most people&#x27;s first response to grief is shock and numbness ... We can only feel these strong emotions in small increments ... The pain is forcing you to face this new reality and to face it you adapt ... As you adapt it gives space to think about questions like ~ Where am I at now? ... What does this mean? ... If you try to block all the natural grief ... you function okay but your capacity to feel is greatly reduced ... so that you don&#x27;t exactly know what you are feeling ... It is the love and connection to others that enables us to survive through when we feel pain caused by grief ... When a loved one has died it is the love of others we need most ... Additionally ... you have to find ways to care for yourself personally ... A grieving person might be extra hard on themselves ... They might sabotage themselves in various ways and not do anything about it because it might bring shame ... You need to first be compassionate with yourself then get help from others so that the grieving process isn&#x27;t isolating but instead warm and connected to others ... Our world is also a digital world ~ What if we no longer interpersonally know someone? ... There are a lot of support groups out there for people that are grieving ... You can volunteer at organizations or clubs that match your interests ... You just have to get one step out of your comfort zone ... To help you snap out of feeling sorry for yourself take small steps ~ Do the first Google search ... Everyday make a little progress.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1698"><div class="pt-bubble">
+  <p>Pain caused by grief does change with time but if we are not active in that process the pain doesn&#x27;t change much ... it gets shut down ... What you block out harms you over time ... It&#x27;s what happens when we allow the aspects of ourselves that we most fear attempt to heal us ... A lot of it has to do with control and shame ... To thrive in any competitive environment ... we feel that we have to show we are strong ... resilient and not vulnerable ... Also ... what we feel is invisible ... Grief working with our emotions is messy and chaotic ... This is uncomfortable and so we downsize and neatly arrange these feelings ... Because you feel powerless ... Grief pushes us off our center... Grief of a loved one becomes something to survive ... You are in survival mode during the process even though you may not perceive it that way ... The deep sadness can seem like it is threatening you in some way ... During grieving a lot of people want to become extra busy ... The super busyness is a type of armor... Working harder ... exercising more ... doing a lot more searching online for things to buy ... ( back to before the death ) ... There is a sort of blissful ignorance that when something hasn&#x27;t happened to us we are in full control of everything ... There is the false thinking that life has a completely understandable order to it ... Having a devastating experience throws everything that has an order off kilter ... It might even be too much for you to see and hear other people out in the world laughing and having a good time ... You want to in mind return to when you were like that ... You are confronted with living in the world and at the same time suffering through something.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1158"><div class="pt-bubble">
+  <p>What To Contemplate When Buying A Work Of Art ... #1 Do you have the money or barter resources to acquire it? #2 It is considered not good behavior ... when attempting to purchase an expensive piece ... to offer a price that is unreasonably lower than the listed price ... #3 Find out the provenance of the piece or collection of items ... Was it owned by someone else before? #4 In our humble opinion ... viability to current times should have more to do with the value of each work than just more of a history and less to do with the environmental and social things that are realities today ... #5 Take a look at the CV or chronological documentation of how the art journey has evolved to where it is now ... #6 Does the work hold a personal value to you? ... Does it touch your heart in some way? ... Maybe you like the direction of the story ... Maybe the mood of the appearance of an item or series of items will stir-create positive soothing energy for you everyday ... Will be reliably uplifting ... #7 Original ideas and expressive methods can make a work of art timeless and that is important if you are going to live with a piece for quite a while.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1085"><div class="pt-bubble">
+  <p>Do you have an unexpected question to ask? ... Can we pitch some precious dirt ( using a vintage iron and wood shovel ) onto your backside as part of a night theater performance? ... Is there something on your mind you think we would like to know about? ... We want to hear about it and fully see you ... Cross our soul ... With empathy let&#x27;s connect-join and thrive together as partners ... During sacred to us timeless workspace minutes having that always changing lens over our oversized middle forehead eye ... We can begin as a small worldly team with no shame whatsoever ... Every rebirth phase starts with caring for ourselves and each other ... then we are carried by deep fondness inclination during our wonderful inventing and exploring flows towards useful for society results ... Pure goodness induced achievements have a way of starting small and growing to become big commodities ... Also ... every piece of this journey can have an impact felt as a celebration ... With online digital missions all places on this planet are closer ... Sincerely, Flourishing Brown Woman.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1023"><div class="pt-bubble">
+  <p>B Otto Will and Brrd Roots is a writer-visual-artist-performer working and living in Saint Paul, Minnesota, USA. Putting to use more than one branch of knowledge and an extensive amount of things that are effectively related. Applying developed skills and a heavy amount of experience with writing, drawing, creating original physical assemblage works using made and found and effected items uniquely strung together, installation concepting and construction, photography, film, and video. Exploring unfamiliar establishments. Works are in a good way laden with boundless symbolism. Plurality-diversity of earth&#x27;s natural places to cultural and linguistic anthropology are creatively and or artistically interpreted as large numbers of different parts and pieces of a cultivated and intricate whole. Also, questioning history by suspending for any visiting receiver of an experience heavy to light portions as evidence. Each conveys that there must be a lot or something that was there and now is visibly not there anymore.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="515"><div class="pt-bubble">
+  <p>Despite what a few different people could have told you over the years ... life is not shit ... What exactly is the most extraordinary aspect of our life? ... It has been said by many wise inhabitants of the earth since the beginning of human civilization ~ "Humble Love is the strongest force on earth" ... It can turn someone that has become fully aware of their own weaknesses into a person that can successfully invite countless others to do good things ... The praying and other positive actions then multiply.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="550"><div class="pt-bubble">
+  <p>On the other side of the yellow orange electron window some poor soul&#x27;s breath was stolen away ... by a sweet song ... Does a cluster of shimmering light sources attract you like a magnet to its core? ... That big circular window without restrictions is wide open for you ... Important people in your life may have told you great influential spiels ... With each recalled narrative there might have also been magic in the form of direct kindness that has helped you be extra awake and more alive ... During all of the different things you do in life.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1820"><div class="pt-bubble">
+  <p>Teller: We went to speak to a therapist about our story and were directed to a host of feelings ... After clearing unnecessary thinking we joined a therapy group sitting on chairs arranged in a nice circle ... facing a blank or uninhabited center ... and each other ... Discussing aspects having to do with ~ sleep ... triggers ... coping strategies ... importance of self care ... Stuff like that ... Psychologist Group Leader: Does someone have something they would like to share? ... Wend: After writing my first autobiography and having all of it picked apart by an extremely critical and cynical publisher ... I feel much more apathetic regarding English writing ... Group Leader: You care so deeply that the only way to gleam again is to display no interest ... Show with your posture ... facial expression ... speaking style ... no enthusiasm ... Teller: With this culturally diverse group there are still relaxed faces and fortunately not one forehead-to-chin-phony-head-front ... On to the next subject ... Group Leader: Who in this room early in the morning dreams with eyes wide open staring at their bathroom mirror covered with humidity condensation ... holding anger inside that varies? ... Roberto: That has happened a few times ... Kant: What&#x27;s the point of getting involved with anything that has to do with powers beyond anyone&#x27;s control? ... Marian: With greater willed optimism fate can have blends of lovely hues of mystery ... magic ... and miracles ... Every person&#x27;s journey pathways also include at the other end of the life&#x27;s spectrum ~ faults ... fractures ... pride ... power ... and fear ... that have to be lived out to fully understand it all ... Trusting the Unconditional Eternal Love of God provides enough Light to lead and guide us to Ultimate Hope that Makes All Good Things Possible</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1052"><div class="pt-bubble">
+  <p>In the gospel story where the apostles get trapped in that sudden and wild storm on the Sea of Galilee there is a lesson for those who wish to find peace for the world today. When the waves first rose and the boat began to rock the apostles worked hard and with hope in order to survive the storm raging around them. Then they lost heart and allowed the storm outside to come inside. It is easy to imagine the apostles as frantic, disconnected and out of control. In their desperation, they awaken a peaceful Jesus who questions their faith and calms the storm. By projecting his inner stillness, inner harmony and his inner peace. Sometimes even we peacemakers are more like the apostles and have allowed the destruction and terror of the world around us to become a part of us. Too often we worsen the situation by projecting our own fear, guilt or despair. What we might do instead is become like Jesus, to have that still center that nothing can disturb. In that way, we can become true peacemakers. Become persons who project peace wherever we go.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="1263"><div class="pt-bubble">
+  <p>RESPONDS ... They are not broken yet ... at the passage ... painting a perspective of a crack of sunlight ~ immediately our turns of the head gave way ... They will not understand it without more time ... in nooks to walking fast or slow on wide seascape shores ... Meh say broi daw fay ... Eyes of all types with gray whites and midnight greenish black pupils letting starlight in as hope ... trust ... valor ... iris changes shape ... This poem is intended to be much more right half mind child than both sides of the mind combined restless adult ... You would think after all of the work ... we could be with upright posture and legs crossed sitting content and silent ... There is nothing in us now ... no next try ... no covered with shawl catches ... Take a careful step back ~ ruin person ... deliberate mishap ... meant to happen accident ... cast away all trouble transition ... celebrated by all tender souls disaster ( sun is coming up behind a thick layer ) What to do next that is not a solid slurred myth? Jesus In Heaven ... Doma ... All Types Of Dancers ... God Of Absolute Pure Goodness ... Why do we play with so much prose in rooms when there is a large number of shelter less beings scattered fertilizing free unconsolidated Earth in our area?</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="242"><div class="pt-bubble">
+  <p>The best spiritual faith journey is the one that works the best for you. It requires lots of time invested to deepen further and further your learning of it, enough where it has a big effect on your spirit and life. Life in service to others.</p>
+</div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/mess-hall/">Next chapter: Mess Hall <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>

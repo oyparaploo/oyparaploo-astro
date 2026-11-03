@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mess Hall · Text Message Memoir · Paraploo</title>
+<meta name="description" content="Mess Hall, a chapter of the Text Message Memoir, read as one page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<script>document.documentElement.classList.add('pt-js')</script>
+<style>
+/* The phone-text chapter look, November 3, 2026 (PHONE-TEXTS-CHAPTER-LOOK-2026-11-03).
+   The chapter's own colours hold in Light and Dark; the strip, header and footer follow the mode. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html:root body.pt-page {
+  margin: 0;
+  background: var(--pt-ground);
+  transition: background-color 1.4s ease;
+  font-family: 'Inter', sans-serif;
+  overflow-x: clip;
+}
+body.pt-page .site-header, body.pt-page .theme-strip { background: var(--chrome-ground, #fff); position: relative; z-index: 6; }
+body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: relative; z-index: 2; }
+
+/* the thin line along the top that fills as the chapter is read */
+.pt-progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 20; pointer-events: none; }
+.pt-progress span { display: block; height: 100%; width: 0; background: var(--pt-glow); transition: width .6s ease; }
+
+/* ---------- the page ---------- */
+.pt { color: var(--pt-ground-ink); position: relative; }
+.pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
+.pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
+.pt-title {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+}
+.pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
+.pt-back { margin: 0 0 26px; font-size: 18px; }
+.pt a.arrow-link, .pt a.arrow-link .arrow-glyph { color: var(--pt-ground-ink); text-decoration: none; }
+.pt a.arrow-link:hover, .pt a.arrow-link:focus-visible { color: var(--pt-ground-ink); }
+.pt-all {
+  font: 500 18px/1 'Inter', sans-serif; color: var(--pt-ground-ink); background: transparent;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 13px 18px; min-height: 44px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.pt-all:hover, .pt-all:focus-visible { background: var(--pt-ground-ink); color: var(--pt-ground); }
+.pt-all[hidden] { display: none; }
+
+/* ---------- the phone column ---------- */
+.pt-phone { width: 100%; max-width: 500px; margin: 0 auto; padding: 18px 20px 0; }
+.pt-thread { display: flex; flex-direction: column; }
+.pt-group { display: flex; flex-direction: column; }
+.pt-beat { display: flex; }
+.pt-sent { justify-content: flex-end; margin-top: 30px; }
+.pt-reply { justify-content: flex-start; margin-top: 10px; }
+.pt-sent + .pt-reply { margin-top: 14px; }
+.pt-group:first-child > .pt-beat:first-child { margin-top: 8px; }
+.pt-bubble {
+  max-width: 88%; padding: 14px 19px 15px; border-radius: 24px;
+  font-size: 18px; line-height: 1.56; letter-spacing: 0.005em; text-wrap: pretty; overflow-wrap: break-word;
+}
+.pt-sent .pt-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-reply .pt-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-bubble p { margin: 0; }
+.pt-bubble p + p { margin-top: 0.8em; }
+.pt-bubble a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- the /// texts: a moving message board ---------- */
+.pt-board {
+  display: block; position: relative; z-index: 4;
+  width: 100vw; margin: 44px 0 14px calc(-1 * var(--pt-col-left, 0px));
+  background: var(--pt-board); padding: 22px 0 24px;
+  border-top: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, #d4a574 35%, transparent);
+  cursor: default;
+}
+.pt-board + .pt-reply { margin-top: 6px; }
+.pt-rows { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { overflow: hidden; white-space: nowrap; }
+.pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
+.pt-unit {
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-size: 44px; line-height: 1.12; padding-right: 1.6em;
+  color: #d4a574;                         /* Accent, its dark value: an amber board */
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+}
+.pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
+@keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.pt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+
+/* ---------- arriving ---------- */
+.pt-js .pt-beat:not(.in) { display: none; }
+.pt-js .pt-sent.in .pt-bubble { animation: pt-pop-r .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 100% 100%; }
+.pt-js .pt-reply.in .pt-bubble { animation: pt-pop-l .34s cubic-bezier(.2,.9,.3,1.25) both; transform-origin: 0 100%; }
+.pt-js .pt-board.in.fresh { animation: pt-board-on .7s cubic-bezier(.3,.7,.2,1) both; }
+@keyframes pt-pop-r { from { opacity: 0; transform: translate(10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-pop-l { from { opacity: 0; transform: translate(-10px, 14px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes pt-board-on { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
+
+/* the three typing dots */
+.pt-dots { display: flex; margin-top: 30px; }
+.pt-dots.pt-reply { margin-top: 12px; }
+.pt-dots.pt-sent { justify-content: flex-end; }
+.pt-dots .pt-dot-bubble { display: inline-flex; gap: 7px; align-items: center; padding: 15px 20px; border-radius: 24px; }
+.pt-dots.pt-sent .pt-dot-bubble { background: var(--pt-sent); color: var(--pt-sent-ink); border-bottom-right-radius: 7px; }
+.pt-dots.pt-reply .pt-dot-bubble { background: var(--pt-reply); color: var(--pt-reply-ink); border-bottom-left-radius: 7px; }
+.pt-dots.pt-board-dots { justify-content: center; }
+.pt-dots.pt-board-dots .pt-dot-bubble { background: var(--pt-board); color: #d4a574; border-radius: 999px; }
+.pt-dots i { width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .3; animation: pt-type 1s infinite ease-in-out; }
+.pt-dots i:nth-child(2) { animation-delay: .16s; }
+.pt-dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes pt-type { 0%, 70%, 100% { opacity: .3; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-5px); } }
+
+/* the button that brings the next text, and the room left to scroll into */
+.pt-waiting { display: flex; justify-content: center; padding: 40px 0 0; }
+.pt-next {
+  font: 600 18px/1 'Inter', sans-serif; min-height: 48px; padding: 14px 26px; border-radius: 999px; cursor: pointer;
+  background: var(--pt-sent); color: var(--pt-sent-ink); border: 2px solid var(--pt-sent);
+  transition: background-color .2s, color .2s;
+}
+.pt-next span { display: inline-block; transition: transform .2s; }
+.pt-next:hover, .pt-next:focus-visible { background: transparent; color: var(--pt-ground-ink); }
+.pt-next:hover span { transform: translateX(4px); }
+.pt-room { height: 62vh; transition: height .6s ease; }
+.pt-end { display: none; }
+.pt-done .pt-waiting { display: none; }
+.pt-done .pt-room { height: 0; }
+.pt-done .pt-end, html:not(.pt-js) .pt-end {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: .45em; row-gap: 6px;
+  margin: 64px 0 96px; padding-top: 28px; font-size: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--pt-ground-ink) 32%, transparent);
+}
+.pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
+.pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.pt-end .pt-dot { color: var(--pt-ground-ink); }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
+.pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
+.pt-end .pt-dot:first-of-type { display: none; }
+html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-all { display: none; }
+
+/* ---------- wide windows: the phone column stands in the middle of the chapter's colour ---------- */
+@media (min-width: 960px) {
+  .pt-side { padding: 88px 0 12px; }
+  .pt-title { font-size: 56px; }
+  .pt-phone { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .pt-side { padding: 40px 24px 4px; }
+  .pt-title { font-size: 38px; }
+  .pt-phone { padding: 14px 16px 0; }
+  .pt-bubble { max-width: 90%; }
+  .pt-unit { font-size: 34px; }
+}
+
+/* ---------- less motion: everything shown, the board still ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:root body.pt-page { transition: none; }
+  .pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+  .pt-row { white-space: normal; }
+  .pt-unit { padding-right: 0; }
+  .pt-unit + .pt-unit { display: none; }
+}
+
+/* proposed, November 3, 2026: a /// text longer than 160 letters stands still on its board */
+.pt-board-long .pt-track { animation: none; display: block; white-space: normal; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.pt-board-long .pt-row { white-space: normal; }
+.pt-board-long .pt-rows { gap: 16px; }
+.pt-board-long .pt-unit { font-family: 'Inter', sans-serif; font-stretch: 100%; font-weight: 500; font-size: 22px; line-height: 1.6; padding-right: 0; text-shadow: 0 0 10px rgba(212, 165, 116, .25); }
+.pt-board-long .pt-unit + .pt-unit { display: none; }
+@media (max-width: 600px) { .pt-board-long .pt-unit { font-size: 19px; } .pt-board-long .pt-track { padding: 0 20px; } }
+
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/mess-hall/">
+</head>
+<body class="pt-page pt-light" style="--pt-ground:#e3e1dc;--pt-ground-ink:#111;--pt-sent:#4a3a28;--pt-sent-ink:var(--ink-on-dark, #e8e0d6);--pt-reply:#ffffff;--pt-reply-ink:#111;--pt-board:#1a1714;--pt-glow:#c9a512;" data-stops="#e3e1dc,#e2d8c6,#d9e3d0,#efe6b6,#d2d2d0">
+<div class="theme-strip"><span class="theme-date"><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/search">Search</a></nav></header>
+<div class="pt-progress" aria-hidden="true"><span></span></div>
+<main class="pt" id="pt">
+  <div class="pt-side">
+    <p class="pt-kicker">Text Message Memoir</p>
+    <h1 class="pt-title">Mess Hall</h1>
+    <p class="pt-sentence">Phone texts, read the way they arrived. Tap, click or scroll, and the next one comes in.</p>
+    <p class="pt-back"><a class="arrow-link arrow-back" href="/writings/text-message-memoir"><span class="arrow-glyph">&larr;</span> Text Message Memoir</a></p>
+    <button type="button" class="pt-all">Show the whole chapter</button>
+  </div>
+  <div class="pt-phone">
+    <div class="pt-thread" role="log" aria-live="polite" aria-label="The texts of Mess Hall">
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="158"><div class="pt-bubble">
+  <p>Kenneth:  This described path will not arrive at ( in a positive sense ) eternal or everlasting life. Life that after death here on earth continues in heaven.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="24"><div class="pt-bubble">
+  <p>Josea:  Eat or be eaten.</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="41"><p class="pt-sr">/// HOW TO WAKE UP FROM A SLUMBER ... ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// HOW TO WAKE UP FROM A SLUMBER ... ///"><div class="pt-track"><span class="pt-unit">/// HOW TO WAKE UP FROM A SLUMBER ... ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="2005"><p class="pt-sr">/// Good Human Spirit Rocks! ... is a type of positive hope that lifts us up ... Planet Earth is again overwhelmed with a few more major conflicts that have turned into wars as sea levels every day and night continue to slowly rise ... We swim our marathon ... We move through our journey ... and sometimes compete too strongly with ourselves to eccentrically help our Good Human Spirit flourish ... Deeply concerning loud quarrels and loathsome humans caused extreme violence has occurred throughout history since the first human civilization but it feels somewhat different now ... We get the news more quickly and easier ... When conflicts become wars we think more strongly about how massive physical destruction forces everyone ( under the same sky ) backwards too much ... Mother nature ( by measurable increments ) also loses in a big way and doesn&#x27;t seem to have a say ... While our Good Human Spirit Rocks we empathize and pray for all human activities and natural environment conditions that are presently experiencing negative consequences ... So much pain ... Many people are actually in the middle of an unimaginable amount of pain ... Feeling it and witnessing it ... Some teens in Gaza ... Ukraine ... Darfur, Sudan ... dream about swimming to Disney World ... Too many cities and villages on earth are ~ religion ... race ... and gender discrimination prisons ... When you are in touch with your Good Human Spirit ( instilled in you from The Creator or Holy-Sacred Higher Sources ) you too can fully understand that our world is impermanent and always changing ... The Out There To Inside Of Us Supreme Divine Essence many people call God or Gods Of Eternity And Goodness knows very well that no earthling can be truly free and at the same time live a life based on the desire or need to own ~ another human being ... land ... or any other inanimate-material stuff ... No mortal being is perfect and The Supreme Divine Essence prays and wishes for very good outcomes for all of us ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Good Human Spirit Rocks! ... is a type of positive hope that lifts us up ... Planet Earth is again overwhelmed with a few more major conflicts that have turned into wars as sea levels every day and night continue to slowly rise ... We swim our marathon ... We move through our journey ... and sometimes compete too strongly with ourselves to eccentrically help our Good Human Spirit flourish ... Deeply concerning loud quarrels and loathsome humans caused extreme violence has occurred throughout history since the first human civilization but it feels somewhat different now ... We get the news more quickly and easier ... When conflicts become wars we think more strongly about how massive physical destruction forces everyone ( under the same sky ) backwards too much ... Mother nature ( by measurable increments ) also loses in a big way and doesn&#x27;t seem to have a say ... While our Good Human Spirit Rocks we empathize and pray for all human activities and natural environment conditions that are presently experiencing negative consequences ... So much pain ... Many people are actually in the middle of an unimaginable amount of pain ... Feeling it and witnessing it ... Some teens in Gaza ... Ukraine ... Darfur, Sudan ... dream about swimming to Disney World ... Too many cities and villages on earth are ~ religion ... race ... and gender discrimination prisons ... When you are in touch with your Good Human Spirit ( instilled in you from The Creator or Holy-Sacred Higher Sources ) you too can fully understand that our world is impermanent and always changing ... The Out There To Inside Of Us Supreme Divine Essence many people call God or Gods Of Eternity And Goodness knows very well that no earthling can be truly free and at the same time live a life based on the desire or need to own ~ another human being ... land ... or any other inanimate-material stuff ... No mortal being is perfect and The Supreme Divine Essence prays and wishes for very good outcomes for all of us ///"><div class="pt-track"><span class="pt-unit">/// Good Human Spirit Rocks! ... is a type of positive hope that lifts us up ... Planet Earth is again overwhelmed with a few more major conflicts that have turned into wars as sea levels every day and night continue to slowly rise ... We swim our marathon ... We move through our journey ... and sometimes compete too strongly with ourselves to eccentrically help our Good Human Spirit flourish ... Deeply concerning loud quarrels and loathsome humans caused extreme violence has occurred throughout history since the first human civilization but it feels somewhat different now ... We get the news more quickly and easier ... When conflicts become wars we think more strongly about how massive physical destruction forces everyone ( under the same sky ) backwards too much ... Mother nature ( by measurable increments ) also loses in a big way and doesn&#x27;t seem to have a say ... While our Good Human Spirit Rocks we empathize and pray for all human activities and natural environment conditions that are presently experiencing negative consequences ... So much pain ... Many people are actually in the middle of an unimaginable amount of pain ... Feeling it and witnessing it ... Some teens in Gaza ... Ukraine ... Darfur, Sudan ... dream about swimming to Disney World ... Too many cities and villages on earth are ~ religion ... race ... and gender discrimination prisons ... When you are in touch with your Good Human Spirit ( instilled in you from The Creator or Holy-Sacred Higher Sources ) you too can fully understand that our world is impermanent and always changing ... The Out There To Inside Of Us Supreme Divine Essence many people call God or Gods Of Eternity And Goodness knows very well that no earthling can be truly free and at the same time live a life based on the desire or need to own ~ another human being ... land ... or any other inanimate-material stuff ... No mortal being is perfect and The Supreme Divine Essence prays and wishes for very good outcomes for all of us ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1176"><p class="pt-sr">-/// This is not the first time we have detached-removed our metal coverings ... This is not the first time we have shed our protective coverings to appear absolutely vulnerable ... with the intention to ( in a different way ) wound a thief or long time enemy ... We have no water for our toilet yet we feel more alive than ever before! ... Sharing a portion of our soul&#x27;s goodness with anyone who is able to receive it ... We share a healing story with a family that lives a mile away and is of another religion or faith ( our conviction-credence now is called syncretism ~ the practice of combining different spiritual beliefs ) ... and they allow us to use their permanently mounted toilet for the meantime ... They also invite us to share a prayer ... and fertilize the public courtyard garden with collected sheep stool ... These kind actions have strengthened our acquaintanceship ... Never sip or chew without reciting wishes for the well-being of all citizens and immigrants within your community ... and beyond ... We are all humans just the same even though a percentage of our overall population in the area is a lot more broken because of reoccurring wars ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="-/// This is not the first time we have detached-removed our metal coverings ... This is not the first time we have shed our protective coverings to appear absolutely vulnerable ... with the intention to ( in a different way ) wound a thief or long time enemy ... We have no water for our toilet yet we feel more alive than ever before! ... Sharing a portion of our soul&#x27;s goodness with anyone who is able to receive it ... We share a healing story with a family that lives a mile away and is of another religion or faith ( our conviction-credence now is called syncretism ~ the practice of combining different spiritual beliefs ) ... and they allow us to use their permanently mounted toilet for the meantime ... They also invite us to share a prayer ... and fertilize the public courtyard garden with collected sheep stool ... These kind actions have strengthened our acquaintanceship ... Never sip or chew without reciting wishes for the well-being of all citizens and immigrants within your community ... and beyond ... We are all humans just the same even though a percentage of our overall population in the area is a lot more broken because of reoccurring wars ///"><div class="pt-track"><span class="pt-unit">-/// This is not the first time we have detached-removed our metal coverings ... This is not the first time we have shed our protective coverings to appear absolutely vulnerable ... with the intention to ( in a different way ) wound a thief or long time enemy ... We have no water for our toilet yet we feel more alive than ever before! ... Sharing a portion of our soul&#x27;s goodness with anyone who is able to receive it ... We share a healing story with a family that lives a mile away and is of another religion or faith ( our conviction-credence now is called syncretism ~ the practice of combining different spiritual beliefs ) ... and they allow us to use their permanently mounted toilet for the meantime ... They also invite us to share a prayer ... and fertilize the public courtyard garden with collected sheep stool ... These kind actions have strengthened our acquaintanceship ... Never sip or chew without reciting wishes for the well-being of all citizens and immigrants within your community ... and beyond ... We are all humans just the same even though a percentage of our overall population in the area is a lot more broken because of reoccurring wars ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1179"><p class="pt-sr">/// Day Incubus Part II ... When we while walking or sitting form a realization of new possibilities ( that can take place immediately or in the near future ) it&#x27;s a proposal for ourselves that is without worries ... and free of nervousness ... It is a plan or persona festo for ourselves that is no longer imprisoned by or confined by dwelling on a mass of troubles ~ that can potentially tear at or gnaw on our good inner aspects ... Also ... it is a reality that most people today have incessant or frantic lives and diligent-occupied minds ... We would like you to at this present moment relax and daydream for fifteen minutes ... Then we are going to do an experiment where we seize all of your movable possessions including seaside baggage ... Confiscate all of your mounted belongings ... be&#x27;IaNGiNHz ... All you have to do is lay on your back on the floor ... close your eyes ... and add charm and cheer to any thoughts you have ... Your first experience might be rotten and boring ... You might want to instead do something very physically active or spoofy ... You can also lay face down on the couch and allow our robot to repeatedly pinch your lower back ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Day Incubus Part II ... When we while walking or sitting form a realization of new possibilities ( that can take place immediately or in the near future ) it&#x27;s a proposal for ourselves that is without worries ... and free of nervousness ... It is a plan or persona festo for ourselves that is no longer imprisoned by or confined by dwelling on a mass of troubles ~ that can potentially tear at or gnaw on our good inner aspects ... Also ... it is a reality that most people today have incessant or frantic lives and diligent-occupied minds ... We would like you to at this present moment relax and daydream for fifteen minutes ... Then we are going to do an experiment where we seize all of your movable possessions including seaside baggage ... Confiscate all of your mounted belongings ... be&#x27;IaNGiNHz ... All you have to do is lay on your back on the floor ... close your eyes ... and add charm and cheer to any thoughts you have ... Your first experience might be rotten and boring ... You might want to instead do something very physically active or spoofy ... You can also lay face down on the couch and allow our robot to repeatedly pinch your lower back ///"><div class="pt-track"><span class="pt-unit">/// Day Incubus Part II ... When we while walking or sitting form a realization of new possibilities ( that can take place immediately or in the near future ) it&#x27;s a proposal for ourselves that is without worries ... and free of nervousness ... It is a plan or persona festo for ourselves that is no longer imprisoned by or confined by dwelling on a mass of troubles ~ that can potentially tear at or gnaw on our good inner aspects ... Also ... it is a reality that most people today have incessant or frantic lives and diligent-occupied minds ... We would like you to at this present moment relax and daydream for fifteen minutes ... Then we are going to do an experiment where we seize all of your movable possessions including seaside baggage ... Confiscate all of your mounted belongings ... be&#x27;IaNGiNHz ... All you have to do is lay on your back on the floor ... close your eyes ... and add charm and cheer to any thoughts you have ... Your first experience might be rotten and boring ... You might want to instead do something very physically active or spoofy ... You can also lay face down on the couch and allow our robot to repeatedly pinch your lower back ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="411"><p class="pt-sr">/// The Yap Of A Leader ( mostly driven by their ego ) can cause an Individual to become Unable To Move From A Particular Position ... or Unable To Change A Situation ... The Yap of a ... Head ... Manager ... Boss Person ... or Superior ... can cause a Collared Serf or No Collar Worker to be Less Agile during times when Mental Dexterity is Required or Necessary to Sustain within an Industry or Profession ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// The Yap Of A Leader ( mostly driven by their ego ) can cause an Individual to become Unable To Move From A Particular Position ... or Unable To Change A Situation ... The Yap of a ... Head ... Manager ... Boss Person ... or Superior ... can cause a Collared Serf or No Collar Worker to be Less Agile during times when Mental Dexterity is Required or Necessary to Sustain within an Industry or Profession ///"><div class="pt-track"><span class="pt-unit">/// The Yap Of A Leader ( mostly driven by their ego ) can cause an Individual to become Unable To Move From A Particular Position ... or Unable To Change A Situation ... The Yap of a ... Head ... Manager ... Boss Person ... or Superior ... can cause a Collared Serf or No Collar Worker to be Less Agile during times when Mental Dexterity is Required or Necessary to Sustain within an Industry or Profession ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="834"><p class="pt-sr">/// All of the different natural and artificial surfaces we touch ... All of the different wild natural world sounds we hear or sonic-electronic sounds we invent ... All of the different remote-rural wide and deep landscapes or elaborate tapestry cityscapes we study with our gazing eyes ... All of the different outside plant fragrances including flower blossoms ~ special garden soil redolence ~ machinery metal shavings-residue odors ~urban park tangs ~ and sent to sidewalk food diffable wafts ... are valuable intakes for our instinctual conceiving and producing very good art work results ... The common stuff of our everyday LIVING ( encountered with open-to-receive senses ) is ( all combined ) energy that provides us with that right amount of extra vitality needed to help others ... in our own unique and or special way ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// All of the different natural and artificial surfaces we touch ... All of the different wild natural world sounds we hear or sonic-electronic sounds we invent ... All of the different remote-rural wide and deep landscapes or elaborate tapestry cityscapes we study with our gazing eyes ... All of the different outside plant fragrances including flower blossoms ~ special garden soil redolence ~ machinery metal shavings-residue odors ~urban park tangs ~ and sent to sidewalk food diffable wafts ... are valuable intakes for our instinctual conceiving and producing very good art work results ... The common stuff of our everyday LIVING ( encountered with open-to-receive senses ) is ( all combined ) energy that provides us with that right amount of extra vitality needed to help others ... in our own unique and or special way ///"><div class="pt-track"><span class="pt-unit">/// All of the different natural and artificial surfaces we touch ... All of the different wild natural world sounds we hear or sonic-electronic sounds we invent ... All of the different remote-rural wide and deep landscapes or elaborate tapestry cityscapes we study with our gazing eyes ... All of the different outside plant fragrances including flower blossoms ~ special garden soil redolence ~ machinery metal shavings-residue odors ~urban park tangs ~ and sent to sidewalk food diffable wafts ... are valuable intakes for our instinctual conceiving and producing very good art work results ... The common stuff of our everyday LIVING ( encountered with open-to-receive senses ) is ( all combined ) energy that provides us with that right amount of extra vitality needed to help others ... in our own unique and or special way ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board" data-len="141"><p class="pt-sr">/// TASTING CREAMY PEANUT BUTTER ~ MADE WITH 100% DRY ROASTED ORGANIC VALENCIA PEANUTS and SEA SALT ~ IS ~ ONE OF THE BEST THINGS IN LIFE ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// TASTING CREAMY PEANUT BUTTER ~ MADE WITH 100% DRY ROASTED ORGANIC VALENCIA PEANUTS and SEA SALT ~ IS ~ ONE OF THE BEST THINGS IN LIFE ///"><div class="pt-track"><span class="pt-unit">/// TASTING CREAMY PEANUT BUTTER ~ MADE WITH 100% DRY ROASTED ORGANIC VALENCIA PEANUTS and SEA SALT ~ IS ~ ONE OF THE BEST THINGS IN LIFE ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="942"><p class="pt-sr">/// eye was wrong ... cun dee creek un see ... lolo ... eye is sorry ... son so fire koe ka bagi ... our ancestors should not have done that to your ancestors ... to your sisters and brothers ... on kneez sa stee ... daze con gela days ... all our eyes together are very sorry ... is there anything we can do now to be forgiven for all of those centuries of catastrophes? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ... all those choices ... decisions ... sent out through foreheads instead of from hearts were mistakes ... to say the least ... lolo ... we are sorry boys were forced or persuaded to fight conflicts with sold weapons ... on kneez sa stee ... dazed con gela days ... is there anything we can do for you now to relieve some of the pain ... for all of the different types of atrocities? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// eye was wrong ... cun dee creek un see ... lolo ... eye is sorry ... son so fire koe ka bagi ... our ancestors should not have done that to your ancestors ... to your sisters and brothers ... on kneez sa stee ... daze con gela days ... all our eyes together are very sorry ... is there anything we can do now to be forgiven for all of those centuries of catastrophes? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ... all those choices ... decisions ... sent out through foreheads instead of from hearts were mistakes ... to say the least ... lolo ... we are sorry boys were forced or persuaded to fight conflicts with sold weapons ... on kneez sa stee ... dazed con gela days ... is there anything we can do for you now to relieve some of the pain ... for all of the different types of atrocities? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ///"><div class="pt-track"><span class="pt-unit">/// eye was wrong ... cun dee creek un see ... lolo ... eye is sorry ... son so fire koe ka bagi ... our ancestors should not have done that to your ancestors ... to your sisters and brothers ... on kneez sa stee ... daze con gela days ... all our eyes together are very sorry ... is there anything we can do now to be forgiven for all of those centuries of catastrophes? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ... all those choices ... decisions ... sent out through foreheads instead of from hearts were mistakes ... to say the least ... lolo ... we are sorry boys were forced or persuaded to fight conflicts with sold weapons ... on kneez sa stee ... dazed con gela days ... is there anything we can do for you now to relieve some of the pain ... for all of the different types of atrocities? ... God willing ... ahh dee seh sali ... beeee beeee kanela dee ... beeee beeee kanela dee ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1883"><p class="pt-sr">/// Deceased from wartime and other floods or fires ... we can be your melody and slightly imperfect mirror on the in wall ... We can do mock-up interpretations of what just happened ... to let ~ collectors or other curious cats know something of this order ... How a smoke door or window can be changed into a comforting-whole sunrise ... Our type of artful physical evidence can in a good way twist your mind ... to be more kind ... We invite you to step forward ... Bring yourself closer ... How can this refined to raw material assemblage have that much ( if any ) effect on a spectator or showgoer? ... This conglomeration of recycled parts and broken fragments of former products combined with what looks like handmade stuff? ... These strung together or placed-composed together on a surface arrangement of several shapes and forms? ... Take off your invisible blindfold and after a few minutes you will see ... It&#x27;s difficult for us to underestimate your intelligence or awareness just for the sake of increasing sales ... ( despite what some famous egomaniacs might say ) Money all by itself does not have spiritual energy ... Personalized investigations leading to makings or performances ( whatever they might be ) and all other actions that help others are examples of spiritual energy flow ... Receiver ... let us be your middle eye and shortly thereafter everyone will be less afraid of what might happen next ... in this mess of world ... You can show back to us with the expression on your face that what we have here is fine and honest ... Something you can count on ... Pieces of Our Life Project can serve as your worldly absorption during this moment or time ... Also ... brought from recesses to top surfaces of mind and soul as cogitay-rumination ... recollections ... for no cost and for a predetermined or yet to be decided sum of nico powder dollars ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Deceased from wartime and other floods or fires ... we can be your melody and slightly imperfect mirror on the in wall ... We can do mock-up interpretations of what just happened ... to let ~ collectors or other curious cats know something of this order ... How a smoke door or window can be changed into a comforting-whole sunrise ... Our type of artful physical evidence can in a good way twist your mind ... to be more kind ... We invite you to step forward ... Bring yourself closer ... How can this refined to raw material assemblage have that much ( if any ) effect on a spectator or showgoer? ... This conglomeration of recycled parts and broken fragments of former products combined with what looks like handmade stuff? ... These strung together or placed-composed together on a surface arrangement of several shapes and forms? ... Take off your invisible blindfold and after a few minutes you will see ... It&#x27;s difficult for us to underestimate your intelligence or awareness just for the sake of increasing sales ... ( despite what some famous egomaniacs might say ) Money all by itself does not have spiritual energy ... Personalized investigations leading to makings or performances ( whatever they might be ) and all other actions that help others are examples of spiritual energy flow ... Receiver ... let us be your middle eye and shortly thereafter everyone will be less afraid of what might happen next ... in this mess of world ... You can show back to us with the expression on your face that what we have here is fine and honest ... Something you can count on ... Pieces of Our Life Project can serve as your worldly absorption during this moment or time ... Also ... brought from recesses to top surfaces of mind and soul as cogitay-rumination ... recollections ... for no cost and for a predetermined or yet to be decided sum of nico powder dollars ///"><div class="pt-track"><span class="pt-unit">/// Deceased from wartime and other floods or fires ... we can be your melody and slightly imperfect mirror on the in wall ... We can do mock-up interpretations of what just happened ... to let ~ collectors or other curious cats know something of this order ... How a smoke door or window can be changed into a comforting-whole sunrise ... Our type of artful physical evidence can in a good way twist your mind ... to be more kind ... We invite you to step forward ... Bring yourself closer ... How can this refined to raw material assemblage have that much ( if any ) effect on a spectator or showgoer? ... This conglomeration of recycled parts and broken fragments of former products combined with what looks like handmade stuff? ... These strung together or placed-composed together on a surface arrangement of several shapes and forms? ... Take off your invisible blindfold and after a few minutes you will see ... It&#x27;s difficult for us to underestimate your intelligence or awareness just for the sake of increasing sales ... ( despite what some famous egomaniacs might say ) Money all by itself does not have spiritual energy ... Personalized investigations leading to makings or performances ( whatever they might be ) and all other actions that help others are examples of spiritual energy flow ... Receiver ... let us be your middle eye and shortly thereafter everyone will be less afraid of what might happen next ... in this mess of world ... You can show back to us with the expression on your face that what we have here is fine and honest ... Something you can count on ... Pieces of Our Life Project can serve as your worldly absorption during this moment or time ... Also ... brought from recesses to top surfaces of mind and soul as cogitay-rumination ... recollections ... for no cost and for a predetermined or yet to be decided sum of nico powder dollars ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1208"><p class="pt-sr">/// We were born into the world to later on teach something that is very positive and useful ... When a human life never ever fulfills this ( predetermined by God destiny ) it&#x27;s a huge missed opportunity ... sad fact of life ... disappointment for all Immortal Spirits ... Child ... kicking and screaming baby ... we welcome you ... Join us as wondrous unified money-toned consciousness ... Money-toned?! ... You must mean heavenly honey-toned! ... Including a host of principles when applied the result is some greater than good ( accessible to all ) epitome ... A kind of perfection that doesn&#x27;t involve any critic&#x27;s perception of what good taste is ... Doesn&#x27;t have anything to do with flawless aesthetics ... or society&#x27;s concept of what an ideal anthropoid body or human face should look like ... Also, we begin each new day by wishing the best for every type of person or character in the world ... And we invocate with all the souls who were here recently or at one time ... We pray alone ... with a large crowd ... and a small group ... It is our ( with hope ) earnest no-fooling request to God for good outcomes ... Regarding a specific thing happening or event going on ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// We were born into the world to later on teach something that is very positive and useful ... When a human life never ever fulfills this ( predetermined by God destiny ) it&#x27;s a huge missed opportunity ... sad fact of life ... disappointment for all Immortal Spirits ... Child ... kicking and screaming baby ... we welcome you ... Join us as wondrous unified money-toned consciousness ... Money-toned?! ... You must mean heavenly honey-toned! ... Including a host of principles when applied the result is some greater than good ( accessible to all ) epitome ... A kind of perfection that doesn&#x27;t involve any critic&#x27;s perception of what good taste is ... Doesn&#x27;t have anything to do with flawless aesthetics ... or society&#x27;s concept of what an ideal anthropoid body or human face should look like ... Also, we begin each new day by wishing the best for every type of person or character in the world ... And we invocate with all the souls who were here recently or at one time ... We pray alone ... with a large crowd ... and a small group ... It is our ( with hope ) earnest no-fooling request to God for good outcomes ... Regarding a specific thing happening or event going on ///"><div class="pt-track"><span class="pt-unit">/// We were born into the world to later on teach something that is very positive and useful ... When a human life never ever fulfills this ( predetermined by God destiny ) it&#x27;s a huge missed opportunity ... sad fact of life ... disappointment for all Immortal Spirits ... Child ... kicking and screaming baby ... we welcome you ... Join us as wondrous unified money-toned consciousness ... Money-toned?! ... You must mean heavenly honey-toned! ... Including a host of principles when applied the result is some greater than good ( accessible to all ) epitome ... A kind of perfection that doesn&#x27;t involve any critic&#x27;s perception of what good taste is ... Doesn&#x27;t have anything to do with flawless aesthetics ... or society&#x27;s concept of what an ideal anthropoid body or human face should look like ... Also, we begin each new day by wishing the best for every type of person or character in the world ... And we invocate with all the souls who were here recently or at one time ... We pray alone ... with a large crowd ... and a small group ... It is our ( with hope ) earnest no-fooling request to God for good outcomes ... Regarding a specific thing happening or event going on ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1430"><p class="pt-sr">/// This suspended from high ceiling series ... this balanced and ill-structured collection of objects and fragments represents or is meant to show our interpretation of ~ dire-urgent-appalling situations ... that occur within a conflict zone ... For one example ~ the use of starvation of a population during a military struggle is simply wrong ... Even though our non conventional ( physical evidence ) art works are static or still ... at rest ... there are expeditious fast moving events happening somewhere else ... causing frequent-enormous-sudden-damage ... Suffering ... Extreme Pain ... Hardship ... Another appalling example is ~ the forcing onto millions of innocent people the definition of Stateless Refugees ... when that population existed legally as their own nation for several decades ... These so-called stateless refugees ( who have their own very young to old family members, new borns ) have been experiencing an ongoing cataclysm ... Catastrophe ... A very large number of casualties who were purely non-violent before they met their unfair tragic demise ... This ethno-national group that has lived throughout history is still experiencing ( first hand ) ~ exodus and no exit grief ... war caused extreme agony ... and countless instances of close to unbearable sadness ... We especially pray for everyone caught in the middle of this mess and have no way to get out of it ... or no way to flee from it ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// This suspended from high ceiling series ... this balanced and ill-structured collection of objects and fragments represents or is meant to show our interpretation of ~ dire-urgent-appalling situations ... that occur within a conflict zone ... For one example ~ the use of starvation of a population during a military struggle is simply wrong ... Even though our non conventional ( physical evidence ) art works are static or still ... at rest ... there are expeditious fast moving events happening somewhere else ... causing frequent-enormous-sudden-damage ... Suffering ... Extreme Pain ... Hardship ... Another appalling example is ~ the forcing onto millions of innocent people the definition of Stateless Refugees ... when that population existed legally as their own nation for several decades ... These so-called stateless refugees ( who have their own very young to old family members, new borns ) have been experiencing an ongoing cataclysm ... Catastrophe ... A very large number of casualties who were purely non-violent before they met their unfair tragic demise ... This ethno-national group that has lived throughout history is still experiencing ( first hand ) ~ exodus and no exit grief ... war caused extreme agony ... and countless instances of close to unbearable sadness ... We especially pray for everyone caught in the middle of this mess and have no way to get out of it ... or no way to flee from it ///"><div class="pt-track"><span class="pt-unit">/// This suspended from high ceiling series ... this balanced and ill-structured collection of objects and fragments represents or is meant to show our interpretation of ~ dire-urgent-appalling situations ... that occur within a conflict zone ... For one example ~ the use of starvation of a population during a military struggle is simply wrong ... Even though our non conventional ( physical evidence ) art works are static or still ... at rest ... there are expeditious fast moving events happening somewhere else ... causing frequent-enormous-sudden-damage ... Suffering ... Extreme Pain ... Hardship ... Another appalling example is ~ the forcing onto millions of innocent people the definition of Stateless Refugees ... when that population existed legally as their own nation for several decades ... These so-called stateless refugees ( who have their own very young to old family members, new borns ) have been experiencing an ongoing cataclysm ... Catastrophe ... A very large number of casualties who were purely non-violent before they met their unfair tragic demise ... This ethno-national group that has lived throughout history is still experiencing ( first hand ) ~ exodus and no exit grief ... war caused extreme agony ... and countless instances of close to unbearable sadness ... We especially pray for everyone caught in the middle of this mess and have no way to get out of it ... or no way to flee from it ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1683"><p class="pt-sr">/// Together ... we move into the ~ ferns-hushing ... leaves-rustling ... palms-swishing ... warm circle of the forest ... The precious glistening mud under our rubber soles is steamy ... and ( with its extra softness ) gives when making each step ... The incongruous shouts of urban machinery ... and peopled mix of sounds that go along with those more extreme activity commutes decreased then vanished completely ... We are in the woods ... and believe the at low level ~ maitake fungi ... indigo milk cap shrooms ... and phallus amber cordyceps ... can sense that this hinterwoods ( with its magnificent high up intricate canopy ) is having an indescribable healing effect on us as a group of five explorers ... We don&#x27;t have to answer anybody&#x27;s questions ... What becomes wet is for the most part silent ... That which settles at nature&#x27;s floor here is wonderful see-touch-smell litter ( untainted-by-human-pollution organic debris, freshly fallen plant pieces, bark, twigs, flowers, fully intact and smooshed fruit, etc. ) ... Our minds and bodies are immersed now ... We are looking carefully and thoroughly at [ The Full Construct ] including komorebi or heavenly like phenomenal light pouring in ... from the bright sky behind ... through all of the east facing trees and other taller plants ... outlining countless interesting details with uninterrupted bright natural light ... Then a precatoria with its berries and a big smile takes a broadway bow ... Showing thanks for our visit with an unspoken agreement between us and her family ... We all chortle with that universal laugh of honest delight ... and applaud this deserving-of-great-respect Miracle ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Together ... we move into the ~ ferns-hushing ... leaves-rustling ... palms-swishing ... warm circle of the forest ... The precious glistening mud under our rubber soles is steamy ... and ( with its extra softness ) gives when making each step ... The incongruous shouts of urban machinery ... and peopled mix of sounds that go along with those more extreme activity commutes decreased then vanished completely ... We are in the woods ... and believe the at low level ~ maitake fungi ... indigo milk cap shrooms ... and phallus amber cordyceps ... can sense that this hinterwoods ( with its magnificent high up intricate canopy ) is having an indescribable healing effect on us as a group of five explorers ... We don&#x27;t have to answer anybody&#x27;s questions ... What becomes wet is for the most part silent ... That which settles at nature&#x27;s floor here is wonderful see-touch-smell litter ( untainted-by-human-pollution organic debris, freshly fallen plant pieces, bark, twigs, flowers, fully intact and smooshed fruit, etc. ) ... Our minds and bodies are immersed now ... We are looking carefully and thoroughly at [ The Full Construct ] including komorebi or heavenly like phenomenal light pouring in ... from the bright sky behind ... through all of the east facing trees and other taller plants ... outlining countless interesting details with uninterrupted bright natural light ... Then a precatoria with its berries and a big smile takes a broadway bow ... Showing thanks for our visit with an unspoken agreement between us and her family ... We all chortle with that universal laugh of honest delight ... and applaud this deserving-of-great-respect Miracle ///"><div class="pt-track"><span class="pt-unit">/// Together ... we move into the ~ ferns-hushing ... leaves-rustling ... palms-swishing ... warm circle of the forest ... The precious glistening mud under our rubber soles is steamy ... and ( with its extra softness ) gives when making each step ... The incongruous shouts of urban machinery ... and peopled mix of sounds that go along with those more extreme activity commutes decreased then vanished completely ... We are in the woods ... and believe the at low level ~ maitake fungi ... indigo milk cap shrooms ... and phallus amber cordyceps ... can sense that this hinterwoods ( with its magnificent high up intricate canopy ) is having an indescribable healing effect on us as a group of five explorers ... We don&#x27;t have to answer anybody&#x27;s questions ... What becomes wet is for the most part silent ... That which settles at nature&#x27;s floor here is wonderful see-touch-smell litter ( untainted-by-human-pollution organic debris, freshly fallen plant pieces, bark, twigs, flowers, fully intact and smooshed fruit, etc. ) ... Our minds and bodies are immersed now ... We are looking carefully and thoroughly at [ The Full Construct ] including komorebi or heavenly like phenomenal light pouring in ... from the bright sky behind ... through all of the east facing trees and other taller plants ... outlining countless interesting details with uninterrupted bright natural light ... Then a precatoria with its berries and a big smile takes a broadway bow ... Showing thanks for our visit with an unspoken agreement between us and her family ... We all chortle with that universal laugh of honest delight ... and applaud this deserving-of-great-respect Miracle ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1572"><p class="pt-sr">/// Gaze at this assemblage for a while .. no really stare at it ... Does it express the essential features of something in your personal life? ... Search around it ... examine it closely ... and see if you can notice any so-called poisonous pellets or asbestos fibers ... that greatly increases every person&#x27;s chance of getting lung or colon cancer ... Fortunately this physical thing you are looking at ... wanting to touch and get to rotate ... Is 100% non-toxic to breathe ... for all respiratory systems ... Are you a person who devotes some time to exposing harmful substance situations ... located next to close to destitution condition neighborhoods ... or different abused and overburdened places? ... This project has to do with standing and kneeling figures wearing yellow hazmat suits ... appearing on scene as ~ emergency workers ... researchers ... personnel responding to a spill ... let out ... tip over ... leak ... These ( to some degree ) stiff physiques wearing whole body protective equipment are also reinterpreted as cogent-radiant ghosts ... Real and perceived in mind truths of these types are symbols of failings ... shortcomings of some entity&#x27;s financial health expectations combined with weak will ... turned into non-fulfillments and big negatives for humanity ... Presenting examples of dangerous humankind still at large ... until stopped by groups of caring for mother earth activists ... who come between ( unwanted by most ) contaminations and today&#x27;s pollution discharge powers ... continues to be very important work ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Gaze at this assemblage for a while .. no really stare at it ... Does it express the essential features of something in your personal life? ... Search around it ... examine it closely ... and see if you can notice any so-called poisonous pellets or asbestos fibers ... that greatly increases every person&#x27;s chance of getting lung or colon cancer ... Fortunately this physical thing you are looking at ... wanting to touch and get to rotate ... Is 100% non-toxic to breathe ... for all respiratory systems ... Are you a person who devotes some time to exposing harmful substance situations ... located next to close to destitution condition neighborhoods ... or different abused and overburdened places? ... This project has to do with standing and kneeling figures wearing yellow hazmat suits ... appearing on scene as ~ emergency workers ... researchers ... personnel responding to a spill ... let out ... tip over ... leak ... These ( to some degree ) stiff physiques wearing whole body protective equipment are also reinterpreted as cogent-radiant ghosts ... Real and perceived in mind truths of these types are symbols of failings ... shortcomings of some entity&#x27;s financial health expectations combined with weak will ... turned into non-fulfillments and big negatives for humanity ... Presenting examples of dangerous humankind still at large ... until stopped by groups of caring for mother earth activists ... who come between ( unwanted by most ) contaminations and today&#x27;s pollution discharge powers ... continues to be very important work ///"><div class="pt-track"><span class="pt-unit">/// Gaze at this assemblage for a while .. no really stare at it ... Does it express the essential features of something in your personal life? ... Search around it ... examine it closely ... and see if you can notice any so-called poisonous pellets or asbestos fibers ... that greatly increases every person&#x27;s chance of getting lung or colon cancer ... Fortunately this physical thing you are looking at ... wanting to touch and get to rotate ... Is 100% non-toxic to breathe ... for all respiratory systems ... Are you a person who devotes some time to exposing harmful substance situations ... located next to close to destitution condition neighborhoods ... or different abused and overburdened places? ... This project has to do with standing and kneeling figures wearing yellow hazmat suits ... appearing on scene as ~ emergency workers ... researchers ... personnel responding to a spill ... let out ... tip over ... leak ... These ( to some degree ) stiff physiques wearing whole body protective equipment are also reinterpreted as cogent-radiant ghosts ... Real and perceived in mind truths of these types are symbols of failings ... shortcomings of some entity&#x27;s financial health expectations combined with weak will ... turned into non-fulfillments and big negatives for humanity ... Presenting examples of dangerous humankind still at large ... until stopped by groups of caring for mother earth activists ... who come between ( unwanted by most ) contaminations and today&#x27;s pollution discharge powers ... continues to be very important work ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1153"><p class="pt-sr">/// To return ... to return where there are remains ... military forces ... shadows of spirits who have never forced anything ... A family with glossy tense eyes ... Loss bird feet resting on blood stains ... To another place ... This time a siren ribbon Holy Land territory ... Love provides another kind of voice as broken layers and fortunately also squeezes of gentle resonance ... A phrase can be anything in this tender active war zone ... Ancient old war between differences is striking ... who knows what ( next ) will appear in the journalist&#x27;s camera frame ... A bizarre disharmony during ceasefire minutes? ... A young person&#x27;s sweet voice singing a beautiful song that nobody else knows? ... With insanity ~ carnage falls into the category of melismatic ... Why are we not hearing whispers? Those sounds might be buried under one of the obliterated or shattered buildings ... covered with a thick layer of dust ... At this particular moment no one is waiting for a triumph that might offer some hope ... These souls ... victims ... are in the middle of the thick of it ... frantically trying to stay alive and search for others ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// To return ... to return where there are remains ... military forces ... shadows of spirits who have never forced anything ... A family with glossy tense eyes ... Loss bird feet resting on blood stains ... To another place ... This time a siren ribbon Holy Land territory ... Love provides another kind of voice as broken layers and fortunately also squeezes of gentle resonance ... A phrase can be anything in this tender active war zone ... Ancient old war between differences is striking ... who knows what ( next ) will appear in the journalist&#x27;s camera frame ... A bizarre disharmony during ceasefire minutes? ... A young person&#x27;s sweet voice singing a beautiful song that nobody else knows? ... With insanity ~ carnage falls into the category of melismatic ... Why are we not hearing whispers? Those sounds might be buried under one of the obliterated or shattered buildings ... covered with a thick layer of dust ... At this particular moment no one is waiting for a triumph that might offer some hope ... These souls ... victims ... are in the middle of the thick of it ... frantically trying to stay alive and search for others ///"><div class="pt-track"><span class="pt-unit">/// To return ... to return where there are remains ... military forces ... shadows of spirits who have never forced anything ... A family with glossy tense eyes ... Loss bird feet resting on blood stains ... To another place ... This time a siren ribbon Holy Land territory ... Love provides another kind of voice as broken layers and fortunately also squeezes of gentle resonance ... A phrase can be anything in this tender active war zone ... Ancient old war between differences is striking ... who knows what ( next ) will appear in the journalist&#x27;s camera frame ... A bizarre disharmony during ceasefire minutes? ... A young person&#x27;s sweet voice singing a beautiful song that nobody else knows? ... With insanity ~ carnage falls into the category of melismatic ... Why are we not hearing whispers? Those sounds might be buried under one of the obliterated or shattered buildings ... covered with a thick layer of dust ... At this particular moment no one is waiting for a triumph that might offer some hope ... These souls ... victims ... are in the middle of the thick of it ... frantically trying to stay alive and search for others ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1523"><p class="pt-sr">/// We love to EAT because it is a main necessity ... We also ( often without knowing it ) are conditioned to lean towards people who are around us when we are at a public place ... Subliminally ... we think it&#x27;s a substantial disadvantage to not be an interpersonal member of humanity as a whole ... To go along with this ... we have style-flavor-sapor that we relish ... From teen age on up aesthetic style translates and reflects our deep-seated or casual-light interests ... Exterior ~  informal gracefulness or relaxed ruggedness are nonverbal indicators that can represent spiritual or other beliefs ... gender identity ... occupation ... hearted essence ... Our look and our overall flavor with all of its fine details ( intentionally or unintentionally ) can quickly send out a full bouquet message to others that is about how we think of ourself ... including deeper ( and further worked out ) inner aspects ... preferences for outward visual expression might be ( or range from ) sweet to salty ... acidic to raw-agitated nerves ... Other special features might include an illustrative polyester skin ( covering ) or tissue tattoos ( permanent ink renderings on flesh ) ... When boredom or mild boredom enters our life ... we might have a THIRST or HUNGER for something brand new that we find or create ... We might wish to stir the pot a little ... or extensively mess up the style identity that we are walking around with and displaying to friends ... family ... acquaintances ... and perfect strangers ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// We love to EAT because it is a main necessity ... We also ( often without knowing it ) are conditioned to lean towards people who are around us when we are at a public place ... Subliminally ... we think it&#x27;s a substantial disadvantage to not be an interpersonal member of humanity as a whole ... To go along with this ... we have style-flavor-sapor that we relish ... From teen age on up aesthetic style translates and reflects our deep-seated or casual-light interests ... Exterior ~  informal gracefulness or relaxed ruggedness are nonverbal indicators that can represent spiritual or other beliefs ... gender identity ... occupation ... hearted essence ... Our look and our overall flavor with all of its fine details ( intentionally or unintentionally ) can quickly send out a full bouquet message to others that is about how we think of ourself ... including deeper ( and further worked out ) inner aspects ... preferences for outward visual expression might be ( or range from ) sweet to salty ... acidic to raw-agitated nerves ... Other special features might include an illustrative polyester skin ( covering ) or tissue tattoos ( permanent ink renderings on flesh ) ... When boredom or mild boredom enters our life ... we might have a THIRST or HUNGER for something brand new that we find or create ... We might wish to stir the pot a little ... or extensively mess up the style identity that we are walking around with and displaying to friends ... family ... acquaintances ... and perfect strangers ///"><div class="pt-track"><span class="pt-unit">/// We love to EAT because it is a main necessity ... We also ( often without knowing it ) are conditioned to lean towards people who are around us when we are at a public place ... Subliminally ... we think it&#x27;s a substantial disadvantage to not be an interpersonal member of humanity as a whole ... To go along with this ... we have style-flavor-sapor that we relish ... From teen age on up aesthetic style translates and reflects our deep-seated or casual-light interests ... Exterior ~  informal gracefulness or relaxed ruggedness are nonverbal indicators that can represent spiritual or other beliefs ... gender identity ... occupation ... hearted essence ... Our look and our overall flavor with all of its fine details ( intentionally or unintentionally ) can quickly send out a full bouquet message to others that is about how we think of ourself ... including deeper ( and further worked out ) inner aspects ... preferences for outward visual expression might be ( or range from ) sweet to salty ... acidic to raw-agitated nerves ... Other special features might include an illustrative polyester skin ( covering ) or tissue tattoos ( permanent ink renderings on flesh ) ... When boredom or mild boredom enters our life ... we might have a THIRST or HUNGER for something brand new that we find or create ... We might wish to stir the pot a little ... or extensively mess up the style identity that we are walking around with and displaying to friends ... family ... acquaintances ... and perfect strangers ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1413"><p class="pt-sr">/// How do we find peace where there is very little color? ... A sense of tranquility and warm-heartedness exists in meadow silt and urban-mire mud ... It is in all ( stick to it in a good way ) soft and calm matter ... Peace of mind is freedom from our self ... Essentially our mind has two sides and we should not want to give much if any attention to the side that has our ego ( as dictator ) ... To be in a good peaceful state of mind ... to be at ease ... requires that we orient towards our far-less-competitive-with-ourself-and-others-side-of-our-mind ... The side that is in the present moment deciding A Peaceful Heart Is A Good Wise Way For Ourself And Everyone Else ... This also means that ( moving forward ) we will not hoard any of earth&#x27;s living and other natural resources ... We will not have anything to do with turning any landscape into a seemingly colorless reality ... We will not be involved in any way with obliterating ... plundering ( stealing using force ) ... pillaging ... because of settle-at-a-lower-level-self-greed that is there in cahoots with our ego ... that is opposite of our for more peace partnering side of our mind ... It is easy for simple self-esteem and self-importance to join with selfish-desire-for-something ... that leaves behind countless to some or a few casualties ... Innocent victims defined as God&#x27;s people and sacred good for the earth things ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// How do we find peace where there is very little color? ... A sense of tranquility and warm-heartedness exists in meadow silt and urban-mire mud ... It is in all ( stick to it in a good way ) soft and calm matter ... Peace of mind is freedom from our self ... Essentially our mind has two sides and we should not want to give much if any attention to the side that has our ego ( as dictator ) ... To be in a good peaceful state of mind ... to be at ease ... requires that we orient towards our far-less-competitive-with-ourself-and-others-side-of-our-mind ... The side that is in the present moment deciding A Peaceful Heart Is A Good Wise Way For Ourself And Everyone Else ... This also means that ( moving forward ) we will not hoard any of earth&#x27;s living and other natural resources ... We will not have anything to do with turning any landscape into a seemingly colorless reality ... We will not be involved in any way with obliterating ... plundering ( stealing using force ) ... pillaging ... because of settle-at-a-lower-level-self-greed that is there in cahoots with our ego ... that is opposite of our for more peace partnering side of our mind ... It is easy for simple self-esteem and self-importance to join with selfish-desire-for-something ... that leaves behind countless to some or a few casualties ... Innocent victims defined as God&#x27;s people and sacred good for the earth things ///"><div class="pt-track"><span class="pt-unit">/// How do we find peace where there is very little color? ... A sense of tranquility and warm-heartedness exists in meadow silt and urban-mire mud ... It is in all ( stick to it in a good way ) soft and calm matter ... Peace of mind is freedom from our self ... Essentially our mind has two sides and we should not want to give much if any attention to the side that has our ego ( as dictator ) ... To be in a good peaceful state of mind ... to be at ease ... requires that we orient towards our far-less-competitive-with-ourself-and-others-side-of-our-mind ... The side that is in the present moment deciding A Peaceful Heart Is A Good Wise Way For Ourself And Everyone Else ... This also means that ( moving forward ) we will not hoard any of earth&#x27;s living and other natural resources ... We will not have anything to do with turning any landscape into a seemingly colorless reality ... We will not be involved in any way with obliterating ... plundering ( stealing using force ) ... pillaging ... because of settle-at-a-lower-level-self-greed that is there in cahoots with our ego ... that is opposite of our for more peace partnering side of our mind ... It is easy for simple self-esteem and self-importance to join with selfish-desire-for-something ... that leaves behind countless to some or a few casualties ... Innocent victims defined as God&#x27;s people and sacred good for the earth things ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="414"><p class="pt-sr">/// Mess hall ... Feed for in need human beings ... Pabulum ... Free provisions ... Golden waves of rations ... Root cause of starvation ... Heart ailments ... Board of chow time ... The edible table has been set out for the public to smell ... see ... and touch ... Motherload of fodder ... Movable real grit to place on an enemy ... Each is presented to serve as a loose and light conversation starting point ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Mess hall ... Feed for in need human beings ... Pabulum ... Free provisions ... Golden waves of rations ... Root cause of starvation ... Heart ailments ... Board of chow time ... The edible table has been set out for the public to smell ... see ... and touch ... Motherload of fodder ... Movable real grit to place on an enemy ... Each is presented to serve as a loose and light conversation starting point ///"><div class="pt-track"><span class="pt-unit">/// Mess hall ... Feed for in need human beings ... Pabulum ... Free provisions ... Golden waves of rations ... Root cause of starvation ... Heart ailments ... Board of chow time ... The edible table has been set out for the public to smell ... see ... and touch ... Motherload of fodder ... Movable real grit to place on an enemy ... Each is presented to serve as a loose and light conversation starting point ///</span></div></div></div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-sent" data-len="483"><div class="pt-bubble">
+  <p>We are all dependent on each other ... no larger or smaller nation can be invented by any human beings ... No one ( by God ) has the right to control any sky or human-made border ... That&#x27;s just a spiritual fact of life ... Someone might be dependent on someone else for food staples ... but because bread ( for example ) is from Earth&#x27;s Holy &amp; Sacred Creation ~ no mortal human leaders can decide who gets pinches of nourishing bread because nobody ... truthfully ... can own it ///</p>
+</div></div>
+</div>
+<div class="pt-group">
+<div class="pt-beat pt-board pt-board-long" data-len="1059"><p class="pt-sr">/// Beginning Saturday morning ... A group that doesn&#x27;t describe themselves as militant ( but recommends extreme methods of physical violence) started a savage attack on their neighbor with a concentrated artillery rocket bombardment ... Over a thousand people have lost their lives ( are dead ) including babies and non-violent elderly women ... The opposition struck back with their rockets to greatly diminished or topple the enemy ... Additionally ... food ... fuel ... and humanitarian aid was cut off ... It feels like this warring conflict ... including an immense amount of bloodshed ... is going to be different from their past wars ... Presently there is no electricity ... the sky is filled with dark gray smoke ... buildings are repeatedly shaking because of rapid outward releases of energy ... and explosions blowing apart everything within their range ... Crowds of people everywhere are fleeing ... but are not exactly sure which direction to go ... They&#x27;re looking for any safe area that might offer protection from being killed ///</p><div class="pt-rows" aria-hidden="true"><div class="pt-row" data-line="/// Beginning Saturday morning ... A group that doesn&#x27;t describe themselves as militant ( but recommends extreme methods of physical violence) started a savage attack on their neighbor with a concentrated artillery rocket bombardment ... Over a thousand people have lost their lives ( are dead ) including babies and non-violent elderly women ... The opposition struck back with their rockets to greatly diminished or topple the enemy ... Additionally ... food ... fuel ... and humanitarian aid was cut off ... It feels like this warring conflict ... including an immense amount of bloodshed ... is going to be different from their past wars ... Presently there is no electricity ... the sky is filled with dark gray smoke ... buildings are repeatedly shaking because of rapid outward releases of energy ... and explosions blowing apart everything within their range ... Crowds of people everywhere are fleeing ... but are not exactly sure which direction to go ... They&#x27;re looking for any safe area that might offer protection from being killed ///"><div class="pt-track"><span class="pt-unit">/// Beginning Saturday morning ... A group that doesn&#x27;t describe themselves as militant ( but recommends extreme methods of physical violence) started a savage attack on their neighbor with a concentrated artillery rocket bombardment ... Over a thousand people have lost their lives ( are dead ) including babies and non-violent elderly women ... The opposition struck back with their rockets to greatly diminished or topple the enemy ... Additionally ... food ... fuel ... and humanitarian aid was cut off ... It feels like this warring conflict ... including an immense amount of bloodshed ... is going to be different from their past wars ... Presently there is no electricity ... the sky is filled with dark gray smoke ... buildings are repeatedly shaking because of rapid outward releases of energy ... and explosions blowing apart everything within their range ... Crowds of people everywhere are fleeing ... but are not exactly sure which direction to go ... They&#x27;re looking for any safe area that might offer protection from being killed ///</span></div></div></div></div>
+</div>
+    </div>
+    <div class="pt-waiting"><button type="button" class="pt-next">Next <span aria-hidden="true">&rarr;</span></button></div>
+    <nav class="pt-end" aria-label="After this chapter"><a class="arrow-link arrow-next" href="/words/2023-25-phone-texts/give-life-your-all/">Next chapter: Give Life Your All <span class="arrow-glyph">&rarr;</span></a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/writings">All writings</a><span class="pt-dot" aria-hidden="true">&middot;</span><a href="/the-book">The Book</a></nav>
+    <div class="pt-room" aria-hidden="true"></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings" class="current">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script>
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('pt-js');
+
+  var main = document.getElementById('pt');
+  var thread = main.querySelector('.pt-thread');
+  var phone = main.querySelector('.pt-phone');
+  var beats = Array.prototype.slice.call(thread.querySelectorAll('.pt-beat'));
+  var nextBtn = main.querySelector('.pt-next');
+  var allBtn = main.querySelector('.pt-all');
+  var bar = document.querySelector('.pt-progress span');
+  var stops = (body.getAttribute('data-stops') || '').split(',');
+  var shown = 0, busy = false, lastY = window.scrollY, quietUntil = 0;
+
+  /* ----- where the phone column sits, so a board can run the whole window ----- */
+  function measure() {
+    var left = thread.getBoundingClientRect().left;
+    body.style.setProperty('--pt-col-left', left + 'px');
+  }
+
+  /* ----- the moving message board ----- */
+  function buildBoard(board) {
+    var rows = board.querySelectorAll('.pt-row');
+    Array.prototype.forEach.call(rows, function (row, n) {
+      var line = row.getAttribute('data-line');
+      var track = row.querySelector('.pt-track');
+      track.innerHTML = '';
+      var one = document.createElement('span');
+      one.className = 'pt-unit';
+      one.textContent = line;
+      track.appendChild(one);
+      if (still || board.classList.contains('pt-board-long')) return;
+      var w = one.getBoundingClientRect().width || 400;
+      var k = Math.max(1, Math.ceil(window.innerWidth / w) + 1);
+      for (var i = 1; i < k * 2; i++) track.appendChild(one.cloneNode(true));
+      track.style.setProperty('--pt-dur', ((w * k) / (66 - n * 6)).toFixed(1) + 's');
+      if (n % 2) track.style.animationDelay = '-' + (w / 140).toFixed(1) + 's';
+    });
+  }
+
+  /* ----- the chapter's colour, following the story ----- */
+  function hex(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mix(a, b, t) { var x = hex(a), y = hex(b); return 'rgb(' + x.map(function (v, i) { return Math.round(v + (y[i] - v) * t); }).join(',') + ')'; }
+  function colourAt(f) {
+    if (stops.length < 2) return stops[0];
+    var p = Math.min(Math.max(f, 0), 1) * (stops.length - 1), i = Math.min(Math.floor(p), stops.length - 2);
+    return mix(stops[i], stops[i + 1], p - i);
+  }
+  function mood() {
+    var f = 0, mid = window.innerHeight * 0.6;
+    for (var i = 0; i < shown; i++) {
+      if (beats[i].getBoundingClientRect().top < mid) f = i / Math.max(beats.length - 1, 1); else break;
+    }
+    body.style.setProperty('--pt-ground', colourAt(f));
+    bar.style.width = (shown / beats.length * 100) + '%';
+  }
+
+  /* ----- one text arrives ----- */
+  function side(b) { return b.classList.contains('pt-board') ? 'pt-board-dots' : b.classList.contains('pt-reply') ? 'pt-reply' : 'pt-sent'; }
+  function finish() {
+    main.classList.add('pt-done');
+    allBtn.hidden = true;
+  }
+  function place(b, follow) {
+    b.classList.add('in', 'fresh');
+    if (b.classList.contains('pt-board')) buildBoard(b);
+    setTimeout(function () { b.classList.remove('fresh'); }, 800);
+    shown++;
+    if (shown >= beats.length) finish();
+    mood();
+    if (follow) bringIntoView(b);
+  }
+  function bringIntoView(el) {
+    var r = el.getBoundingClientRect(), want = window.innerHeight * 0.82;
+    quietUntil = Date.now() + 1100;
+    if (r.bottom > want) window.scrollBy({ top: Math.min(r.bottom - want, r.top - 120), behavior: still ? 'auto' : 'smooth' });
+  }
+  function next(follow) {
+    if (busy || shown >= beats.length) return;
+    var b = beats[shown];
+    if (still) { place(b, follow); return; }
+    busy = true;
+    var dots = document.createElement('div');
+    dots.className = 'pt-dots ' + side(b);
+    dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<span class="pt-dot-bubble"><i></i><i></i><i></i></span>';
+    b.parentNode.insertBefore(dots, b);
+    if (follow) bringIntoView(dots);
+    var len = +b.getAttribute('data-len') || 40;
+    var wait = Math.min(950, Math.max(520, 420 + len * 1.1));
+    setTimeout(function () {
+      dots.remove();
+      place(b, follow);
+      busy = false;
+    }, wait);
+  }
+  function showAll() {
+    while (shown < beats.length) {
+      beats[shown].classList.add('in');
+      if (beats[shown].classList.contains('pt-board')) buildBoard(beats[shown]);
+      shown++;
+    }
+    var d = thread.querySelector('.pt-dots'); if (d) d.remove();
+    busy = false;
+    finish();
+    mood();
+  }
+
+  /* ----- the hand: a tap or click anywhere on the chapter, the button, or scrolling on ----- */
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(true); });
+  allBtn.addEventListener('click', function (e) { e.stopPropagation(); showAll(); });
+  main.addEventListener('click', function (e) {
+    if (e.target.closest('a, button, .pt-side')) return;
+    if (window.getSelection && String(window.getSelection()).length) return;
+    next(true);
+  });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (y > lastY + 4 && shown < beats.length && !busy && Date.now() > quietUntil) {
+      var last = shown ? beats[shown - 1] : null;
+      if (!last || last.getBoundingClientRect().bottom < window.innerHeight * 0.72) next(false);
+    }
+    lastY = y;
+    mood();
+  }, { passive: true });
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      measure();
+      Array.prototype.forEach.call(thread.querySelectorAll('.pt-board.in'), buildBoard);
+    }, 150);
+  });
+
+  measure();
+  if (still) { showAll(); return; }
+  mood();
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    measure();
+    setTimeout(function () { next(false); }, 350);
+  });
+})();
+
+</script>
+</body>
+</html>
