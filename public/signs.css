@@ -1,0 +1,38 @@
+/* signs.css -- the Paraploo signs (SITE-ORDER\SIGNS-BUILD, November 2, 2026; ruled in claude/SIGNS-RULED-2026-10-30.md).
+   The previews' shared style block (pp-sign-style), word for word. Each room's own place is a small rule in its
+   own head (pp-place-style). Used by: Welcome, Writings, Marks, the 404 room, Collage, Tongue-Filled, the walks. */
+/* Paraploo signs: 480 pixels wide, 320 on phones; a surprise for this one room. */
+.pp-sign { display: flex; justify-content: center; }
+.pp-sign .sign { display: block; width: 480px; max-width: 100%; height: auto; overflow: visible; }
+@media (max-width: 600px) { .pp-sign .sign { width: 320px; } }
+
+/* Pen line, then two blinks */
+.pp-sign .drawn polyline { stroke: #000; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.pp-sign .drawn.go polyline { animation: pp-draw var(--t) linear var(--d) both; }
+@keyframes pp-draw {
+  0%   { stroke-dashoffset: 1; stroke: #000; animation-timing-function: steps(1, end); }
+  1%   { stroke-dashoffset: .99; stroke: #fff; animation-timing-function: linear; }
+  100% { stroke-dashoffset: 0; stroke: #fff; }
+}
+.pp-sign .drawn.done g.part { mask: none; }
+.pp-sign .drawn.done, .pp-sign .tone.done { animation: pp-flash .45s steps(1, end) 1; }
+@keyframes pp-flash { 0% { opacity: 1; } 20% { opacity: .12; } 40% { opacity: 1; } 60% { opacity: .12; } 80%, 100% { opacity: 1; } }
+
+/* Built by tone: palest colour first, each sliding in from the lower right, then two blinks */
+.pp-sign .tone g.part { opacity: 0; }
+.pp-sign .tone.go g.part { animation: pp-settle .55s cubic-bezier(.2,.7,.2,1) var(--d) both; }
+@keyframes pp-settle {
+  0%   { opacity: 0; transform: translate(34px, 22px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+/* Visitors who have turned motion off see the finished sign */
+@media (prefers-reduced-motion: reduce) {
+  .pp-sign .drawn.done, .pp-sign .tone.done { animation: none !important; }
+  .pp-sign .drawn g.part { mask: none !important; }
+  .pp-sign .tone g.part { opacity: 1 !important; animation: none !important; transform: none !important; }
+}
+
+/* Light only: in the Dark look this room carries no sign, and the page is as it is now */
+html[data-theme="dark"] .pp-light-only { display: none !important; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .pp-light-only { display: none !important; } }
