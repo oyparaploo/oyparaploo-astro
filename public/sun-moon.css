@@ -1,0 +1,17 @@
+/* The sun and moon in the top strip (Reach: "perfect", November 6, 2026, version 5 of
+   HTML DOCS\PREVIEWS\SUN-MOON-WHOLE-2026-11-06). A sun when Light shows, a moon when Dark shows,
+   just left of the date; not a button; screen readers skip it; a gentle fade, none for less motion. */
+.theme-strip .theme-date { display: inline-flex; align-items: center; gap: 10px; }
+.sun-moon { position: relative; display: inline-block; flex: 0 0 22px; width: 22px; height: 22px; pointer-events: none; }
+.sun-moon svg { position: absolute; left: 0; top: 0; width: 22px; height: 22px; overflow: visible;
+  fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round;
+  transition: opacity 0.6s ease; }
+.sun-moon .sm-sun { color: #a8791f; opacity: 1; }   /* gold, about 3.6 to 1 on the light ground */
+.sun-moon .sm-moon { color: #b4bac3; opacity: 0; }  /* silver grey, about 10 to 1 on the dark ground */
+html[data-theme="dark"] .sun-moon .sm-sun { opacity: 0; }
+html[data-theme="dark"] .sun-moon .sm-moon { opacity: 1; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sun-moon .sm-sun { opacity: 0; }
+  html:not([data-theme="light"]) .sun-moon .sm-moon { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .sun-moon svg { transition: none; } }
