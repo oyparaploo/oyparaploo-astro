@@ -1,0 +1,37 @@
+/* The picture tint (SITE-ORDER\PICTURE-TINT-BUILD, November 8, 2026): picture pages tinted by their own colour.
+   Reach, November 8, 2026, on the whole preview (HTML DOCS\PREVIEWS\PICTURE-TINT-WHOLE-2026-11-07): "perfect as it stands".
+   On every Placings picture page the way back, the title and the gallery's line stand on one flat, edge-to-edge band
+   whose colour BUILD\picture_tint.py measured from the page's own photograph: --tint-light in Light, --tint-dark in Dark,
+   both written on the band itself. Every word on the band is in Ink (Ink on dark in Dark), 7 to 1 or better.
+   The picture, its facts and everything below stay on the page's own ground. Rules below are the preview's, unchanged. */
+
+.work-tint {
+  --tint: var(--tint-light);
+  background: var(--tint);
+  /* paints the band out to both edges of the window without making the page scroll sideways */
+  border-image: conic-gradient(var(--tint) 0 0) fill 0 / / 0 100vw;
+  margin: -64px 0 48px;
+  padding: 48px 0 44px;
+}
+html[data-theme="dark"] .work-tint { --tint: var(--tint-dark); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-tint { --tint: var(--tint-dark); }
+}
+
+/* the title keeps the live title's look exactly; only its parent changed */
+.work-wrap > .work-tint > h1 {
+  view-transition-name: work-title;
+  font-size: 34px; font-family: 'Archivo', sans-serif !important; font-stretch: 112%; font-weight: 600 !important;
+  letter-spacing: -0.02em; line-height: 1.12;
+  margin: 0;
+}
+.work-wrap > .work-tint > h1:has(+ .work-hang-line) { margin-bottom: 12px; }
+
+/* the gallery's line: same size, face and width as live, in Ink on the band */
+.work-tint .work-hang-line { color: var(--ink); margin-bottom: 0; }
+
+@media (max-width: 800px) {
+  .work-tint { margin: -24px 0 24px; padding: 20px 0 24px; }
+  .work-wrap > .work-tint > h1 { font-size: 25px; }
+  .work-wrap > .work-tint > h1:has(+ .work-hang-line) { margin-bottom: 8px; }
+}
