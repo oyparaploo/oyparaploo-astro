@@ -27,7 +27,7 @@
      writing first, then Marks, Placings and Collage. The same five everywhere. */
   var SUGGEST = [
     { t: 'Start here', h: '/writings/start-here', k: 'Where to begin, in the Writings' },
-    { t: 'The Goodness of Grief', h: '/writings/the-goodness-of-grief', k: 'Shelf of Poems' },
+    { t: 'The Goodness of Grief', h: '/writings/the-goodness-of-grief', k: 'Shelf of Essays' },
     { t: 'Handwritten Every Which Way', h: '/words/hand-writings/', k: 'Marks' },
     { t: 'Placed Outside ...', h: '/physical/placed-outside', k: 'Placings' },
     { t: 'Saved Again ...', h: '/digital/saved-pieces/', k: 'Collage' }
