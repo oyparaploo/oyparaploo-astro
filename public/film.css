@@ -258,3 +258,30 @@ html.pp-still .fm-play-disc, html.pp-still.fm-play-disc, html.pp-still .fm-frame
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .fl-shot::after, html.pp-still.fl-shot::after, html.pp-still .fl-arrow, html.pp-still.fl-arrow { transition: none; }
 
+
+/* The way back to the video list (SITE-ORDER\VIDEO-WAY-BACK-BUILD, November 9, 2026; Reach: "perfect" on
+   HTML DOCS\PREVIEWS\VIDEO-WAY-BACK-2026-11-09). "<- All videos" on the dark ground, above the video, on the
+   video's left edge: the site's arrow link, Inter 600 at 18 pixels, no underline, the arrow sliding left when pointed
+   at; Ink on dark, white when pointed at, in Light and in Dark. The stage's top shrinks from 48 to 16 pixels and the
+   video's height allowance grows by 24 pixels, so the whole video still fits the window. */
+.fm-stage { padding-top: 16px; }
+.fm-back,
+.fm-screen,
+.fm-head { width: min(100%, 1280px, calc((100svh - 214px) * var(--fm-ar))); }
+.fm-back { margin: 0 auto 12px; }
+html:root:root body .fm-back .arrow-link,
+html:root:root body .fm-back .arrow-link .arrow-glyph {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-on-dark);
+  text-decoration: none;
+}
+html:root:root body .fm-back .arrow-link:hover,
+html:root:root body .fm-back .arrow-link:focus-visible,
+html:root:root body .fm-back .arrow-link:hover .arrow-glyph,
+html:root:root body .fm-back .arrow-link:focus-visible .arrow-glyph { color: #fff; }
+@media (max-width: 700px) {
+  .fm-stage { padding-top: 4px; }
+  .fm-back { width: auto; margin: 0; padding: 0 16px 4px; }
+}
