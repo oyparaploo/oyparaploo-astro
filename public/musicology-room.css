@@ -36,6 +36,7 @@
   --mr-panel: #0b0a09;      /* the panel under the print */
   --mr-peach: #F0B4A6;      /* the print's own peach: on the panel 11.1 to 1; Ink (#111111) on it 10.6 */
   --mr-purple: #44007E;     /* Billboard's purple: Ink on dark on it 10.4 to 1 (Light), 9.4 (Dark) */
+  --mr-midnight: #1B2457;   /* midnight blue, the card tops (November 9, 2026): on white 14.6 to 1 */
   --mr-white: #FFFFFF;      /* Billboard's white box: Ink (#111111) on it 18.9 to 1 */
   --mr-words: var(--ink-on-dark);      /* Ink, dark value, in every mode */
   --mr-soft: rgba(var(--ink-on-dark-rgb), 0.82);
@@ -161,7 +162,7 @@ body.mus-room { background: var(--mr-room); }
 .mr-seat {
   display: block; position: relative; aspect-ratio: 503 / 313; overflow: hidden;
   background: var(--mr-white); color: #111111; padding: 22px 26px 24px;
-  border-top: 8px solid var(--mr-purple); border-radius: 6px;
+  border-top: 8px solid var(--mr-midnight); border-radius: 6px;
   transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease);
 }
 .mr-seat-words {
@@ -364,3 +365,138 @@ body.mus-reading .mr-song-sub { background: #B89AD8; }
 /* Thirteenth round (Reach): the blend flipped, lighter on the left, darker on the right. */
 /* Fourteenth round: the blend widened so it can be seen, #D8BEF2 on the left to #A687C9 on the right (black words 11.3 to 6.2 to 1). */
 /* Fifteenth round (Reach): the blend taken out; the label is the flat lavender #B89AD8 again (black words 7.8 to 1). */
+
+
+/* ==========================================================================
+   The listening card on the Songs page. November 9, 2026 (Claude, Opus, High).
+   Reach's playlist, "Paraploo Music Playlist", under "We often love to listen
+   to music while we work." and above the sliding hall of songs.
+   - A still first: his Dish-Circle cover, the count, a warm brown play button (#9F7C61, Reach's colour), slate blue under the hand (#7D8B9B).
+   - Three colours (Reach, November 9, 2026: "a very classy three-color scheme"):
+     purple for the plus and the room pill, warm brown #9F7C61 for the play button (slate blue #7D8B9B
+     under the hand), both Reach's own picks; gold set aside,
+     midnight blue for the bars along the top of the song cards.
+     Nothing loads from Spotify until it is pressed; then Spotify's own compact
+     player takes its place at the same size (152 pixels tall), so nothing jumps.
+   - Compact, not the 352-pixel player: the tall player squeezed the hall of
+     songs on ordinary laptop windows, so the cards shrank and the glide stopped.
+   - Windows 900 pixels and wider (where the hall glides): the card sits beside
+     the title and its line, in the panel's empty top right. Phones and narrow
+     windows: directly under the line.
+   Every word on the dark panel at 7 to 1 or better. Nothing under 16 pixels.
+   ========================================================================== */
+
+.mr-listen { margin-top: 32px; max-width: 520px; animation: mr-focus 0.8s var(--mr-ease) 0.25s both; }
+
+.mr-listen-top {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.mr-listen-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 22px; line-height: 1.15; letter-spacing: -0.005em; color: var(--mr-words);
+}
+.mr-panel a.mr-listen-open {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3;
+  color: var(--mr-white); text-decoration: underline; text-decoration-thickness: 1px;
+  text-underline-offset: 5px; text-decoration-color: rgba(255,255,255,0.6);
+  transition: text-decoration-color 0.3s var(--mr-ease);
+}
+.mr-panel a.mr-listen-open:hover, .mr-panel a.mr-listen-open:focus-visible {
+  text-decoration-thickness: 2px; text-decoration-color: var(--mr-white);
+}
+.mr-listen-arrow { display: inline-block; font-size: 16px; text-decoration: none; }
+
+/* The player's seat: always 152 pixels tall, the still or Spotify's player in it. */
+.mr-listen-player { position: relative; height: 152px; border-radius: 12px; }
+.mr-listen-player iframe {
+  position: absolute; inset: 0; width: 100%; height: 152px; border: 0; border-radius: 12px;
+  opacity: 0; transition: opacity 0.4s var(--mr-ease);
+}
+.mr-listen-player.is-live iframe { opacity: 1; }
+
+.mr-listen-still {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; gap: 20px; padding: 16px 20px 16px 16px;
+  background: rgba(11, 10, 9, 0.62); color: var(--mr-words);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 12px;
+  font: inherit; text-align: left; cursor: pointer;
+  transition: border-color 0.3s var(--mr-ease), opacity 0.4s var(--mr-ease);
+}
+.mr-listen-still:hover, .mr-listen-still:focus-visible { border-color: rgba(255, 255, 255, 0.6); }
+.mr-listen-still:focus-visible { outline: 2px solid var(--mr-white); outline-offset: 4px; }
+.mr-listen-player.is-live .mr-listen-still { opacity: 0; pointer-events: none; }
+
+.mr-listen-cover {
+  flex: 0 0 120px; width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover; box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+}
+.mr-listen-words { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.mr-listen-count { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--mr-words); }
+.mr-listen-hint { font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.35; color: var(--mr-soft); }
+
+.mr-listen-play {
+  flex: 0 0 64px; width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #9F7C61; color: #111111;
+  box-shadow: none;
+  transition: background-color 0.3s var(--mr-ease), color 0.3s var(--mr-ease), transform 0.3s var(--mr-ease);
+}
+.mr-listen-play svg { width: 24px; height: 24px; margin-left: 4px; fill: currentColor; }
+.mr-listen-still:hover .mr-listen-play, .mr-listen-still:focus-visible .mr-listen-play {
+  background: #7D8B9B; color: #111111; transform: scale(1.06);
+}
+
+/* Wide windows: the card beside the title and its line. */
+@media (min-width: 900px) {
+  .mr-hall .mr-head {
+    max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) clamp(400px, 34vw, 440px);
+    column-gap: 56px; align-items: start; padding-right: calc(var(--mr-pad) + 52px);
+  }
+  .mr-hall .mr-title, .mr-hall .mr-line { grid-column: 1; }
+  .mr-hall .mr-title { margin-right: 0; }
+  /* Raised into the panel's top margin, left of the three bars, so the card is no
+     taller than the title and its line together and the hall keeps all its room. */
+  .mr-hall .mr-listen { grid-column: 2; grid-row: 1 / span 2; margin-top: -30px; max-width: none; }
+  .mr-hall .mr-listen-top { margin-bottom: 8px; }
+  .mr-hall .mr-panel a.mr-listen-open { min-height: 36px; }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .mr-hall .mr-head { column-gap: 40px; }
+  .mr-listen-top { gap: 16px; flex-wrap: nowrap; }
+  .mr-listen-title { font-size: 20px; }
+  .mr-panel a.mr-listen-open { font-size: 17px; }
+  .mr-listen-still { gap: 14px; }
+  .mr-listen-cover { flex-basis: 104px; width: 104px; height: 104px; }
+  .mr-listen-play { flex-basis: 56px; width: 56px; height: 56px; }
+}
+
+/* Phones and narrow windows: the heading, then the player, then Open in Spotify
+   under it on its own line, easy to tap. */
+@media (max-width: 899px) {
+  .mr-listen { margin-top: 24px; max-width: none; display: flex; flex-direction: column; }
+  .mr-listen-top { display: contents; }
+  .mr-listen-title { order: 1; font-size: 20px; margin-bottom: 12px; }
+  .mr-listen-player { order: 2; }
+  .mr-panel a.mr-listen-open { order: 3; align-self: flex-start; margin-top: 8px; }
+  .mr-listen-still { gap: 12px; padding: 16px; }
+  .mr-listen-cover { flex-basis: 92px; width: 92px; height: 92px; }
+  .mr-listen-play { flex-basis: 52px; width: 52px; height: 52px; }
+  .mr-listen-play svg { width: 20px; height: 20px; }
+  .mr-listen-count { font-size: 18px; }
+  .mr-listen-hint { font-size: 16px; }
+}
+@media (max-width: 359px) {
+  .mr-listen-cover { flex-basis: 76px; width: 76px; height: 76px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mr-listen { animation: none !important; }
+  .mr-listen-player iframe, .mr-listen-still, .mr-listen-play { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .mr-listen, html.pp-still.mr-listen { animation: none !important; }
+html.pp-still .mr-listen-player iframe, html.pp-still.mr-listen-player iframe, html.pp-still .mr-listen-still, html.pp-still.mr-listen-still, html.pp-still .mr-listen-play, html.pp-still.mr-listen-play { transition: none; }
+

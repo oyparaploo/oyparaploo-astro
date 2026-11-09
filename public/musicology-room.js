@@ -247,3 +247,28 @@
   sub.textContent = kind + ' \u00b7 ';
   sub.appendChild(time);
 })();
+
+
+/* The listening card: the still turns into Spotify's own compact player when pressed.
+   Nothing from Spotify loads before that. November 9, 2026. */
+(function () {
+  var seat = document.querySelector('.mr-listen-player');
+  if (!seat) return;
+  var still = seat.querySelector('.mr-listen-still');
+  var id = seat.getAttribute('data-playlist') || '';
+  still.addEventListener('click', function () {
+    if (seat.classList.contains('is-live') || seat.querySelector('iframe')) return;
+    if (!id) {
+      seat.querySelector('.mr-listen-hint').textContent = 'Playlist link still to come';
+      return;
+    }
+    var f = document.createElement('iframe');
+    f.src = 'https://open.spotify.com/embed/playlist/' + encodeURIComponent(id) + '?utm_source=generator&theme=0';
+    f.title = 'Paraploo Music Playlist on Spotify';
+    f.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
+    f.setAttribute('allowfullscreen', '');
+    f.addEventListener('load', function () { seat.classList.add('is-live'); try { f.focus(); } catch (e) {} });
+    seat.appendChild(f);
+    /* If Spotify is slow or blocked, the still stays until the player arrives. */
+  });
+})();
