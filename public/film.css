@@ -1,0 +1,254 @@
+/* The film pages (SITE-ORDER\FILM-PAGE-BUILD, November 8, 2026). The film page is the preview Reach called perfect,
+   HTML DOCS\PREVIEWS\FILM-PAGE-WHOLE-2026-11-08 (spec claude/FILM-PAGE-SPEC-2026-11-08.md, from Palais de Tokyo's
+   page for Rose Lowder's films, shown as strips of frames); the Film page, which lists every film, wears the same
+   ground, faces and pointing line.
+   The ground is the Placings page's dark ground (#0d0907), dark in Light and in Dark; the date strip, the header
+   and the footer follow the mode as on every page. Text colours are the dark values of the named colours in
+   chrome.css: Ink on dark (var(--ink-on-dark)), Soft ink #b3aa9f. Nothing under 16 pixels. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body.film-page { margin: 0; background: var(--ground); color: var(--ink); overflow-x: clip; }
+.film-page main {
+  display: block;
+  background: #0d0907;
+  color: var(--ink-on-dark);
+  padding-bottom: 128px;
+}
+.film-page main a { color: inherit; }
+.film-page :focus-visible { outline: 2px solid var(--ink-on-dark); outline-offset: 4px; }
+
+/* ---------------------------------------------------------------- the video, whole */
+.fm-stage { padding: 48px 24px 0; }
+.fm-screen {
+  position: relative;
+  /* As wide as the column allows, but never taller than the window leaves room for: the whole picture is seen. */
+  width: min(100%, 1280px, calc((100svh - 190px) * var(--fm-ar)));
+  aspect-ratio: var(--fm-ar);
+  margin: 0 auto;
+  background: #000;
+}
+.fm-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* never cropped */
+  background: #000;
+}
+.fm-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #111;
+}
+.fm-play-disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(var(--ink-on-dark-rgb), 0.92);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+.fm-play-disc svg { display: block; width: 30px; height: 30px; margin-left: 5px; fill: currentColor; }
+.fm-play:hover .fm-play-disc, .fm-play:focus-visible .fm-play-disc { transform: scale(1.06); background: #fff; }
+.fm-play:focus-visible { outline-offset: -6px; }
+.fm-screen.is-playing .fm-play { display: none; }
+
+/* ---------------------------------------------------------------- the title and the one fact line */
+.fm-head {
+  width: min(100%, 1280px, calc((100svh - 190px) * var(--fm-ar)));
+  min-width: min(100%, 620px);
+  margin: 0 auto;
+  padding-top: 28px;
+}
+.fm-title {
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: clamp(34px, 3.2vw, 52px);
+  line-height: 1.1;
+  color: var(--ink-on-dark);
+  text-wrap: balance;
+}
+.fm-fact {
+  margin: 12px 0 0;
+  font: 400 16px/1.4 'Inter', sans-serif;
+  letter-spacing: 0.04em;
+  color: #b3aa9f;
+}
+
+/* ---------------------------------------------------------------- the strips */
+.fm-strips-band { padding: 104px 24px 0; }
+.fm-say {
+  max-width: 940px;
+  margin: 0 auto 28px;
+  font: 400 18px/1.5 'Inter', sans-serif;
+  color: var(--ink-on-dark);
+}
+.fm-strips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+/* One length of film: three frames on black, with thin black gaps between them. No sprocket holes. */
+.fm-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 6px;
+  background: #000;
+  list-style: none;
+}
+.fm-strip li { margin: 0; }
+.fm-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+}
+.fm-frame img {
+  display: block;
+  width: 100%;
+  height: auto;            /* whole frame, never cropped */
+  transition: opacity 0.3s ease;
+}
+.fm-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 2px rgba(var(--ink-on-dark-rgb), 0);
+  transition: box-shadow 0.25s ease;
+  pointer-events: none;
+}
+.fm-frame:hover::after, .fm-frame:focus-visible::after { box-shadow: inset 0 0 0 2px rgba(var(--ink-on-dark-rgb), 0.95); }
+.fm-frame:focus-visible { outline: none; }
+/* The moment the film has reached: its frame carries the light line while it plays. */
+.fm-frame.is-now::after { box-shadow: inset 0 0 0 2px rgba(var(--ink-on-dark-rgb), 0.95); }
+.fm-strips.is-playing .fm-frame:not(.is-now) img { opacity: 0.62; }
+.fm-strips.is-playing .fm-frame:hover img { opacity: 1; }
+.fm-time {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(13, 9, 7, 0.82);
+  font: 500 16px/1.4 'Inter', sans-serif;
+  color: var(--ink-on-dark);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.fm-frame:hover .fm-time, .fm-frame:focus-visible .fm-time, .fm-frame.is-now .fm-time { opacity: 1; }
+
+/* ---------------------------------------------------------------- the writing */
+.fm-writing { max-width: calc(700px + 48px); margin: 0 auto; padding: 128px 24px 0; }
+.fm-w-kind { margin: 0 0 14px; font: 400 16px/1.4 'Inter', sans-serif; letter-spacing: 0.04em; color: #b3aa9f; }
+.fm-w-title {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 42px); line-height: 1.1;
+  color: var(--ink-on-dark); text-wrap: balance;
+}
+.fm-w-sub { margin: 10px 0 0; font: 400 22px/1.35 'Inter', sans-serif; color: #b3aa9f; }
+.fm-w-body { margin-top: 36px; font: 400 20px/1.65 'Inter', sans-serif; color: var(--ink-on-dark); }
+.fm-w-body p { margin: 0 0 1.05em; }
+.fm-w-own { margin: 28px 0 0; }
+.fm-w-own .arrow-link { font: 600 18px/1.3 'Inter', sans-serif; text-decoration: none; color: var(--ink-on-dark); }
+.fm-w-own .arrow-glyph { display: inline-block; transition: transform 0.25s ease; }
+.fm-w-own .arrow-link:hover .arrow-glyph { transform: translateX(4px); }
+
+/* ---------------------------------------------------------------- phones */
+@media (max-width: 700px) {
+  .fm-stage { padding: 0; }
+  .fm-screen { width: 100%; }
+  .fm-head { width: auto; min-width: 0; padding: 22px 16px 0; }
+  .fm-title { font-size: 32px; }
+  .fm-strips-band { padding: 72px 12px 0; }
+  .fm-say { margin: 0 4px 20px; }
+  .fm-strips { gap: 10px; }
+  .fm-strip { gap: 3px; padding: 3px; }
+  .fm-time { display: none; }
+  .fm-play-disc { width: 68px; height: 68px; }
+  .fm-play-disc svg { width: 24px; height: 24px; }
+  .fm-writing { padding: 88px 16px 0; }
+  .fm-w-body { font-size: 19px; }
+  .film-page main { padding-bottom: 96px; }
+}
+
+/* Less motion: nothing slides or fades. (The Still switch writes this rule a second time by itself.) */
+@media (prefers-reduced-motion: reduce) {
+  .fm-play-disc, .fm-frame img, .fm-frame::after, .fm-time, .fm-w-own .arrow-glyph { transition: none; }
+}
+
+/* ---------------------------------------------------------------- the Film page: every film, newest first */
+.fl-opening { max-width: 1180px; margin: 0 auto; padding: 64px 24px 0; }
+.fl-title {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(40px, 4vw, 64px); line-height: 1.05;
+  color: var(--ink-on-dark);
+}
+.fl-say { max-width: 700px; margin: 18px 0 0; font: 400 20px/1.5 'Inter', sans-serif; color: var(--ink-on-dark); }
+.fl-list { max-width: 1180px; margin: 56px auto 0; padding: 0 24px; list-style: none; }
+.fl-list > li { margin: 0; padding: 40px 0; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.18); }
+.fl-list > li:first-child { border-top: 0; padding-top: 0; }
+.fl-film {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 40px;
+  align-items: end;
+  text-decoration: none;
+}
+.fl-shot { position: relative; display: block; aspect-ratio: var(--fm-ar); background: #000; }
+.fl-shot img { display: block; width: 100%; height: 100%; object-fit: contain; }   /* whole, never cropped */
+.fl-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 2px rgba(var(--ink-on-dark-rgb), 0);
+  transition: box-shadow 0.25s ease;
+  pointer-events: none;
+}
+.fl-film:hover .fl-shot::after, .fl-film:focus-visible .fl-shot::after { box-shadow: inset 0 0 0 2px rgba(var(--ink-on-dark-rgb), 0.95); }
+.fl-words { display: block; padding-bottom: 4px; }
+.fl-name {
+  display: block;
+  font-family: 'Lora', serif; font-weight: 600;
+  font-size: clamp(30px, 2.6vw, 42px); line-height: 1.1;
+  color: var(--ink-on-dark);
+  text-wrap: balance;
+}
+.fl-arrow { display: inline-block; margin-left: 0.3em; transition: transform 0.25s ease; }
+.fl-film:hover .fl-arrow, .fl-film:focus-visible .fl-arrow { transform: translateX(6px); }
+.fl-fact { display: block; margin-top: 12px; font: 400 16px/1.4 'Inter', sans-serif; letter-spacing: 0.04em; color: #b3aa9f; }
+@media (max-width: 700px) {
+  .fl-opening { padding: 40px 16px 0; }
+  .fl-title { font-size: 40px; }
+  .fl-say { font-size: 19px; }
+  .fl-list { margin-top: 36px; padding: 0; }
+  .fl-list > li { padding: 32px 0; }
+  .fl-film { grid-template-columns: 1fr; gap: 18px; }
+  .fl-words { padding: 0 16px; }
+  .fl-name { font-size: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-shot::after, .fl-arrow { transition: none; }
+}
