@@ -408,3 +408,16 @@ html.rm .wp-seq-word .arrow-glyph { transition: none; }
 .wp-room .arrow-link { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: var(--ink); }
 .wp-room .arrow-link .arrow-glyph { color: var(--ink); }
 @media (max-width: 600px) { .wp-room { margin-bottom: 28px; } }
+
+/* The shelf line (SITE-ORDER\WRITING-SHELF-LINE-BUILD, November 8, 2026; the preview Reach called perfect,
+   HTML DOCS\PREVIEWS\WRITING-SHELF-LINE-WHOLE-2026-11-08). Directly under the kind and reading time on the writing
+   stage: the same size, face and colour as that line (Inter 16 pixels, 0.04em spacing, Soft ink), 4 pixels below it.
+   Each shelf name is a plain link with no box; it takes the underline only when pointed at, and never breaks inside
+   itself, so on phones the line wraps between whole names. A writing on no shelf has no line. */
+.stage-shelves {
+  margin: -10px 0 14px; font-size: 16px; line-height: 1.4; letter-spacing: 0.04em; color: var(--ink-soft);
+}
+.stage-shelves a, .stage-shelves a:visited { color: inherit; text-decoration: none; white-space: nowrap; }
+.stage-shelves a:hover, .stage-shelves a:focus-visible {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
