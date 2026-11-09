@@ -1,0 +1,193 @@
+/* ==========================================================================
+   THE PAGE IT BEGAN ON  (built from the preview Reach called perfect, November 9, 2026:
+   HTML DOCS\PREVIEWS\ORIGINAL-PAGES-WHOLE-2026-11-08; SITE-ORDER\ORIGINAL-PAGES-BUILD)
+
+   After the writing's last line, inside the reading sheet and before Previous, Next and the foot
+   pictures: a heading in the page's own heading face, the first original page small and whole with a
+   thin rule around it, and one plain line saying what pressing it does. Pressing opens the pages large
+   on a dark ground, one at a time, whole and fitted to the screen.
+   Text colours are the site's named colours only. Nothing under 16 pixels.
+   ========================================================================== */
+
+/* ---- The band ---- */
+.wp-origin {
+  margin: 56px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid var(--wp-rule);
+}
+.wp-origin-head {
+  margin: 0 0 20px;
+  font-family: var(--face-head, 'Archivo', 'Inter', sans-serif);
+  font-weight: 600;
+  font-stretch: 112%;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wp-origin-open {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.wp-origin-open img {
+  display: block;
+  width: 160px;
+  height: auto;
+  border: 1px solid var(--wp-rule);
+  background: #ffffff;
+}
+.wp-origin-word {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.wp-origin-word .arrow-glyph { display: inline-block; transition: transform 0.2s; }
+.wp-origin-open:hover .wp-origin-word,
+.wp-origin-open:focus-visible .wp-origin-word { color: var(--ink); }
+.wp-origin-open:hover .arrow-glyph { transform: translateX(4px); }
+.wp-origin-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+@media (max-width: 767px) {
+  .wp-origin { margin-top: 48px; padding-top: 28px; }
+  .wp-origin-open img { width: 120px; }
+}
+
+/* ---- The large view ---- */
+html.op-open, html.op-open body { overflow: hidden; }
+/* The drawing over every page stays off the large view: the page is shown as it was made, nothing over it */
+html.op-open .signature { visibility: hidden; }
+.op-view {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 3000;
+  display: grid;
+  grid-template-rows: 64px 1fr 72px;
+  background: #0d0907;
+  color: var(--ink-on-dark, #d9d7ce);
+  font-family: 'Inter', sans-serif;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.op-view[hidden] { display: none; }
+.op-view.is-in { opacity: 1; }
+
+.op-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 24px;
+}
+.op-count {
+  grid-column: 2;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #b3aa9f;
+  font-variant-numeric: tabular-nums;
+}
+.op-close {
+  grid-column: 3;
+  justify-self: end;
+  min-height: 44px;
+  padding: 0 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-on-dark, #d9d7ce);
+  background: transparent;
+  border: 1px solid var(--ink-on-dark, #d9d7ce);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.op-close:hover,
+.op-close:active { background: var(--ink-on-dark, #d9d7ce); color: #0d0907; }
+
+.op-stage {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.op-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.op-track.is-dragging { transition: none; }
+.op-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+.op-slide img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  background: #ffffff;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.op-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+}
+.op-step {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 4px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-on-dark, #d9d7ce);
+}
+.op-step .arrow-glyph { display: inline-block; transition: transform 0.2s; }
+.op-prev:hover .arrow-glyph { transform: translateX(-4px); }
+.op-next:hover .arrow-glyph { transform: translateX(4px); }
+.op-step[disabled] { visibility: hidden; }
+.op-close:focus-visible,
+.op-step:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+.op-view.is-single .op-count,
+.op-view.is-single .op-nav { visibility: hidden; }
+
+@media (max-width: 767px) {
+  .op-view { grid-template-rows: 56px 1fr 64px; }
+  .op-top, .op-nav { padding: 0 12px; }
+  .op-slide { padding: 0; }
+}
+
+/* ---- Less motion, from the computer or from Still: plain jumps, no sliding, no fading ---- */
+@media (prefers-reduced-motion: reduce) {
+  .op-view, .op-track { transition: none; }
+  .wp-origin-word .arrow-glyph, .op-step .arrow-glyph, .op-close { transition: none; }
+  .wp-origin-open:hover .arrow-glyph, .op-prev:hover .arrow-glyph, .op-next:hover .arrow-glyph { transform: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .op-view, html.pp-still.op-view, html.pp-still .op-track, html.pp-still.op-track { transition: none; }
+html.pp-still .wp-origin-word .arrow-glyph, html.pp-still.wp-origin-word .arrow-glyph, html.pp-still .op-step .arrow-glyph, html.pp-still.op-step .arrow-glyph, html.pp-still .op-close, html.pp-still.op-close { transition: none; }
+html.pp-still .wp-origin-open:hover .arrow-glyph, html.pp-still.wp-origin-open:hover .arrow-glyph, html.pp-still .op-prev:hover .arrow-glyph, html.pp-still.op-prev:hover .arrow-glyph, html.pp-still .op-next:hover .arrow-glyph, html.pp-still.op-next:hover .arrow-glyph { transform: none; }
+
+/* The Still switch build writes every less-motion rule above a second time, under the Still class, by itself;
+   these are the same rules for html.rm, stage.js's own less-motion class. */
+html.rm .op-view, html.rm .op-track { transition: none; }
+html.rm .wp-origin-word .arrow-glyph, html.rm .op-step .arrow-glyph, html.rm .op-close { transition: none; }
+html.rm .wp-origin-open:hover .arrow-glyph, html.rm .op-prev:hover .arrow-glyph, html.rm .op-next:hover .arrow-glyph { transform: none; }
