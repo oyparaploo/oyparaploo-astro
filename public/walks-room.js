@@ -13,6 +13,9 @@
   var pics = all('.w-sky-pic');
   if (hero && pics.length > 1 && !still) {
     var cur = 0, timer = null, seen = true, HOLD = 7000;
+    /* The Still switch (November 8, 2026; SITE-ORDER\STILL-SWITCH-BUILD): pressed, the sky rests on Running Jokes at
+       once, as for less motion; pressed again, it drifts again. */
+    var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
     var ready = function (el, then) {
       if (el.style.backgroundImage) { then(); return; }
       var url = el.getAttribute('data-sky'), im = new Image();
@@ -22,6 +25,7 @@
     var step = function () {
       var next = (cur + 1) % pics.length;
       ready(pics[next], function () {
+        if (calmQ.matches) return;
         pics[next].classList.add('is-on');
         pics[cur].classList.remove('is-on');
         cur = next;
@@ -30,12 +34,17 @@
     };
     var run = function () {
       clearInterval(timer); timer = null;
-      if (seen && !doc.hidden) timer = setInterval(step, HOLD);
+      if (seen && !doc.hidden && !calmQ.matches) timer = setInterval(step, HOLD);
     };
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (en) { seen = en[0].isIntersecting; run(); }, { threshold: 0.15 }).observe(hero);
     }
     doc.addEventListener('visibilitychange', run);
+    var onCalm = function (ev) {
+      if (ev.matches) { clearInterval(timer); timer = null; if (cur !== 0) { pics[0].classList.add('is-on'); pics[cur].classList.remove('is-on'); cur = 0; } }
+      else run();
+    };
+    if (calmQ.addEventListener) calmQ.addEventListener('change', onCalm);
     window.addEventListener('load', function () { ready(pics[1], function () {}); });
     run();
   }

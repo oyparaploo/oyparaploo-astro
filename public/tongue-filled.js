@@ -34,6 +34,14 @@
     window.addEventListener('load', function () {
       for (var k = 1; k < pics.length; k++) { var im = pics[k].querySelector('img'); if (im) im.loading = 'eager'; }
     });
+    /* The Still switch (November 8, 2026; SITE-ORDER\STILL-SWITCH-BUILD): pressed while the hero turns, it rests on
+       the first logotype and the round button goes, as for less motion; pressed again, the hero turns again. */
+    var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var onCalm = function (ev) {
+      if (ev.matches) { pause(); btn.hidden = true; pics[i].classList.remove('is-on'); i = 0; pics[0].classList.add('is-on'); }
+      else { btn.hidden = false; play(); }
+    };
+    if (calmQ.addEventListener) calmQ.addEventListener('change', onCalm);
     play();
   }
 

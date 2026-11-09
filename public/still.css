@@ -1,0 +1,46 @@
+/* The Still switch (preview, November 8, 2026). One word after Light and Dark on the theme strip, set apart by
+   a thin divider because it is about motion, not colour. It wears the same box as Light and Dark; while it is
+   on it looks the way the chosen Light or Dark looks, so the visitor can tell. */
+html:root:root body .still-rule {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  margin: 0 6px 0 4px;
+  background: var(--ink-faint);
+  align-self: center;
+}
+html:root:root body .still-choice {
+  display: inline-block;
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  padding: 4px 12px;
+  opacity: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html:root:root body .still-choice[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+@media (hover: hover) {
+  /* the same reversal as Light and Dark: the solid goes to the hand; when on, it lets go of it */
+  html:root:root body .still-choice:hover { background: var(--ink); color: var(--ground); }
+  html:root:root body .still-choice[aria-pressed="true"]:hover { background: transparent; color: var(--ink); }
+}
+html:root:root body .still-choice:active { background: var(--ink); color: var(--ground); }
+html:root:root body .still-choice[aria-pressed="true"]:active { background: transparent; color: var(--ink); }
+html:root:root body .still-choice:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 420px) {
+  html:root:root body .still-rule { margin: 0 2px 0 0; }
+  html:root:root body .theme-choice, html:root:root body .still-choice { padding: 4px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root:root body .still-choice { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still:root:root body .still-choice { transition: none; }
+

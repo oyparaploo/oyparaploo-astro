@@ -712,6 +712,9 @@ html[data-theme="dark"] .site-header.is-pinned {
     transition: none;
   }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .site-header.is-pinned, html.pp-still.site-header.is-pinned { transition: none; }
+
 
 /* Way-back / Previous / Next arrow links (galleries, picture pages,
    writing pages, writing group pages). */
@@ -771,6 +774,10 @@ html[data-theme="dark"] .arrow-link:focus-visible {
     transform: none;
   }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .arrow-link .arrow-glyph, html.pp-still.arrow-link .arrow-glyph { transition: none; }
+html.pp-still .arrow-link:hover .arrow-glyph, html.pp-still.arrow-link:hover .arrow-glyph, html.pp-still .arrow-link:focus-visible .arrow-glyph, html.pp-still.arrow-link:focus-visible .arrow-glyph { transform: none; }
+
 
 /* ==========================================================================
    ONE CHROME ON EVERY PAGE (preview, October 17, 2026)
@@ -855,6 +862,9 @@ html:root:root body .theme-choice[data-active="true"]:active { background: trans
 @media (prefers-reduced-motion: reduce) {
   html:root:root body .theme-choice { transition: none; }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still:root:root body .theme-choice { transition: none; }
+
 
 /* ---------- 2 and 3. The header: one edge, one thin line ---------- */
 html:root:root body .site-header {

@@ -66,6 +66,9 @@ body > .site-header.wob-host:not(.is-pinned) { position: relative; z-index: 30 !
 @media (prefers-reduced-motion: reduce) {
   .wob-panel, .wob-panel.is-open { transition: none; }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .wob-panel, html.pp-still.wob-panel, html.pp-still .wob-panel.is-open, html.pp-still.wob-panel.is-open { transition: none; }
+
 html.rm .wob-panel, html.rm .wob-panel.is-open { transition: none; }
 @media (max-width: 799px) {
   .wob-panel { display: none !important; }
@@ -156,6 +159,9 @@ html.rm .wob-panel, html.rm .wob-panel.is-open { transition: none; }
 .wob-kind.is-active .wob-arrow { opacity: 1; transform: none; }
 html.rm .wob-arrow, html.rm .wob-go { transition: none; }
 @media (prefers-reduced-motion: reduce) { .wob-arrow, .wob-go { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .wob-arrow, html.pp-still.wob-arrow, html.pp-still .wob-go, html.pp-still.wob-go { transition: none; }
+
 .wob-panel a.wob-railfoot { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--wob-rule); }
 .wob-shelves { display: grid; }
 .wob-kindset { grid-area: 1 / 1; visibility: hidden; }
@@ -265,6 +271,9 @@ html.rm .wob-arrow, html.rm .wob-go { transition: none; }
 }
 .wob-shelfstack a:focus-visible .wob-arrow { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .wob-shelfstack .wob-arrow { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .wob-shelfstack .wob-arrow, html.pp-still.wob-shelfstack .wob-arrow { transition: none; }
+
 
 /* ==========================================================================
    DIRECTORY FOOTER (the shared footer file carries this part)
@@ -403,6 +412,9 @@ a.df-h:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .df-fold::after, .df-wordmark a, .df-contact .df-write svg { transition: none; }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .df-fold::after, html.pp-still.df-fold::after, html.pp-still .df-wordmark a, html.pp-still.df-wordmark a, html.pp-still .df-contact .df-write svg, html.pp-still.df-contact .df-write svg { transition: none; }
+
 html.rm .df-fold::after, html.rm .df-wordmark a, html.rm .df-contact .df-write svg { transition: none; }
 
 /* ==========================================================================
@@ -459,6 +471,9 @@ html[data-theme="dark"] { --df-writings: #E8A3AE; --df-marks: #A8C3E6; --df-plac
 .df-lead .df-lead-link:hover span { transform: translateX(4px); }
 .df-lead-line { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .df-lead .df-lead-link span { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .df-lead .df-lead-link span, html.pp-still.df-lead .df-lead-link span { transition: none; }
+
 /* Four Marks groups in the deep-bodied palette Reach chose (Ivory, Ocean, Olive, Plum, Terracotta; Ivory is too light for words): Smooth Beh Laye deep Ochre #86641C (added by Claude, Reach asked for a fifth), Fast Thin Dues Ocean #326075, Pages for Baby Divine Plum #673751 (Reach: purple), Gog Guldah Variations Olive (one step deeper, #6E6E47, so it reads at 4.5 to 1), Handwritten Every Which Way Terracotta #A45C36; lighter partners in Dark. */
 :root { --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
 html[data-theme="dark"] { --df-ocean: #9CC3D3; --df-olive: #C9C99A; --df-plum: #D9A7C0; --df-terracotta: #E6A585; --df-ochre: #E3C27A; }
@@ -535,6 +550,9 @@ html[data-night="open"] .df-five-shut { display: none; }
 .df-copied { display: none; margin-left: 12px; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; line-height: 1.8; color: var(--ink); }
 .df-copied.is-on { display: inline; }
 @media (prefers-reduced-motion: reduce) { .df-more a span { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .df-more a span, html.pp-still.df-more a span { transition: none; }
+
 html.rm .df-more a span { transition: none; }
 
 /* ==========================================================================
@@ -602,4 +620,7 @@ html:root body .site-header nav a:focus-visible { background-position: left 0 bo
 @media (prefers-reduced-motion: reduce) {
   html:root body .site-header nav a, .wob-panel a { transition: none; }
 }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still:root body .site-header nav a, html.pp-still .wob-panel a, html.pp-still.wob-panel a { transition: none; }
+
 html.rm body .site-header nav a, html.rm .wob-panel a { transition: none; }

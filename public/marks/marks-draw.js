@@ -164,6 +164,11 @@
     }
     function onResize() { if (fig.classList.contains('draws-drawing')) finish(); else size(); }
     window.addEventListener('resize', onResize);
+    /* The Still switch (November 8, 2026; SITE-ORDER\STILL-SWITCH-BUILD): pressed while the pen waits or draws, the
+       drawing shows already finished at once. Pressed again, it draws again on the next visit (it draws once). */
+    var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var onCalm = function (ev) { if (ev.matches && !fig.classList.contains('draws-done')) finish(); };
+    if (calmQ.addEventListener) calmQ.addEventListener('change', onCalm);
 
     /* The pen rests while the drawing is out of view, and goes on when it is back. */
     var watch = new IntersectionObserver(function (entries) {
@@ -171,6 +176,7 @@
     }, { threshold: 0 });
 
     function run() {
+      if (fig.classList.contains('draws-done')) return;
       size();
       mctx.strokeStyle = mctx.fillStyle = '#fff';
       mctx.lineCap = mctx.lineJoin = 'round';
