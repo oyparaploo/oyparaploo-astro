@@ -1,0 +1,80 @@
+/* shuffle.css -- the page's own look (SITE-ORDER\SHUFFLE-BUILD; the preview's style block, the header icon's rules
+   moved to the end of chrome.css). Shuffle ... (made whole November 9, 2026, from the spec Reach confirmed: claude/SHUFFLE-SPEC-2026-11-09.md, after
+   whitney.org's /shuffle). One thing at a time from anywhere on the site, and a round button to draw another.
+   Nothing on the page moves by itself. Text colours only from chrome.css's named colours; words on the band in Ink. */
+.site-header { box-sizing: border-box; }
+
+body.shuffle-page { margin: 0; background: var(--ground); color: var(--ink); }
+.sh { --edge: 24px; }
+
+/* The opening: the page's name, then its one plain sentence on a thin line (Kavi Gupta's rule line). */
+.sh-open { padding: 72px var(--edge) 56px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: end; }
+.sh-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); white-space: nowrap; }
+.sh-say { margin: 0 0 6px; max-width: 640px; padding-left: 24px; border-left: 1px solid var(--ink-faint);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; line-height: 1.3; color: var(--ink-soft); text-wrap: pretty; }
+
+/* The band: edge to edge, its colour from the kind of thing on it, pale in Light and deep in Dark. */
+.sh-band { background: var(--bl, #ece3d8); padding: 72px var(--edge) 96px; }
+html[data-theme="dark"] .sh-band { background: var(--bd, #33291f); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .sh-band { background: var(--bd, #33291f); } }
+.sh-stage { display: grid; grid-template-columns: 200px minmax(0, 750px); gap: 32px; align-items: start; }
+
+/* The round button: solid at rest, outline when pointed at (the site's reversal), with no easing, so nothing moves. */
+.sh-btn-col { position: sticky; top: 104px; }
+.sh-btn { width: 136px; height: 136px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--ink); color: var(--ground);
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; padding: 0;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2; -webkit-tap-highlight-color: transparent; }
+.sh-btn-svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .sh-btn:hover { background: transparent; color: var(--ink); } }
+.sh-btn:active { background: transparent; color: var(--ink); }
+.sh-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* The thing, in the reading column. One small plain line above it says what it is. */
+.sh-thing { min-width: 0; }
+.sh-thing:empty { min-height: 50vh; }
+.sh-what { margin: 0 0 20px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.4; color: var(--ink); }
+.sh-pic { display: inline-block; max-width: 100%; }
+.sh-pic img { display: block; max-width: 100%; width: auto; height: auto; max-height: min(74vh, 900px); }
+.sh-num { display: inline-block; margin-top: 12px; min-height: 44px; font-family: 'Inter', sans-serif; color: var(--ink);
+  text-decoration: none; line-height: 1.35; }
+.sh-num .nm { display: block; font-size: 18px; font-weight: 500; }
+.sh-num .no { display: block; font-size: 16px; font-weight: 400; }
+.sh-num:hover .nm, .sh-num:focus-visible .nm { text-decoration: underline; text-underline-offset: 3px; }
+.sh-h { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 44px; line-height: 1.05;
+  letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; overflow-wrap: anywhere; }
+.sh-h a { color: inherit; text-decoration: none; }
+.sh-h a:hover, .sh-h a:focus-visible { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.sh-sub { margin: 10px 0 0; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35; color: var(--ink); }
+.sh-words { margin-top: 28px; }
+.sh-words p { margin: 0 0 1em; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.6; color: var(--ink); text-wrap: pretty; }
+.sh-words.is-poem p { white-space: pre-line; }
+.sh-embed { margin-top: 28px; }
+.sh-embed iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
+.sh-go { margin-top: 28px; }
+.sh-go .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink); }
+
+.sh-foot { padding: 48px var(--edge) 112px; }
+.sh-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; }
+/* the two arrow links stay one line of words with the arrow at their end, also when they wrap */
+.sh-go .arrow-link, .sh-foot .arrow-link { display: inline; }
+.sh-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Phones: the round button sits above the thing. */
+@media (max-width: 760px) {
+  .sh { --edge: 16px; }
+  .sh-open { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 40px var(--edge) 36px; }
+  .sh-title { font-size: 64px; }
+  .sh-say { font-size: 24px; padding-left: 16px; }
+  .sh-band { padding: 32px var(--edge) 56px; }
+  .sh-stage { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .sh-btn-col { position: static; }
+  .sh-btn { width: 112px; height: 112px; font-size: 17px; gap: 6px; }
+  .sh-pic img { max-height: 70vh; }
+  .sh-h { font-size: 32px; }
+  .sh-sub { font-size: 20px; }
+  .sh-words p { font-size: 19px; }
+  .sh-go .arrow-link { font-size: 22px; }
+  .sh-foot { padding: 36px var(--edge) 80px; }
+  .sh-foot .arrow-link { font-size: 26px; }
+}
