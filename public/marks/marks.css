@@ -295,6 +295,38 @@ html.show-open, html.show-open body { overflow: hidden; }
   .show-btn { padding: 0 6px; gap: 6px; font-size: 17px; }
 }
 
+/* ---------- The gallery stays behind the slideshow (Reach, November 9, 2026: "perfect", on the preview
+   HTML DOCS\PREVIEWS\SLIDESHOW-WALL-BEHIND-WHOLE-2026-11-09; SITE-ORDER\SLIDESHOW-WALL-BEHIND-BUILD).
+   The style block marked THE CHANGE in the preview, copied exactly. ---------- */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  /* 1, 2. The gallery behind, blurred 24 pixels, under a 70 per cent wash of the page's own ground. */
+  .show {
+    background: var(--ground);
+    background: color-mix(in srgb, var(--ground) 70%, transparent);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
+  /* 4. The count on a small solid panel, as tall as Close (48 pixels). */
+  .show-count { background: var(--ground); border-radius: 5px; padding: 15px 16px; }
+  /* 4. The name and number on one small solid panel, as tall as the buttons. The caption box itself keeps
+        its full width, so the slideshow's own height measure (marks.js fitCaption) works as today and the
+        drawing keeps today's size and place. A long name wraps inside the panel; the number stays beside it. */
+  .show-cap { display: grid; grid-template-columns: minmax(0, max-content) max-content; justify-content: start; align-content: start; padding-top: 0; }
+  .show-cap .w, .show-cap .n { background: var(--ground); padding-top: 11px; padding-bottom: 11.75px; }
+  .show-cap .w { padding-left: 16px; border-radius: 5px 0 0 5px; }
+  .show-cap .n { padding-left: 11px; padding-right: 16px; margin-left: -1px; border-radius: 0 5px 5px 0; }
+  /* 4. Close, Previous, Pause and Next filled with the ground; hover and press still swap to solid ink. */
+  .show-btn { background: var(--ground); }
+  /* 6. Phones: the same, sized so the drawing keeps today's size and place. */
+  @media (max-width: 599px) {
+    .show-count { padding: 12px 14px; }
+    .show-cap { margin-top: -9px; margin-bottom: -10px; }
+    .show-cap .w, .show-cap .n { padding-top: 9px; padding-bottom: 10px; }
+    .show-cap .w { padding-left: 14px; }
+    .show-cap .n { padding-right: 14px; }
+  }
+}
+
 /* ---------- Visitors who ask for less motion get none ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
