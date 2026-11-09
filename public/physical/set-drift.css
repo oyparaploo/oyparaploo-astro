@@ -1,0 +1,53 @@
+/* The slow drift on a Placings set page's photograph band (preview, November 8, 2026; spec
+   claude/SET-DRIFT-SPEC-2026-11-08.md, from the homepage photograph of the Museum of Anthropology at UBC).
+
+   Over 60 seconds the photograph glides a little sideways and grows to 1.12 times its size, then glides
+   back just as slowly, linear, forever. Its blurred enlargement (the ground that fills the band) drifts with
+   it, so the two move as one picture and no edge of the band ever shows empty ground.
+
+   The photograph itself still shows whole (the never-cropped rule): at rest it stands a little smaller than
+   before (one part in seventeen in height), so at the far end of the drift it reaches only into the band's own
+   air above and below it, never under the glass and never past the band's edges. The sideways travel, 2.5 per
+   cent of the window's width, is held inside that air too.
+
+   The direction changes from set to set in a repeating order, by the set's place on Placed Outside ...:
+   left, straight in, right, left, ... The band carries drift-left, drift-centre or drift-right.
+
+   Pointing at the band neither stops nor speeds the drift. A swapped picture starts its own drift from rest
+   (set-drift.js). The Still switch and a screen set to less motion both make the photograph sit still at its
+   starting position. Phones: the same drift. Light and Dark: the same (the band is dark in both). */
+
+.pm-band { --drift-x: 0px; }
+.pm-band.drift-left { --drift-x: -2.5vw; }
+.pm-band.drift-centre { --drift-x: 0px; }
+.pm-band.drift-right { --drift-x: 2.5vw; }
+
+/* The blurred ground reaches further past the band's edges, so its soft rim never comes into view as it moves. */
+.pm-band .pm-haze { top: -150px; right: -150px; bottom: -150px; left: -150px; }
+
+/* Whole at the far end of the drift: 1.12 / 1.06 of the space's height reaches about 3 per cent into the air
+   above and below (the air is at least 24 pixels); the width leaves room for the sideways travel. */
+.pm-band .pm-pic {
+  max-height: calc(100% / 1.06);
+  max-width: calc((100% - 5vw) / 1.12);
+}
+
+@keyframes pm-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(var(--drift-x), 0, 0) scale(1.12); }
+}
+.pm-band .pm-haze,
+.pm-band .pm-pic {
+  animation: pm-drift 60s linear infinite alternate;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* Less motion, and the Still switch: the photograph sits still where it starts. */
+@media (prefers-reduced-motion: reduce) {
+  .pm-band .pm-haze, .pm-band .pm-pic { animation: none; transform: none; will-change: auto; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .pm-band .pm-haze, html.pp-still.pm-band .pm-haze, html.pp-still .pm-band .pm-pic, html.pp-still.pm-band .pm-pic { animation: none; transform: none; will-change: auto; }
+
+html.pp-still .pm-band .pm-haze, html.pp-still .pm-band .pm-pic { animation: none; transform: none; will-change: auto; }
