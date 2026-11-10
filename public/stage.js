@@ -1,5 +1,5 @@
 /* The plain writing page (SITE-ORDER\WRITING-PLAIN-BUILD, November 9, 2026). Only the text size is left of stage.js:
-   three steps, remembered in the visitor's browser. Nothing else moves or loads. */
+   Standard and Large (TEXT-SIZE-WHOLE-2026-11-10), remembered in the visitor's browser. Nothing else moves or loads. */
 (function () {
   var html = document.documentElement;
   var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
@@ -12,7 +12,7 @@
     try { localStorage.setItem('textSize', String(n)); } catch (e) {}
   }
   var saved = 1;
-  try { var sv = localStorage.getItem('textSize'); if (sv === '2' || sv === '3') saved = +sv; } catch (e) {}
+  try { var sv = localStorage.getItem('textSize'); if (sv === '2' || sv === '3') saved = 2; } catch (e) {}
   function start() { setSize(saved); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
   document.addEventListener('click', function (e) {

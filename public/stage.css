@@ -16,10 +16,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Three reading sizes, chosen with the A A A buttons and remembered */
-html.size-1 { --wp-size: 19px; }
-html.size-2 { --wp-size: 21px; }
-html.size-3 { --wp-size: 23px; }
+/* Two reading sizes, Standard and Large (TEXT-SIZE-WHOLE-2026-11-10; Reach, November 10, 2026).
+   Only the writing's own words grow: its title, its subtitle and its lines. */
+html.size-1 { --wp-scale: 1; }
+html.size-2 { --wp-scale: 1.3; }
 
 :root {
   --wp-rule: rgba(0, 0, 0, 0.16);
@@ -61,9 +61,9 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
   padding-right: 24px;
 }
 
-/* The way back and the text size, one quiet line above the opening */
+/* The way back, one quiet line above the opening */
 .wp-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display: flex; align-items: center; gap: 16px;
   padding-top: 32px;
 }
 .wp-back { margin: 0; line-height: 1.5; }
@@ -71,18 +71,28 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 .wp-back .arrow-link .arrow-glyph { color: var(--ink-soft); }
 .wp-back .arrow-link:hover,
 .wp-back .arrow-link:hover .arrow-glyph { color: var(--ink); }
-.wp-size { display: flex; align-items: baseline; flex: 0 0 auto; }
-.wp-size button {
-  min-width: 36px; min-height: 44px; padding: 0 4px;
-  background: none; border: none; cursor: pointer;
-  font-family: 'Inter', sans-serif; font-weight: 600; line-height: 1;
-  color: var(--ink-faint);
+/* The text size: one quiet line above the kind line, in the kind line's look */
+.wp-size {
+  display: flex; flex-wrap: wrap; align-items: center;
+  margin: -11px 0 10px;
+  font-size: 16px; line-height: 1.4; letter-spacing: 0.04em;
+  color: var(--ink-soft);
 }
-.wp-size button[data-size="1"] { font-size: 16px; }
-.wp-size button[data-size="2"] { font-size: 19px; }
-.wp-size button[data-size="3"] { font-size: 22px; }
-.wp-size button[aria-pressed="true"],
-.wp-size button:hover { color: var(--ink); }
+.wp-size-word { margin-right: 14px; }
+.wp-size-choices { display: inline-flex; align-items: center; flex-wrap: nowrap; }
+.wp-size-dot { margin: 0 0.28em; }
+.wp-size button {
+  min-height: 44px; min-width: 44px; padding: 0 2px; margin: 0;
+  background: none; border: none; border-radius: 0; cursor: pointer;
+  font: inherit; letter-spacing: inherit; color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.wp-size button:hover,
+.wp-size button:focus-visible,
+.wp-size button[aria-pressed="true"] {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
 
 /* ---- The opening: the kind, the shelves, the title ---- */
 .wp-head { padding: 64px 0 0; margin: 0 0 56px; }
@@ -101,14 +111,14 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 .stage-title {
   margin: 0;
   font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: clamp(34px, 4.4vw, 58px); line-height: 1.05; letter-spacing: -0.02em;
+  font-size: calc(clamp(34px, 4.4vw, 58px) * var(--wp-scale, 1)); line-height: 1.05; letter-spacing: -0.02em;
   color: var(--ink);
   text-wrap: balance;
 }
 .stage-sub {
   margin: 14px 0 0;
   font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: clamp(20px, 1.9vw, 26px); line-height: 1.22; letter-spacing: -0.008em;
+  font-size: calc(clamp(20px, 1.9vw, 26px) * var(--wp-scale, 1)); line-height: 1.22; letter-spacing: -0.008em;
   color: var(--ink-soft);
   text-wrap: balance;
 }
@@ -120,7 +130,7 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 
 /* ---- The writing ---- */
 .wp-body {
-  font-size: var(--wp-size, 19px);
+  font-size: calc(19px * var(--wp-scale, 1));
   line-height: 1.7;
   letter-spacing: -0.005em;
   padding-bottom: 32px;
@@ -146,7 +156,7 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 }
 .wp-colophon {
   margin: 3em 0 0;
-  font-size: 16px; line-height: 1.6;
+  font-size: calc(16px * var(--wp-scale, 1)); line-height: 1.6;
   color: var(--ink-soft);
 }
 .wp-colophon::before {
@@ -197,7 +207,10 @@ html.pp-still .wp-seq-word .arrow-glyph { transition: none; }
   .wp-col, .wp-after-in { padding-left: 20px; padding-right: 20px; }
   .wp-top { padding-top: 20px; }
   .wp-head { padding-top: 40px; margin-bottom: 40px; }
-  .stage-title { font-size: clamp(32px, 8.6vw, 44px); }
+  .stage-title { font-size: calc(clamp(32px, 8.6vw, 44px) * var(--wp-scale, 1)); }
+  .wp-size button { padding: 0 4px; }
+  .wp-size-dot { margin: 0 1px; }
+  .wp-size-word { margin-right: 6px; }
   .wp-room { margin-bottom: 32px; }
   .wp-after-in { padding-top: 32px; padding-bottom: 80px; }
   .wp-seq { flex-direction: column; gap: 16px; }
