@@ -16,7 +16,11 @@
   // the hero turns
   var pics = document.querySelectorAll('.tf-hero-pic');
   var btn = document.querySelector('.tf-pause');
-  if (pics.length > 1 && btn && !still) {
+  if (pics.length > 1 && btn) {
+    /* The Still mend (November 9, 2026; SITE-ORDER\STILL-MEND-BUILD): the turning is set up every time the page opens,
+       Still or not. Opened Still (or with less motion), the hero rests on the first logotype and the round button
+       goes; the moment Still is turned off, the button comes back and the hero turns, with no reload. */
+    var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
     var i = 0, timer = null;
     var turn = function () {
       pics[i].classList.remove('is-on');
@@ -25,24 +29,22 @@
       if (img && img.loading === 'lazy') img.loading = 'eager';
       pics[i].classList.add('is-on');
     };
-    var play = function () { if (!timer) timer = setInterval(turn, 4000); btn.classList.remove('is-paused'); btn.setAttribute('aria-label', 'Pause'); };
+    var play = function () { if (calmQ.matches) return; if (!timer) timer = setInterval(turn, 4000); btn.classList.remove('is-paused'); btn.setAttribute('aria-label', 'Pause'); };
     var pause = function () { clearInterval(timer); timer = null; btn.classList.add('is-paused'); btn.setAttribute('aria-label', 'Play'); };
-    btn.hidden = false;
+    var rest = function () { pause(); btn.hidden = true; pics[i].classList.remove('is-on'); i = 0; pics[0].classList.add('is-on'); };
+    var wake = function () { for (var k = 1; k < pics.length; k++) { var im = pics[k].querySelector('img'); if (im) im.loading = 'eager'; } };
     btn.addEventListener('click', function () { if (timer) pause(); else play(); });
     document.addEventListener('visibilitychange', function () { if (document.hidden && timer) { clearInterval(timer); timer = null; } else if (!document.hidden && !btn.classList.contains('is-paused')) play(); });
-    // the pictures waiting in the hero load once the page has arrived
-    window.addEventListener('load', function () {
-      for (var k = 1; k < pics.length; k++) { var im = pics[k].querySelector('img'); if (im) im.loading = 'eager'; }
-    });
+    // the pictures waiting in the hero load once the page has arrived (opened Still, once Still is turned off)
+    window.addEventListener('load', function () { if (!calmQ.matches) wake(); });
     /* The Still switch (November 8, 2026; SITE-ORDER\STILL-SWITCH-BUILD): pressed while the hero turns, it rests on
        the first logotype and the round button goes, as for less motion; pressed again, the hero turns again. */
-    var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
     var onCalm = function (ev) {
-      if (ev.matches) { pause(); btn.hidden = true; pics[i].classList.remove('is-on'); i = 0; pics[0].classList.add('is-on'); }
-      else { btn.hidden = false; play(); }
+      if (ev.matches) rest();
+      else { btn.hidden = false; wake(); play(); }
     };
     if (calmQ.addEventListener) calmQ.addEventListener('change', onCalm);
-    play();
+    if (calmQ.matches) rest(); else { btn.hidden = false; play(); }
   }
 
   // the tiles arrive as they are reached

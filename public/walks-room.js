@@ -11,10 +11,13 @@
   /* 1. the sky */
   var hero = doc.querySelector('.w-hero');
   var pics = all('.w-sky-pic');
-  if (hero && pics.length > 1 && !still) {
+  if (hero && pics.length > 1) {
     var cur = 0, timer = null, seen = true, HOLD = 7000;
     /* The Still switch (November 8, 2026; SITE-ORDER\STILL-SWITCH-BUILD): pressed, the sky rests on Running Jokes at
-       once, as for less motion; pressed again, it drifts again. */
+       once, as for less motion; pressed again, it drifts again.
+       The Still mend (November 9, 2026; SITE-ORDER\STILL-MEND-BUILD): the sky is set up every time the page opens,
+       Still or not. Opened Still (or with less motion), it rests on Running Jokes; the moment Still is turned off, it
+       drifts, with no reload. */
     var calmQ = window.matchMedia('(prefers-reduced-motion: reduce)');
     var ready = function (el, then) {
       if (el.style.backgroundImage) { then(); return; }
@@ -45,7 +48,7 @@
       else run();
     };
     if (calmQ.addEventListener) calmQ.addEventListener('change', onCalm);
-    window.addEventListener('load', function () { ready(pics[1], function () {}); });
+    window.addEventListener('load', function () { if (!calmQ.matches) ready(pics[1], function () {}); });
     run();
   }
 
