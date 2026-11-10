@@ -3,13 +3,17 @@
    is drawn behind the pointer, tracing its exact path; it fades over one second when the hand leaves the wall.
    Phones, tablets and less motion see the still wall. After the Yale School of Art's notice cards.
    From the preview HTML DOCS\PREVIEWS\PEN-LINE-WHOLE-2026-10-30, its block pen-line-script, word for word below.
-   Linked from Most Recent only, after marks.js. Built by SITE-ORDER\PEN-LINE-BUILD. */
+   Linked from Most Recent only, after marks.js. Built by SITE-ORDER\PEN-LINE-BUILD.
+   November 9, 2026: the line becomes a hairline, 70 per cent black (#4d4d4d) at 0.75 pixels, solid, the same in Light
+   and Dark, its corners rounded the way a pen moves (Reach, on the preview HTML DOCS\PREVIEWS\MARKS-GREY-WHOLE-2026-11-09:
+   "perfect"; SITE-ORDER\MARKS-GREY-BUILD). This replaces Accent at 1.6 pixels and the October 30 "no smoothing" call.
+   Where it draws, the one-second fade, and the still wall for phones and less motion are unchanged. */
 (function () {
   var doc = document, root = doc.documentElement;
   var wall = doc.querySelector('.wall');
   if (!wall || !window.matchMedia || !window.HTMLCanvasElement) return;
 
-  var WIDTH = 1.6, FADE = 1000;
+  var WIDTH = 0.75, FADE = 1000, INK = '#4d4d4d';
   var mouse = window.matchMedia('(hover: hover) and (pointer: fine)');
   var still = window.matchMedia('(prefers-reduced-motion: reduce)');
   function allowed() { return mouse.matches && !still.matches; }
@@ -18,10 +22,8 @@
   var penDown = false;      /* false after a scroll: the next point starts a new stroke of the same line */
   var lastX = -1, lastY = -1;
 
-  /* The site's Accent colour (October 30, 2026, the one change after the first look): a warm pen over the black
-     drawings, so the visitor's own line reads on the drawings as well as in the air between them, in Light and Dark.
-     Read from its name, so a colour still easing after a press is never caught halfway. */
-  function ink() { return (getComputedStyle(wall).getPropertyValue('--accent') || '').trim() || getComputedStyle(wall).color; }
+  /* The hairline's ink (November 9, 2026): 70 per cent black, a solid colour, the same in Light and Dark. */
+  function ink() { return INK; }
 
   function startLine() {
     var r = wall.getBoundingClientRect();
@@ -53,26 +55,36 @@
       var px = s[s.length - 2], py = s[s.length - 1];
       if (px === x && py === y) return;
       s.push(x, y);
-      var ctx = line.ctx;
-      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.stroke();
+      if (!frame) frame = requestAnimationFrame(function () { frame = 0; repaint(); });
     }
   }
-  /* Light or Dark pressed while a line is on the wall: the same line, redrawn in the new ink. */
+  var frame = 0;
+  /* One stroke's path, its corners rounded the way a pen moves (November 9, 2026): each corner between two points the
+     mouse gave becomes a curve through the midpoints, as the preview's hairline is drawn. */
+  function trace(ctx, s) {
+    var n = s.length / 2;
+    ctx.moveTo(s[0], s[1]);
+    if (n === 2) { ctx.lineTo(s[2], s[3]); return; }
+    for (var i = 1; i < n - 1; i++) {
+      ctx.quadraticCurveTo(s[2 * i], s[2 * i + 1], (s[2 * i] + s[2 * i + 2]) / 2, (s[2 * i + 1] + s[2 * i + 3]) / 2);
+    }
+    ctx.lineTo(s[2 * n - 2], s[2 * n - 1]);
+  }
+  /* The whole line, drawn again as one path each time the hand moves (once a frame), so the rounded corners follow
+     the newest point and the line never darkens where it crosses itself. Light or Dark pressed: the same line. */
   function repaint() {
     if (!line) return;
     var ctx = line.ctx;
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, line.canvas.width, line.canvas.height);
     paintSetup(line);
-    line.strokes.forEach(function (s) {
-      if (s.length < 4) return;
-      ctx.beginPath(); ctx.moveTo(s[0], s[1]);
-      for (var i = 2; i < s.length; i += 2) ctx.lineTo(s[i], s[i + 1]);
-      ctx.stroke();
-    });
+    ctx.beginPath();
+    line.strokes.forEach(function (s) { if (s.length >= 4) trace(ctx, s); });
+    ctx.stroke();
   }
   function letGo() {
     penDown = false;
     if (!line) return;
+    if (frame) { cancelAnimationFrame(frame); frame = 0; repaint(); }   /* the last points the hand gave, before the fade */
     var c = line.canvas; line = null;
     c.classList.add('fading');
     setTimeout(function () { if (c.parentNode) c.parentNode.removeChild(c); }, FADE + 150);

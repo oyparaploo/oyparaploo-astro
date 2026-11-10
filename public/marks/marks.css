@@ -347,3 +347,16 @@ html[data-theme="dark"] .way-band[style*="--band-dark"] { background: var(--band
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .way-band[style*="--band-dark"] { background: var(--band-dark); --band-ink: var(--ink); color: var(--ink); }
 }
+
+/* ---------- THE CHANGE (preview MARKS-GREY-WHOLE-2026-11-09): the header's bottom edge on the Marks pages,
+   one quiet grey in place of the six colours, Most Recent's grey in Light and in Dark. ---------- */
+:root { --tones: linear-gradient(#c8c8c8, #c8c8c8); }
+html[data-theme="dark"] { --tones: linear-gradient(#3d3d3d, #3d3d3d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --tones: linear-gradient(#3d3d3d, #3d3d3d); } }
+/* With every band the same grey, the eight bands from Most Recent to Creatures and Things would run together as
+   one slab, so each band after the first opens on a 1-pixel line in the page's own ground: white in Light
+   (Reach, November 9, 2026: "make these horizontal lines white"), the dark ground in Dark. */
+.variations .way-band, .ways .way-band { border-top: 1px solid var(--ground); }
+/* Reach, November 9, 2026: no thin black line at the top edge of a grey band. The black line above the
+   Every Title and Handwritten Every Which Way bands comes off; the white space above them stays. */
+.hw-band-wrap, .tt-band-wrap { border-top: 0; }
