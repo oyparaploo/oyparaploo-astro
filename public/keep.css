@@ -1,0 +1,56 @@
+/* ==========================================================================
+   KEEP: the list the visitor keeps (the preview of October 23, 2026, as built November 2026)
+   After SMK Open's "Add to your favorites", without its counter.
+   The word "Keep" in the site's button: 1-pixel line, 5-pixel corners,
+   solid and outline swapping when pointed at. Kept reads solid.
+   Kept only in this browser; a browser that refuses never shows the button.
+   ========================================================================== */
+.keep {
+  --keep-ink: var(--ink); --keep-ground: var(--ground);
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 88px; margin: 0; padding: 8px 18px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2;
+  letter-spacing: normal;
+  background: transparent; color: var(--keep-ink);
+  border: 1px solid var(--keep-ink); border-radius: 5px;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.keep[aria-pressed="true"] { background: var(--keep-ink); color: var(--keep-ground); }
+.keep:focus-visible { outline: 2px solid var(--keep-ink); outline-offset: 3px; }
+/* The reversal, for a hand with a pointer. Right after a press the button
+   shows its new state until the pointer leaves, so it never flips back under the hand. */
+@media (hover: hover) {
+  .keep:not(.is-just):hover { background: var(--keep-ink); color: var(--keep-ground); }
+  .keep[aria-pressed="true"]:not(.is-just):hover { background: transparent; color: var(--keep-ink); }
+}
+/* Touch gets its own version: the press itself shows the reversal, and the tap changes it. */
+@media (hover: none) {
+  .keep:active { background: var(--keep-ink); color: var(--keep-ground); }
+  .keep[aria-pressed="true"]:active { background: transparent; color: var(--keep-ink); }
+}
+/* Less motion: the swap is instant. */
+@media (prefers-reduced-motion: reduce) { .keep { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .keep, html.pp-still.keep { transition: none; }
+
+/* The words a screen reader hears after Keep or Kept: the title or the number. */
+.keep-vh {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* A browser that keeps nothing never shows the word. */
+html.no-keep .keep { display: none !important; }
+.keep[hidden] { display: none !important; }
+
+/* ---- On a writing page: directly under the title (under the subtitle where there is one), in Ink on the
+   page's own ground, following Light and Dark. It stays at 18 pixels when the visitor picks Large text. ---- */
+.wp-keep { margin: 0; }
+.wp-keep .keep { margin-top: 24px; font-size: 18px; }
+
+/* ---- On a picture page: on the catalogue number's line, to its right, in Ink; under it when the column is narrow ---- */
+.work-tomb p.tomb-cat { display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; row-gap: 10px; }
+.work-tomb p.tomb-cat .keep { --keep-ink: var(--ink); margin: 0; }
+
+/* Only paper sees the address line. */
+@media screen { .print-address { display: none; } }

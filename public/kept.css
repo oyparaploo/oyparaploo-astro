@@ -1,0 +1,128 @@
+/* ==========================================================================
+   THE KEPT PAGE (the preview of October 23, 2026, as built November 2026)
+   One flat band, edge to edge, in the colour of the newest thing kept
+   (a writing's type colour, a picture's own colour); pale in Light, deep in Dark.
+   With nothing kept, the Writings page's soft blend. Then everything kept,
+   newest kept first: a writing as one row, a picture whole with its name, gallery and number.
+   No counts. Words only in the site's four named colours.
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+.kept-body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: 'Inter', sans-serif; overflow-x: hidden;
+  --kept-edge: 24px;
+  --kept-rule: rgba(0, 0, 0, 0.16);
+}
+html[data-theme="dark"] .kept-body { --kept-rule: rgba(255, 255, 255, 0.18); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .kept-body { --kept-rule: rgba(255, 255, 255, 0.18); } }
+
+/* ---- The band ---- */
+.kept-band {
+  background: var(--kept-l, #E6F5F3);
+  color: var(--ink);
+  padding: 104px var(--kept-edge) 96px;
+}
+html.kept-is-empty .kept-band { background: linear-gradient(to right, #E5DEDF, #E3DDCF, #E4E0D1, #DCE5DE, #DEEBE9, #E1E7EC, #E3E9EF); }
+html[data-theme="dark"] .kept-band { background: var(--kept-d, #1E302D); }
+html[data-theme="dark"].kept-is-empty .kept-band { background: linear-gradient(to right, #2b2324, #2a2519, #29261b, #1f2a22, #1e2c2a, #212830, #222a33); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .kept-band { background: var(--kept-d, #1E302D); }
+  html:not([data-theme="light"]).kept-is-empty .kept-band { background: linear-gradient(to right, #2b2324, #2a2519, #29261b, #1f2a22, #1e2c2a, #212830, #222a33); }
+}
+.kept-title {
+  margin: 0;
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(72px, 10vw, 152px); line-height: 0.92; letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.kept-line {
+  margin: 32px 0 0; max-width: 750px;
+  font-size: 24px; line-height: 1.4; color: var(--ink);
+}
+
+/* ---- The room ---- */
+.kept-room { padding: 72px var(--kept-edge) 140px; }
+.kept-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--kept-rule); }
+.kept-list:empty { border: 0; }
+.kept-item { border-top: 1px solid var(--kept-rule); }
+
+/* A writing: one row, title then kind and reading time; Kept at the right */
+.kept-writing { display: flex; align-items: center; gap: 24px; }
+.kept-row {
+  flex: 1 1 auto; min-width: 0;
+  display: flex; align-items: center; gap: 24px;
+  min-height: 80px; padding: 14px 16px; margin-left: -16px;
+  color: var(--ink); text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.kept-row-words { flex: 1 1 auto; min-width: 0; display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 24px; row-gap: 4px; }
+.kept-row-title {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 30px; line-height: 1.15; letter-spacing: -0.012em;
+}
+.kept-row-meta { font-size: 18px; line-height: 1.4; color: var(--ink-soft); transition: color 0.3s ease; }
+.kept-row .row-arrow {
+  flex: none; font-size: 26px; font-weight: 500;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+@media (hover: hover) {
+  .kept-row:hover, .kept-row:focus-visible { background: var(--ink); color: var(--ground); }
+  .kept-row:hover .kept-row-meta, .kept-row:focus-visible .kept-row-meta { color: var(--ground); }
+  .kept-row:hover .row-arrow, .kept-row:focus-visible .row-arrow { opacity: 1; transform: none; }
+}
+@media (hover: none) {
+  .kept-row .row-arrow { opacity: 1; transform: none; }
+  .kept-row:active { background: var(--ink); color: var(--ground); }
+  .kept-row:active .kept-row-meta { color: var(--ground); }
+}
+
+/* A picture: whole, never cropped, with its number and Kept under it */
+.kept-picture { padding: 40px 0; }
+.kept-pic { display: inline-block; line-height: 0; max-width: 100%; }
+.kept-pic img {
+  display: block; width: auto; height: auto;
+  max-width: min(100%, 900px); max-height: 480px;
+  background: rgba(0, 0, 0, 0.06);
+}
+.kept-under { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 16px; }
+.kept-num {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 26px; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none;
+}
+.kept-from { font-size: 18px; color: var(--ink-soft); }
+.kept-num:hover, .kept-num:focus-visible { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.kept-under .keep { margin-left: auto; }
+.kept-writing .keep { flex: none; }
+
+/* Nothing kept yet */
+.kept-empty, .kept-off { padding: 8px 0 0; }
+.kept-empty-line { margin: 0 0 24px; font-size: 24px; line-height: 1.4; color: var(--ink); }
+.kept-on { font-size: 24px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.kept-on .arrow-glyph { display: inline-block; transition: transform 0.2s ease; }
+.kept-on:hover .arrow-glyph { transform: translateX(4px); }
+
+/* Less motion: nothing slides, nothing fades */
+@media (prefers-reduced-motion: reduce) {
+  .kept-row, .kept-row-meta, .kept-row .row-arrow, .kept-on .arrow-glyph { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .kept-row, html.pp-still.kept-row, html.pp-still .kept-row-meta, html.pp-still.kept-row-meta, html.pp-still .kept-row .row-arrow, html.pp-still.kept-row .row-arrow, html.pp-still .kept-on .arrow-glyph, html.pp-still.kept-on .arrow-glyph { transition: none; }
+
+
+/* Phones */
+@media (max-width: 700px) {
+  .kept-band { padding: 72px 20px 64px; }
+  .kept-title { font-size: 72px; }
+  .kept-line { font-size: 20px; margin-top: 24px; }
+  .kept-room { padding: 48px 20px 96px; }
+  .kept-writing { gap: 12px; }
+  .kept-row { min-height: 76px; padding: 14px 12px; margin-left: -12px; gap: 12px; }
+  .kept-row-words { flex-direction: column; align-items: flex-start; }
+  .kept-row-title { font-size: 22px; }
+  .kept-row .row-arrow { display: none; }
+  .kept-picture { padding: 28px 0; }
+  .kept-pic img { max-height: 70vh; }
+  .kept-under .keep { margin-left: 0; }
+}

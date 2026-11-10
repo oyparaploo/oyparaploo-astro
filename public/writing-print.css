@@ -1,0 +1,41 @@
+/* ==========================================================================
+   A WRITING THAT PRINTS CLEAN (after Cabinet magazine; the preview of October 23, 2026, made again November 2026
+   for the plain writing page; SITE-ORDER\KEEP-LIST-BUILD). Read only when printing (media="print").
+   No button. Printed from the browser, a writing page shows only the kind line, the title (and its subtitle),
+   the words and, after a thin line, the address, black on white, in the site's faces. Large text never reaches
+   paper. Nothing on screen changes.
+   ========================================================================== */
+@page { margin: 22mm 22mm 20mm; }
+@media print {
+  html, body, body.writing-page { background: #fff !important; color: #000 !important; }
+  html { --ink: #000; --ink-soft: #000; --ink-faint: #000; --ground: #fff; --wp-scale: 1 !important; }
+  /* Only the writing itself goes to paper */
+  body.writing-page > *:not(main) { display: none !important; }
+  .wp-top, .wp-size, .stage-shelves, .wp-keep, .keep, .wp-room, .wp-origin, .wp-after { display: none !important; }
+
+  .wp-col { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  .wp-head { padding: 0 !important; margin: 0 0 22pt !important; }
+  .stage-kind {
+    margin: 0 0 6pt !important; font-family: 'Inter', sans-serif; font-size: 11pt !important; line-height: 1.4;
+    letter-spacing: 0.02em; color: #000 !important;
+  }
+  .stage-title {
+    margin: 0 !important; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+    font-size: 26pt !important; line-height: 1.08; letter-spacing: -0.015em; color: #000 !important;
+  }
+  .stage-sub { margin: 8pt 0 0 !important; font-size: 15pt !important; color: #000 !important; }
+
+  .wp-body {
+    max-width: none !important; margin: 0 !important; padding: 0 !important;
+    font-family: 'Inter', sans-serif; font-size: 12pt !important; line-height: 1.6 !important; letter-spacing: 0;
+  }
+  .wp-body p { margin: 0 0 0.9em; font-size: 12pt !important; line-height: 1.6 !important; color: #000 !important; orphans: 3; widows: 3; }
+  .wp-body h2 { color: #000 !important; font-size: 13pt !important; margin: 1.6em 0 0.6em; break-after: avoid; page-break-after: avoid; }
+  .wp-body a { color: #000 !important; text-decoration: none; }
+
+  .print-address {
+    display: block !important; margin: 26pt 0 0; padding-top: 8pt; border-top: 0.5pt solid #000;
+    font-family: 'Inter', sans-serif; font-size: 10pt; line-height: 1.4; color: #000 !important;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+}
