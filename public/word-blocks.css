@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Word blocks on the Art page, /art (from CLOT Magazine's homepage), as Reach called the preview perfect,
+   November 10, 2026 (HTML DOCS\PREVIEWS\WORD-BLOCKS-WHOLE-2026-11-10; SITE-ORDER\WORD-BLOCKS-BUILD).
+   One block per kind, in the Art menu's order. The kind's word large in Lora,
+   beside it the kind's eight newest pictures in staggered columns, whole.
+   Nothing moves. Light and Dark use the site's own colours from chrome.css.
+   ========================================================================== */
+.wb-main { padding: 96px 24px 120px; }
+.wb-title {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.wb-block {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  column-gap: 32px;
+  align-items: start;
+}
+.wb-block + .wb-block { margin-top: 96px; }
+/* The word on the right in every second block. */
+.wb-block.is-right { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+.wb-block.is-right .wb-word-wrap { order: 2; text-align: right; }
+.wb-block.is-right .wb-cluster,
+.wb-block.is-right .wb-songs { order: 1; }
+
+.wb-word {
+  font: 600 64px/1.02 'Lora', Georgia, serif;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  display: inline-block;
+}
+.wb-word:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
+
+/* The cluster: four columns, each starting at its own height. */
+.wb-cluster {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 24px;
+  align-items: start;
+}
+.wb-col { display: flex; flex-direction: column; gap: 24px; }
+.wb-col:nth-child(2) { margin-top: 72px; }
+.wb-col:nth-child(3) { margin-top: 24px; }
+.wb-col:nth-child(4) { margin-top: 112px; }
+
+.wb-cluster.is-phone { display: none; }  /* the same eight, laid in two columns for phones */
+
+.wb-pic {
+  position: relative; display: block; line-height: 0;
+}
+.wb-pic img {
+  display: block; width: 100%; height: auto; /* whole, at its own height, never cropped */
+}
+.wb-pic:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+
+/* Pointing: the picture stays in view; a small black label carries its number. */
+.wb-num {
+  position: absolute; left: 8px; bottom: 8px;
+  background: #000; color: #fff; border-radius: 3px;
+  font: 500 16px/1.3 'Inter', sans-serif; font-variant-numeric: tabular-nums;
+  padding: 4px 8px;
+  opacity: 0;
+}
+@media (hover: hover) {
+  .wb-pic:hover .wb-num { opacity: 1; }
+}
+.wb-pic:focus-visible .wb-num { opacity: 1; }
+/* Touch gets its own version: the number always shows. */
+@media (hover: none) and (pointer: coarse) {
+  .wb-num { opacity: 1; }
+}
+
+/* Music: the eight newest song titles, a list in Lora. */
+.wb-songs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink-faint); }
+.wb-songs li { border-bottom: 1px solid var(--ink-faint); }
+.wb-songs a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 18px 0;
+  font: 600 32px/1.2 'Lora', Georgia, serif;
+  color: var(--ink); text-decoration: none;
+}
+.wb-songs .wb-arrow {
+  font: 500 24px/1 'Inter', sans-serif;
+  opacity: 0; /* appears at once: nothing on this page moves */
+}
+@media (hover: hover) {
+  .wb-songs a:hover .wb-arrow { opacity: 1; }
+}
+.wb-songs a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.wb-songs a:focus-visible .wb-arrow { opacity: 1; }
+@media (hover: none) and (pointer: coarse) {
+  .wb-songs .wb-arrow { opacity: 1; }
+}
+
+/* Middling windows: the cluster keeps four columns, the word a little narrower. */
+@media (max-width: 1100px) {
+  .wb-block { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); }
+  .wb-block.is-right { grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); }
+}
+
+/* Phone: the word on top, two columns of pictures beneath, no alternating. */
+@media (max-width: 700px) {
+  .wb-main { padding: 64px 16px 96px; }
+  .wb-block, .wb-block.is-right { display: block; }
+  .wb-block.is-right .wb-word-wrap { text-align: left; }
+  .wb-word { font-size: 40px; margin-bottom: 24px; }
+  .wb-cluster.is-wide { display: none; }
+  .wb-cluster.is-phone { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+  .wb-col { gap: 16px; }
+  .wb-cluster.is-phone .wb-col:nth-child(1) { margin-top: 0; }
+  .wb-cluster.is-phone .wb-col:nth-child(2) { margin-top: 48px; }
+  .wb-songs a { font-size: 24px; padding: 14px 0; }
+}

@@ -4,9 +4,12 @@
    pressing it, on touch) turns it italic, slides its arrow in and turns the
    whole ground to that word's own colour. Less motion: no fades, no slides.
    The other header words and their menus are not touched.
+   All Art, the first word, opens the Art page, /art (SITE-ORDER\WORD-BLOCKS-BUILD, November 2026); the header
+   word Art leads there too, for a new tab or window; a plain click opens this menu as before.
    ========================================================================== */
 (function () {
   var WORDS = [
+    { key: 'all',          word: 'All Art',      href: '/art' },
     { key: 'humor',        word: 'Humor',        href: '/writings/playful-humor' },
     { key: 'visual-art',   word: 'Visual Art',   href: '/digital' },
     { key: 'drawing',      word: 'Drawing',      href: '/marks' },
@@ -22,6 +25,7 @@
 
   var trigger = document.querySelector('.site-header nav a.art-word');
   if (!trigger) return;
+  trigger.setAttribute('href', '/art');  // the Art page (SITE-ORDER\WORD-BLOCKS-BUILD)
 
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   var rows = WORDS.map(function (w) {
@@ -64,6 +68,7 @@
     menu.style.setProperty('--art-now', key ? 'var(--art-' + key + ')' : 'var(--art-rest)');
   }
   function open(e) {
+    if (e && (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey)) return;  // a new tab or window: the Art page itself
     if (e) e.preventDefault();
     colour(null);
     menu.classList.add('is-open');
