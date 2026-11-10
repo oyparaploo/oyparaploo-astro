@@ -1,0 +1,118 @@
+/* ==========================================================================
+   "Like this ..." — the look-alike band (preview, November 10, 2026; spec claude/LIKE-THIS-SPEC-2026-11-10.md,
+   from Material Bank's "Find similar"). Made whole on Opus at High for Reach. Nothing else on the page changes.
+
+   On a computer: pointing at a drawing on the wall shows a pill, "Like this ...", in its top right corner.
+   Pressing it opens a band under that drawing's row, a notch pointing up at the drawing, eight look-alikes from
+   Marks, Placings and Collage, each whole at 160 pixels tall with only its catalogue number under it.
+   On a phone (and on a touch screen of any size): "Like this ..." is a line on the slideshow panel, and the band
+   opens under the drawing inside the slideshow. Under Still or less motion the band appears without sliding.
+   The band wears the Marks grey (#c8c8c8 in Light, #3d3d3d in Dark), the grey of every band on the Marks pages.
+   ========================================================================== */
+:root { --lt-band: #c8c8c8; --lt-ink: #111111; }
+html[data-theme="dark"] { --lt-band: #3d3d3d; --lt-ink: #d9d7ce; }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --lt-band: #3d3d3d; --lt-ink: #d9d7ce; } }
+
+/* ---------- The pill, on the drawing's top right corner (computers only) ---------- */
+.wall figure { position: relative; }
+.lt-pill {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  display: none; align-items: center;
+  min-height: 36px; padding: 0 16px;
+  font: 600 16px/1 'Inter', sans-serif; color: var(--ink); white-space: nowrap;
+  background: var(--ground); border: 1.5px solid var(--ink); border-radius: 999px;
+  cursor: pointer; opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 600px) {
+  .lt-pill { display: inline-flex; }
+  .wall figure:hover .lt-pill, .lt-pill:focus-visible, .lt-pill[aria-expanded="true"] { opacity: 1; }
+  .lt-pill:hover, .lt-pill[aria-expanded="true"] { background: var(--ink); color: var(--ground); }
+  .lt-pill[aria-expanded="true"]:hover { background: var(--ground); color: var(--ink); }
+}
+.lt-pill:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- The band ---------- */
+/* On the wall it takes a whole row of the grid, directly under the chosen drawing's row; it slides open by
+   growing from nothing to its own height in four tenths of a second. */
+.lt-band {
+  grid-column: 1 / -1; position: relative;
+  display: grid; grid-template-rows: 0fr;
+  margin-top: -64px;                 /* closed, it takes no room: the row gap above it is cancelled */
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.1, 1), margin-top 0.4s cubic-bezier(0.4, 0, 0.1, 1);
+}
+.lt-band.lt-open { grid-template-rows: 1fr; margin-top: -30px; }
+.lt-clip { min-height: 0; overflow: hidden; }
+.lt-inner { background: var(--lt-band); color: var(--lt-ink); padding: 20px 24px 22px; }
+/* the notch, pointing up at the chosen drawing */
+.lt-band::before {
+  content: ""; position: absolute; top: -13px; left: calc(var(--lt-x, 50%) - 14px);
+  border: solid transparent; border-width: 0 14px 14px; border-bottom-color: var(--lt-band);
+  opacity: 0; transition: opacity 0.2s ease 0.1s, left 0.3s cubic-bezier(0.4, 0, 0.1, 1);
+}
+.lt-band.lt-open::before { opacity: 1; }
+
+.lt-head { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 16px; }
+.lt-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0;
+  font: 600 20px/1 'Inter', sans-serif; color: var(--lt-ink);
+  background: transparent; border: 1.5px solid var(--lt-ink); border-radius: 5px;
+  cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.lt-close { margin-left: 16px; font-size: 24px; }
+.lt-btn[aria-disabled="true"] { opacity: 0.35; cursor: default; }
+.lt-btn:focus-visible { outline: 2px solid var(--lt-ink); outline-offset: 3px; }
+.lt-btn:not([aria-disabled="true"]):active { background: var(--lt-ink); color: var(--lt-band); }
+@media (hover: hover) {
+  .lt-btn:not([aria-disabled="true"]):hover { background: var(--lt-ink); color: var(--lt-band); }
+}
+
+/* the eight, in one row that slides */
+.lt-row {
+  display: flex; gap: 24px; overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x proximity; scroll-padding: 0;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.lt-row::-webkit-scrollbar { display: none; }
+.lt-pic { flex: 0 0 auto; display: block; scroll-snap-align: start; color: var(--lt-ink); text-decoration: none; }
+.lt-pic img { display: block; height: 160px; width: auto; max-width: none; }   /* whole, never cropped */
+.lt-n {
+  display: block; margin-top: 8px;
+  font: 400 16px/1.3 'Inter', sans-serif; font-variant-numeric: tabular-nums; color: var(--lt-ink);
+}
+.lt-pic:focus-visible { outline: 2px solid var(--lt-ink); outline-offset: 4px; }
+
+/* ---------- Phones and touch screens: the line on the slideshow panel, and the band inside the slideshow ---------- */
+.lt-line { display: none; }
+.show-bar .lt-line {
+  grid-column: 1 / -1; justify-self: start;
+  align-items: center; min-height: 44px; padding: 0 18px;
+  font: 600 17px/1 'Inter', sans-serif; color: var(--ink);
+  background: var(--ground); border: 1.5px solid var(--ink); border-radius: 999px;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.show-bar .lt-line[aria-expanded="true"] { background: var(--ink); color: var(--ground); }
+.show-bar .lt-line:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (max-width: 599px), (hover: none), (pointer: coarse) {
+  .show-bar .lt-line { display: inline-flex; }
+}
+.show .lt-band { flex: 0 0 auto; margin-top: 14px; }
+.show .lt-band.lt-open { margin-top: 14px; }
+.show .lt-inner { padding: 14px var(--edge, 24px) 16px; }
+.show .lt-head { margin-bottom: 12px; }
+
+/* ---------- Under Still or less motion: the band appears without sliding, the pill without fading ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .lt-band, .lt-band::before, .lt-pill, .lt-btn { transition: none !important; }
+  .lt-row { scroll-behavior: auto; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .lt-band, html.pp-still.lt-band, html.pp-still .lt-band::before, html.pp-still.lt-band::before, html.pp-still .lt-pill, html.pp-still.lt-pill, html.pp-still .lt-btn, html.pp-still.lt-btn { transition: none !important; }
+html.pp-still .lt-row, html.pp-still.lt-row { scroll-behavior: auto; }
+
+html.pp-still .lt-band, html.pp-still .lt-band::before, html.pp-still .lt-pill, html.pp-still .lt-btn { transition: none !important; }
+html.pp-still .lt-row { scroll-behavior: auto; }
