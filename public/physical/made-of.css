@@ -1,0 +1,153 @@
+/* "Made Of +" on a Placings set page (ruled perfect November 10, 2026; spec claude/SET-MADE-OF-SPEC-2026-11-10.md,
+   from the Key Facts bar on zha.com's project pages).
+   A small dark box at the bottom middle of the window. Pressing it lifts a panel on the dark ground naming the
+   set's materials, each a link to its door on Placed By Material ... The bar and panel are dark in Light and in
+   Dark, like the Placings room, so their words wear the dark values of the named colours:
+   Ink on dark #d9d7ce, Soft ink #b3aa9f, Faint ink #8f877d (the edge line only), Accent #d4a574.
+   Nothing under 16 pixels. The photograph is always whole. */
+
+body.set-page { padding-bottom: 96px; }          /* the page's end clears the bar */
+
+.mo-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1101;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  margin: 0;
+  border: 1px solid #8f877d;
+  border-radius: 5px;
+  background: #0d0907;
+  color: #d9d7ce;
+  font: 600 16px/1 "Inter", system-ui, sans-serif;
+  letter-spacing: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.mo-bar-sign { display: inline-block; width: 1em; text-align: center; font-size: 18px; }
+@media (hover: hover) {
+  .mo-bar:hover { background: #d9d7ce; color: #111; border-color: #d9d7ce; }   /* solid and outline swap */
+}
+.mo-bar:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+
+.mo-panel {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;                                   /* just above the bar */
+  z-index: 1100;
+  box-sizing: border-box;
+  width: min(1080px, calc(100vw - 48px));
+  max-height: calc(100vh - 104px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 32px;
+  border: 1px solid #8f877d;
+  border-radius: 5px;
+  background: #0d0907;
+  color: #d9d7ce;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, 24px);
+  transition: opacity .32s ease, transform .32s ease, visibility 0s linear .32s;
+}
+.mo-panel.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity .32s ease, transform .32s ease, visibility 0s linear 0s;
+}
+.mo-panel:focus { outline: none; }
+
+.mo-pic { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+.mo-pic a.mo-pic-link { display: block; max-width: 100%; }
+.mo-pic img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 104px - 64px - 52px);  /* the whole photograph, never cropped */
+}
+.mo-num { margin: 0; font: 400 16px/1.4 "Inter", system-ui, sans-serif; }
+.mo-num a { color: #b3aa9f; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.mo-num a:hover { color: #d9d7ce; }
+
+.mo-words { min-width: 0; }
+.mo-title {
+  margin: 0 0 12px;
+  font: 600 28px/1.2 "Lora", Georgia, serif;
+  color: #d9d7ce;
+  letter-spacing: 0;
+}
+.mo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+}
+.mo-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 600 clamp(32px, 3.4vw, 48px)/1.15 "Lora", Georgia, serif;
+  color: #d4a574;
+  text-decoration: none;                          /* doors stand bare */
+  text-underline-offset: 7px;
+  text-decoration-thickness: 2px;
+}
+.mo-list a:hover { text-decoration: underline; }
+.mo-list a:focus-visible, .mo-num a:focus-visible { outline: 2px solid #d9d7ce; outline-offset: 3px; border-radius: 3px; }
+
+/* Phones: the bar at the bottom of the screen; the panel fills the screen, the words stacked under the photograph */
+@media (max-width: 700px) {
+  body.set-page { padding-bottom: 84px; }
+  .mo-bar { bottom: max(16px, env(safe-area-inset-bottom)); }
+  .mo-panel {
+    left: 0; right: 0; top: 0; bottom: 0;
+    width: auto;
+    max-height: none;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    padding: 24px 20px calc(16px + 44px + 32px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    align-content: start;
+    transform: translateY(24px);
+  }
+  .mo-panel.is-open { transform: none; }
+  .mo-pic { align-items: center; }
+  .mo-pic img { max-height: 45vh; margin: 0 auto; }
+  .mo-list { flex-direction: column; gap: 0; }
+  .mo-list a { font-size: 32px; min-height: 48px; }
+  html.mo-open-phone, html.mo-open-phone body { overflow: hidden; }
+}
+
+/* Less motion, and the Still switch: the panel appears with no slide */
+@media (prefers-reduced-motion: reduce) {
+  .mo-panel, .mo-panel.is-open { transition: none; }
+  .mo-panel { transform: translate(-50%, 0); }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .mo-panel, html.pp-still.mo-panel, html.pp-still .mo-panel.is-open, html.pp-still.mo-panel.is-open { transition: none; }
+html.pp-still .mo-panel, html.pp-still.mo-panel { transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) and (max-width: 700px) {
+  .mo-panel { transform: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .mo-panel, html.pp-still .mo-panel.is-open { transition: none; }
+html.pp-still .mo-panel { transform: translate(-50%, 0); }
+@media (max-width: 700px) {
+  html.pp-still .mo-panel { transform: none; }
+}
