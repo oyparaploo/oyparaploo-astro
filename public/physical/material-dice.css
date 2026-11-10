@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Found Together ... (the name, November 10, 2026; the preview carried a working label)
+   The opening band of the dark room on Placed By Material ..., from the Städel Museum's "dice three words" band
+   (spec: claude/MATERIAL-DICE-SPEC-2026-11-09.md). Three material words from one real gallery's row in the
+   Placings materials log, in Lora pills joined by a thin dotted line to a round button with an Accent ring.
+   Pressing the button rolls three new words, always from one gallery; under them one photograph from that
+   gallery, whole on the dark ground, never cropped; the gallery's name in its corner with "Look at this one →".
+   Each word leads to its own material further down the page. No counts.
+   The room is dark in Light and Dark alike, so the band wears the room's own colours (Ink on dark #d9d7ce,
+   Soft ink #b3aa9f, Accent #d4a574). Still, or the visitor's less-motion setting: the words swap, nothing moves (on the site, still_switch.py
+   writes each less-motion rule a second time under html.pp-still).
+   ========================================================================== */
+
+.md-band { padding: 104px var(--edge) 120px; }
+.md-band :focus-visible { outline: 2px solid var(--p-ink); outline-offset: 4px; }
+
+.md-head { margin: 0 0 40px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: end; }
+.md-title {
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1.02; letter-spacing: -0.015em; color: var(--p-ink);
+}
+.md-say {
+  margin: 0 0 4px; max-width: 640px; padding-left: 24px; border-left: 1px solid rgba(217, 215, 206, 0.32);
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.35; color: var(--p-soft);
+}
+
+/* ---------- the three words and the round button, joined by one thin dotted line ---------- */
+.md-dice { display: flex; align-items: center; flex-wrap: nowrap; margin: 0 0 44px; max-width: 1180px; }
+.md-join { flex: 1 1 40px; min-width: 24px; max-width: 120px; height: 0; border-top: 2px dotted rgba(217, 215, 206, 0.55); }
+.md-break { display: none; }
+.md-word {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 60px; padding: 10px 28px; overflow: hidden;
+  border: 1.25px solid var(--p-ink); border-radius: 999px;
+  background: transparent; color: var(--p-ink); text-decoration: none;
+  font-family: 'Lora', serif; font-weight: 600; font-size: 30px; line-height: 1.15; white-space: nowrap;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.md-word-in { display: inline-block; }
+/* PLAY, the reversal: a word pointed at turns solid, as the pills below do. */
+@media (hover: hover) { .md-word:hover { background: var(--p-ink); color: var(--p-dark); } }
+.md-word:active { background: var(--p-ink); color: var(--p-dark); }
+
+.md-roll {
+  flex: 0 0 auto; width: 96px; height: 96px; border-radius: 50%; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 2.5px solid var(--p-accent); background: transparent; color: var(--p-ink);
+  cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.md-die { display: block; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+.md-die .pip { fill: currentColor; stroke: none; }
+/* The reversal once more: pointed at, the ring fills with Accent and the die turns dark. */
+@media (hover: hover) { .md-roll:hover { background: var(--p-accent); color: var(--p-dark); } }
+.md-roll:active { background: var(--p-accent); color: var(--p-dark); }
+
+/* ---------- the photograph, whole on the dark ground, its gallery in the corner ---------- */
+.md-pic { margin: 0; display: inline-block; max-width: 100%; vertical-align: top; }
+.md-pic-link { display: block; }
+.md-pic img {
+  display: block; width: auto; height: auto; max-width: 100%;
+  max-height: min(72vh, 880px);          /* whole, never cropped */
+  transition: opacity 0.35s ease;
+}
+.md-pic img.is-coming { opacity: 0; }
+.md-cap { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; column-gap: 20px; row-gap: 2px; margin-top: 14px; text-align: right; }
+.md-gallery { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.35; color: var(--p-ink); }
+html:root body .md-band .md-look { color: var(--p-ink); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; min-height: 44px; display: inline-flex; align-items: center; }
+html:root body .md-band .md-look .arrow-glyph { color: var(--p-accent); }
+
+/* ---------- the roll: each word tumbles up and out, the next comes up from below, one after another ---------- */
+@keyframes md-out { to { transform: translateY(-115%); opacity: 0; } }
+@keyframes md-in { from { transform: translateY(115%); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes md-turn { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+.md-word.is-out .md-word-in { animation: md-out 0.17s ease-in forwards; }
+.md-word.is-in .md-word-in { animation: md-in 0.24s cubic-bezier(.2, .9, .3, 1.15) both; }
+.md-roll.is-turning .md-die { animation: md-turn 0.55s cubic-bezier(.3, .7, .3, 1); }
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1099px) {
+  .md-word { font-size: 26px; padding: 10px 22px; min-height: 56px; }
+  .md-roll { width: 84px; height: 84px; }
+}
+@media (max-width: 899px) {
+  .md-head { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+/* Phones: the three pills wrap onto two lines, two words on the first, the third and the button on the second. */
+@media (max-width: 760px) {
+  .md-band { padding: 64px var(--edge) 80px; }
+  .md-title { font-size: 36px; }
+  .md-say { font-size: 20px; padding-left: 16px; }
+  .md-dice { flex-wrap: wrap; row-gap: 18px; margin-bottom: 40px; }
+  .md-break { display: block; flex: 0 0 100%; height: 0; }
+  .md-join-mid { display: none; }
+  .md-join { max-width: none; }
+  .md-word { font-size: 22px; padding: 8px 18px; min-height: 48px; }
+  .md-roll { width: 72px; height: 72px; }
+  .md-die { width: 30px; height: 30px; }
+  .md-pic img { max-height: 70vh; }
+  .md-cap { justify-content: flex-start; text-align: left; }
+  .md-gallery { font-size: 19px; }
+}
+
+/* Less motion, or Still pressed: the words swap, nothing tumbles, turns or fades. */
+@media (prefers-reduced-motion: reduce) {
+  .md-word, .md-roll, .md-pic img { transition: none !important; }
+  .md-word-in, .md-die { animation: none !important; }
+  .md-pic img.is-coming { opacity: 1 !important; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .md-word, html.pp-still.md-word, html.pp-still .md-roll, html.pp-still.md-roll, html.pp-still .md-pic img, html.pp-still.md-pic img { transition: none !important; }
+html.pp-still .md-word-in, html.pp-still.md-word-in, html.pp-still .md-die, html.pp-still.md-die { animation: none !important; }
+html.pp-still .md-pic img.is-coming, html.pp-still.md-pic img.is-coming { opacity: 1 !important; }
+
+/* The tabs follow the band, opened by the room's full-width thin line. */
+.pbm-tabs-after { border-top: 1px solid var(--p-hair); }
