@@ -4,6 +4,13 @@
    On the site (step 7, October 4, 2026): the wall and the slideshow; the wall in straight rows since October 25, 2026. The
    header, menu and footer run from the site's own /theme.js and /nav.js.
    ========================================================================== */
+/* THE CHANGE, preview November 9, 2026 (SLIDESHOW-PLAY-WHOLE-2026-11-09; spec claude/SLIDESHOW-PLAY-SPEC-2026-11-09.md):
+   the slideshow no longer starts by itself. A play button sits on the count's small solid panel; pressed, each
+   drawing holds about six seconds and fades into the next; pressed again, it stops. Previous, Next, a swipe or
+   an arrow key pauses play. Thin lines in the Accent colour along the top edge show how far through the
+   gallery the visitor is: one line per drawing for 30 or fewer, one line across the whole run for more.
+   Under Still, or when the computer asks for less motion: no play button and no lines, as today.
+   Every changed line below is marked PLAY. */
 (function () {
   var doc = document;
 
@@ -39,7 +46,8 @@
     sets.push({ el: list, figs: Array.prototype.slice.call(list.querySelectorAll('li')) });
   });
   if (!sets.length) return;
-  var HOLD = 5000, AUTO_FADE = 1500, HAND_FADE = 400;
+  var HOLD = 6000, AUTO_FADE = 1500, HAND_FADE = 400;   /* PLAY: about six seconds a drawing */
+  var PER_LINE_MAX = 30;   /* PLAY: one line per drawing up to 30; one line for the whole run above that */
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   function lessMotion() { return !!(still && still.matches); }
 
@@ -70,7 +78,7 @@
   });
 
   function el(tag, cls, text) { var x = doc.createElement(tag); if (cls) x.className = cls; if (text) x.textContent = text; return x; }
-  var box, stage, layers, capW, capN, capBox, measure, bPrev, bPause, bNext, bClose, count;
+  var box, stage, layers, capW, capN, capBox, measure, bPrev, bPause, bNext, bClose, count, tally, lines, fills = [];
   var cur = 0, want = 0, front = 0, playing = false, timer = null, token = 0, opener = null, lastFocus = null;
 
   function build() {
@@ -84,7 +92,21 @@
     bClose = el('button', 'show-btn show-close', 'Close'); bClose.type = 'button';
     /* where the visitor is: "6 of 14" (preview, October 26, 2026) */
     count = el('p', 'show-count');
-    top.appendChild(count); top.appendChild(bClose);
+    /* PLAY: the play button on the count's small solid panel, beside the count */
+    tally = el('div', 'show-tally');
+    bPause = el('button', 'show-play'); bPause.type = 'button';
+    bPause.innerHTML = '<svg class="ico-play" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M8 4.5v15l12.5-7.5z"/></svg>' +
+      '<svg class="ico-pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="6" y="4.5" width="4.2" height="15" rx="1"/><rect x="13.8" y="4.5" width="4.2" height="15" rx="1"/></svg>';
+    tally.appendChild(count); tally.appendChild(bPause);
+    top.appendChild(tally); top.appendChild(bClose);
+    /* PLAY: the thin lines along the top edge */
+    lines = el('div', 'show-lines'); lines.setAttribute('aria-hidden', 'true');
+    var many = items.length > PER_LINE_MAX;
+    lines.classList.add(many ? 'one-run' : 'per-picture');
+    (many ? [0] : items).forEach(function () {
+      var seg = el('span', 'show-line'), fill = el('span', 'show-fill');
+      seg.appendChild(fill); lines.appendChild(seg); fills.push(fill);
+    });
     stage = el('div', 'show-stage');
     layers = [el('img', 'show-img'), el('img', 'show-img')];
     layers.forEach(function (im) { im.decoding = 'async'; im.alt = ''; stage.appendChild(im); });
@@ -96,12 +118,11 @@
     var ctl = el('div', 'show-ctl');
     bPrev = el('button', 'show-btn show-prev'); bPrev.type = 'button';
     bPrev.innerHTML = '<span class="arr" aria-hidden="true">&larr;</span> Previous';
-    bPause = el('button', 'show-btn show-pause', 'Pause'); bPause.type = 'button';
     bNext = el('button', 'show-btn show-next'); bNext.type = 'button';
     bNext.innerHTML = 'Next <span class="arr" aria-hidden="true">&rarr;</span>';
-    ctl.appendChild(bPrev); ctl.appendChild(bPause); ctl.appendChild(bNext);
+    ctl.appendChild(bPrev); ctl.appendChild(bNext);   /* PLAY: Pause left this row for the panel beside the count */
     bar.appendChild(capBox); bar.appendChild(measure); bar.appendChild(ctl);
-    box.appendChild(top); box.appendChild(stage); box.appendChild(bar);
+    box.appendChild(lines); box.appendChild(top); box.appendChild(stage); box.appendChild(bar);
     doc.body.appendChild(box);
 
     bClose.addEventListener('click', close);
@@ -171,33 +192,68 @@
       capW.textContent = it.w; capN.textContent = it.n;
       count.textContent = (i + 1) + ' of ' + items.length;
       if (playing) schedule();
+      drawLines();
       /* fetch the next drawing ahead, so the dissolve never waits */
       var nx = items[(i + 1) % items.length], pre = new Image();
       pre.sizes = '100vw'; pre.srcset = nx.srcset; pre.src = nx.src;
     });
   }
   function schedule() { clearTimeout(timer); timer = setTimeout(function () { show((want + 1) % items.length, AUTO_FADE); }, HOLD); }
-  function step(d) { show((want + d + items.length) % items.length, HAND_FADE); }
+  /* PLAY: a step by hand (Previous, Next, a swipe, an arrow key) pauses play */
+  function step(d) { if (playing) setPlaying(false); show((want + d + items.length) % items.length, HAND_FADE); }
   function setPlaying(p) {
     playing = p && !lessMotion();
-    bPause.textContent = playing ? 'Pause' : 'Play';
+    box.classList.toggle('playing', playing);
     bPause.setAttribute('aria-label', playing ? 'Pause the slideshow' : 'Play the slideshow');
+    bPause.setAttribute('aria-pressed', playing ? 'true' : 'false');
     if (playing) schedule(); else clearTimeout(timer);
+    drawLines();
+  }
+  /* PLAY: the lines. Stopped: every drawing up to and including the one showing is filled, the rest are not.
+     Playing: the one showing fills from left to right over its six seconds. One line for the whole run fills
+     the same way, by the gallery's share: from where this drawing starts to where it ends. */
+  function setFill(f, from, to, ms) {
+    f.style.transition = 'none';
+    f.style.transform = 'scaleX(' + from + ')';
+    if (ms) {
+      void f.offsetWidth;
+      f.style.transition = 'transform ' + ms + 'ms linear';
+      f.style.transform = 'scaleX(' + to + ')';
+    }
+  }
+  function drawLines() {
+    if (!lines) return;
+    var n = items.length, i = cur, run = playing && !lessMotion();
+    if (fills.length === 1 && n > PER_LINE_MAX) {
+      if (run) setFill(fills[0], i / n, (i + 1) / n, HOLD); else setFill(fills[0], (i + 1) / n);
+      return;
+    }
+    fills.forEach(function (f, j) {
+      if (j < i) setFill(f, 1);
+      else if (j > i) setFill(f, 0);
+      else if (run) setFill(f, 0, 1, HOLD);
+      else setFill(f, 1);
+    });
+  }
+  function calmView() {
+    var c = lessMotion();
+    box.classList.toggle('still', c);
+    bPause.hidden = c;
+    lines.hidden = c;
   }
 
   function open(i) {
     if (!box) build();
     opener = items[i].tile;
     lastFocus = doc.activeElement;
-    box.classList.toggle('still', lessMotion());
     layers.forEach(function (im) { im.classList.remove('on'); im.style.transitionDuration = '0ms'; });
     box.hidden = false;
     doc.documentElement.classList.add('show-open');
     fitCaption();
-    playing = !lessMotion();
-    bPause.hidden = lessMotion();
-    bPause.textContent = 'Pause';
-    bPause.setAttribute('aria-label', 'Pause the slideshow');
+    /* PLAY: never starts by itself */
+    calmView();
+    cur = i;
+    setPlaying(false);
     show(i, 0);
     box.focus({ preventScroll: true });
   }
@@ -205,6 +261,7 @@
     token++;
     clearTimeout(timer);
     playing = false;
+    box.classList.remove('playing');
     box.hidden = true;
     doc.documentElement.classList.remove('show-open');
     var back = items[cur] && items[cur].tile;
@@ -217,12 +274,13 @@
     else if ((e.key === ' ' || e.key === 'Spacebar') && !lessMotion() && !(e.target && e.target.tagName === 'BUTTON')) { e.preventDefault(); setPlaying(!playing); }
     else if (e.key === 'Tab') {
       /* keep the keyboard inside the slideshow while it is open */
-      var f = [bClose, bPrev, bPause, bNext].filter(function (b) { return !b.hidden; });
+      var f = [bPause, bClose, bPrev, bNext].filter(function (b) { return !b.hidden; });
       var at = f.indexOf(doc.activeElement);
       if (at < 0) { e.preventDefault(); (e.shiftKey ? f[f.length - 1] : f[0]).focus(); }
       else if (e.shiftKey && at === 0) { e.preventDefault(); f[f.length - 1].focus(); }
       else if (!e.shiftKey && at === f.length - 1) { e.preventDefault(); f[0].focus(); }
     }
   }
-  if (still && still.addEventListener) still.addEventListener('change', function () { if (box && !box.hidden) { bPause.hidden = lessMotion(); setPlaying(!lessMotion()); } });
+  /* PLAY: Still pressed, or the computer's setting changed: the play button and the lines go or come back; play never starts by itself */
+  if (still && still.addEventListener) still.addEventListener('change', function () { if (box) { calmView(); setPlaying(false); } });
 })();

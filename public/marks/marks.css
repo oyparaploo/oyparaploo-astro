@@ -327,6 +327,73 @@ html.show-open, html.show-open body { overflow: hidden; }
   }
 }
 
+/* ---------- The slideshow play button (Reach, November 9, 2026: "Perfect", on the preview
+   HTML DOCS\PREVIEWS\SLIDESHOW-PLAY-WHOLE-2026-11-09; SITE-ORDER\SLIDESHOW-PLAY-BUILD).
+   The style block marked THE CHANGE in the preview, copied exactly. ---------- */
+/* ================= THE CHANGE (spec claude/SLIDESHOW-PLAY-SPEC-2026-11-09.md, preview November 9, 2026) =================
+   The play button on the count's small solid panel, and the thin lines along the top edge of the slideshow.
+   For the build: this block goes after the slideshow rules in marks.css, and the script changes marked PLAY
+   go into marks.js. Nothing else on the page changes. */
+
+/* The count and the play button share one small solid panel. The count keeps its words and size. */
+.show-tally { display: inline-flex; align-items: center; gap: 12px; }
+.show-play {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; padding: 0; flex: none;
+  color: var(--ink); background: var(--ground);
+  border: 1.5px solid var(--ink); border-radius: 5px;
+  cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease;
+}
+.show-play[hidden] { display: none; }
+.show-play svg { fill: currentColor; display: block; }
+.show-play .ico-pause { display: none; }
+.show.playing .show-play .ico-play { display: none; }
+.show.playing .show-play .ico-pause { display: block; }
+.show-play:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.show-play:active { background: var(--ink); color: var(--ground); }
+@media (hover: hover) { .show-play:hover { background: var(--ink); color: var(--ground); } }
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  /* the panel is the count's own panel, now holding the button too; as tall as Close (48 pixels) */
+  .show-tally { background: var(--ground); border-radius: 5px; padding-left: 16px; }
+  .show-count { background: none; padding: 0; border-radius: 0; }
+  .show.still .show-tally .show-count { padding: 15px 16px 15px 0; }
+  @media (max-width: 599px) {
+    .show-tally { padding-left: 14px; }
+    .show-count { padding: 0; }
+    .show.still .show-tally .show-count { padding: 12px 14px 12px 0; }
+  }
+}
+
+/* The thin lines: along the top edge, inside the band above the count, so the drawing keeps today's size and place.
+   The site's Accent colour fills them; the part still to come is the same colour, faint. */
+.show-lines {
+  position: absolute; top: 6px; left: var(--edge); right: var(--edge); height: 3px;
+  display: flex; gap: 4px; pointer-events: none;
+}
+.show-lines[hidden] { display: none; }
+.show-line {
+  position: relative; flex: 1 1 0; min-width: 0; height: 100%; overflow: hidden; border-radius: 2px;
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
+}
+.show-fill {
+  position: absolute; inset: 0; background: var(--accent);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+@media (max-width: 599px) {
+  .show-lines { top: 4px; gap: 3px; }
+  /* Previous and Next share the row, as the still slideshow does today */
+  .show-ctl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Under Still, or when the computer asks for less motion, the script hides the button and the lines;
+   these rules make sure of it even before the script runs. */
+@media (prefers-reduced-motion: reduce) { .show-play, .show-lines { display: none !important; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .show-play, html.pp-still.show-play, html.pp-still .show-lines, html.pp-still.show-lines { display: none !important; }
+
+html.pp-still .show-play, html.pp-still .show-lines { display: none !important; }
+
 /* ---------- Visitors who ask for less motion get none ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
