@@ -202,6 +202,33 @@ body.writing-page > .site-header:not(.is-pinned) { background: var(--ground); }
 html.rm .wp-seq-word .arrow-glyph,
 html.pp-still .wp-seq-word .arrow-glyph { transition: none; }
 
+/* ---- The large first letter (DROP-LETTER-WHOLE-2026-11-10; spec claude/DROP-LETTER-SPEC-2026-11-10.md) ----
+   Writings told in paragraphs only: the build puts class wp-drop on the opening paragraph of Stories,
+   Essays and Letters, only when that paragraph is one block of prose of 240 letters or more, with no line
+   breaks, starting with a letter, a number, or a quotation mark and a letter (NOTES.md beside the preview).
+   Never poems, plays, conversations, prayers, short pieces or phone texts.
+   The letter is drawn by the browser over the real word (::first-letter), so the page still holds the
+   whole first word and a screen reader reads it as one word. A quotation mark before the letter joins it
+   by itself. Lora 600, in the writing's own colour (Ink), Light and Dark. Three lines tall, two on phones.
+   It is measured in lines, so it grows with Standard · Large. Nothing moves. */
+.wp-body p.wp-drop::first-letter {
+  /* Browsers without initial-letter (Firefox): a floated letter of the same height */
+  float: left;
+  font-family: 'Lora', Georgia, serif; font-weight: 600; font-style: normal;
+  font-size: 5.9em; line-height: 0.74;
+  margin: 0.04em 0.06em 0 -0.02em;
+  color: inherit;
+}
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .wp-body p.wp-drop::first-letter {
+    float: none;
+    font-size: inherit; line-height: inherit;
+    margin: 0 0.32em 0 0;
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+  }
+}
+
 /* ---- Phones ---- */
 @media (max-width: 767px) {
   .wp-col, .wp-after-in { padding-left: 20px; padding-right: 20px; }
@@ -217,5 +244,9 @@ html.pp-still .wp-seq-word .arrow-glyph { transition: none; }
   .wp-seq-link { max-width: 100%; }
   .wp-next { margin-left: 0; text-align: left; align-items: flex-start; }
   .wp-where { margin-top: 32px; }
+  .wp-body p.wp-drop::first-letter { font-size: 3.45em; margin-top: 0.085em; }
+  @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+    .wp-body p.wp-drop::first-letter { font-size: inherit; margin-top: 0; -webkit-initial-letter: 2; initial-letter: 2; }
+  }
 }
 
