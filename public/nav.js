@@ -226,7 +226,8 @@
   old.parentNode.replaceChild(f, old);
 /* ==========================================================================
    DIRECTORY FOOTER: behaviour (the shared footer file carries this part)
-   On phones the four section rows start folded; the + opens one.
+   The four section rows start folded at every width, computers and phones; the + opens one,
+   and so does a press on the empty part of the row beside the section's name (November 12, 2026).
    ========================================================================== */
 (function () {
   var rows = document.querySelectorAll('.directory-footer .df-foldable');
@@ -238,6 +239,12 @@
       var on = row.classList.toggle('is-open');
       b.setAttribute('aria-expanded', on ? 'true' : 'false');
       b.setAttribute('aria-label', (on ? 'Close ' : 'Open ') + name);
+    });
+    /* The whole head row opens and closes too, except the section's name, which is a link (November 12, 2026) */
+    var head = row.querySelector('.df-head');
+    if (head) head.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a, button')) return;
+      b.click();
     });
   });
 })();
