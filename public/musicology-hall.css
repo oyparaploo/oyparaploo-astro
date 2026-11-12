@@ -1,0 +1,70 @@
+/* ==========================================================================
+   THE CHANGE. The song row stops holding the page still. November 12, 2026
+   (Claude, Opus, High). Finding 7 of claude/SITE-REVIEW-2026-11-12.md.
+   - On a computer the page scrolls down normally; the row moves sideways
+     by itself, as on phones (musicology-room.js no longer pins the panel).
+   - A computer gets two small arrows, one either side of the line under the
+     rooms. Each moves the row one window of cards. They rest, faint, at the
+     two ends of the row.
+   - The row can be dragged with the mouse (a grab hand over it).
+   - The line under the rooms stays as it is, and still drags.
+   - With Still on, or less motion asked for, the arrows move the row at once,
+     with no sliding.
+   - Phones stay as they are: no arrows under 900 pixels.
+   Arrows: 44 by 44 pixels, corners 5 pixels, an outline at rest that turns
+   solid under the hand (the charter's buttons). Dark: off-white outline and
+   arrow, white under the hand with an Ink arrow (18.9 to 1). Light: Ink outline
+   and arrow, Ink under the hand with a paper arrow.
+   The .mr-glide rules in musicology-room.css no longer apply anywhere.
+   Its own file, linked after musicology-room.css on every Musicology page,
+   so a build that replaces musicology-room.css never takes it away.
+   Ruled perfect by Reach, November 12, 2026 (preview
+   HTML DOCS\PREVIEWS\MUSICOLOGY-HALL-SWIPE-WHOLE-2026-11-12).
+   ========================================================================== */
+
+.mr-steer { display: flex; align-items: center; justify-content: center; gap: 20px; width: min(860px, 72%); }
+.mr-steer .mr-progress { flex: 1 1 auto; width: auto; }
+
+.mr-step {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; border-radius: 5px; cursor: pointer;
+  background: transparent; color: var(--mr-words);
+  border: 1px solid rgba(var(--ink-on-dark-rgb), 0.55);
+  transition: background-color 0.25s var(--mr-ease), color 0.25s var(--mr-ease), border-color 0.25s var(--mr-ease), opacity 0.25s var(--mr-ease);
+}
+.mr-step svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mr-step:hover, .mr-step:focus-visible { background: var(--mr-white); border-color: var(--mr-white); color: #111111; }
+.mr-step:focus-visible { outline: 2px solid var(--mr-white); outline-offset: 3px; }
+.mr-step:disabled { opacity: 0.32; cursor: default; background: transparent; color: var(--mr-words); border-color: rgba(var(--ink-on-dark-rgb), 0.55); }
+
+/* The row under the hand: a grab hand, and nothing selects while dragging. */
+.mr-hall .mr-viewport { cursor: grab; }
+.mr-hall .mr-viewport.is-dragging { cursor: grabbing; user-select: none; }
+.mr-hall .mr-viewport.is-dragging, .mr-hall .mr-viewport.is-held { scroll-snap-type: none; }
+.mr-hall .mr-viewport.is-dragging a { pointer-events: none; }
+.mr-hall .mr-card img { -webkit-user-drag: none; }
+
+/* Phones stay as they are. */
+@media (max-width: 899px) {
+  .mr-step { display: none; }
+  .mr-steer { width: 60%; gap: 0; }
+  .mr-hall .mr-viewport { cursor: auto; }
+}
+
+/* Light (finding 1): written for a pressed Light and for a light screen. */
+html[data-theme="light"] .mr-step { color: #111111; border-color: rgba(17,17,17,0.55); }
+html[data-theme="light"] .mr-step:hover, html[data-theme="light"] .mr-step:focus-visible { background: #111111; border-color: #111111; color: #faf6f0; }
+html[data-theme="light"] .mr-step:focus-visible { outline-color: #111111; }
+html[data-theme="light"] .mr-step:disabled { background: transparent; color: #111111; border-color: rgba(17,17,17,0.55); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .mr-step { color: #111111; border-color: rgba(17,17,17,0.55); }
+  html:not([data-theme="dark"]) .mr-step:hover, html:not([data-theme="dark"]) .mr-step:focus-visible { background: #111111; border-color: #111111; color: #faf6f0; }
+  html:not([data-theme="dark"]) .mr-step:focus-visible { outline-color: #111111; }
+  html:not([data-theme="dark"]) .mr-step:disabled { background: transparent; color: #111111; border-color: rgba(17,17,17,0.55); }
+}
+
+@media (prefers-reduced-motion: reduce) { .mr-step { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .mr-step, html.pp-still.mr-step { transition: none; }
+
+html.pp-still .mr-step { transition: none; }
