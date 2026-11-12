@@ -196,3 +196,17 @@ html.rm .bb-will { opacity: 1; transform: none; transition: none; }
   font-size: 26px; line-height: 1.35; color: var(--bb-hero-ink); text-wrap: balance;
 }
 @media (max-width: 600px) { .bb-line { margin-top: 20px; font-size: 20px; } }
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Bad Best Of follows Light: the dark opening (the design draft's seat, not taken from the work) is its own colour
+   made pale, its words in Ink. The tiles keep their own pale seats, the same in both. Dark is unchanged. */
+html[data-theme="light"] .bb-hero { --bb-hero-ink: #111111; background: #f3eeed; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .bb-hero { --bb-hero-ink: #111111; background: #f3eeed; }
+}
+@supports (color: oklch(from red l c h)) {
+html[data-theme="light"] .bb-hero { background: oklch(from var(--bb-hero) 0.94 clamp(0.006, calc(c * 0.5), 0.03) h); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .bb-hero { background: oklch(from var(--bb-hero) 0.94 clamp(0.006, calc(c * 0.5), 0.03) h); }
+}
+}

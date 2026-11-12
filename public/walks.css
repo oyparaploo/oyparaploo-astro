@@ -257,3 +257,62 @@ html.pp-still.walk-room { scroll-behavior: auto; }
 html.pp-still .wo-row, html.pp-still.wo-row, html.pp-still .wf-rows a, html.pp-still.wf-rows a, html.pp-still .r-arrow, html.pp-still.r-arrow, html.pp-still .wbtn, html.pp-still.wbtn, html.pp-still .wbtn .arr, html.pp-still.wbtn .arr, html.pp-still .w-arrow span, html.pp-still.w-arrow span, html.pp-still .wo-begin span, html.pp-still.wo-begin span { transition: none !important; }
 html.pp-still .r-arrow, html.pp-still.r-arrow { transform: none; }
 
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   The walks follow Light: the walk's deep ground and its bands are the walk's own colours made pale, the words,
+   the header and the footer in their light values. The opening screen, words over the photograph on the walk's
+   darkened band, and every picture stay the same in both. Dark is unchanged. */
+html.walk-room[data-theme="light"] { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f6f4; --w-warm: #111111; --w-line: rgba(17, 17, 17, 0.2); --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+html.walk-room[data-theme="light"] body { background: #f7f6f4; }
+html.walk-room[data-theme="light"] body .site-header.is-pinned { background: #f7f6f4; }
+html.walk-room[data-theme="light"] .wband,
+html.walk-room[data-theme="light"] .wf-band { background: #ecebe7; }
+html.walk-room[data-theme="light"] .wo-first { --w-warm: #F4EFE8; --w-line: rgba(244, 239, 232, 0.32); }
+html.walk-room[data-theme="light"] .wo-row:active,
+html.walk-room[data-theme="light"] .wf-rows a:active,
+html.walk-room[data-theme="light"] .wf-rows a.is-here,
+html.walk-room[data-theme="light"] .wbtn { color: #ffffff; }
+html.walk-room[data-theme="light"] .wbtn:active { color: #111111; }
+@media (prefers-color-scheme: light) {
+  html.walk-room:not([data-theme="dark"]) { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f6f4; --w-warm: #111111; --w-line: rgba(17, 17, 17, 0.2); --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+  html.walk-room:not([data-theme="dark"]) body { background: #f7f6f4; }
+  html.walk-room:not([data-theme="dark"]) body .site-header.is-pinned { background: #f7f6f4; }
+  html.walk-room:not([data-theme="dark"]) .wband,
+  html.walk-room:not([data-theme="dark"]) .wf-band { background: #ecebe7; }
+  html.walk-room:not([data-theme="dark"]) .wo-first { --w-warm: #F4EFE8; --w-line: rgba(244, 239, 232, 0.32); }
+  html.walk-room:not([data-theme="dark"]) .wo-row:active,
+  html.walk-room:not([data-theme="dark"]) .wf-rows a:active,
+  html.walk-room:not([data-theme="dark"]) .wf-rows a.is-here,
+  html.walk-room:not([data-theme="dark"]) .wbtn { color: #ffffff; }
+  html.walk-room:not([data-theme="dark"]) .wbtn:active { color: #111111; }
+}
+@media (hover: hover) {
+html.walk-room[data-theme="light"] .wo-row:hover,
+html.walk-room[data-theme="light"] .wo-row:focus-visible,
+html.walk-room[data-theme="light"] .wf-rows a:hover,
+html.walk-room[data-theme="light"] .wf-rows a:focus-visible { color: #ffffff; }
+html.walk-room[data-theme="light"] .wbtn:hover,
+html.walk-room[data-theme="light"] .wbtn:focus-visible { color: #111111; }
+@media (prefers-color-scheme: light) {
+  html.walk-room:not([data-theme="dark"]) .wo-row:hover,
+  html.walk-room:not([data-theme="dark"]) .wo-row:focus-visible,
+  html.walk-room:not([data-theme="dark"]) .wf-rows a:hover,
+  html.walk-room:not([data-theme="dark"]) .wf-rows a:focus-visible { color: #ffffff; }
+  html.walk-room:not([data-theme="dark"]) .wbtn:hover,
+  html.walk-room:not([data-theme="dark"]) .wbtn:focus-visible { color: #111111; }
+}
+}
+@supports (color: oklch(from red l c h)) {
+html.walk-room[data-theme="light"] { --ground: oklch(from var(--w-deep) 0.965 clamp(0.006, calc(c * 0.5), 0.03) h); }
+html.walk-room[data-theme="light"] body,
+html.walk-room[data-theme="light"] body .site-header.is-pinned { background: oklch(from var(--w-deep) 0.965 clamp(0.006, calc(c * 0.5), 0.03) h); }
+html.walk-room[data-theme="light"] .wband,
+html.walk-room[data-theme="light"] .wf-band { background: oklch(from var(--b) 0.92 clamp(0.006, calc(c * 0.5), 0.03) h); }
+@media (prefers-color-scheme: light) {
+  html.walk-room:not([data-theme="dark"]) { --ground: oklch(from var(--w-deep) 0.965 clamp(0.006, calc(c * 0.5), 0.03) h); }
+  html.walk-room:not([data-theme="dark"]) body,
+  html.walk-room:not([data-theme="dark"]) body .site-header.is-pinned { background: oklch(from var(--w-deep) 0.965 clamp(0.006, calc(c * 0.5), 0.03) h); }
+  html.walk-room:not([data-theme="dark"]) .wband,
+  html.walk-room:not([data-theme="dark"]) .wf-band { background: oklch(from var(--b) 0.92 clamp(0.006, calc(c * 0.5), 0.03) h); }
+}
+}

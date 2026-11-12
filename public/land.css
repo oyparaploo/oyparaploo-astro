@@ -144,3 +144,20 @@
 html.pp-still .pic img, html.pp-still.pic img, html.pp-still .land-label, html.pp-still.land-label, html.pp-still .land-places button, html.pp-still.land-places button, html.pp-still .land-grow.is-on, html.pp-still.land-grow.is-on { transition: none; }
 html.pp-still .pic.is-up img, html.pp-still.pic.is-up img { transform: none; }
 
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Land Of Pictures ... follows Light, on the Placings room's Light ground; words, the framing line and the scroll
+   bars in the light values. The pictures, the enlarged picture's feathered shadow and the number on its dark tab stay
+   the same in both. Dark is unchanged. */
+html[data-theme="light"] .land-room { --l-ink: #111111; --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .land-say { border-left-color: #666666; color: #555555; }
+html[data-theme="light"] .land { border-color: rgba(17, 17, 17, 0.32); }
+html[data-theme="light"] .land-scroll { scrollbar-color: #666666 rgba(17, 17, 17, 0.08); }
+html[data-theme="light"] .land-label { color: #e8e0d6; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .land-room { --l-ink: #111111; --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .land-say { border-left-color: #666666; color: #555555; }
+  html:not([data-theme="dark"]) .land { border-color: rgba(17, 17, 17, 0.32); }
+  html:not([data-theme="dark"]) .land-scroll { scrollbar-color: #666666 rgba(17, 17, 17, 0.08); }
+  html:not([data-theme="dark"]) .land-label { color: #e8e0d6; }
+}

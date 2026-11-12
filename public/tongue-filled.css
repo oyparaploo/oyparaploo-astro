@@ -226,3 +226,40 @@ html.pp-still .tf-pause, html.pp-still.tf-pause { display: none; }
   font-size: 24px; line-height: 1.3; color: var(--tf-ink); text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 700px) { .tf-line { margin-top: 10px; font-size: 20px; } }
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Tongue-Filled follows Light: the room's green ground and its bands are the green made pale, their words in
+   Ink. Every tile keeps its own seat, the deep or the pale of one of the room's pictures, with its words as they
+   are; the opening's pictures under their shade stay the same in both. Dark is unchanged. */
+html[data-theme="light"] .tf-room,
+html[data-theme="light"] .tf-band { background: #eef1ef; }
+html[data-theme="light"] .tf-room { --tf-ink: #111111; }
+html[data-theme="light"] .tf-hero,
+html[data-theme="light"] .tf-tile,
+html[data-theme="light"] .tf-full { --tf-ink: #e8e0d6; }
+html[data-theme="light"] .tf-tile,
+html[data-theme="light"] .tf-full { color: #e8e0d6; }
+html[data-theme="light"] .tf-tile.tf-light,
+html[data-theme="light"] .tf-full.tf-light { color: #111111; }
+html[data-theme="light"] .tf-way .tf-link { border-top-color: rgba(17, 17, 17, 0.4); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .tf-room,
+  html:not([data-theme="dark"]) .tf-band { background: #eef1ef; }
+  html:not([data-theme="dark"]) .tf-room { --tf-ink: #111111; }
+  html:not([data-theme="dark"]) .tf-hero,
+  html:not([data-theme="dark"]) .tf-tile,
+  html:not([data-theme="dark"]) .tf-full { --tf-ink: #e8e0d6; }
+  html:not([data-theme="dark"]) .tf-tile,
+  html:not([data-theme="dark"]) .tf-full { color: #e8e0d6; }
+  html:not([data-theme="dark"]) .tf-tile.tf-light,
+  html:not([data-theme="dark"]) .tf-full.tf-light { color: #111111; }
+  html:not([data-theme="dark"]) .tf-way .tf-link { border-top-color: rgba(17, 17, 17, 0.4); }
+}
+@supports (color: oklch(from red l c h)) {
+html[data-theme="light"] .tf-room,
+html[data-theme="light"] .tf-band { background: oklch(from var(--tf-band) 0.95 clamp(0.006, calc(c * 0.5), 0.03) h); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .tf-room,
+  html:not([data-theme="dark"]) .tf-band { background: oklch(from var(--tf-band) 0.95 clamp(0.006, calc(c * 0.5), 0.03) h); }
+}
+}

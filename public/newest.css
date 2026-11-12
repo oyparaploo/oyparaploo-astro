@@ -92,3 +92,16 @@ html.pp-still .nw-card, html.pp-still .nw-more { transition: none; }
   .nw-card-writing .nw-name { font-size: 28px; }
   .nw-more-row { padding: 32px 16px 96px; }
 }
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Newest ... follows Light: the page's ground white and its words in the named colours' light values. The deep
+   brown band at the top is taken from the newest picture and its words keep Ink on dark (10 to 1), so it stays the
+   same in both, as do the pictures. Dark is unchanged. */
+html[data-theme="light"] .nw { --nw-ground: #ffffff; --nw-ink: #111111; --nw-soft: #555555; --nw-faint: #666666; --nw-rule: rgba(17, 17, 17, 0.2); }
+html[data-theme="light"] .nw-open { --nw-ink: #e8e0d6; }
+html[data-theme="light"] .nw-pic { background: #ece8e3; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .nw { --nw-ground: #ffffff; --nw-ink: #111111; --nw-soft: #555555; --nw-faint: #666666; --nw-rule: rgba(17, 17, 17, 0.2); }
+  html:not([data-theme="dark"]) .nw-open { --nw-ink: #e8e0d6; }
+  html:not([data-theme="dark"]) .nw-pic { background: #ece8e3; }
+}

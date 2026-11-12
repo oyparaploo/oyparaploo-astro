@@ -213,3 +213,25 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .door-block, html.pp-still.door-block, html.pp-still .row, html.pp-still.row, html.pp-still .row-arrow, html.pp-still.row-arrow, html.pp-still .pill, html.pp-still.pill, html.pp-still .sec-arrow, html.pp-still.sec-arrow { transition: none; }
 
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Everything follows Light, on the Placings room's Light ground (it shares the Placings dark, black to night
+   blue), white running to a very pale blue; words in the light values. The yellow band is Ink On Yellow's own yellow
+   with Ink on it (12 to 1), so it stays the same in both, as do the pictures and the colour block a picture becomes
+   when pointed at. Dark is unchanged. */
+html[data-theme="light"] .everything-room { --e-ink: #111111; --e-soft: #555555; --e-faint: #666666; --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .pill:hover,
+html[data-theme="light"] .pill:focus-visible,
+html[data-theme="light"] .row:hover,
+html[data-theme="light"] .row:focus-visible { color: #ffffff; }
+html[data-theme="light"] .row:hover .row-line,
+html[data-theme="light"] .row:focus-visible .row-line { color: #d6d6d6; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .everything-room { --e-ink: #111111; --e-soft: #555555; --e-faint: #666666; --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .pill:hover,
+  html:not([data-theme="dark"]) .pill:focus-visible,
+  html:not([data-theme="dark"]) .row:hover,
+  html:not([data-theme="dark"]) .row:focus-visible { color: #ffffff; }
+  html:not([data-theme="dark"]) .row:hover .row-line,
+  html:not([data-theme="dark"]) .row:focus-visible .row-line { color: #d6d6d6; }
+}

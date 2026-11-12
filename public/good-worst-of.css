@@ -225,3 +225,17 @@ html.rm .gw-will { opacity: 1; transform: none; transition: none; }
   .gw-hero-in > .gw-hero-pic { margin-top: 16px; }
 }
 @media (max-width: 600px) { .gw-line { font-size: 22px; } }
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Good Worst Of follows Dark: the pale blue band is its own blue made deep, its words in Ink's dark value. The
+   opening and the history, words over a photograph's darkened haze, stay the same in both. Light is unchanged. */
+html[data-theme="dark"] .gw-band { --gw-band-ink: #d9d7ce; background: #2f3538; color: #d9d7ce; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .gw-band { --gw-band-ink: #d9d7ce; background: #2f3538; color: #d9d7ce; }
+}
+@supports (color: oklch(from red l c h)) {
+html[data-theme="dark"] .gw-band { background: oklch(from var(--gw-band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .gw-band { background: oklch(from var(--gw-band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+}
+}

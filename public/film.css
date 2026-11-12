@@ -297,3 +297,32 @@ html:root:root body .fm-back .arrow-link:focus-visible .arrow-glyph { color: #ff
   .fm-stage { padding-top: 4px; }
   .fm-back { width: auto; margin: 0; padding: 0 16px 4px; }
 }
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   The video pages follow Light: the page's ground white, its words in the light values. The screen, the black
+   film strips, the stills and what sits on them (the play disc, the times) stay the same in both. Dark is unchanged. */
+html[data-theme="light"] .film-page main { background: #ffffff; --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+html[data-theme="light"] .film-page .fm-screen,
+html[data-theme="light"] .film-page .fm-strips,
+html[data-theme="light"] .film-page .fl-shot { --ink-on-dark: #e8e0d6; --ink-on-dark-rgb: 232, 224, 214; }
+html[data-theme="light"] .fm-fact,
+html[data-theme="light"] .fm-w-kind,
+html[data-theme="light"] .fm-w-sub,
+html[data-theme="light"] .fl-fact { color: #555555; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .film-page main { background: #ffffff; --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+  html:not([data-theme="dark"]) .film-page .fm-screen,
+  html:not([data-theme="dark"]) .film-page .fm-strips,
+  html:not([data-theme="dark"]) .film-page .fl-shot { --ink-on-dark: #e8e0d6; --ink-on-dark-rgb: 232, 224, 214; }
+  html:not([data-theme="dark"]) .fm-fact,
+  html:not([data-theme="dark"]) .fm-w-kind,
+  html:not([data-theme="dark"]) .fm-w-sub,
+  html:not([data-theme="dark"]) .fl-fact { color: #555555; }
+}
+/* the way back's hover takes black in Light, where the page's own rule gives white */
+html[data-theme="light"]:root:root body .fm-back .arrow-link:is(:hover, :focus-visible),
+html[data-theme="light"]:root:root body .fm-back .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #000000; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]):root:root body .fm-back .arrow-link:is(:hover, :focus-visible),
+  html:not([data-theme="dark"]):root:root body .fm-back .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #000000; }
+}

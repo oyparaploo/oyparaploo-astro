@@ -179,3 +179,23 @@ html:root body .pbm-foot .arrow-link .arrow-glyph { color: var(--p-ink); }
 html.pp-still .pbm-grid, html.pp-still.pbm-grid, html.pp-still .pbm-chip, html.pp-still.pbm-chip, html.pp-still .pbm-chip-n, html.pp-still.pbm-chip-n, html.pp-still .p-seat, html.pp-still.p-seat, html.pp-still .p-name, html.pp-still.p-name, html.pp-still .p-arr, html.pp-still.p-arr { transition: none !important; }
 html.pp-still .p-card .p-arr, html.pp-still.p-card .p-arr, html.pp-still .pbm .arrow-glyph, html.pp-still.pbm .arrow-glyph { transform: none !important; }
 
+
+/* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
+   Placed By Material ... follows Light, as the Placings page above it does: the room's ground white running to a
+   very pale blue, words in the light values, the seats in a faint blue. The slate-blue band at the top stays the
+   same in both, as on Placings, and so do the pictures. Found Together ..., inside the room, takes the same values.
+   Dark is unchanged. */
+html[data-theme="light"] .pbm-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .p-card:focus-visible .p-seat,
+html[data-theme="light"] .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .pbm-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .p-card:focus-visible .p-seat,
+  html:not([data-theme="dark"]) .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
+}
+@media (hover: hover) {
+html[data-theme="light"] .p-card:hover .p-seat { background-color: rgba(70, 110, 145, 0.16); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .p-card:hover .p-seat { background-color: rgba(70, 110, 145, 0.16); }
+}
+}
