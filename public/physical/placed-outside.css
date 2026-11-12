@@ -137,3 +137,16 @@ body.sets-page:not(.set-page) .set-block { margin-bottom: 24px; }
 body.sets-page:not(.set-page) .sets-bands { padding-top: 24px; }
 body.sets-page:not(.set-page) .sets-foot { margin-top: 0; }
 @media (max-width: 700px) { body.sets-page:not(.set-page) .set-block { margin-bottom: 16px; } body.sets-page:not(.set-page) .sets-bands { padding-top: 16px; } }
+
+/* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): the picture-sets page follows Light, as the Placings page above
+   it now does. Its ground in Light is the Placings room's own, white running to a very pale blue, so the air between
+   the bands is never plain white. The opening photograph with its veil, every band and its black label, and the
+   drawing on its white paper stay as they are. Dark is unchanged. */
+html[data-theme="light"] body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+html[data-theme="light"] body.sets-page:not(.set-page) .sets-bands { background: transparent; }
+html[data-theme="light"] body.sets-page:not(.set-page) .band { background: #e6ecf1; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+  html:not([data-theme="dark"]) body.sets-page:not(.set-page) .sets-bands { background: transparent; }
+  html:not([data-theme="dark"]) body.sets-page:not(.set-page) .band { background: #e6ecf1; }
+}

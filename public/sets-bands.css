@@ -217,3 +217,24 @@ html.pp-still .sets-bands, html.pp-still.sets-bands { --drift: 0; }
 html.pp-still .band-pic, html.pp-still.band-pic { transform: none !important; height: 100%; will-change: auto; }
 html.pp-still .om-tri svg, html.pp-still.om-tri svg, html.pp-still .om-name, html.pp-still.om-name, html.pp-still .band-label, html.pp-still.band-label, html.pp-still .band-label .arrow-glyph, html.pp-still.band-label .arrow-glyph, html.pp-still .band-pic, html.pp-still.band-pic { transition: none; }
 
+
+/* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): in Dark, the foot band is its own colour made deep, its words in Ink's dark value.
+   Light is unchanged. */
+html[data-theme="dark"] .sets-foot { background: #33302d; background: oklch(from var(--foot-band, #DAC2B4) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); color: #d9d7ce; }
+html[data-theme="dark"] .sets-foot .arrow-link,
+html[data-theme="dark"] .sets-foot .arrow-link .arrow-glyph,
+html[data-theme="dark"] .sets-foot .arrow-link:is(:hover,
+html[data-theme="dark"] :focus-visible),
+html[data-theme="dark"] .sets-foot .arrow-link:is(:hover,
+html[data-theme="dark"] :focus-visible) .arrow-glyph { color: #d9d7ce !important; }
+html[data-theme="dark"] .sets-foot :focus-visible { outline-color: #d9d7ce; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sets-foot { background: #33302d; background: oklch(from var(--foot-band, #DAC2B4) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); color: #d9d7ce; }
+  html:not([data-theme="light"]) .sets-foot .arrow-link,
+  html:not([data-theme="light"]) .sets-foot .arrow-link .arrow-glyph,
+  html:not([data-theme="light"]) .sets-foot .arrow-link:is(:hover,
+  html:not([data-theme="light"]) :focus-visible),
+  html:not([data-theme="light"]) .sets-foot .arrow-link:is(:hover,
+  html:not([data-theme="light"]) :focus-visible) .arrow-glyph { color: #d9d7ce !important; }
+  html:not([data-theme="light"]) .sets-foot :focus-visible { outline-color: #d9d7ce; }
+}

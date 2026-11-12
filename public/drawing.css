@@ -65,3 +65,48 @@ html[data-theme="dark"] .sky.sky-foot::before { background-image: linear-gradien
 html:root body .theme-strip { position: relative; z-index: 4500; background: var(--ground); }  /* as strong as the pages' own strip rules */
 body > .site-header.wob-host:not(.is-pinned) { z-index: 4500 !important; }
 .site-header.is-pinned { z-index: 4500; }
+
+/* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): in Dark, the sky band on the Writings pages, the shelf pages and the Placed By Day
+   pages is the night sky of the writing pages (ruled October 2, 2026), and the pale opening band of every page that has
+   one is its own colour made deep, words in Ink's dark value. Light is unchanged. */
+html[data-theme="dark"] .sky[data-sky="fog"] { --sky-base: #1f2a33; }
+html[data-theme="dark"] .sky[data-sky="fog"]::before { background-image: linear-gradient(rgba(13,9,7,0.55), rgba(13,9,7,0.55)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+html[data-theme="dark"] .opening { --band-deep: #33302d; --work-5-deep: #2b2826; }
+html[data-theme="dark"] .opening-words { background-color: var(--band-deep); color: #d9d7ce; }
+html[data-theme="dark"] .opening-pic { background-color: var(--work-5-deep); }
+html[data-theme="dark"] .opening .btn { --btn-ink: #d9d7ce; --btn-ground: var(--band-deep); }
+html[data-theme="dark"] .opening :focus-visible { outline-color: #d9d7ce; }
+html[data-theme="dark"] .opening .back-link,
+html[data-theme="dark"] .opening .passage,
+html[data-theme="dark"] .opening .cal-label,
+html[data-theme="dark"] .opening .go-link { color: #d9d7ce; }
+html[data-theme="dark"] .opening .cal-years a,
+html[data-theme="dark"] .opening .cal-years span { border-color: #d9d7ce; color: #d9d7ce; }
+html[data-theme="dark"] .opening .cal-years span,
+html[data-theme="dark"] .opening .cal-years a:hover,
+html[data-theme="dark"] .opening .cal-years a:focus-visible { background: #d9d7ce; color: var(--work-5-deep); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sky[data-sky="fog"] { --sky-base: #1f2a33; }
+  html:not([data-theme="light"]) .sky[data-sky="fog"]::before { background-image: linear-gradient(rgba(13,9,7,0.55), rgba(13,9,7,0.55)), url("https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Cool%20Mist%20IA.webp"); }
+  html:not([data-theme="light"]) .opening { --band-deep: #33302d; --work-5-deep: #2b2826; }
+  html:not([data-theme="light"]) .opening-words { background-color: var(--band-deep); color: #d9d7ce; }
+  html:not([data-theme="light"]) .opening-pic { background-color: var(--work-5-deep); }
+  html:not([data-theme="light"]) .opening .btn { --btn-ink: #d9d7ce; --btn-ground: var(--band-deep); }
+  html:not([data-theme="light"]) .opening :focus-visible { outline-color: #d9d7ce; }
+  html:not([data-theme="light"]) .opening .back-link,
+  html:not([data-theme="light"]) .opening .passage,
+  html:not([data-theme="light"]) .opening .cal-label,
+  html:not([data-theme="light"]) .opening .go-link { color: #d9d7ce; }
+  html:not([data-theme="light"]) .opening .cal-years a,
+  html:not([data-theme="light"]) .opening .cal-years span { border-color: #d9d7ce; color: #d9d7ce; }
+  html:not([data-theme="light"]) .opening .cal-years span,
+  html:not([data-theme="light"]) .opening .cal-years a:hover,
+  html:not([data-theme="light"]) .opening .cal-years a:focus-visible { background: #d9d7ce; color: var(--work-5-deep); }
+}
+/* A custom property keeps whatever it is given, so the colour words go in only where the browser knows them. */
+@supports (color: oklch(from red l c h)) {
+html[data-theme="dark"] .opening { --band-deep: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); --work-5-deep: oklch(from var(--work-5) 0.31 clamp(0.012, calc(c * 2.2), 0.045) h); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .opening { --band-deep: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); --work-5-deep: oklch(from var(--work-5) 0.31 clamp(0.012, calc(c * 2.2), 0.045) h); }
+}
+}

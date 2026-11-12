@@ -248,3 +248,10 @@
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .c-arr, html.pp-still.c-arr, html.pp-still .c-chip, html.pp-still.c-chip, html.pp-still .c-row, html.pp-still.c-row, html.pp-still .c-show-pic img, html.pp-still.c-show-pic img { transition: none; }
 
+
+/* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): in Dark, the Collage band is its own dusty lilac made deep, its words in Ink's
+   dark value; the collages on it are unchanged. Light is unchanged. */
+html[data-theme="dark"] .c-turn { --c-band-ink: #d9d7ce; background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .c-turn { --c-band-ink: #d9d7ce; background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+}

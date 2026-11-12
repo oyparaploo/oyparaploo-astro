@@ -737,6 +737,48 @@ html.pp-still .lines line, html.pp-still.lines line { transform: none !important
 <link rel="stylesheet" href="/shelf-rail.css">
 <link rel="stylesheet" href="/signs.css">
 <style id="pp-place-style">.pp-in-sky { position: absolute; left: 24px; right: 24px; top: 42%; transform: translateY(-50%); z-index: 1; } .pp-in-sky .sign { width: 653px; } @media (max-width: 600px) { .pp-in-sky .sign { width: 100%; } }</style>
+<style id="light-dark-hold">
+/* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): the Writings page in Dark. The opening band keeps its seven
+   colours, each made deep by the group pages' band rule; the Types panel each type's own colour made deep, the shelves'
+   half a step deeper; the picture band at the foot deep rose with its title made light. Light is unchanged.
+   The opening band's Light gradient stays where it is, in the band's own style attribute: moving it would change the
+   page's own body and move its sitemap date, which the charter keeps for changes of words or pictures. So the Dark
+   gradient is the one rule here that needs !important. */
+html[data-theme="dark"] .opening[aria-label="The Writings"] { background: linear-gradient(to right, #443739, #49412d, #47412c, #354539, #2d4642, #313e4a, #2e3d4c) !important; }
+html[data-theme="dark"] .opening .btn { --btn-ink: #d9d7ce; --btn-ground: #3d3f3a; }
+html[data-theme="dark"] #types { --types-left: #2e3d4c; --types-right: #202f40; --ink: #d9d7ce; --ink-soft: #d9d7ce; --rule: #d9d7ce; color: #d9d7ce; }
+html[data-theme="dark"] #types :focus-visible { outline-color: #d9d7ce; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-stories) { --types-left: #2e3d4c; --types-right: #202f40; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-plays) { --types-left: #362f4c; --types-right: #2b2140; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-essays) { --types-left: #49412d; --types-right: #3d3520; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-poems) { --types-left: #443739; --types-right: #3a272a; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-prayers) { --types-left: #313e4a; --types-right: #23323e; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-letters) { --types-left: #354539; --types-right: #263b2a; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-conversations) { --types-left: #47412c; --types-right: #3b361f; }
+html[data-theme="dark"] #types:has(.kind.is-active > #kp-short) { --types-left: #2d4642; --types-right: #1f3a37; }
+html[data-theme="dark"] .shelf { --work-5: #4f2b33; --ink: #d9d7ce; --ink-soft: #d9d7ce; --rule: #d9d7ce; --ground: #4f2b33; background: #4f2b33; color: #d9d7ce; }
+html[data-theme="dark"] .shelf :focus-visible { outline-color: #d9d7ce; }
+html[data-theme="dark"] .ink-title a { color: #e6c3b8; background: linear-gradient(100deg, #f2b3a3 0%, #e6c3b8 45%, #d6d0cd 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+html[data-theme="dark"] .shelf .go-link { color: #d9d7ce; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .opening[aria-label="The Writings"] { background: linear-gradient(to right, #443739, #49412d, #47412c, #354539, #2d4642, #313e4a, #2e3d4c) !important; }
+  html:not([data-theme="light"]) .opening .btn { --btn-ink: #d9d7ce; --btn-ground: #3d3f3a; }
+  html:not([data-theme="light"]) #types { --types-left: #2e3d4c; --types-right: #202f40; --ink: #d9d7ce; --ink-soft: #d9d7ce; --rule: #d9d7ce; color: #d9d7ce; }
+  html:not([data-theme="light"]) #types :focus-visible { outline-color: #d9d7ce; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-stories) { --types-left: #2e3d4c; --types-right: #202f40; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-plays) { --types-left: #362f4c; --types-right: #2b2140; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-essays) { --types-left: #49412d; --types-right: #3d3520; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-poems) { --types-left: #443739; --types-right: #3a272a; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-prayers) { --types-left: #313e4a; --types-right: #23323e; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-letters) { --types-left: #354539; --types-right: #263b2a; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-conversations) { --types-left: #47412c; --types-right: #3b361f; }
+  html:not([data-theme="light"]) #types:has(.kind.is-active > #kp-short) { --types-left: #2d4642; --types-right: #1f3a37; }
+  html:not([data-theme="light"]) .shelf { --work-5: #4f2b33; --ink: #d9d7ce; --ink-soft: #d9d7ce; --rule: #d9d7ce; --ground: #4f2b33; background: #4f2b33; color: #d9d7ce; }
+  html:not([data-theme="light"]) .shelf :focus-visible { outline-color: #d9d7ce; }
+  html:not([data-theme="light"]) .ink-title a { color: #e6c3b8; background: linear-gradient(100deg, #f2b3a3 0%, #e6c3b8 45%, #d6d0cd 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  html:not([data-theme="light"]) .shelf .go-link { color: #d9d7ce; }
+}
+</style>
 <link rel="stylesheet" href="/sun-moon.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">
