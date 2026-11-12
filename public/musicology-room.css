@@ -7,8 +7,9 @@
    Fourth colours, October 30, 2026 (Claude, Opus, High), after Bonobo
    (bonobomusic.com), the site Reach named as the right flavour, look and
    behaviour for Musicology. Study: claude/BONOBO-NOTES-2026-10-30.md.
-   - The room is dark in Light and Dark, on Bonobo's own warm black (#12100e);
-     the header, the date strip and the footer follow the mode as everywhere.
+   - The room is on Bonobo's own warm black (#12100e) in Dark. Since November 12,
+     2026 it follows the switch: warm paper in Light (the section at the foot).
+     The header, the date strip and the footer follow the mode as everywhere.
    - The panel runs edge to edge. Its light is the work: the print (07942,
      Warm Floating Shapes Absolute Symmetrical) blurred until only its warm
      greys and peach remain, with a still film grain over it, and a fade into
@@ -17,11 +18,14 @@
    - Billboard's punch over the earth (Reach, October 30, 2026: "the specific
      purple, white and black ... contrasted with this beautiful, earthy,
      colorful background"): every card a white box with black words and an
-     8-pixel purple bar along its top, as Billboard's Trending box; under the
-     hand the card turns solid purple (#44007E), its words light. The plus in
-     the title on a purple block; the room you are in a purple pill; on a song
-     page the artist on a purple label, as TOP STORY. Short rules, underlines
-     and the progress line white.
+     8-pixel bar along its top (midnight blue since November 9, 2026); under the
+     hand the card turns bone. Short rules, underlines and the progress line white.
+   - The violet off, November 12, 2026 (Reach: "perfect"; preview
+     MUSICOLOGY-VIOLET-OFF-WHOLE-2026-11-12): Billboard's purple was the
+     loudest colour on the site. The plus in the title and the room you are in
+     take the site's tan (#d4a574) with Ink on it (8.5 to 1), the same in both
+     looks; the artist on a song page is plain italic, no box; the buy button
+     turns tan under the hand.
    - Arrival, once: the title comes out of a blur into focus, the line after
      it, and the first cards rise 20 pixels and settle, all inside about a
      second. Less motion sees everything still and in place.
@@ -35,7 +39,7 @@
   --mr-room: #12100e;       /* Bonobo's ground: Ink on dark 13.2 to 1 (Dark), 14.5 (Light) */
   --mr-panel: #0b0a09;      /* the panel under the print */
   --mr-peach: #F0B4A6;      /* the print's own peach: on the panel 11.1 to 1; Ink (#111111) on it 10.6 */
-  --mr-purple: #44007E;     /* Billboard's purple: Ink on dark on it 10.4 to 1 (Light), 9.4 (Dark) */
+  --mr-tan: #d4a574;        /* the site's tan (Accent's dark value): Ink (#111111) on it 8.5 to 1, the same in both looks */
   --mr-midnight: #1B2457;   /* midnight blue, the card tops (November 9, 2026): on white 14.6 to 1 */
   --mr-white: #FFFFFF;      /* Billboard's white box: Ink (#111111) on it 18.9 to 1 */
   --mr-words: var(--ink-on-dark);      /* Ink, dark value, in every mode */
@@ -45,7 +49,7 @@
   --mr-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* The room: dark in every mode. */
+/* The room: warm black in Dark, warm paper in Light (the section at the foot). */
 body.mus-room { background: var(--mr-room); }
 .mr-main { display: block; background: var(--mr-room); color: var(--mr-words); }
 
@@ -114,13 +118,13 @@ body.mus-room { background: var(--mr-room); }
 .mr-plus {
   display: inline-block; font-weight: 600; line-height: 0.92;
   padding: 0.02em 0.16em 0.06em; margin: 0 0.04em;
-  background: var(--mr-purple); color: var(--mr-words);
+  background: var(--mr-tan); color: #111111;
 }
 .mr-line { margin-top: 18px; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.45; color: var(--mr-words); }
 
 /* The headline blends sideways from bone (Ink on dark, the colour it was) to white
    (Reach, October 30, 2026). The blend spans the words themselves, not the column.
-   Both ends read on the room at 13 to 1 or better. The purple plus keeps its own colour. */
+   Both ends read on the room at 13 to 1 or better. The tan plus keeps its own colour. */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .mr-title, .mr-song-title {
     width: fit-content;
@@ -128,7 +132,7 @@ body.mus-room { background: var(--mr-room); }
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
   }
-  .mr-title .mr-plus { color: var(--mr-words); }
+  .mr-title .mr-plus { color: #111111; }
   .mr-title { padding-right: 0; margin-right: 64px; }
 }
 
@@ -204,10 +208,10 @@ body.mus-room { background: var(--mr-room); }
   transition: background-size 0.35s var(--mr-ease);
 }
 .mr-rooms a:hover, .mr-rooms a:focus-visible { background-size: 100% 2px; }
-/* The room you are in: a solid purple pill, as Billboard's chosen filter. */
+/* The room you are in: a solid tan pill, Ink on it (November 12, 2026). */
 .mr-rooms a[aria-current="page"] {
   padding-left: 16px; padding-right: 16px; border-radius: 999px;
-  background: var(--mr-purple); color: var(--mr-words);
+  background: var(--mr-tan); color: #111111;
 }
 .mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(var(--ink-on-dark-rgb), 0.28); }
 .mr-thumb { position: absolute; top: -1px; left: 0; height: 3px; width: 20%; background: var(--mr-white); }
@@ -253,17 +257,18 @@ body.mus-room { background: var(--mr-room); }
   color: var(--mr-words); max-width: 15em; overflow-wrap: anywhere;
 }
 .mr-song-sub {
-  display: inline-block; padding: 6px 14px 8px; background: var(--mr-purple);
+  display: inline-block; padding: 0;
   margin-top: 16px;
   font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.2;
   color: var(--mr-words);
 }
 /* Stories, artist portraits and soundtracks: the title at the room title's size.
-   The purple label under it carries the kind of piece and its reading time
+   The lavender label under it carries the kind of piece and its reading time
    (Reach, October 30, 2026): "Our Take · 6 minutes", "Artist Portrait · 3 minutes",
    "Soundtrack · 4 minutes". musicology-room.js sets the words from the piece itself
    (its words / 230, rounded, never under 1). The number and its word never part.
-   Song pages keep the artist's name on its purple label. */
+   Song pages show the artist's name as plain italic, no box (November 12, 2026). */
+body.mus-song .mr-song-sub { display: block; margin-top: 18px; }
 body.mus-reading .mr-song-title { font-size: clamp(36px, 4.4vw, 76px); line-height: 1.02; letter-spacing: -0.015em; max-width: 22em; }
 .mr-sub-time { white-space: nowrap; }
 /* The kind and time label a step smaller than the song pages' artist label
@@ -292,7 +297,7 @@ body.mus-reading .mr-stage-words { padding-top: 96px; }
   border: 1px solid var(--mr-words); border-radius: 5px;
   transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease), border-color 0.35s var(--mr-ease);
 }
-.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--mr-purple); border-color: var(--mr-purple); color: var(--mr-words); }
+.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--mr-tan); border-color: var(--mr-tan); color: #111111; }
 /* Listen in another app: a bare arrow link under the buy button, like the way-on links. */
 .mr-listen-line { margin: 18px 0 0; }
 .mr-listen { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.4; color: var(--mr-words); text-decoration: none; }
@@ -355,7 +360,7 @@ html.mr-holding .mr-glide .mr-hall .mr-head, html.mr-holding.mr-glide .mr-hall .
 
 /* October 30, 2026 (Reach): on the story, artist and soundtrack pages the kind-and-time label
    is Billboard's lilac with black words (Ink on lilac 8.9 to 1), its corners sanded to 4 pixels.
-   Song pages keep the purple artist label. */
+   Song pages show the artist plain, no label. */
 body.mus-reading .mr-song-sub { background: #B89AD8; color: #111111; border-radius: 4px;
   font-size: clamp(18px, 1.4vw, 22px); padding: 4px 11px 6px; }
 /* Ninth round (Reach): the label a step smaller and the lavender quieter, a dusty #C2B4D6 (Ink on it 9.7 to 1). */
@@ -376,7 +381,7 @@ body.mus-reading .mr-song-sub { background: #B89AD8; }
    to music while we work." and above the sliding hall of songs.
    - A still first: his Dish-Circle cover, the count, a warm brown play button (#9F7C61, Reach's colour), slate blue under the hand (#7D8B9B).
    - Three colours (Reach, November 9, 2026: "a very classy three-color scheme"):
-     purple for the plus and the room pill, warm brown #9F7C61 for the play button (slate blue #7D8B9B
+     tan for the plus and the room pill (purple until November 12, 2026), warm brown #9F7C61 for the play button (slate blue #7D8B9B
      under the hand), both Reach's own picks; gold set aside,
      midnight blue for the bars along the top of the song cards.
      Nothing loads from Spotify until it is pressed; then Spotify's own compact
@@ -503,3 +508,68 @@ body.mus-reading .mr-song-sub { background: #B89AD8; }
 html.pp-still .mr-listen, html.pp-still.mr-listen { animation: none !important; }
 html.pp-still .mr-listen-player iframe, html.pp-still.mr-listen-player iframe, html.pp-still .mr-listen-still, html.pp-still.mr-listen-still, html.pp-still .mr-listen-play, html.pp-still.mr-listen-play { transition: none; }
 
+
+/* ==========================================================================
+   Musicology in Light, as finding 1 makes it (claude/LIGHT-DARK-HOLD-RULED-2026-11-12.md,
+   Reach: "it's perfect"): a dark room takes a light ground and the light ink
+   values in Light. Reach called it perfect November 12, 2026, with the violet
+   (preview MUSICOLOGY-VIOLET-OFF-WHOLE-2026-11-12); built with it.
+   - The room's warm black mirrored: warm paper #f4efe7, the panel #faf6f0.
+   - The print (07942) stays the panel's light, blurred, a little fainter.
+   - Words Ink #111111, soft words #555555. The headline blends from Ink to
+     a warm near-black (#4a3d33), as in Dark it blends bone to white.
+   - Cards stay white with the midnight bar, a hairline round them; under the
+     hand they turn bone (#e8e0d6), words black. Rules, line and thumb in Ink.
+   - Dark is unchanged.
+   ========================================================================== */
+
+html[data-theme="light"] {
+  --mr-room: #f4efe7; --mr-panel: #faf6f0;
+  --mr-words: #111111; --mr-soft: #555555;
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) {
+    --mr-room: #f4efe7; --mr-panel: #faf6f0;
+    --mr-words: #111111; --mr-soft: #555555;
+  }
+}
+
+/* One set of rules, written twice: for a pressed Light, and for a visitor whose
+   own screen is light and who has pressed nothing. */
+html[data-theme="light"] .mr-print { opacity: 0.5; }
+html[data-theme="light"] .mr-panel::after { background: linear-gradient(to bottom, rgba(244,239,231,0) 0%, rgba(244,239,231,0.4) 52%, rgba(244,239,231,0.88) 88%, #f4efe7 100%); }
+html[data-theme="light"] .mr-panel :focus-visible { outline-color: #111111; }
+html[data-theme="light"] .mr-title, html[data-theme="light"] .mr-song-title { background-image: linear-gradient(to right, #111111, #4a3d33); }
+html[data-theme="light"] .mr-seat { box-shadow: 0 0 0 1px rgba(17,17,17,0.14); }
+html[data-theme="light"] .mr-card a:hover .mr-seat, html[data-theme="light"] .mr-card a:focus-visible .mr-seat, html[data-theme="light"] .mr-card a:active .mr-seat { background: #e8e0d6; color: #111111; }
+html[data-theme="light"] .mr-card-rule, html[data-theme="light"] .mr-thumb { background: #111111; }
+html[data-theme="light"] .mr-rooms a:not([aria-current="page"]) { background-image: linear-gradient(#111111, #111111); }
+html[data-theme="light"] .mr-progress { background: rgba(17,17,17,0.2); }
+html[data-theme="light"] .mr-progress.mr-bar:hover .mr-thumb, html[data-theme="light"] .mr-progress.mr-bar.is-held .mr-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,0.18); }
+html[data-theme="light"] .mr-piece hr, html[data-theme="light"] .mr-way { border-color: rgba(17,17,17,0.16); }
+html[data-theme="light"] .mr-listen-still { background: rgba(255,255,255,0.72); border-color: rgba(17,17,17,0.18); }
+html[data-theme="light"] .mr-listen-still:hover, html[data-theme="light"] .mr-listen-still:focus-visible { border-color: rgba(17,17,17,0.5); }
+html[data-theme="light"] .mr-listen-still:focus-visible { outline-color: #111111; }
+html[data-theme="light"] .mr-listen-cover { box-shadow: 0 0 0 1px rgba(17,17,17,0.12); }
+html[data-theme="light"] .mr-panel a.mr-listen-open { color: #111111; text-decoration-color: rgba(17,17,17,0.6); }
+html[data-theme="light"] .mr-panel a.mr-listen-open:hover, html[data-theme="light"] .mr-panel a.mr-listen-open:focus-visible { text-decoration-color: #111111; }
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .mr-print { opacity: 0.5; }
+  html:not([data-theme="dark"]) .mr-panel::after { background: linear-gradient(to bottom, rgba(244,239,231,0) 0%, rgba(244,239,231,0.4) 52%, rgba(244,239,231,0.88) 88%, #f4efe7 100%); }
+  html:not([data-theme="dark"]) .mr-panel :focus-visible { outline-color: #111111; }
+  html:not([data-theme="dark"]) .mr-title, html:not([data-theme="dark"]) .mr-song-title { background-image: linear-gradient(to right, #111111, #4a3d33); }
+  html:not([data-theme="dark"]) .mr-seat { box-shadow: 0 0 0 1px rgba(17,17,17,0.14); }
+  html:not([data-theme="dark"]) .mr-card a:hover .mr-seat, html:not([data-theme="dark"]) .mr-card a:focus-visible .mr-seat, html:not([data-theme="dark"]) .mr-card a:active .mr-seat { background: #e8e0d6; color: #111111; }
+  html:not([data-theme="dark"]) .mr-card-rule, html:not([data-theme="dark"]) .mr-thumb { background: #111111; }
+  html:not([data-theme="dark"]) .mr-rooms a:not([aria-current="page"]) { background-image: linear-gradient(#111111, #111111); }
+  html:not([data-theme="dark"]) .mr-progress { background: rgba(17,17,17,0.2); }
+  html:not([data-theme="dark"]) .mr-progress.mr-bar:hover .mr-thumb, html:not([data-theme="dark"]) .mr-progress.mr-bar.is-held .mr-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,0.18); }
+  html:not([data-theme="dark"]) .mr-piece hr, html:not([data-theme="dark"]) .mr-way { border-color: rgba(17,17,17,0.16); }
+  html:not([data-theme="dark"]) .mr-listen-still { background: rgba(255,255,255,0.72); border-color: rgba(17,17,17,0.18); }
+  html:not([data-theme="dark"]) .mr-listen-still:hover, html:not([data-theme="dark"]) .mr-listen-still:focus-visible { border-color: rgba(17,17,17,0.5); }
+  html:not([data-theme="dark"]) .mr-listen-still:focus-visible { outline-color: #111111; }
+  html:not([data-theme="dark"]) .mr-listen-cover { box-shadow: 0 0 0 1px rgba(17,17,17,0.12); }
+  html:not([data-theme="dark"]) .mr-panel a.mr-listen-open { color: #111111; text-decoration-color: rgba(17,17,17,0.6); }
+  html:not([data-theme="dark"]) .mr-panel a.mr-listen-open:hover, html:not([data-theme="dark"]) .mr-panel a.mr-listen-open:focus-visible { text-decoration-color: #111111; }
+}
