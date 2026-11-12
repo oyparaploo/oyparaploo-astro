@@ -1,4 +1,8 @@
-/* The Still switch (preview, November 8, 2026; spec claude/STILL-SWITCH-SPEC-2026-11-08.md, from the Eco Mode
+/* The Still switch, showing when it is on (ruled perfect November 10, 2026, HTML DOCS\PREVIEWS\STILL-SHOWING-WHOLE-2026-11-10; build SITE-ORDER\STILL-SHOWING-BUILD):
+   the live still.js with one addition, marked SHOWING below: each time Still turns on or off, a short notice under
+   the strip says so in plain words for five seconds, and the word carries a hover line saying what a press does.
+
+   The Still switch (preview, November 8, 2026; spec claude/STILL-SWITCH-SPEC-2026-11-08.md, from the Eco Mode
    switch on palaisdetokyo.com, the stop-the-motion half only).
 
    One word, Still, on the theme strip after Light and Dark. Pressing it makes every moving thing on every page
@@ -76,8 +80,61 @@
   /* ---- the word on the strip ---- */
   function mark() {
     var b = document.querySelectorAll('.still-choice');
-    for (var i = 0; i < b.length; i++) b[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    for (var i = 0; i < b.length; i++) {
+      b[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+      b[i].setAttribute('title', on ? 'Still is on. Press to bring the motion back.' : 'Press to stop everything that moves on the site.');
+    }
   }
+
+  /* ---- SHOWING: the notice under the strip, each time Still turns on or off ---- */
+  var noteTimer = null;
+  /* while the notice shows, and as it fades, the strip stands above the header (still-note-up), so no header covers it */
+  var upTimer = null;
+  function lift(up) {
+    var s = document.querySelectorAll('.theme-strip');
+    for (var i = 0; i < s.length; i++) s[i].classList.toggle('still-note-up', up);
+  }
+  function notes() {
+    var strips = document.querySelectorAll('.theme-strip');
+    var list = [];
+    for (var i = 0; i < strips.length; i++) {
+      var n = strips[i].querySelector('.still-note');
+      if (!n) {
+        n = document.createElement('div');
+        n.className = 'still-note';
+        n.setAttribute('role', 'status');
+        n.setAttribute('aria-live', 'polite');
+        n.addEventListener('click', hideNote);
+        strips[i].appendChild(n);
+      }
+      list.push(n);
+    }
+    return list;
+  }
+  function hideNote() {
+    var n = document.querySelectorAll('.still-note');
+    for (var i = 0; i < n.length; i++) n[i].classList.remove('is-shown');
+    if (noteTimer) { clearTimeout(noteTimer); noteTimer = null; }
+    if (upTimer) clearTimeout(upTimer);
+    upTimer = setTimeout(function () { upTimer = null; lift(false); }, 400);
+  }
+  function showNote() {
+    var list = notes();
+    if (upTimer) { clearTimeout(upTimer); upTimer = null; }
+    lift(true);
+    var words = on
+      ? '<strong>Still is on.</strong> Nothing on the site moves now, on any page. Press Still again to bring the motion back.'
+      : '<strong>Still is off.</strong> The motion is back.';
+    for (var i = 0; i < list.length; i++) {
+      list[i].innerHTML = words;
+      list[i].classList.remove('is-shown');
+      void list[i].offsetWidth;
+      list[i].classList.add('is-shown');
+    }
+    if (noteTimer) clearTimeout(noteTimer);
+    noteTimer = setTimeout(hideNote, 5000);
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideNote(); });
   function set(v, keep) {
     on = !!v;
     root.classList.toggle('pp-still', on);
@@ -85,6 +142,7 @@
       try { if (on) localStorage.setItem(KEY, 'on'); else localStorage.removeItem(KEY); } catch (e) {}
     }
     mark();
+    showNote();
     for (var i = 0; i < watchers.length; i++) notify(watchers[i]);
   }
   document.addEventListener('click', function (e) {

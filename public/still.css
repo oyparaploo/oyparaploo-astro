@@ -1,6 +1,11 @@
-/* The Still switch (preview, November 8, 2026). One word after Light and Dark on the theme strip, set apart by
-   a thin divider because it is about motion, not colour. It wears the same box as Light and Dark; while it is
-   on it looks the way the chosen Light or Dark looks, so the visitor can tell. */
+/* The Still switch, showing when it is on (ruled perfect November 10, 2026, remade the same day with the Ink fill; HTML DOCS\PREVIEWS\STILL-SHOWING-WHOLE-2026-11-10; build SITE-ORDER\STILL-SHOWING-BUILD).
+   Starts from the live still.css (the Still switch, ruled perfect November 8, 2026). What changes:
+   - While Still is on the box fills with Ink (black in Light, off-white in Dark, the same fill as the chosen Light or
+     Dark), its letters and a small pause mark, two upright bars, before the word in the strip's ground colour.
+     Off, it is the plain outline as today. (Reach, November 10, 2026: the Accent fill first shown is replaced by Ink.)
+   - The box keeps one width on and off, so Light and Dark never shift when Still is pressed.
+   - Each press shows a short notice under the strip saying plainly what just happened, for five seconds.
+     Turning Still on, the notice simply appears (nothing moves); turning it off, it fades in. */
 html:root:root body .still-rule {
   display: inline-block;
   width: 1px;
@@ -10,7 +15,10 @@ html:root:root body .still-rule {
   align-self: center;
 }
 html:root:root body .still-choice {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
   margin: 0;
   background: transparent;
   color: var(--ink);
@@ -23,24 +31,98 @@ html:root:root body .still-choice {
   padding: 4px 12px;
   opacity: 1;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-html:root:root body .still-choice[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+/* the pause mark: two upright bars, only while Still is on */
+html:root:root body .still-choice::before {
+  content: "";
+  display: none;
+  box-sizing: content-box;
+  width: 3px;
+  height: 11px;
+  border-left: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+  margin-right: 8px;
+}
+html:root:root body .still-choice[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--chrome-ground, var(--ground));
+}
+html:root:root body .still-choice[aria-pressed="true"]::before { display: inline-block; }
 @media (hover: hover) {
-  /* the same reversal as Light and Dark: the solid goes to the hand; when on, it lets go of it */
-  html:root:root body .still-choice:hover { background: var(--ink); color: var(--ground); }
-  html:root:root body .still-choice[aria-pressed="true"]:hover { background: transparent; color: var(--ink); }
+  /* the reversal shows what a press will do: off, the hand brings the Ink fill; on, the hand lets go of it */
+  html:root:root body .still-choice:hover { background: var(--ink); border-color: var(--ink); color: var(--chrome-ground, var(--ground)); }
+  html:root:root body .still-choice[aria-pressed="true"]:hover { background: transparent; border-color: var(--ink); color: var(--ink); }
 }
-html:root:root body .still-choice:active { background: var(--ink); color: var(--ground); }
-html:root:root body .still-choice[aria-pressed="true"]:active { background: transparent; color: var(--ink); }
+html:root:root body .still-choice:active { background: var(--ink); border-color: var(--ink); color: var(--chrome-ground, var(--ground)); }
+html:root:root body .still-choice[aria-pressed="true"]:active { background: transparent; border-color: var(--ink); color: var(--ink); }
 html:root:root body .still-choice:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---- the notice under the strip ---- */
+html:root:root body .theme-strip { position: relative; }
+/* while the notice shows, and as it fades, the strip stands just above the header (z-index 4500 on the Writings page
+   and every page with the drawing) and below every overlay, so no header covers the notice */
+html:root:root body .theme-strip.still-note-up { z-index: 4501; }
+html:root:root body .still-note {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: var(--chrome-edge, 24px);
+  z-index: 60;
+  box-sizing: border-box;
+  max-width: 380px;
+  padding: 12px 16px;
+  background: var(--chrome-ground, var(--ground));
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+html:root:root body .still-note strong { font-weight: 600; }
+/* a small point up toward the word Still */
+html:root:root body .still-note::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 34px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  border-left: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
+  transform: rotate(45deg);
+}
+html:root:root body .still-note.is-shown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.35s ease, visibility 0s;
+}
+@media (max-width: 700px) {
+  html:root:root body .still-note { left: var(--chrome-edge, 24px); max-width: none; }
+}
 @media (max-width: 420px) {
+  /* phones: a little less air in the three boxes, so the wider Still box never pushes the date onto two lines */
+  html:root:root body .theme-controls { gap: 6px; }
   html:root:root body .still-rule { margin: 0 2px 0 0; }
-  html:root:root body .theme-choice, html:root:root body .still-choice { padding: 4px 10px; }
+  html:root:root body .theme-choice, html:root:root body .still-choice { padding: 4px 8px; }
+  html:root:root body .still-choice { min-width: 66px; }
+  html:root:root body .still-choice::before { margin-right: 6px; }
+  html:root:root body .still-note { left: 16px; right: 16px; }
+  html:root:root body .still-note::before { right: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html:root:root body .still-choice { transition: none; }
+  html:root:root body .still-choice, html:root:root body .still-note, html:root:root body .still-note.is-shown { transition: none; }
 }
 /* The Still switch: the same calm when the visitor pressed Still. */
-html.pp-still:root:root body .still-choice { transition: none; }
+html.pp-still:root:root body .still-choice, html.pp-still:root:root body .still-note, html.pp-still:root:root body .still-note.is-shown { transition: none; }
 
