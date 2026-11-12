@@ -40,7 +40,9 @@
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var d = new Date();
     var full = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
-    var short = months[d.getMonth()].slice(0, 3) + ' ' + d.getDate() + ', ' + d.getFullYear();
+    // Site review, finding 9 (Reach, November 12, 2026): the short date, shown at 700 pixels wide and narrower,
+    // drops the year ("Nov 12"), so the strip stays on one line on phones. The full date above 700 is unchanged.
+    var short = months[d.getMonth()].slice(0, 3) + ' ' + d.getDate();
     var fullEls = document.querySelectorAll('.theme-date-full');
     var shortEls = document.querySelectorAll('.theme-date-short');
     for (var i = 0; i < fullEls.length; i++) fullEls[i].textContent = full;

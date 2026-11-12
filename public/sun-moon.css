@@ -18,3 +18,6 @@ html[data-theme="dark"] .sun-moon .sm-moon { opacity: 1; }
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .sun-moon svg, html.pp-still.sun-moon svg { transition: none; }
 
+/* Site review, finding 9 (Reach, November 12, 2026): at 340 pixels wide and narrower the sun or moon steps aside,
+   so the short date stays on one line beside Light, Dark and Still. Above 340 it is exactly as ruled. */
+@media (max-width: 340px) { .theme-strip .sun-moon { display: none; } }
