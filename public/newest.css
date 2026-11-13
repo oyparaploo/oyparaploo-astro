@@ -105,3 +105,27 @@ html[data-theme="light"] .nw-pic { background: #ece8e3; }
   html:not([data-theme="dark"]) .nw-open { --nw-ink: #e8e0d6; }
   html:not([data-theme="dark"]) .nw-pic { background: #ece8e3; }
 }
+
+/* SENTENCE CARDS (SITE-ORDER\SENTENCE-CARDS-BUILD; the preview Reach called perfect, November 13, 2026; spec
+   claude/SENTENCE-CARDS-SPEC-2026-11-13.md, from the Pew Center for Arts & Heritage home page). One sentence card after
+   every eighth card. The card wears the wall's own ground and colours, so it follows Light and Dark as the wall does.
+   Nothing moves. */
+.nw-card-sentence {
+  border-top: 1px solid var(--nw-rule);
+  padding-top: 28px;
+}
+.nw-said {
+  margin: 0;
+  font-family: 'Lora', serif; font-style: italic; font-weight: 600;   /* no thin serif: Lora at 600 */
+  font-size: 28px; line-height: 1.4;
+  color: var(--nw-ink);
+  overflow-wrap: break-word;
+}
+.nw-from {
+  margin: 18px 0 0;
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.5;
+  color: var(--nw-soft);
+}
+@media (max-width: 699px) {
+  .nw-said { font-size: 22px; }
+}

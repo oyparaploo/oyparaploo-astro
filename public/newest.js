@@ -23,7 +23,20 @@
     if (text != null) e.textContent = text;
     return e;
   }
+  /* SENTENCE CARDS (SITE-ORDER\SENTENCE-CARDS-BUILD; the preview Reach called perfect, November 13, 2026; spec
+     claude/SENTENCE-CARDS-SPEC-2026-11-13.md, from the Pew Center for Arts & Heritage home page): one sentence from
+     the middle of a writing, large in Lora italic, and under it a dash and the writing's title. The whole card opens
+     the writing, and it counts with the writings for the pointing highlight. */
+  function makeSaid(c) {
+    var a = el('a', 'nw-card nw-card-sentence');
+    a.href = c.href;
+    a.setAttribute('data-group', c.group);
+    a.appendChild(el('p', 'nw-said', c.said));
+    a.appendChild(el('p', 'nw-from', '\u2014 ' + c.title));
+    return a;
+  }
   function make(c) {
+    if (c.said) return makeSaid(c);
     var a = el('a', 'nw-card' + (c.src ? ' nw-card-picture' : ' nw-card-writing'));
     a.href = c.href;
     a.setAttribute('data-group', c.group);
