@@ -128,7 +128,6 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 .arrive-lines p + p { margin-top: 14px; }
 .arrive .on { display: inline-flex; gap: 8px; margin-top: 26px; font-weight: 600; font-size: 18px; }
 @media (hover: hover) { .arrive-read:hover .arrive-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; } }
-.arrive-date { margin-top: 40px !important; font-size: 16px; color: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.82); }
 .arrive-fig { justify-self: end; }
 .arrive-pic img { width: auto; max-width: 100%; max-height: calc(100svh - 260px); min-height: 0; }
 .arrive-fig figcaption { margin-top: 12px; font-size: 16px; line-height: 1.35; text-align: right; }
@@ -224,7 +223,6 @@ html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.do
   .arrive-words { padding: 28px var(--edge) 0; }
   .arrive-title { font-size: 34px; line-height: 1.08; margin-bottom: 20px !important; }
   .arrive-lines { font-size: 19px; }
-  .arrive-date { margin-top: 28px !important; }
   .thread-words { font-size: 34px; line-height: 1.12; }
   .thread { text-align: left; }
   .group-name { font-size: 36px; margin-bottom: 32px !important; }
@@ -277,7 +275,6 @@ html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.do
         <div class="arrive-lines"><p>A catalog of evidence ... Things the body did while the mind was still getting dressed ...</p><p>Rough Carving Pole Of Tablets ... Two chapters of the same argument between a blade and a log ... The log loses both times but looks better for it ...</p></div>
         <span class="on">Read on <span class="arr" aria-hidden="true">&rarr;</span></span>
       </a>
-      <p class="arrive-date"></p>
     </div>
     <figure class="arrive-fig">
       <a class="arrive-pic" href="/physical/believable/0001"><img class="pic" src="https://media.paraploo.com/site/images/physical/believable/Believable%203%20B.webp" width="1800" height="1200" alt="Placings photograph 03235, Believable (Four)" fetchpriority="high"></a>
@@ -372,8 +369,6 @@ html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.do
   var m = /[?&]day=(\d+)/.exec(location.search);
   if (m) i = Number(m[1]) % n;
   var sec = document.querySelector('.arrive');
-  var date = sec.querySelector('.arrive-date');
-  date.textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
   if (i === TODAY) return;
   var p = POOL[i];
   sec.querySelector('.haze-img').src = p.src;
