@@ -1014,3 +1014,11 @@ html:root body .site-header nav a.shuffle-word { min-width: 0; width: 44px; marg
   align-items: center; align-self: stretch; padding: 0; }
 .shuffle-svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 800px) { html:root body .site-header nav a.shuffle-word { margin-left: -14px; } }
+
+/* The header with the word Explore in (SITE-ORDER\EXPLORE-BUILD; Reach, November 13, 2026: "yes", perfect as shown
+   on HTML DOCS\PREVIEWS\EXPLORE-WHOLE-2026-11-13). BUILD\explore.py puts the word before Search on every page.
+   801 to 1,099 pixels: 28 between the menu words (40 above that). 601 to 800: Search and the shuffle icon take
+   the second row together. 400 and narrower: 18 between the words (28 above that). 1,100 and wider: unchanged. */
+@media (min-width:801px) and (max-width:1099px){html:root body .site-header nav{column-gap:28px}}
+@media (min-width:601px) and (max-width:800px){html:root body .site-header nav::after{content:"";flex-basis:100%;order:1}html:root body .site-header nav a[href$="/search"],html:root body .site-header nav a.shuffle-word{order:2}}
+@media (max-width:400px){html:root body .site-header nav{column-gap:18px}}

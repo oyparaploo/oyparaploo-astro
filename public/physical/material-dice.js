@@ -14,7 +14,7 @@
   var groups = JSON.parse(data.textContent);
   var rows = {};
   groups.forEach(function (g) {
-    if (g.name === 'Not sure') return;              /* only what the log saw for certain */
+    if (g.name === 'Not Quite Sure') return;              /* only what the log saw for certain */
     g.words.forEach(function (w) {
       w.doors.forEach(function (d) { (rows[d] = rows[d] || []).push({ id: w.id, word: w.word }); });
     });
