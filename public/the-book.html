@@ -95,6 +95,43 @@ html.pp-still .doors a, html.pp-still.doors a { transition: none; }
   @media (max-width: 480px) {
     .bleed { height: 56px; }
   }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   The Book follows Light: the river's dark blue bands run as the same river made pale (white, pale blue, silver, sage,
+   and back to white), the words in Ink, the drawing in its Light lines, and the footer in its Light values in place of
+   the dark footer its always-dark class gave it. Dark is unchanged. */
+html.always-dark[data-theme="light"] { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --footer-ground: #faf6f0; --footer-rule: #c0b8b0; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+html.always-dark[data-theme="light"] body { background: #ffffff; color: #111111; }
+html.always-dark[data-theme="light"] .river { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+html.always-dark[data-theme="light"] .band-source { background: linear-gradient(180deg, #ffffff 0%, #f6f9fb 30%, #eef4f8 60%, #eef3f7 100%); }
+html.always-dark[data-theme="light"] .bleed-1 { background: linear-gradient(to bottom, #eef3f7, #e4eef6); }
+html.always-dark[data-theme="light"] .band-current { background: linear-gradient(165deg, #e4eef6 0%, #deeaf4 30%, #d9e7f3 50%, #e0ebf4 80%, #e5eef6 100%); }
+html.always-dark[data-theme="light"] .bleed-2 { background: linear-gradient(to bottom, #e5eef6, #e7edf1); }
+html.always-dark[data-theme="light"] .band-silver { background: linear-gradient(170deg, #e7edf1 0%, #e2e9ee 25%, #dde5eb 50%, #e2e9ee 75%, #e6ecef 100%); }
+html.always-dark[data-theme="light"] .bleed-3 { background: linear-gradient(to bottom, #e6ecef, #e5ece7); }
+html.always-dark[data-theme="light"] .band-earth { background: linear-gradient(170deg, #e5ece7 0%, #dfe8e1 35%, #dae5dd 50%, #e2e9e4 80%, #e9eeea 100%); }
+html.always-dark[data-theme="light"] .bleed-4 { background: linear-gradient(to bottom, #e9eeea, #f2f6f9); }
+html.always-dark[data-theme="light"] .band-deep { background: linear-gradient(180deg, #f2f6f9 0%, #f6f9fb 40%, #fafcfd 80%, #ffffff 100%); }
+html.always-dark[data-theme="light"] .doors a:hover,
+html.always-dark[data-theme="light"] .doors a:focus-visible { color: #000000; }
+html.always-dark[data-theme="light"] .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
+@media (prefers-color-scheme: light) {
+  html.always-dark:not([data-theme="dark"]) { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --footer-ground: #faf6f0; --footer-rule: #c0b8b0; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+  html.always-dark:not([data-theme="dark"]) body { background: #ffffff; color: #111111; }
+  html.always-dark:not([data-theme="dark"]) .river { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+  html.always-dark:not([data-theme="dark"]) .band-source { background: linear-gradient(180deg, #ffffff 0%, #f6f9fb 30%, #eef4f8 60%, #eef3f7 100%); }
+  html.always-dark:not([data-theme="dark"]) .bleed-1 { background: linear-gradient(to bottom, #eef3f7, #e4eef6); }
+  html.always-dark:not([data-theme="dark"]) .band-current { background: linear-gradient(165deg, #e4eef6 0%, #deeaf4 30%, #d9e7f3 50%, #e0ebf4 80%, #e5eef6 100%); }
+  html.always-dark:not([data-theme="dark"]) .bleed-2 { background: linear-gradient(to bottom, #e5eef6, #e7edf1); }
+  html.always-dark:not([data-theme="dark"]) .band-silver { background: linear-gradient(170deg, #e7edf1 0%, #e2e9ee 25%, #dde5eb 50%, #e2e9ee 75%, #e6ecef 100%); }
+  html.always-dark:not([data-theme="dark"]) .bleed-3 { background: linear-gradient(to bottom, #e6ecef, #e5ece7); }
+  html.always-dark:not([data-theme="dark"]) .band-earth { background: linear-gradient(170deg, #e5ece7 0%, #dfe8e1 35%, #dae5dd 50%, #e2e9e4 80%, #e9eeea 100%); }
+  html.always-dark:not([data-theme="dark"]) .bleed-4 { background: linear-gradient(to bottom, #e9eeea, #f2f6f9); }
+  html.always-dark:not([data-theme="dark"]) .band-deep { background: linear-gradient(180deg, #f2f6f9 0%, #f6f9fb 40%, #fafcfd 80%, #ffffff 100%); }
+  html.always-dark:not([data-theme="dark"]) .doors a:hover,
+  html.always-dark:not([data-theme="dark"]) .doors a:focus-visible { color: #000000; }
+  html.always-dark:not([data-theme="dark"]) .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
+}
 </style>
 <script>document.documentElement.className += ' js';</script>
 <link rel="stylesheet" href="/drawing.css">

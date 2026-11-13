@@ -213,3 +213,25 @@ html.pp-still .mp-held, html.pp-still.mp-held, html.pp-still .mp-held.on, html.p
   .mp-doors { flex-direction: column; align-items: flex-start; margin-top: 72px; }
   .mp-door-next { text-align: left; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Memory and the Past follows Light: the draft's black ground white, words in Ink, the rules in Ink's light, the gold
+   in Accent's light value. The oxide-red band stays the same in both, as do the pictures. Dark is unchanged. */
+html[data-theme="light"] { --mp-ground: #ffffff; --mp-ink: #111111; --mp-soft: #555555; --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
+html[data-theme="light"] .mp-title,
+html[data-theme="light"] .mp-name,
+html[data-theme="light"] .mp-row { color: #111111; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --mp-ground: #ffffff; --mp-ink: #111111; --mp-soft: #555555; --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
+  html:not([data-theme="dark"]) .mp-title,
+  html:not([data-theme="dark"]) .mp-name,
+  html:not([data-theme="dark"]) .mp-row { color: #111111; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .mp-num:hover,
+html[data-theme="light"] .mp-group:hover .mp-first { color: #000000; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .mp-num:hover,
+  html:not([data-theme="dark"]) .mp-group:hover .mp-first { color: #000000; }
+}
+}

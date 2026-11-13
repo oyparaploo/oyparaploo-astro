@@ -263,3 +263,26 @@ html.pp-still { scroll-behavior: auto; }
 html.pp-still .arrive, html.pp-still.arrive, html.pp-still .t-down, html.pp-still.t-down { animation: none; }
 html.pp-still .walls, html.pp-still.walls, html.pp-still .bloom, html.pp-still.bloom, html.pp-still .cast-row, html.pp-still.cast-row, html.pp-still .cast-panel, html.pp-still.cast-panel, html.pp-still .arr, html.pp-still.arr { transition: none; }
 
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Come Down follows Light: the descent from black to night blue is the same descent made pale, white running to a
+   very pale blue; words and rules in Ink, the foxfire in the walls kept faint. The gold band of seeds is taken from
+   the work and stays the same in both. Dark is unchanged. */
+html[data-theme="light"] .down { --on-dark: #111111; --ink: #111111; --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+html[data-theme="light"] .walls { opacity: 0.35; }
+html.cast-on[data-theme="light"] .puppet.is-on .cast-row { background-color: rgba(17, 17, 17, 0.05); }
+html[data-theme="light"] .cast-row:active,
+html[data-theme="light"] .cast-row:focus-visible { color: #ffffff; outline-color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .down { --on-dark: #111111; --ink: #111111; --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+  html:not([data-theme="dark"]) .walls { opacity: 0.35; }
+  html.cast-on:not([data-theme="dark"]) .puppet.is-on .cast-row { background-color: rgba(17, 17, 17, 0.05); }
+  html:not([data-theme="dark"]) .cast-row:active,
+  html:not([data-theme="dark"]) .cast-row:focus-visible { color: #ffffff; outline-color: #ffffff; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .cast-row:hover { color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .cast-row:hover { color: #ffffff; }
+}
+}

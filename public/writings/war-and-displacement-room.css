@@ -246,3 +246,12 @@
 html.pp-still .wd-room *, html.pp-still.wd-room *, html.pp-still .wd-room *::before, html.pp-still.wd-room *::before, html.pp-still .wd-room *::after, html.pp-still.wd-room *::after { transition: none !important; }
 html.pp-still .js-reveal .wd-room .reveal, html.pp-still.js-reveal .wd-room .reveal, html.pp-still .js-reveal .wd-room .wd-word, html.pp-still.js-reveal .wd-room .wd-word { opacity: 1; }
 
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   War and Displacement follows Light: the night of 05101 made pale, words in Ink, the hairlines in Ink's light, the gold
+   in Accent's light value, the cross in its own deep magenta. The tarp's blue band and the light through it stay, as
+   do the pictures. Dark is unchanged. */
+html[data-theme="light"] { --wd-night: #f7f5f2; --wd-ink: #111111; --wd-soft: #555555; --wd-faint: #666666; --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --wd-night: #f7f5f2; --wd-ink: #111111; --wd-soft: #555555; --wd-faint: #666666; --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
+}

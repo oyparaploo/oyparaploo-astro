@@ -239,3 +239,12 @@ html.pp-still .fs-arrow, html.pp-still.fs-arrow, html.pp-still .fs-pic img, html
   .fs-way { padding-top: 72px; padding-bottom: 96px; }
   .fs-pills { flex-direction: column; align-items: center; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Faith and Spirit follows Light: the dark between the lit bands made pale, words in Ink, the rules in Ink's light, the
+   ember's faint hover a pale warm tint. The four lit bands, their chips and the ember marks stay the same in both.
+   Dark is unchanged. */
+html[data-theme="light"] .fs-room { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .fs-room { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
+}

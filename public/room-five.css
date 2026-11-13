@@ -138,3 +138,13 @@ html.pp-still { scroll-behavior: auto; }
 html.pp-still .arrive, html.pp-still.arrive { animation: none; }
 html.pp-still .room-foot .arr, html.pp-still.room-foot .arr { transition: none; }
 
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Come Stand follows Light: the room's near-black is made pale, its words and fine rules in Ink. The brown band of
+   paint at the foot is taken from the work and stays the same in both, its words in Ink on dark. Dark is unchanged. */
+html[data-theme="light"] .stand { --on-dark: #111111; --ink: #111111; --night: #f7f5f2; --ground: #f7f5f2; --hair: rgba(17, 17, 17, 0.32); background: #f7f5f2; color: #111111; }
+html[data-theme="light"] .silence { --on-dark: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .stand { --on-dark: #111111; --ink: #111111; --night: #f7f5f2; --ground: #f7f5f2; --hair: rgba(17, 17, 17, 0.32); background: #f7f5f2; color: #111111; }
+  html:not([data-theme="dark"]) .silence { --on-dark: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
+}

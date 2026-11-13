@@ -210,6 +210,88 @@ html.pp-still .year-mark::before, html.pp-still.year-mark::before { transition: 
   .year-major { padding-left: 36px; }
   .era-divider { padding-left: 36px; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   The Spine follows Light: white ground, the words in Ink, the era colours made deep enough to read on it, their hue
+   kept, the footer in its Light values in place of the dark footer its always-dark class gave it. Dark is unchanged. */
+html.always-dark[data-theme="light"] { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+html.always-dark[data-theme="light"] body { background: #ffffff; color: #111111; }
+html.always-dark[data-theme="light"] .opening,
+html.always-dark[data-theme="light"] .timeline,
+html.always-dark[data-theme="light"] .closing { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+html.always-dark[data-theme="light"] .count-up { background: linear-gradient(135deg, #80562f 0%, #8c4630 30%, #2c6681 60%, #2e6a3c 80%, #111111 100%); -webkit-background-clip: text; background-clip: text; }
+html.always-dark[data-theme="light"] .timeline::before { background: linear-gradient(to bottom, rgba(128,86,47,0.45) 0%, rgba(128,86,47,0.35) 15%, rgba(44,102,129,0.35) 40%, rgba(46,106,60,0.35) 65%, rgba(102,42,30,0.45) 85%, rgba(17,17,17,0.25) 100%); }
+html.always-dark[data-theme="light"] .year-mark::before { background: #ffffff; }
+html.always-dark[data-theme="light"] .era-50s::before,
+html.always-dark[data-theme="light"] .era-90s::before { border-color: #80562f; }
+html.always-dark[data-theme="light"] .era-60s::before,
+html.always-dark[data-theme="light"] .era-00s::before { border-color: #2c6681; }
+html.always-dark[data-theme="light"] .era-70s::before,
+html.always-dark[data-theme="light"] .era-10s::before { border-color: #2e6a3c; }
+html.always-dark[data-theme="light"] .era-80s::before,
+html.always-dark[data-theme="light"] .era-20s::before { border-color: #8c4630; }
+html.always-dark[data-theme="light"] .era-50s .year-num,
+html.always-dark[data-theme="light"] .era-90s .year-num { color: #80562f; }
+html.always-dark[data-theme="light"] .era-60s .year-num,
+html.always-dark[data-theme="light"] .era-00s .year-num { color: #2c6681; }
+html.always-dark[data-theme="light"] .era-70s .year-num,
+html.always-dark[data-theme="light"] .era-10s .year-num { color: #2e6a3c; }
+html.always-dark[data-theme="light"] .era-80s .year-num,
+html.always-dark[data-theme="light"] .era-20s .year-num { color: #8c4630; }
+html.always-dark[data-theme="light"] .year-text a { color: #8a5a24; }
+html.always-dark[data-theme="light"] .year-text a:hover { color: #000000; }
+html.always-dark[data-theme="light"] .count-sub { color: #555555; }
+html.always-dark[data-theme="light"] .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
+@media (prefers-color-scheme: light) {
+  html.always-dark:not([data-theme="dark"]) { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+  html.always-dark:not([data-theme="dark"]) body { background: #ffffff; color: #111111; }
+  html.always-dark:not([data-theme="dark"]) .opening,
+  html.always-dark:not([data-theme="dark"]) .timeline,
+  html.always-dark:not([data-theme="dark"]) .closing { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+  html.always-dark:not([data-theme="dark"]) .count-up { background: linear-gradient(135deg, #80562f 0%, #8c4630 30%, #2c6681 60%, #2e6a3c 80%, #111111 100%); -webkit-background-clip: text; background-clip: text; }
+  html.always-dark:not([data-theme="dark"]) .timeline::before { background: linear-gradient(to bottom, rgba(128,86,47,0.45) 0%, rgba(128,86,47,0.35) 15%, rgba(44,102,129,0.35) 40%, rgba(46,106,60,0.35) 65%, rgba(102,42,30,0.45) 85%, rgba(17,17,17,0.25) 100%); }
+  html.always-dark:not([data-theme="dark"]) .year-mark::before { background: #ffffff; }
+  html.always-dark:not([data-theme="dark"]) .era-50s::before,
+  html.always-dark:not([data-theme="dark"]) .era-90s::before { border-color: #80562f; }
+  html.always-dark:not([data-theme="dark"]) .era-60s::before,
+  html.always-dark:not([data-theme="dark"]) .era-00s::before { border-color: #2c6681; }
+  html.always-dark:not([data-theme="dark"]) .era-70s::before,
+  html.always-dark:not([data-theme="dark"]) .era-10s::before { border-color: #2e6a3c; }
+  html.always-dark:not([data-theme="dark"]) .era-80s::before,
+  html.always-dark:not([data-theme="dark"]) .era-20s::before { border-color: #8c4630; }
+  html.always-dark:not([data-theme="dark"]) .era-50s .year-num,
+  html.always-dark:not([data-theme="dark"]) .era-90s .year-num { color: #80562f; }
+  html.always-dark:not([data-theme="dark"]) .era-60s .year-num,
+  html.always-dark:not([data-theme="dark"]) .era-00s .year-num { color: #2c6681; }
+  html.always-dark:not([data-theme="dark"]) .era-70s .year-num,
+  html.always-dark:not([data-theme="dark"]) .era-10s .year-num { color: #2e6a3c; }
+  html.always-dark:not([data-theme="dark"]) .era-80s .year-num,
+  html.always-dark:not([data-theme="dark"]) .era-20s .year-num { color: #8c4630; }
+  html.always-dark:not([data-theme="dark"]) .year-text a { color: #8a5a24; }
+  html.always-dark:not([data-theme="dark"]) .year-text a:hover { color: #000000; }
+  html.always-dark:not([data-theme="dark"]) .count-sub { color: #555555; }
+  html.always-dark:not([data-theme="dark"]) .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
+}
+html.always-dark[data-theme="light"] .era-50s .era-label,
+html.always-dark[data-theme="light"] .era-90s .era-label { color: #80562f !important; }
+html.always-dark[data-theme="light"] .era-60s .era-label,
+html.always-dark[data-theme="light"] .era-00s .era-label { color: #2c6681 !important; }
+html.always-dark[data-theme="light"] .era-70s .era-label,
+html.always-dark[data-theme="light"] .era-10s .era-label { color: #2e6a3c !important; }
+html.always-dark[data-theme="light"] .era-80s .era-label,
+html.always-dark[data-theme="light"] .era-20s .era-label { color: #8c4630 !important; }
+html.always-dark[data-theme="light"] a[href^="/early-years"][style] { color: #8a5a24 !important; }
+@media (prefers-color-scheme: light) {
+  html.always-dark:not([data-theme="dark"]) .era-50s .era-label,
+  html.always-dark:not([data-theme="dark"]) .era-90s .era-label { color: #80562f !important; }
+  html.always-dark:not([data-theme="dark"]) .era-60s .era-label,
+  html.always-dark:not([data-theme="dark"]) .era-00s .era-label { color: #2c6681 !important; }
+  html.always-dark:not([data-theme="dark"]) .era-70s .era-label,
+  html.always-dark:not([data-theme="dark"]) .era-10s .era-label { color: #2e6a3c !important; }
+  html.always-dark:not([data-theme="dark"]) .era-80s .era-label,
+  html.always-dark:not([data-theme="dark"]) .era-20s .era-label { color: #8c4630 !important; }
+  html.always-dark:not([data-theme="dark"]) a[href^="/early-years"][style] { color: #8a5a24 !important; }
+}
 </style>
 <link rel="stylesheet" href="/nav.css">
 <script src="/nav.js" defer></script>

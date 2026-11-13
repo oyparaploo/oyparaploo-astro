@@ -170,3 +170,32 @@ html.pp-still .gl-w::before, html.pp-still.gl-w::before, html.pp-still .gl-w-arr
   .gl-doors .gl-col { flex-direction: column; align-items: flex-start; }
   .gl-door-next { text-align: left; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Grief and Loss follows Light: the descent from black to night blue made pale, white running to a very pale blue;
+   words in Ink, the gold in Accent's light value. The band of cloth in the late sun stays the same in both, as do the
+   pictures. Dark is unchanged. */
+html[data-theme="light"] { --gl-ink: #111111; --gl-soft: #555555; --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
+html[data-theme="light"] .gl-room { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); background-attachment: fixed; }
+html[data-theme="light"] .gl-btn:active,
+html[data-theme="light"] .gl-chip:active { color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --gl-ink: #111111; --gl-soft: #555555; --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
+  html:not([data-theme="dark"]) .gl-room { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); background-attachment: fixed; }
+  html:not([data-theme="dark"]) .gl-btn:active,
+  html:not([data-theme="dark"]) .gl-chip:active { color: #ffffff; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .gl-btn:hover,
+html[data-theme="light"] .gl-chip:hover { color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .gl-btn:hover,
+  html:not([data-theme="dark"]) .gl-chip:hover { color: #ffffff; }
+}
+}
+@media (max-width: 760px) {
+html[data-theme="light"] .gl-room { background-attachment: scroll; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .gl-room { background-attachment: scroll; }
+}
+}

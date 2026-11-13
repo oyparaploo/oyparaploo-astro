@@ -215,3 +215,16 @@ html.pp-still .tc-room *, html.pp-still.tc-room *, html.pp-still .tc-room *::bef
 html.pp-still .tc-sun, html.pp-still.tc-sun { transform: none; }
 html.pp-still .js-reveal .tc-room .reveal, html.pp-still.js-reveal .tc-room .reveal, html.pp-still .js-reveal .tc-room .tc-card, html.pp-still.js-reveal .tc-room .tc-card { opacity: 1; }
 
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   The Twin Cities follows Light: the soil and its panels made pale in their own brown, words in Ink, the hairlines in
+   Ink's light, the gold in Accent's light value, the shard's green made deep enough to show on the pale. The pale
+   shard band and the low sun on the panels stay, as do the pictures. Dark is unchanged. */
+html[data-theme="light"] { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: #111111; --tc-soft: #555555; --tc-faint: #666666; --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
+html[data-theme="light"] .tc-hairline { background: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
+html[data-theme="light"] .tc-onward-in { background-image: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: #111111; --tc-soft: #555555; --tc-faint: #666666; --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
+  html:not([data-theme="dark"]) .tc-hairline { background: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
+  html:not([data-theme="dark"]) .tc-onward-in { background-image: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
+}

@@ -266,3 +266,53 @@ html.pp-still .ec-tile, html.pp-still.ec-tile, html.pp-still .ec-tile::before, h
   .ec-door { margin-left: 0; }
   .ec-door-next { align-items: flex-start; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Earth and Climate follows Light: the draft's slate and its seats made pale in their own grey-blue, words in Ink, the
+   gold in Accent's light value, the black foot band a pale seat. The opening, words over the photograph on its
+   darkened shade, the pictures with their numbers on them, the pale clay band and the orange button stay the same in
+   both. Dark is unchanged. */
+html[data-theme="light"] { --ec-ground: #eef0f2; --ec-seat: #e3e6ea; --ec-seat-on: #d8dde2; --ec-ink: #111111; --ec-soft: #555555; --ec-gold: #8a5a24; --ec-rule: rgba(17, 17, 17, 0.22); }
+html[data-theme="light"] .ec-hero { background: #2A2A2A; }
+html[data-theme="light"] .ec-tile { background: linear-gradient(to bottom, #f6f7f9 0%, #f6f7f9 50%, #eef0f3 100%); }
+html[data-theme="light"] .ec-disc,
+html[data-theme="light"] .ec-tile .ec-name,
+html[data-theme="light"] .ec-found-label,
+html[data-theme="light"] .ec-door { color: #111111; }
+html[data-theme="light"] .ec-btn:active { color: #111111; }
+html[data-theme="light"] .ec-btn:focus-visible { outline-color: #111111; }
+html[data-theme="light"] .ec-foot { background: #e3e6ea; }
+html[data-theme="light"] .ec-door { background: #d8dde2; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --ec-ground: #eef0f2; --ec-seat: #e3e6ea; --ec-seat-on: #d8dde2; --ec-ink: #111111; --ec-soft: #555555; --ec-gold: #8a5a24; --ec-rule: rgba(17, 17, 17, 0.22); }
+  html:not([data-theme="dark"]) .ec-hero { background: #2A2A2A; }
+  html:not([data-theme="dark"]) .ec-tile { background: linear-gradient(to bottom, #f6f7f9 0%, #f6f7f9 50%, #eef0f3 100%); }
+  html:not([data-theme="dark"]) .ec-disc,
+  html:not([data-theme="dark"]) .ec-tile .ec-name,
+  html:not([data-theme="dark"]) .ec-found-label,
+  html:not([data-theme="dark"]) .ec-door { color: #111111; }
+  html:not([data-theme="dark"]) .ec-btn:active { color: #111111; }
+  html:not([data-theme="dark"]) .ec-btn:focus-visible { outline-color: #111111; }
+  html:not([data-theme="dark"]) .ec-foot { background: #e3e6ea; }
+  html:not([data-theme="dark"]) .ec-door { background: #d8dde2; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .ec-btn:hover { color: #111111; }
+html[data-theme="light"] .ec-door:hover { background: #ccd2d8; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .ec-btn:hover { color: #111111; }
+  html:not([data-theme="dark"]) .ec-door:hover { background: #ccd2d8; }
+}
+}
+@media (max-width: 899px) {
+html[data-theme="light"] .ec-hero { background: var(--ec-ground); }
+html[data-theme="light"] .ec-hero .ec-chip { color: #111111; }
+html[data-theme="light"] .ec-hero .ec-hero-num,
+html[data-theme="light"] .ec-title { color: #111111; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .ec-hero { background: var(--ec-ground); }
+  html:not([data-theme="dark"]) .ec-hero .ec-chip { color: #111111; }
+  html:not([data-theme="dark"]) .ec-hero .ec-hero-num,
+  html:not([data-theme="dark"]) .ec-title { color: #111111; }
+}
+}

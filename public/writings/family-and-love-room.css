@@ -249,3 +249,22 @@ html.pp-still .fl-arrow, html.pp-still.fl-arrow, html.pp-still .fl-ev-a, html.pp
   .fl-doors { flex-direction: column-reverse; align-items: flex-start; gap: 36px; }
   .fl-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Family and Love follows Light: the night and the dark cards made pale in their own warm brown, words in Ink, Accent's
+   light value. The hose's blue strip, the beads' lavender and the programs' blue are taken from the work and stay the
+   same in both, as do the white cards and the pictures. Dark is unchanged. */
+html[data-theme="light"] .fl-room { --d-ink: #111111; --d-soft: #555555; --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
+html[data-theme="light"] .fl-next { color: #ffffff; }
+html[data-theme="light"] .fl-next:active { color: #8a5a24; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .fl-room { --d-ink: #111111; --d-soft: #555555; --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
+  html:not([data-theme="dark"]) .fl-next { color: #ffffff; }
+  html:not([data-theme="dark"]) .fl-next:active { color: #8a5a24; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .fl-next:hover { color: #8a5a24; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .fl-next:hover { color: #8a5a24; }
+}
+}

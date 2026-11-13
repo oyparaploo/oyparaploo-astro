@@ -257,3 +257,21 @@ html.pp-still .hh-arrow, html.pp-still.hh-arrow, html.pp-still .hh-pic img, html
   .hh-story .hh-name { font-size: 22px; }
   .hh-subject { font-size: 22px; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Hope and Healing follows the switch both ways: in Light the dark opening takes the white page's values, and the
+   grey step under it becomes the step between white and the lit sheet; in Dark the white page takes the dark
+   opening's values, and the step under the lit sheet becomes the grey step. The lit sheet's band, the colour lines
+   and the pictures stay the same in both. */
+html[data-theme="light"] .hh-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
+html[data-theme="light"] .hh-gray { background: var(--hh-blend); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .hh-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
+  html:not([data-theme="dark"]) .hh-gray { background: var(--hh-blend); }
+}
+html[data-theme="dark"] .hh-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
+html[data-theme="dark"] .hh-blend { background: var(--hh-gray); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .hh-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
+  html:not([data-theme="light"]) .hh-blend { background: var(--hh-gray); }
+}

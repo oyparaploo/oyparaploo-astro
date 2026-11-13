@@ -243,3 +243,24 @@ html.pp-still { scroll-behavior: auto; }
 html.pp-still .arrive, html.pp-still.arrive { animation: none; }
 html.pp-still .room::before, html.pp-still.room::before, html.pp-still .lamp, html.pp-still.lamp, html.pp-still .room-words, html.pp-still.room-words, html.pp-still .room-pic, html.pp-still.room-pic, html.pp-still .rooms-list a, html.pp-still.rooms-list a, html.pp-still .room-foot .arr, html.pp-still.room-foot .arr, html.pp-still .lamp-link .lamp, html.pp-still.lamp-link .lamp { transition: none; }
 
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Come Through follows Light: the house's dark ground, deepening down the corridor, is the same walk made pale,
+   white running to a very pale blue; words and the fine lines in Ink. The porch and the last line stay on their warm
+   paper, the lamps keep their own colours. Dark is unchanged. */
+html[data-theme="light"] .house { --on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: #111111; }
+html[data-theme="light"] .corridor { background: var(--grain), linear-gradient(180deg, #f7f5f3 0%, #f5f5f5 35%, #f1f3f6 70%, #edf1f5 100%); }
+html[data-theme="light"] .rooms-list a:active,
+html[data-theme="light"] .rooms-list a:focus-visible { color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .house { --on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: #111111; }
+  html:not([data-theme="dark"]) .corridor { background: var(--grain), linear-gradient(180deg, #f7f5f3 0%, #f5f5f5 35%, #f1f3f6 70%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .rooms-list a:active,
+  html:not([data-theme="dark"]) .rooms-list a:focus-visible { color: #ffffff; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .rooms-list a:hover { color: #ffffff; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .rooms-list a:hover { color: #ffffff; }
+}
+}

@@ -222,3 +222,24 @@ html.pp-still .am-band, html.pp-still.am-band, html.pp-still .am-arrow, html.pp-
   .am-walk-arrow { font-size: 34px; padding: 8px 18px; top: auto; bottom: 12vh; transform: none; }
   .am-walk-img { max-width: 94vw; max-height: 70vh; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Art and Making follows Light: the draft's warm dark ground made pale, words in Ink, the hairlines and the lift in
+   Ink's light, the gold in Accent's light value. The band of cardboard tubes stays the same in both, as do the
+   pictures, and the walk through the four still lifes keeps its dark, a seat for the pictures. Dark is unchanged. */
+html[data-theme="light"] { --am-ground: #f7f5f2; --am-ink: #111111; --am-soft: #555555; --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
+html[data-theme="light"] .am-title,
+html[data-theme="light"] .am-name { color: #111111; }
+html[data-theme="light"] .am-walk { --am-ground: #14100C; --am-ink: #e8e0d6; --am-soft: #B3AA9F; --am-gold: #D4A574; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) { --am-ground: #f7f5f2; --am-ink: #111111; --am-soft: #555555; --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
+  html:not([data-theme="dark"]) .am-title,
+  html:not([data-theme="dark"]) .am-name { color: #111111; }
+  html:not([data-theme="dark"]) .am-walk { --am-ground: #14100C; --am-ink: #e8e0d6; --am-soft: #B3AA9F; --am-gold: #D4A574; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .am-room .am-num:hover { color: #000000; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .am-room .am-num:hover { color: #000000; }
+}
+}

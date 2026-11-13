@@ -244,3 +244,21 @@ html.pp-still .bi-arrow, html.pp-still.bi-arrow, html.pp-still .bi-pic img, html
   .bi-doors { flex-direction: column; align-items: flex-start; margin-top: 80px; }
   .bi-next-wrap { align-items: flex-start; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Belonging and Identity follows the switch both ways: in Light the dark half below the cream band takes the white
+   half's values, and the grey step between them becomes the step between cream and white; in Dark the white half
+   takes the dark half's values, and the step above the cream band becomes the grey step. The cream band, the colour
+   lines and the pictures stay the same in both. */
+html[data-theme="light"] .bi-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
+html[data-theme="light"] .bi-gray { background: var(--bi-blend); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .bi-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
+  html:not([data-theme="dark"]) .bi-gray { background: var(--bi-blend); }
+}
+html[data-theme="dark"] .bi-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
+html[data-theme="dark"] .bi-blend { background: var(--bi-gray); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .bi-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
+  html:not([data-theme="light"]) .bi-blend { background: var(--bi-gray); }
+}

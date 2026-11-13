@@ -253,3 +253,26 @@ html.pp-still .jp-arrow, html.pp-still.jp-arrow, html.pp-still .jp-row-a, html.p
   .jp-doors { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
   .jp-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Justice and Politics follows Light: the black from top to foot made white, its opening the same glow on the pale,
+   words in Ink, the hairlines pale, the cloth's crimson as the mark. The warm white panels, the crimson band, and the
+   dark seat behind each picture stay the same in both. Dark is unchanged. */
+html[data-theme="light"] .jp-room { --d-ink: #111111; --d-soft: #555555; --d-faint: #666666; --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
+html[data-theme="light"] .jp-hero { background: radial-gradient(ellipse at 72% 28%, rgba(196, 36, 63, 0.10) 0%, transparent 58%), radial-gradient(ellipse at 22% 82%, rgba(78, 45, 119, 0.10) 0%, transparent 52%), linear-gradient(135deg, #f4f4f4 0%, #ffffff 50%, #f6f2f1 100%); }
+html[data-theme="light"] .jp-two-pic { --d-ink: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
+html[data-theme="light"] .jp-next { background: #111111; color: #ffffff; border-color: #111111; }
+html[data-theme="light"] .jp-next:active { background: transparent; color: #111111; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .jp-room { --d-ink: #111111; --d-soft: #555555; --d-faint: #666666; --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
+  html:not([data-theme="dark"]) .jp-hero { background: radial-gradient(ellipse at 72% 28%, rgba(196, 36, 63, 0.10) 0%, transparent 58%), radial-gradient(ellipse at 22% 82%, rgba(78, 45, 119, 0.10) 0%, transparent 52%), linear-gradient(135deg, #f4f4f4 0%, #ffffff 50%, #f6f2f1 100%); }
+  html:not([data-theme="dark"]) .jp-two-pic { --d-ink: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
+  html:not([data-theme="dark"]) .jp-next { background: #111111; color: #ffffff; border-color: #111111; }
+  html:not([data-theme="dark"]) .jp-next:active { background: transparent; color: #111111; }
+}
+@media (hover: hover) {
+html[data-theme="light"] .jp-next:hover { background: transparent; color: #111111; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .jp-next:hover { background: transparent; color: #111111; }
+}
+}

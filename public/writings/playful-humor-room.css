@@ -269,3 +269,30 @@ html.pp-still .ph-bar::after, html.pp-still.ph-bar::after { animation: none !imp
   .ph-doors { flex-direction: column-reverse; align-items: flex-start; gap: 40px; }
   .ph-next-wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
+   Playful Humor follows Dark: the schedule's pale pink band, which holds every writing, is its own pink made deep,
+   its words and lines in Ink's dark value. The pale blue stage at the top is taken from the toy and stays the same in
+   both, its words in Ink, as do the pictures and the colour marks. Light is unchanged. */
+html[data-theme="dark"] .ph-band { --ink: #d9d7ce; --ink-soft: #d9d7ce; --ink-faint: #d9d7ce; --accent: #d9d7ce; --ph-btn-on: #45323a; background: #45323a; color: #d9d7ce; }
+html[data-theme="dark"] .ph-band .ph-list { border-top-color: rgba(217, 215, 206, 0.45); }
+html[data-theme="dark"] .ph-band .ph-item { color: #d9d7ce; border-bottom-color: rgba(217, 215, 206, 0.45); }
+html[data-theme="dark"] .ph-band .ph-item .ph-first,
+html[data-theme="dark"] .ph-band .ph-item .ph-name,
+html[data-theme="dark"] .ph-band .ph-label { color: #d9d7ce; }
+html[data-theme="dark"] .ph-band .ph-btn { --ph-btn-on: #45323a; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .ph-band { --ink: #d9d7ce; --ink-soft: #d9d7ce; --ink-faint: #d9d7ce; --accent: #d9d7ce; --ph-btn-on: #45323a; background: #45323a; color: #d9d7ce; }
+  html:not([data-theme="light"]) .ph-band .ph-list { border-top-color: rgba(217, 215, 206, 0.45); }
+  html:not([data-theme="light"]) .ph-band .ph-item { color: #d9d7ce; border-bottom-color: rgba(217, 215, 206, 0.45); }
+  html:not([data-theme="light"]) .ph-band .ph-item .ph-first,
+  html:not([data-theme="light"]) .ph-band .ph-item .ph-name,
+  html:not([data-theme="light"]) .ph-band .ph-label { color: #d9d7ce; }
+  html:not([data-theme="light"]) .ph-band .ph-btn { --ph-btn-on: #45323a; }
+}
+@supports (color: oklch(from red l c h)) {
+html[data-theme="dark"] .ph-band { background: oklch(from var(--ph-sched) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .ph-band { background: oklch(from var(--ph-sched) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+}
+}
