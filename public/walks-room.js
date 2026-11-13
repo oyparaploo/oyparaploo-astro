@@ -53,7 +53,7 @@
   }
 
   /* 2. How long do you have? */
-  var tabs = all('.w-tab'), cards = all('.w-card'), on = null;
+  var tabs = all('.w-tab'), cards = all('.w-walk'), on = null;   /* the walks bands (November 13, 2026) */
   tabs.forEach(function (t) {
     t.addEventListener('click', function () {
       var f = t.getAttribute('data-fit');
@@ -68,7 +68,7 @@
     var io = new IntersectionObserver(function (en) {
       en.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); e.target.classList.add('is-in'); } });
     }, { rootMargin: '0px 0px -8% 0px' });
-    all('.w-strip, .w-card, .w-band, .w-passage').forEach(function (el) {
+    all('.w-strip, .w-walk, .w-band, .w-passage').forEach(function (el) {
       if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('w-rise'); io.observe(el); }
     });
   }

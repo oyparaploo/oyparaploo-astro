@@ -1,0 +1,88 @@
+/* ==========================================================================
+   The walks bands (piece two of claude/TWO-INFLUENCES-PLAN-2026-11-13.md; from Art21's Playlists page).
+   Spec confirmed by Reach November 13, 2026: claude/WALKS-BANDS-SPEC-2026-11-13.md.
+   Twelve wide bands in Reach's order take the place of the "Every walk" grid. Each band is one link: one
+   picture, whole, beside a panel with the walk's name, its sentence and its time. About 420 pixels tall on a
+   computer, the picture two thirds and the panel one third, the picture on the right in the first band and on
+   the left in the next. Each band is one flat colour, the walk's own (--mat), deep in Dark (--mat-d).
+   Nothing moves under the pointer: the name takes an underline. Phones: one column, the picture on top.
+   ========================================================================== */
+
+.w-bands { display: flex; flex-direction: column; gap: 24px; padding: 40px 0 0; }
+
+.w-walk {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-areas: "panel pic";
+  min-height: 420px;
+  background: var(--mat); color: var(--ink);
+  text-decoration: none;
+  border-radius: 0;
+  transition: opacity 0.45s var(--ease);
+}
+.w-walk:nth-child(even) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); grid-template-areas: "pic panel"; }
+html[data-theme="dark"] .w-walk { background: var(--mat-d); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .w-walk { background: var(--mat-d); } }
+
+/* the picture side: the picture whole, never cropped, resting on the walk's colour */
+.w-walk-pic {
+  grid-area: pic; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 32px 44px;                          /* room at the foot for the catalogue number */
+  line-height: 0;
+}
+.w-walk-pic img { width: auto; height: auto; max-width: 100%; max-height: 344px; }
+.w-walk-num {
+  position: absolute; right: 16px; bottom: 10px;
+  font-size: 16px; line-height: 1.4; color: var(--ink);
+}
+.w-walk:nth-child(even) .w-walk-num { right: auto; left: 16px; }
+
+/* the panel: name, sentence, time */
+.w-walk-panel {
+  grid-area: panel;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 40px 40px 40px;
+}
+.w-walk-name {
+  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-size: clamp(30px, 2.5vw, 36px); line-height: 1.1; letter-spacing: -0.01em;
+  text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 2px; text-underline-offset: 0.14em;
+}
+.w-walk-line { margin-top: 16px; font-size: 18px; line-height: 1.45; max-width: 26em; }
+.w-walk-time { margin-top: 16px; font-size: 16px; font-weight: 600; line-height: 1.4; }
+
+/* Pointed at: the name takes an underline. Nothing moves, nothing grows. */
+@media (hover: hover) { .w-walk:hover .w-walk-name { text-decoration-color: currentColor; } }
+.w-walk:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.w-walk:focus-visible .w-walk-name { text-decoration-color: currentColor; }
+
+/* rising once as it comes into view, as the cards did (walks-room.js); the rise keeps its own pace */
+.w-walk.w-rise { transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+
+/* How long do you have? A walk that does not fit steps back, still readable (0.45; Reach, November 13, 2026, on
+   Claude's recommendation; the cards faded to 0.24). The order never changes. */
+.walks-room .w-walk.is-faded { opacity: 0.45; }
+
+/* narrower screens and phones: one column, the picture whole on top, the panel beneath */
+@media (max-width: 899px) {
+  .w-walk, .w-walk:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr); grid-template-areas: "pic" "panel"; min-height: 0;
+  }
+  .w-walk-pic { padding: 24px 24px 40px; }
+  .w-walk-pic img { max-height: min(60vh, 520px); }
+  .w-walk:nth-child(even) .w-walk-num { left: auto; right: 16px; }
+  .w-walk-panel { padding: 4px 24px 28px; }
+}
+@media (max-width: 600px) {
+  .w-bands { padding-top: 32px; }
+  .w-walk-name { font-size: 28px; }
+  .w-walk-line { margin-top: 12px; }
+  .w-walk-time { margin-top: 12px; }
+}
+
+/* less motion, and the Still switch: the fade is at once */
+@media (prefers-reduced-motion: reduce) { .w-walk { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .w-walk, html.pp-still.w-walk { transition: none; }
+
