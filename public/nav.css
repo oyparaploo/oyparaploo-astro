@@ -645,3 +645,18 @@ html:root body .site-header nav a:focus-visible { background-position: left 0 bo
 html.pp-still:root body .site-header nav a, html.pp-still .wob-panel a, html.pp-still.wob-panel a { transition: none; }
 
 html.rm body .site-header nav a, html.rm .wob-panel a { transition: none; }
+
+/* The footer symbols (preview, November 14, 2026). One quiet row, centred under "© 2026 Paraploo".
+   40 pixels tall on a computer, 36 on phones under 600; 16 pixels apart (28 until the sixth round, November 14, 2026); the line 2 pixels at both sizes;
+   The footer's Ink, so Light and Dark follow by themselves.
+   Nothing moves, so Still and less motion need no rule of their own. */
+.df-symbols {
+  display: flex; justify-content: center; align-items: center; flex-wrap: nowrap;
+  gap: 16px; margin: 24px 0 0; color: var(--ink);
+  pointer-events: none; user-select: none;
+}
+.df-symbols .df-sym { display: block; height: 40px; width: auto; flex: none; overflow: visible; }
+.df-symbols .df-sym path { vector-effect: non-scaling-stroke; }
+@media (max-width: 599px) {
+  .df-symbols .df-sym { height: 36px; }
+}

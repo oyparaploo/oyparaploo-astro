@@ -293,3 +293,82 @@
   l.href = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&display=swap';
   document.head.appendChild(l);
 })();
+
+/* The footer symbols (preview, November 14, 2026). Piece 4 of claude/TWO-INFLUENCES-PLAN-2026-11-13.md,
+   from Back in the Dayz. Corrected by Reach on the first preview, November 14, 2026: "Rock Paper Scissors
+   Umbrella (without the dots)", then the same day: the rock more
+   literally a rock ("you are my rock"), the paper blank, both scissor blades alike, the umbrella's centre line
+   out of the canopy. Third round, the same day: the rock a solid stone (straight-ish sides, a few blunt
+   corners, a flat base on the ground line, two crack lines, no soft bumps); the paper a teeny bit smaller
+   (20 by 28 in its box, the box 32 wide where it was 34); the scissor blades straight-edged and tapering to
+   a point, the inner cutting edges straight, each handle and its blade one stroke, the two finger loops as
+   they were; the umbrella untouched. Fourth round, the same day: the rock upright and strong, with no lean
+   ("You are my rock. You are strong"), taller, both sides leaning in a touch, a small flat summit and a
+   shoulder, two cracks (concept Two of three; One and Three are kept in NOTES.md); the scissor blades solid,
+   with no white shape inside them, each running on from its handle through the crossing; the paper, the
+   finger loops and the umbrella untouched. Fifth round, the same day: the scissors are the very
+   first pair again, brought back line for line from the first Rock Paper Scissors Umbrella row and turned
+   over, so the wider blade is the bottom blade and the single-line blade the top one, nothing filled (the
+   solid pair is kept in NOTES.md); the rock is a new drawing by Claude in the manner of the rock picture
+   Reach found, not copied from it: a low, broad boulder, level, flat on its base, with a blunt top and three
+   face lines that meet in a Y, no ground line and no cracks, in a box 40 wide where it was 46 (the three
+   upright concepts are kept in NOTES.md); the paper, the finger loops and the umbrella untouched.
+   Sixth round, the same day: the four drawings 16 pixels apart where they were 28 (footer-symbols.css);
+   the scissors drawn in one even line, the bottom blade the mirror of the top blade (the pair with the
+   wider bottom blade is kept in NOTES.md), the whole pair at 94 per cent, its box 37.6 wide where it was
+   40; the paper brought down to the rock's height (about nine tenths, 25.4 tall), standing on the rock's
+   foot line, its box 29 wide where it was 32, blank with its folded corner as before; the rock and the
+   umbrella untouched.
+   Seventh round, the same day, after the build was prepared: Reach, "The blades of the scissors look a little bit too
+   thin", "They're just a teeny bit too curved. They need to look like they'll cut paper", then, on the rows shown in
+   his Chrome, the blades "drawn with a bold line", a teeny bit less wide, a little thicker than the line but not
+   separate shapes, and last: "keep the top blade exactly the way it is and make the bottom blade the same width as the
+   bold line" ("Perfect!"). So: both blades straight; the top blade one solid stroke, 0.8 wider than the line by the
+   pivot and narrowing to its point; the bottom blade one straight 2-pixel line; the pair a teeny bit less wide, the tips
+   at 32.31 where they were 34.31, the same angle, the box 35.6 wide where it was 37.6; the finger loops, the handles,
+   the rock, the paper and the umbrella untouched (the sixth round's curved pair is kept in NOTES.md).
+   Then, the same evening: both blades the same, in between the two (Reach: "average the width of both blades"), then
+   "a little less like child scissors", tapered to the tip; on the rows shown in his Chrome: "this NEW one is it".
+   So each blade is one solid stroke, 0.4 wider than the line just past the pivot, narrowing to a point that ends
+   with the 2-pixel line's own round end, as the umbrella's outer tips do.
+   Four small line drawings by Claude, in the manner of packaging symbols,
+   left to right: rock, paper, scissors, umbrella. No dots. One quiet row under "© 2026 Paraploo", centred.
+   Decoration only: not links, hidden from screen readers, nothing moves. They take the footer's Ink. */
+(function () {
+  var L = ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+  function svg(w, name, body) {
+    return '<svg class="df-sym df-sym-' + name + '" viewBox="0 0 ' + w + ' 40" width="' + w + '" height="40" focusable="false" aria-hidden="true"><g' + L + '>' + body + '</g></svg>';
+  }
+
+  var rock = svg(40, 'rock',
+    '<path d="M3.3 34.3L4.1 26.9L6.9 19L12.5 15.4L16.2 9.6L24.2 9.1L31.7 16L35.9 25L36.7 34.5Z"/>' +
+    '<path d="M22.1 23.1L6.9 19"/>' +
+    '<path d="M22.1 23.1L31.7 16"/>' +
+    '<path d="M22.1 23.1L24 34.4"/>');
+
+  var paper = svg(29, 'paper',
+    '<path d="M5.33 9.28L17.98 9.1L23.67 14.79L23.49 34.49L5.51 34.31Z"/>' +
+    '<path d="M17.98 9.1L18.16 14.97L23.67 14.79"/>');
+
+  var scissors = svg(35.6, 'scissors',
+    '<path d="M10.15 14.92C11.66 12.1 9.96 8.91 6.77 9.1C3.67 9.28 2.26 11.92 3.1 14.27C3.95 16.62 8.37 17.74 10.15 14.92Z"/>' +
+    '<path d="M10.15 25.08C11.66 27.9 9.96 31.09 6.77 30.9C3.67 30.72 2.26 28.08 3.1 25.73C3.95 23.38 8.37 22.26 10.15 25.08Z"/>' +
+    '<path d="M10.15 14.92L15.51 20"/>' +
+    '<path d="M10.15 25.08L15.51 20"/>' +
+    '<path fill="currentColor" d="M15.51 20L32.31 26.05L18.2 21.39Z"/>' +
+    '<path fill="currentColor" d="M15.51 20L32.31 13.95L18.2 18.61Z"/>');
+
+  var umbrella = svg(40, 'umbrella',
+    '<g transform="translate(0 -3)">' +
+    '<path d="M5 22.4C5.8 14 12.4 11.4 20 11.5C27.8 11.6 34.3 14.2 35.2 22.2"/>' +
+    '<path d="M35.2 22.2Q30.2 18.6 25.1 22.3Q20 18.9 15 22.1Q9.8 18.7 5 22.4"/>' +
+    '<path d="M20 11.5Q16.4 15.6 15 22.1M20 11.5Q23.8 15.7 25.1 22.3"/>' +
+    '<path d="M20 8.6L20 11.5"/>' +
+    '<path d="M20.1 20.6L20.2 33.4Q20.3 36.6 17.4 36.5Q14.9 36.3 15.2 33.6"/>' +
+    '</g>');
+
+  var ROW = '<div class="df-symbols" aria-hidden="true">' + rock + paper + scissors + umbrella + '</div>';
+
+  var legal = document.querySelector('.directory-footer .df-legal');
+  if (legal && !legal.querySelector('.df-symbols')) legal.insertAdjacentHTML('beforeend', ROW);
+})();
