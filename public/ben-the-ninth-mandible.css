@@ -1,0 +1,96 @@
+/* ==========================================================================
+   BEN : THE NINTH MANDIBLE — the page's own lines
+   (SITE-ORDER\BEN-NINTH-MANDIBLE-BUILD; Reach called the preview HTML DOCS\PREVIEWS\BEN-NINTH-MANDIBLE-WHOLE-2026-11-14
+   "perfect", November 14, 2026; spec claude/BEN-NINTH-MANDIBLE-SPEC-2026-11-14.md).
+   Loaded after stage.css, on this one writing page only. No pictures. Nothing moves.
+   ========================================================================== */
+
+/* The short line between movements: a little stronger than the page's long line, following Light and Dark */
+:root { --bn-mark: rgba(0, 0, 0, 0.32); }
+html[data-theme="dark"] { --bn-mark: rgba(255, 255, 255, 0.34); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --bn-mark: rgba(255, 255, 255, 0.34); }
+}
+
+/* Every jump lands at once, with no sliding */
+html { scroll-behavior: auto; }
+
+/* ---- The title: one size, one weight; it breaks only after the colon ----
+   "The Ninth Mandible" is held as one piece; where it is wider than the column, "Mandible" takes a third line.
+   (This sheet loads on this page only, so the heading keeps the exact form every writing page has.) */
+.stage-title { text-wrap: wrap; }
+.bn-title-rest { display: inline-block; }
+
+/* ---- One quiet row, in the small lines' look: Introduction at the left, the movements at the right ---- */
+.bn-row {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  column-gap: 24px;
+  margin: 14px 0 -12px;
+  font-size: 16px; line-height: 1.4; letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.bn-row a,
+.bn-row a:visited {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 2px;
+  color: inherit; text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.bn-row a:hover,
+.bn-row a:focus-visible {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.bn-moves { display: inline-flex; align-items: center; flex-wrap: wrap; }
+.bn-moves-list { display: inline-flex; align-items: center; flex-wrap: nowrap; }
+.bn-row a.bn-intro { padding-left: 0; }
+.bn-moves-list a:last-child { padding-right: 0; }
+.bn-moves-word { margin-right: 14px; }
+.bn-dot { margin: 0 0.28em; }
+
+/* ---- The card: the writing's size, in Soft ink, growing with Large; a block of its own before the work ---- */
+.bn-card {
+  font-size: calc(19px * var(--wp-scale, 1));
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+}
+.bn-card p { margin: 0 0 1.35em; color: var(--ink-soft); text-wrap: pretty; }
+.bn-card p:last-child { margin-bottom: 0; }
+
+/* ---- The threshold: air, the page's own thin line across the whole column, air ---- */
+.bn-threshold {
+  display: block; height: 0; border: 0; border-top: 1px solid var(--wp-rule);
+  margin: calc(64px * var(--wp-scale, 1)) 0;
+}
+
+/* ---- Between movements: air, a centred short line, air ---- */
+.wp-body hr.bn-break {
+  display: block; height: 0; border: 0; border-top: 1px solid var(--bn-mark);
+  width: calc(48px * var(--wp-scale, 1));
+  margin: calc(80px * var(--wp-scale, 1)) auto;
+}
+.wp-body hr.bn-break + p { margin-top: 0; }
+
+/* Where a jump lands */
+.bn-card, .wp-body p[id] { scroll-margin-top: 32px; }
+
+/* ---- Phones ---- */
+@media (max-width: 767px) {
+  .bn-row { flex-direction: column; align-items: flex-start; }
+  .bn-moves { order: -1; }
+  .bn-row a { min-width: 44px; padding: 0 3px; }
+  .bn-row a.bn-intro { padding-left: 0; justify-content: flex-start; }
+  .bn-moves-list a:last-child { padding-right: 0; }
+  .bn-moves-word { margin-right: 6px; }
+  .bn-dot { margin: 0 1px; }
+  .bn-threshold { margin: calc(48px * var(--wp-scale, 1)) 0; }
+  .wp-body hr.bn-break { margin: calc(56px * var(--wp-scale, 1)) auto; }
+}
+
+/* ---- Paper: the title, the Introduction, the work and its lines; the movements row does not print ---- */
+@media print {
+  .bn-row { display: none !important; }
+  .bn-card { font-family: 'Inter', sans-serif; font-size: 12pt !important; line-height: 1.6 !important; letter-spacing: 0; }
+  .bn-card p { margin: 0 0 0.9em; color: #000 !important; orphans: 3; widows: 3; }
+  .bn-threshold { border-top: 0.5pt solid #000 !important; margin: 20pt 0 !important; }
+  .wp-body hr.bn-break { border-top: 0.5pt solid #000 !important; width: 36pt; margin: 24pt auto !important; break-after: avoid; page-break-after: avoid; }
+}
