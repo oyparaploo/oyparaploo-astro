@@ -1,0 +1,28 @@
+/* Grey pictures that come into colour (from Back in the Dayz), on the Placings page only.
+   Confirmed by Reach November 14, 2026; preview HTML DOCS\PREVIEWS\GREY-TO-COLOUR-WHOLE-2026-11-14.
+   - Every door picture on the Placings page shows in grey: the twelve sets of Placed Outside ... and every
+     gallery card under "Every gallery, A to Z".
+   - The door pointed at, or reached with the keyboard, comes into full colour over a quarter of a second,
+     and turns grey again when the pointer leaves.
+   - With Still on, or for visitors who ask for less motion: the colour comes at once, with no fade.
+   - Phones and tablets have no pointer, so every picture stays in full colour.
+   - The featured picture and the band picture lower on the page stay in colour. Nothing else changes. */
+@media (hover: hover) and (pointer: fine) {
+  .placings-room .p-set-pic img,
+  .placings-room .p-seat img {
+    filter: grayscale(1);
+    transition: filter 0.25s ease;
+  }
+  .placings-room .p-set > a:hover .p-set-pic img,
+  .placings-room .p-set > a:focus-visible .p-set-pic img,
+  .placings-room .p-card:hover .p-seat img,
+  .placings-room .p-card:focus-visible .p-seat img {
+    filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .placings-room .p-set-pic img, .placings-room .p-seat img { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .placings-room .p-set-pic img, html.pp-still.placings-room .p-set-pic img, html.pp-still .placings-room .p-seat img, html.pp-still.placings-room .p-seat img { transition: none; }
+
