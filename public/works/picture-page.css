@@ -1,0 +1,46 @@
+/* Picture pages, November 17, 2026 (SITE-ORDER\PICTURE-PAGE-ORDER-FRAME-SLIDESHOW-2026-11-17).
+   1. The white mat saved into many picture files is cut away whenever the page shows dark (Dark chosen, or the computer
+      set to dark and Dark not overridden by Light). The build measures the mat (picture_mat.py) and writes it on a
+      wrapper, .work-mat, as fractions of the picture: --mt --mr --mb --ml, and --ar, the cut picture's width over height.
+      In the light look the wrapper disappears and nothing changes.
+   2. The slideshow (works.js builds it) runs in the browser's full screen; the layers are sized by picture-page.js. */
+.work-mat { display: contents; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-body .work-mat { --cut-w: calc(1 - var(--ml) - var(--mr)); --cut-h: calc(1 - var(--mt) - var(--mb));
+    display: block; position: relative; overflow: hidden; aspect-ratio: var(--ar);
+    width: min(100%, calc(var(--ar) * max(420px, 100vh - 400px))); }
+  html:not([data-theme="light"]) .work-body .work-mat > img { position: absolute; max-width: none; max-height: none; height: auto;
+    width: calc(100% / var(--cut-w)); left: calc(-100% * var(--ml) / var(--cut-w)); top: calc(-100% * var(--mt) / var(--cut-h)); }
+  html:not([data-theme="light"]) .work-body .work-hangs .work-mat { --th: 280px; width: calc(var(--th) * var(--ar)); height: var(--th); }
+  html:not([data-theme="light"]) .work-body .work-hangs .work-mat > img { width: calc(100% / var(--cut-w)); height: auto; }
+}
+html[data-theme="dark"] .work-body .work-mat { --cut-w: calc(1 - var(--ml) - var(--mr)); --cut-h: calc(1 - var(--mt) - var(--mb));
+  display: block; position: relative; overflow: hidden; aspect-ratio: var(--ar);
+  width: min(100%, calc(var(--ar) * max(420px, 100vh - 400px))); }
+html[data-theme="dark"] .work-body .work-mat > img { position: absolute; max-width: none; max-height: none; height: auto;
+  width: calc(100% / var(--cut-w)); left: calc(-100% * var(--ml) / var(--cut-w)); top: calc(-100% * var(--mt) / var(--cut-h)); }
+html[data-theme="dark"] .work-body .work-hangs .work-mat { --th: 280px; width: calc(var(--th) * var(--ar)); height: var(--th); }
+html[data-theme="dark"] .work-body .work-hangs .work-mat > img { width: calc(100% / var(--cut-w)); height: auto; }
+
+@media (max-width: 800px) {
+  html[data-theme="dark"] .work-body .work-picture-col .work-mat { width: 100%; }
+}
+@media (max-width: 800px) and (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-body .work-picture-col .work-mat { width: 100%; }
+}
+@media (max-width: 700px) {
+  html[data-theme="dark"] .work-body .work-hangs .work-mat { --th: 180px; }
+}
+@media (max-width: 700px) and (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .work-body .work-hangs .work-mat { --th: 180px; }
+}
+
+/* The slideshow: black, whole screen, no frame in any look. The layers are placed by picture-page.js. */
+.work-fs-overlay { background: #000; }
+.work-fs-overlay:fullscreen { width: 100vw; height: 100vh; background: #000; }
+.work-fs-overlay::backdrop { background: #000; }
+/* Each picture fills the screen as large as it can go, whole (contain), never cropped; a picture with a mat is placed by
+   picture-page.js, which cuts the mat away. Where full screen is refused (an iPhone) the overlay fills the window. */
+.work-fs-overlay { height: 100vh; height: 100dvh; }
+.work-fs-img { background: transparent; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }

@@ -12,8 +12,10 @@
   for (var i = 0; i < d.t.length; i++) {
     var p = d.t[i];
     var size = p[4] ? ' width="' + p[4] + '" height="280"' : '';
-    var pic = '<span class="work-tile-pic"><span class="work-tile-imgwrap"><img src="' + p[2] + '" alt="' + p[3] +
-      '" loading="lazy"' + size + '></span></span><span class="work-tile-bar" aria-hidden="true"></span>' +
+    var m = p[5];  // [top, right, bottom, left, width over height] of the picture's white mat (picture-page.css cuts it in the dark look)
+    var img = '<img src="' + p[2] + '" alt="' + p[3] + '" loading="lazy"' + size + '>';
+    if (m) img = '<span class="work-mat" style="--ar:' + m[4] + ';--mt:' + m[0] + ';--mr:' + m[1] + ';--mb:' + m[2] + ';--ml:' + m[3] + '">' + img + '</span>';
+    var pic = '<span class="work-tile-pic"><span class="work-tile-imgwrap">' + img + '</span></span><span class="work-tile-bar" aria-hidden="true"></span>' +
       '<span class="work-tile-catnum">' + p[1] + '</span>';
     out.push(p[0] === here
       ? '<span class="work-tile work-tile-here" aria-current="page">' + pic + '</span>'
