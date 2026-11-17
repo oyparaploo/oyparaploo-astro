@@ -45,12 +45,48 @@ html.no-keep .keep { display: none !important; }
 
 /* ---- On a writing page: directly under the title (under the subtitle where there is one), in Ink on the
    page's own ground, following Light and Dark. It stays at 18 pixels when the visitor picks Large text. ---- */
-.wp-keep { margin: 0; }
-.wp-keep .keep { margin-top: 24px; font-size: 18px; }
+.wp-keep { margin: 24px 0 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; row-gap: 10px; }
+.wp-keep .keep { margin-top: 0; font-size: 18px; }
+html.no-keep .wp-keep { display: none; }
 
 /* ---- On a picture page: on the catalogue number's line, to its right, in Ink; under it when the column is narrow ---- */
 .work-tomb p.tomb-cat { display: flex; flex-wrap: wrap; align-items: center; column-gap: 16px; row-gap: 10px; }
 .work-tomb p.tomb-cat .keep { --keep-ink: var(--ink); margin: 0; }
+
+/* ---- Keep for later (SITE-ORDER\KEEP-FOR-LATER-BUILD, November 2026): one width for both words, so nothing
+   beside the button moves on the press. The two words share one place; the one not showing holds the width and is
+   never seen or heard. ---- */
+.keep-word-box { display: inline-grid; }
+.keep-word-box > span { grid-area: 1 / 1; text-align: center; }
+.keep-word-hold { visibility: hidden; }
+
+/* ---- Keep for later: the quiet line after a press that keeps. Soft ink at 16 pixels, never larger with Large
+   text; its link underlined as in a running sentence, the underline gone when pointed at, the arrow sliding a few
+   pixels. It fades in over 0.3 seconds; at once with less motion or Still. Empty, it takes no room at all. ---- */
+.keep-note {
+  font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.45;
+  letter-spacing: normal; color: var(--ink-soft);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.keep-note:empty { position: absolute; width: 1px; height: 1px; overflow: hidden; }
+.keep-note.is-shown { opacity: 1; }
+.keep-note a { color: var(--ink); text-decoration: none; white-space: nowrap; }
+.keep-note-words { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.keep-note a .arrow-glyph { display: inline-block; transition: transform 0.2s ease; }
+@media (hover: hover) {
+  .keep-note a:hover .keep-note-words { text-decoration: none; }
+  .keep-note a:hover .arrow-glyph { transform: translateX(4px); }
+}
+.keep-note a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 3px; }
+/* On a picture page the side column is narrow: the line stands on its own line under the number and the button. */
+.work-tomb p.tomb-cat .keep-note { flex-basis: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .keep-note, .keep-note a .arrow-glyph { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .keep-note, html.pp-still.keep-note, html.pp-still .keep-note a .arrow-glyph, html.pp-still.keep-note a .arrow-glyph { transition: none; }
+
+@media print { .keep-note { display: none !important; } }
 
 /* Only paper sees the address line. */
 @media screen { .print-address { display: none; } }
