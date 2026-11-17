@@ -1,0 +1,41 @@
+/* ==========================================================================
+   FOREVER LULLABY — the page's own lines
+   (preview HTML DOCS\PREVIEWS\FOREVER-LULLABY-WHOLE-2026-11-16).
+   Loaded after stage.css, on this one writing page only.
+   ========================================================================== */
+
+/* ---- The two voices: the doubt, the "I", in Soft ink; the answer, the "we", in full Ink (the page's own) ---- */
+.wp-body p.fl-doubt { color: var(--ink-soft); }
+
+/* ---- The one drawing, after the paragraph that names it: whole, then close ---- */
+.wp-body .fl-drawing { margin: 2.2em 0 2.4em; padding: 0; }
+.fl-drawing .fl-open {
+  display: block; width: 100%; margin: 0; padding: 0;
+  border: 1px solid var(--wp-rule); border-radius: 0;
+  background: #fff; cursor: zoom-in; line-height: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.fl-drawing .fl-open + .fl-open { margin-top: 16px; }
+.fl-drawing .fl-open:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.fl-drawing img { display: block; width: 100%; height: auto; }
+.fl-drawing figcaption {
+  margin-top: 12px;
+  font-size: 16px; line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* ---- Opened large: the whole drawing on the dark ground; a tap or Escape closes it ---- */
+.fl-view {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; box-sizing: border-box;
+  background: #0d0907; cursor: zoom-out;
+}
+.fl-view img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+@media (max-width: 599px) { .fl-view { padding: 12px; } }
+
+@media print {
+  .fl-drawing .fl-open { border: 0; }
+  .fl-drawing .fl-open + .fl-open { display: none; }
+  .fl-view { display: none; }
+}
