@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <script src="/still.js"></script>
+<script>/* PICTURE SIZE: the visitor's choice is read before the page draws, so the wall never jumps */
+(function () { var v = null; try { v = localStorage.getItem('pictureSize'); } catch (e) {}
+  if (v !== 'small' && v !== 'large') v = 'medium'; document.documentElement.classList.add('ps-' + v); })();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pooling · Marks · Paraploo</title>
 <meta name="description" content="Pooling: pen drawings in Marks, newest first.">
@@ -77,6 +80,8 @@
   <p class="page-sentence arrive" style="--d:0.12s">Ink spreading into pools, some clear, some stained red and gold, newest first. Choose one to see it larger and begin a slideshow of the sequence.</p>
 </section>
 
+<div class="ps-line" role="group" aria-label="Picture size"><span class="ps-word">Picture size</span><span class="ps-choices"><button type="button" data-ps="small">Small</button><span class="ps-dot" aria-hidden="true">&middot;</span><button type="button" class="ps-wide" data-ps="medium">Medium</button><span class="ps-dot ps-wide" aria-hidden="true">&middot;</span><button type="button" data-ps="large">Large</button></span></div>
+
 <section class="wall uneven" data-cols="3" aria-label="Pooling">
   <figure data-i="0" data-r="0.7733"><a class="tile" href="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Ype%20Mow%20Gag%202-4000.webp" aria-label="Drawing 02793, Ype Mow Gag 2: see it larger and begin a slideshow"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Ype%20Mow%20Gag%202-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Ype%20Mow%20Gag%202-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Ype%20Mow%20Gag%202.webp 2000w" sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 799px) 47vw, 31vw" width="2000" height="1546" alt="Drawing 02793, Ype Mow Gag 2"></a><figcaption class="cap"><span class="w">Ype Mow Gag 2</span> <span class="n">02793</span></figcaption></figure>
   <figure data-i="1" data-r="0.7567"><a class="tile" href="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Without%20Reflection%20Detail%20Stained-4000.webp" aria-label="Drawing 02791, Combing Out the Old Wig, Without Reflection: see it larger and begin a slideshow"><img src="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Without%20Reflection%20Detail%20Stained-600.webp" srcset="https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Without%20Reflection%20Detail%20Stained-600.webp 600w, https://media.paraploo.com/site/images/marks/SMOOTH%20BEH%20LAYE/STAINED%20FOG%20%2826%29/Without%20Reflection%20Detail%20Stained.webp 2000w" sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 799px) 47vw, 31vw" width="2000" height="1515" alt="Drawing 02791, Combing Out the Old Wig, Without Reflection"></a><figcaption class="cap"><span class="w">Combing Out the Old Wig, Without Reflection</span> <span class="n">02791</span></figcaption></figure>
@@ -108,5 +113,47 @@
 </footer>
 <script src="/nav.js"></script>
 <script src="/marks/marks.js?v=20261004"></script>
+<script>/* PICTURE SIZE: Small · Medium · Large on computers, Small · Large on phones; remembered in the browser as
+   pictureSize and held across every gallery. The change is instant: nothing moves, so Still and less motion see
+   exactly the same. Pressing a drawing still opens the slideshow; "Like this ..." and the pen line follow the new wall. */
+(function () {
+  var html = document.documentElement, wall = document.querySelector('.wall');
+  if (!wall) return;
+  var imgs = wall.querySelectorAll('.tile img');
+  for (var i = 0; i < imgs.length; i++) {
+    var im = imgs[i], w = +im.getAttribute('width'), h = +im.getAttribute('height');
+    if (w && h) im.closest('figure').style.setProperty('--ps-r', (h / w).toFixed(4));
+    im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
+  }
+  var v = 'medium';
+  try { var s = localStorage.getItem('pictureSize'); if (s === 'small' || s === 'large') v = s; } catch (e) {}
+  function shown() {                    /* which word is underlined at this width */
+    var w = window.innerWidth;
+    if (w >= 800 || v !== 'medium') return v;
+    return w < 600 ? 'large' : 'small'; /* today's phone wall is one across; a small tablet's is two across */
+  }
+  function apply() {
+    html.classList.remove('ps-small', 'ps-medium', 'ps-large');
+    html.classList.add('ps-' + v);
+    var on = shown(), b = document.querySelectorAll('.ps-line button');
+    for (var j = 0; j < b.length; j++) b[j].setAttribute('aria-pressed', b[j].getAttribute('data-ps') === on ? 'true' : 'false');
+    for (var k = 0; k < imgs.length; k++)  /* Large asks for the 2000-pixel file, so the big drawing stays sharp */
+      imgs[k].setAttribute('sizes', v === 'large' ? '100vw' : imgs[k].getAttribute('data-sizes0'));
+  }
+  apply();
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('.ps-line button') : null;
+    if (!t) return;
+    var nv = t.getAttribute('data-ps');
+    if (nv === v && shown() === nv) return;
+    v = nv;
+    try { localStorage.setItem('pictureSize', v); } catch (e2) {}
+    apply();
+    window.dispatchEvent(new Event('resize'));   /* "Like this ..." and the pen line measure the new wall */
+  });
+  var last = window.innerWidth;
+  window.addEventListener('resize', function () { if (window.innerWidth !== last) { last = window.innerWidth; apply(); } });
+})();
+</script>
 </body>
 </html>

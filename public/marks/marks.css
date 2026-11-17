@@ -427,3 +427,47 @@ html[data-theme="dark"] { --tones: linear-gradient(#3d3d3d, #3d3d3d); }
 /* Reach, November 9, 2026: no thin black line at the top edge of a grey band. The black line above the
    Every Title and Handwritten Every Which Way bands comes off; the white space above them stays. */
 .hw-band-wrap, .tt-band-wrap { border-top: 0; }
+
+/* ---------- PICTURE SIZE, THE CHANGE (November 16, 2026): the picture size switch above the wall ---------- */
+/* The line: the same look as "Text size  Standard · Large" on the writing pages (stage.css .wp-size). */
+.ps-line {
+  display: flex; flex-wrap: wrap; align-items: center;
+  margin: 0; padding: 24px var(--edge) 0;
+  font-size: 16px; line-height: 1.4; letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.ps-line + .wall { padding-top: 40px; }
+.ps-word { margin-right: 14px; }
+.ps-choices { display: inline-flex; align-items: center; flex-wrap: nowrap; }
+.ps-dot { margin: 0 0.28em; }
+.ps-line button {
+  min-height: 44px; min-width: 44px; padding: 0 2px; margin: 0;
+  background: none; border: none; border-radius: 0; cursor: pointer;
+  font: inherit; letter-spacing: inherit; color: inherit;
+  text-decoration: none; -webkit-tap-highlight-color: transparent;
+}
+.ps-line button:hover, .ps-line button:focus-visible, .ps-line button[aria-pressed="true"] {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.ps-line :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* Large, at every width: one drawing across, whole, never taller than the window (its words fit under it). */
+html.ps-large .wall { grid-template-columns: minmax(0, 1fr); }
+html.ps-large .wall figure { width: min(100%, calc((100svh - 128px) / var(--ps-r, 0.72))); margin-inline: auto; }
+html.ps-large .wall .tile img { width: 100%; }
+
+/* Computers (800 pixels and wider): Small is six across; Medium is today's wall, untouched. */
+@media (min-width: 800px) {
+  html.ps-small .wall { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+/* Phones and small tablets: two choices only, Small (two across) and Large (one across). */
+@media (max-width: 799px) {
+  .ps-wide { display: none; }
+  .ps-word { margin-right: 6px; }
+  .ps-line button { padding: 0 4px; }
+  .ps-dot { margin: 0 1px; }
+}
+@media (max-width: 599px) {
+  html.ps-small .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; row-gap: 32px; }
+}
+/* ---------- end of THE CHANGE ---------- */
