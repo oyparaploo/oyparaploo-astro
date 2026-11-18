@@ -660,3 +660,34 @@ html.rm body .site-header nav a, html.rm .wob-panel a { transition: none; }
 @media (max-width: 599px) {
   .df-symbols .df-sym { height: 36px; }
 }
+
+/* The rings (Reach, November 18, 2026: "perfect", on HTML DOCS\PREVIEWS\WEBRINGS-WHOLE-2026-11-18; SITE-ORDER\WEBRINGS-BUILD).
+   One quiet line at the top of the footer's legal strip, above "Your privacy · Legal notice": the XXIIVV ring's
+   own icon (held until a place opens in that ring), then the Hotline Webring between its two arrows.
+   16 pixels, Soft ink, Ink when pointed at, as the legal links are. The icon is the ring's own mark at its own
+   weight, 28 pixels, drawn in currentColor so Light and Dark follow by themselves. Each link has a 44-pixel box for touch.
+   The arrows slide 3 pixels outward when pointed at; less motion keeps them still, and the build gives Still the same rule. */
+.df-legal .df-rings {
+  display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  gap: 4px 12px; margin: 0 0 8px;
+}
+.df-legal .df-rings a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; color: var(--ink-soft); text-decoration: none;
+}
+.df-legal .df-rings a:hover, .df-legal .df-rings a:focus-visible { color: var(--ink); text-decoration: none; }
+.df-legal .df-ring-icon svg {
+  display: block; width: 28px; height: 28px;
+  fill: none; stroke: currentColor; stroke-width: 28; stroke-linecap: square;
+}
+.df-legal .df-hotline { display: inline-flex; align-items: center; margin: 0; }
+.df-legal .df-hotline .df-ring-name { margin: 0; }
+.df-legal .df-ring-prev, .df-legal .df-ring-next { font-size: 18px; transition: transform 0.2s ease-out; }
+.df-legal .df-ring-prev:hover { transform: translateX(-3px); }
+.df-legal .df-ring-next:hover { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .df-legal .df-ring-prev, .df-legal .df-ring-next { transition: none; transform: none !important; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .df-legal .df-ring-prev, html.pp-still.df-legal .df-ring-prev, html.pp-still .df-legal .df-ring-next, html.pp-still.df-legal .df-ring-next { transition: none; transform: none !important; }
+
