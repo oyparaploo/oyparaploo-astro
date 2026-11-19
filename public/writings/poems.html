@@ -751,6 +751,13 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 @media (max-width: 999px) { .rows .row-main { grid-column: 1; grid-row: 1; } }
 @media (max-width: 700px) { .rows .row-side { font-size: 18px; } }
 </style>
+<style id="calm-bar-rows">
+/* Reach, November 18, 2026 ("fix it", from the live check of the drawing-off build): on the eight type pages the rows are built as .rows .row (the shelf name, the three titles beside it and the arrow), which the calm bar did not reach. The row pointed at becomes the same one solid bar as on the other 55 pages behind Writings: Ink with words in the ground colour, no patches behind the name, the titles or the arrow. In Dark it mirrors by itself (a light bar with dark words). It comes after the old dark-bar, dark-bar-rows and title-links blocks so it wins over all three. */
+.rows .row:active, .rows .row:focus-within { background: var(--ink) !important; color: var(--ground) !important; }
+@media (hover: hover) { .rows .row:hover, .rows .row:focus-visible { background: var(--ink) !important; color: var(--ground) !important; } }
+.rows .row > span, .rows .row > a, .rows .row .row-name, .rows .row .row-side a { background: transparent !important; box-shadow: none !important; }
+.rows .row > span::before, .rows .row .row-name::before { background: none !important; box-shadow: none !important; }
+</style>
 
 
 <link rel="stylesheet" href="/drawing.css">
