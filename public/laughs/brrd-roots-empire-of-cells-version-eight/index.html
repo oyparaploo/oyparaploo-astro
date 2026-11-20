@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="/still.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Empire of Cells · Paraploo</title>
+<meta name="description" content="From Empire of Cells. Paraploo.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<style id="thread-door">
+.site-header { box-sizing: border-box; }  /* as on the Welcome page: the header stays inside the window */
+/* ==========================================================================
+   The front door as one thread, made whole November 6, 2026, from the shape
+   Reach confirmed November 5 (claude/FRONT-DOOR-THREAD-SPEC-2026-11-05.md).
+   Emergence Magazine gives the skeleton: one writing arrives on the first
+   screen, then Read, Look, Listen and one walk (Craig Mod), with one of
+   Reach's own lines set large between the groups (Maira Kalman).
+   ========================================================================== */
+:root {
+  --edge: 24px;
+  --col: 32px;
+  --air: 144px;
+  --reading: 750px;
+  --face-head: 'Archivo', 'Inter', sans-serif;
+  --door-ground: #f9f7f4;            /* the front door's cream, kept */
+  --rule: rgba(17, 17, 17, 0.18);
+  --arrive-ground: #120d0a;          /* under the haze, before the picture loads */
+  --walk-band: #E6EADF;              /* Wonderful Garbage's own green (#3B4931), made pale */
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --door-ground: var(--ground);
+    --rule: rgba(217, 215, 206, 0.2);
+    --walk-band: #1A2015;            /* the walk's own green, its deep end */
+  }
+}
+html[data-theme="dark"] {
+  --door-ground: var(--ground);
+  --rule: rgba(217, 215, 206, 0.2);
+  --walk-band: #1A2015;
+}
+html:root:root body { background: var(--door-ground); color: var(--ink); --chrome-ground: var(--door-ground); }
+html:root:root body .site-header { background: var(--door-ground); }
+html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; overflow-x: clip; }
+.door *, .door *::before, .door *::after { box-sizing: border-box; }
+.door p, .door h1, .door h2, .door h3, .door figure { margin: 0; text-wrap: pretty; }
+.door a { color: inherit; text-decoration: none; }
+.door img { display: block; max-width: 100%; height: auto; }
+.door :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.kind { display: block; font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+.arr { display: inline-block; transition: transform .3s var(--ease); }
+@media (hover: hover) { a:hover .arr { transform: translateX(5px); } }
+
+/* ---------- 1. The arrival: one writing fills the first screen ---------- */
+.arrive {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--arrive-ground); color: var(--ink-on-dark);
+  min-height: calc(100svh - 120px);
+  display: flex; align-items: center;
+}
+/* The photograph's own haze runs edge to edge; the photograph itself stays whole. */
+.arrive-haze { position: absolute; inset: -80px; z-index: -1; }
+.arrive-haze img { width: 100%; height: 100%; max-width: none; object-fit: cover; filter: blur(48px) saturate(1.15) brightness(0.62); }
+.arrive-haze::after { content: ""; position: absolute; inset: 0; background: rgba(12, 9, 7, 0.52); }
+.arrive-in {
+  width: 100%; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: var(--col); align-items: center; padding: 48px var(--edge);
+}
+.arrive-words { max-width: 620px; }
+.arrive-title {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1.04; letter-spacing: -0.018em; margin: 0 0 28px !important;
+  text-wrap: balance;
+}
+.arrive-lines { font-size: 20px; line-height: 1.62; }
+.arrive-lines p + p { margin-top: 14px; }
+.arrive .on { display: inline-flex; gap: 8px; margin-top: 26px; font-weight: 600; font-size: 18px; }
+@media (hover: hover) { .arrive-read:hover .arrive-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; } }
+.arrive-fig { justify-self: end; }
+.arrive-pic img { width: auto; max-width: 100%; max-height: calc(100svh - 260px); min-height: 0; }
+.arrive-fig figcaption { margin-top: 12px; font-size: 16px; line-height: 1.35; text-align: right; }
+.cap-link .cap-nm { display: block; }
+.cap-link .cap-no { display: block; color: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.82); }
+@media (hover: hover) { .cap-link:hover .cap-nm { text-decoration: underline; } }
+
+/* ---------- 2. A line between the groups (Maira Kalman) ---------- */
+.thread { margin: var(--air) var(--edge); text-align: center; }
+.thread a { display: inline-block; max-width: 1320px; }
+.thread-words {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
+}
+.thread-from { display: inline-flex; gap: 8px; margin-top: 24px; font-size: 18px; font-weight: 500; color: var(--ink-soft); }
+@media (hover: hover) { .thread a:hover .thread-words { color: var(--accent); } }
+
+/* ---------- 3 to 6. The groups ---------- */
+.group { margin: var(--air) var(--edge) 0; padding-top: 36px; border-top: 1px solid var(--ink); }
+.thread + .group { margin-top: 0; }
+.group-name {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px !important;
+}
+.t {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 14px !important;
+  text-wrap: balance;
+}
+.first { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.by { font-size: 18px; font-weight: 600; margin: -6px 0 12px !important; }
+@media (hover: hover) { a:hover .t, a:hover .set, a:hover .stop-line { color: var(--accent); } }
+
+/* Three of a kind, side by side, thin lines between (Read and Listen). */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.three > * { padding: 0 var(--col); border-left: 1px solid var(--rule); }
+.three > :first-child { padding-left: 0; border-left: 0; }
+.three > :last-child { padding-right: 0; }
+
+/* Look: one straight row, tops level, every picture whole at its own shape. */
+.prow { display: flex; gap: var(--col); align-items: flex-start; }
+.prow > a { flex: var(--ar) 1 0; min-width: 0; display: block; }
+.prow img { width: 100%; }
+.cap { margin-top: 14px; font-size: 18px; line-height: 1.4; }
+.cap .kind { margin-bottom: 2px; }
+.cap .set { display: block; font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.cap .no { display: block; margin-top: 4px; color: var(--ink-soft); }
+
+/* One walk, on its own colour (Craig Mod). */
+.group.walk { margin: 0; padding: 72px var(--edge) 88px; border-top: 0; background: var(--walk-band); }
+.walk-name { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.1; margin: -24px 0 10px !important; }
+.walk-line { font-size: 22px; line-height: 1.45; max-width: var(--reading); }
+.stops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--col); margin-top: 48px; }
+.stop img { width: 100%; }
+.stop-name { display: block; margin-top: 16px; font-size: 18px; font-weight: 600; }
+.stop-line { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.18; margin-top: 6px !important; }
+.door-btn {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 56px;
+  font-weight: 600; font-size: 18px; line-height: 1;
+  padding: 14px 18px; border: 1.5px solid var(--ink); border-radius: 5px;
+  color: var(--ink); background: transparent;
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .door-btn:hover { background: var(--ink); color: var(--walk-band); } }
+.door-btn:active { background: var(--ink); color: var(--walk-band); }
+
+/* ---------- 7. The doors at the foot, unchanged ---------- */
+.foot-doors { display: flex; flex-wrap: wrap; gap: 64px; margin: 0 var(--edge) 96px; padding-top: 40px; border-top: 1px solid var(--ink); }
+.walk + .foot-doors { margin-top: var(--air); }
+.home-door { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; color: var(--ink); }
+.home-door:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) { .arr, .door-btn { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.door-btn { transition: none; }
+
+
+/* ---------- Narrower windows ---------- */
+@media (max-width: 1100px) {
+  .arrive-title { font-size: 40px; }
+  .thread-words { font-size: 46px; }
+}
+/* The phone (The Atavist): one column, every picture full width, a thin rule between pieces, a picture on the first screen. */
+@media (max-width: 800px) {
+  :root { --air: 96px; }
+  .arrive { min-height: 0; display: block; }
+  .arrive-in { grid-template-columns: minmax(0, 1fr); padding: 0 0 40px; gap: 0; }
+  .arrive-fig { order: -1; justify-self: stretch; }
+  .arrive-pic img { width: 100%; max-height: none; }
+  .arrive-fig figcaption { text-align: left; padding: 10px var(--edge) 0; }
+  .cap-link .cap-nm, .cap-link .cap-no { display: inline; }
+  .cap-link .cap-no { margin-left: 8px; }
+  .arrive-words { padding: 28px var(--edge) 0; }
+  .arrive-title { font-size: 34px; line-height: 1.08; margin-bottom: 20px !important; }
+  .arrive-lines { font-size: 19px; }
+  .thread-words { font-size: 34px; line-height: 1.12; }
+  .thread { text-align: left; }
+  .group-name { font-size: 36px; margin-bottom: 32px !important; }
+  .t { font-size: 24px; }
+  .three { grid-template-columns: minmax(0, 1fr); }
+  .three > * { padding: 28px 0 0 !important; border-left: 0 !important; border-top: 1px solid var(--rule); margin-top: 28px; }
+  .three > :first-child { padding-top: 0 !important; border-top: 0; margin-top: 0; }
+  .prow { flex-direction: column; gap: 0; }
+  .prow > a { flex: none; width: auto; margin: 0 calc(-1 * var(--edge)); }
+  .prow > a + a { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .prow .cap { padding: 0 var(--edge); }
+  .group.walk { padding: 56px var(--edge) 64px; }
+  .walk-name { font-size: 28px; margin-top: -16px !important; }
+  .walk-line { font-size: 20px; }
+  .stops { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 36px; }
+  .stop { margin: 0 calc(-1 * var(--edge)); display: block; }
+  .stop + .stop { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .stop-name, .stop-line { padding: 0 var(--edge); }
+  .stop-line { font-size: 24px; }
+  .door-btn { margin-top: 40px; }
+  .foot-doors { flex-direction: column; gap: 24px; }
+}
+
+/* ---------- 0. The laugh: one funny line, alone and large (claude/HUMOR-FRONT-RULED-2026-11-19.md) ----------
+   The homepage's first screen, above the arrival. One line in Reach's exact words, the writing it came from
+   as a door, and "Another ...". Nine tenths of the window: the top of the arrival shows below it.
+   --laugh-top is where the page begins under the date strip and the header, set by the script below. */
+.laugh {
+  min-height: calc(90svh - var(--laugh-top, 112px));
+  display: flex; align-items: center;
+  padding: 56px var(--edge);
+  background: var(--door-ground); color: var(--ink);
+}
+.laugh-in { width: 100%; max-width: 1000px; margin: 0 auto; }
+.laugh-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 44px; line-height: 1.1; letter-spacing: -0.015em;
+  text-wrap: pretty; overflow-wrap: break-word;
+}
+.laugh-line.is-long { font-size: 32px; line-height: 1.18; letter-spacing: -0.01em; }
+.laugh-line strong { font-weight: inherit; }   /* the writing's bold marks: the heading face is already bold */
+/* The door: "From", the title and its arrow, as the three lines lower on the homepage read (Reach's yes,
+   November 19, 2026); only the title takes the underline. The title's last word never parts from the arrow,
+   so the arrow is never alone on a line when a title wraps. */
+.laugh-from { display: inline-block; margin-top: 28px; font-size: 18px; font-weight: 500; color: var(--ink); }
+.laugh-keep { white-space: nowrap; }
+.laugh-from .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .laugh-from:hover .laugh-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+.laugh-act { margin-top: 40px; }
+.laugh-another {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .laugh-another:hover { background: var(--ink); color: var(--door-ground); } }
+.laugh-another:active { background: var(--ink); color: var(--door-ground); }
+.laugh-another:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+/* The change: the new line and its title fade in over 0.2 seconds; with Still or less motion, an instant swap. */
+.laugh-deal.is-dealt { animation: laugh-fade .2s ease; }
+@keyframes laugh-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .laugh-deal.is-dealt { animation: none; } .laugh-another { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .laugh-deal.is-dealt, html.pp-still.laugh-deal.is-dealt { animation: none; }
+html.pp-still .laugh-another, html.pp-still.laugh-another { transition: none; }
+
+/* The phone: the same screen in the same order; the line 28 pixels, 22 for longer ones; the button full width, 44 tall.
+   A long line is never cut: the screen grows instead. */
+@media (max-width: 800px) {
+  .laugh { padding: 40px var(--edge); }
+  .laugh-line { font-size: 28px; line-height: 1.16; }
+  .laugh-line.is-long { font-size: 22px; line-height: 1.3; }
+  .laugh-from { margin-top: 22px; }
+  .laugh-act { margin-top: 32px; }
+  .laugh-another { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+}
+
+
+/* ---------- More from that writing: the humor front's second layer (confirmed November 20, 2026) ----------
+   A small page for one writing: "From" and its title, then every passage Reach marked as a laugh or a smile,
+   all looking the same, in the order he wrote them. Two doors at the foot. No counts, no rules, no numbers. */
+.more { padding: 72px var(--edge) 96px; background: var(--door-ground); color: var(--ink); min-height: 70svh; }
+.more-in { width: 100%; max-width: 680px; margin: 0 auto; }
+.more .more-from { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 48px; color: var(--ink); }
+.more-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 24px; line-height: 1.25; letter-spacing: -0.01em;
+  text-wrap: pretty; overflow-wrap: break-word; margin: 0;
+}
+.more-line + .more-line { margin-top: 48px; }
+.more-line strong { font-weight: inherit; }
+.more-doors { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 32px; margin-top: 72px; }
+.more-whole {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .more-whole:hover { background: var(--ink); color: var(--door-ground); } }
+.more-whole:active { background: var(--ink); color: var(--door-ground); }
+.more-whole:focus-visible, .more-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.more-back { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.more-back .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .more-back:hover .more-back-words { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .more-whole { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .more-whole, html.pp-still.more-whole { transition: none; }
+
+@media (max-width: 800px) {
+  .more { padding: 40px var(--edge) 64px; }
+  .more .more-from { margin-bottom: 36px; }
+  .more-line { font-size: 20px; line-height: 1.3; }
+  .more-doors { display: block; margin-top: 56px; }
+  .more-whole { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+  .more-back { display: inline-block; margin-top: 22px; }
+}
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link rel="stylesheet" href="/sun-moon.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<link rel="stylesheet" href="/still.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/laughs/brrd-roots-empire-of-cells-version-eight/">
+</head>
+<body>
+<div class="theme-strip"><span class="theme-date"><span class="sun-moon" aria-hidden="true"><svg class="sm-sun" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><circle cx="12" cy="12" r="4.2"/><path d="M12 5.4L12 1.2M8.7 6.28L7.5 4.21M6.28 8.7L2.65 6.6M5.4 12L3 12M6.28 15.3L2.65 17.4M8.7 17.72L7.5 19.79M12 18.6L12 22.8M15.3 17.72L16.5 19.79M17.72 15.3L21.35 17.4M18.6 12L21 12M17.72 8.7L21.35 6.6M15.3 6.28L16.5 4.21"/></svg><svg class="sm-moon" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><path d="M11.76 3.5A8.51 8.51 0 1 0 20.18 15.28A7.33 7.33 0 0 1 11.76 3.5Z"/></svg></span><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="still-rule" aria-hidden="true"></span><button type="button" class="still-choice" aria-pressed="false">Still</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/explore">Explore</a><a href="/search">Search</a><a href="/shuffle" class="shuffle-word" aria-label="Shuffle ..."><svg class="shuffle-svg" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M2.5 6.5h3.2c2.1 0 3.4 1 4.6 2.8l3.4 5.4c1.2 1.8 2.5 2.8 4.6 2.8h3.2"/><path d="M2.5 17.5h3.2c2.1 0 3.4-1 4.6-2.8l.55-.87M13.15 10.17l.55-.87c1.2-1.8 2.5-2.8 4.6-2.8h3.2"/><path d="M18.9 3.9l2.6 2.6-2.6 2.6M18.9 14.9l2.6 2.6-2.6 2.6"/></svg></a></nav></header>
+
+<main class="door">
+
+<section class="more" aria-label="More from this writing">
+  <div class="more-in">
+    <h1 class="more-from">From Empire of Cells</h1>
+    <p class="more-line">Ministry of Mangos and the Completely Sensible Prison</p>
+    <p class="more-line">The stage opens on Valledupar—a town besieged by heat so aggressive it could file lawsuits. Vendors frantically wave oversized banana leaves, achieving absolutely nothing except self-inflicted windburn. Mangos larger than rugby balls sit melting on comically small carts, and swarms of flies circle them like sinister, buzzing ballet dancers.</p>
+    <p class="more-line"><strong>Vendor #2</strong> (<em>furiously wiping his sweaty face with an equally sweaty cloth</em>): “There are two constants in Valledupar: the sun and La Tramacúa, that over-glorified concrete pimple on our skyline!”</p>
+    <p class="more-line">(<strong>Dramatic orchestral sting. Spotlight snaps onto La Tramacúa Penitentiary. Cue ominous smoke and thunder, despite the clear skies. The razor wire atop the walls curls upwards like taunting spaghetti noodles.</strong>)</p>
+    <p class="more-line">In the shade of a skeletal jacaranda tree—a tree so dead it actively groans in protest—<strong>a little girl crouches, wielding chalk the size of her own head.</strong> She furrows her brow as she draws a flamingo wearing sunglasses.<br><strong>Little Girl</strong> (<em>examining her handiwork</em>): “Mama, does it look happy?”</p>
+    <p class="more-line">(<strong>A sudden puff of glittery smoke. Enter The Prophet, accompanied by a kazoo fanfare.</strong>)</p>
+    <p class="more-line">The Prophet steps out of the smoke, his robes flowing dramatically despite the wind failing to cooperate. His crooked staff emits faint sparkles, and an inexplicable bagpipe solo plays in the background. The Prophet clears his throat, and the sound causes all the mangos in the marketplace to spontaneously spin in unison.</p>
+    <p class="more-line"><strong>Prophet</strong> (<em>gesturing toward La Tramacúa</em>): “They built this not for justice, but for fear. F-E-A-R!” (<em>He spells it out like a game show host while pointing at an invisible chalkboard.</em>) “And what happens to fear?”<br><strong>Vendor #3</strong> (<em>raising a trembling hand</em>): “Uh… it buys another mango cart?”<br><strong>Prophet</strong> (<em>ignoring the vendor completely</em>): “Fear rusts. Fear cracks. Fear melts faster than these mangos!” (<em>He attempts to eat a mango dramatically but fails, as it slips comically through his hands.</em>)</p>
+    <p class="more-line">The <strong>Little Girl</strong>, unimpressed, points at her flamingo-drawing. “Can’t fear just go on vacation instead?”<br>The <strong>Prophet</strong>, stunned, stares at her for a moment, then bellows: “TIME WILL TELL!” before striding mysteriously into the nearest mango stall, which collapses instantly under his weight.</p>
+    <p class="more-line">Inside La Tramacúa, time doesn’t tick—it tumbles down a flight of stairs and lands face-first in an existential crisis. The walls aren’t just damp; they appear to <em>sweat resentment.</em> Prisoners mill about: one is knitting a sweater with no needles, another is shouting poetry at a confused pigeon who seems to applaud.</p>
+    <p class="more-line"><strong>Inmate #1</strong> (<em>holding a torn photo of a woman</em>): “Her smile... brighter than the sun, sweeter than any mango jam. Alas, I shall only see her in dreams!”<br><strong>Inmate #2</strong> (<em>rolling his eyes</em>): “Mate, that’s a stock image from an old cereal box.”</p>
+    <p class="more-line">A pigeon in the corner salutes solemnly before flying directly into a wall. Guards scramble like startled penguins.<br><strong>Guard</strong> (<em>wildly flipping through a manual titled “What to Do When the Walls Revolt”</em>): “Step one: don’t panic. Step two… AH, IT’S TOO LATE!”</p>
+    <p class="more-line">A grandmother attempts to pour coffee into her cup, but it leaks from five different places, landing mostly on her shoes.<br><strong>Grandmother</strong> (<em>speaking to no one in particular</em>): “They said this would help us. <em>Help us!</em>” (<em>She shakes her broken cup in righteous indignation, accidentally flinging coffee at a passing goat, which proceeds to faint dramatically.</em>)</p>
+    <p class="more-line">A man in the crowd hums a melody so out of tune it offends physics.</p>
+    <p class="more-line"><strong>The Prophet</strong> (<em>materializing once again in swirling glitter</em>): “What burns brightest here isn’t their walls…” (<em>he gestures vaguely, and a mango inexplicably catches fire</em>), “…it’s YOUR LOVE!”<br>(<strong>Cue a choir of kazoo players, joined by someone inexplicably juggling flaming mangos.</strong>)</p>
+    <p class="more-line">The flame briefly turns neon green, whistles “Yankee Doodle,” and then settles into its glow. The elder, undeterred, lifts it high.</p>
+    <p class="more-line">(<strong>The crowd erupts in cheers as someone catapults a flaming mango into the night sky, where it bursts like fireworks. The stage goes dark, save for a single spotlight on the chalk flamingo, now inexplicably dancing.</strong>)</p>
+    <p class="more-line"><strong>Act I: Valledupar—Land of Giant Mangos and Existential Sweating</strong></p>
+    <p class="more-line">Valledupar is inexplicably sweltering, with the kind of heat that could roast marshmallows from 100 feet away. Vendors frantically attempt to sell mangos so massive they require wheelbarrows, while occasionally yelling things like, “Step right up! Get your government-issued Mango of Doom!” The pavement groans under the stomping of boots belonging to guards from La Tramacúa—the notorious local penitentiary—which sits atop the town like a grumpy concrete toad.</p>
+    <p class="more-line">Under a skeletal jacaranda tree (which seems actively annoyed to be alive), a <strong>Little Girl</strong> crouches, holding a piece of chalk that is mysteriously shaped like a lobster. She begins to draw an anatomically accurate unicorn.</p>
+    <p class="more-line">Her <strong>Mother</strong>, struggling to balance three bruised mangos (each one inexplicably wearing sunglasses), glances toward the prison, which is somehow both ominous and weirdly judgmental. “Happy?” she scoffs. “Nothing’s been happy since the Mayor declared Wednesdays ‘Mandatory Mango Appreciation Day.’”</p>
+    <p class="more-line"><strong>Act II: The Prophet Appears... and Also Trips Over a Mango</strong></p>
+    <p class="more-line">The Prophet emerges from a cloud of sparkles, his robe sweeping majestically across the cobblestones—until he trips over a comically large mango and lands face-first into a fruit stand. The mangos somehow applaud.</p>
+    <p class="more-line">A <strong>Vendor</strong> interrupts nervously: “Uh, sorry to bother you, mysterious staff-wielding mango expert, but what, exactly, does fear have to do with mangos?”<br>The Prophet ignores the vendor completely and begins pacing theatrically. “Chains rust! Walls crack! And fear… fear MELTS like butter on a mango pancake!”</p>
+    <p class="more-line">The <strong>Little Girl</strong>, unimpressed, holds up her chalk lobster. “Couldn’t fear just move to Hawaii instead?”<br>The Prophet freezes, staring at her intensely before exclaiming, “TIME WILL TELL!” He then walks straight into another fruit cart, which collapses under the sheer absurdity of his existence.</p>
+    <p class="more-line">Inside the penitentiary, time doesn’t tick—it sighs loudly, rolls its eyes, and pretends not to notice the chaos around it. The walls aren’t just damp—they actively drip with sarcasm. Prisoners pace back and forth like caffeinated penguins, some attempting to train pigeons to write love letters. Meanwhile, one man loudly serenades an uncooperative mop.</p>
+    <p class="more-line"><strong>Inmate #1</strong> (<em>holding a worn photograph</em>): “Her smile... like mango jam, sweet and fleeting, but tragically out of reach!”<br><strong>Inmate #2</strong> (<em>juggling three oranges and a pineapple</em>): “Barry, mate, your ‘wife’ is literally just the stock photo from a mango-flavored cereal box.”</p>
+    <p class="more-line">A pigeon wearing a tiny hat salutes dramatically before flying directly into the ceiling.<br><strong>Guard</strong> (<em>frantically flipping through a manual titled “Dealing with Sentient Walls”</em>): “Step one: don’t panic. Step two… AHHHHHH!” (<em>He proceeds to faint into a pile of pineapples.</em>)</p>
+    <p class="more-line">“What burns brightest here isn’t their walls,” he declares, juggling three flaming pineapples, “IT’S YOUR LOVE!” (<em>Cue kazoo fanfare.</em>)</p>
+    <p class="more-line">Candles levitate briefly, then begin whistling “Twinkle Twinkle Little Star” for no apparent reason.</p>
+    <p class="more-line">As dawn breaks, the razor wire atop La Tramacúa glints faintly, almost as if it’s tired of existing. Inside the prison, water continues to drip melodramatically from the ceiling, while guards debate whether mango-flavored coffee counts as contraband.</p>
+    <p class="more-line">Meanwhile, back in the marketplace, mangos have somehow unionized, demanding better working conditions. The <strong>Little Girl</strong> finishes her chalk masterpiece: a flamingo riding a motorcycle. It promptly comes to life and speeds off into the sunrise.</p>
+    <p class="more-line">The <strong>Prophet</strong>, watching from the shadows, murmurs to himself, “Empires fall. Chains rust. And mangos…” (<em>he pauses dramatically</em>) “mangos remain eternal.”<br>(<em>Cue thunderous kazoo finale as the stage fades to black.</em>)</p>
+    <p class="more-line"><strong>The Ministry of Cracked Walls and Unreasonably Optimistic Chains</strong></p>
+    <p class="more-line">The streets of Valledupar shimmer under the kind of oppressive heat that makes ice cubes apply for workers’ compensation. Vendors stagger about like exhausted flamingos, frantically hawking mangos the size of beach balls. Flies buzz angrily, engaging in synchronized dive-bombing routines aimed at anyone who dares to breathe.</p>
+    <p class="more-line">She is drawing something with a giant stick of chalk that could double as a battering ram. “Mama, does this flower look happy?” she asks, furrowing her brow at her creation—a flamingo inexplicably playing the accordion.</p>
+    <p class="more-line">Her <strong>Mother</strong>, juggling mangos so bruised they look more like deflated footballs, sighs melodramatically. “Happy? Sweetheart, nobody’s been happy since the mayor declared this town an honorary oven.”</p>
+    <p class="more-line">(<strong>Enter The Prophet in a cloud of glittery smoke, accompanied by a live kazoo rendition of “Ride of the Valkyries.”</strong>)</p>
+    <p class="more-line">The Prophet’s robes billow dramatically despite the absence of wind. His staff hums ominously, occasionally emitting confetti for no particular reason. He strides purposefully into the marketplace, accidentally tripping over a mango that, in its indignation, rolls away muttering threats.</p>
+    <p class="more-line">(<strong>Cue spotlight on La Tramacúa Penitentiary, which emits a suspiciously loud “moo” despite being a prison and not, in fact, a cow.</strong>)</p>
+    <p class="more-line"><strong>Vendor #2</strong> (<em>nervously pointing at the Prophet’s staff</em>): “Er, excuse me, good sir. Are you...talking about mango prices?”<br><strong>Prophet</strong> (<em>ignoring the question entirely</em>): “Walls crumble. Chains rust. Fear breaks apart like soggy croutons!”</p>
+    <p class="more-line">The <strong>Little Girl</strong>, unimpressed, points at her accordion-flamingo drawing. “Couldn’t fear just go on vacation to Bermuda instead?”<br>The Prophet blinks several times before declaring: “That is outside my jurisdiction!” He proceeds to walk directly into a mango cart, which collapses with comical precision.</p>
+    <p class="more-line">Prisoners engage in surreal activities: one is trying to train pigeons to play chess, while another attempts to juggle oranges using only his elbows.</p>
+    <p class="more-line"><strong>Inmate #1</strong> (<em>holding up the beads</em>): “These were my mother’s! They reminded me of rivers that don’t stink!”<br><strong>Inmate #2</strong> (<em>balancing a pineapple on his head</em>): “Barry, mate, stop monologuing about beads. We’re trying to stage an interpretive dance protest.”</p>
+    <p class="more-line">A pigeon wearing a monocle salutes solemnly before flying directly into a guard’s hat.<br><strong>Guard</strong> (<em>frantically flipping through a manual titled “How to Deal with Talking Walls”</em>): “Step one: remain calm. Step two… PAAAANIC!” (<em>He promptly faints into a puddle of mango juice.</em>)</p>
+    <p class="more-line"><strong>Act IV: Hope Blooms Like a Very Confused Flower</strong></p>
+    <p class="more-line">A <strong>Grandmother</strong> pours coffee into a cup so cracked it resembles modern art. “They said this would help us,” she mutters indignantly. “Help us! How does a candle fix prison walls?!” (<em>Her coffee leaks everywhere, causing a passing goat to faint dramatically.</em>)</p>
+    <p class="more-line">A <strong>Man in the Crowd</strong>, momentarily inspired, attempts to juggle flaming mangos but accidentally sets his hat on fire. The crowd cheers anyway.</p>
+    <p class="more-line">(<strong>The stage darkens as the Little Girl finishes her drawing—a flamingo riding a rocket ship. It promptly comes to life, salutes the crowd, and launches into the sky amid thunderous kazoo fanfare.</strong>)</p>
+    <p class="more-line">As dawn breaks, La Tramacúa appears inexplicably smaller, as though it decided to give up halfway through existing. The prisoners begin debating whether mango-flavored toothpaste should be banned, while pigeons organize a chess tournament.</p>
+    <p class="more-line">Back in the town square, mangos have unionized. The Little Girl stands proudly beside her chalk drawing, now featuring a flamingo moonwalking across Saturn. The <strong>Prophet</strong>, watching from the shadows, mutters quietly to himself: “Every wall cracks. Every chain rusts. And sometimes… flamingos rise.”</p>
+    <p class="more-line">(<strong>Enter The Prophet</strong>, emerging from behind a mysteriously oversized pineapple. His crooked staff taps the ground with an ominous rhythm that causes the nearby pebbles to start tap-dancing. He traces circles in the dirt for absolutely no reason other than dramatic effect.)</p>
+    <p class="more-line"><strong>Prophet</strong> (<em>whispering into the night</em>): “Every chain rusts, every wall cracks, and every pineapple eventually turns into compost... Their time will end—it always does!”<br>(<strong>The staff emits confetti and random kazoo noises, signaling the end of Act I.</strong>)</p>
+    <p class="more-line">The bustling streets of <strong>Manila</strong> appear as though painted by a toddler who decided realism was boring. The air hums faintly, carrying the smell of rebellion and overly ripe bananas. Vendors yell prices so absurd that reality pauses to protest: “Two million pesos for ONE mango! Includes free despair!”</p>
+    <p class="more-line">Among the chaos, a <strong>Woman</strong> in a tiny stall sells mismatched trinkets: a locket without a chain, a ring missing its gem, and a watch that mysteriously ticks backwards. She dusts them off with exaggerated care.<br><strong>Vendor Woman</strong> (<em>waving a gemless ring like it’s an ancient artifact</em>): “These were left behind by people who couldn’t afford two-million-peso mangos. But they’re priceless now! Definitely not cursed!”</p>
+    <p class="more-line">Children chase a soccer ball so worn it resembles a deflated melon. The ball rolls away, somehow gaining sentience, and lands near The Prophet’s feet. He picks it up carefully, holding it like the secrets of the universe lie within its battered surface.<br><strong>Prophet</strong> (<em>turning the ball in his hands as it emits dramatic sighs</em>): “Everything built to dominate crumbles eventually... except for that one vending machine at the airport.”</p>
+    <p class="more-line"><strong>Prophet</strong> (<em>placing the soccer ball gently onto the ground</em>): “To hold their fear. But fear is like pudding—it doesn’t last.”<br>(<strong>The boy nods solemnly. The soccer ball rolls itself back into the game, immediately scoring a goal, causing pigeons to perform synchronized backflips in celebration.</strong>)</p>
+    <p class="more-line">As dawn breaks, mango inflation decreases slightly, causing pigeons to celebrate with synchronized kazoo performances. The <strong>Prophet</strong>, watching from the shadows while inexplicably surrounded by floating mangoes, murmurs: “Every chain rusts. Every wall cracks. And sometimes… the pigeons win.”<br>(<em>Cue crescendo as a pigeon wearing tiny sunglasses moonwalks offstage. The curtains fall dramatically.</em>)</p>
+    <p class="more-line">The stage opens on Weber’s study, an overly dramatic labyrinth of maps, artifacts, and at least three unmarked boxes of snacks. The maps are inexplicably animated—one of them raises a hand and waves politely. Another bursts into song before quietly folding itself back into submission.</p>
+    <p class="more-line">Weber sits at his desk, furrowing his brow as he pokes at a piece of paper that quivers nervously under his pen. Nearby, a suspicious box filled with random prisoner belongings growls softly. Inside are objects of questionable significance: a scarf that begins unraveling as though it has places to be and a locket whose missing photograph might—or might not—be vacationing in Hawaii.</p>
+    <p class="more-line">He underlines the word “healed” with such force that his pen screams and bursts into flames.<br><strong>Weber</strong> (<em>frustrated, to no one in particular</em>): “Oh, come on! That was my last working pen!”</p>
+    <p class="more-line">(<strong>Enter The Prophet</strong>—via the window, because doors are for peasants. He appears accompanied by a kazoo orchestra playing an off-key version of "Ride of the Valkyries.”)</p>
+    <p class="more-line"><strong>Prophet</strong> (<em>surveying the chaos while stepping directly into a box of cookies</em>): “What you imagine isn’t impossible... unless it involves teleporting marmots. Then we’ve got issues.”</p>
+    <p class="more-line">Weber stares at him, wide-eyed, as though his library just started moonwalking. “But how do we even begin?!”<br><strong>Prophet</strong> (<em>tapping Weber’s notebook with his staff, which promptly emits glitter</em>): “By walking where they walked... preferably not while wearing banana-shaped shoes.”<br>Weber looks down, realizing he <em>is</em>, in fact, wearing banana-shaped shoes. (<strong>Cue embarrassed kazoo solo.</strong>) The Prophet exits by doing a backflip into the curtains.</p>
+    <p class="more-line">The cobblestones of Oslo are suspiciously clean, almost unnaturally sparkly. Birds sing cheerfully, though one of them is clearly tone-deaf and keeps squawking the opening notes of Beethoven’s Fifth.</p>
+    <p class="more-line">The <strong>Prophet</strong> reappears, riding a unicycle made of questionably ripe bananas. His crooked staff hums ominously, occasionally shooting out bubbles for comedic effect.<br><strong>Prophet</strong> (<em>gesturing grandly at the reintegration center</em>): “Justice doesn’t need punishment—it needs... glitter cannons! No, wait, I mean it needs healing. And glitter cannons wouldn’t hurt.”</p>
+    <p class="more-line">Weber, who has somehow been holding an invisible notebook this entire time, mutters to himself, “This doesn’t feel historically accurate.”</p>
+    <p class="more-line">The <strong>Prophet</strong>, ignoring him entirely, begins planting plastic flowers in the cobblestones. “Hope grows wherever it pleases!” he declares. “Even if it's surrounded by pigeons.” (<strong>Spotlight on pigeons doing synchronized ballet in the background.</strong>)</p>
+    <p class="more-line">Cut to the cracked ruins of Carcel de Bilibid, which look as though they’re held together purely by spite. Moss clings dramatically to the walls, while an orange vendor nearby rearranges her wares with the precision of a high-stakes chess match. Enter Weber, stumbling cautiously over cobblestones that emit the occasional <em>“ouch.”</em></p>
+    <p class="more-line">The <strong>Prophet</strong> appears out of thin air, holding a coffee cup labeled “World’s Greatest Time Traveler.” He places his palm on the stone, which promptly begins to giggle.<br><strong>Prophet</strong> (<em>to the wall, sternly</em>): “They built you out of fear. But you don’t have to act so moody.”<br>The wall humphs loudly in response.</p>
+    <p class="more-line">Nearby, the <strong>Orange Vendor</strong> raises a skeptical eyebrow. “Hope? Here? Have you seen my profits lately?”<br><strong>Prophet</strong> (<em>turning to her with exaggerated determination</em>): “Hope grows wherever it pleases—like uninvited houseplants!”<br>(<strong>The wall immediately sprouts daisies. Everyone pretends not to notice.</strong>)</p>
+    <p class="more-line"><strong>Act IV: They Took Her! And Also the Prophet’s Kazoo</strong></p>
+    <p class="more-line">An <strong>Activist</strong> appears at the corner, standing atop a suspiciously large barrel labeled "Emergency Pancakes."</p>
+    <p class="more-line">(<strong>Cue dramatic thunder and at least four pigeons fainting for no particular reason.</strong>) The crowd erupts into cheers so loud they summon The Prophet, who descends from the sky on a parachute made entirely of twinkling Christmas lights.</p>
+    <p class="more-line">Weber, now entirely bewildered and holding what appears to be a mango-shaped kazoo, asks, “How do we keep going?”<br><strong>Prophet</strong> (<em>tapping his staff, which emits celebratory confetti</em>): “By refusing to forget. And by eating pancakes. Lots of pancakes.”</p>
+    <p class="more-line">Children laugh as they chase a soccer ball that occasionally emits random quotes from Shakespeare. The ball skids to a stop at The Prophet’s feet, who picks it up reverently.<br><strong>Prophet</strong> (<em>to the soccer ball</em>): “Everything built to dominate crumbles. Except you, apparently.”</p>
+    <p class="more-line"><strong>Prophet</strong> (<em>sighing dramatically</em>): “To hold their fear. But fear is like pudding—it wiggles and doesn’t last.”<br>(<strong>A rogue kazoo solo signals the end of the scene, as pigeons attempt to steal the spotlight one last time.</strong>)</p>
+    <div class="more-doors">
+      <a class="more-whole" href="/words/2025-variety/brrd-roots-empire-of-cells-version-eight/">The whole writing ...</a>
+      <a class="more-back" href="/"><span class="more-back-words">Back to the laughs ...</span>&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script src="/blinds.js"></script>
+</body>
+</html>

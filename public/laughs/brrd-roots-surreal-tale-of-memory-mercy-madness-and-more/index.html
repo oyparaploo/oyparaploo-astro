@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="/still.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Surreal Tale of Memory, Mercy, Madness, and More · Paraploo</title>
+<meta name="description" content="From Surreal Tale of Memory, Mercy, Madness, and More. Paraploo.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<style id="thread-door">
+.site-header { box-sizing: border-box; }  /* as on the Welcome page: the header stays inside the window */
+/* ==========================================================================
+   The front door as one thread, made whole November 6, 2026, from the shape
+   Reach confirmed November 5 (claude/FRONT-DOOR-THREAD-SPEC-2026-11-05.md).
+   Emergence Magazine gives the skeleton: one writing arrives on the first
+   screen, then Read, Look, Listen and one walk (Craig Mod), with one of
+   Reach's own lines set large between the groups (Maira Kalman).
+   ========================================================================== */
+:root {
+  --edge: 24px;
+  --col: 32px;
+  --air: 144px;
+  --reading: 750px;
+  --face-head: 'Archivo', 'Inter', sans-serif;
+  --door-ground: #f9f7f4;            /* the front door's cream, kept */
+  --rule: rgba(17, 17, 17, 0.18);
+  --arrive-ground: #120d0a;          /* under the haze, before the picture loads */
+  --walk-band: #E6EADF;              /* Wonderful Garbage's own green (#3B4931), made pale */
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --door-ground: var(--ground);
+    --rule: rgba(217, 215, 206, 0.2);
+    --walk-band: #1A2015;            /* the walk's own green, its deep end */
+  }
+}
+html[data-theme="dark"] {
+  --door-ground: var(--ground);
+  --rule: rgba(217, 215, 206, 0.2);
+  --walk-band: #1A2015;
+}
+html:root:root body { background: var(--door-ground); color: var(--ink); --chrome-ground: var(--door-ground); }
+html:root:root body .site-header { background: var(--door-ground); }
+html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; overflow-x: clip; }
+.door *, .door *::before, .door *::after { box-sizing: border-box; }
+.door p, .door h1, .door h2, .door h3, .door figure { margin: 0; text-wrap: pretty; }
+.door a { color: inherit; text-decoration: none; }
+.door img { display: block; max-width: 100%; height: auto; }
+.door :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.kind { display: block; font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+.arr { display: inline-block; transition: transform .3s var(--ease); }
+@media (hover: hover) { a:hover .arr { transform: translateX(5px); } }
+
+/* ---------- 1. The arrival: one writing fills the first screen ---------- */
+.arrive {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--arrive-ground); color: var(--ink-on-dark);
+  min-height: calc(100svh - 120px);
+  display: flex; align-items: center;
+}
+/* The photograph's own haze runs edge to edge; the photograph itself stays whole. */
+.arrive-haze { position: absolute; inset: -80px; z-index: -1; }
+.arrive-haze img { width: 100%; height: 100%; max-width: none; object-fit: cover; filter: blur(48px) saturate(1.15) brightness(0.62); }
+.arrive-haze::after { content: ""; position: absolute; inset: 0; background: rgba(12, 9, 7, 0.52); }
+.arrive-in {
+  width: 100%; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: var(--col); align-items: center; padding: 48px var(--edge);
+}
+.arrive-words { max-width: 620px; }
+.arrive-title {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1.04; letter-spacing: -0.018em; margin: 0 0 28px !important;
+  text-wrap: balance;
+}
+.arrive-lines { font-size: 20px; line-height: 1.62; }
+.arrive-lines p + p { margin-top: 14px; }
+.arrive .on { display: inline-flex; gap: 8px; margin-top: 26px; font-weight: 600; font-size: 18px; }
+@media (hover: hover) { .arrive-read:hover .arrive-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; } }
+.arrive-fig { justify-self: end; }
+.arrive-pic img { width: auto; max-width: 100%; max-height: calc(100svh - 260px); min-height: 0; }
+.arrive-fig figcaption { margin-top: 12px; font-size: 16px; line-height: 1.35; text-align: right; }
+.cap-link .cap-nm { display: block; }
+.cap-link .cap-no { display: block; color: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.82); }
+@media (hover: hover) { .cap-link:hover .cap-nm { text-decoration: underline; } }
+
+/* ---------- 2. A line between the groups (Maira Kalman) ---------- */
+.thread { margin: var(--air) var(--edge); text-align: center; }
+.thread a { display: inline-block; max-width: 1320px; }
+.thread-words {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
+}
+.thread-from { display: inline-flex; gap: 8px; margin-top: 24px; font-size: 18px; font-weight: 500; color: var(--ink-soft); }
+@media (hover: hover) { .thread a:hover .thread-words { color: var(--accent); } }
+
+/* ---------- 3 to 6. The groups ---------- */
+.group { margin: var(--air) var(--edge) 0; padding-top: 36px; border-top: 1px solid var(--ink); }
+.thread + .group { margin-top: 0; }
+.group-name {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px !important;
+}
+.t {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 14px !important;
+  text-wrap: balance;
+}
+.first { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.by { font-size: 18px; font-weight: 600; margin: -6px 0 12px !important; }
+@media (hover: hover) { a:hover .t, a:hover .set, a:hover .stop-line { color: var(--accent); } }
+
+/* Three of a kind, side by side, thin lines between (Read and Listen). */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.three > * { padding: 0 var(--col); border-left: 1px solid var(--rule); }
+.three > :first-child { padding-left: 0; border-left: 0; }
+.three > :last-child { padding-right: 0; }
+
+/* Look: one straight row, tops level, every picture whole at its own shape. */
+.prow { display: flex; gap: var(--col); align-items: flex-start; }
+.prow > a { flex: var(--ar) 1 0; min-width: 0; display: block; }
+.prow img { width: 100%; }
+.cap { margin-top: 14px; font-size: 18px; line-height: 1.4; }
+.cap .kind { margin-bottom: 2px; }
+.cap .set { display: block; font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.cap .no { display: block; margin-top: 4px; color: var(--ink-soft); }
+
+/* One walk, on its own colour (Craig Mod). */
+.group.walk { margin: 0; padding: 72px var(--edge) 88px; border-top: 0; background: var(--walk-band); }
+.walk-name { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.1; margin: -24px 0 10px !important; }
+.walk-line { font-size: 22px; line-height: 1.45; max-width: var(--reading); }
+.stops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--col); margin-top: 48px; }
+.stop img { width: 100%; }
+.stop-name { display: block; margin-top: 16px; font-size: 18px; font-weight: 600; }
+.stop-line { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.18; margin-top: 6px !important; }
+.door-btn {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 56px;
+  font-weight: 600; font-size: 18px; line-height: 1;
+  padding: 14px 18px; border: 1.5px solid var(--ink); border-radius: 5px;
+  color: var(--ink); background: transparent;
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .door-btn:hover { background: var(--ink); color: var(--walk-band); } }
+.door-btn:active { background: var(--ink); color: var(--walk-band); }
+
+/* ---------- 7. The doors at the foot, unchanged ---------- */
+.foot-doors { display: flex; flex-wrap: wrap; gap: 64px; margin: 0 var(--edge) 96px; padding-top: 40px; border-top: 1px solid var(--ink); }
+.walk + .foot-doors { margin-top: var(--air); }
+.home-door { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; color: var(--ink); }
+.home-door:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) { .arr, .door-btn { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.door-btn { transition: none; }
+
+
+/* ---------- Narrower windows ---------- */
+@media (max-width: 1100px) {
+  .arrive-title { font-size: 40px; }
+  .thread-words { font-size: 46px; }
+}
+/* The phone (The Atavist): one column, every picture full width, a thin rule between pieces, a picture on the first screen. */
+@media (max-width: 800px) {
+  :root { --air: 96px; }
+  .arrive { min-height: 0; display: block; }
+  .arrive-in { grid-template-columns: minmax(0, 1fr); padding: 0 0 40px; gap: 0; }
+  .arrive-fig { order: -1; justify-self: stretch; }
+  .arrive-pic img { width: 100%; max-height: none; }
+  .arrive-fig figcaption { text-align: left; padding: 10px var(--edge) 0; }
+  .cap-link .cap-nm, .cap-link .cap-no { display: inline; }
+  .cap-link .cap-no { margin-left: 8px; }
+  .arrive-words { padding: 28px var(--edge) 0; }
+  .arrive-title { font-size: 34px; line-height: 1.08; margin-bottom: 20px !important; }
+  .arrive-lines { font-size: 19px; }
+  .thread-words { font-size: 34px; line-height: 1.12; }
+  .thread { text-align: left; }
+  .group-name { font-size: 36px; margin-bottom: 32px !important; }
+  .t { font-size: 24px; }
+  .three { grid-template-columns: minmax(0, 1fr); }
+  .three > * { padding: 28px 0 0 !important; border-left: 0 !important; border-top: 1px solid var(--rule); margin-top: 28px; }
+  .three > :first-child { padding-top: 0 !important; border-top: 0; margin-top: 0; }
+  .prow { flex-direction: column; gap: 0; }
+  .prow > a { flex: none; width: auto; margin: 0 calc(-1 * var(--edge)); }
+  .prow > a + a { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .prow .cap { padding: 0 var(--edge); }
+  .group.walk { padding: 56px var(--edge) 64px; }
+  .walk-name { font-size: 28px; margin-top: -16px !important; }
+  .walk-line { font-size: 20px; }
+  .stops { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 36px; }
+  .stop { margin: 0 calc(-1 * var(--edge)); display: block; }
+  .stop + .stop { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .stop-name, .stop-line { padding: 0 var(--edge); }
+  .stop-line { font-size: 24px; }
+  .door-btn { margin-top: 40px; }
+  .foot-doors { flex-direction: column; gap: 24px; }
+}
+
+/* ---------- 0. The laugh: one funny line, alone and large (claude/HUMOR-FRONT-RULED-2026-11-19.md) ----------
+   The homepage's first screen, above the arrival. One line in Reach's exact words, the writing it came from
+   as a door, and "Another ...". Nine tenths of the window: the top of the arrival shows below it.
+   --laugh-top is where the page begins under the date strip and the header, set by the script below. */
+.laugh {
+  min-height: calc(90svh - var(--laugh-top, 112px));
+  display: flex; align-items: center;
+  padding: 56px var(--edge);
+  background: var(--door-ground); color: var(--ink);
+}
+.laugh-in { width: 100%; max-width: 1000px; margin: 0 auto; }
+.laugh-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 44px; line-height: 1.1; letter-spacing: -0.015em;
+  text-wrap: pretty; overflow-wrap: break-word;
+}
+.laugh-line.is-long { font-size: 32px; line-height: 1.18; letter-spacing: -0.01em; }
+.laugh-line strong { font-weight: inherit; }   /* the writing's bold marks: the heading face is already bold */
+/* The door: "From", the title and its arrow, as the three lines lower on the homepage read (Reach's yes,
+   November 19, 2026); only the title takes the underline. The title's last word never parts from the arrow,
+   so the arrow is never alone on a line when a title wraps. */
+.laugh-from { display: inline-block; margin-top: 28px; font-size: 18px; font-weight: 500; color: var(--ink); }
+.laugh-keep { white-space: nowrap; }
+.laugh-from .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .laugh-from:hover .laugh-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+.laugh-act { margin-top: 40px; }
+.laugh-another {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .laugh-another:hover { background: var(--ink); color: var(--door-ground); } }
+.laugh-another:active { background: var(--ink); color: var(--door-ground); }
+.laugh-another:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+/* The change: the new line and its title fade in over 0.2 seconds; with Still or less motion, an instant swap. */
+.laugh-deal.is-dealt { animation: laugh-fade .2s ease; }
+@keyframes laugh-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .laugh-deal.is-dealt { animation: none; } .laugh-another { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .laugh-deal.is-dealt, html.pp-still.laugh-deal.is-dealt { animation: none; }
+html.pp-still .laugh-another, html.pp-still.laugh-another { transition: none; }
+
+/* The phone: the same screen in the same order; the line 28 pixels, 22 for longer ones; the button full width, 44 tall.
+   A long line is never cut: the screen grows instead. */
+@media (max-width: 800px) {
+  .laugh { padding: 40px var(--edge); }
+  .laugh-line { font-size: 28px; line-height: 1.16; }
+  .laugh-line.is-long { font-size: 22px; line-height: 1.3; }
+  .laugh-from { margin-top: 22px; }
+  .laugh-act { margin-top: 32px; }
+  .laugh-another { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+}
+
+
+/* ---------- More from that writing: the humor front's second layer (confirmed November 20, 2026) ----------
+   A small page for one writing: "From" and its title, then every passage Reach marked as a laugh or a smile,
+   all looking the same, in the order he wrote them. Two doors at the foot. No counts, no rules, no numbers. */
+.more { padding: 72px var(--edge) 96px; background: var(--door-ground); color: var(--ink); min-height: 70svh; }
+.more-in { width: 100%; max-width: 680px; margin: 0 auto; }
+.more .more-from { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 48px; color: var(--ink); }
+.more-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 24px; line-height: 1.25; letter-spacing: -0.01em;
+  text-wrap: pretty; overflow-wrap: break-word; margin: 0;
+}
+.more-line + .more-line { margin-top: 48px; }
+.more-line strong { font-weight: inherit; }
+.more-doors { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 32px; margin-top: 72px; }
+.more-whole {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .more-whole:hover { background: var(--ink); color: var(--door-ground); } }
+.more-whole:active { background: var(--ink); color: var(--door-ground); }
+.more-whole:focus-visible, .more-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.more-back { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.more-back .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .more-back:hover .more-back-words { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .more-whole { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .more-whole, html.pp-still.more-whole { transition: none; }
+
+@media (max-width: 800px) {
+  .more { padding: 40px var(--edge) 64px; }
+  .more .more-from { margin-bottom: 36px; }
+  .more-line { font-size: 20px; line-height: 1.3; }
+  .more-doors { display: block; margin-top: 56px; }
+  .more-whole { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+  .more-back { display: inline-block; margin-top: 22px; }
+}
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link rel="stylesheet" href="/sun-moon.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<link rel="stylesheet" href="/still.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/laughs/brrd-roots-surreal-tale-of-memory-mercy-madness-and-more/">
+</head>
+<body>
+<div class="theme-strip"><span class="theme-date"><span class="sun-moon" aria-hidden="true"><svg class="sm-sun" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><circle cx="12" cy="12" r="4.2"/><path d="M12 5.4L12 1.2M8.7 6.28L7.5 4.21M6.28 8.7L2.65 6.6M5.4 12L3 12M6.28 15.3L2.65 17.4M8.7 17.72L7.5 19.79M12 18.6L12 22.8M15.3 17.72L16.5 19.79M17.72 15.3L21.35 17.4M18.6 12L21 12M17.72 8.7L21.35 6.6M15.3 6.28L16.5 4.21"/></svg><svg class="sm-moon" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><path d="M11.76 3.5A8.51 8.51 0 1 0 20.18 15.28A7.33 7.33 0 0 1 11.76 3.5Z"/></svg></span><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="still-rule" aria-hidden="true"></span><button type="button" class="still-choice" aria-pressed="false">Still</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/explore">Explore</a><a href="/search">Search</a><a href="/shuffle" class="shuffle-word" aria-label="Shuffle ..."><svg class="shuffle-svg" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M2.5 6.5h3.2c2.1 0 3.4 1 4.6 2.8l3.4 5.4c1.2 1.8 2.5 2.8 4.6 2.8h3.2"/><path d="M2.5 17.5h3.2c2.1 0 3.4-1 4.6-2.8l.55-.87M13.15 10.17l.55-.87c1.2-1.8 2.5-2.8 4.6-2.8h3.2"/><path d="M18.9 3.9l2.6 2.6-2.6 2.6M18.9 14.9l2.6 2.6-2.6 2.6"/></svg></a></nav></header>
+
+<main class="door">
+
+<section class="more" aria-label="More from this writing">
+  <div class="more-in">
+    <h1 class="more-from">From Surreal Tale of Memory, Mercy, Madness, and More</h1>
+    <p class="more-line">At first, the mayor declared everything was fine,<br>despite the rivers running backward<br>and citizens waking up with their memories erased.<br>"Just a temporary administrative glitch,"<br>they assured,<br>smiling through perfectly bleached teeth.</p>
+    <p class="more-line">Then, the streets began growing limbs.<br>A lamppost shook hands with a stray dog,<br>and crosswalk signals started whispering ancient philosophy<br>to bewildered pedestrians.<br>"I swear it just told me that free will is an illusion!"</p>
+    <p class="more-line">It had once smelled of mangoes,<br>thanks to the fruit vendor<br>who shouted every morning,<br>"Mangoes! Defiant mangoes! The fruit of revolutions!"<br>That vendor had known her since childhood,<br>tossing her the ripest ones with a wink.<br>Her father had laughed,<br>calling the vendor an anarchist of agriculture.</p>
+    <p class="more-line">Names like Maverick or Rebel don’t belong to responsible individuals—they belong to people who wear sunglasses indoors, despite the fact that they keep tripping over furniture. These are the names of those who disregard traffic signs as “merely a suggestion” and who believe that any situation, no matter how dire, can be resolved with one dramatically timed wink.</p>
+    <p class="more-line">If given a task requiring precision, you can be absolutely certain they’ll execute it with a flourish—and then casually walk away from the ensuing disaster as though explosions are simply part of their aesthetic. Their motto? Rules are for other people.</p>
+    <p class="more-line">Then we have Delilah, Dexter, and other troublemakers—the kinds of names whispered in dimly lit taverns alongside phrases like “you didn’t hear this from me” or “we don’t talk about what happened last Tuesday.” Delilah, of course, has been ruining things since biblical times, and Dexter—well, let’s just say there’s no good reason to trust someone who smiles that much while sharpening a spoon.</p>
+    <p class="more-line">These are the people who could take responsibility… but only if they felt like it (which, spoiler alert, they do not). If confronted, their immediate response would be a dramatic gasp, followed by “Who, ME?!” and an unnecessarily elaborate escape plan involving an outrageously impractical disguise, such as a very small shrub.</p>
+    <p class="more-line">And then, my dear reader, we arrive at the gloriously fragile—Frail, Brittle, and Wiltington the Uncertain—names that scream, “I am not built for this world.” If asked to take on even the slightest responsibility, they would collapse to the ground, weeping before they’ve even been given the details.</p>
+    <p class="more-line">They are the kind of people who, when handed a clipboard, stare at it as though it contains the secrets of the universe and whisper “No, no, this cannot be mine.” They would faint at the mere concept of a deadline. If placed in charge of a nation, the citizens would swiftly learn that no one is in charge, as their ruler has retreated into the nearest forest to contemplate existence and has not been seen since.</p>
+    <p class="more-line">And in those corners of whispered deals and sly smiles, one name stands above the rest: Slick Whiskers.<br>They say Slick can talk a coin out of a miser’s grip and disappear faster than a promise made in haste.</p>
+    <p class="more-line">Jinx Quickstep is the one with the fastest hands. Blink, and she’s already swiped your watch, slipped it into her own pocket, and convinced you that you never had one in the first place.</p>
+    <p class="more-line">Then there’s Houdini Wink, who insists on a dramatic flair for every deception. If he’s picking a lock, he’ll do it blindfolded. If he’s escaping a sticky situation, expect smoke, mirrors, and a bow before he vanishes into the night.</p>
+    <p class="more-line">And then, when it’s time for a grand con, enter Flash Fiddle, whose fingers dance over cards and coins like they were made for mischief. He doesn’t just pull a fast one—he turns it into art. His tricks leave audiences dazzled and opponents baffled, because even when they know they’re being deceived, they can’t help but applaud.</p>
+    <p class="more-line">For weeks, suspiciously well-dressed pigeons roamed the harbor, delivering cryptic notes that said things like “He will return when the tide forgets how to ebb” and “Never trust a cat in a waistcoat.” No one knew where the notes came from, but the mayor—still speaking exclusively in riddles—declared them “most intriguing” before vanishing into his study with a magnifying glass and a loaf of bread (which, he insisted, aided in deep thought).</p>
+    <p class="more-line">Meanwhile, in Everhollow Vale, the great willow tree started humming. Not actual words, mind you, but a deep, resonant tune that sounded suspiciously like the anthem of a lost kingdom. The villagers held an emergency meeting, which was promptly interrupted when Squire Nibbles, the town’s unusually intellectual squirrel, dramatically rolled out a scroll written in perfect calligraphy that simply read: “It begins.” What begins? No one knew. But the squirrel seemed confident, so naturally, preparations for whatever it was commenced immediately.</p>
+    <p class="more-line">Over in Ashbourne Hollow, the trees became unusually opinionated. A debate broke out between the oaks and the birches over whether Windsor Gale was truly a traveler or merely a misplaced god. The result was a week-long festival called “The Reckoning of the Leaves”, which mostly involved the townsfolk politely asking the trees to please settle down because not everyone had time for divine conspiracies before breakfast.</p>
+    <p class="more-line">And then—just as the towns were reaching peak chaos—a new message arrived. Not from the pigeons, not from the squirrel, and not from the trees.</p>
+    <p class="more-line">Behind him, Professor Whiskerstein murmurs formulas into the bones of the city—into brick walls, into rusted pipes, into air that hums too deeply. His calculations do not predict the future. They simply remind it of what it was supposed to be.</p>
+    <p class="more-line">Near the river that changes direction when no one is watching, Tater Von Spudsworth adjusts the potato on its precarious perch. It leans slightly forward, and he nods. The signs are good. The world is listening.</p>
+    <p class="more-line">At the far edge of perception, Ziggy McFidget flickers like bad reception, shifting between possibilities at a rate too fast for the universe to argue. He has existed everywhere, but never exactly here.</p>
+    <p class="more-line">Meanwhile, Baron Von Kerfuffle whispers something into the spine of a paperback left on a park bench. Someone will pick it up tomorrow and forget what chapter they were on. Someone will check their pockets and find a key they do not own. Somewhere, an elevator will insist it has no floors at all.</p>
+    <p class="more-line">In the corner booth of a diner that appears only on Thursdays, Muffin Blunderbuss adjusts his plate, watching the shadows stretch unnaturally beneath it. The muffin knows something, but it will not speak first. He respects this.</p>
+    <p class="more-line">And then, from the rooftops, Ezekiel Flapdash surveys the city like a clock too aware of its own hesitation. He is not waiting for anything specific. He is waiting for nothing in particular—because some moments only exist when no one is paying attention. Beside him, a pigeon stares, unmoving. It has seen this happen before.</p>
+    <p class="more-line">The Earth Had Always Known What It Was Doing.<br>Humans, however, had doubts.</p>
+    <p class="more-line">It shifted.<br>It breathed.<br>It rolled its metaphorical eyes and recycled itself for the billionth time, ignoring humanity’s tendency to act like confused raccoons making regrettable choices.</p>
+    <p class="more-line">Water arrived exactly when needed.<br>Bread remained mysterious.<br>Forests appeared in places they had absolutely no right to grow.<br>Trees popped up in abandoned malls, looking incredibly pleased with themselves.<br>Oceans inhaled deeply, swept the last of the plastic into the void, and muttered something about "finally getting a moment of peace."</p>
+    <p class="more-line">Needing was taking.<br>Taking was forgetting.<br>Forgetting was remembering incorrectly, but with absolute confidence—<br>which, as it turns out, is humanity’s most cherished skill.</p>
+    <p class="more-line">Ice Shelves That Should Not Exist (But Clearly Had a Point to Prove)</p>
+    <p class="more-line">One morning, ice shelves arrived where they most certainly should not have been.<br>One sat on top of a gas station, judging people for their terrible life choices.<br>One dangled from a bridge, looking <strong>far too dramatic</strong> for something that was supposed to just be frozen water.<br>Several slid down highways without permission, doing donuts around confused commuters.</p>
+    <p class="more-line">People stared.<br>People took selfies.<br>One particularly ambitious person attempted to <strong>claim one as personal property</strong>, screaming something about “I AM NOW THE ARCTIC MONARCH.”</p>
+    <p class="more-line">Plastic vanished overnight.<br>Water immediately erased all memories of its existence.<br>Fish broke into song, composing the <strong>First-Ever Anthem of Freedom</strong> (it was well-received).</p>
+    <p class="more-line">And yet, humans felt <strong>uneasy</strong>—<br>as though they had just been ghosted by something they didn’t realize they loved.</p>
+    <p class="more-line">Some demanded proof.<br>Some refused to believe it.<br>Some expressed deep concern that they now had nothing convenient to <strong>wrap their sandwiches in</strong>.<br>(<strong>SANDWICHES?</strong> REALLY?)</p>
+    <p class="more-line">The Coral That Wouldn’t Stop Growing (And Started Getting a Bit Cocky About It)</p>
+    <p class="more-line">Coral, once delicate, had officially gone rogue.<br>Not only did it <strong>refuse</strong> to die,<br>it <strong>expanded aggressively</strong>,<br>like it had been waiting centuries to say <strong>"LOOK WHO’S IN CHARGE NOW."</strong></p>
+    <p class="more-line">Reefs stretched toward the sky,<br>forming <strong>neon cities of pink and violet</strong>,<br>scientists panicked,<br>tourists booked boat tours,<br>someone <strong>attempted to rent an apartment inside a particularly majestic coral fortress.</strong><br>(It did not end well.)</p>
+    <p class="more-line">Sand, refusing to be <strong>left behind</strong>,<br>learned <strong>how to move independently.</strong><br>It got <strong>a job</strong>.<br>It started <strong>a podcast</strong>.<br>It joined <strong>a punk band</strong>.<br>Humans were <strong>no longer invited</strong>.</p>
+    <p class="more-line">The Explorer Who Surfaced (And Immediately Regretted It)</p>
+    <p class="more-line">Predator and prey had stopped chasing each other.<br>They were now <strong>in contractual negotiations.</strong><br>There was <strong>paperwork.</strong><br>Lawyers had been hired.<br>It was <strong>complicated.</strong></p>
+    <p class="more-line">The circle widened.<br>Movement hesitated.<br>Patterns completely <strong>forgot their original purpose</strong> and started drawing <strong>abstract geometric art</strong> instead.</p>
+    <p class="more-line">Seaweed forests murmured in hushed tones,<br>gossiping like <strong>underwater grandmothers</strong> who had seen <strong>far too much nonsense in their time.</strong></p>
+    <p class="more-line">Mycelium lifted itself as if preparing to <strong>deliver a keynote speech</strong> at an existential conference.<br>Moss debated whether <strong>moving to a different climate</strong> would fix its problems.<br>Earth considered <strong>filing a lawsuit against gravity</strong>.<br>Sky denied <strong>all allegations of instability</strong>.<br>Heat filed for <strong>temporary leave</strong>.<br>Wind <strong>requested to work remotely</strong>.<br>Time <strong>exited the conversation entirely</strong>,<br>saying it was “just not in the mood for this.”</p>
+    <p class="more-line">It was unclear if reality was improving,<br>or if it had just taken a wrong turn into <strong>whatever this was now.</strong></p>
+    <p class="more-line">Nature Politely Declined the Offer of Leadership</p>
+    <p class="more-line">Nature did <strong>not</strong> want control.<br>It did <strong>not</strong> want responsibility.<br>It did <strong>not</strong> want its name on <strong>any official documents.</strong><br>Mushrooms sighed,<br>shook their heads,<br>and disappeared into the dirt.</p>
+    <p class="more-line">Time <strong>rolled onto its side</strong><br>and <strong>took a very necessary nap.</strong><br>Nothing woke it up.</p>
+    <p class="more-line">One hour flat-out <strong>quit.</strong><br>Left the room.<br>Slammed the door behind it.<br>The others <strong>clocked out early.</strong><br>(They weren’t getting paid enough for this.)</p>
+    <p class="more-line">Mushrooms blinked out of sight.<br>No longer where they had been,<br>not yet where they would be,<br>not <strong>entirely sure</strong> they had ever existed in the first place.</p>
+    <p class="more-line">The explorer imagined something <strong>grand, historic, unforgettable</strong>.<br>And in that exact moment—<br>they <strong>completely forgot</strong> what they were thinking about.</p>
+    <p class="more-line">Birds carved messages into imagined <strong>water walls</strong>.<br>Then the <strong>water walls melted</strong>.<br>(Which, honestly, was a <strong>design flaw from the start</strong>.)</p>
+    <p class="more-line">Like the <strong>silence</strong> that followed when ghosts <strong>collectively decided</strong> to cancel <strong>all hauntings indefinitely</strong>.</p>
+    <p class="more-line">somewhere,<br>a <strong>lemon made a choice that changed everything</strong>.<br>No one noticed.</p>
+    <p class="more-line">Something needed to be <strong>rewritten</strong>.<br>Nothing had the <strong>motivation</strong> to do it.<br>And honestly?<br>That was fine.</p>
+    <p class="more-line">An ice shelf casually slid down a highway,<br>weaving between traffic, pretending this was <strong>normal behavior</strong>.</p>
+    <p class="more-line">Wind was back at its job.<br>Heat had returned from its leave.<br>Gravity had apparently won its lawsuit.<br>And time—<strong>time was wide awake</strong>,<br>pretending it hadn’t ghosted reality just moments ago.</p>
+    <p class="more-line">The explorer grabbed a soggy piece of driftwood<br>and furiously scratched a message onto it:<br><strong>“YOU ARE NOT FOOLING ME.”</strong></p>
+    <p class="more-line">A Guide to Finding Meaning While Everything Experiences a Meltdown</p>
+    <p class="more-line">Humans care about saving Mother Earth.<br>Or they don’t.<br>Or they do, but only when reminded.<br>Or only when what vanishes starts pressing against their certainty—<br>like when their favorite beach suddenly becomes an underwater attraction.</p>
+    <p class="more-line">(And honestly, the bread situation should concern people more than it does. Priorities, folks.)</p>
+    <p class="more-line">Plastic—so much plastic.<br>Rivers, seas, spirals of waste<br>floating, tethering, breaking apart,<br>never dissolving.<br>(It’s like a bad relationship—it just won’t go away.)</p>
+    <p class="more-line">Shroom-riding on the back of a pajama queen<br>or a drifting fragment of yesterday.<br>(Yes, pajama queens are real. Don’t ask questions.)</p>
+    <p class="more-line">(Let’s pretend none of this was metaphorical<br>and someone actually found a mystical sandal.)</p>
+    <p class="more-line">(Which is exactly why you should not trust anything<br>that markets itself as "forever"—except trees.<br>Trees know what they’re doing.)</p>
+    <p class="more-line">Script chirp, chuckle,<br>smoking rainbows swishing past.<br>Swish—<br>followed by a worse sound,<br>followed by another whoosh.</p>
+    <div class="more-doors">
+      <a class="more-whole" href="/words/2025-variety/brrd-roots-surreal-tale-of-memory-mercy-madness-and-more/">The whole writing ...</a>
+      <a class="more-back" href="/"><span class="more-back-words">Back to the laughs ...</span>&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script src="/blinds.js"></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="/still.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From The Joy Infrastructure Manual · Paraploo</title>
+<meta name="description" content="From The Joy Infrastructure Manual. Paraploo.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/chrome.css?v=20260927-arrows">
+<script src="/theme.js"></script>
+<style id="thread-door">
+.site-header { box-sizing: border-box; }  /* as on the Welcome page: the header stays inside the window */
+/* ==========================================================================
+   The front door as one thread, made whole November 6, 2026, from the shape
+   Reach confirmed November 5 (claude/FRONT-DOOR-THREAD-SPEC-2026-11-05.md).
+   Emergence Magazine gives the skeleton: one writing arrives on the first
+   screen, then Read, Look, Listen and one walk (Craig Mod), with one of
+   Reach's own lines set large between the groups (Maira Kalman).
+   ========================================================================== */
+:root {
+  --edge: 24px;
+  --col: 32px;
+  --air: 144px;
+  --reading: 750px;
+  --face-head: 'Archivo', 'Inter', sans-serif;
+  --door-ground: #f9f7f4;            /* the front door's cream, kept */
+  --rule: rgba(17, 17, 17, 0.18);
+  --arrive-ground: #120d0a;          /* under the haze, before the picture loads */
+  --walk-band: #E6EADF;              /* Wonderful Garbage's own green (#3B4931), made pale */
+  --ease: cubic-bezier(0.4, 0, 0.1, 1);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --door-ground: var(--ground);
+    --rule: rgba(217, 215, 206, 0.2);
+    --walk-band: #1A2015;            /* the walk's own green, its deep end */
+  }
+}
+html[data-theme="dark"] {
+  --door-ground: var(--ground);
+  --rule: rgba(217, 215, 206, 0.2);
+  --walk-band: #1A2015;
+}
+html:root:root body { background: var(--door-ground); color: var(--ink); --chrome-ground: var(--door-ground); }
+html:root:root body .site-header { background: var(--door-ground); }
+html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.6; overflow-x: clip; }
+.door *, .door *::before, .door *::after { box-sizing: border-box; }
+.door p, .door h1, .door h2, .door h3, .door figure { margin: 0; text-wrap: pretty; }
+.door a { color: inherit; text-decoration: none; }
+.door img { display: block; max-width: 100%; height: auto; }
+.door :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.kind { display: block; font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+.arr { display: inline-block; transition: transform .3s var(--ease); }
+@media (hover: hover) { a:hover .arr { transform: translateX(5px); } }
+
+/* ---------- 1. The arrival: one writing fills the first screen ---------- */
+.arrive {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--arrive-ground); color: var(--ink-on-dark);
+  min-height: calc(100svh - 120px);
+  display: flex; align-items: center;
+}
+/* The photograph's own haze runs edge to edge; the photograph itself stays whole. */
+.arrive-haze { position: absolute; inset: -80px; z-index: -1; }
+.arrive-haze img { width: 100%; height: 100%; max-width: none; object-fit: cover; filter: blur(48px) saturate(1.15) brightness(0.62); }
+.arrive-haze::after { content: ""; position: absolute; inset: 0; background: rgba(12, 9, 7, 0.52); }
+.arrive-in {
+  width: 100%; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: var(--col); align-items: center; padding: 48px var(--edge);
+}
+.arrive-words { max-width: 620px; }
+.arrive-title {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1.04; letter-spacing: -0.018em; margin: 0 0 28px !important;
+  text-wrap: balance;
+}
+.arrive-lines { font-size: 20px; line-height: 1.62; }
+.arrive-lines p + p { margin-top: 14px; }
+.arrive .on { display: inline-flex; gap: 8px; margin-top: 26px; font-weight: 600; font-size: 18px; }
+@media (hover: hover) { .arrive-read:hover .arrive-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; } }
+.arrive-fig { justify-self: end; }
+.arrive-pic img { width: auto; max-width: 100%; max-height: calc(100svh - 260px); min-height: 0; }
+.arrive-fig figcaption { margin-top: 12px; font-size: 16px; line-height: 1.35; text-align: right; }
+.cap-link .cap-nm { display: block; }
+.cap-link .cap-no { display: block; color: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.82); }
+@media (hover: hover) { .cap-link:hover .cap-nm { text-decoration: underline; } }
+
+/* ---------- 2. A line between the groups (Maira Kalman) ---------- */
+.thread { margin: var(--air) var(--edge); text-align: center; }
+.thread a { display: inline-block; max-width: 1320px; }
+.thread-words {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
+}
+.thread-from { display: inline-flex; gap: 8px; margin-top: 24px; font-size: 18px; font-weight: 500; color: var(--ink-soft); }
+@media (hover: hover) { .thread a:hover .thread-words { color: var(--accent); } }
+
+/* ---------- 3 to 6. The groups ---------- */
+.group { margin: var(--air) var(--edge) 0; padding-top: 36px; border-top: 1px solid var(--ink); }
+.thread + .group { margin-top: 0; }
+.group-name {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 48px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px !important;
+}
+.t {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 28px; line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 14px !important;
+  text-wrap: balance;
+}
+.first { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.by { font-size: 18px; font-weight: 600; margin: -6px 0 12px !important; }
+@media (hover: hover) { a:hover .t, a:hover .set, a:hover .stop-line { color: var(--accent); } }
+
+/* Three of a kind, side by side, thin lines between (Read and Listen). */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.three > * { padding: 0 var(--col); border-left: 1px solid var(--rule); }
+.three > :first-child { padding-left: 0; border-left: 0; }
+.three > :last-child { padding-right: 0; }
+
+/* Look: one straight row, tops level, every picture whole at its own shape. */
+.prow { display: flex; gap: var(--col); align-items: flex-start; }
+.prow > a { flex: var(--ar) 1 0; min-width: 0; display: block; }
+.prow img { width: 100%; }
+.cap { margin-top: 14px; font-size: 18px; line-height: 1.4; }
+.cap .kind { margin-bottom: 2px; }
+.cap .set { display: block; font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.cap .no { display: block; margin-top: 4px; color: var(--ink-soft); }
+
+/* One walk, on its own colour (Craig Mod). */
+.group.walk { margin: 0; padding: 72px var(--edge) 88px; border-top: 0; background: var(--walk-band); }
+.walk-name { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.1; margin: -24px 0 10px !important; }
+.walk-line { font-size: 22px; line-height: 1.45; max-width: var(--reading); }
+.stops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--col); margin-top: 48px; }
+.stop img { width: 100%; }
+.stop-name { display: block; margin-top: 16px; font-size: 18px; font-weight: 600; }
+.stop-line { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.18; margin-top: 6px !important; }
+.door-btn {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 56px;
+  font-weight: 600; font-size: 18px; line-height: 1;
+  padding: 14px 18px; border: 1.5px solid var(--ink); border-radius: 5px;
+  color: var(--ink); background: transparent;
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .door-btn:hover { background: var(--ink); color: var(--walk-band); } }
+.door-btn:active { background: var(--ink); color: var(--walk-band); }
+
+/* ---------- 7. The doors at the foot, unchanged ---------- */
+.foot-doors { display: flex; flex-wrap: wrap; gap: 64px; margin: 0 var(--edge) 96px; padding-top: 40px; border-top: 1px solid var(--ink); }
+.walk + .foot-doors { margin-top: var(--air); }
+.home-door { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; color: var(--ink); }
+.home-door:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) { .arr, .door-btn { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.door-btn { transition: none; }
+
+
+/* ---------- Narrower windows ---------- */
+@media (max-width: 1100px) {
+  .arrive-title { font-size: 40px; }
+  .thread-words { font-size: 46px; }
+}
+/* The phone (The Atavist): one column, every picture full width, a thin rule between pieces, a picture on the first screen. */
+@media (max-width: 800px) {
+  :root { --air: 96px; }
+  .arrive { min-height: 0; display: block; }
+  .arrive-in { grid-template-columns: minmax(0, 1fr); padding: 0 0 40px; gap: 0; }
+  .arrive-fig { order: -1; justify-self: stretch; }
+  .arrive-pic img { width: 100%; max-height: none; }
+  .arrive-fig figcaption { text-align: left; padding: 10px var(--edge) 0; }
+  .cap-link .cap-nm, .cap-link .cap-no { display: inline; }
+  .cap-link .cap-no { margin-left: 8px; }
+  .arrive-words { padding: 28px var(--edge) 0; }
+  .arrive-title { font-size: 34px; line-height: 1.08; margin-bottom: 20px !important; }
+  .arrive-lines { font-size: 19px; }
+  .thread-words { font-size: 34px; line-height: 1.12; }
+  .thread { text-align: left; }
+  .group-name { font-size: 36px; margin-bottom: 32px !important; }
+  .t { font-size: 24px; }
+  .three { grid-template-columns: minmax(0, 1fr); }
+  .three > * { padding: 28px 0 0 !important; border-left: 0 !important; border-top: 1px solid var(--rule); margin-top: 28px; }
+  .three > :first-child { padding-top: 0 !important; border-top: 0; margin-top: 0; }
+  .prow { flex-direction: column; gap: 0; }
+  .prow > a { flex: none; width: auto; margin: 0 calc(-1 * var(--edge)); }
+  .prow > a + a { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .prow .cap { padding: 0 var(--edge); }
+  .group.walk { padding: 56px var(--edge) 64px; }
+  .walk-name { font-size: 28px; margin-top: -16px !important; }
+  .walk-line { font-size: 20px; }
+  .stops { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 36px; }
+  .stop { margin: 0 calc(-1 * var(--edge)); display: block; }
+  .stop + .stop { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .stop-name, .stop-line { padding: 0 var(--edge); }
+  .stop-line { font-size: 24px; }
+  .door-btn { margin-top: 40px; }
+  .foot-doors { flex-direction: column; gap: 24px; }
+}
+
+/* ---------- 0. The laugh: one funny line, alone and large (claude/HUMOR-FRONT-RULED-2026-11-19.md) ----------
+   The homepage's first screen, above the arrival. One line in Reach's exact words, the writing it came from
+   as a door, and "Another ...". Nine tenths of the window: the top of the arrival shows below it.
+   --laugh-top is where the page begins under the date strip and the header, set by the script below. */
+.laugh {
+  min-height: calc(90svh - var(--laugh-top, 112px));
+  display: flex; align-items: center;
+  padding: 56px var(--edge);
+  background: var(--door-ground); color: var(--ink);
+}
+.laugh-in { width: 100%; max-width: 1000px; margin: 0 auto; }
+.laugh-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 44px; line-height: 1.1; letter-spacing: -0.015em;
+  text-wrap: pretty; overflow-wrap: break-word;
+}
+.laugh-line.is-long { font-size: 32px; line-height: 1.18; letter-spacing: -0.01em; }
+.laugh-line strong { font-weight: inherit; }   /* the writing's bold marks: the heading face is already bold */
+/* The door: "From", the title and its arrow, as the three lines lower on the homepage read (Reach's yes,
+   November 19, 2026); only the title takes the underline. The title's last word never parts from the arrow,
+   so the arrow is never alone on a line when a title wraps. */
+.laugh-from { display: inline-block; margin-top: 28px; font-size: 18px; font-weight: 500; color: var(--ink); }
+.laugh-keep { white-space: nowrap; }
+.laugh-from .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .laugh-from:hover .laugh-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+.laugh-act { margin-top: 40px; }
+.laugh-another {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .laugh-another:hover { background: var(--ink); color: var(--door-ground); } }
+.laugh-another:active { background: var(--ink); color: var(--door-ground); }
+.laugh-another:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+/* The change: the new line and its title fade in over 0.2 seconds; with Still or less motion, an instant swap. */
+.laugh-deal.is-dealt { animation: laugh-fade .2s ease; }
+@keyframes laugh-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .laugh-deal.is-dealt { animation: none; } .laugh-another { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .laugh-deal.is-dealt, html.pp-still.laugh-deal.is-dealt { animation: none; }
+html.pp-still .laugh-another, html.pp-still.laugh-another { transition: none; }
+
+/* The phone: the same screen in the same order; the line 28 pixels, 22 for longer ones; the button full width, 44 tall.
+   A long line is never cut: the screen grows instead. */
+@media (max-width: 800px) {
+  .laugh { padding: 40px var(--edge); }
+  .laugh-line { font-size: 28px; line-height: 1.16; }
+  .laugh-line.is-long { font-size: 22px; line-height: 1.3; }
+  .laugh-from { margin-top: 22px; }
+  .laugh-act { margin-top: 32px; }
+  .laugh-another { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+}
+
+
+/* ---------- More from that writing: the humor front's second layer (confirmed November 20, 2026) ----------
+   A small page for one writing: "From" and its title, then every passage Reach marked as a laugh or a smile,
+   all looking the same, in the order he wrote them. Two doors at the foot. No counts, no rules, no numbers. */
+.more { padding: 72px var(--edge) 96px; background: var(--door-ground); color: var(--ink); min-height: 70svh; }
+.more-in { width: 100%; max-width: 680px; margin: 0 auto; }
+.more .more-from { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.4; margin: 0 0 48px; color: var(--ink); }
+.more-line {
+  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
+  font-size: 24px; line-height: 1.25; letter-spacing: -0.01em;
+  text-wrap: pretty; overflow-wrap: break-word; margin: 0;
+}
+.more-line + .more-line { margin-top: 48px; }
+.more-line strong { font-weight: inherit; }
+.more-doors { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 32px; margin-top: 72px; }
+.more-whole {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 13px 18px; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1;
+  border: 1.5px solid var(--ink); border-radius: 5px; background: transparent; color: var(--ink);
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .more-whole:hover { background: var(--ink); color: var(--door-ground); } }
+.more-whole:active { background: var(--ink); color: var(--door-ground); }
+.more-whole:focus-visible, .more-back:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.more-back { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.more-back .arr { margin-left: 3px; }
+@media (hover: hover) {
+  .more-back:hover .more-back-words { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .more-whole { transition: none; } }
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .more-whole, html.pp-still.more-whole { transition: none; }
+
+@media (max-width: 800px) {
+  .more { padding: 40px var(--edge) 64px; }
+  .more .more-from { margin-bottom: 36px; }
+  .more-line { font-size: 20px; line-height: 1.3; }
+  .more-doors { display: block; margin-top: 56px; }
+  .more-whole { display: flex; width: 100%; height: 44px; padding: 0 18px; }
+  .more-back { display: inline-block; margin-top: 22px; }
+}
+</style>
+<link rel="stylesheet" href="/nav.css">
+<script src="/nav.js" defer></script>
+<link rel="stylesheet" href="/sun-moon.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/art-menu.css">
+<script src="/art-menu.js" defer></script>
+<link rel="stylesheet" href="/search-band.css">
+<script src="/search-band.js" defer></script>
+<link rel="stylesheet" href="/still.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paraploo.com/#organization",
+      "name": "Paraploo",
+      "alternateName": "Oyparaploo",
+      "url": "https://paraploo.com/",
+      "founder": { "@id": "https://paraploo.com/#person" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://paraploo.com/#person",
+      "name": "Brian William Otto",
+      "alternateName": "Reach Chimes",
+      "description": "Writer and multidisciplinary artist in the Twin Cities, Minnesota.",
+      "url": "https://paraploo.com/",
+      "worksFor": { "@id": "https://paraploo.com/#organization" },
+      "sameAs": [
+        "https://www.instagram.com/oyparaploo/",
+        "https://www.youtube.com/@oyparaploo",
+        "https://www.reddit.com/user/oyparaploo/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paraploo.com/#website",
+      "name": "Paraploo",
+      "url": "https://paraploo.com/",
+      "publisher": { "@id": "https://paraploo.com/#organization" }
+    }
+  ]
+}
+</script>
+<script src="/page-change.js"></script>
+<link rel="canonical" href="https://paraploo.com/laughs/the-joy-infrastructure-manual-a-regular-person-s-field-notes/">
+</head>
+<body>
+<div class="theme-strip"><span class="theme-date"><span class="sun-moon" aria-hidden="true"><svg class="sm-sun" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><circle cx="12" cy="12" r="4.2"/><path d="M12 5.4L12 1.2M8.7 6.28L7.5 4.21M6.28 8.7L2.65 6.6M5.4 12L3 12M6.28 15.3L2.65 17.4M8.7 17.72L7.5 19.79M12 18.6L12 22.8M15.3 17.72L16.5 19.79M17.72 15.3L21.35 17.4M18.6 12L21 12M17.72 8.7L21.35 6.6M15.3 6.28L16.5 4.21"/></svg><svg class="sm-moon" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><path d="M11.76 3.5A8.51 8.51 0 1 0 20.18 15.28A7.33 7.33 0 0 1 11.76 3.5Z"/></svg></span><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="still-rule" aria-hidden="true"></span><button type="button" class="still-choice" aria-pressed="false">Still</button></span></div>
+<header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/explore">Explore</a><a href="/search">Search</a><a href="/shuffle" class="shuffle-word" aria-label="Shuffle ..."><svg class="shuffle-svg" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M2.5 6.5h3.2c2.1 0 3.4 1 4.6 2.8l3.4 5.4c1.2 1.8 2.5 2.8 4.6 2.8h3.2"/><path d="M2.5 17.5h3.2c2.1 0 3.4-1 4.6-2.8l.55-.87M13.15 10.17l.55-.87c1.2-1.8 2.5-2.8 4.6-2.8h3.2"/><path d="M18.9 3.9l2.6 2.6-2.6 2.6M18.9 14.9l2.6 2.6-2.6 2.6"/></svg></a></nav></header>
+
+<main class="door">
+
+<section class="more" aria-label="More from this writing">
+  <div class="more-in">
+    <h1 class="more-from">From The Joy Infrastructure Manual</h1>
+    <p class="more-line">The Complete Bewilderment Edition</p>
+    <p class="more-line">Full Account of One Person's Journey Through 37 Trillion Cells, Doorway Portals, Badly-Made Clay Objects, Vegetable Trading Networks, and the Discovery That Joy Wobbles</p>
+    <p class="more-line">My wife signed us up for this thing. Said we needed more joy in our life. I thought she meant we should watch more comedies. Turns out it's a 52-week intensive with supplemental workshops, theatrical components, and something called "biometric joy broadcasting."</p>
+    <p class="more-line">Hal Lucy wore scarves. Multiple scarves. Even in the pool. August Palo dressed entirely in linen and always looked like he was about to levitate or give a TED talk. Kiri Te had crystals in her hair and spoke in whispers that somehow carried across the room and possibly into other dimensions.</p>
+    <p class="more-line">"Joy," Hal Lucy announced on day one, "is infrastructure. Not feeling."<br>I raised my hand. "Like... roads?"<br>"Exactly like roads," she said, excited. "But internal. And multi-dimensional. And occasionally French."<br>August Palo nodded slowly. "Roads you build with your consciousness while standing on one foot."<br>Kiri Te added, whispered but somehow loud: "Roads that lead to your authentic cellular expression and possibly revolution."<br>I looked at my wife. She was taking notes. In color-coded pens.</p>
+    <p class="more-line">"Your liver," she says, "is on the night shift right now, cleaning everything, no overtime pay."<br>And I'm thinking... yeah? What's it supposed to do, clock out?<br>"Sorry sir, liver's on break. Try again in fifteen minutes."</p>
+    <p class="more-line">I raised my hand. "Is this why I'm tired all the time? My cells never get holidays?"<br>She said that's not how biology works.<br>"But you just said they work 24/7."<br>"That's different."<br>"Do they at least get employee of the month?"<br>She didn't think that was funny.</p>
+    <p class="more-line">"When you pass through a doorway," he says, real serious, "you're between selves. Neither here nor there."<br>I'm just trying to get to the bathroom.</p>
+    <p class="more-line">So now I'm that guy standing in doorways. My kids think I'm broken. "Dad's frozen again."<br>My daughter goes, "Mom, Dad's doing his door thing."<br>I tried explaining it's a transformation portal. She said, "It's the bathroom, Dad. People need to pee."</p>
+    <p class="more-line">Swimming in Lakes Surrounded by Mountains (Not Available in Ohio)</p>
+    <p class="more-line">Number one: Swimming in a lake surrounded by mountains.<br>I live in a suburb. We have a retention pond. It's surrounded by a Wendy's and a tire store.<br>I called the wellness center. "What if you don't have mountains?"<br>"Visualize them," they said.<br>So I'm standing by the retention pond, visualizing mountains, and Greg from next door asks if I'm okay. I tell him I'm experiencing "full-body sensory engagement" and "optimal arousal from the combination of safety and danger."<br>He asked if I needed him to call someone.</p>
+    <p class="more-line">I look around my living room. It's all beige. My wife picked it. She said it was "Accessible Beige." That's the actual name. I thought accessible meant wheelchairs could get in.</p>
+    <p class="more-line">"You need color!" crystal lady says. "Your cone cells are unemployed!"<br>"My what cells?"<br>"The ones that see color. They're not working. It's like visual unemployment."<br>So now I'm supposed to create jobs for parts of my eyeball? This economy's worse than I thought.</p>
+    <p class="more-line">The manual says I should read while standing on one foot because "comprehension improves with instability."<br>I tried this with my mortgage documents. Still didn't understand them.</p>
+    <p class="more-line">My wife walks in. "What are you doing?"<br>"Improving comprehension through vestibular activation."<br>"You look like a confused flamingo."<br>"That's the point, apparently."<br>She left. Then came back. "Are you joining a cult?"<br>"No, I'm architecting sustainable joy."<br>"That sounds like a cult."</p>
+    <p class="more-line">They tell me joy only lasts seventeen seconds. Natural human limit.<br>Seventeen seconds.<br>I timed my joy at my daughter's birthday party. Made it to twelve. The instructor said that's actually pretty good.<br>"Most people get five, maybe six seconds," he says, like we're discussing mile times.</p>
+    <p class="more-line">"So wait," I say, "when my team wins the Super Bowl and I'm happy for like an hour..."<br>"That's multiple seventeen-second joys. Like joy popcorn."<br>Joy popcorn. That's what we're calling it now.</p>
+    <p class="more-line">Page 47 says I should smile while holding different objects in my teeth. Start with a pencil, then a spoon, then "something absurd."<br>I'm in my kitchen with a spoon in my teeth. My son walks in.<br>"Dad, why do you have a spoon in your mouth?"<br>"Nmm bmmlding mmy zmmgmmatic mmscles." (I'm building my zygomatic muscles.)<br>"What?"<br>I take the spoon out. "It's for joy."<br>He looks at me for a long moment. "Is this why Mom's been going to book club four times a week?"</p>
+    <p class="more-line">Chapter 9 of the manual: "This paragraph costs 10 jumping jacks. Pay before reading."<br>So now I'm doing payment plans for reading.</p>
+    <p class="more-line">I'm in the library doing jumping jacks. The librarian asks me to stop.<br>"I have to pay for the paragraph," I explain.<br>She threatens to revoke my library card.<br>"But I'm building endorphins through kinetic investment!"<br>Security shows up.</p>
+    <p class="more-line">"Your mitochondria are the powerhouse of the cell," the instructor says, like I didn't fail biology twice.</p>
+    <p class="more-line">"They're throwing a party you're not invited to!"<br>Wait, what? There's a party inside me and I can't go?<br>"You ARE the party venue," she explains.<br>So I'm not invited to a party, I'm the building it's happening in. This feels worse somehow.<br>"How do I... join?"<br>"You can't. You just host."<br>I'm a biological Airbnb.</p>
+    <p class="more-line">They want me to find seven different grays in any paragraph. Pearl-gray commas. Charcoal periods.<br>I'm reading my tax forms looking for gray punctuation. My accountant asks what I'm doing.<br>"Finding the spectrum in the mundane," I tell him.<br>He charges me an extra hour.</p>
+    <p class="more-line">Seasonal Joy (Terms and Conditions Apply)</p>
+    <p class="more-line">"Honor joy's cyclical nature," the book says. "This winter will become spring."<br>It's August.</p>
+    <p class="more-line">"My joy goes underground when my in-laws visit. Does that count?"<br>She said I'm not taking this seriously.</p>
+    <p class="more-line">Every third paragraph requires touching soil. "For grounding," they say.<br>I'm at Starbucks with a pot of dirt.<br>The barista: "Sir, you can't bring that in here."<br>"It's medicinal soil."<br>"That's not a thing."<br>"I need it for mycobacterium vaccae. It's in the manual."<br>She calls the manager. He also hasn't heard of medicinal soil.<br>I'm banned from that Starbucks now.</p>
+    <p class="more-line">I tried this. Drew a line. It looked like a line. Wrote "line." Hummed... I don't know what I hummed.</p>
+    <p class="more-line">So I'm snapping constantly now. My coworkers think I'm starting a very slow West Side Story.</p>
+    <p class="more-line">So I'm walking to the mailbox in spirals. Takes twenty minutes. Mail carrier thinks I'm drunk at 10 AM.<br>"Just getting my mail," I tell him, swaying down the driveway in S-shapes.<br>"You okay, buddy?"<br>"I'm resisting linear oppression."<br>He leaves the mail on the ground now. Doesn't get close.</p>
+    <p class="more-line">"Your optical nerves just danced," the manual says.<br>My optical nerves feel the same. But now I'm dizzy.</p>
+    <p class="more-line">"So my spleen is just... giving stuff away?"<br>"Constantly!"<br>"Should I thank it?"<br>"That would be beautiful."<br>So now I'm thanking my organs. Out loud. "Thanks, kidneys. Appreciate you, pancreas."<br>My son heard me in the bathroom. "Dad, who are you talking to?"<br>"My liver."<br>He told his teacher I have imaginary friends.</p>
+    <p class="more-line">So polka dots prevent crime? I painted dots in my garage. Haven't stolen anything yet, so maybe it works.</p>
+    <p class="more-line">I tried forgetting what purple looks like. Still looks purple. Maybe I'm doing it wrong.</p>
+    <p class="more-line">I have to count all my free joys. The manual says: "dust motes in sunlight (free), bird arguments (free), the perfect stretch (free)."<br>Bird arguments? I watched two crows yelling at each other for ten minutes.</p>
+    <p class="more-line">"What are you doing?" my neighbor asks.<br>"Experiencing non-commodified crow discourse."<br>"Is that contagious?"<br>"The manual says joy is contagious with no vaccine."<br>He went inside and locked his door.</p>
+    <p class="more-line">Every window is now a "joy portal."<br>"Free viewing, unlimited shows," the manual says.<br>I'm standing at windows a lot now. Just staring out. The UPS driver asked if I was okay.<br>"I'm watching the free show," I told him.<br>"What show?"<br>"The outside."<br>"That's just... the world."<br>"Exactly. Free world. Unlimited episodes."<br>He doesn't ring the doorbell anymore. Just leaves packages and runs.</p>
+    <p class="more-line">Do you know how long this manual is? 400 pages. At three times slower, that's... I don't know, my calculator doesn't go that high.</p>
+    <p class="more-line">So I'm reading really slowly. My wife asked what I'm doing.<br>"Resisting efficiency."<br>"By reading slowly?"<br>"It's economic sabotage."<br>"Against who?"<br>"I... I don't know actually."</p>
+    <p class="more-line">"Your cells don't know what time it is," the manual insists. "They're always on joy time."<br>I tried explaining this to my boss when I was late.<br>"My cells don't recognize 9 AM," I said.<br>"Your cells are going to recognize unemployment."<br>"That's not very joy-supportive."<br>"Neither is being late."<br>HR wants to see me Monday. The manual doesn't have a chapter on joy during performance reviews.</p>
+    <p class="more-line">Now I'm supposed to layer my joys. "Past memory + present moment + future anticipation = temporal triple-dip."<br>I tried this with lunch. Remembered yesterday's sandwich (past), ate today's sandwich (present), anticipated tomorrow's sandwich (future).<br>It was still just a sandwich.<br>"Did you achieve temporal triple-dip?" the instructor asks at the next session.<br>"I think I just ate lunch three times mentally."<br>"That's beautiful!"<br>Is it though?</p>
+    <p class="more-line">"Everyone should grow invisible gardens," the instructor says.<br>"Even if we're not in prison?"<br>"We're all in prisons of our own making."<br>"I'm in my living room."<br>"Mental prison."<br>"It has a nice TV."<br>"That's part of the prison."<br>So now I'm growing an invisible garden in my mental prison living room. My actual living room still has the nice TV though.</p>
+    <p class="more-line">Apparently we should be covering things in yarn without permission.<br>"It's guerrilla beauty," the manual explains.<br>I tried to yarn bomb our mailbox. The postal service sent a warning about "impeding mail delivery."<br>"It's guerrilla beauty!" I explained to the mail carrier.<br>"It's a federal offense."<br>"The manual says confusion creates joy."<br>"The federal government says it creates fines."<br>I removed the yarn.</p>
+    <p class="more-line">So I'm reading the newspaper wrong on purpose. "Local man arrested for sock sign violation."<br>My neighbor sees me laughing at traffic news.<br>"What's funny?"<br>"This guy got arrested for not socking."<br>"Stopping?"<br>"No, I'm misreading it on purpose. Hal Lucy says it builds neural infrastructure."<br>He's been avoiding me since.</p>
+    <p class="more-line">"This paragraph," he says, "is nervous about being read."<br>"The paragraph is nervous?"<br>"Feel its anxiety. It's sweating punctuation."<br>I look at the paragraph. It's about mortgage rates.<br>"How do I know if it's nervous?"<br>"The commas," he says seriously. "They're trembling."</p>
+    <p class="more-line">So now I'm comforting paragraphs before reading them. "It's okay, little text. I'll read you gently."<br>My daughter caught me petting a book.<br>"Dad, what are you doing?"<br>"The paragraph has performance anxiety."<br>She told her teacher I'm emotionally supporting inanimate objects.</p>
+    <p class="more-line">I try this with a stop sign.<br>Literal: Stop your car.<br>Absurd: Red octagon screaming.<br>Meta: Society agreeing on arbitrary symbols.<br>Philosophical: All movement requires choosing when to cease.<br>Memory: That time I didn't stop and got a ticket.</p>
+    <p class="more-line">I stare at the pencil for ten minutes. My wife finds me.<br>"Why are you staring at a pencil?"<br>"I'm trying to find its philosophical layer."<br>"And?"<br>"So far I've got: it's wood that makes ideas visible."<br>"That's beautiful, actually."<br>"Really?"<br>"No. Please stop."</p>
+    <p class="more-line">I'm reading my tax forms trying to smell them. Not the paper - the actual words.<br>"What do you smell?" Hal Lucy asks.<br>"Despair?"<br>"That's not a smell."<br>"It smells like... burnt hope?"<br>"Better!"<br>My accountant asks why I keep sniffing his documents.<br>"I'm engaging my olfactory interpretation system."<br>He charges me another hour for "unusual client behavior."</p>
+    <p class="more-line">"Read with a French accent," he instructs. "Your tongue being lost creates joy."<br>"My tongue being lost?"<br>"Oui! Ze confusion creates ze delight!"<br>I try reading the grocery list with a French accent. "Baguette... wait, that's already French."</p>
+    <p class="more-line">So now I'm sadly reading shopping lists with a French accent. The grocery store clerk asked if I was okay.<br>"I am experiencing ze beautiful melancholy of produce selection."<br>They called security.</p>
+    <p class="more-line">Kiri Te brings an actual spoon to class.<br>"Watch me wash this spoon for twenty minutes," she says.<br>We watch. She washes. Twenty. Full. Minutes.</p>
+    <p class="more-line">I spend five minutes examining the word "walking."<br>"What did you discover?" she asks.<br>"The 'k' looks angry?"<br>"Deeper!"<br>"The 'ing' seems... hopeful?"<br>"YES! The suffix contains optimism!"</p>
+    <p class="more-line">My wife finds me staring at the word "mortgage" for ten minutes.<br>"What are you doing?"<br>"Finding its emotional temperature."<br>"And?"<br>"It's cold. Very cold."<br>"I could have told you that without the meditation."</p>
+    <p class="more-line">"Your shoulder position affects text interpretation!" Hal Lucy announces.<br>"How?"<br>"Shoulders at ears means the text is too stressful! Drop them!"<br>I'm reading with my shoulders constantly moving up and down like a very slow shrug machine.</p>
+    <p class="more-line">Kiri Te whispers: "Jaw tension means the paragraph is lying!"</p>
+    <p class="more-line">So now I'm reading while monitoring:<br>- Shoulder height<br>- Hand temperature<br>- Jaw tension<br>- Breath depth<br>- Overall dignity (absent)</p>
+    <p class="more-line">"How's the reading?" Hal Lucy asks.<br>"I'm too busy checking my body to read."<br>"Perfect! That's the bridge state!"<br>"Bridge to what?"<br>"Full somatic literacy!"<br>I don't know what that means but my shoulders are definitely at my ears.</p>
+    <p class="more-line">Week 35, they take us to see a play about color. The entire theater is beige.<br>The main character, Manu, is screaming about dopamine while wearing beige. Everyone's in beige. The stage is beige. I'm getting depressed just watching.</p>
+    <p class="more-line">"I'll stay in beige," I say. "It's safer."<br>Twenty minutes later, I'm practically crying from boredom. The color side is literally dancing. The beige side is slumped.<br>"This is your living room!" the actor shouts at us.<br>He's right. Our living room is entirely beige.</p>
+    <p class="more-line">Hal Lucy prescribes "strategic absurdity."<br>"Every third sentence must contain something silly," she says. "Penguins, for example."<br>"Penguins?"</p>
+    <p class="more-line">I try this at work. "The quarterly reports show growth, revenues are up, penguins, and we're on track for Q4."<br>My boss stops. "What did you say?"<br>"Penguins. It's strategic absurdity. Breaks cognitive patterns."<br>"It breaks something alright."<br>HR wants to see me again. The manual still doesn't have a chapter on employment.</p>
+    <p class="more-line">"In the time it took to read this sentence," she whispers intensely, "your heart beat 8 times!"<br>We count. She's approximately right.<br>"Each beat unrequested, unearned, given freely!"<br>"My heart's working for free?"</p>
+    <p class="more-line">I'm trying to feel my cellular parties. Mostly I feel confused.<br>"Can you feel them?" Kiri Te asks.<br>"I feel... something?"<br>"That's ten billion neurons firing! You're hosting lightning!"<br>My son overhears. "Dad's hosting lightning?"<br>"Cellular lightning," I clarify.<br>"Is that contagious?"<br>"The manual says joy is contagious with no vaccine."<br>He backs away slowly.</p>
+    <p class="more-line">Hal Lucy hands out certificates: "Official authorization to be amazed by your functioning kidneys."<br>August Palo provides licenses: "Bearer may celebrate successful temperature regulation."<br>Kiri Te whispers permits: "You're granted entry to the Country of Noticing Your Body."<br>I'm collecting permission slips like a middle schooler.</p>
+    <p class="more-line">"What are those?" my wife asks.<br>"Permission to feel joy about my organs."<br>"You need permission for that?"<br>"Apparently. Look, this one's for my spleen."<br>She reads it: "This certifies that [my name] is authorized to experience wonder regarding splenic function."<br>"That's real?"<br>"Kiri Te signed it and everything."<br>"With a crystal pen?"<br>"How did you know?"</p>
+    <p class="more-line">"Someone in Tokyo is breathing at this exact moment!" Hal Lucy exclaims.<br>"Well... yeah. Millions of people are."<br>"You're sharing air across oceans!"<br>"That's just... atmosphere?"</p>
+    <p class="more-line">August Palo: "Of 8 billion hearts beating, 10,000 just synced with yours!"<br>"Statistically?"<br>"Accidentally! But still syncing!"</p>
+    <p class="more-line">Kiri Te: "Your cells and tree cells both do photosynthesis!"<br>"I don't think human cells—"<br>"With vitamin D! You're cousins with oak!"<br>I go outside and tell an oak tree we're cousins. A jogger sees me.<br>"You okay, buddy?"<br>"I'm recognizing my cellular kinship with trees."<br>She speeds up.</p>
+    <p class="more-line">"Your absurdity detection must infect three people minimum!" Hal Lucy demands.<br>"How do I infect people with absurdity detection?"<br>"Point out puddles are temporary mirrors!"</p>
+    <p class="more-line">I try this at the coffee shop. "Hey, that puddle is a temporary mirror."<br>The barista looks at the puddle. Then at me. Then back at the puddle.<br>"Huh. It kind of is."<br>"Right? And doorknobs are just wall handles!"<br>"Whoa."<br>"And reading is just decoding squiggles!"<br>"Dude, stop. My mind can't handle this before coffee."<br>Hal Lucy would be proud. I've broken a barista.</p>
+    <p class="more-line">"Doorways are portals, paragraphs have feelings, and I need to smell words."</p>
+    <p class="more-line">"And I need permission slips to appreciate my organs, I'm cousins with trees, puddles are mirrors, and I should infect people with absurdity detection."<br>"Perfect!" they exclaim.<br>"Is it though?"</p>
+    <p class="more-line">My wife, who's been suspiciously taking notes all year, finally speaks:<br>"So five percent of fifty-two weeks of instruction is..."<br>She calculates.<br>"Two and a half weeks of actual useful information?"<br>The instructors exchange looks.<br>Hal Lucy: "The journey IS the—"<br>My wife: "Don't. Just don't."</p>
+    <p class="more-line">"You have rapids in your backbone!"<br>My wife leans over. "Do you have rapids?"<br>"I think I have a lazy river at best."</p>
+    <p class="more-line">August Palo, who's somehow here, whispers: "Feel your bronchioles?"<br>"I don't know what bronchioles are."<br>"The happy tubes in your lungs."<br>"My tubes don't feel particularly happy."</p>
+    <p class="more-line">"There!" Fredrika points. "Someone just became a human sparkler! Their cells are throwing a party! 100 trillion guests!"<br>I check my monitor. My cells appear to be having a modest gathering. Maybe a book club.</p>
+    <p class="more-line">"THAT'S THE JOY LIFT!" Kiri Te appears from behind a bush. "You grew food, traded food, he made food, shared food, you praised food! The joy multiplied five times!"<br>"Have you been hiding in that bush?"<br>"The joy must be documented!"<br>Gary backs away slowly. "Is she okay?"<br>"She's studying cellular democracy through vegetable exchanges."<br>"Is that... a real thing?"<br>"I don't know anymore, Gary. I just don't know."</p>
+    <p class="more-line">"Your hands contain 17,000 mechanoreceptors," he explains while we work. "They think faster than your brain. Your terrible pot is your hands' opinion about clay!"<br>I look at my pot. It's definitely terrible. It's also definitely an opinion, though I'm not sure what opinion.</p>
+    <p class="more-line">I trade my terrible pot for someone's terrible... I think it's a bird? Or a shoe?<br>"You now own someone else's idea-made-matter!" August announces. "Their neurons shaped this clay! Their joy is in your hands!"<br>I'm holding what might be a bird-shoe. Someone else has my pot-opinion.</p>
+    <p class="more-line">My wife looks at her received object - clearly a failed attempt at a face.<br>"It's beautiful," she says, and means it.</p>
+    <p class="more-line">"The worse it is, the more permission it gives!" August is ecstatic.<br>We now have 47 badly-made objects in our house. They're all terrible. We've never been happier with our decorations.</p>
+    <p class="more-line">Week 80, someone asks when joy feels stifling.<br>All three instructors freeze.<br>"Stifling?" Hal Lucy's scarves droop.</p>
+    <p class="more-line">August Palo nods slowly. "Forced joy is cultivated joy wearing a costume it doesn't fit."</p>
+    <p class="more-line">"Sad is joy's dancing partner!" she says. "They take turns leading!"<br>I raise my hand. "My joy and sadness don't dance. They more... wrestle?"<br>"Wrestling is a dance!" Kiri Te insists. "With different music!"</p>
+    <p class="more-line">"Gratitude," she says, "is joy's prescription glasses."<br>"Joy needs glasses?"<br>"Joy is nearsighted without gratitude. Can only see what's directly in front of it. Gratitude lets joy see the full landscape."</p>
+    <p class="more-line">"Be more specific! Grateful for which exact cells!"<br>"My... liver cells?"<br>"YES! Thank your hepatocytes!"<br>My list becomes increasingly specific:<br>- Grateful for successful cellular mitosis<br>- Grateful for functioning bronchioles (apparently)<br>- Grateful for my spine fountain (allegedly)<br>- Grateful for 17,000 mechanoreceptors<br>- Grateful for badly-made clay bird-shoe</p>
+    <p class="more-line">I look at my life through gratitude. It's the same life, but now it looks like 37 trillion cells successfully cooperating. That's either profound or I'm having a breakdown.</p>
+    <p class="more-line">"Joy isn't stable," Hal Lucy says. "Joy wobbles! Like the objects!" She points to our badly-made sculptures.<br>"But can it be consistent?"<br>"Consistent wobbling!" August Palo demonstrates by making his whole body wobble steadily. "Reliable unreliability!"</p>
+    <p class="more-line">"So joy is always there, just sometimes microscopic?"<br>"Exactly! During awful days, joy goes cellular. Still there, just very, very small."</p>
+    <p class="more-line">She demonstrates with an insurance document: "Deductible becomes 'the money that insurance pretends doesn't exist until you've given them enough of it.'"</p>
+    <p class="more-line">My new grocery list:<br>- Bread (staff of life, literally holding civilization together)<br>- Milk (stolen from contented cows, with their permission probably)<br>- Eggs (chicken dreams, unfertilized)<br>- Tomatoes (for Gary-joy-multiplication-sauce)</p>
+    <p class="more-line">HR wants to see me. Again. The manual now has a chapter on employment (Chapter 73: "When Your Joy Infrastructure Threatens Corporate Infrastructure").</p>
+    <p class="more-line">August Palo demonstrates by doing a small dance at a bus stop. Three people smile. One joins.<br>"That's it?" I ask.<br>"That's revolution!" he says.</p>
+    <p class="more-line">Kiri Te starts leaving badly-made clay objects on public benches with notes: "I exist imperfectly. You can too."<br>Someone photographs one and it goes viral as "Inspirational Street Art." Kiri Te is furious.<br>"It's not art! It's permission slips!"</p>
+    <p class="more-line">"Your heart: the drummer who started playing before you were born!" Wayne demonstrates.<br>"Your lungs: the bellows that insist on their rhythm!"<br>"Your stomach: the bass that grounds everything!"<br>"Your neurons: 86 billion guitarists improvising!"</p>
+    <p class="more-line">"This is what joy sounds like!" Fredrika announces as our collective heartbeats create rhythm, our breathing creates melody, our movement creates percussion.<br>It sounds like chaos.<br>"That's the point!" she says. "Joy is chaos organizing itself into almost-music!"</p>
+    <p class="more-line">All three instructors, the theater performers, the gratitude specialist, and somehow Gary with his zucchini are here.<br>"What have you learned?" they ask in unison, which they've obviously practiced.</p>
+    <p class="more-line">"And my bronchioles are happy tubes that dilate 25% during joy, my 17,000 mechanoreceptors think faster than my brain, every broken thing is a beautiful conversation with matter, joy can be stifling if mandatory, it goes cellular during bad days, and apparently I'm an unauthorized orchestra."<br>"PERFECT!"<br>"Is it though? Is it really?"</p>
+    <p class="more-line">Gary raises his hand. "I just came for the vegetable swap."<br>"Gary's joy is the purest!" Kiri Te declares. "He doesn't need infrastructure! Just zucchini!"<br>We all stare at Gary. He's accidentally achieved enlightenment through squash.</p>
+    <p class="more-line">"Just do five percent of everything we've taught," all instructors say, now including Gary somehow.</p>
+    <p class="more-line">"Five percent of vegetable joy multiplication?"<br>"Share a tomato with Gary."</p>
+    <p class="more-line">The course ended. Hal Lucy gave everyone fountain spine certificates. August Palo gifted badly-made objects that give universe-level permission. Kiri Te whispered something about our cells already knowing everything. Gary brought zucchini for everyone.</p>
+    <p class="more-line">Sometimes I notice my body is an unauthorized orchestra<br>- Occasionally I make things badly on purpose<br>- I trade vegetables with Gary (he makes excellent sauce)</p>
+    <p class="more-line">My bronchioles are allegedly happy</p>
+    <p class="more-line">like finding out your house came with a secret room full of badly-made clay objects that give permission to exist imperfectly</p>
+    <p class="more-line">"That's weird, Dad."<br>"Five percent weird."<br>"I can live with that."</p>
+    <p class="more-line">Our cells continue. Our fountain spines fountain (allegedly). Our unauthorized orchestras play their unauthorized music.</p>
+    <p class="more-line">The manual doesn't specify. Gary doesn't care. The zucchini grows regardless.</p>
+    <p class="more-line">Appendix A: Gary's Transcendent Zucchini Sauce Recipe<br><em>Makes enough for neighborhood joy multiplication</em><br>- 6 medium zucchini from Gary's garden (essential - other zucchini lacks Gary-energy)<br>- Tomatoes from whoever traded with Gary<br>- Garlic (grateful garlic, specifically thanked before crushing)<br>- Olive oil (pressed by happy olives, probably)<br>- Salt (from tears of joy, or just regular salt)<br>- Secret ingredient: Trade vegetables first. The trading is the seasoning.</p>
+    <p class="more-line">Instructions: Cook with awareness that you're facilitating cellular democracy. Serve to neighbors. Watch joy multiply. Document for Kiri Te.</p>
+    <p class="more-line">1. Lopsided pot - Permission to lean<br>2. Bird-shoe hybrid - Permission to be confused about identity<br>3. Failed face sculpture - Permission to be unrecognizable<br>4. Wobbly tower - Permission to be unstable<br>5. Abstract blob - Permission to be undefined<br>[Items 6-1,247 available in supplementary volume]</p>
+    <p class="more-line">Current happiness level of your bronchioles:<br>□ Ecstatic (full dilation)<br>□ Pleased (moderate dilation)<br>□ Neutral (baseline)<br>□ Concerned (slight constriction)<br>□ Having an existential crisis (call Hal Lucy)</p>
+    <p class="more-line">Note: Bronchioles cannot actually be unhappy. They're tubes. But the manual insists otherwise.</p>
+    <p class="more-line"><strong>Hal Lucy</strong>: Reachable through scarves and doorways. Office hours: When Mercury is in retrograde or your spine feels fountain-like.<br><strong>August Palo</strong>: Found wherever things wobble. Consultation by appointment only, scheduled in joy-time not clock-time.<br><strong>Kiri Te</strong>: Whispers loudly in your cellular democracy. No phone needed - she's already in your mitochondria.<br><strong>Gary</strong>: Just go next door with vegetables. Bring containers for sauce.</p>
+    <p class="more-line">When joy infrastructure fails:<br>1. Check if cells still operating (they are)<br>2. Verify spine fountain (alleged but probable)<br>3. Make something badly<br>4. Trade vegetables with Gary<br>5. Apply five percent solution<br>6. If all else fails, put googly eyes on something<br>7. Repeat until confused but content</p>
+    <p class="more-line"><strong>Q: Does it work?</strong><br>A: Define "work."</p>
+    <p class="more-line"><strong>Q: Am I having a breakdown or a breakthrough?</strong><br>A: Yes.</p>
+    <p class="more-line"><strong>Q: Why Gary?</strong><br>A: Gary doesn't ask why. Gary grows zucchini. Be like Gary.</p>
+    <p class="more-line"><strong>Q: My bronchioles don't feel happy.</strong><br>A: They're shy. Give them time.</p>
+    <p class="more-line"><strong>Q: I can't feel my spine fountain.</strong><br>A: It's more of a gentle trickle for most people.</p>
+    <p class="more-line"><strong>Q: Should I quit my job to pursue joy infrastructure?</strong><br>A: Only five percent quit. The rest just add kitchen table moments to reports.</p>
+    <p class="more-line"><strong>Q: Is joy really only seventeen seconds?</strong><br>A: Unless it popcorns. Then it's multiple seventeen seconds. Or ask Gary - his might be different.</p>
+    <div class="more-doors">
+      <a class="more-whole" href="/words/2025-variety/the-joy-infrastructure-manual-a-regular-person-s-field-notes/">The whole writing ...</a>
+      <a class="more-back" href="/"><span class="more-back-words">Back to the laughs ...</span>&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="/" class="wordmark">Paraploo</a>
+  <nav>
+    <a href="/writings">Writings</a>
+    <a href="/marks">Marks</a>
+    <a href="/physical">Placings</a>
+    <a href="/digital">Collage</a>
+    <a href="/search">Search</a>
+  </nav>
+  <p class="footer-contact">Twin Cities, Minnesota<a href="mailto:hello@paraploo.com">hello@paraploo.com</a></p>
+  <p>&copy; 2026 Paraploo</p>
+</footer>
+<script src="/blinds.js"></script>
+</body>
+</html>
