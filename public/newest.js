@@ -110,3 +110,83 @@
   });
   wall.addEventListener('mouseleave', clear);
 })();
+
+/* The wall's pictures, sharp on a sharp screen, November 21, 2026 (SITE-ORDER\NEWEST-SHARP-BUILD; Reach: "Confirm").
+   Every card arrives with its 600-dot copy, exactly as before. A picture that rests on screen for a moment, and is
+   drawn across more screen dots than its copy has, fetches the larger copy and takes it; a screen the small copy
+   covers fetches nothing. Cards added by "More ..." and cards made again when the columns change follow the same
+   rule. A visitor whose browser asks to save data keeps the small copies. The larger copy is the same address without
+   "-600"; if it does not come, the small copy stays. */
+(function () {
+  if (!('IntersectionObserver' in window) || !('MutationObserver' in window)) return;
+  var conn = navigator.connection;
+  if (conn && conn.saveData) return;
+  var wall = document.querySelector('.nw-wall');
+  if (!wall) return;
+  var REST = 300;  // milliseconds a picture must rest on screen before its larger copy is asked for
+  var got = {};    // larger copies already fetched on this visit
+
+  function full(src) {
+    var m = /^(.*)-600(\.webp)$/.exec(src || '');
+    return m ? m[1] + m[2] : null;
+  }
+  function soft(img) {  // drawn across more screen dots than the copy has
+    var r = img.getBoundingClientRect();
+    var k = window.devicePixelRatio || 1;
+    return r.width * k > img.naturalWidth * 1.02 || r.height * k > img.naturalHeight * 1.02;
+  }
+  function onScreen(img) {
+    var r = img.getBoundingClientRect();
+    return r.width > 0 && r.bottom > 0 && r.top < window.innerHeight && r.right > 0 && r.left < window.innerWidth;
+  }
+  function sharpen(img) {
+    var to = full(img.currentSrc || img.src);
+    if (!to || !soft(img)) return;
+    img._ppSharp = 1;
+    if (got[to]) { img.src = to; return; }
+    var pre = new Image();
+    pre.onload = function () {
+      got[to] = 1;
+      var go = function () { img.src = to; };
+      if (pre.decode) pre.decode().then(go, go); else go();
+    };
+    pre.src = to;  // if it does not come, the small copy stays
+  }
+  function arm(img) {
+    clearTimeout(img._ppT);
+    if (img._ppSharp) return;
+    img._ppT = setTimeout(function () {
+      if (!img._ppOn || img._ppSharp || !onScreen(img)) return;
+      if (!img.complete || !img.naturalWidth) {
+        if (!img._ppWait) {
+          img._ppWait = 1;
+          img.addEventListener('load', function () { img._ppWait = 0; if (img._ppOn) arm(img); }, { once: true });
+        }
+        return;
+      }
+      sharpen(img);
+    }, REST);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var img = entries[i].target;
+      img._ppOn = entries[i].isIntersecting;
+      if (img._ppOn) arm(img); else clearTimeout(img._ppT);
+    }
+  });
+  function watch(root) {
+    var imgs = root.querySelectorAll ? root.querySelectorAll('img.nw-pic') : [];
+    for (var i = 0; i < imgs.length; i++) if (!imgs[i]._ppSeen) { imgs[i]._ppSeen = 1; io.observe(imgs[i]); }
+  }
+  watch(wall);
+  new MutationObserver(function () { watch(wall); }).observe(wall, { childList: true, subtree: true });
+  var again;
+  window.addEventListener('resize', function () {
+    clearTimeout(again);
+    again = setTimeout(function () {
+      var imgs = wall.querySelectorAll('img.nw-pic');
+      for (var i = 0; i < imgs.length; i++) if (imgs[i]._ppOn) arm(imgs[i]);
+    }, 200);
+  });
+})();
