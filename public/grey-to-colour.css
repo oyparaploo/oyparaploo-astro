@@ -7,17 +7,25 @@
    - With Still on, or for visitors who ask for less motion: the colour comes at once, with no fade.
    - Phones and tablets have no pointer, so every picture stays in full colour.
    - The featured picture and the band picture lower on the page stay in colour. Nothing else changes. */
+/* November 20, 2026, Reach's wish: a grey picture takes a little of its own colour once half of it is on the screen
+   (grey-to-colour.js marks it), and gives it back when it leaves. Pointed at, it still comes into full colour.
+   Without the script the pictures are grey until pointed at, as before. */
 @media (hover: hover) and (pointer: fine) {
   .placings-room .p-set-pic img,
   .placings-room .p-seat img {
     filter: grayscale(1);
-    transition: filter 0.25s ease;
+    transition: filter 0.6s ease;
+  }
+  .placings-room .p-set-pic img.is-half,
+  .placings-room .p-seat img.is-half {
+    filter: grayscale(0.68);
   }
   .placings-room .p-set > a:hover .p-set-pic img,
   .placings-room .p-set > a:focus-visible .p-set-pic img,
   .placings-room .p-card:hover .p-seat img,
   .placings-room .p-card:focus-visible .p-seat img {
     filter: none;
+    transition-duration: 0.25s;
   }
 }
 @media (prefers-reduced-motion: reduce) {

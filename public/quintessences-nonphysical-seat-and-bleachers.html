@@ -45,11 +45,11 @@
   }
   .core-title {
     font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 34px;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--cut-spacing);
     line-height: 1.12;
-    color: var(--ink);
+    color: var(--ink-title, var(--ink));
     margin: 0 0 8px;
   }
   .core-locked {
@@ -61,11 +61,11 @@
   }
   .core-kicker {
     font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--cut-spacing);
     line-height: 1.3;
-    color: #ffffff;
+    color: var(--hand-white, #fff);
     margin: 48px 0 20px;
   }
   .core-main p {
@@ -79,11 +79,11 @@
   .core-main p strong, .core-main p b { font-weight: 400; }
   .core-era {
     font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--cut-spacing);
     line-height: 1.3;
-    color: #ffffff;
+    color: var(--hand-white, #fff);
     margin: 48px 0 16px;
     padding-top: 32px;
     border-top: 1px solid rgba(244, 239, 232, 0.14);
@@ -98,7 +98,7 @@
     text-decoration: underline;
     text-underline-offset: 4px;
   }
-  .core-main a:hover { color: #f4efe8; }
+  .core-main a:hover { color: var(--dk-ink, #f4efe8); }
   .core-nav {
     margin-top: 64px;
     padding-top: 32px;
@@ -112,7 +112,7 @@
     text-decoration: underline;
     text-underline-offset: 4px;
   }
-  .core-nav a:hover { color: #f4efe8; }
+  .core-nav a:hover { color: var(--dk-ink, #f4efe8); }
   @media (max-width: 768px) {
     .core-header { padding: 40px 24px 0; }
     .core-main { padding: 32px 24px 80px; }
@@ -186,14 +186,14 @@
   html[data-theme="dark"] .core-main a.arrow-link:focus-visible,
   html[data-theme="dark"] .core-main .core-nav a.arrow-link:hover,
   html[data-theme="dark"] .core-main .core-nav a.arrow-link:focus-visible {
-    color: #fff;
+    color: var(--hand-white, #fff);
   }
   @media (prefers-color-scheme: dark) {
     html:not([data-theme="light"]) .core-main a.arrow-link:hover,
     html:not([data-theme="light"]) .core-main a.arrow-link:focus-visible,
     html:not([data-theme="light"]) .core-main .core-nav a.arrow-link:hover,
     html:not([data-theme="light"]) .core-main .core-nav a.arrow-link:focus-visible {
-      color: #fff;
+      color: var(--hand-white, #fff);
     }
   }
 

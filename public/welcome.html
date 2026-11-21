@@ -25,8 +25,8 @@ html[data-theme="dark"] .wl { --wl-band: #473a2a; }
 /* The band: edge to edge, from the picture's dry ground. The heading is the page's one huge thing. */
 .wl-band { background: var(--wl-band); padding: 72px var(--edge) 64px; }
 .wl-band-in { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: start; }
-.wl-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); }
+.wl-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 6.4vw, 110px); /* November 20, 2026, Reach's word ("This word is too big"): about three quarters of its size, so it stands clear of the picture */ line-height: 0.9; letter-spacing: -0.035em; color: var(--ink-title, var(--ink)); }
 .wl-fig { margin: 0; }
 .wl-pic { display: block; }
 .wl-pic img { display: block; width: 100%; height: auto; aspect-ratio: 2000 / 1333; }
@@ -51,8 +51,8 @@ html[data-theme="dark"] .wl { --wl-band: #473a2a; }
 
 /* The way on: a full-width line, then one door. */
 .wl-foot { margin: 128px var(--edge) 0; padding: 36px 0 104px; border-top: 1px solid var(--ink-faint); }
-.wl-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 32px; line-height: 1.2; }
+.wl-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.wl-foot .arrow-link) { color: var(--ink-title); }
 .wl-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
 
 @media (max-width: 1100px) and (min-width: 761px) { .wl-band-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
@@ -72,6 +72,11 @@ html[data-theme="dark"] .wl { --wl-band: #473a2a; }
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .wl-foot .arrow-link .arrow-glyph, html.pp-still.wl-foot .arrow-link .arrow-glyph { transition: none; transform: none !important; }
 
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"] .wl-band { background-color: color-mix(in srgb, var(--wl-band) 64.5%, black); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .wl-band { background-color: color-mix(in srgb, var(--wl-band) 64.5%, black); }
+}
 </style>
 <link rel="stylesheet" href="/signs.css">
 <style id="pp-place-style">.wl-read p:nth-last-child(2) { margin-bottom: 0; } .pp-signed { justify-content: flex-start; margin-top: 88px; } @media (max-width: 760px) { .pp-signed { margin-top: 64px; } }</style>

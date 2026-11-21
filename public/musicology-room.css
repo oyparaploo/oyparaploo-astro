@@ -111,14 +111,14 @@ body.mus-room { background: var(--mr-room); }
    the header's height at the same moment, so it is never covered. */
 .mr-glide .mr-hall .mr-head { padding-top: calc(56px + var(--mr-hh, 0px)); transition: padding-top 200ms ease; }
 .mr-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.4vw, 76px); line-height: 0.98; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 76px); line-height: 0.98; letter-spacing: var(--cut-spacing);
   color: var(--mr-words); padding-right: 64px;
 }
 .mr-plus {
   display: inline-block; font-weight: 600; line-height: 0.92;
   padding: 0.02em 0.16em 0.06em; margin: 0 0.04em;
-  background: var(--mr-tan); color: #111111;
+  background: var(--mr-tan); color: var(--hand-black, #111); --cut-spacing: -0.01em;
 }
 .mr-line { margin-top: 18px; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.45; color: var(--mr-words); }
 
@@ -132,7 +132,7 @@ body.mus-room { background: var(--mr-room); }
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
   }
-  .mr-title .mr-plus { color: #111111; }
+  .mr-title .mr-plus { color: var(--hand-black, #111); --cut-spacing: -0.01em; }
   .mr-title { padding-right: 0; margin-right: 64px; }
 }
 
@@ -165,7 +165,7 @@ body.mus-room { background: var(--mr-room); }
 .mr-card a:focus-visible { outline-offset: 6px; }
 .mr-seat {
   display: block; position: relative; aspect-ratio: 503 / 313; overflow: hidden;
-  background: var(--mr-white); color: #111111; padding: 22px 26px 24px;
+  background: var(--mr-white); color: var(--hand-black, #111); --cut-spacing: -0.01em; padding: 22px 26px 24px;
   border-top: 8px solid var(--mr-midnight); border-radius: 6px;
   transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease);
 }
@@ -175,8 +175,8 @@ body.mus-room { background: var(--mr-room); }
 }
 .mr-card-title {
   display: block; margin-top: 24px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(24px, 2.1vw, 34px); line-height: 1.05; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(24px, 2.1vw, 34px); line-height: 1.05; letter-spacing: var(--cut-spacing);
 }
 .mr-card-sub {
   display: block; margin-top: 4px;
@@ -191,7 +191,7 @@ body.mus-room { background: var(--mr-room); }
    (Ink on dark: #e8e0d6 in Light, #d9d7ce in Dark), its words staying black
    (Ink #111111 on it: 14.9 to 1 in Light, 13.4 in Dark). Reach, October 30, 2026. */
 .mr-card a:hover .mr-seat, .mr-card a:focus-visible .mr-seat, .mr-card a:active .mr-seat {
-  background: var(--mr-words); color: #111111;
+  background: var(--mr-words); color: var(--hand-black, #111);
 }
 .mr-card a:hover .mr-card-rule, .mr-card a:focus-visible .mr-card-rule { width: 72px; }
 .mr-card-empty p { font-family: 'Inter', sans-serif; font-size: 20px; }
@@ -211,7 +211,7 @@ body.mus-room { background: var(--mr-room); }
 /* The room you are in: a solid tan pill, Ink on it (November 12, 2026). */
 .mr-rooms a[aria-current="page"] {
   padding-left: 16px; padding-right: 16px; border-radius: 999px;
-  background: var(--mr-tan); color: #111111;
+  background: var(--mr-tan); color: var(--hand-black, #111); --cut-spacing: -0.01em;
 }
 .mr-progress { position: relative; width: min(730px, 60%); height: 1px; background: rgba(var(--ink-on-dark-rgb), 0.28); }
 .mr-thumb { position: absolute; top: -1px; left: 0; height: 3px; width: 20%; background: var(--mr-white); }
@@ -252,9 +252,9 @@ body.mus-room { background: var(--mr-room); }
 }
 .mr-stage-words { position: relative; z-index: 2; margin-top: auto; padding: 120px var(--mr-pad) 0; }
 .mr-song-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(48px, 6.2vw, 104px); line-height: 0.96; letter-spacing: -0.02em;
-  color: var(--mr-words); max-width: 15em; overflow-wrap: anywhere;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(48px, 6.2vw, 104px); line-height: 0.96; letter-spacing: var(--cut-spacing);
+  color: var(--ink-title, var(--mr-words)); max-width: 15em; overflow-wrap: anywhere;
 }
 .mr-song-sub {
   display: inline-block; padding: 0;
@@ -281,8 +281,8 @@ body.mus-reading .mr-stage-words { padding-top: 96px; }
 /* ---------- the piece, in the dark room ---------- */
 .mr-read { max-width: 760px; margin: 0 auto; padding: 88px 24px 112px; color: var(--mr-words); }
 .mr-piece p { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.7; margin: 0 0 1.1em; color: var(--mr-words); }
-.mr-piece h2 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.15; margin: 1.8em 0 0.7em; color: var(--mr-words); }
-.mr-piece h3 { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; margin: 1.6em 0 0.6em; color: var(--mr-words); }
+.mr-piece h2 { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 30px; line-height: 1.15; margin: 1.8em 0 0.7em; color: var(--mr-words); letter-spacing: var(--cut-spacing); }
+.mr-piece h3 { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 24px; line-height: 1.2; margin: 1.6em 0 0.6em; color: var(--mr-words); letter-spacing: var(--cut-spacing); }
 .mr-piece hr { border: 0; border-top: 1px solid rgba(var(--ink-on-dark-rgb), 0.28); margin: 2.2em 0; }
 .mr-piece a { color: var(--mr-words); text-decoration: underline; text-decoration-color: var(--mr-words); text-underline-offset: 3px; }
 .mr-piece a:hover { text-decoration: none; }
@@ -297,7 +297,7 @@ body.mus-reading .mr-stage-words { padding-top: 96px; }
   border: 1px solid var(--mr-words); border-radius: 5px;
   transition: background-color 0.35s var(--mr-ease), color 0.35s var(--mr-ease), border-color 0.35s var(--mr-ease);
 }
-.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--mr-tan); border-color: var(--mr-tan); color: #111111; }
+.mr-buy:hover, .mr-buy:focus-visible, .mr-buy:active { background: var(--mr-tan); border-color: var(--mr-tan); color: var(--hand-black, #111); }
 /* Listen in another app: a bare arrow link under the buy button, like the way-on links. */
 .mr-listen-line { margin: 18px 0 0; }
 .mr-listen { font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.4; color: var(--mr-words); text-decoration: none; }
@@ -361,7 +361,7 @@ html.mr-holding .mr-glide .mr-hall .mr-head, html.mr-holding.mr-glide .mr-hall .
 /* October 30, 2026 (Reach): on the story, artist and soundtrack pages the kind-and-time label
    is Billboard's lilac with black words (Ink on lilac 8.9 to 1), its corners sanded to 4 pixels.
    Song pages show the artist plain, no label. */
-body.mus-reading .mr-song-sub { background: #B89AD8; color: #111111; border-radius: 4px;
+body.mus-reading .mr-song-sub { background: #B89AD8; color: var(--hand-black, #111); --cut-spacing: -0.01em; border-radius: 4px;
   font-size: clamp(18px, 1.4vw, 22px); padding: 4px 11px 6px; }
 /* Ninth round (Reach): the label a step smaller and the lavender quieter, a dusty #C2B4D6 (Ink on it 9.7 to 1). */
 /* Tenth round (Reach): the lavender halfway between the lilac and the dusty one, #CAA8EA (Ink on it 9.3 to 1). */
@@ -401,8 +401,8 @@ body.mus-reading .mr-song-sub { background: #B89AD8; }
   margin-bottom: 12px;
 }
 .mr-listen-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 22px; line-height: 1.15; letter-spacing: -0.005em; color: var(--mr-words);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 22px; line-height: 1.15; letter-spacing: var(--cut-spacing); color: var(--mr-words);
 }
 .mr-panel a.mr-listen-open {
   display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
@@ -448,13 +448,13 @@ body.mus-reading .mr-song-sub { background: #B89AD8; }
 .mr-listen-play {
   flex: 0 0 64px; width: 64px; height: 64px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  background: #9F7C61; color: #111111;
+  background: #9F7C61; color: var(--hand-black, #111); --cut-spacing: -0.01em;
   box-shadow: none;
   transition: background-color 0.3s var(--mr-ease), color 0.3s var(--mr-ease), transform 0.3s var(--mr-ease);
 }
 .mr-listen-play svg { width: 24px; height: 24px; margin-left: 4px; fill: currentColor; }
 .mr-listen-still:hover .mr-listen-play, .mr-listen-still:focus-visible .mr-listen-play {
-  background: #7D8B9B; color: #111111; transform: scale(1.06);
+  background: #7D8B9B; color: var(--hand-black, #111); transform: scale(1.06);
 }
 
 /* Wide windows: the card beside the title and its line. */
@@ -525,12 +525,12 @@ html.pp-still .mr-listen-player iframe, html.pp-still.mr-listen-player iframe, h
 
 html[data-theme="light"] {
   --mr-room: #f4efe7; --mr-panel: #faf6f0;
-  --mr-words: #111111; --mr-soft: #555555;
+  --mr-words: var(--hand-black, #111111); --mr-soft: var(--hand-grey, #555555);
 }
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) {
     --mr-room: #f4efe7; --mr-panel: #faf6f0;
-    --mr-words: #111111; --mr-soft: #555555;
+    --mr-words: var(--hand-black, #111111); --mr-soft: var(--hand-grey, #555555);
   }
 }
 
@@ -541,8 +541,8 @@ html[data-theme="light"] .mr-panel::after { background: linear-gradient(to botto
 html[data-theme="light"] .mr-panel :focus-visible { outline-color: #111111; }
 html[data-theme="light"] .mr-title, html[data-theme="light"] .mr-song-title { background-image: linear-gradient(to right, #111111, #4a3d33); }
 html[data-theme="light"] .mr-seat { box-shadow: 0 0 0 1px rgba(17,17,17,0.14); }
-html[data-theme="light"] .mr-card a:hover .mr-seat, html[data-theme="light"] .mr-card a:focus-visible .mr-seat, html[data-theme="light"] .mr-card a:active .mr-seat { background: #e8e0d6; color: #111111; }
-html[data-theme="light"] .mr-card-rule, html[data-theme="light"] .mr-thumb { background: #111111; }
+html[data-theme="light"] .mr-card a:hover .mr-seat, html[data-theme="light"] .mr-card a:focus-visible .mr-seat, html[data-theme="light"] .mr-card a:active .mr-seat { background: var(--dk-ink, #e8e0d6); color: var(--hand-black, #111); }
+html[data-theme="light"] .mr-card-rule, html[data-theme="light"] .mr-thumb { background: var(--hand-black, #111); }
 html[data-theme="light"] .mr-rooms a:not([aria-current="page"]) { background-image: linear-gradient(#111111, #111111); }
 html[data-theme="light"] .mr-progress { background: rgba(17,17,17,0.2); }
 html[data-theme="light"] .mr-progress.mr-bar:hover .mr-thumb, html[data-theme="light"] .mr-progress.mr-bar.is-held .mr-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,0.18); }
@@ -551,7 +551,7 @@ html[data-theme="light"] .mr-listen-still { background: rgba(255,255,255,0.72); 
 html[data-theme="light"] .mr-listen-still:hover, html[data-theme="light"] .mr-listen-still:focus-visible { border-color: rgba(17,17,17,0.5); }
 html[data-theme="light"] .mr-listen-still:focus-visible { outline-color: #111111; }
 html[data-theme="light"] .mr-listen-cover { box-shadow: 0 0 0 1px rgba(17,17,17,0.12); }
-html[data-theme="light"] .mr-panel a.mr-listen-open { color: #111111; text-decoration-color: rgba(17,17,17,0.6); }
+html[data-theme="light"] .mr-panel a.mr-listen-open { color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration-color: rgba(17,17,17,0.6); }
 html[data-theme="light"] .mr-panel a.mr-listen-open:hover, html[data-theme="light"] .mr-panel a.mr-listen-open:focus-visible { text-decoration-color: #111111; }
 
 @media (prefers-color-scheme: light) {
@@ -560,8 +560,8 @@ html[data-theme="light"] .mr-panel a.mr-listen-open:hover, html[data-theme="ligh
   html:not([data-theme="dark"]) .mr-panel :focus-visible { outline-color: #111111; }
   html:not([data-theme="dark"]) .mr-title, html:not([data-theme="dark"]) .mr-song-title { background-image: linear-gradient(to right, #111111, #4a3d33); }
   html:not([data-theme="dark"]) .mr-seat { box-shadow: 0 0 0 1px rgba(17,17,17,0.14); }
-  html:not([data-theme="dark"]) .mr-card a:hover .mr-seat, html:not([data-theme="dark"]) .mr-card a:focus-visible .mr-seat, html:not([data-theme="dark"]) .mr-card a:active .mr-seat { background: #e8e0d6; color: #111111; }
-  html:not([data-theme="dark"]) .mr-card-rule, html:not([data-theme="dark"]) .mr-thumb { background: #111111; }
+  html:not([data-theme="dark"]) .mr-card a:hover .mr-seat, html:not([data-theme="dark"]) .mr-card a:focus-visible .mr-seat, html:not([data-theme="dark"]) .mr-card a:active .mr-seat { background: var(--dk-ink, #e8e0d6); color: var(--hand-black, #111); }
+  html:not([data-theme="dark"]) .mr-card-rule, html:not([data-theme="dark"]) .mr-thumb { background: var(--hand-black, #111); }
   html:not([data-theme="dark"]) .mr-rooms a:not([aria-current="page"]) { background-image: linear-gradient(#111111, #111111); }
   html:not([data-theme="dark"]) .mr-progress { background: rgba(17,17,17,0.2); }
   html:not([data-theme="dark"]) .mr-progress.mr-bar:hover .mr-thumb, html:not([data-theme="dark"]) .mr-progress.mr-bar.is-held .mr-thumb { box-shadow: 0 0 0 3px rgba(17,17,17,0.18); }
@@ -570,6 +570,6 @@ html[data-theme="light"] .mr-panel a.mr-listen-open:hover, html[data-theme="ligh
   html:not([data-theme="dark"]) .mr-listen-still:hover, html:not([data-theme="dark"]) .mr-listen-still:focus-visible { border-color: rgba(17,17,17,0.5); }
   html:not([data-theme="dark"]) .mr-listen-still:focus-visible { outline-color: #111111; }
   html:not([data-theme="dark"]) .mr-listen-cover { box-shadow: 0 0 0 1px rgba(17,17,17,0.12); }
-  html:not([data-theme="dark"]) .mr-panel a.mr-listen-open { color: #111111; text-decoration-color: rgba(17,17,17,0.6); }
+  html:not([data-theme="dark"]) .mr-panel a.mr-listen-open { color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration-color: rgba(17,17,17,0.6); }
   html:not([data-theme="dark"]) .mr-panel a.mr-listen-open:hover, html:not([data-theme="dark"]) .mr-panel a.mr-listen-open:focus-visible { text-decoration-color: #111111; }
 }

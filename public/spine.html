@@ -19,9 +19,9 @@
   --font-display: 'Archivo', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-ui: 'Inter', -apple-system, sans-serif;
-  --ink: var(--ink-on-dark);
-  --ink-soft: #b3aa9f;
-  --ink-faint: #8f877d;
+  --ink: var(--ink-on-dark); --ink-title: initial;
+  --ink-soft: var(--dk-soft, #b3aa9f);
+  --ink-faint: var(--dk-faint, #8f877d);
   --accent: #d4a574;
   --ground: #0a0806;
 }
@@ -49,13 +49,13 @@ a { color: inherit; text-decoration: none; }
 .count-up {
   font-family: var(--font-display); font-stretch: 112%;
   font-size: clamp(80px, 18vw, 200px);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  letter-spacing: var(--cut-spacing);
   line-height: 1;
   background: linear-gradient(135deg, #c4956a 0%, #a85a40 30%, #5a9ab8 60%, #4a8a58 80%, var(--ink-on-dark) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   margin-bottom: 0.2em;
-}
+} :where(.count-up) { color: var(--ink-title); }
 .count-sub {
   font-family: var(--font-body); font-size: 17px;
   color: rgba(var(--ink-on-dark-rgb), 0.50);
@@ -136,10 +136,10 @@ a { color: inherit; text-decoration: none; }
 .year-headline {
   font-family: var(--font-display); font-stretch: 112%;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   color: rgba(var(--ink-on-dark-rgb), 0.88);
   line-height: 1.35;
-  margin: 4px 0 8px;
+  margin: 4px 0 8px; letter-spacing: var(--cut-spacing);
 }
 .year-text {
   font-family: var(--font-body);
@@ -150,7 +150,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: 4px;
 }
 .year-text a { color: #d4a574; text-decoration: underline; text-underline-offset: 3px; }
-.year-text a:hover { color: #f4efe8; }
+.year-text a:hover { color: var(--dk-ink, #f4efe8); }
 
 /* Era dividers */
 .era-divider {
@@ -173,11 +173,11 @@ a { color: inherit; text-decoration: none; }
 .closing-text {
   font-family: var(--font-display); font-stretch: 112%;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   color: rgba(var(--ink-on-dark-rgb), 0.55);
   line-height: 1.6;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto; letter-spacing: var(--cut-spacing);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -214,11 +214,11 @@ html.pp-still .year-mark::before, html.pp-still.year-mark::before { transition: 
 /* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
    The Spine follows Light: white ground, the words in Ink, the era colours made deep enough to read on it, their hue
    kept, the footer in its Light values in place of the dark footer its always-dark class gave it. Dark is unchanged. */
-html.always-dark[data-theme="light"] { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
-html.always-dark[data-theme="light"] body { background: #ffffff; color: #111111; }
+html.always-dark[data-theme="light"] { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+html.always-dark[data-theme="light"] body { background: #ffffff; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 html.always-dark[data-theme="light"] .opening,
 html.always-dark[data-theme="light"] .timeline,
-html.always-dark[data-theme="light"] .closing { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+html.always-dark[data-theme="light"] .closing { --ink-on-dark: var(--hand-black, #111111); --ink-on-dark-rgb: 17, 17, 17; }
 html.always-dark[data-theme="light"] .count-up { background: linear-gradient(135deg, #80562f 0%, #8c4630 30%, #2c6681 60%, #2e6a3c 80%, #111111 100%); -webkit-background-clip: text; background-clip: text; }
 html.always-dark[data-theme="light"] .timeline::before { background: linear-gradient(to bottom, rgba(128,86,47,0.45) 0%, rgba(128,86,47,0.35) 15%, rgba(44,102,129,0.35) 40%, rgba(46,106,60,0.35) 65%, rgba(102,42,30,0.45) 85%, rgba(17,17,17,0.25) 100%); }
 html.always-dark[data-theme="light"] .year-mark::before { background: #ffffff; }
@@ -240,14 +240,14 @@ html.always-dark[data-theme="light"] .era-80s .year-num,
 html.always-dark[data-theme="light"] .era-20s .year-num { color: #8c4630; }
 html.always-dark[data-theme="light"] .year-text a { color: #8a5a24; }
 html.always-dark[data-theme="light"] .year-text a:hover { color: #000000; }
-html.always-dark[data-theme="light"] .count-sub { color: #555555; }
+html.always-dark[data-theme="light"] .count-sub { color: var(--hand-grey, #555); }
 html.always-dark[data-theme="light"] .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
 @media (prefers-color-scheme: light) {
-  html.always-dark:not([data-theme="dark"]) { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
-  html.always-dark:not([data-theme="dark"]) body { background: #ffffff; color: #111111; }
+  html.always-dark:not([data-theme="dark"]) { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #ffffff; --df-ground: #faf6f0; --df-rule: #c0b8b0; --df-writings: #7A2E3A; --df-marks: #1F3F66; --df-placings: #6B4A2B; --df-collage: #2F5A3C; --df-song: #5A3A6B; --df-ocean: #326075; --df-olive: #6E6E47; --df-plum: #673751; --df-terracotta: #A45C36; --df-ochre: #86641C; }
+  html.always-dark:not([data-theme="dark"]) body { background: #ffffff; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
   html.always-dark:not([data-theme="dark"]) .opening,
   html.always-dark:not([data-theme="dark"]) .timeline,
-  html.always-dark:not([data-theme="dark"]) .closing { --ink-on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; }
+  html.always-dark:not([data-theme="dark"]) .closing { --ink-on-dark: var(--hand-black, #111111); --ink-on-dark-rgb: 17, 17, 17; }
   html.always-dark:not([data-theme="dark"]) .count-up { background: linear-gradient(135deg, #80562f 0%, #8c4630 30%, #2c6681 60%, #2e6a3c 80%, #111111 100%); -webkit-background-clip: text; background-clip: text; }
   html.always-dark:not([data-theme="dark"]) .timeline::before { background: linear-gradient(to bottom, rgba(128,86,47,0.45) 0%, rgba(128,86,47,0.35) 15%, rgba(44,102,129,0.35) 40%, rgba(46,106,60,0.35) 65%, rgba(102,42,30,0.45) 85%, rgba(17,17,17,0.25) 100%); }
   html.always-dark:not([data-theme="dark"]) .year-mark::before { background: #ffffff; }
@@ -269,7 +269,7 @@ html.always-dark[data-theme="light"] .signature { filter: grayscale(1) brightnes
   html.always-dark:not([data-theme="dark"]) .era-20s .year-num { color: #8c4630; }
   html.always-dark:not([data-theme="dark"]) .year-text a { color: #8a5a24; }
   html.always-dark:not([data-theme="dark"]) .year-text a:hover { color: #000000; }
-  html.always-dark:not([data-theme="dark"]) .count-sub { color: #555555; }
+  html.always-dark:not([data-theme="dark"]) .count-sub { color: var(--hand-grey, #555); }
   html.always-dark:not([data-theme="dark"]) .signature { filter: grayscale(1) brightness(1.08) contrast(1.25); mix-blend-mode: multiply; opacity: var(--drawing); }
 }
 html.always-dark[data-theme="light"] .era-50s .era-label,

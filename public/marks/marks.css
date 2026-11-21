@@ -25,7 +25,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 :root {
   --edge: 24px;            /* the whole-window frame */
   --gap: 32px;             /* between columns */
-  --band-ink: #111111;     /* words on a colour band stay dark */
+  --band-ink: var(--hand-black, #111111);     /* words on a colour band stay dark */
   --rule: var(--ink);
   --ease: cubic-bezier(0.4, 0, 0.1, 1);
   --way-1: #e8d898; --way-2: #e8a888; --way-3: #a8a8b8; --way-4: #f8a808; --way-5: #b8e8f8; --way-6: #f8d828;
@@ -41,7 +41,7 @@ html:root body .site-header {
 }
 
 /* ---------- shared pieces ---------- */
-.arch { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; }
+.arch { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; letter-spacing: var(--cut-spacing); } :where(.arch) { color: var(--ink-title); }
 .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 
 /* A drawing's own words and its catalogue number, under the drawing (ruled October 4, 2026): its title,
@@ -66,8 +66,8 @@ html:root body .site-header {
 .open-head { grid-area: head; }
 .open-pic { grid-area: pic; position: sticky; top: 24px; }
 .open-sentence { grid-area: sent; }
-.open-title { font-size: clamp(64px, 8.4vw, 132px); line-height: 0.94; letter-spacing: -0.02em; margin-left: -0.04em; }
-.open-sub { margin-top: 6px; font-size: clamp(30px, 3.1vw, 46px); line-height: 1.1; letter-spacing: -0.005em; color: var(--ink-soft); }
+.open-title { font-size: clamp(64px, 8.4vw, 132px); line-height: 0.94; letter-spacing: var(--cut-spacing); margin-left: -0.04em; }
+.open-sub { margin-top: 6px; font-size: clamp(30px, 3.1vw, 46px); line-height: 1.1; letter-spacing: var(--cut-spacing); color: var(--ink-soft); }
 /* Reach's own passage, set to be scanned: each phrase whole on its line with its three dots. */
 .open-sentence { margin-top: 36px; max-width: 29em; font-size: 20px; line-height: 1.5; }
 .open-sentence .ph { display: inline-block; max-width: 100%; margin-right: 0.35em; text-wrap: balance; }
@@ -82,7 +82,7 @@ html:root body .site-header {
   padding: 72px var(--edge);
 }
 .wb-words { display: flex; flex-direction: column; min-height: 100%; }
-.wb-name { font-size: clamp(40px, 5.4vw, 84px); line-height: 0.98; letter-spacing: -0.012em; }
+.wb-name { font-size: clamp(40px, 5.4vw, 84px); line-height: 0.98; letter-spacing: var(--cut-spacing); }
 .wb-line { display: block; font-size: 22px; line-height: 1.4; max-width: 22em; margin-top: 24px; }
 .go { display: block; margin-top: auto; padding-top: 40px; font-size: 44px; line-height: 1; font-weight: 500; }
 .wb-pic { display: block; min-width: 0; align-self: center; }
@@ -96,14 +96,14 @@ html:root body .site-header {
   display: grid; grid-template-columns: 148px minmax(0, 1fr) auto; column-gap: 24px; align-items: center;
   padding: 12px 0; border-top: 1px solid var(--band-ink);
 }
-.st-row .w { font-size: clamp(22px, 1.9vw, 28px); line-height: 1.12; letter-spacing: -0.004em; }
+.st-row .w { font-size: clamp(22px, 1.9vw, 28px); line-height: 1.12; letter-spacing: var(--cut-spacing); }
 .st-row .n, .stamp .n { font-size: 18px; font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .hw-band .wb-name { font-size: clamp(40px, 4.6vw, 72px); }
 
 /* ---------- The top of every page behind the Marks page ---------- */
 .page-top { padding: 28px var(--edge) 64px; }
 .up { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 18px; font-weight: 600; }
-.page-title { margin-top: 28px; max-width: 15em; font-size: clamp(48px, 6.6vw, 104px); line-height: 0.96; letter-spacing: -0.015em; margin-left: -0.03em; }
+.page-title { margin-top: 28px; max-width: 15em; font-size: clamp(48px, 6.6vw, 104px); line-height: 0.96; letter-spacing: var(--cut-spacing); margin-left: -0.03em; }
 /* A group's name is a whole title of Reach's, often long, so it is set a step smaller. */
 .group-top .page-title { font-size: clamp(36px, 4.4vw, 68px); line-height: 1.02; max-width: 18em; }
 .hw-top .page-title { font-size: clamp(44px, 5.6vw, 92px); }
@@ -117,7 +117,7 @@ html:root body .site-header {
   padding: 28px var(--edge); border-top: 1px solid var(--rule);
   transition: background-color 0.25s ease, color 0.25s ease;
 }
-.row-name { font-size: clamp(30px, 3.2vw, 48px); line-height: 1.04; letter-spacing: -0.008em; }
+.row-name { font-size: clamp(30px, 3.2vw, 48px); line-height: 1.04; letter-spacing: var(--cut-spacing); }
 .row-group .row-name { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.15; }
 .row-pics { display: flex; gap: 16px; align-items: flex-end; min-width: 0; }
 .rp { flex: 0 1 auto; min-width: 0; }
@@ -164,7 +164,7 @@ html:root body .site-header {
 .back { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; font-size: 20px; font-weight: 600; }
 .next { display: flex; flex-direction: column; align-items: flex-end; text-align: right; max-width: 60%; }
 .next-where { font-size: 20px; line-height: 1.4; }
-.next-word { font-size: clamp(40px, 5.2vw, 76px); line-height: 1; letter-spacing: -0.012em; margin-top: 6px; white-space: nowrap; }
+.next-word { font-size: clamp(40px, 5.2vw, 76px); line-height: 1; letter-spacing: var(--cut-spacing); margin-top: 6px; white-space: nowrap; }
 
 /* ---------- What answers a mouse: the playful reversal on rows (Kanal), arrows that slide ---------- */
 @media (hover: hover) {

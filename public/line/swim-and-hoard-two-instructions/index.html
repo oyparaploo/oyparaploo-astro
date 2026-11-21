@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ground="d">
 <head>
 <meta charset="UTF-8">
 <script src="/still.js"></script>
@@ -37,7 +37,7 @@
   --air: 144px;
   --reading: 750px;
   --face-head: 'Archivo', 'Inter', sans-serif;
-  --door-ground: #f9f7f4;            /* the front door's cream, kept */
+  --door-ground: var(--ground);            /* the front door's cream, kept */
   --rule: rgba(17, 17, 17, 0.18);
   --arrive-ground: #120d0a;          /* under the haze, before the picture loads */
   --walk-band: #E6EADF;              /* Wonderful Garbage's own green (#3B4931), made pale */
@@ -85,8 +85,8 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 }
 .arrive-words { max-width: 620px; }
 .arrive-title {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 48px; line-height: 1.04; letter-spacing: -0.018em; margin: 0 0 28px !important;
+  font-family: var(--face-head); font-weight: 500; font-stretch: 112%;
+  font-size: 48px; line-height: 1.04; letter-spacing: var(--cut-spacing); margin: 0 0 28px !important;
   text-wrap: balance;
 }
 .arrive-lines { font-size: 20px; line-height: 1.62; }
@@ -104,9 +104,9 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 .thread { margin: var(--air) var(--edge); text-align: center; }
 .thread a { display: inline-block; max-width: 1320px; }
 .thread-words {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance;
-}
+  font-family: var(--face-head); font-weight: 500; font-stretch: 112%;
+  font-size: 58px; line-height: 1.08; letter-spacing: var(--cut-spacing); text-wrap: balance;
+} :where(.thread-words) { color: var(--ink-title); }
 .thread-from { display: inline-flex; gap: 8px; margin-top: 24px; font-size: 18px; font-weight: 500; color: var(--ink-soft); }
 @media (hover: hover) { .thread a:hover .thread-words { color: var(--accent); } }
 
@@ -114,14 +114,14 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 .group { margin: var(--air) var(--edge) 0; padding-top: 36px; border-top: 1px solid var(--ink); }
 .thread + .group { margin-top: 0; }
 .group-name {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 48px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px !important;
-}
+  font-family: var(--face-head); font-weight: 500; font-stretch: 112%;
+  font-size: 48px; line-height: 1; letter-spacing: var(--cut-spacing); margin-bottom: 48px !important;
+} :where(.group-name) { color: var(--ink-title); }
 .t {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 28px; line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 14px !important;
+  font-family: var(--face-head); font-weight: 500; font-stretch: 112%;
+  font-size: 28px; line-height: 1.14; letter-spacing: var(--cut-spacing); margin-bottom: 14px !important;
   text-wrap: balance;
-}
+} :where(.t) { color: var(--ink-title); }
 .first { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
 .by { font-size: 18px; font-weight: 600; margin: -6px 0 12px !important; }
 @media (hover: hover) { a:hover .t, a:hover .set, a:hover .stop-line { color: var(--accent); } }
@@ -138,17 +138,17 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 .prow img { width: 100%; }
 .cap { margin-top: 14px; font-size: 18px; line-height: 1.4; }
 .cap .kind { margin-bottom: 2px; }
-.cap .set { display: block; font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.cap .set { display: block; font-family: var(--face-head); font-weight: 500; font-stretch: 112%; font-size: 24px; line-height: 1.15; letter-spacing: var(--cut-spacing); } :where(.cap .set) { color: var(--ink-title); }
 .cap .no { display: block; margin-top: 4px; color: var(--ink-soft); }
 
 /* One walk, on its own colour (Craig Mod). */
 .group.walk { margin: 0; padding: 72px var(--edge) 88px; border-top: 0; background: var(--walk-band); }
-.walk-name { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.1; margin: -24px 0 10px !important; }
+.walk-name { font-family: var(--face-head); font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.1; margin: -24px 0 10px !important; letter-spacing: var(--cut-spacing); } :where(.walk-name) { color: var(--ink-title); }
 .walk-line { font-size: 22px; line-height: 1.45; max-width: var(--reading); }
 .stops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--col); margin-top: 48px; }
 .stop img { width: 100%; }
 .stop-name { display: block; margin-top: 16px; font-size: 18px; font-weight: 600; }
-.stop-line { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.18; margin-top: 6px !important; }
+.stop-line { font-family: var(--face-head); font-weight: 500; font-stretch: 112%; font-size: 26px; line-height: 1.18; margin-top: 6px !important; letter-spacing: var(--cut-spacing); } :where(.stop-line) { color: var(--ink-title); }
 .door-btn {
   display: inline-flex; align-items: center; gap: 10px; margin-top: 56px;
   font-weight: 600; font-size: 18px; line-height: 1;
@@ -162,7 +162,7 @@ html:root:root body { margin: 0; font-family: 'Inter', sans-serif; font-size: 18
 /* ---------- 7. The doors at the foot, unchanged ---------- */
 .foot-doors { display: flex; flex-wrap: wrap; gap: 64px; margin: 0 var(--edge) 96px; padding-top: 40px; border-top: 1px solid var(--ink); }
 .walk + .foot-doors { margin-top: var(--air); }
-.home-door { font-family: var(--face-head); font-weight: 600; font-stretch: 112%; font-size: 24px; color: var(--ink); }
+.home-door { font-family: var(--face-head); font-weight: 500; font-stretch: 112%; font-size: 24px; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 .home-door:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) { .arr, .door-btn { transition: none; } }
@@ -223,11 +223,11 @@ html.pp-still .arr, html.pp-still.arr, html.pp-still .door-btn, html.pp-still.do
 }
 .laugh-in { width: 100%; max-width: 1000px; margin: 0 auto; }
 .laugh-line {
-  font-family: var(--face-head); font-weight: 600; font-stretch: 112%;
-  font-size: 44px; line-height: 1.1; letter-spacing: -0.015em;
+  font-family: var(--face-head); font-weight: 500; font-stretch: 112%;
+  font-size: 44px; line-height: 1.1; letter-spacing: var(--cut-spacing);
   text-wrap: pretty; overflow-wrap: break-word;
-}
-.laugh-line.is-long { font-size: 32px; line-height: 1.18; letter-spacing: -0.01em; }
+} :where(.laugh-line) { color: var(--ink-title); }
+.laugh-line.is-long { font-size: 32px; line-height: 1.18; letter-spacing: var(--cut-spacing); }
 .laugh-line strong { font-weight: inherit; }   /* the writing's bold marks: the heading face is already bold */
 /* The door: "From", the title and its arrow, as the three lines lower on the homepage read (Reach's yes,
    November 19, 2026); only the title takes the underline. The title's last word never parts from the arrow,

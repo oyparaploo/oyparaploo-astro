@@ -127,28 +127,28 @@ html[data-theme="dark"] body::before {
 
 /* ---------- the opening band: two halves, colour meeting colour, no line ---------- */
 .opening { position: relative; }
-.opening-words { background: var(--band); color: #111111; }
+.opening-words { background: var(--band); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .opening-words-in { padding: 72px var(--gap-4) 72px var(--edge); }
 .opening-pic { background: var(--work-5); padding: 72px var(--edge) 72px var(--gap-4); }
 
 .stage-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(52px, 5.2vw, 84px); line-height: 1.0; letter-spacing: var(--cut-spacing);
   margin: 0 0 var(--gap-5) var(--indent);
-}
+} :where(.stage-title) { color: var(--ink-title); }
 .stage-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: 36px; line-height: 1.2; max-width: var(--reading);
-  text-indent: var(--indent);
-}
+  text-indent: var(--indent); letter-spacing: var(--cut-spacing);
+} :where(.stage-sentence) { color: var(--ink-title); }
 .opening .pair { margin-top: var(--gap-6); }
-.opening .btn { --btn-ink: #111111; --btn-ground: var(--band); }
+.opening .btn { --btn-ink: var(--hand-black, #111111); --btn-ground: var(--band); }
 .opening :focus-visible { outline-color: #111111; }
 
 .stage-pic { width: 100%; height: auto; }
 .stage-cat {
   display: inline-block; margin-top: var(--gap-3);
-  font-size: 16px; color: #111111; text-decoration: none;
+  font-size: 16px; color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none;
 }
 
 /* PLAY: headline lines that arrive one at a time. Three beats, done inside a second. */
@@ -187,12 +187,12 @@ main .rooms { padding: 0 0 72px; }
 .doors { display: flex; flex-direction: column; margin: 0 calc(-1 * var(--edge)); }
 .doors a {
   display: flex; align-items: center; justify-content: space-between; gap: var(--gap-6);
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.2;
-  text-decoration: none; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 40px; line-height: 1.2;
+  text-decoration: none; color: var(--ink-title, var(--ink));
   border-top: 1px solid var(--rule);
   padding: 28px var(--edge);
   overflow: hidden;
-  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease;
+  transition: flex-grow 0.6s var(--ease), background-color 0.3s ease, color 0.3s ease; letter-spacing: var(--cut-spacing);
 }
 .doors a:last-child { border-bottom: 1px solid var(--rule); }
 .door-name { display: inline-block; transform-origin: left center; transition: transform 0.6s var(--ease); }
@@ -214,11 +214,11 @@ main .rooms { padding: 0 0 72px; }
 .kind-name { font-size: clamp(26px, 2.2vw, 32px); }
 .kind-name a {
   display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: inherit; line-height: 1.15;
-  text-decoration: none; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: inherit; line-height: 1.15;
+  text-decoration: none; color: var(--ink-title, var(--ink));
   margin-left: calc(-1 * var(--edge)); padding: 16px var(--gap-4) 16px var(--edge);
   border-top: 1px solid var(--rule);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; letter-spacing: var(--cut-spacing);
 }
 .kind:last-child .kind-name a { border-bottom: 1px solid var(--rule); }
 .kind.is-active .kind-name a { background-color: var(--ink); color: var(--ground); }
@@ -271,11 +271,11 @@ main .rooms { padding: 0 0 72px; }
 .subjects a {
   display: flex; align-items: center; justify-content: space-between; gap: var(--gap-4);
   min-height: 72px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2;
-  text-decoration: none; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 26px; line-height: 1.2;
+  text-decoration: none; color: var(--ink-title, var(--ink));
   margin-left: calc(-1 * var(--edge)); padding: 12px var(--gap-4) 12px var(--edge);
   border-top: 1px solid var(--rule);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; letter-spacing: var(--cut-spacing);
 }
 .subjects a:last-child { border-bottom: 1px solid var(--rule); }
 .subjects a:active { background-color: var(--ink); color: var(--ground); }
@@ -378,7 +378,7 @@ main .rooms { padding: 0 0 72px; }
   .year-head {
     display: flex; align-items: center; justify-content: space-between;
     padding: var(--gap-4) var(--edge); border-bottom: 1px solid var(--rule);
-    font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2;
+    font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 30px; line-height: 1.2; letter-spacing: var(--cut-spacing);
   }
   .year-close {
     display: inline-flex; align-items: center; justify-content: center;
@@ -392,15 +392,15 @@ main .rooms { padding: 0 0 72px; }
 
 /* ---------- the picture band at the foot: the room the opening picture came from ---------- */
 .shelf {
-  --ink: #111111; --ink-soft: #111111; --ground: var(--work-5); --rule: #111111;
-  background: var(--work-5); color: #111111;
+  --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-black, #111111); --ground: var(--work-5); --rule: #111111;
+  background: var(--work-5); color: var(--hand-black, #111); --cut-spacing: -0.01em;
   padding: 96px 0 120px;
 }
 /* PLAY: the brown-to-charcoal ink title. The design log's three stops, kept as they
    were: on this pale band each of them stands at 7.5 to 1 or better. */
 .ink-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: -0.02em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(54px, 10.4vw, 176px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 56px -0.04em;
 }
 .ink-title a {
@@ -423,7 +423,7 @@ main .rooms { padding: 0 0 72px; }
 /* The standing rule: words over a photograph get a darkened band behind them. */
 .speck-num {
   position: absolute; left: 0; right: 0; bottom: 0;
-  background: rgba(13, 9, 7, 0.82); color: #ffffff;
+  background: rgba(13, 9, 7, 0.82); color: var(--hand-white, #fff);
   font-family: 'Inter', sans-serif; font-weight: 500;
   font-size: calc(16px / var(--swell)); line-height: 1.5; padding: 0.15em 0.5em;
   opacity: 0; transition: opacity 0.3s ease;
@@ -457,7 +457,7 @@ main .rooms { padding: 0 0 72px; }
 .go-link {
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
-  color: #111111; text-decoration: none;
+  color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none;
 }
 .go-link span { display: inline-block; transition: transform 0.2s ease; }
 .go-link:hover span, .go-link:focus-visible span, .go-link:active span { transform: translateX(4px); }
@@ -529,17 +529,17 @@ html.pp-still .lines line, html.pp-still.lines line { transform: none !important
 .behind .opening-pic { padding-top: 48px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: flex-end; }
 /* The name is one clear step above the sentence, and no louder than the rows below it. */
 .behind .stage-title { font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 0 0 var(--gap-4); }
-.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 600; text-indent: 0; }
+.behind .stage-sentence { font-size: 28px; line-height: 1.25; font-weight: 500; text-indent: 0; }
 .back-link {
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 40px;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3;
-  color: #111111; text-decoration: none;
+  color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none;
 }
 .back-link span { display: inline-block; transition: transform 0.2s ease; }
 .back-link:hover span, .back-link:focus-visible span, .back-link:active span { transform: translateX(-4px); }
 
 /* The work on the page: a passage in the writing's own words, where the Writings page hangs its picture. */
-.passage { max-width: 34em; color: #111111; }
+.passage { max-width: 34em; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .passage p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.4; }
 .passage p + p { margin-top: 0.5em; }
 .passage .verse { white-space: pre-line; font-size: clamp(18px, 1.55vw, 24px); }
@@ -557,7 +557,7 @@ html.pp-still .lines line, html.pp-still.lines line { transform: none !important
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .rows a:last-child { border-bottom: 1px solid var(--rule); }
-.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.2; }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 30px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.row-name) { color: var(--ink-title); }
 .row-side { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4; }
 .rows .row-arrow { justify-self: end; font-size: 30px; line-height: 1; }
 .rows a:active { background-color: var(--ink); color: var(--ground); }
@@ -703,7 +703,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <section class="sh-part sh-pictures" id="pictures" aria-labelledby="sh-h-pictures">
 <h2 class="sh-label" id="sh-h-pictures">Pictures</h2>
 </section>
-<section class="sh-gallery" id="hot-climate-digital" style="--pale:#DDD6A6;--deep:#483F09" aria-label="Hot Climate Digital">
+<section class="sh-gallery" id="hot-climate-digital" style="--pale:#DDD6A6;--deep:#2f2906" aria-label="Hot Climate Digital">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/hot-climate-volumes/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Hot Climate Digital</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0008"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%2038.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14141, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0008" tabindex="-1">14141</a></figcaption></figure>
@@ -716,7 +716,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate-digital/0001"><img src="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate-digital/Hot%20Climate%201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="14134, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate-digital/0001" tabindex="-1">14134</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="fire-damage-prison-and-escape" style="--pale:#E9D0C4;--deep:#6B2B0E" aria-label="Fire Damage Prison And Escape">
+<section class="sh-gallery" id="fire-damage-prison-and-escape" style="--pale:#E9D0C4;--deep:#471c09" aria-label="Fire Damage Prison And Escape">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/fire-damage-prison-and-escape/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Fire Damage Prison And Escape</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/fire-damage-prison-and-escape/0008"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Hot%20Climate%20446.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10759, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0008" tabindex="-1">10759</a></figcaption></figure>
@@ -729,7 +729,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.6620"><a href="/digital/fire-damage-prison-and-escape/0001"><img src="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp" srcset="https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I-600.webp 600w, https://media.paraploo.com/site/images/lines/fire-damage-prison-and-escape/Banana%20Skin%20Hot%20Desert%20I.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10752, Paraploo" width="600" height="361" loading="lazy" decoding="async"></a><figcaption><a href="/digital/fire-damage-prison-and-escape/0001" tabindex="-1">10752</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="cold-clouds-scorched-ground" style="--pale:#DED3CD;--deep:#4B3C32" aria-label="Cold Clouds Scorched Ground">
+<section class="sh-gallery" id="cold-clouds-scorched-ground" style="--pale:#DED3CD;--deep:#312721" aria-label="Cold Clouds Scorched Ground">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/cold-clouds-scorched-ground/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Cold Clouds Scorched Ground</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0010"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/We%20We%20Will%20Not%20Give%20In%20To%20Dry%20Eyes%20b.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10614, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0010" tabindex="-1">10614</a></figcaption></figure>
@@ -744,7 +744,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/cold-clouds-scorched-ground/0001"><img src="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp" srcset="https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen-600.webp 600w, https://media.paraploo.com/site/images/lines/cold-clouds-scorched-ground/A%20Change%20Is%20Going%20to%20Happen.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="10605, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/cold-clouds-scorched-ground/0001" tabindex="-1">10605</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="sista-ro-spirit-extreme-heat" style="--pale:#DED6A9;--deep:#493F08" aria-label="Sista Ro Spirit Extreme Heat">
+<section class="sh-gallery" id="sista-ro-spirit-extreme-heat" style="--pale:#DED6A9;--deep:#2f2905" aria-label="Sista Ro Spirit Extreme Heat">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/sista-ro-spirit-extreme-heat/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Sista Ro Spirit Extreme Heat</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0008"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20207.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09352, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0008" tabindex="-1">09352</a></figcaption></figure>
@@ -757,7 +757,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/sista-ro-spirit-extreme-heat/0001"><img src="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp" srcset="https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200-600.webp 600w, https://media.paraploo.com/site/images/lines/sista-ro-spirit-extreme-heat/Sista%20R0%20200.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09345, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/sista-ro-spirit-extreme-heat/0001" tabindex="-1">09345</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="like-a-dying-monopoly-wish" style="--pale:#E3D2C7;--deep:#53392A" aria-label="Like A Dying Monopoly Wish">
+<section class="sh-gallery" id="like-a-dying-monopoly-wish" style="--pale:#E3D2C7;--deep:#36251c" aria-label="Like A Dying Monopoly Wish">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/like-a-dying-monopoly-wish/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Like A Dying Monopoly Wish</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0012"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/light%20yellow%20room%20III.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09292, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0012" tabindex="-1">09292</a></figcaption></figure>
@@ -774,7 +774,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/like-a-dying-monopoly-wish/0001"><img src="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp" srcset="https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781-600.webp 600w, https://media.paraploo.com/site/images/lines/like-a-dying-monopoly-wish/781.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09281, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/like-a-dying-monopoly-wish/0001" tabindex="-1">09281</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="hot-climate" style="--pale:#E8D0C2;--deep:#633215" aria-label="Hot Climate">
+<section class="sh-gallery" id="hot-climate" style="--pale:#E8D0C2;--deep:#40200e" aria-label="Hot Climate">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/hot-climate/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Hot Climate</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0012"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%2026.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09117, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0012" tabindex="-1">09117</a></figcaption></figure>
@@ -791,7 +791,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/hot-climate/0001"><img src="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp" srcset="https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204-600.webp 600w, https://media.paraploo.com/site/images/lines/hot-climate/Hot%20Climate%204.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09106, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/hot-climate/0001" tabindex="-1">09106</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="earthy-mushroom-cloud-test" style="--pale:#E5D1C2;--deep:#543824" aria-label="Earthy Mushroom Cloud Test">
+<section class="sh-gallery" id="earthy-mushroom-cloud-test" style="--pale:#E5D1C2;--deep:#372518" aria-label="Earthy Mushroom Cloud Test">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/earthy-mushroom-cloud-test/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Earthy Mushroom Cloud Test</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.3304"><a href="/digital/earthy-mushroom-cloud-test/0012"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020-600.webp 600w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%2020.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="09097, Paraploo" width="600" height="451" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0012" tabindex="-1">09097</a></figcaption></figure>
@@ -808,7 +808,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:0.8467"><a href="/digital/earthy-mushroom-cloud-test/0001"><img src="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp" srcset="https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201-600.webp 508w, https://media.paraploo.com/site/images/lines/earthy-mushroom-cloud-test/mush%201.webp 1692w" sizes="(max-width: 700px) 40vw, 280px" alt="09086, Paraploo" width="508" height="600" loading="lazy" decoding="async"></a><figcaption><a href="/digital/earthy-mushroom-cloud-test/0001" tabindex="-1">09086</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="heavy-smog-mea-aveh" style="--pale:#E4D0CE;--deep:#593531" aria-label="Heavy Smog Mea Aveh">
+<section class="sh-gallery" id="heavy-smog-mea-aveh" style="--pale:#E4D0CE;--deep:#3a2320" aria-label="Heavy Smog Mea Aveh">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/heavy-smog-mea-aveh/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Heavy Smog Mea Aveh</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0016"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%2021.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08774, Paraploo" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0016" tabindex="-1">08774</a></figcaption></figure>
@@ -829,7 +829,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.2931"><a href="/digital/heavy-smog-mea-aveh/0001"><img src="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202-600.webp 600w, https://media.paraploo.com/site/images/lines/heavy-smog-mea-aveh/Crime%20Picture%20Collections%202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08759, Paraploo" width="600" height="464" loading="lazy" decoding="async"></a><figcaption><a href="/digital/heavy-smog-mea-aveh/0001" tabindex="-1">08759</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="climate-hand-smoke-voice" style="--pale:#E7D1C0;--deep:#5E3414" aria-label="Climate Hand Smoke Voice">
+<section class="sh-gallery" id="climate-hand-smoke-voice" style="--pale:#E7D1C0;--deep:#3e220d" aria-label="Climate Hand Smoke Voice">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/climate-hand-smoke-voice/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Climate Hand Smoke Voice</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0010"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%2024.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08010, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0010" tabindex="-1">08010</a></figcaption></figure>
@@ -844,7 +844,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.7751"><a href="/digital/climate-hand-smoke-voice/0001"><img src="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp" srcset="https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202-600.webp 600w, https://media.paraploo.com/site/images/lines/climate-hand-smoke-voice/Ah%20Ah%20Ah%20Ah%202.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="08001, Paraploo" width="600" height="338" loading="lazy" decoding="async"></a><figcaption><a href="/digital/climate-hand-smoke-voice/0001" tabindex="-1">08001</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="conflict-zone-fragments-pages" style="--pale:#DDD3CC;--deep:#4B3B32" aria-label="Conflict Zone Fragments Pages">
+<section class="sh-gallery" id="conflict-zone-fragments-pages" style="--pale:#DDD3CC;--deep:#312721" aria-label="Conflict Zone Fragments Pages">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/digital/conflict-zone-fragments-pages/"><span class="sh-left"><span class="sh-year">Collage</span><span class="sh-title">Conflict Zone Fragments Pages</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0032"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_02_36_14.Still032.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07442, Paraploo" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0032" tabindex="-1">07442</a></figcaption></figure>
@@ -881,7 +881,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:0.7722"><a href="/digital/conflict-zone-fragments-pages/0001"><img src="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001-600.webp" srcset="https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001-600.webp 600w, https://media.paraploo.com/site/images/lines/conflict-zone-fragments-pages/Untitled-61.00_00_02_17.Still001.webp 1545w" sizes="(max-width: 700px) 40vw, 280px" alt="07411, Paraploo" width="600" height="777" loading="lazy" decoding="async"></a><figcaption><a href="/digital/conflict-zone-fragments-pages/0001" tabindex="-1">07411</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="we-did-not-want-to-become-this" style="--pale:#DFD3D4;--deep:#4F393B" aria-label="We Did Not Want To Become This">
+<section class="sh-gallery" id="we-did-not-want-to-become-this" style="--pale:#DFD3D4;--deep:#342527" aria-label="We Did Not Want To Become This">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/we-did-not-want-to-become-this/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">We Did Not Want To Become This</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0008"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%20105.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06739, Paraploo" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0008" tabindex="-1">06739</a></figcaption></figure>
@@ -894,7 +894,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.5000"><a href="/physical/we-did-not-want-to-become-this/0001"><img src="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp" srcset="https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201-600.webp 600w, https://media.paraploo.com/site/images/physical/we-did-not-want-to-become-this/We%20Did%20Not%20Grow%20Up%201.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06732, Paraploo" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/we-did-not-want-to-become-this/0001" tabindex="-1">06732</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="signs-of-damage" style="--pale:#D6D4D2;--deep:#413E3B" aria-label="Signs Of Damage">
+<section class="sh-gallery" id="signs-of-damage" style="--pale:#D6D4D2;--deep:#2a2826" aria-label="Signs Of Damage">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/signs-of-damage/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">Signs Of Damage</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0008"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2014.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="06000, Paraploo" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0008" tabindex="-1">06000</a></figcaption></figure>
@@ -907,7 +907,7 @@ html.pp-still .back-link span, html.pp-still.back-link span { transform: none !i
 <figure class="sh-fig" style="--ar:1.5000"><a href="/physical/signs-of-damage/0001"><img src="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp" srcset="https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010-600.webp 600w, https://media.paraploo.com/site/images/physical/signs-of-damage/Damage%2010.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="05993, Paraploo" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/signs-of-damage/0001" tabindex="-1">05993</a></figcaption></figure>
 </div></div>
 </section>
-<section class="sh-gallery" id="boiling-point" style="--pale:#DBD3CF;--deep:#493C37" aria-label="Boiling Point">
+<section class="sh-gallery" id="boiling-point" style="--pale:#DBD3CF;--deep:#302724" aria-label="Boiling Point">
 <div class="sh-in"><a class="sh-row sh-gal-row" href="/physical/boiling-point/"><span class="sh-left"><span class="sh-year">Placings</span><span class="sh-title">Boiling Point</span></span><span class="sh-kind"><span class="sh-arr" aria-hidden="true">&rarr;</span></span></a>
 <div class="sh-wall">
 <figure class="sh-fig" style="--ar:1.5000"><a href="/physical/boiling-point/0008"><img src="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105-600.webp" srcset="https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105-600.webp 600w, https://media.paraploo.com/site/images/physical/boiling-point/Boiling%20Points%20105.webp 2000w" sizes="(max-width: 700px) 40vw, 280px" alt="03277, Paraploo" width="600" height="400" loading="lazy" decoding="async"></a><figcaption><a href="/physical/boiling-point/0008" tabindex="-1">03277</a></figcaption></figure>

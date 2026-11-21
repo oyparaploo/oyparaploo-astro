@@ -12,7 +12,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }   /* as the Everything page */
 
 .land-room {
-  --l-ink: var(--ink-on-dark, #d9d7ce);
+  --l-ink: var(--ink-on-dark, var(--dk-ink, #d9d7ce));
   --l-hair: rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.18);
   --edge: 24px;
   color: var(--l-ink);
@@ -24,8 +24,8 @@
 /* ---------- the heading and the row of places ---------- */
 .land-opening { padding: 28px var(--edge) 0; }
 .land-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.015em; color: var(--l-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.015em; color: var(--ink-title, var(--l-ink));
 }
 /* the one plain sentence: what the land is and how to use it (October 30, 2026, proposed, for Reach's word).
    Kavi Gupta's rule line, as the charter sets it for pages still to be made: Inter at about 28 pixels in
@@ -33,9 +33,9 @@
    A pointing hand reads "point" and "press"; touch reads "tap". */
 .land-say {
   margin: 18px 0 0; max-width: 760px; padding-left: 18px;
-  border-left: 1px solid #8f877d;
+  border-left: 1px solid var(--dk-faint, #8f877d);
   font-family: 'Inter', sans-serif; font-weight: 400; font-size: 28px; line-height: 1.3;
-  color: #b3aa9f;
+  color: var(--dk-soft, #b3aa9f);
 }
 .land-say .say-touch { display: none; }
 @media (hover: none) and (pointer: coarse) {
@@ -88,7 +88,7 @@
   overflow: scroll;                 /* both bars always show */
   scroll-behavior: auto;
   scrollbar-width: auto;
-  scrollbar-color: #8f877d rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.08);   /* Faint ink's dark value on a quiet track */
+  scrollbar-color: var(--dk-faint, #8f877d) rgba(var(--ink-on-dark-rgb, 217, 215, 206), 0.08);   /* Faint ink's dark value on a quiet track */
   touch-action: none;
 }
 .land-sizer { position: relative; touch-action: none; }
@@ -149,15 +149,15 @@ html.pp-still .pic.is-up img, html.pp-still.pic.is-up img { transform: none; }
    Land Of Pictures ... follows Light, on the Placings room's Light ground; words, the framing line and the scroll
    bars in the light values. The pictures, the enlarged picture's feathered shadow and the number on its dark tab stay
    the same in both. Dark is unchanged. */
-html[data-theme="light"] .land-room { --l-ink: #111111; --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
-html[data-theme="light"] .land-say { border-left-color: #666666; color: #555555; }
+html[data-theme="light"] .land-room { --l-ink: var(--hand-black, #111111); --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .land-say { border-left-color: #666666; color: var(--hand-grey, #555); }
 html[data-theme="light"] .land { border-color: rgba(17, 17, 17, 0.32); }
 html[data-theme="light"] .land-scroll { scrollbar-color: #666666 rgba(17, 17, 17, 0.08); }
-html[data-theme="light"] .land-label { color: #e8e0d6; }
+html[data-theme="light"] .land-label { color: var(--dk-ink, #e8e0d6); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .land-room { --l-ink: #111111; --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
-  html:not([data-theme="dark"]) .land-say { border-left-color: #666666; color: #555555; }
+  html:not([data-theme="dark"]) .land-room { --l-ink: var(--hand-black, #111111); --l-hair: rgba(17, 17, 17, 0.18); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .land-say { border-left-color: #666666; color: var(--hand-grey, #555); }
   html:not([data-theme="dark"]) .land { border-color: rgba(17, 17, 17, 0.32); }
   html:not([data-theme="dark"]) .land-scroll { scrollbar-color: #666666 rgba(17, 17, 17, 0.08); }
-  html:not([data-theme="dark"]) .land-label { color: #e8e0d6; }
+  html:not([data-theme="dark"]) .land-label { color: var(--dk-ink, #e8e0d6); }
 }

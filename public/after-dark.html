@@ -25,10 +25,10 @@ a { color: inherit; }
 /* ===== After Dark ... the sixth footer room (preview, October 30, 2026) ===== */
 :root { --edge: 24px; --column-gap: 32px; }
 /* Hot Evening Prayers' own two grounds, as its hung room reads them: #e9e3e0 pale, #231c19 deep. */
-.nd-shut { --nd-ground: #e9e3e0; --nd-ink: #111; }
-@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nd-shut { --nd-ground: #231c19; --nd-ink: #d9d7ce; } }
-html[data-theme="dark"] .nd-shut { --nd-ground: #231c19; --nd-ink: #d9d7ce; }
-.nd-open { --nd-ground: #231c19; --nd-ink: #d9d7ce; }   /* the open room is night in every mode */
+.nd-shut { --nd-ground: #e9e3e0; --nd-ink: var(--hand-black, #111); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .nd-shut { --nd-ground: #231c19; --nd-ink: var(--dk-ink, #d9d7ce); } }
+html[data-theme="dark"] .nd-shut { --nd-ground: #231c19; --nd-ink: var(--dk-ink, #d9d7ce); }
+.nd-open { --nd-ground: #231c19; --nd-ink: var(--dk-ink, #d9d7ce); }   /* the open room is night in every mode */
 
 /* Which door shows: by the visitor's own clock, set once in the head. Without a clock, the door stays shut. */
 html:not([data-night="open"]) .nd-open { display: none; }
@@ -37,13 +37,13 @@ html[data-night="open"] .nd-shut { display: none; }
 .nd-band { background: var(--nd-ground); color: var(--nd-ink); width: 100%; }
 .nd-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); row-gap: 24px;
   padding: 72px var(--edge) 72px; }
-.nd-title { grid-column: 1; margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 7.4vw, 112px); line-height: 0.94; letter-spacing: -0.03em; color: var(--nd-ink); }
+.nd-title { grid-column: 1; margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 7.4vw, 112px); line-height: 0.94; letter-spacing: var(--cut-spacing); color: var(--nd-ink); }
 
 /* the closed door */
 .nd-shut .nd-in { min-height: 58vh; align-content: end; }
-.nd-closed { grid-column: 1 / -1; margin: 24px 0 0; max-width: 22em; font-family: 'Archivo', sans-serif; font-weight: 600;
-  font-stretch: 112%; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; color: var(--nd-ink); }
+.nd-closed { grid-column: 1 / -1; margin: 24px 0 0; max-width: 22em; font-family: 'Archivo', sans-serif; font-weight: 500;
+  font-stretch: 112%; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.12; color: var(--ink-title, var(--nd-ink)); letter-spacing: var(--cut-spacing); }
 .nd-hours { grid-column: 1 / -1; margin: 0; max-width: 40em; font-family: 'Inter', sans-serif; font-weight: 500;
   font-size: 18px; line-height: 1.5; color: var(--nd-ink); }
 

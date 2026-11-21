@@ -28,8 +28,8 @@ html[data-theme="dark"] .ww { --ww-band: #43362d; }
    "Everything" touched the line below; at 0.98 they clear it by about 8 pixels). */
 .ww-band { background: var(--ww-band); padding: 16px var(--edge) 64px; }
 .ww-band .way-back { margin: 0; }
-.ww-title { margin: 40px 0 56px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 7.2vw, 124px); line-height: 0.98; letter-spacing: -0.035em; color: var(--ink);
+.ww-title { margin: 40px 0 56px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 7.2vw, 124px); line-height: 0.98; letter-spacing: -0.035em; color: var(--ink-title, var(--ink));
   text-wrap: balance; }
 .ww-band-in { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: start; }
 .ww-fig { margin: 0; }
@@ -54,8 +54,8 @@ html[data-theme="dark"] .ww { --ww-band: #43362d; }
 
 /* The way on: a full-width line, then one door. */
 .ww-foot { margin: 128px var(--edge) 0; padding: 36px 0 104px; border-top: 1px solid var(--ink-faint); }
-.ww-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 32px; line-height: 1.2; }
+.ww-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.ww-foot .arrow-link) { color: var(--ink-title); }
 .ww-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
 
 @media (max-width: 1100px) and (min-width: 761px) { .ww-band-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
@@ -76,6 +76,11 @@ html[data-theme="dark"] .ww { --ww-band: #43362d; }
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still .ww-foot .arrow-link .arrow-glyph, html.pp-still.ww-foot .arrow-link .arrow-glyph, html.pp-still .ww-band .way-back .arrow-glyph, html.pp-still.ww-band .way-back .arrow-glyph { transition: none; transform: none !important; }
 
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"] .ww-band { background-color: color-mix(in srgb, var(--ww-band) 69%, black); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .ww-band { background-color: color-mix(in srgb, var(--ww-band) 69%, black); }
+}
 </style>
 <link rel="stylesheet" href="/sun-moon.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">

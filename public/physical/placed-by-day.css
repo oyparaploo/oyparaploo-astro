@@ -2,7 +2,7 @@
    /physical/placed-by-day/, the shelf page's quiet shape, as in the preview Reach ruled (HTML DOCS\PREVIEWS\SAME-DAY-WHOLE-2026-10-29). */
 .day-g { padding-top: 72px; }
 .day-g + .day-g { border-top: 1px solid var(--rule-faint, rgba(127,127,127,.35)); margin-top: 72px; }
-.day-g-name { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 32px; line-height: 1.15; color: var(--ink); }
+.day-g-name { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500; font-size: 32px; line-height: 1.15; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 .day-g-line { margin-top: 10px; max-width: 40em; font-size: 20px; line-height: 1.45; color: var(--ink-soft); }
 .day-pics { display: flex; gap: 32px; margin-top: 32px; align-items: flex-start; }
 .day-pic { display: block; text-decoration: none; color: var(--ink); min-width: 0; flex-basis: 0; }
@@ -22,12 +22,12 @@
 }
 /* the year */
 .cal-years { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-.cal-years a, .cal-years span { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 18px; border: 1px solid #111; border-radius: 999px; font-weight: 600; font-size: 18px; color: #111; text-decoration: none; transition: background-color .3s ease, color .3s ease; }
-.cal-years span { background: #111; color: var(--work-5); }
-.cal-years a:hover, .cal-years a:focus-visible { background: #111; color: var(--work-5); }
-.cal-label { font-size: 18px; color: #111; }
+.cal-years a, .cal-years span { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 18px; border: 1px solid #111; border-radius: 999px; font-weight: 600; font-size: 18px; color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none; transition: background-color .3s ease, color .3s ease; }
+.cal-years span { background: var(--hand-black, #111); color: var(--work-5); }
+.cal-years a:hover, .cal-years a:focus-visible { background: var(--hand-black, #111); color: var(--work-5); }
+.cal-label { font-size: 18px; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .cal-months { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 64px 32px; padding-top: 72px; }
-.cal-month h2 { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; color: var(--ink); margin-bottom: 14px; }
+.cal-month h2 { font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500; font-size: 26px; line-height: 1.2; color: var(--ink-title, var(--ink)); margin-bottom: 14px; letter-spacing: var(--cut-spacing); }
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 2px; }
 .cal-grid > * { display: flex; align-items: center; justify-content: center; height: 40px; font-size: 16px; line-height: 1; font-variant-numeric: tabular-nums; }
 .cal-wd { color: var(--ink-soft); }

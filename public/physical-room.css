@@ -26,9 +26,9 @@
 
 :root {
   --p-ink: var(--ink-on-dark);            /* Ink's dark value: 13.9 to 1 on the night blue, more on the black */
-  --p-soft: #b3aa9f;           /* Soft ink's dark value: 7.9 to 1 on the night blue */
+  --p-soft: var(--dk-soft, #b3aa9f);           /* Soft ink's dark value: 7.9 to 1 on the night blue */
   --p-accent: #d4a574;         /* Accent's dark value: 8.2 to 1 on the night blue */
-  --p-band-ink: #111111;       /* Ink's light value: 10.0 to 1 on the band */
+  --p-band-ink: var(--hand-black, #111111);       /* Ink's light value: 10.0 to 1 on the band */
   --p-blue: #AFBFCC;           /* the pale of 03972's slate-blue ground; only as marks and as the band, never words */
   --p-seat: rgba(168, 200, 224, 0.045);   /* the draft's own faint blue seat */
   --p-hair: rgba(var(--ink-on-dark-rgb), 0.12);    /* the draft's hairlines, a little stronger */
@@ -47,23 +47,23 @@
 /* ---------- 1. the collection's title and its paragraph (the draft's hero, the first words brighter) ---------- */
 .p-hero { padding: 72px var(--edge) 56px; }
 .p-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.02em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 28px;
-}
+} :where(.p-title) { color: var(--ink-title); }
 .p-lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(24px, 2.25vw, 36px); line-height: 1.18; max-width: 25em;
-  color: var(--p-soft);
+  color: var(--p-soft); letter-spacing: var(--cut-spacing);
 }
 .p-lead-first { color: var(--p-ink); }
 
 /* ---------- 2. the collection: every Placing as a card, four across ---------- */
 .p-discover { padding: 48px var(--edge) 0; border-top: 1px solid var(--p-hair); }
 .p-section-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15;
-  margin: 0 0 36px;
+  margin: 0 0 36px; letter-spacing: var(--cut-spacing);
 }
 .p-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; row-gap: 56px; }
 .p-card { display: block; text-decoration: none; }
@@ -120,9 +120,9 @@
 @media (hover: hover) { .p-num a:hover { text-decoration: underline; text-underline-offset: 4px; } }
 .p-featured-body { padding: 40px 0 40px 48px; display: flex; flex-direction: column; justify-content: center; }
 .p-featured-head {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.6vw, 42px); line-height: 1.12; margin: 0 0 24px; max-width: 16em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.6vw, 42px); line-height: 1.12; margin: 0 0 24px; max-width: 16em; letter-spacing: var(--cut-spacing);
+} :where(.p-featured-head) { color: var(--ink-title); }
 .p-featured-words { font-size: 19px; line-height: 1.65; color: var(--p-soft); max-width: 36em; margin: 0 0 32px; }
 .p-from { margin: 0; }
 .placings-room .p-from .go-link { color: var(--p-ink); font-size: 20px; }
@@ -136,9 +136,9 @@
 .p-passage { margin: 0; padding: 72px var(--edge) 72px 48px; }
 .p-passage blockquote { margin: 0; }
 .p-passage blockquote p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 5.4vw, 92px); line-height: 1.0; letter-spacing: -0.015em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 92px); line-height: 1.0; letter-spacing: var(--cut-spacing);
+} :where(.p-passage blockquote p) { color: var(--ink-title); }
 .p-passage-from { margin-top: 32px; font-size: 20px; line-height: 1.4; }
 .p-passage-from a { text-decoration: none; font-weight: 600; }
 @media (hover: hover) { .p-passage-from a:hover .p-arr { transform: translateX(5px); } }
@@ -227,9 +227,9 @@
 .p-every > summary {
   list-style: none; cursor: pointer; display: flex; align-items: center; gap: 18px;
   min-height: 88px; padding: 20px 0;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; color: var(--p-ink);
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; letter-spacing: var(--cut-spacing);
 }
 .p-every > summary::-webkit-details-marker { display: none; }
 .p-every > summary::marker { content: ""; }
@@ -256,13 +256,13 @@ html.pp-still .p-every-tri svg, html.pp-still.p-every-tri svg { transition: none
 /* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): the Placings room follows Light. In Light its ground runs from white to a very
    pale blue, mirroring the black to night blue of Dark; words take the named colours' light values. The slate-blue
    band and every picture stay as they are. Dark is unchanged. */
-html[data-theme="light"] .placings-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .placings-room { --p-ink: var(--hand-black, #111111); --p-soft: var(--hand-grey, #555555); --p-accent: #8a5a24; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
 html[data-theme="light"] .p-card:focus-visible .p-seat,
 html[data-theme="light"] .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
 html[data-theme="light"] .p-notice { background: rgba(70, 110, 145, 0.07); border-left-color: #6d8598; }
 html[data-theme="light"] .p-river { background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.55) 50%, rgba(17, 17, 17, 0) 100%); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .placings-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .placings-room { --p-ink: var(--hand-black, #111111); --p-soft: var(--hand-grey, #555555); --p-accent: #8a5a24; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
   html:not([data-theme="dark"]) .p-card:focus-visible .p-seat,
   html:not([data-theme="dark"]) .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
   html:not([data-theme="dark"]) .p-notice { background: rgba(70, 110, 145, 0.07); border-left-color: #6d8598; }

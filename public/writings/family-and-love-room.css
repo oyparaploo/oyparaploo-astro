@@ -19,15 +19,15 @@
   --fl-blue: #7FA9BD;            /* the hose's blue, lit: the programs' ground (#111 on it, 7.5 to 1) */
   --fl-beads: #DCC5E2;           /* the beads' lavender (05004): the pink section */
   --fl-margin: 40px;             /* the draft's own margin */
-  --d-ink: var(--ink-on-dark); --d-soft: #b3aa9f; --d-accent: #d4a574;   /* the named colours' dark values */
-  --l-ink: #111; --l-soft: #555;                              /* and their light values */
+  --d-ink: var(--ink-on-dark); --d-soft: var(--dk-soft, #b3aa9f); --d-accent: #d4a574;   /* the named colours' dark values */
+  --l-ink: var(--hand-black, #111); --l-soft: var(--hand-grey, #555);                              /* and their light values */
   overflow-x: clip;
 }
 .fl-wrap { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: var(--fl-margin); padding-right: var(--fl-margin); }
 
 /* the dark parts: the named colours' dark values, the same in every mode */
 .fl-hero, .fl-tall, .fl-cap, .fl-prog-card, .fl-split {
-  --ink: var(--d-ink); --ink-soft: var(--d-soft); --ink-faint: var(--d-soft); --accent: var(--d-accent); color: var(--d-ink);
+  --ink: var(--d-ink); --ink-title: initial; --ink-soft: var(--d-soft); --ink-faint: var(--d-soft); --accent: var(--d-accent); color: var(--d-ink);
 }
 
 /* the draft's copper rule */
@@ -47,8 +47,8 @@
 .fl-pic img { display: block; width: 100%; height: auto; }
 .fl-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .fl-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 .fl-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
@@ -62,8 +62,8 @@
 .fl-card { margin: auto 0; padding: 44px 44px 48px; background: var(--fl-card); }
 .fl-hero-words .fl-card { margin-top: 56px; }
 .fl-title {
-  margin: 22px 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 4.6vw, 72px); line-height: 1.02; letter-spacing: -0.015em; color: var(--d-accent);
+  margin: 22px 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 4.6vw, 72px); line-height: 1.02; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--d-accent));
 }
 .fl-desc { margin: 22px 0 0; max-width: 26em; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.55; color: var(--d-ink); }
 .fl-hero-pic { margin: 0; }
@@ -100,7 +100,7 @@
 @media (hover: hover) { .fl-tile-pic:hover .fl-cap .fl-arrow, .fl-cap .fl-num:hover .fl-arrow { transform: translateX(6px); } }
 
 /* ---------- 4. the blue section of programs ---------- */
-.fl-prog { background: var(--fl-blue); --ink: var(--l-ink); color: var(--l-ink); }
+.fl-prog { background: var(--fl-blue); --ink: var(--l-ink); --ink-title: initial; color: var(--l-ink); }
 .fl-prog-in {
   display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; align-items: start;
   padding-top: 64px; padding-bottom: 80px;
@@ -132,8 +132,8 @@
 .fl-ev-a .fl-rule { margin-bottom: 20px; }
 .fl-ev-a:focus-visible { outline: 3px solid var(--l-ink); outline-offset: 3px; }
 .fl-name {
-  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 22px; line-height: 1.18; color: inherit; overflow-wrap: break-word;
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 22px; line-height: 1.18; color: var(--ink-title, inherit); overflow-wrap: break-word; letter-spacing: var(--cut-spacing);
 }
 /* an arrow after a name takes no room until it slides in, so it never wraps alone */
 .fl-name .fl-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
@@ -174,8 +174,8 @@
 .fl-split-pic { margin: 0; padding: 64px 56px; background: var(--fl-night); display: flex; flex-direction: column; justify-content: center; }
 .fl-split-words { padding: 80px 64px 88px; display: flex; flex-direction: column; justify-content: center; }
 .fl-way-head {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 2.8vw, 40px); line-height: 1.15; color: var(--d-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 2.8vw, 40px); line-height: 1.15; color: var(--ink-title, var(--d-ink)); letter-spacing: var(--cut-spacing);
 }
 .fl-subjects { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 22px; }
 .fl-subject {
@@ -254,12 +254,12 @@ html.pp-still .fl-arrow, html.pp-still.fl-arrow, html.pp-still .fl-ev-a, html.pp
    Family and Love follows Light: the night and the dark cards made pale in their own warm brown, words in Ink, Accent's
    light value. The hose's blue strip, the beads' lavender and the programs' blue are taken from the work and stay the
    same in both, as do the white cards and the pictures. Dark is unchanged. */
-html[data-theme="light"] .fl-room { --d-ink: #111111; --d-soft: #555555; --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
-html[data-theme="light"] .fl-next { color: #ffffff; }
+html[data-theme="light"] .fl-room { --d-ink: var(--hand-black, #111111); --d-soft: var(--hand-grey, #555555); --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
+html[data-theme="light"] .fl-next { color: var(--hand-white, #fff); }
 html[data-theme="light"] .fl-next:active { color: #8a5a24; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .fl-room { --d-ink: #111111; --d-soft: #555555; --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
-  html:not([data-theme="dark"]) .fl-next { color: #ffffff; }
+  html:not([data-theme="dark"]) .fl-room { --d-ink: var(--hand-black, #111111); --d-soft: var(--hand-grey, #555555); --d-accent: #8a5a24; --fl-night: #f7f5f2; --fl-card: #efe9e6; }
+  html:not([data-theme="dark"]) .fl-next { color: var(--hand-white, #fff); }
   html:not([data-theme="dark"]) .fl-next:active { color: #8a5a24; }
 }
 @media (hover: hover) {

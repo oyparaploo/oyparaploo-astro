@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ground="a">
 <head>
 <meta charset="UTF-8">
 <script src="/still.js"></script>
@@ -36,8 +36,8 @@ body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: re
 .pt-side { padding: 56px 20px 8px; max-width: 500px; margin: 0 auto; }
 .pt-kicker { font-size: 18px; line-height: 1.4; margin: 0 0 14px; color: var(--pt-ground-ink); }
 .pt-title {
-  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
-  font-size: 42px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--pt-ground-ink);
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500;
+  font-size: 42px; line-height: 1.02; letter-spacing: var(--cut-spacing); margin: 0 0 22px; color: var(--ink-title, var(--pt-ground-ink));
 }
 .pt-sentence { font-size: 20px; line-height: 1.5; margin: 0 0 22px; max-width: 30em; color: var(--pt-ground-ink); text-wrap: pretty; }
 .pt-back { margin: 0 0 26px; font-size: 18px; }
@@ -84,10 +84,10 @@ body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: re
 .pt-row { overflow: hidden; white-space: nowrap; }
 .pt-track { display: inline-flex; will-change: transform; animation: pt-slide var(--pt-dur, 30s) linear infinite; }
 .pt-unit {
-  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500;
   font-size: 44px; line-height: 1.12; padding-right: 1.6em;
   color: #d4a574;                         /* Accent, its dark value: an amber board */
-  text-shadow: 0 0 14px rgba(212, 165, 116, .45);
+  text-shadow: 0 0 14px rgba(212, 165, 116, .45); letter-spacing: var(--cut-spacing);
 }
 .pt-board:hover .pt-track, .pt-board:focus-within .pt-track { animation-play-state: paused; }
 @keyframes pt-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -138,7 +138,7 @@ body.pt-page .site-footer { background: var(--chrome-ground, #fff); position: re
 .pt-end a { font-size: 18px; display: inline-flex; align-items: center; min-height: 44px; color: var(--pt-ground-ink); text-decoration: none; }
 .pt-end a:not(.arrow-link):hover, .pt-end a:not(.arrow-link):focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 .pt-end .pt-dot { color: var(--pt-ground-ink); }
-.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600; font-size: 26px; line-height: 1.2; margin-bottom: 6px; }
+.pt-end a.arrow-link { flex: 0 0 100%; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500; font-size: 26px; line-height: 1.2; margin-bottom: 6px; letter-spacing: var(--cut-spacing); }
 .pt-end a.arrow-link .arrow-glyph { margin-left: .25em; }
 .pt-done .pt-end a.arrow-link, html:not(.pt-js) .pt-end a.arrow-link { display: block; }
 .pt-end .pt-dot:first-of-type { display: none; }
@@ -166,6 +166,12 @@ html:not(.pt-js) .pt-waiting, html:not(.pt-js) .pt-room, html:not(.pt-js) .pt-al
   .pt-unit { padding-right: 0; }
   .pt-unit + .pt-unit { display: none; }
 }
+/* November 20, 2026, Reach's word: the same calm for every visitor. The texts are all on the page, the boards stand still, and the line that counted the texts is gone. */
+.pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
+.pt-row { white-space: normal; }
+.pt-unit { padding-right: 0; }
+.pt-unit + .pt-unit { display: none; }
+.pt-progress { display: none; }
 /* The Still switch: the same calm when the visitor pressed Still. */
 html.pp-still:root body.pt-page { transition: none; }
 html.pp-still .pt-track, html.pp-still.pt-track { animation: none; display: block; white-space: normal; text-align: center; padding: 0 24px; }
@@ -236,7 +242,7 @@ html.pp-still .pt-unit + .pt-unit, html.pp-still.pt-unit + .pt-unit { display: n
 <link rel="stylesheet" href="/still.css">
 <link rel="canonical" href="https://paraploo.com/words/2023-25-phone-texts/give-life-your-all/">
 </head>
-<body class="pt-page" style="--pt-ground:#1a1d2a;--pt-ground-ink:var(--ink-on-dark, #e8e0d6);--pt-sent:#f08d52;--pt-sent-ink:#111;--pt-reply:#ece4d4;--pt-reply-ink:#111;--pt-board:#0b0d12;--pt-glow:#b98ddb;" data-stops="#1a1d2a,#10281f,#2a2238,#1b2a44,#3a2318">
+<body class="pt-page" style="--pt-ground:#1a1d2a;--pt-ground-ink:var(--ink-on-dark, var(--dk-ink, #e8e0d6));--pt-sent:#f08d52;--pt-sent-ink: var(--hand-black, #111);--pt-reply:#ece4d4;--pt-reply-ink: var(--hand-black, #111);--pt-board:#0b0d12;--pt-glow:#b98ddb;" data-stops="#1a1d2a,#10281f,#2a2238,#1b2a44,#3a2318">
 <div class="theme-strip"><span class="theme-date"><span class="sun-moon" aria-hidden="true"><svg class="sm-sun" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><circle cx="12" cy="12" r="4.2"/><path d="M12 5.4L12 1.2M8.7 6.28L7.5 4.21M6.28 8.7L2.65 6.6M5.4 12L3 12M6.28 15.3L2.65 17.4M8.7 17.72L7.5 19.79M12 18.6L12 22.8M15.3 17.72L16.5 19.79M17.72 15.3L21.35 17.4M18.6 12L21 12M17.72 8.7L21.35 6.6M15.3 6.28L16.5 4.21"/></svg><svg class="sm-moon" viewBox="0 0 24 24" width="22" height="22" focusable="false" stroke-width="1.2"><path d="M11.76 3.5A8.51 8.51 0 1 0 20.18 15.28A7.33 7.33 0 0 1 11.76 3.5Z"/></svg></span><span class="theme-date-full"></span><span class="theme-date-short"></span></span><span class="theme-controls"><button type="button" class="theme-choice" data-theme-choice="light">Light</button><span class="theme-dot"> &middot; </span><button type="button" class="theme-choice" data-theme-choice="dark">Dark</button><span class="still-rule" aria-hidden="true"></span><button type="button" class="still-choice" aria-pressed="false">Still</button></span></div>
 <header class="site-header"><a href="/" class="wordmark">Paraploo</a><nav><a href="/writings" class="current">Writings</a><a href="/marks">Marks</a><a href="/physical">Placings</a><a href="/digital">Collage</a><a href="#art-menu" class="art-word">Art</a><a href="/explore">Explore</a><a href="/search">Search</a><a href="/shuffle" class="shuffle-word" aria-label="Shuffle ..."><svg class="shuffle-svg" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M2.5 6.5h3.2c2.1 0 3.4 1 4.6 2.8l3.4 5.4c1.2 1.8 2.5 2.8 4.6 2.8h3.2"/><path d="M2.5 17.5h3.2c2.1 0 3.4-1 4.6-2.8l.55-.87M13.15 10.17l.55-.87c1.2-1.8 2.5-2.8 4.6-2.8h3.2"/><path d="M18.9 3.9l2.6 2.6-2.6 2.6M18.9 14.9l2.6 2.6-2.6 2.6"/></svg></a></nav></header>
 <div class="pt-progress" aria-hidden="true"><span></span></div>
@@ -343,7 +349,9 @@ html.pp-still .pt-unit + .pt-unit, html.pp-still.pt-unit + .pt-unit { display: n
 (function () {
   var root = document.documentElement;
   var body = document.body;
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* November 20, 2026, Reach's word ("the scrolling for this doesn't flow very well. and the banner is also disruptive"): every text is on the
+     page from the start and the boards stand still, for every visitor, as they did only for less motion and with Still on. */
+  var still = true;
   root.classList.add('pt-js');
 
   var main = document.getElementById('pt');

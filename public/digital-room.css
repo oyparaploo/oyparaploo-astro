@@ -20,7 +20,7 @@
    ========================================================================== */
 
 :root {
-  --c-band-ink: #111111;                       /* Ink's light value: 7.4 to 1 on the band */
+  --c-band-ink: var(--hand-black, #111111);                       /* Ink's light value: 7.4 to 1 on the band */
   --c-air: 144px;
 }
 
@@ -43,11 +43,11 @@
   padding: 0 var(--edge); text-align: center;
 }
 .c-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 16.5vw, 300px); line-height: 0.86; letter-spacing: -0.035em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 16.5vw, 300px); line-height: 0.86; letter-spacing: var(--cut-spacing);
   margin: 0; padding-bottom: 0.05em;
   border-bottom: 1px solid var(--c-band-ink);
-}
+} :where(.c-title) { color: var(--ink-title); }
 .c-caps {                                     /* the draft's two corner words, at the foot of the band, clear of the pictures */
   position: absolute; left: var(--edge); right: var(--edge); bottom: 10px; z-index: 4500;
   display: flex; justify-content: space-between; align-items: center; gap: 24px;
@@ -112,10 +112,10 @@
 /* ---------- 2. One plain sentence, and the six headings as a row of choices ---------- */
 .c-words { padding: 112px var(--edge) 0; }
 .c-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 3.2vw, 48px); line-height: 1.12; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 3.2vw, 48px); line-height: 1.12; letter-spacing: var(--cut-spacing);
   max-width: 21em; margin: 0;
-}
+} :where(.c-sentence) { color: var(--ink-title); }
 .c-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
 /* PLAY: the true reversal, on a pill. Pointed at, it turns solid; the page glides to the heading. */
 .c-chip {
@@ -132,10 +132,10 @@
 .c-kind { margin-top: var(--c-air); padding: 32px var(--edge) 0; border-top: 1px solid var(--rule); scroll-margin-top: 24px; }
 .c-kind-tight { margin-top: 96px; }
 .c-kind-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: var(--cut-spacing);
   margin: 0; scroll-margin-top: 96px;
-}
+} :where(.c-kind-name) { color: var(--ink-title); }
 .c-kind-line { font-size: 21px; line-height: 1.55; max-width: 36em; margin: 20px 0 0; }
 .c-kind-body { margin-top: 48px; }
 
@@ -152,9 +152,9 @@
 .c-pic { grid-area: pic; display: none; }
 .c-name {
   grid-area: name;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 24px; line-height: 1.2;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 24px; line-height: 1.2; letter-spacing: var(--cut-spacing);
+} :where(.c-name) { color: var(--ink-title); }
 .c-count { grid-area: count; font-size: 18px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
 .c-rows .c-arr { opacity: 0; transform: translateX(-8px); }
 .c-row.is-current .c-arr { opacity: 1; transform: none; }
@@ -178,7 +178,7 @@
 .c-show-pic img { width: auto; height: auto; max-width: 100%; max-height: min(62vh, 600px); opacity: 0; transition: opacity 0.25s ease; }
 .c-show-pic img.is-in { opacity: 1; }
 .c-show-cap { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 24px; row-gap: 4px; margin-top: 18px; min-height: 64px; }
-.c-show-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.15; }
+.c-show-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 26px; line-height: 1.15; letter-spacing: var(--cut-spacing); } :where(.c-show-name) { color: var(--ink-title); }
 .c-show-count { font-size: 18px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
 
 @media (min-width: 1000px) {
@@ -215,10 +215,10 @@
 .c-breathe { padding: 168px var(--edge) 176px; text-align: center; }
 .c-passage { margin: 0; }
 .c-passage p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(30px, 3vw, 46px); line-height: 1.18;
-  max-width: 18em; margin: 0 auto;
-}
+  max-width: 18em; margin: 0 auto; letter-spacing: var(--cut-spacing);
+} :where(.c-passage p) { color: var(--ink-title); }
 .c-from { margin: 32px 0 0; }
 .collage-room .c-from .go-link { color: var(--ink); font-size: 20px; }
 
@@ -251,7 +251,12 @@ html.pp-still .c-arr, html.pp-still.c-arr, html.pp-still .c-chip, html.pp-still.
 
 /* Light and Dark hold (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-BUILD): in Dark, the Collage band is its own dusty lilac made deep, its words in Ink's
    dark value; the collages on it are unchanged. Light is unchanged. */
-html[data-theme="dark"] .c-turn { --c-band-ink: #d9d7ce; background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+html[data-theme="dark"] .c-turn { --c-band-ink: var(--dk-ink, #d9d7ce); background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .c-turn { --c-band-ink: #d9d7ce; background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+  html:not([data-theme="light"]) .c-turn { --c-band-ink: var(--dk-ink, #d9d7ce); background: #33302d; background: oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }
+}
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"][data-theme] .c-turn { background-color: color-mix(in srgb, oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h) 66%, black); }
+@media (prefers-color-scheme: dark) {
+  html:root:not([data-theme="light"]) .c-turn { background-color: color-mix(in srgb, oklch(from var(--band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h) 66%, black); }
 }

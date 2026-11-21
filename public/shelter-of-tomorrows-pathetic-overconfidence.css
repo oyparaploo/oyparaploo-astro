@@ -49,11 +49,11 @@
 }
 .sh-name {
   margin-top: 0; margin-bottom: 0; padding-top: 64px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 44px; line-height: 1.15;
-  color: var(--ink); text-wrap: balance;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 44px; line-height: 1.15;
+  color: var(--ink-title, var(--ink)); text-wrap: balance; letter-spacing: var(--cut-spacing);
 }
 .sh-label {
-  margin: 64px 0 16px; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--ink);
+  margin: 64px 0 16px; font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 24px; line-height: 1.3; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 
 /* ---------- the ruled rows ---------- */
@@ -88,7 +88,7 @@ html[data-theme="dark"] .sh-gallery { background: var(--deep); }
 /* on a band every word is Ink, never the soft one: words on a band stay at 7 to 1 or better */
 .sh-gallery .sh-year, .sh-gallery .sh-kind { color: var(--ink); }
 .sh-gal-row { border-top: 1px solid var(--sh-rule); border-bottom: 1px solid var(--sh-rule); }
-.sh-gal-row .sh-title { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.25; }
+.sh-gal-row .sh-title { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 24px; line-height: 1.25; letter-spacing: var(--cut-spacing); } :where(.sh-gal-row .sh-title) { color: var(--ink-title); }
 .sh-gal-row .sh-kind { font-size: 20px; }
 .sh-gal-row:hover .sh-arr, .sh-gal-row:focus-visible .sh-arr { transform: translateX(4px); }
 
@@ -145,7 +145,7 @@ html.pp-still .sh-arr, html.pp-still.sh-arr, html.pp-still .sh-arr-back, html.pp
 /* The shelf lines build, October 21, 2026: the room's one plain sentence under its name. */
 .sh-line {
   box-sizing: border-box; width: 100%; max-width: 768px; margin: 16px auto 0; padding: 0 24px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 24px; line-height: 1.3; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 24px; line-height: 1.3; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 @media (max-width: 700px) { .sh-line { padding-left: 16px; padding-right: 16px; font-size: 20px; } }

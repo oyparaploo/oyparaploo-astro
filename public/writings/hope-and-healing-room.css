@@ -22,7 +22,7 @@
   --work-5: #CFDCD4;                            /* the lit sheet */
   --hh-gray: #809D99;
   --hh-light: #CFDCD4;
-  --hh-light-ink: #111111;
+  --hh-light-ink: var(--hand-black, #111111);
   --hh-blend: #E7EEEA;                          /* halfway between the lit sheet and the white */
   --hh-shoot: #5E9E3A;                          /* the green of the shoots, lifted to show on both grounds */
   --hh-teal: #1E5963;
@@ -32,7 +32,7 @@
 
 /* the light part (from the gray band to the foot): the named colours' light values, whatever the mode */
 .hh-room {
-  --ink: #111; --ink-soft: #555; --ink-faint: #666; --accent: #8a5a24; --ground: #fff;
+  --ink: var(--hand-black, #111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555); --ink-faint: var(--hand-faint, #666); --accent: #8a5a24; --ground: #fff;
   --hh-rule: #DCE3DF;                           /* the draft's hairline, cooled toward the sheet */
   --hh-rule-strong: #2A2320;
   --hh-hover: #F2F6F3;                          /* the faintest tint of the lit sheet */
@@ -40,7 +40,7 @@
 }
 /* the dark part (the top): the named colours' dark values, whatever the mode */
 .hh-dark {
-  --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907;
   --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22);
   --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62);
   --hh-hover: #1A1612;
@@ -66,8 +66,8 @@
 /* ---------- the header: the filter row's seat, the title, the sentence ---------- */
 .hh-head { padding-top: 40px; padding-bottom: 44px; }
 .hh-title {
-  margin: 56px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 4.6vw, 66px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+  margin: 56px 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 4.6vw, 66px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink));
 }
 .hh-desc {
   margin: 20px 0 0; max-width: 34em;
@@ -91,13 +91,13 @@
 .hh-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .hh-room figcaption { display: flex; justify-content: flex-end; margin-top: 10px; }
 .hh-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
   color: var(--ink-soft); text-decoration: none;
 }
 @media (hover: hover) { .hh-num:hover { color: var(--ink); } }
 .hh-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
-.hh-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.hh-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; color: var(--ink-title, var(--ink)); overflow-wrap: break-word; letter-spacing: var(--cut-spacing); }
 .hh-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--accent); }
 .hh-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
 
@@ -141,7 +141,7 @@
 .hh-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--hh-light-ink); text-decoration: none; }
 @media (hover: hover) { .hh-from a:hover .hh-arrow { transform: translateX(6px); } }
 .hh-from a:focus-visible { outline: 2px solid var(--hh-light-ink); outline-offset: 4px; }
-.hh-promo .hh-num { color: var(--hh-light-ink); }
+.hh-promo .hh-num { color: var(--ink-title, var(--hh-light-ink)); }
 .hh-promo .hh-pic:focus-visible, .hh-promo .hh-num:focus-visible { outline-color: var(--hh-light-ink); }
 .hh-blend { height: 96px; background: var(--hh-blend); }
 
@@ -187,13 +187,13 @@
 .hh-sticky { position: sticky; top: 120px; }
 .hh-side-head {
   margin: 0; padding-bottom: 14px; border-bottom: 2px solid var(--hh-rule-strong);
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.2; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 24px; line-height: 1.2; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 .hh-subjects { display: block; }
 .hh-subject {
   position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-  padding: 18px 0 18px 18px; border-bottom: 1px solid var(--hh-rule); text-decoration: none; color: var(--ink);
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.25;
+  padding: 18px 0 18px 18px; border-bottom: 1px solid var(--hh-rule); text-decoration: none; color: var(--ink-title, var(--ink));
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 22px; line-height: 1.25; letter-spacing: var(--cut-spacing);
 }
 .hh-subject::before {   /* each marked in one of the work's colours: the teal, the shoots, the pink of the glove */
   content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; background: var(--hh-teal);
@@ -263,15 +263,15 @@ html.pp-still .hh-arrow, html.pp-still.hh-arrow, html.pp-still .hh-pic img, html
    grey step under it becomes the step between white and the lit sheet; in Dark the white page takes the dark
    opening's values, and the step under the lit sheet becomes the grey step. The lit sheet's band, the colour lines
    and the pictures stay the same in both. */
-html[data-theme="light"] .hh-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
+html[data-theme="light"] .hh-dark { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
 html[data-theme="light"] .hh-gray { background: var(--hh-blend); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .hh-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
+  html:not([data-theme="dark"]) .hh-dark { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #fff; --hh-rule: #DCE3DF; --hh-rule-strong: #2A2320; --hh-hover: #F2F6F3; }
   html:not([data-theme="dark"]) .hh-gray { background: var(--hh-blend); }
 }
-html[data-theme="dark"] .hh-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
+html[data-theme="dark"] .hh-room { --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
 html[data-theme="dark"] .hh-blend { background: var(--hh-gray); }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .hh-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
+  html:not([data-theme="light"]) .hh-room { --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907; --hh-rule: rgba(var(--ink-on-dark-rgb), 0.22); --hh-rule-strong: rgba(var(--ink-on-dark-rgb), 0.62); --hh-hover: #1A1612; }
   html:not([data-theme="light"]) .hh-blend { background: var(--hh-gray); }
 }

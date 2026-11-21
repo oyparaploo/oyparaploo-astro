@@ -31,9 +31,9 @@ html[data-theme="dark"].kept-is-empty .kept-band { background: linear-gradient(t
 }
 .kept-title {
   margin: 0;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(72px, 10vw, 152px); line-height: 0.92; letter-spacing: -0.03em;
-  color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(72px, 10vw, 152px); line-height: 0.92; letter-spacing: var(--cut-spacing);
+  color: var(--ink-title, var(--ink));
 }
 .kept-line {
   margin: 32px 0 0; max-width: 750px;
@@ -57,8 +57,8 @@ html[data-theme="dark"].kept-is-empty .kept-band { background: linear-gradient(t
 }
 .kept-row-words { flex: 1 1 auto; min-width: 0; display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 24px; row-gap: 4px; }
 .kept-row-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 30px; line-height: 1.15; letter-spacing: -0.012em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 30px; line-height: 1.15; letter-spacing: var(--cut-spacing);
 }
 .kept-row-meta { font-size: 18px; line-height: 1.4; color: var(--ink-soft); transition: color 0.3s ease; }
 .kept-row .row-arrow {
@@ -87,9 +87,9 @@ html[data-theme="dark"].kept-is-empty .kept-band { background: linear-gradient(t
 }
 .kept-under { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 16px; }
 .kept-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 26px; line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 26px; line-height: 1.1; letter-spacing: var(--cut-spacing);
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 .kept-from { font-size: 18px; color: var(--ink-soft); }
 .kept-num:hover, .kept-num:focus-visible { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
@@ -125,4 +125,9 @@ html.pp-still .kept-row, html.pp-still.kept-row, html.pp-still .kept-row-meta, h
   .kept-picture { padding: 28px 0; }
   .kept-pic img { max-height: 70vh; }
   .kept-under .keep { margin-left: 0; }
+}
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"][data-theme].kept-is-empty .kept-band { background-image: linear-gradient(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.06)), linear-gradient(to right, rgb(43, 35, 36), rgb(42, 37, 25), rgb(41, 38, 27), rgb(31, 42, 34), rgb(30, 44, 42), rgb(33, 40, 48), rgb(34, 42, 51)); }
+@media (prefers-color-scheme: dark) {
+  html:root:not([data-theme="light"]).kept-is-empty .kept-band { background-image: linear-gradient(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.06)), linear-gradient(to right, rgb(43, 35, 36), rgb(42, 37, 25), rgb(41, 38, 27), rgb(31, 42, 34), rgb(30, 44, 42), rgb(33, 40, 48), rgb(34, 42, 51)); }
 }

@@ -24,11 +24,11 @@
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
-    --wm-top: #0d0907; --wm-foot: #170f15; --wm-wash: #21161c; --wm-hair: rgba(217, 215, 206, 0.22); --wm-btn-ink: #111;
+    --wm-top: #0d0907; --wm-foot: #170f15; --wm-wash: #21161c; --wm-hair: rgba(217, 215, 206, 0.22); --wm-btn-ink: var(--hand-black, #111);
   }
 }
 html[data-theme="dark"] {
-  --wm-top: #0d0907; --wm-foot: #170f15; --wm-wash: #21161c; --wm-hair: rgba(217, 215, 206, 0.22); --wm-btn-ink: #111;
+  --wm-top: #0d0907; --wm-foot: #170f15; --wm-wash: #21161c; --wm-hair: rgba(217, 215, 206, 0.22); --wm-btn-ink: var(--hand-black, #111);
 }
 
 /* the draft's ground: deepening slowly from top to foot */
@@ -53,8 +53,8 @@ html[data-theme="dark"] {
 .wm-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .wm-room figcaption { margin-top: 12px; }
 .wm-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 .wm-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
@@ -78,8 +78,8 @@ html[data-theme="dark"] {
   background: var(--wm-hair); max-width: calc(1400px - 2 * var(--wm-margin)); margin: 0 auto;
 }
 .wm-title {
-  margin: 40px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 5.2vw, 80px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+  margin: 40px 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 5.2vw, 80px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink));
 }
 .wm-desc {
   margin: 24px 0 0; max-width: 30em; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.55; color: var(--ink-soft);
@@ -148,7 +148,7 @@ html[data-theme="dark"] {
 .wm-kind { color: var(--accent); }
 .wm-dot, .wm-time { color: var(--ink-faint); }
 .wm-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 .wm-name .wm-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
 .wm-first { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink-soft); }
@@ -174,15 +174,15 @@ html[data-theme="dark"] {
 /* ---------- 4. the wine band at the foot ---------- */
 .wm-band {
   background: var(--wm-wine);
-  --ink: var(--ink-on-dark); --ink-soft: var(--ink-on-dark); --ink-faint: var(--ink-on-dark); --accent: var(--ink-on-dark); --wm-btn-ink: #5a2638;
+  --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--ink-on-dark); --ink-faint: var(--ink-on-dark); --accent: var(--ink-on-dark); --wm-btn-ink: #5a2638;
   color: var(--ink-on-dark);
 }
 .wm-band-in { max-width: 820px; margin: 0 auto; padding: 84px var(--wm-margin) 92px; text-align: center; }
 .wm-label { margin: 0; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; color: var(--ink); }
 .wm-subjects { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 40px; margin-top: 20px; }
 .wm-subject {
-  position: relative; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 3.2vw, 42px); line-height: 1.25; color: var(--ink); text-decoration: none;
+  position: relative; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 3.2vw, 42px); line-height: 1.25; color: var(--ink-title, var(--ink)); text-decoration: none; letter-spacing: var(--cut-spacing);
 }
 /* the draft's link under the hand: an underline grows from the left */
 .wm-subject::after {

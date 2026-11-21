@@ -20,7 +20,7 @@
   body {
     margin: 0;
     background: #fff;
-    color: #111;
+    color: var(--hand-black, #111); --cut-spacing: -0.01em;
     font-family: 'Inter', sans-serif;
     overflow-wrap: break-word;
   }
@@ -45,11 +45,11 @@
   .wander-picture { grid-area: picture; }
   .wander-title {
     font-family: 'Archivo', sans-serif; font-stretch: 112%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 34px;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--cut-spacing);
     line-height: 1.12;
-    color: #111;
+    color: var(--ink-title, var(--hand-black, #111));
     margin: 0 0 32px;
   }
   .wander-body p {
@@ -82,8 +82,8 @@
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: #fff;
-    background: #111;
+    color: var(--hand-white, #fff);
+    background: var(--hand-black, #111);
     border: none;
     padding: 20px 56px;
     cursor: pointer;
@@ -98,7 +98,7 @@
   .wander-links a {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: #555;
+    color: var(--hand-grey, #555);
     text-decoration: underline;
     text-underline-offset: 3px;
   }

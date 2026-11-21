@@ -2,7 +2,7 @@
    copied from /marks/marks.css (.foot, .next, .next-where, .next-word, .arch, .arr) with the variables they read.
    Nothing is restyled; the one addition is that the lone link keeps the right-hand place it has on Marks. */
 .set-next { --edge: 24px; --gap: 32px; --rule: var(--ink); --ease: cubic-bezier(0.4, 0, 0.1, 1); }
-.set-next .arch { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; }
+.set-next .arch { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; letter-spacing: var(--cut-spacing); } :where(.set-next .arch) { color: var(--ink-title); }
 .set-next .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 .set-next a { color: inherit; text-decoration: none; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .foot.set-next {
@@ -11,7 +11,7 @@
 }
 .foot.set-next .next { display: flex; flex-direction: column; align-items: flex-end; text-align: right; max-width: 60%; margin-left: auto; }
 .set-next .next-where { font-family: Inter, sans-serif; font-size: 20px; line-height: 1.4; }
-.set-next .next-word { font-size: clamp(40px, 5.2vw, 76px); line-height: 1; letter-spacing: -0.012em; margin-top: 6px; white-space: nowrap; }
+.set-next .next-word { font-size: clamp(40px, 5.2vw, 76px); line-height: 1; letter-spacing: var(--cut-spacing); margin-top: 6px; white-space: nowrap; }
 @media (hover: hover) { .set-next .next:hover .arr { transform: translateX(12px); } }
 .set-next .next:active .arr { transform: translateX(12px); }
 @media (max-width: 799px) {

@@ -34,16 +34,16 @@ html.bc-page[data-theme="dark"] {
    in Light and Dark alike; its words are pure black in every mode (6.9 to 1 on #949494, Reach's ruling over the
    charter's 7 to 1 for words on a band). */
 .bc-band {
-  --ink: #000;
+  --ink: #000; --ink-title: initial;
   background: var(--bc-band);
   padding: 64px 24px 40px;
   transition: background-color 0.5s ease;
 }
 .bc-title {
   margin: 0;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 8.4vw, 144px); line-height: 0.9; letter-spacing: -0.035em;
-  color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 8.4vw, 144px); line-height: 0.9; letter-spacing: var(--cut-spacing);
+  color: var(--ink-title, var(--ink));
 }
 .bc-line {
   margin: 28px 0 0; max-width: 750px;
@@ -111,8 +111,8 @@ html.bc-page[data-theme="dark"] {
 .bc-room .hung-arrival { margin-top: 48px; }
 .bc-room .hung-band h2 {
   margin: 0;
-  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
-  font-size: 34px; letter-spacing: -0.02em; line-height: 1.12; color: #fff;
+  font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500;
+  font-size: 34px; letter-spacing: var(--cut-spacing); line-height: 1.12; color: var(--hand-white, #fff);
 }
 .bc-room .hung-item figcaption a { display: inline-flex; align-items: center; min-height: 44px; }
 
@@ -133,14 +133,14 @@ html.bc-page[data-theme="dark"] {
   margin: 112px 24px 0; padding: 32px 0 96px; border-top: 1px solid var(--ink-faint);
 }
 .bc-foot .arrow-link {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 32px; line-height: 1.2; color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; color: var(--ink-title, var(--ink)); text-decoration: none; letter-spacing: var(--cut-spacing);
 }
 .bc-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
 
 /* The arrival's band says only how many (the color's name is heard by a screen reader, not shown). */
-.bc-room .hung-band .bc-count { margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;
-  font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; }
+.bc-room .hung-band .bc-count { margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 500;
+  font-size: 28px; line-height: 1.15; letter-spacing: var(--cut-spacing); }
 @media (max-width: 700px) { .bc-room .hung-band .bc-count { font-size: 22px; } }
 .bc-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 

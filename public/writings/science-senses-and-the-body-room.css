@@ -29,8 +29,8 @@
   --sb-rose: #D98A9D;                           /* the mould's pink, lifted: the cards' rules (6.7 to 1 on the night) */
   --sb-cord: #4A86F0;                           /* the electric blue the passage names: its card's rules (4.9) */
   --sb-ink-d: var(--ink-on-dark);                          /* the named colours' dark values, for the dark cards */
-  --sb-soft-d: #B3AA9F;
-  --sb-faint-d: #8F877D;
+  --sb-soft-d: var(--dk-soft, #B3AA9F);
+  --sb-faint-d: var(--dk-faint, #8F877D);
   /* what follows the mode: Light */
   --sb-pale: #EEDFE3;                           /* the mould's pale pink: the grid's band */
   --sb-card: #FFFFFF;
@@ -58,7 +58,7 @@
     --sb-chosen: #263033;
     --sb-hair: rgba(217, 215, 206, 0.14);
     --sb-card-edge: rgba(217, 215, 206, 0.07);
-    --sb-btn: #d9d7ce;  --sb-btn-ink: #151B1C;
+    --sb-btn: var(--dk-ink, #d9d7ce);  --sb-btn-ink: #151B1C;
   }
 }
 html[data-theme="dark"] {
@@ -68,7 +68,7 @@ html[data-theme="dark"] {
   --sb-chosen: #263033;
   --sb-hair: rgba(217, 215, 206, 0.14);
   --sb-card-edge: rgba(217, 215, 206, 0.07);
-  --sb-btn: #d9d7ce;  --sb-btn-ink: #151B1C;
+  --sb-btn: var(--dk-ink, #d9d7ce);  --sb-btn-ink: #151B1C;
 }
 
 .sb-room { position: relative; overflow: clip; }
@@ -105,16 +105,16 @@ html[data-theme="dark"] {
 }
 .sb-lead-pic figcaption { margin: 0; }
 .sb-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 /* on the stone, the number sits on a small dark tab under the picture's corner */
 .sb-lead-pic .sb-num { display: inline-block; background: var(--sb-night); color: var(--sb-ink-d); padding: 8px 14px 9px var(--sb-margin); }
 .sb-lead-card { max-width: 520px; }
 .sb-lead-card .sb-rule:first-of-type { margin-top: 28px; }
 .sb-title {
-  margin: 26px 0 26px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.2vw, 64px); line-height: 1.03; letter-spacing: -0.012em; color: var(--sb-ink-d);
+  margin: 26px 0 26px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.2vw, 64px); line-height: 1.03; letter-spacing: var(--cut-spacing); color: var(--sb-ink-d);
 }
 .sb-line { margin: 26px 0 0; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--sb-ink-d); }
 
@@ -148,7 +148,7 @@ html[data-theme="dark"] {
 .sb-every[aria-pressed="true"], .sb-fold.open { background: var(--sb-chosen); }
 .sb-every { border-radius: 3px 3px 0 0; }
 .sb-fold:last-child, .sb-fold:last-child .sb-fold-head { border-radius: 0 0 3px 3px; }
-.sb-fold-name { flex: 1; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.25; }
+.sb-fold-name { flex: 1; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 22px; line-height: 1.25; letter-spacing: var(--cut-spacing); } :where(.sb-fold-name) { color: var(--ink-title); }
 /* the draft's chevron, drawn: down when closed, up when open */
 .sb-chev {
   width: 11px; height: 11px; margin: -6px 4px 0 0; flex: none;
@@ -216,7 +216,7 @@ html[data-theme="dark"] {
 .sb-kind { color: var(--ink); }
 .sb-dot { color: var(--ink-faint); }
 .sb-time { color: var(--ink-soft); }
-.sb-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.22; color: var(--ink); }
+.sb-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.22; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 .sb-name .sb-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
 .sb-first {
   font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink-soft);
@@ -251,7 +251,7 @@ html[data-theme="dark"] {
   display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; padding: 14px 28px;
   border-top: 1px solid var(--sb-hair); color: var(--ink); text-decoration: none; transition: background-color 0.25s ease;
 }
-.sb-found-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.2; }
+.sb-found-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.sb-found-name) { color: var(--ink-title); }
 .sb-found-a .sb-arrow { font-size: 24px; }
 @media (hover: hover) {
   .sb-found-a:hover { background: var(--sb-chosen); }
@@ -259,8 +259,8 @@ html[data-theme="dark"] {
 }
 .sb-next-card .sb-rule:first-child { margin-top: 4px; }
 .sb-next-label {
-  margin: 26px 0 26px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 3vw, 42px); line-height: 1.1; color: var(--sb-ink-d);
+  margin: 26px 0 26px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 3vw, 42px); line-height: 1.1; color: var(--sb-ink-d); letter-spacing: var(--cut-spacing);
 }
 .sb-next-row { margin: 32px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; }
 .sb-next-card .sb-btn { --sb-btn: var(--ink-on-dark); --sb-btn-ink: #151B1C; }
@@ -326,4 +326,8 @@ html[data-theme="dark"] {
 html.pp-still .sb-room *, html.pp-still.sb-room *, html.pp-still .sb-room *::before, html.pp-still.sb-room *::before, html.pp-still .sb-room *::after, html.pp-still.sb-room *::after { transition: none !important; }
 html.pp-still .js-reveal .sb-room .reveal, html.pp-still.js-reveal .sb-room .reveal, html.pp-still .js-reveal .sb-room .sb-word, html.pp-still.js-reveal .sb-room .sb-word { opacity: 1; }
 html.pp-still .js-reveal .sb-room .sb-rule, html.pp-still.js-reveal .sb-room .sb-rule { transform: none; }
-
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"] .sb-every[aria-pressed="true"], html[data-theme="dark"] .sb-fold.open { background-color: color-mix(in srgb, var(--sb-chosen) 84%, black); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .sb-every[aria-pressed="true"], html:not([data-theme="light"]) .sb-fold.open { background-color: color-mix(in srgb, var(--sb-chosen) 84%, black); }
+}

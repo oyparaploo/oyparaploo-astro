@@ -43,7 +43,7 @@ html.pp-still.rise-on .rise { opacity: 1; transform: none; transition: none; }
 .set-page .pm-kicker { flex-basis: 100%; margin: 0 0 4px; font: 600 18px/1.4 'Inter', sans-serif; }
 /* On the dark glass the way back is in Ink's dark value; the site's arrow link would turn it black when pointed at. */
 .set-page .pm-kicker a, .set-page .pm-kicker a .arrow-glyph { color: var(--ink-on-dark); text-decoration: none; font-size: 18px; }
-.set-page .pm-kicker a:is(:hover, :focus-visible), .set-page .pm-kicker a:is(:hover, :focus-visible) .arrow-glyph { color: #fff !important; }
+.set-page .pm-kicker a:is(:hover, :focus-visible), .set-page .pm-kicker a:is(:hover, :focus-visible) .arrow-glyph { color: var(--hand-white, #fff) !important; }
 /* The arrow comes from a system face, so it is sized up to sit with the word. */
 .set-page .pm-kicker a .arrow-glyph { font-size: 1.3em; line-height: 1; }
 .set-page .pm-head { gap: 4px 32px; }
@@ -65,9 +65,9 @@ html.pp-still.rise-on .rise { opacity: 1; transform: none; transition: none; }
 .set-page .sets-foot { margin-top: 120px; }
 .sets-foot .arrow-next:hover .arrow-glyph { transform: translateX(4px); }
 /* The way back and on, sized to hold their band (as on the Perrotin preview Reach called perfect). */
-.sets-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; }
-.sets-foot .arrow-link .arrow-glyph { font-size: 1.25em; font-weight: 600; line-height: 1; }
-.sets-foot .arrow-link:is(:hover, :focus-visible), .sets-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #111 !important; }
+.sets-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; letter-spacing: var(--cut-spacing); } :where(.sets-foot .arrow-link) { color: var(--ink-title); }
+.sets-foot .arrow-link .arrow-glyph { font-size: 1.25em; font-weight: 500; line-height: 1; }
+.sets-foot .arrow-link:is(:hover, :focus-visible), .sets-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: var(--hand-black, #111) !important; }
 
 @media (max-width: 700px) {
   .sets-page .sets-bands { padding-top: 36px; }
@@ -85,10 +85,10 @@ html.pp-still.rise-on .rise { opacity: 1; transform: none; transition: none; }
 /* 1. The band labels: pointed at, a label stays black with white words, as on Hofesh. Only the arrow slides
    in; nothing reverses and the photograph does not lift. */
 @media (hover: hover) {
-  .band:hover .band-label { background: #000; color: #fff; }
+  .band:hover .band-label { background: #000; color: var(--hand-white, #fff); }
   .band:hover .band-pic { filter: none; }
 }
-.band:focus-visible .band-label { background: #000; color: #fff; }
+.band:focus-visible .band-label { background: #000; color: var(--hand-white, #fff); }
 
 /* 2. The opening menu, as on Saved Again ... (live October 16, 2026): the names up to 36 pixels, and each
    triangle opening a row of that set's five newest photographs, small and whole, then "Open the set →". */
@@ -109,11 +109,11 @@ html.pp-still.rise-on .rise { opacity: 1; transform: none; transition: none; }
    colours only; the column stops at about 700 pixels. */
 .set-writing { padding: 112px 24px 0; max-width: calc(700px + 48px); }
 .sw-kind { margin: 0 0 14px; font: 400 18px/1.4 'Inter', sans-serif; color: var(--ink); }
-.sw-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(30px, 2.6vw, 42px); line-height: 1.1; color: var(--ink); text-wrap: balance; }
+.sw-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(30px, 2.6vw, 42px); line-height: 1.1; color: var(--ink-title, var(--ink)); text-wrap: balance; letter-spacing: var(--cut-spacing); }
 .sw-sub { margin: 10px 0 0; font: 400 22px/1.35 'Inter', sans-serif; color: var(--ink-soft); }
 .sw-body { margin-top: 36px; font: 400 20px/1.65 'Inter', sans-serif; color: var(--ink); }
 .sw-body p { margin: 0 0 1.05em; }
-.sw-body h2 { margin: 1.4em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 22px; line-height: 1.3; color: var(--ink); }
+.sw-body h2 { margin: 1.4em 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 22px; line-height: 1.3; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 .sw-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .sw-body a:hover { text-decoration: none; }
 .sw-kind + .sw-body { margin-top: 18px; }
@@ -142,11 +142,11 @@ body.sets-page:not(.set-page) .sets-foot { margin-top: 0; }
    it now does. Its ground in Light is the Placings room's own, white running to a very pale blue, so the air between
    the bands is never plain white. The opening photograph with its veil, every band and its black label, and the
    drawing on its white paper stay as they are. Dark is unchanged. */
-html[data-theme="light"] body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+html[data-theme="light"] body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 html[data-theme="light"] body.sets-page:not(.set-page) .sets-bands { background: transparent; }
 html[data-theme="light"] body.sets-page:not(.set-page) .band { background: #e6ecf1; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+  html:not([data-theme="dark"]) body.sets-page:not(.set-page) main { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
   html:not([data-theme="dark"]) body.sets-page:not(.set-page) .sets-bands { background: transparent; }
   html:not([data-theme="dark"]) body.sets-page:not(.set-page) .band { background: #e6ecf1; }
 }

@@ -29,21 +29,21 @@
 
 /* ---------- the colour bands: flat, edge to edge, from the work on them; words dark in every mode ---------- */
 .look-band {
-  background: var(--band); color: #111111;
-  --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: var(--band);
+  background: var(--band); color: var(--hand-black, #111); --cut-spacing: -0.01em;
+  --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: var(--band);
 }
 .look-band a { color: inherit; }
 .look-band :focus-visible { outline-color: #111111; }
 
 .room-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 28px;
 }
 .room-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15;
-  margin: 0 auto 56px; max-width: 22em;
+  margin: 0 auto 56px; max-width: 22em; letter-spacing: var(--cut-spacing);
 }
 
 /* the pictures: whole, at their own shape, the catalogue number under each */
@@ -65,15 +65,15 @@
 .look-intro { padding: var(--look-air) var(--edge); text-align: center; }
 .look-intro > p { font-size: 22px; line-height: 1.65; max-width: 780px; margin: 0 auto; }
 .look-intro > p.intro-big {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 3vw, 46px); line-height: 1.12; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 3vw, 46px); line-height: 1.12; letter-spacing: var(--cut-spacing);
   max-width: 21em; margin: 64px auto;
-}
+} :where(.look-intro > p.intro-big) { color: var(--ink-title); }
 .intro-turn {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(34px, 3.6vw, 56px); line-height: 1.08; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(34px, 3.6vw, 56px); line-height: 1.08; letter-spacing: var(--cut-spacing);
   max-width: 19em; margin: 120px auto 0;
-}
+} :where(.intro-turn) { color: var(--ink-title); }
 
 /* ---------- the featured object: the picture runs to the window's edge, the words beside it ---------- */
 .found { display: grid; grid-template-columns: minmax(0, 52fr) minmax(0, 48fr); align-items: center; }
@@ -81,16 +81,16 @@
 .found-pic figcaption { padding: 0 var(--edge); }
 .found-words { padding: 80px var(--edge) 88px 56px; }
 .found-lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(28px, 2.6vw, 40px); line-height: 1.15; max-width: 17em;
-  margin: 0 0 32px;
-}
+  margin: 0 0 32px; letter-spacing: var(--cut-spacing);
+} :where(.found-lead) { color: var(--ink-title); }
 .found-words p:not(.found-lead):not(.found-end) { font-size: 20px; line-height: 1.7; max-width: 34em; }
 .found-end {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(28px, 2.6vw, 40px); line-height: 1.15; max-width: 17em;
-  margin: 32px 0 0;
-}
+  margin: 32px 0 0; letter-spacing: var(--cut-spacing);
+} :where(.found-end) { color: var(--ink-title); }
 
 /* ---------- the ground went dark: black at the top through twelve stops to a deep navy, in every mode ---------- */
 .dark-ground {
@@ -98,7 +98,7 @@
   align-items: start;
   padding: var(--look-air) var(--edge);
   color: var(--on-dark);
-  --ink: var(--on-dark); --ground: #000000;
+  --ink: var(--on-dark); --ink-title: initial; --ground: #000000;
   background: linear-gradient(to bottom,
     #000000 0.00%, #020304 9.09%, #040509 18.18%, #05080D 27.27%, #070A11 36.36%, #090D16 45.45%,
     #0B0F1A 54.55%, #0D121F 63.64%, #0F1423 72.73%, #101727 81.82%, #12192C 90.91%, #141C30 100.00%);
@@ -107,8 +107,8 @@
 .dark-ground :focus-visible { outline-color: var(--on-dark); }
 .blue-rule { display: block; width: 64px; height: 3px; background: var(--weathered); margin: 0 0 40px; }
 .dark-lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 7vw, 120px); line-height: 0.95; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 7vw, 120px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 40px;
 }
 .dark-words p:not(.dark-lead) { font-size: 20px; line-height: 1.7; max-width: 32em; margin: 0 0 1.1em; }
@@ -119,25 +119,25 @@
 /* ---------- three fonts, side by side as the three collections stand ---------- */
 .faces { padding: var(--look-air) var(--edge) 0; }
 .faces-lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: var(--cut-spacing);
   max-width: 18em; margin: 0;
-}
+} :where(.faces-lead) { color: var(--ink-title); }
 .faces-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--column-gap); margin-top: 72px; }
 .faces-three p { font-size: 20px; line-height: 1.65; max-width: 30em; }
 .face-name {
   display: block; margin-bottom: 16px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4vw, 64px); line-height: 1; letter-spacing: -0.01em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4vw, 64px); line-height: 1; letter-spacing: var(--cut-spacing);
+} :where(.face-name) { color: var(--ink-title); }
 
 /* ---------- every page a room with its own light: the three collections, each in its own light ---------- */
 .lights { padding: var(--look-air) var(--edge); }
 .lights-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: var(--cut-spacing);
   max-width: 18em; margin: 0 0 56px;
-}
+} :where(.lights-title) { color: var(--ink-title); }
 .lights-three { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--column-gap); }
 .light {
   position: relative; display: flex; flex-direction: column; padding: 32px 28px 36px;
@@ -149,13 +149,13 @@
 .light .light-pic figcaption { align-self: center; }
 .light > p {
   margin-top: 28px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(24px, 2vw, 30px); line-height: 1.18;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(24px, 2vw, 30px); line-height: 1.18; letter-spacing: var(--cut-spacing);
 }
 .light a { color: inherit; }
-.light-paper { background: var(--paper); color: #111111; }
+.light-paper { background: var(--paper); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .light-night { background: var(--night); color: var(--on-dark); }
-.light-alt { background: var(--alt-light); color: #111111; }
+.light-alt { background: var(--alt-light); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 /* PLAY: the room that alternates goes dark while the visitor moves through it, and light again after */
 .light-alt.is-dark { background: var(--alt-dark); color: var(--on-dark); }
 .alt-middle { position: absolute; left: 0; right: 0; top: 50%; height: 1px; pointer-events: none; }
@@ -168,9 +168,9 @@
 .checks-title { font-weight: 600; font-size: 20px; line-height: 1.3; margin: 0 0 40px; }
 .checks-five { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 56px; }
 .checks-five li {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 3vw, 48px); line-height: 1.05; letter-spacing: -0.01em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 3vw, 48px); line-height: 1.05; letter-spacing: var(--cut-spacing);
+} :where(.checks-five li) { color: var(--ink-title); }
 
 /* ---------- the rule worth stealing, and the timber standing beside it ---------- */
 .steal {
@@ -178,10 +178,10 @@
   align-items: start; padding: var(--look-air) var(--edge) 0;
 }
 .steal-lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; letter-spacing: var(--cut-spacing);
   margin: 0 0 36px;
-}
+} :where(.steal-lead) { color: var(--ink-title); }
 .steal-words > p:not(.steal-lead) { font-size: 22px; line-height: 1.65; max-width: 32em; }
 .steal-words > p.steal-after { font-size: 20px; line-height: 1.7; }
 .words-way { margin: 44px 0 80px; }
@@ -199,7 +199,7 @@ html.wordless body :not(.words-toggle)::after { color: transparent !important; }
 html.words-fade body * { transition: color 0.6s ease !important; }
 .words-back {
   position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60;
-  --btn-ink: #111111; --btn-ground: #ffffff;
+  --btn-ink: var(--hand-black, #111111); --btn-ground: #ffffff;
 }
 .words-back[hidden] { display: none; }
 html:not(.wordless) .words-back { display: none; }
@@ -209,14 +209,14 @@ html:not(.wordless) .words-back { display: none; }
 .compass-lead { font-size: 22px; line-height: 1.65; max-width: 750px; }
 .nevers { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px var(--column-gap); margin: 72px 0 0; }
 .nevers li {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; letter-spacing: -0.005em; max-width: 15em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; letter-spacing: var(--cut-spacing); max-width: 15em;
+} :where(.nevers li) { color: var(--ink-title); }
 .fences {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 5vw, 84px); line-height: 1.02; letter-spacing: -0.012em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 5vw, 84px); line-height: 1.02; letter-spacing: var(--cut-spacing);
   text-align: center; max-width: 14em; margin: 160px auto 16px;
-}
+} :where(.fences) { color: var(--ink-title); }
 
 /* ---------- and it opens like this: the band that closes the page, centred ---------- */
 .opens { padding: var(--look-air) var(--edge) 120px; text-align: center; }

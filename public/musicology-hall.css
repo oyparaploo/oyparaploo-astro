@@ -33,7 +33,7 @@
   transition: background-color 0.25s var(--mr-ease), color 0.25s var(--mr-ease), border-color 0.25s var(--mr-ease), opacity 0.25s var(--mr-ease);
 }
 .mr-step svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.mr-step:hover, .mr-step:focus-visible { background: var(--mr-white); border-color: var(--mr-white); color: #111111; }
+.mr-step:hover, .mr-step:focus-visible { background: var(--mr-white); border-color: var(--mr-white); color: var(--hand-black, #111); }
 .mr-step:focus-visible { outline: 2px solid var(--mr-white); outline-offset: 3px; }
 .mr-step:disabled { opacity: 0.32; cursor: default; background: transparent; color: var(--mr-words); border-color: rgba(var(--ink-on-dark-rgb), 0.55); }
 
@@ -52,15 +52,15 @@
 }
 
 /* Light (finding 1): written for a pressed Light and for a light screen. */
-html[data-theme="light"] .mr-step { color: #111111; border-color: rgba(17,17,17,0.55); }
-html[data-theme="light"] .mr-step:hover, html[data-theme="light"] .mr-step:focus-visible { background: #111111; border-color: #111111; color: #faf6f0; }
+html[data-theme="light"] .mr-step { color: var(--hand-black, #111); --cut-spacing: -0.01em; border-color: rgba(17,17,17,0.55); }
+html[data-theme="light"] .mr-step:hover, html[data-theme="light"] .mr-step:focus-visible { background: var(--hand-black, #111); border-color: #111111; color: #faf6f0; }
 html[data-theme="light"] .mr-step:focus-visible { outline-color: #111111; }
-html[data-theme="light"] .mr-step:disabled { background: transparent; color: #111111; border-color: rgba(17,17,17,0.55); }
+html[data-theme="light"] .mr-step:disabled { background: transparent; color: var(--hand-black, #111); --cut-spacing: -0.01em; border-color: rgba(17,17,17,0.55); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .mr-step { color: #111111; border-color: rgba(17,17,17,0.55); }
-  html:not([data-theme="dark"]) .mr-step:hover, html:not([data-theme="dark"]) .mr-step:focus-visible { background: #111111; border-color: #111111; color: #faf6f0; }
+  html:not([data-theme="dark"]) .mr-step { color: var(--hand-black, #111); --cut-spacing: -0.01em; border-color: rgba(17,17,17,0.55); }
+  html:not([data-theme="dark"]) .mr-step:hover, html:not([data-theme="dark"]) .mr-step:focus-visible { background: var(--hand-black, #111); border-color: #111111; color: #faf6f0; }
   html:not([data-theme="dark"]) .mr-step:focus-visible { outline-color: #111111; }
-  html:not([data-theme="dark"]) .mr-step:disabled { background: transparent; color: #111111; border-color: rgba(17,17,17,0.55); }
+  html:not([data-theme="dark"]) .mr-step:disabled { background: transparent; color: var(--hand-black, #111); --cut-spacing: -0.01em; border-color: rgba(17,17,17,0.55); }
 }
 
 @media (prefers-reduced-motion: reduce) { .mr-step { transition: none; } }

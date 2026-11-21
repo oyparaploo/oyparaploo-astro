@@ -13,13 +13,13 @@
 :root {
   --wd-night: #14100C;                          /* the night of 05101: the draft's own ground */
   --wd-ink: var(--ink-on-dark);
-  --wd-soft: #B3AA9F;
-  --wd-faint: #8F877D;
+  --wd-soft: var(--dk-soft, #B3AA9F);
+  --wd-faint: var(--dk-faint, #8F877D);
   --wd-gold: #D4A574;
   --wd-hair: rgba(244, 237, 225, 0.18);         /* the draft's hairline */
   --wd-stub: rgba(244, 237, 225, 0.34);
   --wd-tarp: #A6B2DC;                           /* the tarp's blue, lit from inside at dusk (05085, 05069) */
-  --wd-tarp-ink: #111111;
+  --wd-tarp-ink: var(--hand-black, #111111);
   --wd-cross: #C0307E;                          /* the cross's magenta (05101), lifted to show on the night: 3.6 to 1 */
   --wd-cross-deep: #861052;                     /* the cross's own magenta, on the tarp's band: 4.5 to 1 */
   --wd-lamp: 166, 178, 220;                     /* the light through the tarp */
@@ -66,8 +66,8 @@
 .wd-pic img { display: block; width: 100%; height: auto; }
 .wd-room figcaption { margin-top: 12px; }
 .wd-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--wd-ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--wd-ink)); text-decoration: none;
 }
 
 /* ---------- 1. the lead: the title and its line, the tent at night beside them ---------- */
@@ -78,8 +78,8 @@
 /* the way back at the top of the picture, the title and its line at its foot */
 .wd-lead-words { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; padding-bottom: 38px; }
 .wd-title {
-  margin: 44px 0 0; padding-top: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.0; letter-spacing: -0.015em; color: var(--wd-ink);
+  margin: 44px 0 0; padding-top: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--wd-ink));
 }
 .wd-line {
   margin: 28px 0 0; max-width: 24em;
@@ -91,7 +91,7 @@
 .wd-kind { color: var(--wd-gold); }
 .wd-dot { color: var(--wd-faint); }
 .wd-time { color: var(--wd-soft); }
-.wd-name { font-family: 'Archivo', sans-serif; font-weight: 600; color: var(--wd-ink); }
+.wd-name { font-family: 'Archivo', sans-serif; font-weight: 500; color: var(--ink-title, var(--wd-ink)); letter-spacing: var(--cut-spacing); }
 .wd-name .wd-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); color: var(--wd-gold); }
 .wd-first { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--wd-soft); }
 
@@ -188,9 +188,9 @@
   border-top: 1px solid var(--wd-hair); color: var(--wd-ink); text-decoration: none;
 }
 .wd-room-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 3vw, 40px); line-height: 1.15;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 3vw, 40px); line-height: 1.15; letter-spacing: var(--cut-spacing);
+} :where(.wd-room-name) { color: var(--ink-title); }
 .wd-room-a .wd-arrow { font-size: 28px; color: var(--wd-gold); opacity: 0; transform: translateX(-10px); }
 @media (hover: hover) { .wd-room-a:hover .wd-arrow { opacity: 1; transform: translateX(0); } }
 
@@ -201,8 +201,8 @@
 }
 .wd-next-wrap { margin: 0; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 .wd-next-label {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1.2; color: var(--wd-ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.2; color: var(--ink-title, var(--wd-ink)); letter-spacing: var(--cut-spacing);
 }
 
 /* each part fades in as it is reached, in under a second */
@@ -251,7 +251,7 @@ html.pp-still .js-reveal .wd-room .reveal, html.pp-still.js-reveal .wd-room .rev
    War and Displacement follows Light: the night of 05101 made pale, words in Ink, the hairlines in Ink's light, the gold
    in Accent's light value, the cross in its own deep magenta. The tarp's blue band and the light through it stay, as
    do the pictures. Dark is unchanged. */
-html[data-theme="light"] { --wd-night: #f7f5f2; --wd-ink: #111111; --wd-soft: #555555; --wd-faint: #666666; --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
+html[data-theme="light"] { --wd-night: #f7f5f2; --wd-ink: var(--hand-black, #111111); --wd-soft: var(--hand-grey, #555555); --wd-faint: var(--hand-faint, #666666); --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) { --wd-night: #f7f5f2; --wd-ink: #111111; --wd-soft: #555555; --wd-faint: #666666; --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
+  html:not([data-theme="dark"]) { --wd-night: #f7f5f2; --wd-ink: var(--hand-black, #111111); --wd-soft: var(--hand-grey, #555555); --wd-faint: var(--hand-faint, #666666); --wd-gold: #8a5a24; --wd-hair: rgba(17, 17, 17, 0.18); --wd-stub: rgba(17, 17, 17, 0.34); --wd-cross: #861052; }
 }

@@ -102,15 +102,15 @@ body.set-page {
 }
 .pm-title {
   margin: 0;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(30px, 2.5vw, 44px);
   line-height: 1.05;
-  color: var(--ink-on-dark);
+  color: var(--ink-on-dark); letter-spacing: var(--cut-spacing);
 }
 .pm-sentence {
   margin: 0;
   font: 400 18px/1.5 'Inter', sans-serif;
-  color: #b3aa9f;
+  color: var(--dk-soft, #b3aa9f);
   max-width: 750px;
 }
 .pm-say-touch { display: none; }
@@ -154,7 +154,7 @@ body.set-page {
   padding: 2px 11px 3px;
   border-radius: 999px;
   /* Changed for the colour sets (second try, Reach, October 16, 2026): an outline only, never filled,
-     1 pixel, its line and words the same colour as the set's title (Ink #e8e0d6 lit, Faint ink #8f877d
+     1 pixel, its line and words the same colour as the set's title (Ink var(--dk-ink, #e8e0d6) lit, Faint ink var(--dk-faint, #8f877d)
      faded), changing with the title and nothing more. */
   border: 1px solid var(--ink-on-dark);
   background: transparent;
@@ -164,47 +164,47 @@ body.set-page {
   transition: color 0.35s ease, border-color 0.35s ease;
 }
 .pm-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(22px, 1.7vw, 28px);
   line-height: 1.12;
   color: var(--ink-on-dark);
-  transition: color 0.35s ease;
+  transition: color 0.35s ease; letter-spacing: var(--cut-spacing);
 }
 .pm-line {
   font: 400 18px/1.45 'Inter', sans-serif;
-  color: #b3aa9f;
+  color: var(--dk-soft, #b3aa9f);
   transition: color 0.35s ease;
 }
 
 /* Pointed at: the line bright white, the words bright; the others fade. */
 .pm-band.is-pointing .pm-choice { border-top-color: rgba(var(--ink-on-dark-rgb), 0.26); }
 .pm-band.is-pointing .pm-choice .pm-name,
-.pm-band.is-pointing .pm-choice .pm-line { color: #8f877d; }
+.pm-band.is-pointing .pm-choice .pm-line { color: var(--dk-faint, #8f877d); }
 .pm-band.is-pointing .pm-choice .pm-thumb { opacity: 0.5; }
 .pm-band.is-pointing .pm-choice.is-on { border-top-color: #fff; }
 .pm-band.is-pointing .pm-choice.is-on .pm-name { color: var(--ink-on-dark); }
-.pm-band.is-pointing .pm-choice.is-on .pm-line { color: #b3aa9f; }
+.pm-band.is-pointing .pm-choice.is-on .pm-line { color: var(--dk-soft, #b3aa9f); }
 .pm-band.is-pointing .pm-choice.is-on .pm-thumb { opacity: 1; }
 /* Second try: the pill follows its title's colour; it is never filled. */
-.pm-band.is-pointing .pm-choice .pm-pill { border-color: #8f877d; color: #8f877d; }
+.pm-band.is-pointing .pm-choice .pm-pill { border-color: var(--dk-faint, #8f877d); color: var(--dk-faint, #8f877d); }
 .pm-band.is-pointing .pm-choice.is-on .pm-pill { border-color: var(--ink-on-dark); color: var(--ink-on-dark); }
 .pm-choice:focus-visible { outline: 2px solid #fff; outline-offset: 6px; border-radius: 3px; }
 
 /* The foot: one flat band in the pink paper of 02624, Ond Of Hope (from Feast Of Sikkot). */
 .pm-foot {
   background: #F1C2BD;
-  color: #111;
+  color: var(--hand-black, #111); --cut-spacing: -0.01em;
   padding: 72px 24px 80px;
 }
 .pm-foot p { margin: 0; font: 600 18px/1.6 'Inter', sans-serif; }
 /* Second try (Reach, October 16, 2026): the way back is sized to hold its band, Archivo 600 at 32 pixels
    (26 on phones), full Ink, no underline; the arrow still slides when pointed at. */
-.pm-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; }
+.pm-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.2; text-decoration: none; letter-spacing: var(--cut-spacing); } :where(.pm-foot .arrow-link) { color: var(--ink-title); }
 /* The arrow comes from a system face (the site's faces leave it out), so it is sized up to sit with the word. */
 .pm-foot .arrow-link .arrow-glyph { font-size: 1.25em; font-weight: 600; line-height: 1; }
-.pm-foot .arrow-link, .pm-foot .arrow-link .arrow-glyph { color: #111; opacity: 1; }
+.pm-foot .arrow-link, .pm-foot .arrow-link .arrow-glyph { color: var(--hand-black, #111); --cut-spacing: -0.01em; opacity: 1; }
 /* Second try: the site's arrow link turns white when pointed at in Dark mode; on this pink band it stays Ink. */
-.pm-foot .arrow-link:is(:hover, :focus-visible), .pm-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: #111 !important; }
+.pm-foot .arrow-link:is(:hover, :focus-visible), .pm-foot .arrow-link:is(:hover, :focus-visible) .arrow-glyph { color: var(--hand-black, #111) !important; }
 
 /* Narrower windows: the choices stand closer. */
 @media (max-width: 1100px) and (min-width: 701px) {

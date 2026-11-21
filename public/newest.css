@@ -7,9 +7,9 @@ body.newest-page { margin: 0; background: var(--ground); }
 .nw {
   --nw-ground: #0d0907;          /* the site's plain dark ground */
   --nw-band: #4a2c1f;            /* deep brown, from the newest picture (Sideways Eye, Countless Alkah Eye Three) */
-  --nw-ink: var(--ink-on-dark);  /* Ink on dark: #e8e0d6 in Light, #d9d7ce in Dark */
-  --nw-soft: #b3aa9f;            /* Soft ink's dark value */
-  --nw-faint: #8f877d;           /* Faint ink's dark value */
+  --nw-ink: var(--ink-on-dark);  /* Ink on dark: var(--dk-ink, #e8e0d6) in Light, var(--dk-ink, #d9d7ce) in Dark */
+  --nw-soft: var(--dk-soft, #b3aa9f);            /* Soft ink's dark value */
+  --nw-faint: var(--dk-faint, #8f877d);           /* Faint ink's dark value */
   --nw-rule: rgba(217, 215, 206, 0.32);
   background: var(--nw-ground);
   color: var(--nw-ink);
@@ -18,8 +18,8 @@ body.newest-page { margin: 0; background: var(--ground); }
 .nw-open { background: var(--nw-band); }
 .nw-open-in { max-width: 1320px; margin: 0 auto; padding: 96px 40px 88px; }
 .nw-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 8vw, 112px); line-height: 1; letter-spacing: -0.01em; color: var(--nw-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 8vw, 112px); line-height: 1; letter-spacing: var(--cut-spacing); color: var(--nw-ink);
 }
 .nw-sentence {
   margin: 28px 0 0; max-width: 34em; font-family: 'Inter', sans-serif; font-weight: 400;
@@ -97,12 +97,12 @@ html.pp-still .nw-card, html.pp-still .nw-more { transition: none; }
    Newest ... follows Light: the page's ground white and its words in the named colours' light values. The deep
    brown band at the top is taken from the newest picture and its words keep Ink on dark (10 to 1), so it stays the
    same in both, as do the pictures. Dark is unchanged. */
-html[data-theme="light"] .nw { --nw-ground: #ffffff; --nw-ink: #111111; --nw-soft: #555555; --nw-faint: #666666; --nw-rule: rgba(17, 17, 17, 0.2); }
-html[data-theme="light"] .nw-open { --nw-ink: #e8e0d6; }
+html[data-theme="light"] .nw { --nw-ground: #ffffff; --nw-ink: var(--hand-black, #111111); --nw-soft: var(--hand-grey, #555555); --nw-faint: var(--hand-faint, #666666); --nw-rule: rgba(17, 17, 17, 0.2); }
+html[data-theme="light"] .nw-open { --nw-ink: var(--dk-ink, #e8e0d6); }
 html[data-theme="light"] .nw-pic { background: #ece8e3; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .nw { --nw-ground: #ffffff; --nw-ink: #111111; --nw-soft: #555555; --nw-faint: #666666; --nw-rule: rgba(17, 17, 17, 0.2); }
-  html:not([data-theme="dark"]) .nw-open { --nw-ink: #e8e0d6; }
+  html:not([data-theme="dark"]) .nw { --nw-ground: #ffffff; --nw-ink: var(--hand-black, #111111); --nw-soft: var(--hand-grey, #555555); --nw-faint: var(--hand-faint, #666666); --nw-rule: rgba(17, 17, 17, 0.2); }
+  html:not([data-theme="dark"]) .nw-open { --nw-ink: var(--dk-ink, #e8e0d6); }
   html:not([data-theme="dark"]) .nw-pic { background: #ece8e3; }
 }
 
@@ -128,4 +128,9 @@ html[data-theme="light"] .nw-pic { background: #ece8e3; }
 }
 @media (max-width: 699px) {
   .nw-said { font-size: 22px; }
+}
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"] .nw-open { background-color: color-mix(in srgb, var(--nw-band) 76%, black); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .nw-open { background-color: color-mix(in srgb, var(--nw-band) 76%, black); }
 }

@@ -9,9 +9,9 @@
    opens under the drawing inside the slideshow. Under Still or less motion the band appears without sliding.
    The band wears the Marks grey (#c8c8c8 in Light, #3d3d3d in Dark), the grey of every band on the Marks pages.
    ========================================================================== */
-:root { --lt-band: #c8c8c8; --lt-ink: #111111; }
-html[data-theme="dark"] { --lt-band: #3d3d3d; --lt-ink: #d9d7ce; }
-@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --lt-band: #3d3d3d; --lt-ink: #d9d7ce; } }
+:root { --lt-band: #c8c8c8; --lt-ink: var(--hand-black, #111111); }
+html[data-theme="dark"] { --lt-band: #3d3d3d; --lt-ink: var(--dk-ink, #d9d7ce); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) { --lt-band: #3d3d3d; --lt-ink: var(--dk-ink, #d9d7ce); } }
 
 /* ---------- The pill, on the drawing's top right corner (computers only) ---------- */
 .wall figure { position: relative; }

@@ -19,8 +19,8 @@ body.pbm-page { margin: 0; background: var(--ground); color: var(--ink); }
 
 .pbm {
   --edge: 24px;
-  --p-ink: #d9d7ce;
-  --p-soft: #b3aa9f;
+  --p-ink: var(--dk-ink, #d9d7ce);
+  --p-soft: var(--dk-soft, #b3aa9f);
   --p-accent: #d4a574;
   --p-dark: #0d0907;
   --p-seat: rgba(168, 200, 224, 0.045);
@@ -32,22 +32,22 @@ body.pbm-page { margin: 0; background: var(--ground); color: var(--ink); }
 .pbm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 
 /* ---------- the opening band: the Placings page's own band, from 03972, the same in every mode ---------- */
-.pbm-band { --ink: #111111; background: #AFBFCC; color: #111111; padding: 16px var(--edge) 64px; }
+.pbm-band { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); background: #AFBFCC; color: var(--hand-black, #111); --cut-spacing: -0.01em; padding: 16px var(--edge) 64px; }
 .pbm-band .way-back { margin: 0; }
-html:root:root body .pbm-band .way-back .arrow-link { white-space: normal; align-items: baseline; padding: 10px 0; color: #111111; }
-html:root:root body .pbm-band .way-back .arrow-link .arrow-glyph { color: #111111; }
+html:root:root body .pbm-band .way-back .arrow-link { white-space: normal; align-items: baseline; padding: 10px 0; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
+html:root:root body .pbm-band .way-back .arrow-link .arrow-glyph { color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .pbm-band :focus-visible { outline: 2px solid #111111; outline-offset: 4px; }
 .pbm-title {
   margin: 40px 0 28px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 6vw, 96px); line-height: 0.98; letter-spacing: -0.02em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.98; letter-spacing: var(--cut-spacing);
   text-wrap: balance;
-}
+} :where(.pbm-title) { color: var(--ink-title); }
 .pbm-line {
   margin: 0; max-width: 25em;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(24px, 2.25vw, 36px); line-height: 1.18;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(24px, 2.25vw, 36px); line-height: 1.18; letter-spacing: var(--cut-spacing);
+} :where(.pbm-line) { color: var(--ink-title); }
 
 /* ---------- the room: the Placings page's ground, black running to night blue ---------- */
 .pbm-room {
@@ -100,7 +100,7 @@ html:root:root body .pbm-band .way-back .arrow-link .arrow-glyph { color: #11111
   display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 20px; row-gap: 4px;
 }
 .pbm-head:focus { outline: none; }
-.pbm-head-word { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 40px; line-height: 1.1; }
+.pbm-head-word { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 40px; line-height: 1.1; letter-spacing: var(--cut-spacing); } :where(.pbm-head-word) { color: var(--ink-title); }
 .pbm-head-n { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px; line-height: 1.3; color: var(--p-accent); }
 
 /* The Placings page's own cards, as it wears them. */
@@ -138,7 +138,7 @@ html:root:root body .pbm-band .way-back .arrow-link .arrow-glyph { color: #11111
 html:root body .pbm-foot .arrow-link,
 html:root body .pbm-foot .arrow-link .arrow-glyph { color: var(--p-ink); }
 .pbm-foot-row .arrow-link {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing);
 }
 .pbm-again { margin: 40px 0 0; }
 .pbm-again .arrow-link { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; }
@@ -185,11 +185,11 @@ html.pp-still .p-card .p-arr, html.pp-still.p-card .p-arr, html.pp-still .pbm .a
    very pale blue, words in the light values, the seats in a faint blue. The slate-blue band at the top stays the
    same in both, as on Placings, and so do the pictures. Found Together ..., inside the room, takes the same values.
    Dark is unchanged. */
-html[data-theme="light"] .pbm-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .pbm-room { --p-ink: var(--hand-black, #111111); --p-soft: var(--hand-grey, #555555); --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
 html[data-theme="light"] .p-card:focus-visible .p-seat,
 html[data-theme="light"] .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .pbm-room { --p-ink: #111111; --p-soft: #555555; --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .pbm-room { --p-ink: var(--hand-black, #111111); --p-soft: var(--hand-grey, #555555); --p-accent: #8a5a24; --p-dark: #ffffff; --p-seat: rgba(70, 110, 145, 0.07); --p-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
   html:not([data-theme="dark"]) .p-card:focus-visible .p-seat,
   html:not([data-theme="dark"]) .p-card:active .p-seat { background-color: rgba(70, 110, 145, 0.16); }
 }

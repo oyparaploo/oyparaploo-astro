@@ -9,8 +9,8 @@ body.shuffle-page { margin: 0; background: var(--ground); color: var(--ink); }
 
 /* The opening: the page's name, then its one plain sentence on a thin line (Kavi Gupta's rule line). */
 .sh-open { padding: 72px var(--edge) 56px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 32px; align-items: end; }
-.sh-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); white-space: nowrap; }
+.sh-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink-title, var(--ink)); white-space: nowrap; }
 .sh-say { margin: 0 0 6px; max-width: 640px; padding-left: 24px; border-left: 1px solid var(--ink-faint);
   font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; line-height: 1.3; color: var(--ink-soft); text-wrap: pretty; }
 
@@ -41,8 +41,8 @@ html[data-theme="dark"] .sh-band { background: var(--bd, #33291f); }
 .sh-num .nm { display: block; font-size: 18px; font-weight: 500; }
 .sh-num .no { display: block; font-size: 16px; font-weight: 400; }
 .sh-num:hover .nm, .sh-num:focus-visible .nm { text-decoration: underline; text-underline-offset: 3px; }
-.sh-h { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 44px; line-height: 1.05;
-  letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; overflow-wrap: anywhere; }
+.sh-h { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 44px; line-height: 1.05;
+  letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink)); text-wrap: balance; overflow-wrap: anywhere; }
 .sh-h a { color: inherit; text-decoration: none; }
 .sh-h a:hover, .sh-h a:focus-visible { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .sh-sub { margin: 10px 0 0; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.35; color: var(--ink); }
@@ -52,10 +52,10 @@ html[data-theme="dark"] .sh-band { background: var(--bd, #33291f); }
 .sh-embed { margin-top: 28px; }
 .sh-embed iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
 .sh-go { margin-top: 28px; }
-.sh-go .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink); }
+.sh-go .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 
 .sh-foot { padding: 48px var(--edge) 112px; }
-.sh-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; }
+.sh-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.sh-foot .arrow-link) { color: var(--ink-title); }
 /* the two arrow links stay one line of words with the arrow at their end, also when they wrap */
 .sh-go .arrow-link, .sh-foot .arrow-link { display: inline; }
 .sh-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -77,4 +77,9 @@ html[data-theme="dark"] .sh-band { background: var(--bd, #33291f); }
   .sh-go .arrow-link { font-size: 22px; }
   .sh-foot { padding: 36px var(--edge) 80px; }
   .sh-foot .arrow-link { font-size: 26px; }
+}
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"][data-theme] .sh-band { background-color: color-mix(in srgb, var(--bd, #33291f) 91%, black); }
+@media (prefers-color-scheme: dark) {
+  html:root:not([data-theme="light"]) .sh-band { background-color: color-mix(in srgb, var(--bd, #33291f) 91%, black); }
 }

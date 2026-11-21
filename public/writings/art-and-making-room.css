@@ -16,12 +16,12 @@
   --work-5: #C9A07E;
   --am-ground: #14100C;                         /* the draft's ground */
   --am-ink: var(--ink-on-dark);
-  --am-soft: #B3AA9F;
+  --am-soft: var(--dk-soft, #B3AA9F);
   --am-gold: #D4A574;
   --am-line: rgba(244, 239, 232, 0.16);         /* the draft's hairline, a touch stronger */
   --am-lift: rgba(244, 239, 232, 0.05);         /* the draft's lift when a band is pointed at */
   --am-tube: #C9A07E;                           /* the cardboard tubes in 04574, lifted to carry dark words */
-  --am-tube-ink: #111111;
+  --am-tube-ink: var(--hand-black, #111111);
 }
 
 .am-room {
@@ -44,9 +44,9 @@
   .am-door:hover .am-door-arrow:last-child { transform: translateX(4px); }
 }
 .am-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.01em;
-  color: #FFFFFF; margin: 40px 0 24px;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: var(--cut-spacing);
+  color: var(--hand-white, #fff); margin: 40px 0 24px;
 }
 .am-sentence { font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.45; color: var(--am-ink); max-width: 30em; }
 
@@ -81,8 +81,8 @@
 }
 .am-body { flex: 1 1 auto; min-width: 0; max-width: 46em; }
 .am-name {
-  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 23px; line-height: 1.3; letter-spacing: 0.01em; color: #FFFFFF;
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 23px; line-height: 1.3; letter-spacing: 0.01em; color: var(--hand-white, #fff);
 }
 .am-first {
   display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.7;
@@ -107,12 +107,12 @@
 .am-seat-pic img { width: 100%; height: auto; display: block; background: #0C0906; }
 .am-num {
   flex: 1 1 auto; text-align: right;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 23px; letter-spacing: 0.04em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 23px; letter-spacing: 0.04em;
   color: var(--am-soft); text-decoration: none; transition: color 0.2s ease;
 }
 @media (hover: hover) {
   .am-band-pic:hover { background: var(--am-lift); }
-  .am-num:hover { color: #FFFFFF; }
+  .am-num:hover { color: var(--hand-white, #fff); }
 }
 .am-seat-pic:focus-visible, .am-num:focus-visible { outline: 2px solid var(--am-ink); outline-offset: 4px; }
 
@@ -164,16 +164,16 @@
 .am-walk-stage { display: flex; flex-direction: column; align-items: center; max-width: 92vw; }
 .am-walk-img { max-width: 84vw; max-height: 76vh; width: auto; height: auto; object-fit: contain; display: block; }
 .am-walk-num {
-  margin-top: 20px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  margin-top: 20px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: 20px; letter-spacing: 0.04em; color: var(--am-soft); text-decoration: none;
 }
-@media (hover: hover) { .am-walk-num:hover { color: #FFFFFF; } }
+@media (hover: hover) { .am-walk-num:hover { color: var(--hand-white, #fff); } }
 .am-walk-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
   background: none; border: 0; cursor: pointer; padding: 12px 22px;
   font-family: 'Archivo', sans-serif; font-size: 44px; line-height: 1; color: rgba(244, 239, 232, 0.7);
 }
-@media (hover: hover) { .am-walk-arrow:hover { color: #FFFFFF; } }
+@media (hover: hover) { .am-walk-arrow:hover { color: var(--hand-white, #fff); } }
 .am-walk-prev { left: 4px; }
 .am-walk-next { right: 4px; }
 .am-walk button:focus-visible, .am-walk a:focus-visible { outline: 2px solid var(--am-ink); outline-offset: 4px; }
@@ -227,15 +227,15 @@ html.pp-still .am-band, html.pp-still.am-band, html.pp-still .am-arrow, html.pp-
    Art and Making follows Light: the draft's warm dark ground made pale, words in Ink, the hairlines and the lift in
    Ink's light, the gold in Accent's light value. The band of cardboard tubes stays the same in both, as do the
    pictures, and the walk through the four still lifes keeps its dark, a seat for the pictures. Dark is unchanged. */
-html[data-theme="light"] { --am-ground: #f7f5f2; --am-ink: #111111; --am-soft: #555555; --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
+html[data-theme="light"] { --am-ground: #f7f5f2; --am-ink: var(--hand-black, #111111); --am-soft: var(--hand-grey, #555555); --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
 html[data-theme="light"] .am-title,
-html[data-theme="light"] .am-name { color: #111111; }
-html[data-theme="light"] .am-walk { --am-ground: #14100C; --am-ink: #e8e0d6; --am-soft: #B3AA9F; --am-gold: #D4A574; }
+html[data-theme="light"] .am-name { color: var(--ink-title, var(--hand-black, #111)); }
+html[data-theme="light"] .am-walk { --am-ground: #14100C; --am-ink: var(--dk-ink, #e8e0d6); --am-soft: var(--dk-soft, #B3AA9F); --am-gold: #D4A574; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) { --am-ground: #f7f5f2; --am-ink: #111111; --am-soft: #555555; --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
+  html:not([data-theme="dark"]) { --am-ground: #f7f5f2; --am-ink: var(--hand-black, #111111); --am-soft: var(--hand-grey, #555555); --am-gold: #8a5a24; --am-line: rgba(17, 17, 17, 0.16); --am-lift: rgba(17, 17, 17, 0.05); }
   html:not([data-theme="dark"]) .am-title,
-  html:not([data-theme="dark"]) .am-name { color: #111111; }
-  html:not([data-theme="dark"]) .am-walk { --am-ground: #14100C; --am-ink: #e8e0d6; --am-soft: #B3AA9F; --am-gold: #D4A574; }
+  html:not([data-theme="dark"]) .am-name { color: var(--ink-title, var(--hand-black, #111)); }
+  html:not([data-theme="dark"]) .am-walk { --am-ground: #14100C; --am-ink: var(--dk-ink, #e8e0d6); --am-soft: var(--dk-soft, #B3AA9F); --am-gold: #D4A574; }
 }
 @media (hover: hover) {
 html[data-theme="light"] .am-room .am-num:hover { color: #000000; }

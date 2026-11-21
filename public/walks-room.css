@@ -73,15 +73,15 @@ html[data-theme="dark"] {
 }
 .w-hero-in { position: relative; z-index: 2; max-width: 980px; }
 .w-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 9vw, 152px); line-height: 0.95; letter-spacing: -0.025em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 9vw, 152px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0;
-}
+} :where(.w-title) { color: var(--ink-title); }
 .w-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(24px, 2.3vw, 36px); line-height: 1.22;
-  max-width: 24em; margin: 28px 0 0;
-}
+  max-width: 24em; margin: 28px 0 0; letter-spacing: var(--cut-spacing);
+} :where(.w-sentence) { color: var(--ink-title); }
 
 /* ---------- 2. Start here: one walk, large ---------- */
 .w-start { padding: 64px 0 0; }
@@ -97,11 +97,11 @@ html[data-theme="dark"] .w-band { background: var(--band-d); }
 .w-band-pic { width: auto; height: auto; max-width: 100%; max-height: min(72vh, 760px); }
 .w-start-body {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px;
-  padding: 40px var(--edge) 0;
+  padding: 24px var(--edge) 0;   /* November 20, 2026, Reach's ruling ("remove this", then "B"): the large picture and its brown ground are gone from Start here, so the words follow the label closely */
 }
 .w-start-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.4vw, 54px); line-height: 1.05; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.4vw, 54px); line-height: 1.05; letter-spacing: var(--cut-spacing);
   margin: 0;
 }
 .w-start-name a { text-decoration: none; }
@@ -146,9 +146,9 @@ html[data-theme="dark"] .w-band { background: var(--band-d); }
   padding: 72px 0 24px; border-bottom: 1px solid var(--w-hair);
 }
 .w-every-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 2.6vw, 40px); line-height: 1.1; margin: 0;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 40px); line-height: 1.1; margin: 0; letter-spacing: var(--cut-spacing);
+} :where(.w-every-name) { color: var(--ink-title); }
 .w-grid {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 64px var(--column-gap); padding: 40px 0 0;
@@ -170,8 +170,8 @@ html[data-theme="dark"] .w-mat { background: var(--mat-d); }
 }
 .w-name {
   display: block; margin-top: 22px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(24px, 2vw, 30px); line-height: 1.12; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(24px, 2vw, 30px); line-height: 1.12; letter-spacing: var(--cut-spacing);
 }
 .w-name .arr {
   display: inline-block; margin-left: 0.3em;
@@ -195,10 +195,10 @@ html[data-theme="dark"] .w-mat { background: var(--mat-d); }
 .w-breathe { padding: 160px var(--edge) 168px; text-align: center; }
 .w-passage { margin: 0; }
 .w-passage p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(28px, 2.8vw, 44px); line-height: 1.2;
-  max-width: 19em; margin: 0 auto;
-}
+  max-width: 19em; margin: 0 auto; letter-spacing: var(--cut-spacing);
+} :where(.w-passage p) { color: var(--ink-title); }
 .w-from { margin: 36px 0 0; }
 .walks-room .w-from .go-link { color: var(--ink); font-size: 20px; }
 
@@ -216,7 +216,7 @@ html[data-theme="dark"] .w-mat { background: var(--mat-d); }
   :root { --w-air: 96px; }
   .w-hero { min-height: max(400px, 60vh); padding-bottom: 48px; }
   .w-sentence { margin-top: 20px; }
-  .w-start-body { padding-top: 28px; }
+  .w-start-body { padding-top: 24px; }
   .w-start-line, .w-start-para { font-size: 19px; }
   .w-strip { flex-direction: column; padding: 0; }
   .w-tab { text-align: left; border-right: 0; border-left: 0; padding: 18px var(--edge); }

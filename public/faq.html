@@ -28,8 +28,8 @@ html[data-theme="dark"] .fq { --fq-band: #382a1e; }
 /* The band: edge to edge, from the picture's gravel. Halves, Kanal's grid: the words left, the picture right. */
 .fq-band { background: var(--fq-band); padding: 72px var(--edge) 80px; }
 .fq-band-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
-.fq-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: -0.035em; color: var(--ink); }
+.fq-title { margin: -0.06em 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 8.6vw, 148px); line-height: 0.9; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink)); }
 
 /* The picture, whole, with its name and number under it; both open its own page. */
 .fq-fig { margin: 0; }
@@ -50,8 +50,8 @@ html[data-theme="dark"] .fq { --fq-band: #382a1e; }
 .faq-q summary::-webkit-details-marker { display: none; }
 .faq-q summary::marker { content: ""; }
 .faq-q summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-.faq-qt { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px;
-  line-height: 1.15; letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; transition: color .3s ease; }
+.faq-qt { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 28px;
+  line-height: 1.15; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink)); text-wrap: balance; transition: color .3s ease; }
 .faq-plus { flex: none; width: 44px; height: 44px; margin: -6px -10px 0 0; display: inline-flex;
   align-items: center; justify-content: center; }
 .faq-plus::before { content: "+"; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 32px;
@@ -72,8 +72,8 @@ html[data-theme="dark"] .fq { --fq-band: #382a1e; }
 
 /* The way on: one door, on the ground under the band. */
 .fq-foot { padding: 48px var(--edge) 112px; }
-.fq-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 32px; line-height: 1.2; }
+.fq-foot .arrow-link { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.fq-foot .arrow-link) { color: var(--ink-title); }
 .fq-foot .arrow-link .arrow-glyph { font-size: 1.1em; }
 
 /* The frame closes: the page's two tones as the very last thing, under the footer. */
@@ -106,6 +106,11 @@ html.pp-still .faq-qt, html.pp-still.faq-qt, html.pp-still .faq-plus::before, ht
 html.pp-still .faq-a, html.pp-still.faq-a { animation: none; }
 html.pp-still .fq-foot .arrow-link .arrow-glyph, html.pp-still.fq-foot .arrow-link .arrow-glyph { transition: none; transform: none !important; }
 
+/* Dark, November 20, 2026: the band keeps its hue and goes a little darker, so the softer words stand off it at 7 to 1. Light is unchanged. */
+html[data-theme="dark"] .fq-band { background-color: color-mix(in srgb, var(--fq-band) 86.5%, black); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .fq-band { background-color: color-mix(in srgb, var(--fq-band) 86.5%, black); }
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/art-menu.css">

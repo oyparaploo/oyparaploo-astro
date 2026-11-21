@@ -26,9 +26,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 :root {
   --e-ink: var(--ink-on-dark);      /* Ink's dark value: 13.9 to 1 on the night blue */
-  --e-soft: #b3aa9f;     /* Soft ink's dark value: 7.9 to 1 on the night blue */
-  --e-faint: #8f877d;    /* Faint ink's dark value: lines only */
-  --e-band-ink: #111111; /* Ink's light value, for words on a colour */
+  --e-soft: var(--dk-soft, #b3aa9f);     /* Soft ink's dark value: 7.9 to 1 on the night blue */
+  --e-faint: var(--dk-faint, #8f877d);    /* Faint ink's dark value: lines only */
+  --e-band-ink: var(--hand-black, #111111); /* Ink's light value, for words on a colour */
   --e-hair: rgba(var(--ink-on-dark-rgb), 0.16);
   --edge: 24px;
   --air: 120px;          /* the one even space between sections */
@@ -51,8 +51,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* ---------- the opening: one plain sentence, one line ---------- */
 .opening { padding: 64px var(--edge) 56px; }
 .opening-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.015em; color: var(--e-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--e-ink));
 }
 .opening-line {
   margin: 16px 0 0; font-family: 'Inter', sans-serif; font-size: 20px; line-height: 1.5; color: var(--e-soft);
@@ -90,10 +90,10 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   opacity: 0; transition: opacity 0.18s ease;
 }
 .door-words {
-  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: var(--fs, 26px); line-height: 1.08; letter-spacing: -0.01em;
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: var(--fs, 26px); line-height: 1.08; letter-spacing: var(--cut-spacing);
   overflow-wrap: anywhere; hyphens: auto;
-}
+} :where(.door-words) { color: var(--ink-title); }
 @media (hover: hover) {
   .door:hover .door-block { opacity: 1; }
   .door:hover .door-pic { visibility: hidden; }
@@ -119,9 +119,14 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .hundred { background: #F9C806; color: var(--e-band-ink); padding: 96px var(--edge); }   /* Ink On Yellow's yellow, 12.0 to 1 with Ink */
 .hundred-words {
   margin: 0; max-width: 32em;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(22px, 2.15vw, 32px); line-height: 1.28; letter-spacing: -0.005em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(22px, 2.15vw, 32px); line-height: 1.28; letter-spacing: var(--cut-spacing);
+} :where(.hundred-words) { color: var(--ink-title); }
+/* November 20, 2026, Reach's word ("visually way too much text. The reader isn't going to have the opportunity to breathe"):
+   the same words, set as breaths. Each run of words up to its three dots stands on its own line with air under it.
+   No word is changed. How the breaths are set is ruled at the foot of this file. */
+.hundred-words .breath { display: block; padding-bottom: 0.72em; break-inside: avoid; }
+.hundred-words .breath:last-child { padding-bottom: 0; }
 
 .sec { padding: 0 var(--edge); }
 .sec-head {
@@ -129,9 +134,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   padding-bottom: 18px; border-bottom: 1px solid var(--e-hair);
 }
 .sec-name {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 3.6vw, 52px); line-height: 1; letter-spacing: -0.015em;
-}
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 3.6vw, 52px); line-height: 1; letter-spacing: var(--cut-spacing);
+} :where(.sec-name) { color: var(--ink-title); }
 .sec-all { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; color: var(--e-ink); white-space: nowrap; }
 .sec-arrow { display: inline-block; transition: transform 0.2s ease; }
 .sec-all:hover .sec-arrow, .sec-all:focus-visible .sec-arrow { transform: translateX(5px); }
@@ -164,7 +169,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   min-height: 75px; padding: 14px 52px 14px 12px; margin: 0 -12px;
   transition: background 0.18s ease, color 0.18s ease;
 }
-.row-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 24px; line-height: 1.15; }
+.row-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 24px; line-height: 1.15; letter-spacing: var(--cut-spacing); } :where(.row-name) { color: var(--ink-title); }
 .row-line { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.45; color: var(--e-soft); }
 .row-arrow {
   position: absolute; right: 16px; top: 50%; font-size: 22px; line-height: 1;
@@ -189,8 +194,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 /* the five rooms, as the footer row names them */
 .five-list { list-style: none; margin: 0; padding: 32px 0 0; border-top: 1px solid var(--e-hair); display: flex; flex-wrap: wrap; gap: 14px 40px; }
 .five-list a {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.15;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.15; letter-spacing: var(--cut-spacing);
+} :where(.five-list a) { color: var(--ink-title); }
 .five-list a:hover, .five-list a:focus-visible { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 
 /* ---------- phones ---------- */
@@ -219,19 +224,27 @@ html.pp-still .door-block, html.pp-still.door-block, html.pp-still .row, html.pp
    blue), white running to a very pale blue; words in the light values. The yellow band is Ink On Yellow's own yellow
    with Ink on it (12 to 1), so it stays the same in both, as do the pictures and the colour block a picture becomes
    when pointed at. Dark is unchanged. */
-html[data-theme="light"] .everything-room { --e-ink: #111111; --e-soft: #555555; --e-faint: #666666; --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+html[data-theme="light"] .everything-room { --e-ink: var(--hand-black, #111111); --e-soft: var(--hand-grey, #555555); --e-faint: var(--hand-faint, #666666); --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
 html[data-theme="light"] .pill:hover,
 html[data-theme="light"] .pill:focus-visible,
 html[data-theme="light"] .row:hover,
-html[data-theme="light"] .row:focus-visible { color: #ffffff; }
+html[data-theme="light"] .row:focus-visible { color: var(--hand-white, #fff); }
 html[data-theme="light"] .row:hover .row-line,
 html[data-theme="light"] .row:focus-visible .row-line { color: #d6d6d6; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .everything-room { --e-ink: #111111; --e-soft: #555555; --e-faint: #666666; --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
+  html:not([data-theme="dark"]) .everything-room { --e-ink: var(--hand-black, #111111); --e-soft: var(--hand-grey, #555555); --e-faint: var(--hand-faint, #666666); --e-hair: rgba(17, 17, 17, 0.16); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); }
   html:not([data-theme="dark"]) .pill:hover,
   html:not([data-theme="dark"]) .pill:focus-visible,
   html:not([data-theme="dark"]) .row:hover,
-  html:not([data-theme="dark"]) .row:focus-visible { color: #ffffff; }
+  html:not([data-theme="dark"]) .row:focus-visible { color: var(--hand-white, #fff); }
   html:not([data-theme="dark"]) .row:hover .row-line,
   html:not([data-theme="dark"]) .row:focus-visible .row-line { color: #d6d6d6; }
 }
+/* November 21, 2026, Reach's rulings on the hundred words. Of the yellow band: "this is not at all easy on the eye". Of two columns:
+   "I don't know which column to look at first ... like a fork in the road". Then "Run all of this text centered", and of that:
+   "Perfect, this looks good." The words leave the yellow and sit on the page itself, in one column, every breath centred, in the
+   plain reading letters; the yellow stays as a bar above them. No word is changed. */
+.hundred { background: none; border-top: 10px solid #F9C806; padding-top: 72px; padding-bottom: 72px; }
+.hundred-words, :where(.hundred-words) { color: var(--e-ink); }
+.hundred-words { font-family: 'Inter', sans-serif; font-weight: 400; font-stretch: 100%; letter-spacing: 0.01em; font-size: clamp(19px, 1.5vw, 21px); line-height: 1.6; max-width: 36em; margin-left: auto; margin-right: auto; text-align: center; }
+.hundred-words .breath { padding-bottom: 0.7em; text-wrap: balance; }

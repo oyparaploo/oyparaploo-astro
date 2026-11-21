@@ -32,7 +32,7 @@
 
 :root {
   --bb-hero-ink: var(--ink-on-dark);       /* Ink's dark value; on the hero 12.3 to 1 */
-  --bb-seat-ink: #111111;       /* Ink's light value; on every seat 14.7 to 1 or better, in every mode */
+  --bb-seat-ink: var(--hand-black, #111111);       /* Ink's light value; on every seat 14.7 to 1 or better, in every mode */
   --bb-hair: #dddddd;           /* the draft's own rule */
 }
 html[data-theme="dark"] { --bb-hair: rgba(217, 215, 206, 0.2); }
@@ -78,8 +78,8 @@ html[data-theme="dark"] { --bb-hair: rgba(217, 215, 206, 0.2); }
 /* a writing's print: its first lines, set large on its seat */
 .bb-print-words {
   position: absolute; inset: 32px 32px 0; display: block; overflow: hidden;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(22px, 1.75vw, 30px); line-height: 1.16; letter-spacing: -0.01em; color: var(--bb-seat-ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(22px, 1.75vw, 30px); line-height: 1.16; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--bb-seat-ink));
   -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 96%); mask-image: linear-gradient(to bottom, #000 72%, transparent 96%);
   overflow-wrap: anywhere;
   transition: color 0.3s ease;
@@ -129,7 +129,7 @@ a.bb-l2:hover, a.bb-l3:hover, a.bb-numl:hover { text-decoration: underline; text
 .bb-feature.bb-mirror .bb-ftile { order: -1; }
 .bb-ftile { display: block; position: relative; aspect-ratio: 16 / 9; background: var(--seat); color: var(--bb-seat-ink); overflow: hidden; }
 .bb-ftile.bb-pic { display: flex; padding: 6%; }
-.bb-ftile .bb-print-words { inset: 48px 56px 0; font-size: clamp(30px, 3vw, 50px); line-height: 1.1; letter-spacing: -0.015em; }
+.bb-ftile .bb-print-words { inset: 48px 56px 0; font-size: clamp(30px, 3vw, 50px); line-height: 1.1; letter-spacing: var(--cut-spacing); }
 .bb-ftext { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-width: 0; padding: 4px 0 0; }
 .bb-flabel { margin: 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.4; color: var(--ink); }
 .bb-fname { margin: 20px 0 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(36px, 3.5vw, 56px); line-height: 1.06; letter-spacing: -0.015em; overflow-wrap: anywhere; }
@@ -200,9 +200,9 @@ html.rm .bb-will { opacity: 1; transform: none; transition: none; }
 /* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
    Bad Best Of follows Light: the dark opening (the design draft's seat, not taken from the work) is its own colour
    made pale, its words in Ink. The tiles keep their own pale seats, the same in both. Dark is unchanged. */
-html[data-theme="light"] .bb-hero { --bb-hero-ink: #111111; background: #f3eeed; }
+html[data-theme="light"] .bb-hero { --bb-hero-ink: var(--hand-black, #111111); background: #f3eeed; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .bb-hero { --bb-hero-ink: #111111; background: #f3eeed; }
+  html:not([data-theme="dark"]) .bb-hero { --bb-hero-ink: var(--hand-black, #111111); background: #f3eeed; }
 }
 @supports (color: oklch(from red l c h)) {
 html[data-theme="light"] .bb-hero { background: oklch(from var(--bb-hero) 0.94 clamp(0.006, calc(c * 0.5), 0.03) h); }

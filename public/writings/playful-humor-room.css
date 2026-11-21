@@ -21,8 +21,8 @@
 .ph-room { overflow-x: clip; color: var(--ink); }
 /* the two lit bands: Ink's light value, whatever the mode */
 .ph-stage, .ph-band {
-  --ink: #111; --ink-soft: #111; --ink-faint: #111; --accent: #111;
-  color: #111;
+  --ink: var(--hand-black, #111); --ink-title: var(--title-light); --ink-soft: var(--hand-black, #111); --ink-faint: var(--hand-black, #111); --accent: #111;
+  color: var(--hand-black, #111); --cut-spacing: -0.01em;
 }
 .ph-wrap { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: var(--ph-margin); padding-right: var(--ph-margin); }
 
@@ -41,8 +41,8 @@
 .ph-head { padding-top: 40px; padding-bottom: 56px; }
 .ph-head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 32px 64px; flex-wrap: wrap; margin-top: 44px; }
 .ph-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink));
 }
 .ph-desc {
   margin: 0; max-width: 26em;
@@ -64,11 +64,11 @@
 .ph-passage { margin: 0; }
 .ph-passage p {
   margin: 0; max-width: 15em; font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: clamp(30px, 3.1vw, 46px); line-height: 1.2; letter-spacing: -0.015em; color: #111;
+  font-size: clamp(30px, 3.1vw, 46px); line-height: 1.2; letter-spacing: -0.015em; color: var(--hand-black, #111); --cut-spacing: -0.01em;
 }
 /* the passage's door, where the draft keeps its button */
 .ph-from { margin: 36px 0 0; }
-.ph-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111; text-decoration: none; }
+.ph-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none; }
 @media (hover: hover) { .ph-from a:hover .ph-arrow { transform: translateX(6px); } }
 .ph-from a:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 .ph-stage-pic { margin: 0; padding: 48px 0 32px; display: flex; flex-direction: column; justify-content: center; }
@@ -80,8 +80,8 @@
 .ph-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .ph-room figcaption { display: flex; margin-top: 12px; }
 .ph-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 .ph-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
@@ -106,7 +106,7 @@
 .ph-card:has(.ph-card-words:focus-visible) .ph-bar::after { animation: ph-play 0.9s cubic-bezier(0.3, 0.1, 0.3, 1); }
 .ph-card-words { display: block; margin-top: 22px; color: var(--ink); text-decoration: none; }
 .ph-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--ink-soft); }
-.ph-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; transition: color 0.25s ease; }
+.ph-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; color: var(--ink-title, var(--ink)); overflow-wrap: break-word; transition: color 0.25s ease; letter-spacing: var(--cut-spacing); }
 .ph-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
 .ph-card .ph-name { margin-top: 10px; font-size: clamp(24px, 2vw, 30px); line-height: 1.15; }
 .ph-card .ph-first { margin-top: 14px; max-width: 34em; }
@@ -127,10 +127,10 @@
 /* the draft's chooser, held in view while the list passes */
 .ph-controls { position: sticky; top: 120px; }
 .ph-controls[hidden] { display: none; }
-.ph-label { display: block; margin-bottom: 12px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: #111; }
+.ph-label { display: block; margin-bottom: 12px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 .ph-select {
   -webkit-appearance: none; appearance: none; width: 100%; min-height: 48px; padding: 8px 40px 8px 12px; cursor: pointer;
-  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: #111;
+  font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; line-height: 1.3; color: var(--hand-black, #111); --cut-spacing: -0.01em;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23111' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;
   border: none; border-bottom: 2px solid #111; border-radius: 3px 3px 0 0;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -142,13 +142,13 @@
 .ph-list { border-top: 1px solid rgba(17, 17, 17, 0.45); }
 .ph-item {
   position: relative; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px;
-  padding: 22px 0 24px; border-bottom: 1px solid rgba(17, 17, 17, 0.45); color: #111; text-decoration: none;
+  padding: 22px 0 24px; border-bottom: 1px solid rgba(17, 17, 17, 0.45); color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none;
 }
 .ph-item.later, .ph-item.off { display: none; }
 .ph-band.filtered .ph-item.later:not(.off) { display: grid; }
 .ph-time { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.45; padding-top: 3px; }
-.ph-item .ph-name { font-size: 22px; line-height: 1.25; color: #111; }
-.ph-item .ph-first { margin-top: 8px; color: #111; max-width: 42em; }
+.ph-item .ph-name { font-size: 22px; line-height: 1.25; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
+.ph-item .ph-first { margin-top: 8px; color: var(--hand-black, #111); --cut-spacing: -0.01em; max-width: 42em; }
 .ph-time, .ph-info { transition: transform 0.3s ease; }
 /* pointed at, the draft's bar slides in at the left edge in one of the plastic's colours, the words step right,
    and an arrow slides in after the name; nothing grows and nothing below moves */
@@ -188,7 +188,7 @@
 
 /* ---------- the way on ---------- */
 .ph-way { padding-top: 56px; padding-bottom: 128px; }
-.ph-way-head { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.2; color: var(--ink); }
+.ph-way-head { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 28px; line-height: 1.2; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing); }
 .ph-pills { display: flex; flex-wrap: wrap; gap: 16px 20px; margin-top: 26px; }
 .ph-pill {
   display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px;
@@ -201,10 +201,10 @@
 .ph-pill:nth-child(3) { --ph-p: var(--ph-green); --ph-pf: #E2ECD0; }    /* the pale of the resin's green */
 /* pointed at, a pill fills with the pale of its own colour, its words dark */
 @media (hover: hover) {
-  .ph-pill:hover { background: var(--ph-pf); color: #111; }
+  .ph-pill:hover { background: var(--ph-pf); color: var(--hand-black, #111); }
   .ph-pill:hover .ph-arrow { transform: translateX(5px); }
 }
-.ph-pill:active { background: var(--ph-pf); color: #111; }
+.ph-pill:active { background: var(--ph-pf); color: var(--hand-black, #111); }
 .ph-pill:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .ph-doors {
   margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--ink);
@@ -274,20 +274,20 @@ html.pp-still .ph-bar::after, html.pp-still.ph-bar::after { animation: none !imp
    Playful Humor follows Dark: the schedule's pale pink band, which holds every writing, is its own pink made deep,
    its words and lines in Ink's dark value. The pale blue stage at the top is taken from the toy and stays the same in
    both, its words in Ink, as do the pictures and the colour marks. Light is unchanged. */
-html[data-theme="dark"] .ph-band { --ink: #d9d7ce; --ink-soft: #d9d7ce; --ink-faint: #d9d7ce; --accent: #d9d7ce; --ph-btn-on: #45323a; background: #45323a; color: #d9d7ce; }
+html[data-theme="dark"] .ph-band { --ink: var(--dk-ink, #d9d7ce); --ink-title: initial; --ink-soft: var(--dk-ink, #d9d7ce); --ink-faint: var(--dk-ink, #d9d7ce); --accent: var(--dk-ink, #d9d7ce); --ph-btn-on: #45323a; background: #45323a; color: var(--dk-ink, #d9d7ce); }
 html[data-theme="dark"] .ph-band .ph-list { border-top-color: rgba(217, 215, 206, 0.45); }
-html[data-theme="dark"] .ph-band .ph-item { color: #d9d7ce; border-bottom-color: rgba(217, 215, 206, 0.45); }
+html[data-theme="dark"] .ph-band .ph-item { color: var(--dk-ink, #d9d7ce); border-bottom-color: rgba(217, 215, 206, 0.45); }
 html[data-theme="dark"] .ph-band .ph-item .ph-first,
 html[data-theme="dark"] .ph-band .ph-item .ph-name,
-html[data-theme="dark"] .ph-band .ph-label { color: #d9d7ce; }
+html[data-theme="dark"] .ph-band .ph-label { color: var(--dk-ink, #d9d7ce); }
 html[data-theme="dark"] .ph-band .ph-btn { --ph-btn-on: #45323a; }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .ph-band { --ink: #d9d7ce; --ink-soft: #d9d7ce; --ink-faint: #d9d7ce; --accent: #d9d7ce; --ph-btn-on: #45323a; background: #45323a; color: #d9d7ce; }
+  html:not([data-theme="light"]) .ph-band { --ink: var(--dk-ink, #d9d7ce); --ink-title: initial; --ink-soft: var(--dk-ink, #d9d7ce); --ink-faint: var(--dk-ink, #d9d7ce); --accent: var(--dk-ink, #d9d7ce); --ph-btn-on: #45323a; background: #45323a; color: var(--dk-ink, #d9d7ce); }
   html:not([data-theme="light"]) .ph-band .ph-list { border-top-color: rgba(217, 215, 206, 0.45); }
-  html:not([data-theme="light"]) .ph-band .ph-item { color: #d9d7ce; border-bottom-color: rgba(217, 215, 206, 0.45); }
+  html:not([data-theme="light"]) .ph-band .ph-item { color: var(--dk-ink, #d9d7ce); border-bottom-color: rgba(217, 215, 206, 0.45); }
   html:not([data-theme="light"]) .ph-band .ph-item .ph-first,
   html:not([data-theme="light"]) .ph-band .ph-item .ph-name,
-  html:not([data-theme="light"]) .ph-band .ph-label { color: #d9d7ce; }
+  html:not([data-theme="light"]) .ph-band .ph-label { color: var(--dk-ink, #d9d7ce); }
   html:not([data-theme="light"]) .ph-band .ph-btn { --ph-btn-on: #45323a; }
 }
 @supports (color: oklch(from red l c h)) {

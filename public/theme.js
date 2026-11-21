@@ -1,4 +1,13 @@
 (function() {
+  // Dark and Light, November 20, 2026: the page's ground. A writing's page carries its own (data-ground, written
+  // on the page); every other page takes its section's: Marks Blue, Placings Green, Collage and Loves Purple,
+  // the rest Brown, the house ground. chrome.css holds the four colours.
+  (function () {
+    var h = document.documentElement;
+    if (h.getAttribute('data-ground')) return;
+    var p = location.pathname;
+    h.setAttribute('data-ground', /^\/(marks|sumi)(\/|\.html|$)/.test(p) ? 'a' : /^\/physical(\/|\.html|$)/.test(p) ? 'c' : /^\/(digital|loves)(\/|\.html|$)/.test(p) ? 'b' : 'd');
+  })();
   // The eighteenth cleanup, item 48 (Reach, October 29, 2026): Light and Dark only. Until one is pressed the page
   // follows the visitor's own screen (no data-theme), and the button that matches what shows is marked; an old saved
   // "auto" counts as nothing pressed. Kept in BUILD\TEMPLATES\literal since then, so the build copies it.

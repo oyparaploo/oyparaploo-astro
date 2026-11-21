@@ -30,7 +30,7 @@
   --nf-paper: #F4F1EA;          /* the draft's own warm paper (Ink's light value on it 17.4 to 1) */
   --nf-hair: #D6D0C4;           /* the draft's own hairline */
   --nf-band: #C9E1DF;           /* the pale of the cast turquoise in 06060; Ink's light value on it 13.8 to 1 */
-  --nf-band-ink: #111111;
+  --nf-band-ink: var(--hand-black, #111111);
   --nf-mark: #2F8689;           /* the cast turquoise itself, only as marks, never words */
   --nf-column: 720px;           /* the draft's column */
 }
@@ -60,12 +60,12 @@ html[data-theme="dark"] .nf-room { background: transparent; }
 .nf-kicker { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; }
 .nf-hair { height: 1px; background: var(--nf-hair); margin: 32px 0 0; border: 0; }
 .nf-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 5vw, 68px); line-height: 1.04; letter-spacing: -0.02em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 5vw, 68px); line-height: 1.04; letter-spacing: var(--cut-spacing);
   max-width: 15.5ch; margin: 36px auto 0;
-}
+} :where(.nf-title) { color: var(--ink-title); }
 .nf-arrival .nf-hair + .nf-identity { margin-top: 32px; }
-.nf-identity { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 32px; line-height: 1.2; }
+.nf-identity { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 32px; line-height: 1.2; letter-spacing: var(--cut-spacing); } :where(.nf-identity) { color: var(--ink-title); }
 .nf-deck { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.45; max-width: 26em; margin: 16px auto 0; }
 .nf-hair-short { width: 48px; height: 1px; background: var(--nf-hair); margin: 28px auto 0; }
 .nf-source { font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.55; margin: 20px auto 0; max-width: 34em; overflow-wrap: anywhere; }
@@ -74,7 +74,7 @@ html[data-theme="dark"] .nf-room { background: transparent; }
 /* ---------- 2. the next piece: the one clear next step ---------- */
 .nf-next { max-width: calc(var(--nf-column) + 2 * var(--edge)); margin: 88px auto 0; padding: 0 var(--edge); }
 .nf-next-line { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.4; margin-top: 32px; }
-.nf-next-title { margin-top: 12px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.015em; }
+.nf-next-title { margin-top: 12px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; letter-spacing: var(--cut-spacing); }
 .nf-next-title a { text-decoration: none; }
 .nf-arr { display: inline-block; transition: transform 0.2s ease; }
 .nf-next-title a:hover .nf-arr, .nf-next-title a:focus-visible .nf-arr, .nf-next-title a:active .nf-arr { transform: translateX(6px); }
@@ -117,9 +117,9 @@ html[data-theme="dark"] .nf-room { background: transparent; }
 .nf-passage { margin: 0; }
 .nf-passage blockquote { margin: 0; }
 .nf-passage p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 4.5vw, 76px); line-height: 1.0; letter-spacing: -0.025em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 4.5vw, 76px); line-height: 1.0; letter-spacing: var(--cut-spacing);
+} :where(.nf-passage p) { color: var(--ink-title); }
 .nf-passage-from { margin-top: 28px; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 400; line-height: 1.5; }
 .nf-passage-from a { font-weight: 600; text-decoration: none; }
 .nf-passage-from a .nf-arr { transition: transform 0.2s ease; }

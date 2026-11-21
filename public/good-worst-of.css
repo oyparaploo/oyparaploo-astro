@@ -28,10 +28,10 @@
   --gw-hair: #c0b8b0;           /* the draft's own hairline */
   --gw-dark: #1a1815;           /* the draft's hero and history ground; Ink's dark value on it 13.6 to 1 */
   --gw-band: #D3EAF3;           /* the pale of the blue scoop in 03202; Ink's light value on it 15.0 to 1 */
-  --gw-band-ink: #111111;
+  --gw-band-ink: var(--hand-black, #111111);
   --gw-rust: #8a4a2a;           /* the rust of the rail in 03716: the tab on the left edge, a mark, never words */
   --gw-hero-ink: var(--ink-on-dark);       /* Ink's dark value */
-  --gw-hero-soft: #b3aa9f;      /* Soft ink's dark value */
+  --gw-hero-soft: var(--dk-soft, #b3aa9f);      /* Soft ink's dark value */
 }
 html[data-theme="dark"] { --gw-hair: rgba(217, 215, 206, 0.2); }
 @media (prefers-color-scheme: dark) {
@@ -55,8 +55,8 @@ html[data-theme="dark"] .gw-room { background: transparent; }
 .gw-haze::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26, 24, 21, 0.85) 0%, rgba(26, 24, 21, 0.35) 55%, rgba(26, 24, 21, 0.2) 100%); }
 .gw-hero-in { position: relative; z-index: 1; width: 100%; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--column-gap); align-items: end; padding: 72px var(--edge) 56px; }
 .gw-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 7.4vw, 112px); line-height: 0.94; letter-spacing: -0.03em; color: var(--gw-hero-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 7.4vw, 112px); line-height: 0.94; letter-spacing: var(--cut-spacing); color: var(--gw-hero-ink);
   max-width: 5.6em;   /* "Good" over "Worst Of" at every width */
 }
 .gw-hero-pic { margin: 0; align-self: center; justify-self: end; }
@@ -79,8 +79,8 @@ html[data-theme="dark"] .gw-room { background: transparent; }
 .gw-kind { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.4; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
 .gw-time { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.4; color: var(--ink-soft); margin-top: 2px; }
 .gw-wtitle {
-  margin: 14px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 26px; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink);
+  margin: 14px 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 26px; line-height: 1.15; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink));
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;
 }
 .gw-wtitle .gw-arr { margin-left: 4px; }
@@ -98,9 +98,9 @@ html[data-theme="dark"] .gw-room { background: transparent; }
 .gw-band .gw-num { margin-top: 10px; }
 .gw-passage { margin: 0; }
 .gw-passage .gw-lines {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(34px, 3.9vw, 60px); line-height: 1.04; letter-spacing: -0.02em;
-}
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(34px, 3.9vw, 60px); line-height: 1.04; letter-spacing: var(--cut-spacing);
+} :where(.gw-passage .gw-lines) { color: var(--ink-title); }
 .gw-passage .gw-from { margin: 28px 0 0; font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.5; }
 .gw-from a { font-weight: 600; }
 .gw-from a:hover .gw-arr, .gw-from a:focus-visible .gw-arr, .gw-from a:active .gw-arr { transform: translateX(4px); }
@@ -114,7 +114,7 @@ html[data-theme="dark"] .gw-room { background: transparent; }
 .gw-lead img { display: block; width: 100%; height: auto; }
 .gw-lead .gw-num { margin-top: 10px; }
 .gw-side { min-width: 0; }
-.gw-gname { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(30px, 3vw, 44px); line-height: 1.08; letter-spacing: -0.015em; }
+.gw-gname { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(30px, 3vw, 44px); line-height: 1.08; letter-spacing: var(--cut-spacing); } :where(.gw-gname) { color: var(--ink-title); }
 .gw-thumbs { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px 16px; }
 .gw-thumbs li { margin: 0; }
 .gw-thumbs a { display: block; }
@@ -142,8 +142,8 @@ html[data-theme="dark"] .gw-room { background: transparent; }
 .gw-history .gw-haze::after { background: rgba(26, 24, 21, 0.55); }
 .gw-history-in { position: relative; z-index: 1; }
 .gw-history a {
-  display: inline-block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(34px, 4.4vw, 64px); line-height: 1.05; letter-spacing: -0.02em; color: var(--gw-hero-ink);
+  display: inline-block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(34px, 4.4vw, 64px); line-height: 1.05; letter-spacing: var(--cut-spacing); color: var(--gw-hero-ink);
 }
 .gw-history a:hover .gw-arr, .gw-history a:focus-visible .gw-arr, .gw-history a:active .gw-arr { transform: translateX(8px); }
 
@@ -214,8 +214,8 @@ html.rm .gw-will { opacity: 1; transform: none; transition: none; }
 .gw-hero-in > .gw-title { grid-column: 1; grid-row: 1; }
 .gw-line {
   grid-column: 1; grid-row: 2; align-self: start; margin: 0; max-width: 20em;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 26px; line-height: 1.25; color: var(--gw-hero-ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 26px; line-height: 1.25; color: var(--gw-hero-ink); letter-spacing: var(--cut-spacing);
 }
 .gw-hero-in > .gw-hero-pic { grid-column: 2; grid-row: 1 / span 2; }
 @media (max-width: 900px) {
@@ -229,9 +229,9 @@ html.rm .gw-will { opacity: 1; transform: none; transition: none; }
 /* Light and Dark hold, part two (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-TWO-BUILD):
    Good Worst Of follows Dark: the pale blue band is its own blue made deep, its words in Ink's dark value. The
    opening and the history, words over a photograph's darkened haze, stay the same in both. Light is unchanged. */
-html[data-theme="dark"] .gw-band { --gw-band-ink: #d9d7ce; background: #2f3538; color: #d9d7ce; }
+html[data-theme="dark"] .gw-band { --gw-band-ink: var(--dk-ink, #d9d7ce); background: #2f3538; color: var(--dk-ink, #d9d7ce); }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .gw-band { --gw-band-ink: #d9d7ce; background: #2f3538; color: #d9d7ce; }
+  html:not([data-theme="light"]) .gw-band { --gw-band-ink: var(--dk-ink, #d9d7ce); background: #2f3538; color: var(--dk-ink, #d9d7ce); }
 }
 @supports (color: oklch(from red l c h)) {
 html[data-theme="dark"] .gw-band { background: oklch(from var(--gw-band) 0.36 clamp(0.012, calc(c * 2.2), 0.045) h); }

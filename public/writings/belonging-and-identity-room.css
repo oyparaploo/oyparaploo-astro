@@ -23,7 +23,7 @@
   --work-4: #2A904D;                            /* the green rope */
   --work-5: #DAD0BA;                            /* the cream of the painted case */
   --bi-cream: #DAD0BA;
-  --bi-cream-ink: #111111;
+  --bi-cream-ink: var(--hand-black, #111111);
   --bi-green: #2A904D;
   --bi-ochre: #8E723B;
   --bi-blend: #EDE8DC;                          /* halfway between the white and the cream */
@@ -33,7 +33,7 @@
 
 /* the light part: the named colours' light values, whatever the mode */
 .bi-room {
-  --ink: #111; --ink-soft: #555; --ink-faint: #666; --accent: #8a5a24; --ground: #fff;
+  --ink: var(--hand-black, #111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555); --ink-faint: var(--hand-faint, #666); --accent: #8a5a24; --ground: #fff;
   --bi-rule: #E0D8D0;                           /* the draft's hairline */
   --bi-rule-strong: #2A2320;
   --bi-hover: #F6F2EC;                          /* the draft's pale fill, warmed */
@@ -41,7 +41,7 @@
 }
 /* the dark part: the named colours' dark values, whatever the mode */
 .bi-dark {
-  --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907;
   --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16);
   --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55);
   --bi-hover: #1C1712;
@@ -64,8 +64,8 @@
 .bi-head { padding-top: 56px; padding-bottom: 36px; }
 .bi-head-row { display: flex; align-items: baseline; gap: 24px 48px; flex-wrap: wrap; margin-top: 36px; }
 .bi-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 4.3vw, 62px); line-height: 1.0; letter-spacing: -0.015em; color: var(--accent);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 4.3vw, 62px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--accent);
 }
 .bi-desc {
   margin: 0 0 0 auto; max-width: 300px;
@@ -81,12 +81,12 @@
 .bi-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 figure figcaption { display: flex; justify-content: flex-end; margin-top: 10px; }
 .bi-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
   color: var(--ink-soft); text-decoration: none;
 }
 @media (hover: hover) { .bi-num:hover { color: var(--ink); } }
 
-.bi-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.bi-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; color: var(--ink-title, var(--ink)); overflow-wrap: break-word; letter-spacing: var(--cut-spacing); }
 .bi-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.4; color: var(--ink-soft); }
 .bi-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink-soft); overflow-wrap: break-word; }
 
@@ -174,13 +174,13 @@ figure figcaption { display: flex; justify-content: flex-end; margin-top: 10px; 
 .bi-found { padding-top: 140px; padding-bottom: 120px; }
 .bi-cat-head { padding-bottom: 12px; margin-bottom: 36px; border-bottom: 1px solid var(--bi-rule); }
 .bi-cat-title {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; color: var(--ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 .bi-subjects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .bi-subject {
-  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 22px; text-decoration: none; color: var(--ink);
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.1vw, 29px); line-height: 1.2;
+  position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 22px; text-decoration: none; color: var(--ink-title, var(--ink));
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(24px, 2.1vw, 29px); line-height: 1.2; letter-spacing: var(--cut-spacing);
 }
 .bi-subject::before {   /* each in one of the work's colours: the twine, the rope, the glass */
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--bi-ochre);
@@ -250,15 +250,15 @@ html.pp-still .bi-arrow, html.pp-still.bi-arrow, html.pp-still .bi-pic img, html
    half's values, and the grey step between them becomes the step between cream and white; in Dark the white half
    takes the dark half's values, and the step above the cream band becomes the grey step. The cream band, the colour
    lines and the pictures stay the same in both. */
-html[data-theme="light"] .bi-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
+html[data-theme="light"] .bi-dark { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
 html[data-theme="light"] .bi-gray { background: var(--bi-blend); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .bi-dark { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
+  html:not([data-theme="dark"]) .bi-dark { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #fff; --bi-rule: #E0D8D0; --bi-rule-strong: #2A2320; --bi-hover: #F6F2EC; --bi-red: #8A1C2A; }
   html:not([data-theme="dark"]) .bi-gray { background: var(--bi-blend); }
 }
-html[data-theme="dark"] .bi-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
+html[data-theme="dark"] .bi-room { --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
 html[data-theme="dark"] .bi-blend { background: var(--bi-gray); }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .bi-room { --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
+  html:not([data-theme="light"]) .bi-room { --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907; --bi-rule: rgba(var(--ink-on-dark-rgb), 0.16); --bi-rule-strong: rgba(var(--ink-on-dark-rgb), 0.55); --bi-hover: #1C1712; --bi-red: #B0303F; }
   html:not([data-theme="light"]) .bi-blend { background: var(--bi-gray); }
 }

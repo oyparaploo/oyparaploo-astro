@@ -38,14 +38,14 @@
 }
 .approach-words { padding: 72px var(--gap-6) 72px var(--edge); }
 .room-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 6vw, 104px); line-height: 0.95; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 6vw, 104px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 28px;
 }
 .room-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; max-width: 19em;
-  margin: 0 0 40px;
+  margin: 0 0 40px; letter-spacing: var(--cut-spacing);
 }
 /* the house's lamps, held still beside the list while it passes (as archive_2 holds its year) */
 .approach-pic { position: sticky; top: 0; padding: 72px var(--edge) 72px var(--gap-4); display: flex; flex-direction: column; align-items: flex-end; }
@@ -73,16 +73,16 @@
 }
 .r-name {
   flex: 1;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(22px, 1.7vw, 26px); line-height: 1.15;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(22px, 1.7vw, 26px); line-height: 1.15; letter-spacing: var(--cut-spacing);
+} :where(.r-name) { color: var(--ink-title); }
 .rooms-list .row-arrow { font-size: 24px; }
 /* PLAY: the row turns into its opposite under the hand, light with dark words, and the arrow slides in */
 @media (hover: hover) {
-  .rooms-list a:hover { background: var(--on-dark); color: #111111; }
+  .rooms-list a:hover { background: var(--on-dark); color: var(--hand-black, #111); }
   .rooms-list a:hover .row-arrow { opacity: 1; transform: none; }
 }
-.rooms-list a:active, .rooms-list a:focus-visible { background: var(--on-dark); color: #111111; outline: none; }
+.rooms-list a:active, .rooms-list a:focus-visible { background: var(--on-dark); color: var(--hand-black, #111); outline: none; }
 .rooms-list a:focus-visible .row-arrow { opacity: 1; transform: none; }
 
 /* ---------- before the rooms: the writing's opening, in the reading room's large voice ---------- */
@@ -90,9 +90,9 @@
 .note-in { margin-left: calc(var(--name-col) + var(--column-gap) - var(--edge)); max-width: 700px; }
 .note p { font-size: 22px; line-height: 1.7; margin: 0 0 1.2em; }
 .note .threshold {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 1.4em 0 0;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 3.6vw, 56px); line-height: 1.05; margin: 1.4em 0 0; letter-spacing: var(--cut-spacing);
+} :where(.note .threshold) { color: var(--ink-title); }
 
 /* ---------- a room: its name held still with its lamp, what it holds, its question, its picture ---------- */
 .room {
@@ -119,10 +119,10 @@
   transition: opacity 0.9s var(--ease), box-shadow 0.9s var(--ease);
 }
 .room-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.3vw, 40px); line-height: 1.08; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.3vw, 40px); line-height: 1.08; letter-spacing: var(--cut-spacing);
   max-width: 9em;
-}
+} :where(.room-name) { color: var(--ink-title); }
 
 /* the entries, each against archive_2's fine line; the question against a bar of the room's own light */
 .room-words { max-width: 640px; transition: opacity 0.9s var(--ease); }
@@ -143,7 +143,7 @@
 .arrival .room:not(.is-lit) .lamp { opacity: 0.4; box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent; }
 
 /* ---------- the porch: the one bright room, warm paper in every mode ---------- */
-.room-porch { background: var(--paper); color: #111111; border-top: none; }
+.room-porch { background: var(--paper); color: var(--hand-black, #111); --cut-spacing: -0.01em; border-top: none; }
 .room-porch .entry { border-left-color: rgba(17, 17, 17, 0.5); }
 .room-porch .lamp { background: var(--lamp); box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.35), 0 0 24px 10px rgba(242, 200, 120, 0.75); }
 .room-porch::before { background: radial-gradient(70% 60% at 0% 0%, rgba(255, 250, 238, 0.9), transparent 70%); }
@@ -169,17 +169,17 @@
 .lamp-link .lamp { transition: transform 0.25s ease; }
 .closing-words { max-width: 980px; }
 .closing-line {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 40px; max-width: 17em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 40px; max-width: 17em; letter-spacing: var(--cut-spacing);
+} :where(.closing-line) { color: var(--ink-title); }
 .closing-words p:not(.closing-line) { font-size: 22px; line-height: 1.7; max-width: 700px; }
 
 /* ---------- the house that did get built: the last line, back in the light ---------- */
-.built { background: var(--paper); color: #111111; padding: 160px var(--edge); text-align: center; }
+.built { background: var(--paper); color: var(--hand-black, #111); --cut-spacing: -0.01em; padding: 160px var(--edge); text-align: center; }
 .built p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.8vw, 42px); line-height: 1.2; max-width: 22em; margin: 0 auto;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.8vw, 42px); line-height: 1.2; max-width: 22em; margin: 0 auto; letter-spacing: var(--cut-spacing);
+} :where(.built p) { color: var(--ink-title); }
 
 /* ---------- the way on (as Come In's) ---------- */
 .room-foot {
@@ -248,19 +248,19 @@ html.pp-still .room::before, html.pp-still.room::before, html.pp-still .lamp, ht
    Come Through follows Light: the house's dark ground, deepening down the corridor, is the same walk made pale,
    white running to a very pale blue; words and the fine lines in Ink. The porch and the last line stay on their warm
    paper, the lamps keep their own colours. Dark is unchanged. */
-html[data-theme="light"] .house { --on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: #111111; }
+html[data-theme="light"] .house { --on-dark: var(--hand-black, #111111); --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 html[data-theme="light"] .corridor { background: var(--grain), linear-gradient(180deg, #f7f5f3 0%, #f5f5f5 35%, #f1f3f6 70%, #edf1f5 100%); }
 html[data-theme="light"] .rooms-list a:active,
-html[data-theme="light"] .rooms-list a:focus-visible { color: #ffffff; }
+html[data-theme="light"] .rooms-list a:focus-visible { color: var(--hand-white, #fff); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .house { --on-dark: #111111; --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: #111111; }
+  html:not([data-theme="dark"]) .house { --on-dark: var(--hand-black, #111111); --ink-on-dark-rgb: 17, 17, 17; --night: #f7f5f3; --night-deep: #edf1f5; color: var(--hand-black, #111); --cut-spacing: -0.01em; }
   html:not([data-theme="dark"]) .corridor { background: var(--grain), linear-gradient(180deg, #f7f5f3 0%, #f5f5f5 35%, #f1f3f6 70%, #edf1f5 100%); }
   html:not([data-theme="dark"]) .rooms-list a:active,
-  html:not([data-theme="dark"]) .rooms-list a:focus-visible { color: #ffffff; }
+  html:not([data-theme="dark"]) .rooms-list a:focus-visible { color: var(--hand-white, #fff); }
 }
 @media (hover: hover) {
-html[data-theme="light"] .rooms-list a:hover { color: #ffffff; }
+html[data-theme="light"] .rooms-list a:hover { color: var(--hand-white, #fff); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .rooms-list a:hover { color: #ffffff; }
+  html:not([data-theme="dark"]) .rooms-list a:hover { color: var(--hand-white, #fff); }
 }
 }

@@ -35,7 +35,7 @@
     #060810 30%, #080a13 40%, #0a0d16 50%, #0b0f18 60%,
     #0d111b 70%, #0e121d 80%, #10141f 90%, #111521 100%);
   color: var(--on-dark);
-  --ink: var(--on-dark); --ground: #000000; --rule: var(--hair);
+  --ink: var(--on-dark); --ink-title: initial; --ground: #000000; --rule: var(--hair);
 }
 .down a { color: inherit; }
 .down :focus-visible { outline-color: var(--on-dark); }
@@ -79,8 +79,8 @@
 .down-hero { padding: 88px var(--edge) var(--down-air); }
 .down .label { color: var(--on-dark); margin: 0 0 28px; }
 .down-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(84px, 13vw, 224px); line-height: 0.92; letter-spacing: -0.025em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(84px, 13vw, 224px); line-height: 0.92; letter-spacing: var(--cut-spacing);
   margin: 0;
 }
 .down-title span { display: block; }
@@ -88,10 +88,10 @@
 .t-down { text-align: right; animation: come-down 0.9s var(--ease) both; animation-delay: 0.2s; }
 @keyframes come-down { from { opacity: 0; transform: translateY(-0.32em); } to { opacity: 1; transform: none; } }
 .down-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.5vw, 40px); line-height: 1.2;
-  max-width: 22em; margin: 56px 0 88px;
-}
+  max-width: 22em; margin: 56px 0 88px; letter-spacing: var(--cut-spacing);
+} :where(.down-sentence) { color: var(--ink-title); }
 .walls-pic { display: flex; flex-direction: column; align-items: flex-start; }
 .walls-pic img { max-width: min(100%, 1400px); }
 
@@ -103,16 +103,16 @@
 }
 .chamber p:last-child { margin-bottom: 0; }
 .chamber .lead {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.6vw, 40px); line-height: 1.25; max-width: 21em; margin-bottom: 1.4em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.6vw, 40px); line-height: 1.25; max-width: 21em; margin-bottom: 1.4em; letter-spacing: var(--cut-spacing);
+} :where(.chamber .lead) { color: var(--ink-title); }
 
 /* the writing's own headings: its sentences that open the ten, the two and the acts */
 .down-head {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.1; letter-spacing: -0.01em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.6vw, 56px); line-height: 1.1; letter-spacing: var(--cut-spacing);
   margin: 0 0 48px;
-}
+} :where(.down-head) { color: var(--ink-title); }
 
 /* ---------- PLAY: the ten. A numbered list of names on the left runs one panel on the right: the puppet chosen
    stands there whole, its name large, and the walls take its colour. The rows stand still; nothing below moves.
@@ -127,16 +127,16 @@
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 .cast-num { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; }
-.cast-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 28px; line-height: 1.15; }
+.cast-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 28px; line-height: 1.15; letter-spacing: var(--cut-spacing); } :where(.cast-name) { color: var(--ink-title); }
 .cast-what { grid-column: 2; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.4; }
 .cast-row { scroll-margin-top: 16px; }
 .cast-panel { padding: 28px 0 56px; }
 .cast-panel p { font-size: 22px; line-height: 1.65; max-width: 31em; margin: 0; }
 .cast-panel strong:first-child {
   display: block; margin: 0 0 20px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(48px, 5vw, 80px); line-height: 1; letter-spacing: -0.015em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(48px, 5vw, 80px); line-height: 1; letter-spacing: var(--cut-spacing);
+} :where(.cast-panel strong:first-child) { color: var(--ink-title); }
 .cast-next {
   display: inline-flex; align-items: baseline; gap: 10px; min-height: 44px; margin-top: 32px;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.3; text-decoration: none;
@@ -183,8 +183,8 @@ html.cast-on .puppet.is-on .cast-row { box-shadow: inset 6px 0 0 var(--pc); back
 .two-words p:last-child { margin-bottom: 0; }
 .two-words strong:first-child {
   display: block; margin: 0 0 14px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 36px; line-height: 1.1;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 36px; line-height: 1.1; letter-spacing: var(--cut-spacing);
+} :where(.two-words strong:first-child) { color: var(--ink-title); }
 
 /* ---------- the three acts, one row ---------- */
 .acts { padding: 0 var(--edge) var(--down-air); }
@@ -192,29 +192,29 @@ html.cast-on .puppet.is-on .cast-row { box-shadow: inset 6px 0 0 var(--pc); back
 .act { border-top: 1px solid var(--hair); padding: 28px 0 0; margin: 0; font-size: 22px; line-height: 1.6; }
 .act-n {
   display: block; margin: 0 0 14px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 30px; line-height: 1.15;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 30px; line-height: 1.15; letter-spacing: var(--cut-spacing);
+} :where(.act-n) { color: var(--ink-title); }
 
 /* ---------- afterwards: the gold band, the light through the soil, edge to edge ---------- */
 .seeds {
-  --ink: #111111; --ground: var(--gold); --rule: #111111;
-  background: var(--gold); color: #111111;
+  --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ground: var(--gold); --rule: #111111;
+  background: var(--gold); color: var(--hand-black, #111); --cut-spacing: -0.01em;
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--column-gap); align-items: center;
   padding: 120px var(--edge);
 }
 .seeds :focus-visible { outline-color: #111111; }
 .seeds-line {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(36px, 3.8vw, 60px); line-height: 1.1; letter-spacing: -0.01em; margin: 0; max-width: 11em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(36px, 3.8vw, 60px); line-height: 1.1; letter-spacing: var(--cut-spacing); margin: 0; max-width: 11em;
+} :where(.seeds-line) { color: var(--ink-title); }
 .seeds-pic { display: flex; flex-direction: column; align-items: flex-start; }
 
 /* ---------- the last line, alone in the dark ---------- */
 .last { padding: max(34vh, 220px) var(--edge) max(38vh, 240px); text-align: center; }
 .last-line {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 4vw, 64px); line-height: 1.15; margin: 0 auto; max-width: 16em;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 4vw, 64px); line-height: 1.15; margin: 0 auto; max-width: 16em; letter-spacing: var(--cut-spacing);
+} :where(.last-line) { color: var(--ink-title); }
 
 /* ---------- the way on (as the rooms before it) ---------- */
 .room-foot {
@@ -268,21 +268,21 @@ html.pp-still .walls, html.pp-still.walls, html.pp-still .bloom, html.pp-still.b
    Come Down follows Light: the descent from black to night blue is the same descent made pale, white running to a
    very pale blue; words and rules in Ink, the foxfire in the walls kept faint. The gold band of seeds is taken from
    the work and stays the same in both. Dark is unchanged. */
-html[data-theme="light"] .down { --on-dark: #111111; --ink: #111111; --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+html[data-theme="light"] .down { --on-dark: var(--hand-black, #111111); --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
 html[data-theme="light"] .walls { opacity: 0.35; }
 html.cast-on[data-theme="light"] .puppet.is-on .cast-row { background-color: rgba(17, 17, 17, 0.05); }
 html[data-theme="light"] .cast-row:active,
-html[data-theme="light"] .cast-row:focus-visible { color: #ffffff; outline-color: #ffffff; }
+html[data-theme="light"] .cast-row:focus-visible { color: var(--hand-white, #fff); outline-color: #ffffff; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .down { --on-dark: #111111; --ink: #111111; --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: #111111; }
+  html:not([data-theme="dark"]) .down { --on-dark: var(--hand-black, #111111); --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ground: #ffffff; --hair: rgba(17, 17, 17, 0.26); --rule: rgba(17, 17, 17, 0.26); background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); color: var(--hand-black, #111); --cut-spacing: -0.01em; }
   html:not([data-theme="dark"]) .walls { opacity: 0.35; }
   html.cast-on:not([data-theme="dark"]) .puppet.is-on .cast-row { background-color: rgba(17, 17, 17, 0.05); }
   html:not([data-theme="dark"]) .cast-row:active,
-  html:not([data-theme="dark"]) .cast-row:focus-visible { color: #ffffff; outline-color: #ffffff; }
+  html:not([data-theme="dark"]) .cast-row:focus-visible { color: var(--hand-white, #fff); outline-color: #ffffff; }
 }
 @media (hover: hover) {
-html[data-theme="light"] .cast-row:hover { color: #ffffff; }
+html[data-theme="light"] .cast-row:hover { color: var(--hand-white, #fff); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .cast-row:hover { color: #ffffff; }
+  html:not([data-theme="dark"]) .cast-row:hover { color: var(--hand-white, #fff); }
 }
 }

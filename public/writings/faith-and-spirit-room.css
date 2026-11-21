@@ -26,7 +26,7 @@
 
 /* the whole room: the named colours' dark values, whatever the mode */
 .fs-room {
-  --ink: var(--ink-on-dark); --ink-soft: #b3aa9f; --ink-faint: #8f877d; --accent: #d4a574; --ground: #0d0907;
+  --ink: var(--ink-on-dark); --ink-title: initial; --ink-soft: var(--dk-soft, #b3aa9f); --ink-faint: var(--dk-faint, #8f877d); --accent: #d4a574; --ground: #0d0907;
   --fs-rule: rgba(var(--ink-on-dark-rgb), 0.22);
   --fs-rule-strong: rgba(var(--ink-on-dark-rgb), 0.7);
   --fs-hover: #1C1511;            /* the faintest ember on the dark */
@@ -34,7 +34,7 @@
 }
 /* each band: the named colours' light values */
 .fs-row {
-  --ink: #111; --ink-soft: #111; --accent: #111;
+  --ink: var(--hand-black, #111); --ink-title: var(--title-light); --ink-soft: var(--hand-black, #111); --accent: #111;
   --fs-rule: rgba(17, 17, 17, 0.38);
   --fs-rule-strong: #111;
 }
@@ -53,8 +53,8 @@
 .fs-head { padding-top: 40px; padding-bottom: 72px; text-align: center; }
 .fs-head .fs-back { display: flex; width: max-content; }
 .fs-title {
-  margin: 48px 0 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(44px, 5.2vw, 76px); line-height: 1.0; letter-spacing: -0.015em; color: var(--ink);
+  margin: 48px 0 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(44px, 5.2vw, 76px); line-height: 1.0; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--ink));
 }
 .fs-desc {
   margin: 22px auto 0; max-width: 32em;
@@ -79,7 +79,7 @@
 }
 .fs-rule-full { display: block; width: 100%; max-width: 760px; height: 2px; background: var(--fs-rule); margin: 28px 0; }
 .fs-rule-short { display: block; width: 50px; height: 2px; background: var(--fs-rule-strong); margin: 28px auto; }
-.fs-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; color: var(--ink); overflow-wrap: break-word; }
+.fs-name { display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; color: var(--ink-title, var(--ink)); overflow-wrap: break-word; letter-spacing: var(--cut-spacing); }
 .fs-first { display: block; font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); overflow-wrap: break-word; }
 .fs-meta { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 17px; line-height: 1.4; color: var(--accent); }
 
@@ -92,18 +92,18 @@
 @media (hover: hover) {
   .fs-feat:hover { background: var(--fs-chip); }
   .fs-feat:hover .fs-name .fs-arrow { opacity: 1; transform: translateX(0); }
-  .fs-feat:hover .fs-chip { background: #111; color: var(--ink-on-dark); }
+  .fs-feat:hover .fs-chip { background: var(--hand-black, #111); color: var(--ink-on-dark); }
 }
 .fs-feat:active { background: var(--fs-chip); }
-.fs-feat:active .fs-chip { background: #111; color: var(--ink-on-dark); }
+.fs-feat:active .fs-chip { background: var(--hand-black, #111); color: var(--ink-on-dark); }
 .fs-feat:focus-visible { outline: 2px solid var(--ink); outline-offset: -6px; background: var(--fs-chip); }
 .fs-feat:focus-visible .fs-name .fs-arrow { opacity: 1; transform: none; }
-.fs-feat:focus-visible .fs-chip { background: #111; color: var(--ink-on-dark); }
+.fs-feat:focus-visible .fs-chip { background: var(--hand-black, #111); color: var(--ink-on-dark); }
 
 /* the draft's tag chip, hanging half off the band's lower edge: the writing's kind and reading time */
 .fs-chip {
   position: absolute; left: 0; bottom: 0; transform: translateY(50%); z-index: 2;
-  display: block; padding: 15px 26px; background: var(--fs-chip); color: #111;
+  display: block; padding: 15px 26px; background: var(--fs-chip); color: var(--hand-black, #111); --cut-spacing: -0.01em;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; text-align: left;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -112,12 +112,12 @@
 .fs-passage { margin: 0; }
 .fs-passage p {
   margin: 0; max-width: 19em; font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: clamp(30px, 3.1vw, 48px); line-height: 1.2; letter-spacing: -0.015em; color: #111;
+  font-size: clamp(30px, 3.1vw, 48px); line-height: 1.2; letter-spacing: -0.015em; color: var(--hand-black, #111); --cut-spacing: -0.01em;
 }
 .fs-words-passage { padding-top: 112px; padding-bottom: 112px; }
 .fs-words-passage .fs-rule-short { margin: 40px auto 30px; }
 .fs-from { margin: 0; }
-.fs-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: #111; text-decoration: none; }
+.fs-from a { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.4; color: var(--hand-black, #111); --cut-spacing: -0.01em; text-decoration: none; }
 @media (hover: hover) { .fs-from a:hover .fs-arrow { transform: translateX(6px); } }
 .fs-from a:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
 
@@ -129,8 +129,8 @@
 .fs-pic:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .fs-room figcaption { display: flex; justify-content: flex-start; margin-top: 12px; }
 .fs-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--ink)); text-decoration: none;
 }
 .fs-num:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
@@ -174,7 +174,7 @@
 .fs-way { padding-top: 96px; padding-bottom: 128px; text-align: center; }
 .fs-way-head {
   margin: 0 auto; padding-top: 40px; border-top: 2px solid var(--fs-rule-strong); max-width: 760px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 26px; line-height: 1.2; color: var(--ink-title, var(--ink)); letter-spacing: var(--cut-spacing);
 }
 .fs-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px; margin-top: 30px; }
 .fs-pill {
@@ -186,7 +186,7 @@
 .fs-pill:nth-child(2) { border-color: var(--fs-band-3); }
 .fs-pill:nth-child(3) { border-color: var(--fs-band-4); }
 @media (hover: hover) {
-  .fs-pill:hover { background: var(--fs-band-1); color: #111; }
+  .fs-pill:hover { background: var(--fs-band-1); color: var(--hand-black, #111); }
   .fs-pill:nth-child(2):hover { background: var(--fs-band-3); }
   .fs-pill:nth-child(3):hover { background: var(--fs-band-4); }
   .fs-pill:hover .fs-arrow { transform: translateX(5px); }
@@ -244,7 +244,7 @@ html.pp-still .fs-arrow, html.pp-still.fs-arrow, html.pp-still .fs-pic img, html
    Faith and Spirit follows Light: the dark between the lit bands made pale, words in Ink, the rules in Ink's light, the
    ember's faint hover a pale warm tint. The four lit bands, their chips and the ember marks stay the same in both.
    Dark is unchanged. */
-html[data-theme="light"] .fs-room { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
+html[data-theme="light"] .fs-room { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .fs-room { --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
+  html:not([data-theme="dark"]) .fs-room { --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24; --ground: #f7f5f2; --fs-rule: rgba(17, 17, 17, 0.22); --fs-rule-strong: rgba(17, 17, 17, 0.7); --fs-hover: #f1ebe6; }
 }

@@ -16,12 +16,12 @@
   --tc-soil: #1A120B;                           /* the soil of the four pictures */
   --tc-panel: #251B12;                          /* the draft's panel, a step lighter than its ground */
   --tc-ink: var(--ink-on-dark);
-  --tc-soft: #B3AA9F;
-  --tc-faint: #8F877D;
+  --tc-soft: var(--dk-soft, #B3AA9F);
+  --tc-faint: var(--dk-faint, #8F877D);
   --tc-gold: #D4A574;
   --tc-hair: rgba(244, 237, 225, 0.18);         /* the draft's hairline */
   --tc-shard: #E2E8B0;                          /* the pale of the green shard (03757) */
-  --tc-shard-ink: #111111;
+  --tc-shard-ink: var(--hand-black, #111111);
   --tc-green: #B4C24A;                          /* the shard's green, lifted to show on the soil: 9.5 to 1 */
   --tc-sun: 212, 165, 116;                      /* the low sun on the wood (03743) */
   --tc-margin: 40px;
@@ -45,8 +45,8 @@
 .tc-pic { display: block; }
 .tc-room figcaption { margin-top: 12px; }
 .tc-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
-  color: var(--tc-ink); text-decoration: none;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  color: var(--ink-title, var(--tc-ink)); text-decoration: none;
 }
 
 /* ---------- 1. the lead: one thing dominates the top ---------- */
@@ -57,8 +57,8 @@
 .tc-lead-fig .tc-pic { display: inline-block; max-width: 100%; vertical-align: top; }
 .tc-lead-fig img { display: block; width: auto; height: auto; max-width: 100%; max-height: max(320px, calc(100vh - 460px)); }
 .tc-title {
-  margin: 40px 0 20px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.02; letter-spacing: -0.015em; color: var(--tc-ink);
+  margin: 40px 0 20px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(48px, 5.4vw, 84px); line-height: 1.02; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--tc-ink));
 }
 .tc-line { margin: 0; max-width: 34em; font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.55; color: var(--tc-ink); }
 
@@ -87,7 +87,7 @@
 /* ---------- 4. the band: its head on the left, its cards three across ---------- */
 .tc-band { padding: 80px 0 24px; }
 .tc-band-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin: 0 0 36px; }
-.tc-band-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--tc-ink); }
+.tc-band-title { margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 24px; line-height: 1.3; color: var(--ink-title, var(--tc-ink)); letter-spacing: var(--cut-spacing); }
 .tc-choices { display: flex; flex-wrap: wrap; gap: 4px 28px; }
 .tc-choices[hidden] { display: none; }
 .tc-choice {
@@ -111,7 +111,7 @@
 .tc-kind { color: var(--tc-gold); }
 .tc-dot { color: var(--tc-faint); }
 .tc-time { color: var(--tc-soft); }
-.tc-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25; color: var(--tc-ink); }
+.tc-name { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--ink-title, var(--tc-ink)); letter-spacing: var(--cut-spacing); }
 .tc-name .tc-arrow, .tc-sign .tc-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); color: var(--tc-green); }
 /* the first lines, three lines of them, as the draft clamps its opening line; every word is still in the link */
 .tc-first {
@@ -126,8 +126,8 @@
   background: var(--tc-panel); border: 1px solid var(--tc-hair); transition: border-color 0.4s ease;
 }
 .tc-sign {
-  position: relative; z-index: 1; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 108%;
-  font-size: clamp(24px, 2.1vw, 30px); line-height: 1.14; letter-spacing: -0.005em; color: var(--tc-ink);
+  position: relative; z-index: 1; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 108%;
+  font-size: clamp(24px, 2.1vw, 30px); line-height: 1.14; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--tc-ink));
 }
 /* the low sun: a warm light raking in from the panel's left edge, as it lies across the ground in 03743 */
 .tc-sun {
@@ -155,7 +155,7 @@
   padding-top: 48px; background: linear-gradient(to right, transparent, rgba(244, 237, 225, 0.38), transparent) top / calc(100% - 2 * var(--tc-margin)) 1px no-repeat;
 }
 .tc-next-wrap { margin: 0; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
-.tc-next-label { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; color: var(--tc-ink); }
+.tc-next-label { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; color: var(--ink-title, var(--tc-ink)); letter-spacing: var(--cut-spacing); }
 
 /* the buttons: solid, turning to their outline under the hand */
 .tc-more { margin-top: 64px; }
@@ -220,11 +220,11 @@ html.pp-still .js-reveal .tc-room .reveal, html.pp-still.js-reveal .tc-room .rev
    The Twin Cities follows Light: the soil and its panels made pale in their own brown, words in Ink, the hairlines in
    Ink's light, the gold in Accent's light value, the shard's green made deep enough to show on the pale. The pale
    shard band and the low sun on the panels stay, as do the pictures. Dark is unchanged. */
-html[data-theme="light"] { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: #111111; --tc-soft: #555555; --tc-faint: #666666; --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
+html[data-theme="light"] { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: var(--hand-black, #111111); --tc-soft: var(--hand-grey, #555555); --tc-faint: var(--hand-faint, #666666); --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
 html[data-theme="light"] .tc-hairline { background: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
 html[data-theme="light"] .tc-onward-in { background-image: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: #111111; --tc-soft: #555555; --tc-faint: #666666; --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
+  html:not([data-theme="dark"]) { --tc-soil: #f7f3ee; --tc-panel: #ede6dd; --tc-ink: var(--hand-black, #111111); --tc-soft: var(--hand-grey, #555555); --tc-faint: var(--hand-faint, #666666); --tc-gold: #8a5a24; --tc-hair: rgba(17, 17, 17, 0.18); --tc-green: #5a6814; }
   html:not([data-theme="dark"]) .tc-hairline { background: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
   html:not([data-theme="dark"]) .tc-onward-in { background-image: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.3), transparent); }
 }

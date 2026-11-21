@@ -2,7 +2,7 @@
   *,*::before,*::after{box-sizing:border-box;}
   :root{
     --white:#FFFFFF;
-    --text:#111111;
+    --text: var(--hand-black, #111111);
     --hairline:#D9D9D9;
     --dark:#1C1C1C;
     --light:#F4F4F4;
@@ -22,7 +22,7 @@
   button{font-family:inherit;font-size:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;}
   ul{list-style:none;margin:0;padding:0;}
   input{font-family:inherit;}
-  .serif{font-family:'Archivo', sans-serif; font-stretch: 112%; font-weight: 600;}
+  .serif{font-family:'Archivo', sans-serif; font-stretch: 112%; font-weight: 500; letter-spacing: var(--cut-spacing);}
   svg{display:block;flex:none;}
 
   /* ============ PAGE-SPECIFIC (HISTORY_2) ============ */
@@ -32,21 +32,21 @@
   .page-title{
     margin:0;
     font-family:'Archivo', sans-serif; font-stretch: 112%;
-    font-weight:600;
-    color:#FFFFFF;
+    font-weight:500;
+    color:var(--hand-white, #fff);
     font-size:34px;
     line-height:1.12;
-    letter-spacing:-0.02em;
+    letter-spacing:var(--cut-spacing);
     text-wrap:balance;
   }
   .page-year{
     margin:0 0 16px;
     font-family:'Archivo', sans-serif; font-stretch: 112%;
-    font-weight:600;
+    font-weight:500;
     font-style:normal;
-    color:#FFFFFF;
+    color:var(--hand-white, #fff);
     font-size:86px;
-    line-height:1.1;
+    line-height:1.1; letter-spacing: var(--cut-spacing);
   }
   .page-spacer{
     height:16.6665vh;
@@ -76,7 +76,7 @@
     font-family:'Inter',sans-serif;
     font-size:16px;
     font-weight:400;
-    color:#FFFFFF;
+    color:var(--hand-white, #fff);
   }
   @media (max-width:700px){
     .page-year{font-size:46px;}

@@ -17,11 +17,11 @@
   --work-5: #867452;
   --mp-ground: #000000;                         /* the draft's ground */
   --mp-ink: var(--ink-on-dark);
-  --mp-soft: #B3AA9F;
+  --mp-soft: var(--dk-soft, #B3AA9F);
   --mp-gold: #D4A574;
   --mp-rule: rgba(255, 255, 255, 0.22);         /* the draft's own hairline */
   --mp-oxide: #D49C9C;                          /* the oxide red in Archeo Dream, lifted to carry dark words */
-  --mp-oxide-ink: #111111;
+  --mp-oxide-ink: var(--hand-black, #111111);
   --mp-margin: 34px;                            /* the draft's margin */
 }
 
@@ -45,9 +45,9 @@
   .mp-door:hover .mp-door-arrow:last-child { transform: translateX(6px); }
 }
 .mp-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.4vw, 64px); line-height: 1.06; letter-spacing: -0.01em;
-  color: #FFFFFF; margin: 40px 0 0; max-width: 50%; text-wrap: balance;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 64px); line-height: 1.06; letter-spacing: var(--cut-spacing);
+  color: var(--hand-white, #fff); margin: 40px 0 0; max-width: 50%; text-wrap: balance;
 }
 
 /* ---------- the passage, in the draft's centred quote seat, on the band of oxide red: the one large thing ---------- */
@@ -80,10 +80,10 @@
 .mp-pic img { display: block; width: 100%; height: auto; background: #0B0907; }
 .mp-held figcaption { margin-top: 14px; }
 .mp-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 20px; letter-spacing: 0.04em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 20px; letter-spacing: 0.04em;
   color: var(--mp-soft); text-decoration: none; transition: color 0.2s ease;
 }
-@media (hover: hover) { .mp-num:hover { color: #FFFFFF; } }
+@media (hover: hover) { .mp-num:hover { color: var(--hand-white, #fff); } }
 .mp-pic:focus-visible, .mp-num:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 4px; }
 /* which of the four is held: four short lines, the draft's sound bars laid down */
 .mp-ticks { display: flex; gap: 8px; margin-top: 18px; }
@@ -103,8 +103,8 @@
 }
 .mp-name {
   display: block; margin-top: 16px;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 28px; line-height: 1.22; letter-spacing: 0.005em; color: #FFFFFF;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 28px; line-height: 1.22; letter-spacing: var(--cut-spacing); color: var(--hand-white, #fff);
 }
 .mp-arrow {   /* no width of its own, so a name never wraps for it */
   display: inline-block; width: 0; white-space: nowrap; color: var(--mp-gold);
@@ -117,7 +117,7 @@
 .mp-group.later { display: none; }
 @media (hover: hover) {
   .mp-group:hover .mp-arrow, .mp-group:focus-visible .mp-arrow { opacity: 1; transform: translateX(14px); }
-  .mp-group:hover .mp-first { color: #FFFFFF; }
+  .mp-group:hover .mp-first { color: var(--hand-white, #fff); }
 }
 .mp-group:active .mp-arrow { opacity: 1; transform: translateX(14px); }
 .mp-group:focus-visible { outline: 2px solid var(--mp-ink); outline-offset: 8px; }
@@ -142,10 +142,10 @@
 .mp-row {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   min-height: 96px; border-bottom: 1px solid var(--mp-rule);
-  color: #FFFFFF; text-decoration: none;
+  color: var(--hand-white, #fff); text-decoration: none;
 }
 .mp-row:first-child { border-top: 1px solid var(--mp-rule); }
-.mp-subject { font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; }
+.mp-subject { font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: clamp(28px, 2.8vw, 44px); line-height: 1.1; letter-spacing: var(--cut-spacing); } :where(.mp-subject) { color: var(--ink-title); }
 .mp-row-arrow { font-size: 28px; color: var(--mp-gold); transition: transform 0.2s ease; }
 @media (hover: hover) { .mp-row:hover .mp-row-arrow { transform: translateX(8px); } }
 .mp-row:active .mp-row-arrow { transform: translateX(8px); }
@@ -217,15 +217,15 @@ html.pp-still .mp-held, html.pp-still.mp-held, html.pp-still .mp-held.on, html.p
 /* Light and Dark hold, part three (ruled November 12, 2026; SITE-ORDER\LIGHT-DARK-HOLD-THREE-BUILD):
    Memory and the Past follows Light: the draft's black ground white, words in Ink, the rules in Ink's light, the gold
    in Accent's light value. The oxide-red band stays the same in both, as do the pictures. Dark is unchanged. */
-html[data-theme="light"] { --mp-ground: #ffffff; --mp-ink: #111111; --mp-soft: #555555; --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
+html[data-theme="light"] { --mp-ground: #ffffff; --mp-ink: var(--hand-black, #111111); --mp-soft: var(--hand-grey, #555555); --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
 html[data-theme="light"] .mp-title,
 html[data-theme="light"] .mp-name,
-html[data-theme="light"] .mp-row { color: #111111; }
+html[data-theme="light"] .mp-row { color: var(--ink-title, var(--hand-black, #111)); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) { --mp-ground: #ffffff; --mp-ink: #111111; --mp-soft: #555555; --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
+  html:not([data-theme="dark"]) { --mp-ground: #ffffff; --mp-ink: var(--hand-black, #111111); --mp-soft: var(--hand-grey, #555555); --mp-gold: #8a5a24; --mp-rule: rgba(17, 17, 17, 0.22); }
   html:not([data-theme="dark"]) .mp-title,
   html:not([data-theme="dark"]) .mp-name,
-  html:not([data-theme="dark"]) .mp-row { color: #111111; }
+  html:not([data-theme="dark"]) .mp-row { color: var(--ink-title, var(--hand-black, #111)); }
 }
 @media (hover: hover) {
 html[data-theme="light"] .mp-num:hover,

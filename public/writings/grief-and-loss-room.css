@@ -14,11 +14,11 @@
   --work-4: #827C72;
   --work-5: #938A7E;
   --gl-ink: var(--ink-on-dark);
-  --gl-soft: #B3AA9F;
+  --gl-soft: var(--dk-soft, #B3AA9F);
   --gl-gold: #D4A574;
   --gl-gold-line: rgba(212, 165, 116, 0.38);   /* the draft's gold hairline, a little stronger */
   --gl-sun: #B8AE9F;                           /* the cloth in the late sun, lifted from 04407 and 04380 */
-  --gl-sun-ink: #111111;
+  --gl-sun-ink: var(--hand-black, #111111);
   --gl-ground-top: #000000;
   --gl-ground-foot: #111521;
 }
@@ -48,9 +48,9 @@
   .gl-door:hover .gl-door-arrow:last-child { transform: translateX(4px); }
 }
 .gl-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.01em;
-  color: var(--gl-ink); margin: 40px 0 24px;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.05; letter-spacing: var(--cut-spacing);
+  color: var(--ink-title, var(--gl-ink)); margin: 40px 0 24px;
 }
 .gl-sentence { font-family: 'Inter', sans-serif; font-size: 22px; line-height: 1.45; color: var(--gl-ink); max-width: 30em; }
 
@@ -94,8 +94,8 @@
   background: var(--gl-gold); transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
 }
 .gl-w-name {
-  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: 24px; line-height: 1.3; color: var(--gl-ink);
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: 24px; line-height: 1.3; color: var(--ink-title, var(--gl-ink)); letter-spacing: var(--cut-spacing);
 }
 .gl-w-side {
   display: block; margin: 4px 0 12px; font-family: 'Inter', sans-serif; font-weight: 500;
@@ -175,22 +175,22 @@ html.pp-still .gl-w::before, html.pp-still.gl-w::before, html.pp-still .gl-w-arr
    Grief and Loss follows Light: the descent from black to night blue made pale, white running to a very pale blue;
    words in Ink, the gold in Accent's light value. The band of cloth in the late sun stays the same in both, as do the
    pictures. Dark is unchanged. */
-html[data-theme="light"] { --gl-ink: #111111; --gl-soft: #555555; --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
+html[data-theme="light"] { --gl-ink: var(--hand-black, #111111); --gl-soft: var(--hand-grey, #555555); --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
 html[data-theme="light"] .gl-room { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); background-attachment: fixed; }
 html[data-theme="light"] .gl-btn:active,
-html[data-theme="light"] .gl-chip:active { color: #ffffff; }
+html[data-theme="light"] .gl-chip:active { color: var(--hand-white, #fff); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) { --gl-ink: #111111; --gl-soft: #555555; --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
+  html:not([data-theme="dark"]) { --gl-ink: var(--hand-black, #111111); --gl-soft: var(--hand-grey, #555555); --gl-gold: #8a5a24; --gl-gold-line: rgba(138, 90, 36, 0.38); }
   html:not([data-theme="dark"]) .gl-room { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 26%, #f8fafb 50%, #f2f5f8 75%, #edf1f5 100%); background-attachment: fixed; }
   html:not([data-theme="dark"]) .gl-btn:active,
-  html:not([data-theme="dark"]) .gl-chip:active { color: #ffffff; }
+  html:not([data-theme="dark"]) .gl-chip:active { color: var(--hand-white, #fff); }
 }
 @media (hover: hover) {
 html[data-theme="light"] .gl-btn:hover,
-html[data-theme="light"] .gl-chip:hover { color: #ffffff; }
+html[data-theme="light"] .gl-chip:hover { color: var(--hand-white, #fff); }
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) .gl-btn:hover,
-  html:not([data-theme="dark"]) .gl-chip:hover { color: #ffffff; }
+  html:not([data-theme="dark"]) .gl-chip:hover { color: var(--hand-white, #fff); }
 }
 }
 @media (max-width: 760px) {

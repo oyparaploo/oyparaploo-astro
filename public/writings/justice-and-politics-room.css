@@ -19,15 +19,15 @@
   --jp-net: #4e2d77;             /* the net's purple (04575): the glow */
   --jp-line: #2a2626;            /* the draft's hairline on the black */
   --jp-margin: 40px;             /* the draft's own margin */
-  --d-ink: var(--ink-on-dark); --d-soft: #b3aa9f; --d-faint: #8f877d; --d-accent: #d4a574;   /* the named colours' dark values */
-  --l-ink: #111; --l-soft: #555;                                                  /* and their light values */
-  --ink: var(--d-ink); --ink-soft: var(--d-soft); --ink-faint: var(--d-faint); --accent: var(--d-accent);
+  --d-ink: var(--ink-on-dark); --d-soft: var(--dk-soft, #b3aa9f); --d-faint: var(--dk-faint, #8f877d); --d-accent: #d4a574;   /* the named colours' dark values */
+  --l-ink: var(--hand-black, #111); --l-soft: var(--hand-grey, #555);                                                  /* and their light values */
+  --ink: var(--d-ink); --ink-title: initial; --ink-soft: var(--d-soft); --ink-faint: var(--d-faint); --accent: var(--d-accent);
   color: var(--d-ink); background: var(--jp-black);
   overflow-x: clip;
 }
 
 /* the warm-white panels: the named colours' light values, the same in every mode */
-.jp-panel { --ink: var(--l-ink); --ink-soft: var(--l-soft); color: var(--l-ink); }
+.jp-panel { --ink: var(--l-ink); --ink-title: initial; --ink-soft: var(--l-soft); color: var(--l-ink); }
 
 /* the arrow links: the arrow slides a few pixels when pointed at */
 .jp-arrow { display: inline-block; transition: transform 0.2s ease, opacity 0.25s ease; }
@@ -43,7 +43,7 @@
 .jp-pic img { display: block; width: 100%; height: auto; }
 .jp-pic:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 4px; }
 .jp-num {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 17px; letter-spacing: 0.04em;
   color: var(--d-ink); text-decoration: none;
 }
 .jp-num:focus-visible { outline: 2px solid var(--d-ink); outline-offset: 3px; }
@@ -72,13 +72,27 @@
 }
 .jp-hero-words { max-width: 1100px; }
 .jp-title {
-  margin: 0 0 32px; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(60px, 9.4vw, 136px); line-height: 0.95; letter-spacing: -0.02em; color: var(--d-ink);
+  margin: 0 0 32px; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  /* November 21, 2026, Reach's ruling ("is this too large and is there too much letter spacing?", then "B"): three quarters of its size,
+     and its letters as close as they were (-0.02em), in Dark and in Light. A phone keeps its own size below. */
+  font-size: clamp(52px, 7vw, 102px); line-height: 0.95; letter-spacing: -0.02em; color: var(--d-ink);
 }
 /* the draft's three staggered lines, each rising into place */
 .jp-line { display: block; animation: jp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .jp-line:nth-child(2) { animation-delay: 0.12s; }
 .jp-line:nth-child(3) { animation-delay: 0.24s; }
+/* The tint inside the very large title (Reach, November 20, 2026: on Dark "Beautiful.", on Light "The Tint is Right."):
+   each line runs from the title's own colour at the top to a slightly deeper tone at its foot, with a trace of the room's crimson. */
+.jp-room { --tt-foot: #bca398; }
+html[data-theme="light"] .jp-room { --tt-foot: #47222a; }
+@media (prefers-color-scheme: light) { html:not([data-theme="dark"]) .jp-room { --tt-foot: #47222a; } }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .jp-title .jp-line {
+    padding-bottom: 0.14em; margin-bottom: -0.14em;   /* so no letter's tail is cut */
+    background-image: linear-gradient(180deg, currentColor 26%, var(--tt-foot) 80%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+}
 @keyframes jp-rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 .jp-desc {
   margin: 0; max-width: 30em; padding-top: 26px; border-top: 3px solid var(--jp-lit);
@@ -100,8 +114,8 @@
 }
 .jp-passage { margin: 0; max-width: 21em; }
 .jp-passage p {
-  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: -0.01em; color: var(--l-ink);
+  margin: 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--l-ink));
   overflow-wrap: break-word;
 }
 .jp-from { margin: 8px 0 0; }
@@ -129,9 +143,9 @@
 .jp-choices[hidden] { display: none; }
 .jp-choice {
   -webkit-appearance: none; appearance: none; background: none; border: 0; margin: 0; padding: 8px 0; cursor: pointer;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%; font-size: 19px; line-height: 1.3; color: var(--d-soft);
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%; font-size: 19px; line-height: 1.3; color: var(--ink-title, var(--d-soft));
   text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 8px;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease; letter-spacing: var(--cut-spacing);
 }
 .jp-choice[aria-pressed="true"] { color: var(--d-ink); text-decoration-color: var(--jp-lit); }
 @media (hover: hover) { .jp-choice:hover { color: var(--d-ink); } }
@@ -147,8 +161,8 @@
 }
 .jp-row-a:focus-visible { outline: 2px solid var(--d-ink); outline-offset: -2px; }
 .jp-name {
-  display: block; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(26px, 2.4vw, 34px); line-height: 1.16; letter-spacing: -0.01em; color: inherit; overflow-wrap: break-word;
+  display: block; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(26px, 2.4vw, 34px); line-height: 1.16; letter-spacing: var(--cut-spacing); color: var(--ink-title, inherit); overflow-wrap: break-word;
 }
 /* an arrow after a name takes no room until it slides in, so it never wraps alone */
 .jp-name .jp-arrow { width: 0; white-space: nowrap; opacity: 0; transform: translateX(-10px); }
@@ -188,8 +202,8 @@
 }
 .jp-subjects { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .jp-subject {
-  padding: 4px 0; font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: -0.01em; color: var(--l-ink);
+  padding: 4px 0; font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(28px, 2.5vw, 40px); line-height: 1.16; letter-spacing: var(--cut-spacing); color: var(--ink-title, var(--l-ink));
   text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 8px;
   transition: text-decoration-color 0.2s ease;
 }
@@ -258,21 +272,21 @@ html.pp-still .jp-arrow, html.pp-still.jp-arrow, html.pp-still .jp-row-a, html.p
    Justice and Politics follows Light: the black from top to foot made white, its opening the same glow on the pale,
    words in Ink, the hairlines pale, the cloth's crimson as the mark. The warm white panels, the crimson band, and the
    dark seat behind each picture stay the same in both. Dark is unchanged. */
-html[data-theme="light"] .jp-room { --d-ink: #111111; --d-soft: #555555; --d-faint: #666666; --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
+html[data-theme="light"] .jp-room { --d-ink: var(--hand-black, #111111); --d-soft: var(--hand-grey, #555555); --d-faint: var(--hand-faint, #666666); --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
 html[data-theme="light"] .jp-hero { background: radial-gradient(ellipse at 72% 28%, rgba(196, 36, 63, 0.10) 0%, transparent 58%), radial-gradient(ellipse at 22% 82%, rgba(78, 45, 119, 0.10) 0%, transparent 52%), linear-gradient(135deg, #f4f4f4 0%, #ffffff 50%, #f6f2f1 100%); }
-html[data-theme="light"] .jp-two-pic { --d-ink: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
-html[data-theme="light"] .jp-next { background: #111111; color: #ffffff; border-color: #111111; }
-html[data-theme="light"] .jp-next:active { background: transparent; color: #111111; }
+html[data-theme="light"] .jp-two-pic { --d-ink: var(--dk-ink, #e8e0d6); --ink: var(--dk-ink, #e8e0d6); --ink-title: initial; color: var(--dk-ink, #e8e0d6); }
+html[data-theme="light"] .jp-next { background: var(--hand-black, #111); color: var(--hand-white, #fff); border-color: #111111; }
+html[data-theme="light"] .jp-next:active { background: transparent; color: var(--hand-black, #111); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .jp-room { --d-ink: #111111; --d-soft: #555555; --d-faint: #666666; --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
+  html:not([data-theme="dark"]) .jp-room { --d-ink: var(--hand-black, #111111); --d-soft: var(--hand-grey, #555555); --d-faint: var(--hand-faint, #666666); --d-accent: #8a5a24; --jp-black: #ffffff; --jp-line: #dcd8d4; --jp-lit: #a3112e; }
   html:not([data-theme="dark"]) .jp-hero { background: radial-gradient(ellipse at 72% 28%, rgba(196, 36, 63, 0.10) 0%, transparent 58%), radial-gradient(ellipse at 22% 82%, rgba(78, 45, 119, 0.10) 0%, transparent 52%), linear-gradient(135deg, #f4f4f4 0%, #ffffff 50%, #f6f2f1 100%); }
-  html:not([data-theme="dark"]) .jp-two-pic { --d-ink: #e8e0d6; --ink: #e8e0d6; color: #e8e0d6; }
-  html:not([data-theme="dark"]) .jp-next { background: #111111; color: #ffffff; border-color: #111111; }
-  html:not([data-theme="dark"]) .jp-next:active { background: transparent; color: #111111; }
+  html:not([data-theme="dark"]) .jp-two-pic { --d-ink: var(--dk-ink, #e8e0d6); --ink: var(--dk-ink, #e8e0d6); --ink-title: initial; color: var(--dk-ink, #e8e0d6); }
+  html:not([data-theme="dark"]) .jp-next { background: var(--hand-black, #111); color: var(--hand-white, #fff); border-color: #111111; }
+  html:not([data-theme="dark"]) .jp-next:active { background: transparent; color: var(--hand-black, #111); }
 }
 @media (hover: hover) {
-html[data-theme="light"] .jp-next:hover { background: transparent; color: #111111; }
+html[data-theme="light"] .jp-next:hover { background: transparent; color: var(--hand-black, #111); }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .jp-next:hover { background: transparent; color: #111111; }
+  html:not([data-theme="dark"]) .jp-next:hover { background: transparent; color: var(--hand-black, #111); }
 }
 }

@@ -30,8 +30,8 @@ body.sit-page { background: linear-gradient(to bottom, #ffffff 0px, #ffffff 300p
 
 /* ---------- the colour bands: flat, edge to edge, from the work on them; words dark in every mode ---------- */
 .sit-band {
-  background: var(--band); color: #111111;
-  --ink: #111111; --ink-soft: #555555; --ink-faint: #666666; --accent: #8a5a24;
+  background: var(--band); color: var(--hand-black, #111); --cut-spacing: -0.01em;
+  --ink: var(--hand-black, #111111); --ink-title: var(--title-light); --ink-soft: var(--hand-grey, #555555); --ink-faint: var(--hand-faint, #666666); --accent: #8a5a24;
 }
 .sit-band a { color: inherit; }
 .sit-band :focus-visible { outline-color: #111111; }
@@ -50,14 +50,14 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
   padding: 72px var(--edge) var(--open-air);
 }
 .room-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(64px, 7vw, 120px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 28px;
 }
 .room-sentence {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
   font-size: clamp(26px, 2.2vw, 34px); line-height: 1.15; max-width: 19em;
-  margin: 0 0 40px;
+  margin: 0 0 40px; letter-spacing: var(--cut-spacing);
 }
 .open-intro p { font-size: 20px; line-height: 1.65; margin: 0 0 1em; max-width: 34em; }
 .open-intro p:last-child { margin-bottom: 0; }
@@ -74,10 +74,10 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
 /* ---------- three times, somebody sat down: the voices grid of Good Grounds, as three benches ---------- */
 .three { padding: var(--open-air) var(--edge); }
 .three-title {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: var(--cut-spacing);
   max-width: 18em; margin: 0 0 48px;
-}
+} :where(.three-title) { color: var(--ink-title); }
 .three-benches { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--column-gap); }
 .three-benches li { display: flex; }
 .three-benches a {
@@ -89,9 +89,9 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .c-name {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(30px, 2.6vw, 44px); line-height: 1.05; margin-bottom: 4px;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(30px, 2.6vw, 44px); line-height: 1.05; margin-bottom: 4px; letter-spacing: var(--cut-spacing);
+} :where(.c-name) { color: var(--ink-title); }
 .c-who { font-weight: 600; font-size: 20px; line-height: 1.3; color: var(--accent); transition: color 0.3s ease; }
 .c-where { font-size: 20px; line-height: 1.45; }
 .three-benches .row-arrow { position: absolute; right: 24px; bottom: 26px; font-size: 26px; line-height: 1; transform: translateY(-10px); }
@@ -115,10 +115,10 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
 }
 .bench-name {
   grid-area: name;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.015em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(56px, 6vw, 96px); line-height: 0.95; letter-spacing: var(--cut-spacing);
   margin: 0 0 36px;
-}
+} :where(.bench-name) { color: var(--ink-title); }
 .bench-scene { grid-area: scene; font-size: 22px; line-height: 1.6; max-width: 30em; margin: 0; }
 .bench-pic { grid-area: pic; }
 
@@ -163,10 +163,10 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
 }
 .close-line {
   grid-area: line;
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: -0.005em;
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(32px, 3.2vw, 48px); line-height: 1.1; letter-spacing: var(--cut-spacing);
   max-width: 15em; margin: 0 0 36px;
-}
+} :where(.close-line) { color: var(--ink-title); }
 .close-words { grid-area: words; }
 .close-words p { font-size: 20px; line-height: 1.7; margin: 0 0 1em; max-width: 32em; }
 .close-words p:last-child { margin-bottom: 0; }
@@ -175,9 +175,9 @@ html[data-theme="dark"] .three-benches a, html[data-theme="dark"] .bench { --vv:
 /* ---------- the invitation: the last line, centred over Good Grounds' short rule ---------- */
 .invitation { padding: 160px var(--edge); text-align: center; }
 .invitation p {
-  font-family: 'Archivo', sans-serif; font-weight: 600; font-stretch: 112%;
-  font-size: clamp(40px, 4.6vw, 76px); line-height: 1.05; letter-spacing: -0.01em; margin: 0;
-}
+  font-family: 'Archivo', sans-serif; font-weight: 500; font-stretch: 112%;
+  font-size: clamp(40px, 4.6vw, 76px); line-height: 1.05; letter-spacing: var(--cut-spacing); margin: 0;
+} :where(.invitation p) { color: var(--ink-title); }
 .invitation-rule { display: block; width: 64px; height: 3px; background: var(--accent); margin: 36px auto 0; }
 
 /* ---------- the way on (as Come In's and Come Through's); on a walk it steps aside for the walk's foot ---------- */

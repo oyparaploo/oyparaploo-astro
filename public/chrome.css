@@ -1,27 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,112,500;1,112,500&display=swap');   /* November 20, 2026: the lighter cut of the large lines; pages load only 600 */
 :root {
-  --ink: #111;
-  --ink-soft: #555;
-  --ink-faint: #666;
+  --ink: #1c1917;
+  --ink-soft: #4b453e;
+  --ink-faint: #6b655c;
   --accent: #8a5a24;
-  --ground: #fff;
 }
+:where(:root) { --ground: #faf5ee; }   /* Brown, the house ground, Light; a page's own ground, written on the page or in its room's file, wins */
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
-    --ink: #d9d7ce;
-    --ink-soft: #b3aa9f;
-    --ink-faint: #8f877d;
+    --ink: #bcb3a3;
+    --ink-soft: #a69d8d;
+    --ink-faint: #978e7f;
     --accent: #d4a574;
-    --ground: #0d0907;
+    --ground: #140e0a;
   }
 }
 
 html[data-theme="dark"] {
-  --ink: #d9d7ce;
-  --ink-soft: #b3aa9f;
-  --ink-faint: #8f877d;
+  --ink: #bcb3a3;
+  --ink-soft: #a69d8d;
+  --ink-faint: #978e7f;
   --accent: #d4a574;
-  --ground: #0d0907;
+  --ground: #140e0a;
 }
 
 .site-header {
@@ -31,7 +32,7 @@ html[data-theme="dark"] {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background: #fff;
+  background: var(--ground);
   color: var(--ink);
 }
 
@@ -83,15 +84,15 @@ html[data-theme="dark"] {
 }
 
 .site-header.dark nav a {
-  color: #fff;
+  color: var(--hand-white, #fff);
 }
 
 .site-header.dark nav a.current {
-  color: #fff;
+  color: var(--hand-white, #fff);
 }
 
 .site-header.dark .wordmark {
-  color: #fff;
+  color: var(--hand-white, #fff);
 }
 
 /* Gallery grids: the count line under each gallery title ("47 pictures →") */
@@ -113,8 +114,8 @@ html[data-theme="dark"] {
 }
 
 .site-footer {
-  background: #111;
-  color: #fff;
+  background: var(--hand-black, #111);
+  color: var(--hand-white, #fff);
   padding: 40px 32px;
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
@@ -135,7 +136,7 @@ html[data-theme="dark"] {
   font-size: 26px;
   letter-spacing: normal;
   line-height: 1;
-  color: #fff;
+  color: var(--hand-white, #fff);
   text-decoration: none;
   display: block;
   margin-bottom: 62px;
@@ -466,11 +467,11 @@ html[data-theme="dark"] .work-fullscreen-link {
 }
 html[data-theme="dark"] .work-fullscreen-link:hover,
 html[data-theme="dark"] .work-fullscreen-link:focus-visible {
-  background: #d9d7ce;
+  background: #bcb3a3;
   color: #0d0907;
 }
 html[data-theme="dark"] .wander-another {
-  background: #d9d7ce;
+  background: #bcb3a3;
   color: #0d0907;
 }
 
@@ -516,11 +517,11 @@ html[data-theme="dark"] .wander-another {
   }
   html:not([data-theme="light"]) .work-fullscreen-link:hover,
   html:not([data-theme="light"]) .work-fullscreen-link:focus-visible {
-    background: #d9d7ce;
+    background: #bcb3a3;
     color: #0d0907;
   }
   html:not([data-theme="light"]) .wander-another {
-    background: #d9d7ce;
+    background: #bcb3a3;
     color: #0d0907;
   }
 }
@@ -757,12 +758,12 @@ html.pp-still .site-header.is-pinned, html.pp-still.site-header.is-pinned { tran
 }
 html[data-theme="dark"] .arrow-link:hover,
 html[data-theme="dark"] .arrow-link:focus-visible {
-  color: #fff;
+  color: var(--hand-white, #fff);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .arrow-link:hover,
   html:not([data-theme="light"]) .arrow-link:focus-visible {
-    color: #fff;
+    color: var(--hand-white, #fff);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -801,7 +802,7 @@ html.pp-still .arrow-link:hover .arrow-glyph, html.pp-still.arrow-link:hover .ar
    Nothing else on any page changes.
    ========================================================================== */
 
-:root { --chrome-edge: 24px; --chrome-ground: #fff; }
+:root { --chrome-edge: 24px; --chrome-ground: var(--ground); }
 html[data-theme="dark"] { --chrome-ground: var(--ground); }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) { --chrome-ground: var(--ground); }
@@ -978,11 +979,7 @@ html:has(.thumb-row-wrap) { overflow-x: clip; }
    HTML DOCS\PREVIEWS\MARKS-SET-THREE-WHOLE-2026-10-27; SITE-ORDER\MARKS-SET-THREE-BUILD). In Dark the header's
    wordmark and menu words take a shade between Lines' band (#ebe9e0) and Ink's dark value (#d9d7ce); in Light
    they stay Ink, and nothing else takes this colour. */
-:root { --ink-header: #111; }
-html[data-theme="dark"] { --ink-header: #e2e0d7; }
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) { --ink-header: #e2e0d7; }
-}
+:root { --ink-header: var(--ink); }   /* November 20, 2026: the wordmark and menu take the words' colour in Light and Dark */
 html:root[data-theme="dark"] body .site-header .wordmark,
 html:root[data-theme="dark"] body .site-header nav a { color: var(--ink-header); }
 @media (prefers-color-scheme: dark) {
@@ -995,15 +992,15 @@ html:root[data-theme="dark"] body .site-header nav a { color: var(--ink-header);
    Dark takes Ink's dark value, #d9d7ce, so every word in Dark is on the same grey. */
 :root { --ink-on-dark: #e8e0d6; --ink-on-dark-rgb: 232, 224, 214; }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }
+  html:not([data-theme="light"]) { --ink-on-dark: #bcb3a3; --ink-on-dark-rgb: 188, 179, 163; }
 }
-html[data-theme="dark"] { --ink-on-dark: #d9d7ce; --ink-on-dark-rgb: 217, 215, 206; }
+html[data-theme="dark"] { --ink-on-dark: #bcb3a3; --ink-on-dark-rgb: 188, 179, 163; }
 /* The eighteenth cleanup, item 3a (October 29, 2026): the strip on the rooms that are dark in every mode (The Book,
    the 60 walk pages and the Spine, class always-dark): in Light the strip stands on white, so its date and its
    Light / Dark / Auto buttons take Ink's light value, and the chosen button's words the white ground. Dark is unchanged. */
-html.always-dark[data-theme="light"] body .theme-strip { --ink: #111; --ground: #fff; }
+html.always-dark[data-theme="light"] body .theme-strip { --ink: #1c1917; --ground: #fff; }
 @media (prefers-color-scheme: light) {
-  html.always-dark:not([data-theme="dark"]) body .theme-strip { --ink: #111; --ground: #fff; }
+  html.always-dark:not([data-theme="dark"]) body .theme-strip { --ink: #1c1917; --ground: #fff; }
 }
 
 /* Shuffle ... (SITE-ORDER\SHUFFLE-BUILD; Reach, November 9, 2026: "Perfect" on
@@ -1022,3 +1019,52 @@ html:root body .site-header nav a.shuffle-word { min-width: 0; width: 44px; marg
 @media (min-width:801px) and (max-width:1099px){html:root body .site-header nav{column-gap:28px}}
 @media (min-width:601px) and (max-width:800px){html:root body .site-header nav::after{content:"";flex-basis:100%;order:1}html:root body .site-header nav a[href$="/search"],html:root body .site-header nav a.shuffle-word{order:2}}
 @media (max-width:400px){html:root body .site-header nav{column-gap:18px}}
+
+/* ==========================================================================
+   Dark and Light, November 20, 2026 (Reach's ruling on HTML DOCS\PREVIEWS\DARK-WHOLE-SITE-2026-11-20).
+   Four grounds, shared out by the page's data-ground (written on a writing's page; set by theme.js for the rest):
+   a Blue (Marks), b Purple (Collage, Screen and Print, Loves), c Green (Placings), d Brown (the house ground).
+   Dark: near-blacks, warm grey words, no pure white word. Light: near-whites, a soft warm black.
+   The large lines (Archivo) are weight 500 where they are written, spaced by --cut-spacing; in Light they take
+   --ink-title. Colours once written by hand (#fff, #111, #555, #666 as a word's colour) are the --hand- names.
+   ========================================================================== */
+:root { --title-light: #2d2925; --ink-title: #2d2925; --cut-spacing: -0.01em; --hand-white: #fff; --hand-black: #1c1917; --hand-grey: #4b453e; --hand-faint: #6b655c; --white: var(--ground); --text: var(--ink); }   /* --ink-title is Light's alone; where it is absent a large line takes its own words' colour */
+html[data-theme="dark"] { --title-light: initial; --ink-title: initial; --cut-spacing: 0.01em; --hand-white: #bcb3a3; --hand-black: #111; --hand-grey: #555; --hand-faint: #666; --dk-ink: #bcb3a3; --dk-soft: #a69d8d; --dk-faint: #978e7f; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) { --title-light: initial; --ink-title: initial; --cut-spacing: 0.01em; --hand-white: #bcb3a3; --hand-black: #111; --hand-grey: #555; --hand-faint: #666; --dk-ink: #bcb3a3; --dk-soft: #a69d8d; --dk-faint: #978e7f; }
+}
+:where(html[data-ground="a"]) { --ground: #f4f6fa; }   /* Blue, Light; a wall's own Light tone, written on its page, still wins */
+:where(html[data-ground="b"]) { --ground: #f8f4f8; }   /* Purple, Light; a wall's own Light tone, written on its page, still wins */
+:where(html[data-ground="c"]) { --ground: #f4f7f1; }   /* Green, Light; a wall's own Light tone, written on its page, still wins */
+html[data-theme="dark"][data-ground="a"] { --ground: #0a0e17; }   /* Blue, Dark; in place of a wall's own Dark tone */
+html[data-theme="dark"][data-ground="b"] { --ground: #130915; }   /* Purple, Dark; in place of a wall's own Dark tone */
+html[data-theme="dark"][data-ground="c"] { --ground: #0c100a; }   /* Green, Dark; in place of a wall's own Dark tone */
+html[data-theme="dark"][data-ground="d"] { --ground: #140e0a; }   /* Brown, Dark; in place of a wall's own Dark tone */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"])[data-ground="a"] { --ground: #0a0e17; }
+  html:not([data-theme="light"])[data-ground="b"] { --ground: #130915; }
+  html:not([data-theme="light"])[data-ground="c"] { --ground: #0c100a; }
+  html:not([data-theme="light"])[data-ground="d"] { --ground: #140e0a; }
+}
+/* Light: the reading face a teeny bit tighter; text with spacing of its own keeps it. */
+html[data-theme="light"] body { letter-spacing: -0.01em; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body { letter-spacing: -0.01em; }
+}
+/* Light: the header and the full-screen button stand on the page's ground, not pure white. */
+
+/* Dark: an arrow link pointed at keeps the words' colour (it was pure white), so it takes an underline. */
+html[data-theme="dark"] .arrow-link:hover, html[data-theme="dark"] .arrow-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .arrow-link:hover, html:not([data-theme="light"]) .arrow-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+}
+/* November 20, 2026, Reach's word on the lists of writings behind the Writings page ("crunched vertically ... a lot of compressed lines"):
+   more air above and below every row, and a little between a title and its first line. The rows keep their lines and their pointing. */
+.rows.rows-writings a { padding-top: 30px; padding-bottom: 30px; }
+.rows.rows-writings .row-first { margin-top: 10px; }
+@media (max-width: 700px) { .rows.rows-writings a { padding-top: 22px; padding-bottom: 22px; } .rows.rows-writings .row-first { margin-top: 8px; } }
+/* November 20, 2026, Reach's word on a title on a pale band ("looks a little bit too loose"): dark words on a pale band keep the
+   pale-ground spacing in Dark too. These are the pale bands whose words take their black by a name of the room's own (found by
+   the browser check loose.py); the rest are marked where their black is written. In Light nothing changes. */
+.btn-solid.way.on, .walk-page a.is-here, .pt-light .pt-title, .pt-light .pt-end, .page-top.band, .mr-song-title, .nf-band, .bb-print, .bc-band, .door-block, .hundred,
+.loves-page a.panel, .maker, .p-band, .tf-light, .fs-row.fs-band-2, .fs-row.fs-band-3, .fs-row.fs-band-4, .fl-ev-a, .jp-panel, .ls-cover { --cut-spacing: -0.01em; }
