@@ -1,0 +1,147 @@
+/* The Sound room (SITE-ORDER\SOUND-ROOM-BUILD, November 20, 2026). The page is the preview Reach called perfect,
+   HTML DOCS\PREVIEWS\COLORFUL-INTERSECTIONS-WHOLE-2026-11-20 (record COLORFUL-INTERSECTIONS-RULED-2026-11-20.md
+   there): one work, its pieces stacked as lines drawn from their own loudness, playing straight through.
+   Ground and words: DARK-WHOLE-SITE-RULED-2026-11-20, the Brown ground. The page carries those values itself, for
+   its own part and for the strip, header and footer on it, so it wears the ruled look whether or not the rest of
+   the site has taken it yet. Nothing under 16 pixels but the hover marker's time (13, as ruled). */
+
+body.sound-page {
+  --ground: #faf5ee; --chrome-ground: #faf5ee; --ink: #1c1917; --ink-soft: #4b453e; --ink-faint: #6b655c;
+  --snd-ground: #faf5ee; --snd-ground-clear: rgba(250, 245, 238, 0);
+  --snd-ink: #1c1917; --snd-title: #2d2925; --snd-soft: #4b453e; --snd-faint: #6b655c;
+  --snd-quiet: rgba(28, 25, 23, .30);
+  --snd-accent: #8a674d; --snd-hover: #5f6d7d;
+  --snd-title-spacing: -.01em; --snd-spacing: -.01em;
+  --snd-red: #c0483a; --snd-orange: #d8853a; --snd-green: #5f9a5a; --snd-blue: #4a78b0; --snd-violet: #8660a8;
+  --snd-top: 0px;
+  margin: 0; background: var(--snd-ground); color: var(--snd-ink);
+  transition: background-color .4s ease, color .4s ease;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body.sound-page {
+    --ground: #140e0a; --chrome-ground: #140e0a; --ink: #bcb3a3; --ink-soft: #a69d8d; --ink-faint: #978e7f;
+    --snd-ground: #140e0a; --snd-ground-clear: rgba(20, 14, 10, 0);
+    --snd-ink: #bcb3a3; --snd-title: #bcb3a3; --snd-soft: #a69d8d; --snd-faint: #978e7f;
+    --snd-quiet: rgba(188, 179, 163, .34);
+    --snd-accent: #9f7c61; --snd-hover: #7d8b9b;
+    --snd-title-spacing: .01em; --snd-spacing: normal;
+  }
+}
+html[data-theme="dark"] body.sound-page {
+  --ground: #140e0a; --chrome-ground: #140e0a; --ink: #bcb3a3; --ink-soft: #a69d8d; --ink-faint: #978e7f;
+  --snd-ground: #140e0a; --snd-ground-clear: rgba(20, 14, 10, 0);
+  --snd-ink: #bcb3a3; --snd-title: #bcb3a3; --snd-soft: #a69d8d; --snd-faint: #978e7f;
+  --snd-quiet: rgba(188, 179, 163, .34);
+  --snd-accent: #9f7c61; --snd-hover: #7d8b9b;
+  --snd-title-spacing: .01em; --snd-spacing: normal;
+}
+
+/* the header sits on the page's own ground, in Light too (the site's header is white in Light until the whole-site look is built) */
+body.sound-page > .site-header { background: var(--snd-ground); }
+
+.snd-main, .snd-main *, .snd-main *::before, .snd-main *::after { box-sizing: border-box; }
+.snd-main {
+  display: block; max-width: 780px; margin: 0 auto; padding: 96px 28px 140px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 18px; line-height: 1.6;
+  letter-spacing: var(--snd-spacing); color: var(--snd-ink); -webkit-font-smoothing: antialiased;
+}
+.snd-title {
+  font-family: Archivo, "Arial Narrow", Arial, sans-serif; font-stretch: 112%; font-weight: 500; font-size: 44px;
+  line-height: 1.15; letter-spacing: var(--snd-title-spacing); color: var(--snd-title); margin: 0 0 10px;
+}
+.snd-facts { margin: 0 0 30px; font-size: 17px; line-height: 1.6; color: var(--snd-soft); }
+
+/* the play button and the time stay in reach while the stack scrolls under them; when the site's header slides
+   back in on a scroll up, they sit just under it (sound.js sets --snd-top) */
+.snd-controls {
+  position: sticky; top: var(--snd-top); z-index: 5; display: flex; align-items: center; gap: 18px;
+  padding: 14px 0; margin: 0 0 34px; background: var(--snd-ground);
+  transition: background-color .4s ease, top .2s ease;
+}
+/* the line under the play row, always shown: five colours in the order of the colour wheel, yellow left out;
+   full width of the column, as thick as the play circle's ring and drawn the same way */
+.snd-controls::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0;
+  border-bottom: 1.5px solid transparent;
+  border-image: linear-gradient(to right, var(--snd-red) 0 17%, var(--snd-orange) 23% 37%, var(--snd-green) 43% 57%, var(--snd-blue) 63% 77%, var(--snd-violet) 83% 100%) 1;
+}
+/* once the row is pinned, the drawn lines fade into the ground just under the coloured line and never touch it */
+.snd-controls::before {
+  content: ""; position: absolute; left: -4px; right: -4px; top: 100%; height: 34px; pointer-events: none; opacity: 0;
+  transition: opacity .2s ease;
+  background: linear-gradient(to bottom, var(--snd-ground) 0, var(--snd-ground) 22%, var(--snd-ground-clear) 100%);
+}
+.snd-controls.is-stuck::before { opacity: 1; }
+.snd-play {
+  display: inline-flex; align-items: center; gap: 14px; margin: 0; padding: 0; border: 0; background: none;
+  font: inherit; letter-spacing: inherit; font-size: 18px; color: var(--snd-soft); cursor: pointer;
+}
+.snd-disc {
+  width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--snd-soft); display: grid; place-items: center;
+  transition: border-color .2s ease;
+}
+.snd-play svg { display: block; width: 20px; height: 20px; fill: var(--snd-soft); transition: fill .2s ease; }
+.snd-play:hover .snd-disc, .snd-play:focus-visible .snd-disc { border-color: var(--snd-hover); }
+.snd-play:hover svg, .snd-play:focus-visible svg { fill: var(--snd-hover); }
+.snd-play:focus-visible { outline: none; }
+.snd-play:focus-visible .snd-disc { outline: 1px solid var(--snd-hover); outline-offset: 4px; }
+.snd-play .snd-i-pause { display: none; }
+.snd-controls.is-playing .snd-i-play { display: none; }
+.snd-controls.is-playing .snd-i-pause { display: block; }
+.snd-time { margin-left: auto; font-size: 16px; color: var(--snd-soft); font-variant-numeric: tabular-nums; }
+
+/* the lines, one row a piece */
+.snd-row {
+  display: grid; grid-template-columns: 64px 1fr 56px; grid-template-areas: "num line len"; align-items: center;
+  margin: 0 0 30px;
+}
+.snd-row:last-child { margin-bottom: 0; }
+/* the numbers are plain until each piece has its own page; then each becomes a door */
+.snd-num {
+  grid-area: num; justify-self: start; font-size: 16px; font-weight: 400; font-variant-numeric: tabular-nums;
+  color: var(--snd-faint); padding: 6px 10px 6px 0; transition: color .2s ease;
+}
+.snd-row.is-now .snd-num { color: var(--snd-accent); }
+.snd-len { grid-area: len; justify-self: end; font-size: 16px; color: var(--snd-faint); font-variant-numeric: tabular-nums; }
+.snd-line {
+  grid-area: line; position: relative; height: 64px; cursor: pointer; touch-action: manipulation; outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.snd-line:focus-visible { outline: 1px solid var(--snd-accent); outline-offset: 6px; }
+.snd-line svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.snd-line path { fill: none; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.snd-ahead { stroke: var(--snd-quiet); stroke-width: 1.3; }
+.snd-played { stroke: var(--snd-accent); stroke-width: 1.8; }
+.snd-marker {
+  position: absolute; top: -5px; bottom: -5px; width: 1px; background: var(--snd-ink); opacity: 0; pointer-events: none;
+  transition: opacity .15s ease;
+}
+.snd-marker span {
+  position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); padding-bottom: 5px; font-size: 13px;
+  line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; letter-spacing: normal;
+}
+.snd-line.is-hovering .snd-marker { opacity: .75; }
+
+@media (max-width: 600px) {
+  .snd-main { padding: 56px 18px 96px; }
+  .snd-title { font-size: 31px; }
+  .snd-facts { font-size: 16px; margin-bottom: 22px; }
+  .snd-controls { padding: 12px 0; margin-bottom: 26px; }
+  .snd-disc { width: 52px; height: 52px; }
+  .snd-row { grid-template-columns: 1fr auto; grid-template-areas: "num len" "line line"; row-gap: 4px; margin-bottom: 24px; }
+  .snd-num { padding: 8px 14px 8px 0; }
+  .snd-line { height: 44px; }
+}
+
+/* Less motion, and the Still switch (the build writes this block a second time for Still): no line fills; the
+   time counts; the number of the piece playing is marked. */
+@media (prefers-reduced-motion: reduce) {
+  .snd-ahead { stroke: var(--snd-ink); opacity: .7; }
+  .snd-played { display: none; }
+  body.sound-page, .snd-controls, .snd-controls::before, .snd-disc, .snd-play svg, .snd-num, .snd-marker { transition: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .snd-ahead, html.pp-still.snd-ahead { stroke: var(--snd-ink); opacity: .7; }
+html.pp-still .snd-played, html.pp-still.snd-played { display: none; }
+html.pp-still body.sound-page, html.pp-still .snd-controls, html.pp-still.snd-controls, html.pp-still .snd-controls::before, html.pp-still.snd-controls::before, html.pp-still .snd-disc, html.pp-still.snd-disc, html.pp-still .snd-play svg, html.pp-still.snd-play svg, html.pp-still .snd-num, html.pp-still.snd-num, html.pp-still .snd-marker, html.pp-still.snd-marker { transition: none; }
+
