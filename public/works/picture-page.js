@@ -88,3 +88,76 @@
   document.addEventListener('fullscreenchange', function () { left(); setTimeout(placeAll, 50); });
   document.addEventListener('webkitfullscreenchange', function () { left(); setTimeout(placeAll, 50); });
 })();
+
+/* The rows of other pictures, November 20, 2026 (SITE-ORDER\PICTURE-ROWS-SHARP-BUILD): no tile is drawn larger than its
+   own dots. Every tile arrives with its small copy, exactly as before. A tile that rests on screen for a moment, and is
+   drawn across more screen dots than its copy has, fetches the full picture and takes it; a screen the small copy
+   covers fetches nothing. A tile passing by under a dragging hand fetches nothing. A visitor whose browser asks to save
+   data keeps the small copies. The full picture is the same address without "-600" (or without "thumbs/"). */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var conn = navigator.connection;
+  if (conn && conn.saveData) return;
+  var REST = 300;  // milliseconds a tile must rest on screen before its full picture is asked for
+
+  function full(src) {
+    var m = /^(.*)-600(\.webp)$/.exec(src);
+    if (m) return m[1] + m[2];
+    if (src.indexOf('/thumbs/') > -1) return src.replace('/thumbs/', '/');
+    return null;
+  }
+  function soft(img) {  // drawn across more screen dots than the copy has
+    var r = img.getBoundingClientRect();
+    var k = window.devicePixelRatio || 1;
+    return r.width * k > img.naturalWidth * 1.02 || r.height * k > img.naturalHeight * 1.02;
+  }
+  function onScreen(img) {  // asked afresh when the moment is up, in case the page was too busy to say the tile had left
+    var r = img.getBoundingClientRect();
+    var t = img.closest ? img.closest('.work-row-track') : null;
+    var b = t ? t.getBoundingClientRect() : { left: 0, right: window.innerWidth };
+    return r.width > 0 && r.bottom > 0 && r.top < window.innerHeight &&
+      r.right > Math.max(0, b.left) && r.left < Math.min(window.innerWidth, b.right);
+  }
+  function sharpen(img) {
+    var to = full(img.currentSrc || img.src);
+    if (!to || !soft(img)) return;
+    img._ppSharp = 1;
+    var pre = new Image();
+    pre.onload = function () {
+      var go = function () { img.src = to; };
+      if (pre.decode) pre.decode().then(go, go); else go();
+    };
+    pre.src = to;  // if it does not come, the small copy stays
+  }
+  function arm(img) {
+    clearTimeout(img._ppT);
+    if (img._ppSharp) return;
+    img._ppT = setTimeout(function () {
+      if (!img._ppOn || img._ppSharp || !onScreen(img)) return;
+      if (!img.complete || !img.naturalWidth) {
+        if (!img._ppWait) {
+          img._ppWait = 1;
+          img.addEventListener('load', function () { img._ppWait = 0; if (img._ppOn) arm(img); }, { once: true });
+        }
+        return;
+      }
+      sharpen(img);
+    }, REST);
+  }
+
+  var imgs = document.querySelectorAll('.work-rows .work-tile img');
+  if (!imgs.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var img = entries[i].target;
+      img._ppOn = entries[i].isIntersecting;
+      if (img._ppOn) arm(img); else clearTimeout(img._ppT);
+    }
+  });
+  for (var i = 0; i < imgs.length; i++) io.observe(imgs[i]);
+  var again;
+  window.addEventListener('resize', function () {
+    clearTimeout(again);
+    again = setTimeout(function () { for (var i = 0; i < imgs.length; i++) if (imgs[i]._ppOn) arm(imgs[i]); }, 200);
+  });
+})();
