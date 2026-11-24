@@ -145,3 +145,112 @@ html.pp-still .snd-ahead, html.pp-still.snd-ahead { stroke: var(--snd-ink); opac
 html.pp-still .snd-played, html.pp-still.snd-played { display: none; }
 html.pp-still body.sound-page, html.pp-still .snd-controls, html.pp-still.snd-controls, html.pp-still .snd-controls::before, html.pp-still.snd-controls::before, html.pp-still .snd-disc, html.pp-still.snd-disc, html.pp-still .snd-play svg, html.pp-still.snd-play svg, html.pp-still .snd-num, html.pp-still.snd-num, html.pp-still .snd-marker, html.pp-still.snd-marker { transition: none; }
 
+
+/* Ear Reverence and the room's own page (SITE-ORDER\EAR-REVERENCE-BUILD, November 22, 2026). The two pages are the
+   preview Reach called perfect, HTML DOCS\PREVIEWS\EAR-REVERENCE-WHOLE-2026-11-22 (NOTES.md there): the work's
+   page, seventy-nine pieces each with its title, sentence, paragraph and drawn line; and /sound/, one door for
+   each work. Everything above this line is as it was; Colorful Intersections reads none of what follows. */
+body.sound-page { --snd-rule: rgba(28, 25, 23, .14); }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body.sound-page { --snd-rule: rgba(188, 179, 163, .16); }
+}
+html[data-theme="dark"] body.sound-page { --snd-rule: rgba(188, 179, 163, .16); }
+
+.snd-main a { color: inherit; text-decoration: none; }
+.snd-back { margin: 0 0 26px; font-size: 18px; }
+.snd-back a { color: var(--snd-soft); transition: color .2s ease; }
+.snd-back a:hover, .snd-back a:focus-visible { color: var(--snd-hover); }
+.snd-arr { display: inline-block; transition: transform .2s ease; }
+.snd-back a:hover .snd-arr { transform: translateX(-4px); }
+/* Sound for Music: the plain words under the title */
+.snd-sub { margin: 0 0 6px; font-size: 20px; line-height: 1.45; color: var(--snd-soft); }
+.snd-work .snd-facts { margin: 0 0 22px; }
+.snd-tell { margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: var(--snd-soft); }
+/* eight numbers that jump down the page */
+.snd-jump { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0 0 30px; font-size: 16px; font-variant-numeric: tabular-nums; }
+.snd-jump a { color: var(--snd-faint); padding: 9px 0; transition: color .2s ease; }
+.snd-jump a:hover, .snd-jump a:focus-visible { color: var(--snd-hover); }
+/* the piece that is playing, named in the pinned row; pressing it goes back to that piece */
+.snd-nowname {
+  font: inherit; letter-spacing: inherit; font-size: 16px; color: var(--snd-accent); background: none; border: 0;
+  margin: 0; padding: 10px 0; cursor: pointer; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums; transition: color .2s ease;
+}
+.snd-nowname:hover, .snd-nowname:focus-visible { color: var(--snd-hover); }
+.snd-nowname[hidden] { display: none; }
+.snd-work .snd-time { white-space: nowrap; }
+
+/* the seventy-nine pieces; a piece jumped to stops under the pinned play row (and under the header when it is back) */
+.snd-piece { margin: 0 0 72px; scroll-margin-top: calc(118px + var(--snd-top)); }
+.snd-piece:last-child { margin-bottom: 0; }
+.snd-head { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
+/* each piece's own small play button: the large one's ring and arrow, 32 pixels across, with room round it for a finger */
+.snd-pplay { display: inline-flex; background: none; border: 0; padding: 6px; margin: -6px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.snd-pdisc { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--snd-soft); display: grid; place-items: center; transition: border-color .2s ease; }
+.snd-pplay svg { display: block; width: 12px; height: 12px; fill: var(--snd-soft); transition: fill .2s ease; }
+.snd-pplay .snd-i-pause { display: none; }
+.snd-piece.is-sounding .snd-pplay .snd-i-play { display: none; }
+.snd-piece.is-sounding .snd-pplay .snd-i-pause { display: block; }
+.snd-piece.is-now .snd-pdisc { border-color: var(--snd-accent); }
+.snd-piece.is-now .snd-pplay svg { fill: var(--snd-accent); }
+.snd-pplay:hover .snd-pdisc, .snd-pplay:focus-visible .snd-pdisc { border-color: var(--snd-hover); }
+.snd-pplay:hover svg, .snd-pplay:focus-visible svg { fill: var(--snd-hover); }
+.snd-pplay:focus-visible { outline: none; }
+.snd-pplay:focus-visible .snd-pdisc { outline: 1px solid var(--snd-hover); outline-offset: 3px; }
+.snd-pnum { font-size: 16px; font-weight: 400; font-variant-numeric: tabular-nums; color: var(--snd-faint); transition: color .2s ease; }
+.snd-piece.is-now .snd-pnum { color: var(--snd-accent); }
+.snd-ttl {
+  margin: 0 0 0 4px; font-family: Archivo, "Arial Narrow", Arial, sans-serif; font-stretch: 112%; font-weight: 500; font-size: 22px;
+  line-height: 1.2; letter-spacing: var(--snd-title-spacing); color: var(--snd-title);
+}
+.snd-plen { margin-left: auto; font-size: 16px; color: var(--snd-faint); font-variant-numeric: tabular-nums; }
+.snd-sentence { margin: 0 0 14px; font-size: 20px; line-height: 1.45; color: var(--snd-ink); }
+.snd-para { margin: 0 0 26px; font-size: 18px; line-height: 1.6; color: var(--snd-soft); }
+.snd-para em { font-style: italic; }
+
+/* the room: one door for each work */
+.snd-title.snd-room { margin-bottom: 44px; }
+.snd-door { display: block; padding: 34px 0 38px; border-top: 1px solid var(--snd-rule); }
+.snd-door:last-child { border-bottom: 1px solid var(--snd-rule); }
+.snd-door h2 {
+  margin: 0 0 6px; font-family: Archivo, "Arial Narrow", Arial, sans-serif; font-stretch: 112%; font-weight: 500; font-size: 32px;
+  line-height: 1.2; letter-spacing: var(--snd-title-spacing); color: var(--snd-title); transition: color .2s ease;
+}
+.snd-door-arr { display: inline-block; margin-left: 10px; opacity: 0; transform: translateX(-6px); transition: opacity .2s ease, transform .2s ease; }
+.snd-door .snd-sub { margin: 0 0 4px; }
+.snd-door .snd-facts { margin: 0 0 24px; }
+.snd-door svg { display: block; width: 100%; height: 64px; overflow: visible; }
+.snd-door path { fill: none; stroke: var(--snd-quiet); stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; transition: stroke .2s ease; }
+.snd-door:hover h2, .snd-door:focus-visible h2 { color: var(--snd-hover); }
+.snd-door:hover .snd-door-arr, .snd-door:focus-visible .snd-door-arr { opacity: 1; transform: none; }
+.snd-door:hover path, .snd-door:focus-visible path { stroke: var(--snd-accent); }
+.snd-door:focus-visible { outline: 1px solid var(--snd-hover); outline-offset: 6px; }
+
+@media (max-width: 600px) {
+  .snd-piece { margin-bottom: 56px; scroll-margin-top: calc(150px + var(--snd-top)); }
+  .snd-ttl { font-size: 20px; }
+  .snd-sub { font-size: 18px; }
+  .snd-jump { gap: 2px 18px; margin-bottom: 22px; }
+  .snd-work .snd-controls { flex-wrap: wrap; row-gap: 0; }
+  .snd-nowname { order: 5; flex-basis: 100%; text-align: left; padding: 6px 0 0; }
+  .snd-door { padding: 26px 0 30px; }
+  .snd-door h2 { font-size: 25px; }
+  .snd-door svg { height: 44px; }
+  .snd-title.snd-room { margin-bottom: 30px; }
+}
+
+/* Less motion, and the Still switch (the build writes this block a second time for Still): nothing slides. */
+@media (prefers-reduced-motion: reduce) {
+  .snd-back a, .snd-arr, .snd-jump a, .snd-nowname, .snd-pdisc, .snd-pplay svg, .snd-pnum, .snd-door h2, .snd-door-arr, .snd-door path { transition: none; }
+  .snd-back a:hover .snd-arr { transform: none; }
+}
+/* The Still switch: the same calm when the visitor pressed Still. */
+html.pp-still .snd-back a, html.pp-still.snd-back a, html.pp-still .snd-arr, html.pp-still.snd-arr, html.pp-still .snd-jump a, html.pp-still.snd-jump a, html.pp-still .snd-nowname, html.pp-still.snd-nowname, html.pp-still .snd-pdisc, html.pp-still.snd-pdisc, html.pp-still .snd-pplay svg, html.pp-still.snd-pplay svg, html.pp-still .snd-pnum, html.pp-still.snd-pnum, html.pp-still .snd-door h2, html.pp-still.snd-door h2, html.pp-still .snd-door-arr, html.pp-still.snd-door-arr, html.pp-still .snd-door path, html.pp-still.snd-door path { transition: none; }
+html.pp-still .snd-back a:hover .snd-arr, html.pp-still.snd-back a:hover .snd-arr { transform: none; }
+
+
+/* The site frame (strip, header, footer) is drawn for boxes measured to their border, as every other page of the site
+   sets them (film.css and the rest). Without this rule the header on the Sound pages is 48 pixels wider than the
+   screen: the page slides sideways and the Shuffle icon is cut off. Found November 23, 2026, on the live Colorful
+   Intersections page and in the test of this build; Reach: mend all three Sound pages. */
+*, *::before, *::after { box-sizing: border-box; }

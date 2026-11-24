@@ -15,7 +15,7 @@
     { key: 'drawing',      word: 'Drawing',      href: '/marks' },
     { key: 'photography',  word: 'Photography',  href: '/digital/photo-realism/' },
     { key: 'video',        word: 'Video',        href: '/video/' },
-    { key: 'sound',        word: 'Sound',        href: '/sound/colorful-intersections/' },
+    { key: 'sound',        word: 'Sound',        href: '/sound/' },
     { key: 'installation', word: 'Installation', href: '/physical' },
     { key: 'textile-art',  word: 'Textile Art',  href: '/physical/placed-outside-day-stage-textile-space' },
     { key: 'music',        word: 'Music',        href: '/musicology' },
